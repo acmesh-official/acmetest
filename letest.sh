@@ -5,6 +5,9 @@ STAGE=1
 legit="https://github.com/Neilpang/le.git"
 assertsh="https://github.com/Neilpang/assert.sh.git"
 
+Default_Home="$HOME/.le"
+Global_Path="/usr/local/bin"
+
 
 _err() {
   if [ -z "$2" ] ; then
@@ -43,6 +46,7 @@ __ok() {
 }
 __fail() {
   _err "[\u001B[31mFAIL\u001B[0m]$1"
+  return 1
 }
 
 #cmd
@@ -89,9 +93,9 @@ _assertnotexists() {
 
 _assertequals() {
   if [ "$1" == "$2" ] ; then
-    __ok "OK!"
+    __ok "OK"
   else
-    __fail "Failed!"
+    __fail "Failed"
     _err "Expected:$1"
     _err "But was:$2"
   fi
@@ -99,7 +103,20 @@ _assertequals() {
 
 _run() {
   _info "==============Running $1=================="
+  lehome="$Default_Home"
+  
+  if [ "$1" != "le_test_installtodir" ] && [ "$1" != "le_test_uninstalltodir" ] ; then
+    cd le;
+    ./le.sh install 2>&1 > /dev/null
+    cd ..
+  fi
+  export STAGE
+  export DEBUG
   $1
+  
+  if [ -f "$lehome/le.sh" ] ; then
+    $lehome/le.sh uninstall 2>&1 >/dev/null
+  fi
   _info "------------------------------------------"
 }
 
@@ -116,9 +133,17 @@ _setup() {
   fi
   git clone $legit  2>&1 > /dev/null
   
-  if [ -d ~/.le ] ; then 
-    rm -rf ~/.le
+  lehome="$Default_Home"
+  if [ -f "$lehome/le.sh" ] ; then
+    $lehome/le.sh uninstall 2>&1 >/dev/null
   fi
+  
+  if [ -d $Default_Home ] ; then 
+    rm -rf $Default_Home
+  fi
+  
+  rm -f $Global_Path/le
+  rm -f $Global_Path/le.sh
 }
 
 
@@ -136,7 +161,7 @@ le_test_dependencies() {
 }
 
 le_test_install() {
-  lehome="$HOME/.le"
+  lehome="$Default_Home"
   
   cd le;
   _assertcmd  "./le.sh install" || return
@@ -144,22 +169,22 @@ le_test_install() {
   
   _assertexists "$lehome/le.sh" || return
   _assertexists "$lehome/le" || return
-  _assertexists "/usr/local/bin/le" || return
-  _assertexists "/usr/local/bin/le.sh" || return
+  _assertexists "$Global_Path/le" || return
+  _assertexists "$Global_Path/le.sh" || return
   _assertequals "0 0 * * * $SUDO WORKING_DIR=\"$lehome\" \"$lehome\"/le.sh cron > /dev/null"  "$(crontab -l | grep le.sh)" || return
-  _assertcmd "$lehome/le.sh uninstall" ||  return
+  _assertcmd "$lehome/le.sh uninstall  > /dev/null" ||  return
 }
 
 le_test_uninstall() {
-  lehome="$HOME/.le"
+  lehome="$Default_Home"
   cd le;
   _assertcmd  "./le.sh install" || return
   cd ..
   _assertcmd "$lehome/le.sh uninstall" ||  return
   _assertnotexists "$lehome/le.sh" ||  return
   _assertnotexists "$lehome/le" ||  return
-  _assertnotexists "/usr/local/bin/le" ||  return
-  _assertnotexists "/usr/local/bin/le.sh" ||  return
+  _assertnotexists "$Global_Path/le" ||  return
+  _assertnotexists "$Global_Path/le.sh" ||  return
   _assertequals "" "$(crontab -l | grep le.sh)"||  return
 
 }
@@ -179,8 +204,8 @@ le_test_installtodir() {
   
   _assertexists "$lehome/le.sh" ||  return
   _assertexists "$lehome/le" ||  return
-  _assertexists "/usr/local/bin/le" ||  return
-  _assertexists "/usr/local/bin/le.sh" ||  return
+  _assertexists "$Global_Path/le" ||  return
+  _assertexists "$Global_Path/le.sh" ||  return
   _assertequals "0 0 * * * $SUDO WORKING_DIR=\"$lehome\" \"$lehome\"/le.sh cron > /dev/null"  "$(crontab -l | grep le.sh)" ||  return
   _assertcmd "$lehome/le.sh uninstall" ||  return
 }
@@ -202,21 +227,49 @@ le_test_uninstalltodir() {
   _assertcmd "$lehome/le.sh uninstall" ||  return
   _assertnotexists "$lehome/le.sh" ||  return
   _assertnotexists "$lehome/le" ||  return
-  _assertnotexists "/usr/local/bin/le" ||  return
-  _assertnotexists "/usr/local/bin/le.sh" ||  return
+  _assertnotexists "$Global_Path/le" ||  return
+  _assertnotexists "$Global_Path/le.sh" ||  return
   _assertequals "" "$(crontab -l | grep le.sh)" ||  return
 
 }
 
+#
+le_test_standandalone() {
+  lehome="$Default_Home"
 
+  lp=`ss -ntlp | grep ':80 '`
+  if [ "$lp" ] ; then
+    __fail "80 port is already used."
+    return 1
+  fi
+  
+  if [ -z "$TestingDomain" ] ; then
+    __fail "Please define TestingDomain and try again."
+    return 1
+  fi
+
+  _assertcmd "$lehome/le.sh issue no $TestingDomain $TestingAltDomains" ||  return
+  
+  lp=`ss -ntlp | grep ':80 '`
+  if [ "$lp" ] ; then
+    __fail "80 port is not released: $lp"
+    return 1
+  fi
+  
+  
+  
+}
 
 #####################################
 
 _setup
 
-for t in $(typeset -F | grep -o 'le_test_.*') 
-do
-  _run $t
-done
-
+if [ "$1" ] ; then
+  _run $1
+else
+  for t in $(typeset -F | grep -o 'le_test_.*') 
+  do
+    _run $t
+  done
+fi
 
