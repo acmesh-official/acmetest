@@ -92,6 +92,8 @@ _assertequals() {
     __ok "OK!"
   else
     __fail "Failed!"
+    _err "Expected:$1"
+    _err "But was:$2"
   fi
 }
 
@@ -144,7 +146,7 @@ le_test_install() {
   _assertexists "$lehome/le" || return
   _assertexists "/usr/local/bin/le" || return
   _assertexists "/usr/local/bin/le.sh" || return
-  _assertequals "$(crontab -l | grep le.sh)" "0 0 * * * $SUDO WORKING_DIR=\"$lehome\" \"$lehome\"/le.sh cron > /dev/null" || return
+  _assertequals "0 0 * * * $SUDO WORKING_DIR=\"$lehome\" \"$lehome\"/le.sh cron > /dev/null"  "$(crontab -l | grep le.sh)" || return
   _assertcmd "$lehome/le.sh uninstall" ||  return
 }
 
@@ -158,7 +160,7 @@ le_test_uninstall() {
   _assertnotexists "$lehome/le" ||  return
   _assertnotexists "/usr/local/bin/le" ||  return
   _assertnotexists "/usr/local/bin/le.sh" ||  return
-  _assertequals "$(crontab -l | grep le.sh)" "" ||  return
+  _assertequals "" "$(crontab -l | grep le.sh)"||  return
 
 }
 
@@ -179,7 +181,7 @@ le_test_installtodir() {
   _assertexists "$lehome/le" ||  return
   _assertexists "/usr/local/bin/le" ||  return
   _assertexists "/usr/local/bin/le.sh" ||  return
-  _assertequals "$(crontab -l | grep le.sh)" "0 0 * * * $SUDO WORKING_DIR=\"$lehome\" \"$lehome\"/le.sh cron > /dev/null" ||  return
+  _assertequals "0 0 * * * $SUDO WORKING_DIR=\"$lehome\" \"$lehome\"/le.sh cron > /dev/null"  "$(crontab -l | grep le.sh)" ||  return
   _assertcmd "$lehome/le.sh uninstall" ||  return
 }
 
@@ -202,7 +204,7 @@ le_test_uninstalltodir() {
   _assertnotexists "$lehome/le" ||  return
   _assertnotexists "/usr/local/bin/le" ||  return
   _assertnotexists "/usr/local/bin/le.sh" ||  return
-  _assertequals "$(crontab -l | grep le.sh)" "" ||  return
+  _assertequals "" "$(crontab -l | grep le.sh)" ||  return
 
 }
 
