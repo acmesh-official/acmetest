@@ -198,15 +198,9 @@ le_test_uninstalltodir() {
 
 _setup
 
-_run le_test_dependencies
-
-_run le_test_install
-
-_run le_test_uninstall
-
-_run le_test_installtodir
-
-_run le_test_uninstalltodir
-
+for t in $(typeset -F | grep -o 'le_test_.*') 
+do
+  _run $t
+done
 
 
