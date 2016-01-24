@@ -104,14 +104,15 @@ _assertequals() {
 _run() {
   _info "==============Running $1=================="
   lehome="$Default_Home"
+  export STAGE
+  export DEBUG
   
   if [ "$1" != "le_test_installtodir" ] && [ "$1" != "le_test_uninstalltodir" ] ; then
     cd le;
     ./le.sh install > /dev/null 2>&1
     cd ..
   fi
-  export STAGE
-  export DEBUG
+  
   $1
   
   if [ -f "$lehome/le.sh" ] ; then
