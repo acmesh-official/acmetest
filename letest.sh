@@ -55,7 +55,7 @@ _assertcmd() {
   if [ "DEBUG" ] ; then
     $__cmd
   else
-    $__cmd > /dev/null
+    $__cmd > /dev/null 2>&1
   fi
   
   if [ "$?" == "0" ] ; then 
@@ -107,7 +107,7 @@ _run() {
   
   if [ "$1" != "le_test_installtodir" ] && [ "$1" != "le_test_uninstalltodir" ] ; then
     cd le;
-    ./le.sh install 2>&1 > /dev/null
+    ./le.sh install > /dev/null 2>&1
     cd ..
   fi
   export STAGE
@@ -115,7 +115,7 @@ _run() {
   $1
   
   if [ -f "$lehome/le.sh" ] ; then
-    $lehome/le.sh uninstall 2>&1 >/dev/null
+    $lehome/le.sh uninstall >/dev/null 2>&1
   fi
   _info "------------------------------------------"
 }
@@ -126,16 +126,16 @@ _setup() {
     rm -rf assert
   fi
   
-  git clone $assertsh 2>&1 > /dev/null
+  git clone $assertsh  > /dev/null 2>&1
   source assert.sh/assert.sh
   if [ -d le ] ; then
     rm le -rf
   fi
-  git clone $legit  2>&1 > /dev/null
+  git clone $legit  > /dev/null 2>&1
   
   lehome="$Default_Home"
   if [ -f "$lehome/le.sh" ] ; then
-    $lehome/le.sh uninstall 2>&1 >/dev/null
+    $lehome/le.sh uninstall >/dev/null 2>&1
   fi
   
   if [ -d $Default_Home ] ; then 
