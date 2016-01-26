@@ -296,12 +296,10 @@ BRANCH=$1
 
 _setup
 
-if [ "$1" ] ; then
-  _run $1
-else
-  for t in $(typeset -F | grep -o 'le_test_.*') 
-  do
-    _run $t
-  done
-fi
+
+for t in $(typeset -F | grep -o 'le_test_.*') 
+do
+  _run $t
+done
+
 
