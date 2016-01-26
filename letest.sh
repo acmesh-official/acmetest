@@ -132,7 +132,11 @@ _setup() {
   if [ -d le ] ; then
     rm le -rf
   fi
-  git clone $legit  > /dev/null 2>&1
+  if [ "$BRANCH" ] ; then
+    git clone $legit -b $BRANCH > /dev/null 2>&1
+  else
+    git clone $legit  > /dev/null 2>&1
+  fi
   
   lehome="$Default_Home"
   if [ -f "$lehome/le.sh" ] ; then
@@ -249,6 +253,30 @@ le_test_standandalone() {
     return 1
   fi
 
+  _assertcmd "$lehome/le.sh issue no $TestingDomain" ||  return
+  
+  lp=`ss -ntlp | grep ':80 '`
+  if [ "$lp" ] ; then
+    __fail "80 port is not released: $lp"
+    return 1
+  fi
+
+}
+
+le_test_standandalone_SAN() {
+  lehome="$Default_Home"
+
+  lp=`ss -ntlp | grep ':80 '`
+  if [ "$lp" ] ; then
+    __fail "80 port is already used."
+    return 1
+  fi
+  
+  if [ -z "$TestingDomain" ] ; then
+    __fail "Please define TestingDomain and TestingAltDomains, and try again."
+    return 1
+  fi
+
   _assertcmd "$lehome/le.sh issue no $TestingDomain $TestingAltDomains" ||  return
   
   lp=`ss -ntlp | grep ':80 '`
@@ -256,12 +284,12 @@ le_test_standandalone() {
     __fail "80 port is not released: $lp"
     return 1
   fi
-  
-  
-  
+
 }
 
 #####################################
+
+BRANCH=$1
 
 _setup
 
