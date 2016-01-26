@@ -260,6 +260,8 @@ le_test_standandalone() {
     __fail "80 port is not released: $lp"
     return 1
   fi
+  
+  rm -rf "$lehome/$TestingDomain"
 
 }
 
@@ -284,7 +286,8 @@ le_test_standandalone_SAN() {
     __fail "80 port is not released: $lp"
     return 1
   fi
-
+  
+  rm -rf "$lehome/$TestingDomain"
 }
 
 #####################################
