@@ -6,7 +6,7 @@ legit="https://github.com/Neilpang/le.git"
 assertsh="https://github.com/Neilpang/assert.sh.git"
 
 Default_Home="$HOME/.le"
-Global_Path="/usr/local/bin"
+
 
 
 _err() {
@@ -147,8 +147,7 @@ _setup() {
     rm -rf $Default_Home
   fi
   
-  rm -f $Global_Path/le
-  rm -f $Global_Path/le.sh
+
 }
 
 
@@ -173,9 +172,6 @@ le_test_install() {
   cd ..
   
   _assertexists "$lehome/le.sh" || return
-  _assertexists "$lehome/le" || return
-  _assertexists "$Global_Path/le" || return
-  _assertexists "$Global_Path/le.sh" || return
   _assertequals "0 0 * * * $SUDO WORKING_DIR=\"$lehome\" \"$lehome\"/le.sh cron > /dev/null"  "$(crontab -l | grep le.sh)" || return
   _assertcmd "$lehome/le.sh uninstall  > /dev/null" ||  return
 }
@@ -187,9 +183,6 @@ le_test_uninstall() {
   cd ..
   _assertcmd "$lehome/le.sh uninstall" ||  return
   _assertnotexists "$lehome/le.sh" ||  return
-  _assertnotexists "$lehome/le" ||  return
-  _assertnotexists "$Global_Path/le" ||  return
-  _assertnotexists "$Global_Path/le.sh" ||  return
   _assertequals "" "$(crontab -l | grep le.sh)"||  return
 
 }
@@ -208,10 +201,7 @@ le_test_installtodir() {
   cd ..
   
   _assertexists "$lehome/le.sh" ||  return
-  _assertexists "$lehome/le" ||  return
-  _assertexists "$Global_Path/le" ||  return
-  _assertexists "$Global_Path/le.sh" ||  return
-  _assertequals "0 0 * * * $SUDO WORKING_DIR=\"$lehome\" \"$lehome\"/le.sh cron > /dev/null"  "$(crontab -l | grep le.sh)" ||  return
+  _assertequals "0 0 * * * $SUDO LE_WORKING_DIR=\"$lehome\" \"$lehome\"/le.sh cron > /dev/null"  "$(crontab -l | grep le.sh)" ||  return
   _assertcmd "$lehome/le.sh uninstall" ||  return
 }
 
@@ -231,9 +221,6 @@ le_test_uninstalltodir() {
   
   _assertcmd "$lehome/le.sh uninstall" ||  return
   _assertnotexists "$lehome/le.sh" ||  return
-  _assertnotexists "$lehome/le" ||  return
-  _assertnotexists "$Global_Path/le" ||  return
-  _assertnotexists "$Global_Path/le.sh" ||  return
   _assertequals "" "$(crontab -l | grep le.sh)" ||  return
 
 }
