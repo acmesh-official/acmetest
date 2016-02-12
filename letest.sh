@@ -291,7 +291,7 @@ le_test_standandalone_ECDSA_256() {
     return 1
   fi
 
-  _assertcmd "$lehome/le.sh issue no $TestingDomain ec-256" ||  return
+  _assertcmd "$lehome/le.sh issue no $TestingDomain no ec-256" ||  return
   
   lp=`ss -ntlp | grep ':80 '`
   if [ "$lp" ] ; then
@@ -318,7 +318,7 @@ le_test_standandalone_ECDSA_384() {
     return 1
   fi
 
-  _assertcmd "$lehome/le.sh issue no $TestingDomain ec-384" ||  return
+  _assertcmd "$lehome/le.sh issue no $TestingDomain no ec-384" ||  return
   
   lp=`ss -ntlp | grep ':80 '`
   if [ "$lp" ] ; then
