@@ -277,6 +277,60 @@ le_test_standandalone_SAN() {
   rm -rf "$lehome/$TestingDomain"
 }
 
+le_test_standandalone_ECDSA_256() {
+  lehome="$Default_Home"
+
+  lp=`ss -ntlp | grep ':80 '`
+  if [ "$lp" ] ; then
+    __fail "80 port is already used."
+    return 1
+  fi
+  
+  if [ -z "$TestingDomain" ] ; then
+    __fail "Please define TestingDomain and try again."
+    return 1
+  fi
+
+  _assertcmd "$lehome/le.sh issue no $TestingDomain ec-256" ||  return
+  
+  lp=`ss -ntlp | grep ':80 '`
+  if [ "$lp" ] ; then
+    __fail "80 port is not released: $lp"
+    return 1
+  fi
+  
+  rm -rf "$lehome/$TestingDomain"
+
+}
+
+
+le_test_standandalone_ECDSA_384() {
+  lehome="$Default_Home"
+
+  lp=`ss -ntlp | grep ':80 '`
+  if [ "$lp" ] ; then
+    __fail "80 port is already used."
+    return 1
+  fi
+  
+  if [ -z "$TestingDomain" ] ; then
+    __fail "Please define TestingDomain and try again."
+    return 1
+  fi
+
+  _assertcmd "$lehome/le.sh issue no $TestingDomain ec-384" ||  return
+  
+  lp=`ss -ntlp | grep ':80 '`
+  if [ "$lp" ] ; then
+    __fail "80 port is not released: $lp"
+    return 1
+  fi
+  
+  rm -rf "$lehome/$TestingDomain"
+
+}
+
+
 #####################################
 
 BRANCH=$1
