@@ -172,7 +172,7 @@ le_test_install() {
   cd ..
   
   _assertexists "$lehome/le.sh" || return
-  _assertequals "0 0 * * * $SUDO LE_WORKING_DIR=\"$lehome\" \"$lehome\"/le.sh cron > /dev/null"  "$(crontab -l | grep le.sh)" || return
+  _assertequals "0 0 * * * LE_WORKING_DIR=\"$lehome\" \"$lehome\"/le.sh cron > /dev/null"  "$(crontab -l | grep le.sh)" || return
   _assertcmd "$lehome/le.sh uninstall  > /dev/null" ||  return
 }
 
@@ -201,7 +201,7 @@ le_test_installtodir() {
   cd ..
   
   _assertexists "$lehome/le.sh" ||  return
-  _assertequals "0 0 * * * $SUDO LE_WORKING_DIR=\"$lehome\" \"$lehome\"/le.sh cron > /dev/null"  "$(crontab -l | grep le.sh)" ||  return
+  _assertequals "0 0 * * * LE_WORKING_DIR=\"$lehome\" \"$lehome\"/le.sh cron > /dev/null"  "$(crontab -l | grep le.sh)" ||  return
   _assertcmd "$lehome/le.sh uninstall" ||  return
 }
 
