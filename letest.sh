@@ -3,7 +3,7 @@
 STAGE=1
 
 legit="https://github.com/Neilpang/le.git"
-assertsh="https://github.com/Neilpang/assert.sh.git"
+
 
 Default_Home="$HOME/.le"
 
@@ -124,12 +124,7 @@ _run() {
 
 ####################################################
 _setup() {
-  if [ -d assert ] ; then
-    rm -rf assert
-  fi
-  
-  git clone $assertsh  > /dev/null 2>&1
-  source assert.sh/assert.sh
+
   if [ -d le ] ; then
     rm le -rf
   fi
