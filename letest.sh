@@ -55,7 +55,7 @@ _assertcmd() {
   if [ "DEBUG" ] ; then
     $__cmd
   else
-    $__cmd > /dev/null 2>&1
+    $__cmd > /dev/null
   fi
   
   if [ "$?" == "0" ] ; then 
@@ -109,14 +109,14 @@ _run() {
   
   if [ "$1" != "le_test_installtodir" ] && [ "$1" != "le_test_uninstalltodir" ] ; then
     cd le;
-    ./le.sh install > /dev/null 2>&1
+    ./le.sh install > /dev/null
     cd ..
   fi
   
   $1
   
   if [ -f "$lehome/le.sh" ] ; then
-    $lehome/le.sh uninstall >/dev/null 2>&1
+    $lehome/le.sh uninstall >/dev/null
   fi
   _info "------------------------------------------"
 }
@@ -152,7 +152,7 @@ _setup() {
 
 
 le_test_dependencies() {
-  dependencies="curl crontab openssl nc xxd"
+  dependencies="curl crontab openssl nc"
   for cmd in $dependencies 
   do
     if command -v $cmd > /dev/null ; then
@@ -194,8 +194,8 @@ le_test_installtodir() {
     rm -rf $lehome
   fi
   cd le;
-   LE_WORKING_DIR=$lehome
-   export LE_WORKING_DIR
+  LE_WORKING_DIR=$lehome
+  export LE_WORKING_DIR
   _assertcmd "./le.sh install" ||  return
   LE_WORKING_DIR=""
   cd ..
@@ -213,8 +213,8 @@ le_test_uninstalltodir() {
   fi
   
   cd le;
-   LE_WORKING_DIR=$lehome
-   export LE_WORKING_DIR
+  LE_WORKING_DIR=$lehome
+  export LE_WORKING_DIR
   _assertcmd "./le.sh install" ||  return
   LE_WORKING_DIR=""
   cd ..
@@ -340,7 +340,7 @@ _setup
 
 for t in $(typeset -F | grep -o 'le_test_.*') 
 do
-  _run $t
+  _run "$t"
 done
 
 
