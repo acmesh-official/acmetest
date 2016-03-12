@@ -52,6 +52,7 @@ __fail() {
 #cmd
 _assertcmd() {
   __cmd="$1"
+  _info "$__cmd"
   if [ "$DEBUG" ] ; then
     $__cmd
   else
