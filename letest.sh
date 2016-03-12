@@ -52,7 +52,7 @@ __fail() {
 #cmd
 _assertcmd() {
   __cmd="$1"
-  if [ "DEBUG" ] ; then
+  if [ "$DEBUG" ] ; then
     $__cmd
   else
     $__cmd > /dev/null
