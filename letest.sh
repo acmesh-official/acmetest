@@ -26,6 +26,21 @@ _info() {
   fi
 }
 
+_ss() {
+  _port="$1"
+  if command -v "netstat" >/dev/null 2>&1 ; then
+    _debug "Using: netstat"
+    netstat -ntpl | grep :$_port" "
+    return 0
+  fi
+  if command -v "ss" >/dev/null 2>&1 ; then
+    _debug "Using: ss"
+    ss -ntpl | grep :$_port" "
+    return 0
+  fi
+  return 1
+}
+
 
 SUDO="$(command -v sudo | grep -o 'sudo')"
 
@@ -232,7 +247,7 @@ le_test_uninstalltodir() {
 le_test_standandalone() {
   lehome="$Default_Home"
 
-  lp=`ss -ntlp | grep ':80 '`
+  lp=`_ss | grep ':80 '`
   if [ "$lp" ] ; then
     __fail "80 port is already used."
     return 1
@@ -245,7 +260,7 @@ le_test_standandalone() {
 
   _assertcmd "$lehome/le.sh issue no $TestingDomain" ||  return
   
-  lp=`ss -ntlp | grep ':80 '`
+  lp=`_ss | grep ':80 '`
   if [ "$lp" ] ; then
     __fail "80 port is not released: $lp"
     return 1
@@ -258,7 +273,7 @@ le_test_standandalone() {
 le_test_standandalone_SAN() {
   lehome="$Default_Home"
 
-  lp=`ss -ntlp | grep ':80 '`
+  lp=`_ss| grep ':80 '`
   if [ "$lp" ] ; then
     __fail "80 port is already used."
     return 1
@@ -271,7 +286,7 @@ le_test_standandalone_SAN() {
 
   _assertcmd "$lehome/le.sh issue no $TestingDomain $TestingAltDomains" ||  return
   
-  lp=`ss -ntlp | grep ':80 '`
+  lp=`_ss | grep ':80 '`
   if [ "$lp" ] ; then
     __fail "80 port is not released: $lp"
     return 1
@@ -283,7 +298,7 @@ le_test_standandalone_SAN() {
 le_test_standandalone_ECDSA_256() {
   lehome="$Default_Home"
 
-  lp=`ss -ntlp | grep ':80 '`
+  lp=`_ss | grep ':80 '`
   if [ "$lp" ] ; then
     __fail "80 port is already used."
     return 1
@@ -296,7 +311,7 @@ le_test_standandalone_ECDSA_256() {
 
   _assertcmd "$lehome/le.sh issue no $TestingDomain no ec-256" ||  return
   
-  lp=`ss -ntlp | grep ':80 '`
+  lp=`_ss | grep ':80 '`
   if [ "$lp" ] ; then
     __fail "80 port is not released: $lp"
     return 1
@@ -310,7 +325,7 @@ le_test_standandalone_ECDSA_256() {
 le_test_standandalone_ECDSA_384() {
   lehome="$Default_Home"
 
-  lp=`ss -ntlp | grep ':80 '`
+  lp=`_ss | grep ':80 '`
   if [ "$lp" ] ; then
     __fail "80 port is already used."
     return 1
@@ -323,7 +338,7 @@ le_test_standandalone_ECDSA_384() {
 
   _assertcmd "$lehome/le.sh issue no $TestingDomain no ec-384" ||  return
   
-  lp=`ss -ntlp | grep ':80 '`
+  lp=`_ss | grep ':80 '`
   if [ "$lp" ] ; then
     __fail "80 port is not released: $lp"
     return 1
