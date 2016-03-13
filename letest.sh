@@ -120,7 +120,7 @@ _run() {
   fi
   
   if ! $1 ; then
-    _ret="$?"
+    _ret="1"
   fi
   
   if [ -f "$lehome/le.sh" ] ; then
@@ -347,5 +347,5 @@ do
   _run "$t"
 done
 
-return $_ret
+exit $_ret
 
