@@ -42,17 +42,17 @@ if ! command -v git >/dev/null ; then
 fi
 
 __ok() {
-  _info "[\u001B[32mPASS\u001B[0m]\t$1"
+  _info " [\u001B[32mPASS\u001B[0m]\t$1"
 }
 __fail() {
-  _err "[\u001B[31mFAIL\u001B[0m]$1"
+  _err " [\u001B[31mFAIL\u001B[0m]$1"
   return 1
 }
 
 #cmd
 _assertcmd() {
   __cmd="$1"
-  _info "$__cmd"
+  echo -n "$__cmd"
   if [ "$DEBUG" ] ; then
     $__cmd
   else
@@ -60,9 +60,9 @@ _assertcmd() {
   fi
   
   if [ "$?" == "0" ] ; then 
-    __ok "$__cmd"
+    __ok ""
   else
-    __fail "$__cmd"
+    __fail ""
     return 1
   fi
   return 0
@@ -72,9 +72,11 @@ _assertcmd() {
 _assertexists() {
   __file="$1"
   if [ -e "$__file" ] ; then
-    __ok "$__file exists."
+    echo -n "$__file exists."
+    __ok ""
   else
-    __fail "$__file missing."
+    echo -n "$__file missing."
+    __fail ""
     return 1
   fi
   return 0
@@ -84,9 +86,11 @@ _assertexists() {
 _assertnotexists() {
   __file="$1"
   if [ ! -e "$__file" ] ; then
-    __ok "$__file no exists."
+    echo -n "$__file no exists."
+    __ok ""
   else
-    __fail "$__file is there."
+    echo -n "$__file is there."
+    __fail ""
     return 1
   fi
   return 0
@@ -94,7 +98,8 @@ _assertnotexists() {
 
 _assertequals() {
   if [ "$1" == "$2" ] ; then
-    __ok "OK"
+    echo -n "equals $1"
+    __ok ""
   else
     __fail "Failed"
     _err "Expected:$1"
@@ -103,7 +108,7 @@ _assertequals() {
 }
 
 _run() {
-  _info "==============Running $1=================="
+  _info "===Running $1 please wait"
   lehome="$Default_Home"
   export STAGE
   export DEBUG
