@@ -17,6 +17,18 @@ _err() {
   fi
 }
 
+_debug() {
+
+  if [ -z "$DEBUG" ] ; then
+    return
+  fi
+  
+  if [ -z "$2" ] ; then
+    echo $1
+  else
+    echo "$1"="$2"
+  fi
+}
 
 _info() {
   if [ -z "$2" ] ; then
