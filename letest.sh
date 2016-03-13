@@ -372,6 +372,9 @@ _ret=0
 for t in $(typeset -F | grep -o 'le_test_.*') 
 do
   _run "$t"
+  if [ "$DEBUG" ] && [ "$_ret" != "0" ] ; then
+    break;
+  fi
 done
 
 exit $_ret
