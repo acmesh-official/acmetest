@@ -119,7 +119,9 @@ _run() {
     cd ..
   fi
   
-  $1
+  if ! $1 ; then
+    _ret="$?"
+  fi
   
   if [ -f "$lehome/le.sh" ] ; then
     $lehome/le.sh uninstall >/dev/null
@@ -338,10 +340,12 @@ BRANCH=$1
 
 _setup
 
+_ret=0
 
 for t in $(typeset -F | grep -o 'le_test_.*') 
 do
   _run "$t"
 done
 
+return $_ret
 
