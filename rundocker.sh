@@ -2,6 +2,11 @@
 LeTest="https://github.com/Neilpang/letest.git"
 
 
+Log_Err="err.log"
+
+Conf="plat.conf"
+
+
 #update plat
 update() {
   if [ "$?" == "0" ] ; then
@@ -32,122 +37,110 @@ __fail() {
   return 1
 }
 
-#myplat plat
-_runplat() {
-  myplat="$1"
-  plat="$2"
+#platline baseline fieldnum
+_mergefield() {
+  platline="$1"
+  baseline="$2"
+  fieldnum="$3"
+  
+  pvalue="$(echo "$platline" | cut -d '|' -f $fieldnum)"
+  if [ ! "$pvalue" ] ; then
+    pvalue="$(echo "$baseline" | cut -d '|' -f $fieldnum)"
+  fi
 
+  echo "$pvalue"  
+}
+
+#plat
+#ubuntu:14.04
+#centos:6
+_runplat() {
+  plat="$1"
+  myplat="my$plat"
+  
+  platline="$(grep "^$plat|" "$Conf")"
+  _debug "$platline"
+  
+  if [[ "$plat" == *":"* ]] ; then
+    basetag="$(echo "$plat" | cut -d : -f 1)"
+    baseline="$(grep "^-$basetag|" "$Conf")"
+  fi
+  _debug "$baseline"
+
+  _info "Running $plat, this may take a few minutes, please wait."
+  mkdir -p "$myplat"
+
+  echo "FROM $plat" > "$myplat/Dockerfile"
+  
+  update="$(_mergefield "$platline" "$baseline" 2)"
+  if [ "$update" ] ; then
+    echo "RUN $update >/dev/null 2>&1" >>  "$myplat/Dockerfile"
+  fi
+  
+  install="$(_mergefield "$platline" "$baseline" 3)"
+  if [ "$install" ] ; then
+    tools="$(_mergefield "$platline" "$baseline" 4)"
+	if [ "$tools" ] ; then
+	  toolsline=$(echo "$tools" |  tr ',' ' ' )
+      for tool in $toolsline   
+      do
+	    if [ "$tool" ] ; then
+		  echo "RUN $install $tool >/dev/null 2>&1"  >>  "$myplat/Dockerfile"
+		fi
+	  done
+	fi
+  fi
+
+  _debug "$(cat "$myplat/Dockerfile" )"  
+  
   if [ "$DEBUG" ] ; then
     docker build -t "$myplat"  "$myplat"
     docker run -p 80:80 -e DEBUG=$DEBUG -e TestingDomain=$TestingDomain -e TestingAltDomains=$TestingAltDomains -e FORCE=1 -v $(pwd):/letest $myplat /bin/bash -c "/letest/letest.sh"
   else
-    docker build -t "$myplat"  "$myplat" >/dev/null
-    docker run -p 80:80 -e TestingDomain=$TestingDomain -e TestingAltDomains=$TestingAltDomains -e FORCE=1 -v $(pwd):/letest $myplat /bin/bash -c "/letest/letest.sh" >/dev/null 2>&1
+    if ! docker build -t "$myplat"  "$myplat" >"$Log_Err" 2>&1 ; then
+	  cat "$Log_Err"
+	  return 1
+	fi
+    if ! docker run -p 80:80 -e TestingDomain=$TestingDomain -e TestingAltDomains=$TestingAltDomains -e FORCE=1 -v $(pwd):/letest $myplat /bin/bash -c "/letest/letest.sh" 2>"$Log_Err"  ; then
+	  cat "$Log_Err"
+	  return 1
+	fi
   fi
+
   update $plat
 
 }
 
-_testubuntusub() {
+#plat
+testplat() {
   plat="$1"
-  _info "Running $plat, this may take a few minutes, please wait."
-  myplat="le$plat"
-  mkdir -p "$myplat"
-  echo "FROM $plat
-RUN apt-get -qqy update >/dev/null 2>&1
-RUN apt-get -qqy install openssl >/dev/null 2>&1
-RUN apt-get -qqy install netcat >/dev/null 2>&1
-RUN apt-get -qqy install cron >/dev/null 2>&1
-RUN apt-get -qqy install curl >/dev/null 2>&1
-RUN apt-get -qqy install git >/dev/null 2>&1
-" > "$myplat/Dockerfile"
 
-  _runplat "$myplat" "$plat"
-}
-
-#ubuntu and debian
-testubuntu() {
-  plat="$1"
-  if [ "$plat" ] ; then
-    _testubuntusub "$plat"
-    return
-  fi
-
-  platforms="ubuntu:14.04 ubuntu:15.04 ubuntu:latest debian:6 debian:7 debian:8 debian:latest"
+  platforms=$(grep -o "^$plat|" "$Conf" )
+  _debug "$platforms"
 
   for plat in $platforms 
   do 
-    _testubuntusub "$plat"
+    _runplat "$plat"
   done
 }
 
 
-_testcentossub() {
-  plat="$1"
-  _info "Running $plat"
-  myplat="le$plat"
-  mkdir -p "$myplat"
-  echo "FROM $plat
-RUN yum -q -y update >/dev/null 2>&1
-RUN yum -q -y install openssl >/dev/null 2>&1
-RUN yum -q -y install crontabs >/dev/null 2>&1
-RUN yum -q -y install nc >/dev/null 2>&1
-RUN yum -q -y install curl >/dev/null 2>&1
-RUN yum -q -y install git >/dev/null 2>&1
-RUN yum -q -y install iproute >/dev/null 2>&1
-" > "$myplat/Dockerfile"
-  _runplat "$myplat" "$plat"
+testubuntu() {
+  testplat "ubuntu"
+}
+
+testdebian() {
+  testplat "debian"
 }
 
 #centos and fedora
 testcentos() {
-  plat="$1"
-  if [ "$plat" ] ; then
-    _testcentossub "$plat"
-    return
-  fi
-  
-  platforms="centos:5 centos:6 centos:7 centos:latest"
-
-  for plat in $platforms 
-  do 
-    _testcentossub "$plat"
-  done
-
-}
-
-_testfedorasub() {
-    plat="$1"
-    _info "Running $plat"
-    myplat="le$plat"
-    mkdir -p "$myplat"
-    echo "FROM $plat
-RUN yum -q -y update >/dev/null 2>&1
-RUN yum -q -y install openssl >/dev/null 2>&1
-RUN yum -q -y install crontabs >/dev/null 2>&1
-RUN yum -q -y install nc >/dev/null 2>&1
-RUN yum -q -y install curl >/dev/null 2>&1
-RUN yum -q -y install git >/dev/null 2>&1
-RUN yum -q -y install iproute >/dev/null 2>&1
-
-" > "$myplat/Dockerfile"
-    _runplat "$myplat" "$plat"
+  testplat "centos"
 }
 
 #centos and fedora
 testfedora() {
-  plat="$1"
-  if [ "$plat" ] ; then
-    _testfedorasub "$plat"
-    return
-  fi
-  platforms="fedora:21 fedora:22 fedora:23 fedora:latest"
-
-  for plat in $platforms 
-  do 
-    _testfedorasub "$plat"
-  done
-
+  testplat "fedora"
 }
 
 cleardocker() {
@@ -157,12 +150,13 @@ cleardocker() {
 
 
 showhelp() {
-  _info "testall|testubuntu|testcentos|testfedora|cleardocker"
+  _info "testall|testubuntu|testdebian|testcentos|testfedora|cleardocker"
 }
 
 
 testall() {
   testubuntu
+  testdebian
   testcentos
   testfedora
 }
