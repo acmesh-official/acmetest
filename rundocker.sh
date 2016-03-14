@@ -125,7 +125,7 @@ _runplat() {
     
     if [ "$DEBUGING" ] ; then
       _info "Please debuging:"
-      docker run -p 80:80 -e TestingDomain=$TestingDomain -e TestingAltDomains=$TestingAltDomains -e FORCE=1 -v $(pwd):/letest $myplat /bin/bash
+      docker run -p 80:80 -i -t -e TestingDomain=$TestingDomain -e TestingAltDomains=$TestingAltDomains -e FORCE=1 -v $(pwd):/letest $myplat /bin/bash
     fi
     return 1
   fi
