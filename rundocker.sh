@@ -112,7 +112,9 @@ _runplat() {
 	fi
   fi
 
-  _debug "$(cat "$myplat/Dockerfile" )"  
+  if [ "$DEBUG" ] ; then
+    cat "$myplat/Dockerfile"
+  fi
   
   if ! docker build -t "$myplat"  "$myplat" >"$Log_Err" 2>&1 ; then
     cat "$Log_Err"
