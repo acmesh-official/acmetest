@@ -2,7 +2,7 @@
 
 STAGE=1
 
-legit="https://github.com/Neilpang/le.git"
+lezip="https://github.com/Neilpang/le/archive"
 
 
 Default_Home="$HOME/.le"
@@ -60,12 +60,6 @@ if command -v yum > /dev/null ; then
  INSTALL="$SUDO yum install -y "
 elif command -v apt-get > /dev/null ; then
  INSTALL="$SUDO apt-get install -y "
-fi
-
-if ! command -v git >/dev/null ; then
-  _err "You must have git installed to run this test."
-  _err "$INSTALL git"
-  return 1
 fi
 
 __ok() {
@@ -162,12 +156,15 @@ _setup() {
   if [ -d le ] ; then
     rm le -rf
   fi
-  if [ "$BRANCH" ] ; then
-    git clone $legit -b $BRANCH > /dev/null 2>&1
-  else
-    git clone $legit  > /dev/null 2>&1
+  if [ ! "$BRANCH" ] ; then
+    BRANCH="master"
   fi
   
+  link="$lezip/$BRANCH.zip"
+  curl -OL "$link" >/dev/null 2>&1
+  unzip "$BRANCH.zip"  >/dev/null 2>&1
+  mv "le-$BRANCH" le
+
   lehome="$Default_Home"
   if [ -f "$lehome/le.sh" ] ; then
     $lehome/le.sh uninstall >/dev/null 2>&1
