@@ -9,9 +9,17 @@ Conf="plat.conf"
 
 #update plat
 update() {
+  statusfile="$(echo "$1" | tr ':/ ' '---' )"
   if [ "$?" == "0" ] ; then
+    if [ -f "status/ok.svg" ] ; then
+    cp "status/ok.svg" "status/$statusfile.svg"
+    fi
     __ok "$1"
+
   else
+    if [ -f "status/ng.svg" ] ; then
+      cp "status/ng.svg" "status/$statusfile.svg"
+    fi
     __fail "$1"
   fi
 }
