@@ -183,7 +183,7 @@ cleardocker() {
 
 
 showhelp() {
-  _info "testall|testplat|testubuntu|testdebian|testcentos|testfedora|cleardocker"
+  _info "testall|testplat|testubuntu|testdebian|testcentos|testfedora|testopensuse|cleardocker"
 }
 
 
