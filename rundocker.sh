@@ -74,14 +74,15 @@ _runplat() {
   
   myplat="my$plat"
   
-  platline="$(grep "^$plat[^ |]*" "$Conf")"
-  _debug "$platline"
+  platline="$(grep "^$plat[^ |]*" "$Conf" | tr -d "\n")"
+  _debug "platline" "$platline"
   
   if [[ "$plat" == *":"* ]] ; then
     basetag="$(echo "$plat" | cut -d : -f 1)"
-    baseline="$(grep "^-$basetag[^ |]*" "$Conf")"
+    _debug "basetag" "$basetag"
+    baseline="$(grep "^-$basetag[^ |]*" "$Conf" | tr -d "\n" )"
   fi
-  _debug "$baseline"
+  _debug "baseline" "$baseline"
 
   _info "Running $plat, this may take a few minutes, please wait."
   mkdir -p "$myplat"
