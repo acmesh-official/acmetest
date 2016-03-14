@@ -27,6 +27,17 @@ _err() {
     echo -e "$1=$2" >&2
   fi
 }
+_debug() {
+  if [ -z "$DEBUG" ] ; then
+    return
+  fi
+  
+  if [ -z "$2" ] ; then
+    echo $1
+  else
+    echo "$1"="$2"
+  fi
+}
 
 __ok() {
   _info "$1 [\u001B[32mPASS\u001B[0m]"
