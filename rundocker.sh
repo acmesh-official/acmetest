@@ -74,13 +74,13 @@ _runplat() {
   
   myplat="my$plat"
   
-  platline="$(grep "^$plat[^ |]*" "$Conf" | tr -d "\n")"
+  platline="$(grep "^$plat[^ |]*" "$Conf" | tr -d "\r\n")"
   _debug "platline" "$platline"
   
   if [[ "$plat" == *":"* ]] ; then
     basetag="$(echo "$plat" | cut -d : -f 1)"
     _debug "basetag" "$basetag"
-    baseline="$(grep "^-$basetag[^ |]*" "$Conf" | tr -d "\n" )"
+    baseline="$(grep "^-$basetag[^ |]*" "$Conf" | tr -d "\r\n" )"
   fi
   _debug "baseline" "$baseline"
 
