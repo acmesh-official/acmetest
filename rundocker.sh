@@ -67,6 +67,11 @@ _mergefield() {
 #centos:6
 _runplat() {
   plat="$1"
+  if [ ! "$plat" ] ; then
+    _err "Usage: _runplat ubuntu:14.04"
+    return 1
+  fi
+  
   myplat="my$plat"
   
   platline="$(grep "^$plat[^ |]*" "$Conf")"
@@ -84,11 +89,15 @@ _runplat() {
   echo "FROM $plat" > "$myplat/Dockerfile"
   
   update="$(_mergefield "$platline" "$baseline" 2)"
+  _debug "update" "$update"
+  
   if [ "$update" ] ; then
     echo "RUN $update >/dev/null 2>&1" >>  "$myplat/Dockerfile"
   fi
   
   install="$(_mergefield "$platline" "$baseline" 3)"
+  _debug "install" "$install"
+  
   if [ "$install" ] ; then
     tools="$(_mergefield "$platline" "$baseline" 4)"
 	if [ "$tools" ] ; then
@@ -112,7 +121,7 @@ _runplat() {
 	  cat "$Log_Err"
 	  return 1
 	fi
-    if ! docker run -p 80:80 -e TestingDomain=$TestingDomain -e TestingAltDomains=$TestingAltDomains -e FORCE=1 -v $(pwd):/letest $myplat /bin/bash -c "/letest/letest.sh" 2>"$Log_Err"  ; then
+    if ! docker run -p 80:80 -e TestingDomain=$TestingDomain -e TestingAltDomains=$TestingAltDomains -e FORCE=1 -v $(pwd):/letest $myplat /bin/bash -c "/letest/letest.sh" >"$Log_Err" 2>&1 ; then
 	  cat "$Log_Err"
 	  return 1
 	fi
@@ -125,7 +134,12 @@ _runplat() {
 #plat
 testplat() {
   plat="$1"
-
+  
+  if [ ! "$plat" ] ; then
+    _err "Usage: testplat ubuntu:14.04"
+    return 1
+  fi
+  
   platforms=$(grep -o "^$plat[^ |]*" "$Conf" )
   _debug "$platforms"
 
@@ -161,7 +175,7 @@ cleardocker() {
 
 
 showhelp() {
-  _info "testall|testubuntu|testdebian|testcentos|testfedora|cleardocker"
+  _info "testall|testplat|testubuntu|testdebian|testcentos|testfedora|cleardocker"
 }
 
 
