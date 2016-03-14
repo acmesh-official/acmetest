@@ -113,18 +113,13 @@ _runplat() {
 
   _debug "$(cat "$myplat/Dockerfile" )"  
   
-  if [ "$DEBUG" ] ; then
-    docker build -t "$myplat"  "$myplat"
-    docker run -p 80:80 -e DEBUG=$DEBUG -e TestingDomain=$TestingDomain -e TestingAltDomains=$TestingAltDomains -e FORCE=1 -v $(pwd):/letest $myplat /bin/bash -c "/letest/letest.sh"
-  else
-    if ! docker build -t "$myplat"  "$myplat" >"$Log_Err" 2>&1 ; then
-	  cat "$Log_Err"
-	  return 1
-	fi
-    if ! docker run -p 80:80 -e TestingDomain=$TestingDomain -e TestingAltDomains=$TestingAltDomains -e FORCE=1 -v $(pwd):/letest $myplat /bin/bash -c "/letest/letest.sh" >"$Log_Err" 2>&1 ; then
-	  cat "$Log_Err"
-	  return 1
-	fi
+  if ! docker build -t "$myplat"  "$myplat" >"$Log_Err" 2>&1 ; then
+    cat "$Log_Err"
+    return 1
+  fi
+  if ! docker run -p 80:80 -e TestingDomain=$TestingDomain -e TestingAltDomains=$TestingAltDomains -e FORCE=1 -v $(pwd):/letest $myplat /bin/bash -c "/letest/letest.sh" >"$Log_Err" 2>&1 ; then
+    cat "$Log_Err"
+    return 1
   fi
 
   update $plat
