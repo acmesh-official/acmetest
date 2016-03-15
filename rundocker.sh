@@ -12,18 +12,19 @@ Table="table.md"
 #update plat code
 update() {
   statusfile="$(echo "$1" | tr ':/ ' '---' )"
+  set +H
   if [ "$2" == "0" ] ; then
     if [ -f "status/ok.svg" ] ; then
       cp "status/ok.svg" "status/$statusfile.svg"
     fi
-    _setopt "$Table" "|$1|![]($Img/$statusfile.svg)" "|" "$(date -u)| Passed |"
+    _setopt "$Table" "|$1|" "![]($Img/$statusfile.svg)|" "$(date -u)| Passed |"
     __ok "$1"
 
   else
     if [ -f "status/ng.svg" ] ; then
       cp "status/ng.svg" "status/$statusfile.svg"
     fi
-    _setopt "$Table" "|$1|![]($Img/$statusfile.svg)" "|" "$(date -u)| Failed |"
+    _setopt "$Table" "|$1|" "![]($Img/$statusfile.svg)|" "$(date -u)| Failed |"
     __fail "$1"
   fi
 }
@@ -44,19 +45,19 @@ _setopt() {
     touch "$__conf"
   fi
 
-  if grep -H -n "^$__opt$__sep" "$__conf" > /dev/null ; then
+  if grep -H -n "^$__opt" "$__conf" > /dev/null ; then
     _debug OK
     if [[ "$__val" == *"&"* ]] ; then
       __val="$(echo $__val | sed 's/&/\\&/g')"
     fi
-    text="$(cat $__conf)"
-    echo "$text" | sed "s\\^$__opt$__sep.*$\\$__opt$__sep$__val$__end\\" > "$__conf"
+    set +H
+    sed -i "s\\^$__opt.*$\\$__opt$__sep$__val$__end\\"  "$__conf"
 
   else
     _debug APP
     echo "$__opt$__sep$__val$__end" >> "$__conf"
   fi
-  _debug "$(grep -H -n "^$__opt$__sep" $__conf)"
+
 }
 
 _info() {
