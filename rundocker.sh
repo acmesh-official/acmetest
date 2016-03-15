@@ -109,15 +109,15 @@ _runplat() {
   
   if [ "$install" ] ; then
     tools="$(_mergefield "$platline" "$baseline" 4)"
-	if [ "$tools" ] ; then
-	  toolsline=$(echo "$tools" |  tr ',' ' ' )
+    if [ "$tools" ] ; then
+      toolsline=$(echo "$tools" |  tr ',' ' ' )
       for tool in $toolsline   
       do
-	    if [ "$tool" ] ; then
-		  echo "RUN $install $tool >/dev/null 2>&1"  >>  "$myplat/Dockerfile"
-		fi
-	  done
-	fi
+        if [ "$tool" ] ; then
+          echo "RUN $install $tool >/dev/null 2>&1"  >>  "$myplat/Dockerfile"
+        fi
+      done
+    fi
   fi
 
   if [ "$DEBUG" ] ; then
@@ -128,12 +128,12 @@ _runplat() {
     cat "$Log_Err"
     return 1
   fi
-  if ! docker run -p 80:80 -e TestingDomain=$TestingDomain -e TestingAltDomains=$TestingAltDomains -e FORCE=1 -v $(pwd):/letest $myplat /bin/sh -c "/letest/letest.sh" >"$Log_Err" 2>&1 ; then
+  if ! docker run -p 80:80 -e TestingDomain=$TestingDomain -e TestingAltDomains=$TestingAltDomains -e FORCE=1 -v $(pwd):/letest $myplat /bin/sh -c "cd /letest && ./letest.sh" >"$Log_Err" 2>&1 ; then
     cat "$Log_Err"
     
     if [ "$DEBUGING" ] ; then
       _info "Please debuging:"
-      docker run -p 80:80 -i -t -e TestingDomain=$TestingDomain -e TestingAltDomains=$TestingAltDomains -e FORCE=1 -v $(pwd):/letest $myplat /bin/sh
+      docker run -p 80:80 -i -t -e TestingDomain=$TestingDomain -e TestingAltDomains=$TestingAltDomains -e FORCE=1 -v $(pwd):/letest $myplat /bin/sh -c "cd /letest"
     fi
   fi
   code="$?"
