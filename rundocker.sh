@@ -1,10 +1,12 @@
 
 LeTest="https://github.com/Neilpang/letest.git"
 
-
+Img="https://cdn.rawgit.com/Neilpang/letest/master/status"
 Log_Err="err.log"
 
 Conf="plat.conf"
+
+Table="table.md"
 
 
 #update plat code
@@ -12,16 +14,49 @@ update() {
   statusfile="$(echo "$1" | tr ':/ ' '---' )"
   if [ "$2" == "0" ] ; then
     if [ -f "status/ok.svg" ] ; then
-    cp "status/ok.svg" "status/$statusfile.svg"
+      cp "status/ok.svg" "status/$statusfile.svg"
     fi
+    _setopt "$Table" "|$1|![]($Img/$statusfile.svg)" "|" "$(date -u)| Passed |"
     __ok "$1"
 
   else
     if [ -f "status/ng.svg" ] ; then
       cp "status/ng.svg" "status/$statusfile.svg"
     fi
+    _setopt "$Table" "|$1|![]($Img/$statusfile.svg)" "|" "$(date -u)| Failed |"
     __fail "$1"
   fi
+}
+
+
+#setopt "file"  "opt"  "="  "value" [";"]
+_setopt() {
+  __conf="$1"
+  __opt="$2"
+  __sep="$3"
+  __val="$4"
+  __end="$5"
+  if [ -z "$__opt" ] ; then 
+    echo usage: _setopt  '"file"  "opt"  "="  "value" [";"]'
+    return
+  fi
+  if [ ! -f "$__conf" ] ; then
+    touch "$__conf"
+  fi
+
+  if grep -H -n "^$__opt$__sep" "$__conf" > /dev/null ; then
+    _debug OK
+    if [[ "$__val" == *"&"* ]] ; then
+      __val="$(echo $__val | sed 's/&/\\&/g')"
+    fi
+    text="$(cat $__conf)"
+    echo "$text" | sed "s\\^$__opt$__sep.*$\\$__opt$__sep$__val$__end\\" > "$__conf"
+
+  else
+    _debug APP
+    echo "$__opt$__sep$__val$__end" >> "$__conf"
+  fi
+  _debug "$(grep -H -n "^$__opt$__sep" $__conf)"
 }
 
 _info() {
@@ -196,7 +231,7 @@ cleardocker() {
 
 
 showhelp() {
-  _info "testall|testplat|testubuntu|testdebian|testcentos|testfedora|testopensuse|testalpine|cleardocker"
+  _info "cron|testall|testplat|testubuntu|testdebian|testcentos|testfedora|testopensuse|testalpine|cleardocker"
 }
 
 
@@ -208,6 +243,24 @@ testall() {
   testopensuse
   testalpine
 }
+
+_pushgit() {
+  git add status/*
+  cat  head.md table.md tail.md > README.md
+  git add *.md
+  git commit  -m "update status"
+  
+  if ! git push ; then
+    _err "git push error"
+  fi
+
+}
+
+cron() {
+  testall
+  _pushgit
+}
+
 
 
 if [ -z "$1" ] ; then
