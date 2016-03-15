@@ -147,6 +147,8 @@ _run() {
     _ret="1"
   fi
   
+  rm -rf "$lehome/$TestingDomain"
+  
   if [ -f "$lehome/le.sh" ] ; then
     $lehome/le.sh uninstall >/dev/null
     if [ ! -f "account.key" ] && [ -f "$lehome/account.key" ] ; then
