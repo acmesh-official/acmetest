@@ -139,6 +139,7 @@ _run() {
     ./le.sh install > /dev/null
     if [ -f "account.key" ] && [ -d "$HOME/.le/" ] ; then
       cp account.key $HOME/.le/
+      cp account.conf $HOME/.le/
     fi
     cd ..
   fi
@@ -153,6 +154,7 @@ _run() {
     $lehome/le.sh uninstall >/dev/null
     if [ ! -f "account.key" ] && [ -f "$lehome/account.key" ] ; then
       cp "$lehome/account.key" account.key
+      cp "$lehome/account.conf" account.conf
     fi
   fi
   _info "------------------------------------------"
