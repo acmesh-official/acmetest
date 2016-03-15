@@ -129,14 +129,17 @@ _runplat() {
     return 1
   fi
   if ! docker run -p 80:80 -e TestingDomain=$TestingDomain -e TestingAltDomains=$TestingAltDomains -e FORCE=1 -v $(pwd):/letest $myplat /bin/sh -c "cd /letest && ./letest.sh" >"$Log_Err" 2>&1 ; then
-    cat "$Log_Err"
+    code="$?"
     
+    cat "$Log_Err"
     if [ "$DEBUGING" ] ; then
       _info "Please debuging:"
       docker run -p 80:80 -i -t -e TestingDomain=$TestingDomain -e TestingAltDomains=$TestingAltDomains -e FORCE=1 -v $(pwd):/letest $myplat /bin/sh -c "cd /letest"
     fi
+  else
+    code="$?"
   fi
-  code="$?"
+  
   update $plat $code
   return $code
 
