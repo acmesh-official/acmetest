@@ -7,10 +7,10 @@ Log_Err="err.log"
 Conf="plat.conf"
 
 
-#update plat
+#update plat code
 update() {
   statusfile="$(echo "$1" | tr ':/ ' '---' )"
-  if [ "$?" == "0" ] ; then
+  if [ "$2" == "0" ] ; then
     if [ -f "status/ok.svg" ] ; then
     cp "status/ok.svg" "status/$statusfile.svg"
     fi
@@ -135,10 +135,10 @@ _runplat() {
       _info "Please debuging:"
       docker run -p 80:80 -i -t -e TestingDomain=$TestingDomain -e TestingAltDomains=$TestingAltDomains -e FORCE=1 -v $(pwd):/letest $myplat /bin/sh
     fi
-    return 1
   fi
-
-  update $plat
+  code="$?"
+  update $plat $code
+  return $code
 
 }
 
