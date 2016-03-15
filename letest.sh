@@ -137,11 +137,11 @@ _run() {
   if [ "$1" != "le_test_installtodir" ] && [ "$1" != "le_test_uninstalltodir" ] ; then
     cd le;
     ./le.sh install > /dev/null
+    cd ..
     if [ -f "account.key" ] && [ -d "$HOME/.le/" ] ; then
       cp account.key $HOME/.le/
       cp account.conf $HOME/.le/
     fi
-    cd ..
   fi
   
   if ! $1 ; then
