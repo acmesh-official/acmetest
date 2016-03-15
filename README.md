@@ -6,7 +6,7 @@ Unit test project for le project https://github.com/Neilpang/le
 
 | Platform | Status| Last Run Time| Comments|
 -----------|-------|--------------|---------|
-| Ubuntu:14.04| ![](https://raw.githubusercontent.com/Neilpang/letest/master/status/ubuntu-14.04.svg)| 2016-3-15| no |
+| Ubuntu:14.04| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-14.04.svg)| 2016-3-15| no |
 
 
 # How to run tests
