@@ -129,7 +129,9 @@ _runplat() {
     return 1
   fi
   
-  myplat="my$plat"
+  platname="$(echo $plat | tr "/" "-")"
+  
+  myplat="my$platname"
   
   platline="$(grep "^$plat[^ |]*" "$Conf" | tr -d "\r\n")"
   _debug "platline" "$platline"
@@ -207,6 +209,9 @@ testplat() {
   fi
   
   platforms=$(grep -o "^$plat[^ |]*" "$Conf" )
+  if [ ! "$platforms" ] ; then
+    platforms="$plat"
+  fi
   _debug "$platforms"
 
   for plat in $platforms 
