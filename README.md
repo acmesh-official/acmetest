@@ -7,8 +7,7 @@ Unit test project for le project https://github.com/Neilpang/le
 
 | Platform | Status| Last Run Time| Comments|
 -----------|-------|--------------|---------|
-|ubuntu:14.04|![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-14.04.svg)|Wed Mar 16 14:24:11 UTC 2016| Failed |
-|ubuntu:15.04|![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-15.04.svg)|Wed Mar 16 14:24:14 UTC 2016| Failed |
+|ubuntu:14.04|![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-14.04.svg)|Wed Mar 16 14:26:02 UTC 2016| Passed |
 # How to run tests
 
 First point at least 2 of your domains to your machine, 
