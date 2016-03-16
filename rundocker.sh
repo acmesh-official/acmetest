@@ -11,7 +11,7 @@ Table="table.md"
 
 #update plat code
 update() {
-  statusfile="$(echo "$1" | tr ':/ ' '---' )"
+  statusfile="$(echo "$1" | tr ':/ \' '----' )"
   set +H
   if [ "$2" == "0" ] ; then
     if [ -f "status/ok.svg" ] ; then
@@ -164,17 +164,21 @@ _runplat() {
     cat "$Log_Err"
     return 1
   fi
-  docker run -p 80:80 -e TestingDomain=$TestingDomain -e TestingAltDomains=$TestingAltDomains -e FORCE=1 -v $(pwd):/letest $myplat /bin/sh -c "cd /letest && ./letest.sh" >"$Log_Err" 2>&1
+  cid="docker.cid"
+  docker run -p 80:80 --cidfile="$cid" -e TestingDomain=$TestingDomain -e TestingAltDomains=$TestingAltDomains -e FORCE=1 -v $(pwd):/letest $myplat /bin/sh -c "cd /letest && ./letest.sh" >"$Log_Err" 2>&1
+  docker rm $(cat "$cid")
+
   code="$?"
   _debug "code" "$code"
   if [ "$code" != "0" ] ; then
     cat "$Log_Err"
     if [ "$DEBUGING" ] ; then
       _info "Please debuging:"
-      docker run -p 80:80 -i -t -e TestingDomain=$TestingDomain -e TestingAltDomains=$TestingAltDomains -e FORCE=1 -v $(pwd):/letest $myplat /bin/sh
+      docker run -p 80:80 --cidfile="$cid" -i -t -e TestingDomain=$TestingDomain -e TestingAltDomains=$TestingAltDomains -e FORCE=1 -v $(pwd):/letest $myplat /bin/sh
+      docker rm $(cat "$cid")
     fi
   fi
-  
+  rm -f "$cid"
   update $plat $code
   return $code
 
