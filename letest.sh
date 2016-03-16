@@ -175,7 +175,7 @@ _setup() {
     curl -OL "$link" >/dev/null 2>&1
     unzip "$BRANCH.zip"  >/dev/null 2>&1
     mv "le-$BRANCH" le
-  else if command -v git > /dev/null ; then
+  elif command -v git > /dev/null ; then
     rm le -rf
     git clone $legit -b $BRANCH
   else
