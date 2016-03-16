@@ -175,7 +175,7 @@ _runplat() {
     fi
   fi
 
-  if [ "$DEBUG" ] ; then
+  if [ "$DEBUGING" ] ; then
     cat "$myplat/Dockerfile"
   fi
   
@@ -184,7 +184,11 @@ _runplat() {
     return 1
   fi
   cid="docker.cid"
-  docker run -p 80:80 --cidfile="$cid" -e TestingDomain=$TestingDomain -e TestingAltDomains=$TestingAltDomains -e FORCE=1 -v $(pwd):/letest $myplat /bin/sh -c "cd /letest && ./letest.sh" >"$Log_Err" 2>&1
+  if [ "$DEBUG" ] ; then
+    docker run -p 80:80 --cidfile="$cid" -e TestingDomain=$TestingDomain -e TestingAltDomains=$TestingAltDomains -e FORCE=1 -e DEBUG=$DEBUG -v $(pwd):/letest $myplat /bin/sh -c "cd /letest && ./letest.sh"
+  else
+    docker run -p 80:80 --cidfile="$cid" -e TestingDomain=$TestingDomain -e TestingAltDomains=$TestingAltDomains -e FORCE=1 -v $(pwd):/letest $myplat /bin/sh -c "cd /letest && ./letest.sh" >"$Log_Err" 2>&1
+  fi
   code="$?"
   _debug "code" "$code"
   docker rm $(cat "$cid")
