@@ -16,27 +16,31 @@ update() {
   statusfile="$(echo "$plat" | tr ':/ \\' '----' )"
   set +H
   if [ "$code" == "0" ] ; then
-    if [ -f "status/ok.svg" ] ; then
-      cp "status/ok.svg" "status/$statusfile.svg"
+    if [ "$CI" ] ; then
+      if [ -f "status/ok.svg" ] ; then
+        cp "status/ok.svg" "status/$statusfile.svg"
+      fi
+      _setopt "$Table" "|$plat|" "![]($Img/$statusfile.svg)|" "$(date -u)| Passed |"
     fi
-    _setopt "$Table" "|$plat|" "![]($Img/$statusfile.svg)|" "$(date -u)| Passed |"
     __ok "$plat"
 
   else
-    if [ -f "status/ng.svg" ] ; then
-      cp "status/ng.svg" "status/$statusfile.svg"
+    if [ "$CI" ] ; then
+      if [ -f "status/ng.svg" ] ; then
+        cp "status/ng.svg" "status/$statusfile.svg"
+      fi
+      _setopt "$Table" "|$plat|" "![]($Img/$statusfile.svg)|" "$(date -u)| Failed |"
     fi
-    _setopt "$Table" "|$plat|" "![]($Img/$statusfile.svg)|" "$(date -u)| Failed |"
     __fail "$plat"
   fi
   
   if [ "$CI" ] ; then
-    git add "status/$statusfile.svg"
-    git add "$Table"
+    git add "status/$statusfile.svg" >/dev/null
+    git add "$Table" >/dev/null
     cat head.md "$Table" tail.md > README.md
-    git add *.md
-    git commit -m "Update $plat"
-    if ! git push ; then
+    git add *.md >/dev/null
+    git commit -m "Update $plat" >/dev/null
+    if ! git push >/dev/null ; then
       _err "git push error"
     fi
   fi
@@ -269,10 +273,10 @@ testall() {
 }
 
 _pullgit() {
-  git checkout status/*
-  git checkout *.md
-  git checkout plat.conf
-  git pull
+  git checkout status/* >/dev/null
+  git checkout *.md >/dev/null
+  git checkout plat.conf >/dev/null
+  git pull >/dev/null
 }
 
 cron() {
