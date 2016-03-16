@@ -6,5 +6,25 @@ for example: `aa.com` and `www.aa.com`
 And make sure 80 port is not used by anyone else.
 
 ```
+cd letest
 TestingDomain=aa.com   TestingAltDomains=www.aa.com  ./letest.sh
 ```
+
+# How to run tests in all the platforms through docker.
+
+You must have docker installed, and also point 2 of your domains to your machine.
+
+Then test all the platforms :
+
+```
+cd letest
+TestingDomain=aa.com   TestingAltDomains=www.aa.com  ./rundocker.sh  testall
+```
+
+The script will download all the supported platforms from the official docker hub, then run the test cases in all the supported platforms.
+
+
+
+
+
+
