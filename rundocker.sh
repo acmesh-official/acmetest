@@ -182,17 +182,19 @@ _runplat() {
   cid="docker.cid"
   docker run -p 80:80 --cidfile="$cid" -e TestingDomain=$TestingDomain -e TestingAltDomains=$TestingAltDomains -e FORCE=1 -v $(pwd):/letest $myplat /bin/sh -c "cd /letest && ./letest.sh" >"$Log_Err" 2>&1
   code="$?"
-  docker rm $(cat "$cid")
   _debug "code" "$code"
+  docker rm $(cat "$cid")
+  rm -f "$cid"  
   if [ "$code" != "0" ] ; then
     cat "$Log_Err"
     if [ "$DEBUGING" ] ; then
       _info "Please debuging:"
       docker run -p 80:80 --cidfile="$cid" -i -t -e TestingDomain=$TestingDomain -e TestingAltDomains=$TestingAltDomains -e FORCE=1 -v $(pwd):/letest $myplat /bin/sh
       docker rm $(cat "$cid")
+      rm -f "$cid"
     fi
   fi
-  rm -f "$cid"
+  
   update $plat $code
   return $code
 
