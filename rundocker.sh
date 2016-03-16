@@ -13,7 +13,7 @@ Table="table.md"
 update() {
   plat="$1"
   code="$2"
-  statusfile="$(echo "$plat" | tr ':/ \' '----' )"
+  statusfile="$(echo "$plat" | tr ':/ \\' '----' )"
   set +H
   if [ "$code" == "0" ] ; then
     if [ -f "status/ok.svg" ] ; then
