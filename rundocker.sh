@@ -263,9 +263,9 @@ testall() {
 }
 
 _pullgit() {
-  git checkout stats/*
+  git checkout status/*
   git checkout *.md
-  git checkout *.conf
+  git checkout plat.conf
   git pull
 }
 
