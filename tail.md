@@ -1,3 +1,5 @@
+(The openssl in CentOS 5 doesn't support ECDSA, so the ECDSA test cases failed. However, RSA certificates are working there.)
+
 # How to run tests
 
 First point at least 2 of your domains to your machine, 
