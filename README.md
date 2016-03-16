@@ -23,6 +23,7 @@ Unit test project for le project https://github.com/Neilpang/le
 |fedora:latest|![](https://cdn.rawgit.com/Neilpang/letest/master/status/fedora-latest.svg)|Wed Mar 16 12:43:47 UTC 2016| Passed |
 |opensuse:13.2|![](https://cdn.rawgit.com/Neilpang/letest/master/status/opensuse-13.2.svg)|Wed Mar 16 12:44:39 UTC 2016| Passed |
 |opensuse:42.1|![](https://cdn.rawgit.com/Neilpang/letest/master/status/opensuse-42.1.svg)|Wed Mar 16 12:45:32 UTC 2016| Passed |
+|opensuse:latest|![](https://cdn.rawgit.com/Neilpang/letest/master/status/opensuse-latest.svg)|Wed Mar 16 12:46:24 UTC 2016| Passed |
 # How to run tests
 
 First point at least 2 of your domains to your machine, 
