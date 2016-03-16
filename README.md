@@ -28,7 +28,9 @@ Unit test project for le project https://github.com/Neilpang/le
 |alpine:3.2|![](https://cdn.rawgit.com/Neilpang/letest/master/status/alpine-3.2.svg)|Wed Mar 16 14:42:33 UTC 2016| Passed |
 |alpine:3.3|![](https://cdn.rawgit.com/Neilpang/letest/master/status/alpine-3.3.svg)|Wed Mar 16 14:43:24 UTC 2016| Passed |
 |alpine:latest|![](https://cdn.rawgit.com/Neilpang/letest/master/status/alpine-latest.svg)|Wed Mar 16 14:44:14 UTC 2016| Passed |
-|base/archlinux|![](https://cdn.rawgit.com/Neilpang/letest/master/status/base-archlinux.svg)|Wed Mar 16 15:28:19 UTC 2016| Passed |
+|base/archlinux|![](https://cdn.rawgit.com/Neilpang/letest/master/status/base-archlinux.svg)|Wed Mar 16 15:33:20 UTC 2016| Passed |
+(The openssl in CentOS 5 doesn't support ECDSA, so the ECDSA test cases failed. However, RSA certificates are working there.)
+
 # How to run tests
 
 First point at least 2 of your domains to your machine, 
