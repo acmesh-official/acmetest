@@ -252,6 +252,10 @@ testalpine() {
   testplat "alpine"
 }
 
+testarchlinux() {
+  testplat "base/archlinux"
+}
+
 cleardocker() {
   docker rm $(docker ps -a -q)
   #docker rmi $(docker images -q -f "dangling=true")
@@ -259,7 +263,7 @@ cleardocker() {
 
 
 showhelp() {
-  _info "cron|testall|testplat|testubuntu|testdebian|testcentos|testfedora|testopensuse|testalpine|cleardocker"
+  _info "cron|testall|testplat|testubuntu|testdebian|testcentos|testfedora|testopensuse|testalpine|testarchlinux|cleardocker"
 }
 
 
@@ -270,6 +274,7 @@ testall() {
   testfedora
   testopensuse
   testalpine
+  testarchlinux
 }
 
 _pullgit() {
