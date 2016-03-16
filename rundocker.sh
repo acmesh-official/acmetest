@@ -11,21 +11,34 @@ Table="table.md"
 
 #update plat code
 update() {
-  statusfile="$(echo "$1" | tr ':/ \' '----' )"
+  plat="$1"
+  code="$2"
+  statusfile="$(echo "$plat" | tr ':/ \' '----' )"
   set +H
-  if [ "$2" == "0" ] ; then
+  if [ "$code" == "0" ] ; then
     if [ -f "status/ok.svg" ] ; then
       cp "status/ok.svg" "status/$statusfile.svg"
     fi
-    _setopt "$Table" "|$1|" "![]($Img/$statusfile.svg)|" "$(date -u)| Passed |"
-    __ok "$1"
+    _setopt "$Table" "|$plat|" "![]($Img/$statusfile.svg)|" "$(date -u)| Passed |"
+    __ok "$plat"
 
   else
     if [ -f "status/ng.svg" ] ; then
       cp "status/ng.svg" "status/$statusfile.svg"
     fi
-    _setopt "$Table" "|$1|" "![]($Img/$statusfile.svg)|" "$(date -u)| Failed |"
-    __fail "$1"
+    _setopt "$Table" "|$plat|" "![]($Img/$statusfile.svg)|" "$(date -u)| Failed |"
+    __fail "$plat"
+  fi
+  
+  if [ "$CI" ] ; then
+    git add "status/$statusfile.svg"
+    git add "$Table"
+    cat head.md "$Table" tail.md > README.md
+    git add *.md
+    git commit -m "Update $plat"
+    if ! git push ; then
+      _err "git push error"
+    fi
   fi
 }
 
@@ -249,21 +262,19 @@ testall() {
   testalpine
 }
 
-_pushgit() {
-  git add status/*
-  cat  head.md table.md tail.md > README.md
-  git add *.md
-  git commit  -m "update status"
-  
-  if ! git push ; then
-    _err "git push error"
-  fi
-
+_pullgit() {
+  git checkout stats/*
+  git checkout *.md
+  git checkout *.conf
+  git pull
 }
 
 cron() {
+  CI="1"
+  _pullgit
+  rm "$Table"
   testall
-  _pushgit
+  CI=""
 }
 
 
