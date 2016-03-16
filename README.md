@@ -12,6 +12,7 @@ Unit test project for le project https://github.com/Neilpang/le
 |ubuntu:latest|![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-latest.svg)|Wed Mar 16 12:33:58 UTC 2016| Passed |
 |debian:7|![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-7.svg)|Wed Mar 16 12:34:51 UTC 2016| Passed |
 |debian:8|![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-8.svg)|Wed Mar 16 12:35:44 UTC 2016| Passed |
+|debian:latest|![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-latest.svg)|Wed Mar 16 12:36:38 UTC 2016| Passed |
 # How to run tests
 
 First point at least 2 of your domains to your machine, 
