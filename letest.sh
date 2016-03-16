@@ -3,7 +3,7 @@
 STAGE=1
 
 lezip="https://github.com/Neilpang/le/archive"
-
+legit="https://github.com/Neilpang/le.git"
 
 Default_Home="$HOME/.le"
 
@@ -170,11 +170,18 @@ _setup() {
     BRANCH="master"
   fi
   
-  link="$lezip/$BRANCH.zip"
-  curl -OL "$link" >/dev/null 2>&1
-  unzip "$BRANCH.zip"  >/dev/null 2>&1
-  mv "le-$BRANCH" le
-
+  if command -v unzip > /dev/null ; then
+    link="$lezip/$BRANCH.zip"
+    curl -OL "$link" >/dev/null 2>&1
+    unzip "$BRANCH.zip"  >/dev/null 2>&1
+    mv "le-$BRANCH" le
+  else if command -v git > /dev/null ; then
+    rm le -rf
+    git clone $legit -b $BRANCH
+  else
+    _err "Can not get le source code. Unzip or git must be installed"
+    return 1
+  fi
   lehome="$Default_Home"
   if [ -f "$lehome/le.sh" ] ; then
     $lehome/le.sh uninstall >/dev/null 2>&1
