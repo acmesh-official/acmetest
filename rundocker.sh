@@ -183,27 +183,41 @@ _runplat() {
     cat "$Log_Err"
     return 1
   fi
-  cid="docker.cid"
+
   if [ "$DEBUG" ] ; then
-    docker run -p 80:80 --cidfile="$cid" -e TestingDomain=$TestingDomain -e TestingAltDomains=$TestingAltDomains -e FORCE=1 -e DEBUG=$DEBUG -v $(pwd):/letest $myplat /bin/sh -c "cd /letest && ./letest.sh"
+    docker run -p 80:80 --rm \
+    -e TestingDomain=$TestingDomain \
+    -e TestingAltDomains=$TestingAltDomains \
+    -e DEBUG=$DEBUG \
+    -v $(pwd):/letest $myplat /bin/sh -c "cd /letest && ./letest.sh"
+    
   else
     if [ "$DEBUGING" ] ; then
-      docker run -p 80:80 --cidfile="$cid" -e TestingDomain=$TestingDomain -e TestingAltDomains=$TestingAltDomains -e FORCE=1 -v $(pwd):/letest $myplat /bin/sh -c "cd /letest && ./letest.sh"
+      docker run -p 80:80 --rm \
+      -e TestingDomain=$TestingDomain \
+      -e TestingAltDomains=$TestingAltDomains \
+      -v $(pwd):/letest \
+      $myplat /bin/sh -c "cd /letest && ./letest.sh"
     else
-      docker run -p 80:80 --cidfile="$cid" -e TestingDomain=$TestingDomain -e TestingAltDomains=$TestingAltDomains -e FORCE=1 -v $(pwd):/letest $myplat /bin/sh -c "cd /letest && ./letest.sh" >"$Log_Err" 2>&1
+      docker run -p 80:80 --rm \
+      -e TestingDomain=$TestingDomain \
+      -e TestingAltDomains=$TestingAltDomains \
+      -v $(pwd):/letest \
+      $myplat /bin/sh -c "cd /letest && ./letest.sh" >"$Log_Err" 2>&1
     fi
   fi
   code="$?"
   _debug "code" "$code"
-  docker rm $(cat "$cid")
-  rm -f "$cid"  
+ 
   if [ "$code" != "0" ] ; then
     cat "$Log_Err"
     if [ "$DEBUGING" ] ; then
       _info "Please debuging:"
-      docker run -p 80:80 --cidfile="$cid" -i -t -e TestingDomain=$TestingDomain -e TestingAltDomains=$TestingAltDomains -e FORCE=1 -v $(pwd):/letest $myplat /bin/sh
-      docker rm $(cat "$cid")
-      rm -f "$cid"
+      docker run -p 80:80 --rm \
+      -i -t \
+      -e TestingDomain=$TestingDomain \
+      -e TestingAltDomains=$TestingAltDomains \
+      -v $(pwd):/letest $myplat /bin/sh
     fi
   fi
   
