@@ -285,7 +285,7 @@ cleardocker() {
 
 
 showhelp() {
-  _info "cron|testall|testplat|testubuntu|testdebian|testcentos|testfedora|testopensuse|testalpine|testarchlinux|cleardocker"
+  _info "testall|testplat|testubuntu|testdebian|testcentos|testfedora|testopensuse|testalpine|testarchlinux|cleardocker"
 }
 
 
@@ -306,7 +306,7 @@ _pullgit() {
   git pull >/dev/null
 }
 
-cron() {
+_cron() {
   CI="1"
   _pullgit
   rm "$Table"
