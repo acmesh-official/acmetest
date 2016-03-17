@@ -11,6 +11,7 @@ Unit test project for le project https://github.com/Neilpang/le
 |ubuntu:15.04|![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-15.04.svg)|Thu Mar 17 13:30:30 UTC 2016| Passed |
 |ubuntu:latest|![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-latest.svg)|Thu Mar 17 13:32:01 UTC 2016| Passed |
 |debian:7|![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-7.svg)|Thu Mar 17 13:33:30 UTC 2016| Passed |
+|debian:8|![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-8.svg)|Thu Mar 17 13:35:02 UTC 2016| Passed |
 (The openssl in CentOS 5 doesn't support ECDSA, so the ECDSA test cases failed. However, RSA certificates are working there.)
 
 # How to run tests
