@@ -74,9 +74,13 @@ __fail() {
 #file
 _assertcert() {
   filename="$1"
-  grep -- "$BEGIN_CERT" "$filename" \
-  && grep -- "$END_CERT" "$filename" \
-  && [ $(wc -l "$filename") -gt 2 ]
+  if grep -- "$BEGIN_CERT" "$filename" >/dev/null 2>&1 \
+  && grep -- "$END_CERT" "$filename" >/dev/null 2>&1 \
+  && [ "$(cat "$filename" | wc -l )" -gt 2 ] ; then
+    return 0
+  else
+    return 1
+  fi
 }
 
 #cmd
