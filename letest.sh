@@ -304,7 +304,7 @@ le_test_standandalone() {
 
   _assertcmd "$lehome/le.sh issue no $TestingDomain" ||  return
   _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" || return
-  _assertcert "$lehome/$TestingDomain/$ca.cer" || return
+  _assertcert "$lehome/$TestingDomain/ca.cer" || return
   lp=`_ss | grep ':80 '`
   if [ "$lp" ] ; then
     __fail "80 port is not released: $lp"
@@ -331,7 +331,7 @@ le_test_standandalone_SAN() {
 
   _assertcmd "$lehome/le.sh issue no $TestingDomain $TestingAltDomains" ||  return
   _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" || return
-  _assertcert "$lehome/$TestingDomain/$ca.cer" || return
+  _assertcert "$lehome/$TestingDomain/ca.cer" || return
   lp=`_ss | grep ':80 '`
   if [ "$lp" ] ; then
     __fail "80 port is not released: $lp"
@@ -357,7 +357,7 @@ le_test_standandalone_ECDSA_256() {
 
   _assertcmd "$lehome/le.sh issue no $TestingDomain no ec-256" ||  return
   _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" || return
-  _assertcert "$lehome/$TestingDomain/$ca.cer" || return
+  _assertcert "$lehome/$TestingDomain/ca.cer" || return
   
   lp=`_ss | grep ':80 '`
   if [ "$lp" ] ; then
@@ -386,7 +386,7 @@ le_test_standandalone_ECDSA_384() {
 
   _assertcmd "$lehome/le.sh issue no $TestingDomain no ec-384" ||  return
   _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" || return
-  _assertcert "$lehome/$TestingDomain/$ca.cer" || return
+  _assertcert "$lehome/$TestingDomain/ca.cer" || return
   
   lp=`_ss | grep ':80 '`
   if [ "$lp" ] ; then
