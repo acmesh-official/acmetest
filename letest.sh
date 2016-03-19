@@ -7,7 +7,8 @@ legit="https://github.com/Neilpang/le.git"
 
 Default_Home="$HOME/.le"
 
-
+BEGIN_CERT="-----BEGIN CERTIFICATE-----"
+END_CERT="-----END CERTIFICATE-----"
 
 _err() {
   if [ -z "$2" ] ; then
@@ -68,6 +69,14 @@ __ok() {
 __fail() {
   _err " [\u001B[31mFAIL\u001B[0m]$1"
   return 1
+}
+
+#file
+_assertcert() {
+  filename="$1"
+  grep -- "$BEGIN_CERT" "$filename" \
+  && grep -- "$END_CERT" "$filename" \
+  && [ $(wc -l "$filename") -gt 2 ]
 }
 
 #cmd
@@ -285,7 +294,8 @@ le_test_standandalone() {
   fi
 
   _assertcmd "$lehome/le.sh issue no $TestingDomain" ||  return
-  
+  _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" || return
+  _assertcert "$lehome/$TestingDomain/$ca.cer" || return
   lp=`_ss | grep ':80 '`
   if [ "$lp" ] ; then
     __fail "80 port is not released: $lp"
@@ -311,7 +321,8 @@ le_test_standandalone_SAN() {
   fi
 
   _assertcmd "$lehome/le.sh issue no $TestingDomain $TestingAltDomains" ||  return
-  
+  _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" || return
+  _assertcert "$lehome/$TestingDomain/$ca.cer" || return
   lp=`_ss | grep ':80 '`
   if [ "$lp" ] ; then
     __fail "80 port is not released: $lp"
@@ -336,6 +347,8 @@ le_test_standandalone_ECDSA_256() {
   fi
 
   _assertcmd "$lehome/le.sh issue no $TestingDomain no ec-256" ||  return
+  _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" || return
+  _assertcert "$lehome/$TestingDomain/$ca.cer" || return
   
   lp=`_ss | grep ':80 '`
   if [ "$lp" ] ; then
@@ -363,6 +376,8 @@ le_test_standandalone_ECDSA_384() {
   fi
 
   _assertcmd "$lehome/le.sh issue no $TestingDomain no ec-384" ||  return
+  _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" || return
+  _assertcert "$lehome/$TestingDomain/$ca.cer" || return
   
   lp=`_ss | grep ':80 '`
   if [ "$lp" ] ; then
