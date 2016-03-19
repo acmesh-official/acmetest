@@ -213,9 +213,11 @@ le_test_dependencies() {
   for cmd in $dependencies 
   do
     if command -v $cmd > /dev/null ; then
-      _info "$cmd installed." 
+      echo -n "$cmd installed." 
+      __ok
     else
-      _err "$cmd not installed"
+      echo -n "$cmd not installed"
+      __fail
       return 1
     fi
   done
