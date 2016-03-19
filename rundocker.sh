@@ -244,8 +244,10 @@ testplat() {
   for plat in $platforms 
   do 
     if ! _runplat "$plat" ; then
-      _info "Let's retry once more:$plat"
-      _runplat "$plat" 
+      if [ -z "$DEBUG" ] && [ -z "$DEBUGING" ] ; then
+        _info "Let's retry once more:$plat"
+        _runplat "$plat" 
+      fi
     fi
   done
 }
