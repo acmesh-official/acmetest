@@ -20,3 +20,4 @@
 |alpine:3.3|![](https://cdn.rawgit.com/Neilpang/letest/master/status/alpine-3.3.svg)|Sat Mar 19 15:06:00 UTC 2016| Passed |
 |alpine:latest|![](https://cdn.rawgit.com/Neilpang/letest/master/status/alpine-latest.svg)|Sat Mar 19 15:07:17 UTC 2016| Passed |
 |base/archlinux|![](https://cdn.rawgit.com/Neilpang/letest/master/status/base-archlinux.svg?1458401315)|Sat Mar 19 15:28:35 UTC 2016| Passed |
+|kalilinux/kali-linux-docker|![](https://cdn.rawgit.com/Neilpang/letest/master/status/kalilinux-kali-linux-docker.svg?1458491709)|Sun Mar 20 16:35:09 UTC 2016| Passed |
