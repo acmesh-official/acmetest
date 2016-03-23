@@ -39,6 +39,17 @@ _info() {
   fi
 }
 
+_exists() {
+  cmd="$1"
+  if [ -z "$cmd" ] ; then
+    _err "Usage: _exists cmd"
+    return 1
+  fi
+  command -v $cmd >/dev/null 2>&1
+  ret="$?"
+  _debug "$cmd exists=$ret"
+  return $ret
+}
 
 _ss() {
   _port="$1"
