@@ -47,7 +47,7 @@ update() {
   if [ "$CI" ] ; then
     git add "status/$statusfile.svg" >/dev/null
     git add "$filename" >/dev/null
-    cat head.md "$filename" tail.md > README.md
+    cat head.md "$Table" tail.md > README.md
     git add *.md >/dev/null
     git commit -m "Update $plat" >/dev/null
     if ! git push >/dev/null ; then
