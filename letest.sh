@@ -43,7 +43,12 @@ _ss() {
   _port="$1"
   if command -v "netstat" >/dev/null 2>&1 ; then
     _debug "Using: netstat"
-    netstat -ntpl | grep :$_port" "
+    if netstat -h 2>&1 | grep "\-p proto" >/dev/null ; then
+      #for windows version netstat tool
+      netstat -nb -p tcp | grep :$_port" "
+    else
+      netstat -ntpl | grep :$_port" "
+    fi
     return 0
   fi
   if command -v "ss" >/dev/null 2>&1 ; then
@@ -53,7 +58,6 @@ _ss() {
   fi
   return 1
 }
-
 
 SUDO="$(command -v sudo | grep -o 'sudo')"
 
