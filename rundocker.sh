@@ -9,10 +9,14 @@ Conf="plat.conf"
 Table="table.md"
 
 
-#update plat code
+#update plat code [file]
 update() {
   plat="$1"
   code="$2"
+  filename="$3"
+  if [ -z "$filename" ] ; then
+    filename="$Table"
+  fi
   statusfile="$(echo "$plat" | tr ':/ \\' '----' )"
   set +H
   if [ "$code" == "0" ] ; then
@@ -20,7 +24,7 @@ update() {
       if [ -f "status/ok.svg" ] ; then
         cp "status/ok.svg" "status/$statusfile.svg"
       fi
-      _setopt "$Table" "|$plat|" "![]($Img/$statusfile.svg?$(date -u "+%s"))|" "$(date -u)| Passed |"
+      _setopt "$filename" "|$plat|" "![]($Img/$statusfile.svg?$(date -u "+%s"))|" "$(date -u)| Passed |"
     fi
     __ok "$plat"
 
@@ -29,15 +33,15 @@ update() {
       if [ -f "status/ng.svg" ] ; then
         cp "status/ng.svg" "status/$statusfile.svg"
       fi
-      _setopt "$Table" "|$plat|" "![]($Img/$statusfile.svg?$(date -u "+%s"))|" "$(date -u)| Failed |"
+      _setopt "$filename" "|$plat|" "![]($Img/$statusfile.svg?$(date -u "+%s"))|" "$(date -u)| Failed |"
     fi
     __fail "$plat"
   fi
   
   if [ "$CI" ] ; then
     git add "status/$statusfile.svg" >/dev/null
-    git add "$Table" >/dev/null
-    cat head.md "$Table" tail.md > README.md
+    git add "$filename" >/dev/null
+    cat head.md "$filename" tail.md > README.md
     git add *.md >/dev/null
     git commit -m "Update $plat" >/dev/null
     if ! git push >/dev/null ; then
