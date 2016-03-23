@@ -184,7 +184,7 @@ _run() {
 _setup() {
 
   if [ -d le ] ; then
-    rm le -rf
+    rm -rf le 
   fi
   if [ ! "$BRANCH" ] ; then
     BRANCH="master"
@@ -196,7 +196,7 @@ _setup() {
     unzip "$BRANCH.zip"  >/dev/null 2>&1
     mv "le-$BRANCH" le
   elif command -v git > /dev/null ; then
-    rm le -rf
+    rm -rf le
     git clone $legit -b $BRANCH
   else
     _err "Can not get le source code. Unzip or git must be installed"
