@@ -17,6 +17,12 @@ update() {
   if [ -z "$filename" ] ; then
     filename="$Table"
   fi
+  
+  if [ -z "$code" ] ; then
+    _err "Usage: plat exitcode [filename:table.md]"
+    return 1
+  fi
+  
   statusfile="$(echo "$plat" | tr ':/ \\' '----' )"
   set +H
   if [ "$code" == "0" ] ; then
