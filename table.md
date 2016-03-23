@@ -11,3 +11,4 @@
 |fedora:21|![](https://cdn.rawgit.com/Neilpang/letest/master/status/fedora-21.svg?1458745412)|Wed Mar 23 15:03:32 UTC 2016| Passed |
 |fedora:22|![](https://cdn.rawgit.com/Neilpang/letest/master/status/fedora-22.svg?1458745512)|Wed Mar 23 15:05:12 UTC 2016| Passed |
 |fedora:23|![](https://cdn.rawgit.com/Neilpang/letest/master/status/fedora-23.svg?1458745611)|Wed Mar 23 15:06:51 UTC 2016| Passed |
+|fedora:latest|![](https://cdn.rawgit.com/Neilpang/letest/master/status/fedora-latest.svg?1458745709)|Wed Mar 23 15:08:29 UTC 2016| Passed |
