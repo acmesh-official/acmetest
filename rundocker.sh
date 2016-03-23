@@ -144,6 +144,8 @@ _runplat() {
   platline="$(grep "^$plat[^ |]*" "$Conf" | tr -d "\r\n")"
   _debug "platline" "$platline"
   
+  basetag=""
+  baseline=""
   if [[ "$plat" == *":"* ]] ; then
     basetag="$(echo "$plat" | cut -d : -f 1)"
     _debug "basetag" "$basetag"
