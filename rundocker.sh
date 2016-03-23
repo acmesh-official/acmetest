@@ -50,6 +50,7 @@ update() {
     cat head.md "$Table" tail.md > README.md
     git add *.md >/dev/null
     git commit -m "Update $plat" >/dev/null
+    git pull >/dev/null
     if ! git push >/dev/null ; then
       _err "git push error"
     fi
