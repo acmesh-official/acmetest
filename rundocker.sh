@@ -266,36 +266,6 @@ testplat() {
 }
 
 
-testubuntu() {
-  testplat "ubuntu"
-}
-
-testdebian() {
-  testplat "debian"
-}
-
-#centos and fedora
-testcentos() {
-  testplat "centos"
-}
-
-#centos and fedora
-testfedora() {
-  testplat "fedora"
-}
-
-testopensuse() {
-  testplat "opensuse"
-}
-
-testalpine() {
-  testplat "alpine"
-}
-
-testarchlinux() {
-  testplat "base/archlinux"
-}
-
 cleardocker() {
   docker rm $(docker ps -a -q)
   #docker rmi $(docker images -q -f "dangling=true")
@@ -303,18 +273,18 @@ cleardocker() {
 
 
 showhelp() {
-  _info "testall|testplat|testubuntu|testdebian|testcentos|testfedora|testopensuse|testalpine|testarchlinux|cleardocker"
+  _info "testall|testplat|cleardocker|_cron"
 }
 
 
 testall() {
-  testubuntu
-  testdebian
-  testcentos
-  testfedora
-  testopensuse
-  testalpine
-  testarchlinux
+  allplats=$(grep -v '^#' plat.conf | grep -v "^-" | cut -d "|" -f 1)
+  for plat in  $allplats
+  do
+    if [ "$plat" ] ; then
+      testplat $plat
+    fi
+  done
 }
 
 _pullgit() {
