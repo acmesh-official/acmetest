@@ -45,13 +45,13 @@ update() {
   fi
   
   if [ "$CI" ] ; then
-    git add "status/$statusfile.svg" >/dev/null
-    git add "$filename" >/dev/null
+    git add "status/$statusfile.svg" >/dev/null 2>&1
+    git add "$filename" >/dev/null 2>&1
     cat head.md "$Table" tail.md > README.md
-    git add *.md >/dev/null
-    git commit -m "Update $plat" >/dev/null
-    git pull >/dev/null
-    if ! git push >/dev/null ; then
+    git add *.md >/dev/null 2>&1
+    git commit -m "Update $plat" >/dev/null 2>&1
+    git pull >/dev/null 2>&1
+    if ! git push >/dev/null 2>&1 ; then 
       _err "git push error"
     fi
   fi
@@ -288,10 +288,10 @@ testall() {
 }
 
 _pullgit() {
-  git checkout status/* >/dev/null
-  git checkout *.md >/dev/null
-  git checkout plat.conf >/dev/null
-  git pull >/dev/null
+  git checkout status/* >/dev/null 2>&1
+  git checkout *.md >/dev/null 2>&1
+  git checkout plat.conf >/dev/null 2>&1
+  git pull >/dev/null 2>&1
 }
 
 _cron() {
