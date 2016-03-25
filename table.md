@@ -22,3 +22,4 @@
 |base/archlinux|![](https://cdn.rawgit.com/Neilpang/letest/master/status/base-archlinux.svg?1458832154)|Thu Mar 24 15:09:14 UTC 2016| Passed |
 |oraclelinux:6|![](https://cdn.rawgit.com/Neilpang/letest/master/status/oraclelinux-6.svg?1458864591)|Fri Mar 25 00:09:51 UTC 2016| Passed |
 |oraclelinux:7|![](https://cdn.rawgit.com/Neilpang/letest/master/status/oraclelinux-7.svg?1458864694)|Fri Mar 25 00:11:34 UTC 2016| Passed |
+|oraclelinux:latest|![](https://cdn.rawgit.com/Neilpang/letest/master/status/oraclelinux-latest.svg?1458864793)|Fri Mar 25 00:13:13 UTC 2016| Passed |
