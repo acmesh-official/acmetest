@@ -209,16 +209,16 @@ _setup() {
     BRANCH="master"
   fi
   
-  if command -v unzip > /dev/null ; then
-    link="$lezip/$BRANCH.zip"
+  if command -v tar > /dev/null ; then
+    link="$lezip/$BRANCH.tar.gz"
     curl -OL "$link" >/dev/null 2>&1
-    unzip "$BRANCH.zip"  >/dev/null 2>&1
+    tar xzf "$BRANCH.tar.gz"  >/dev/null 2>&1
     mv "le-$BRANCH" le
   elif command -v git > /dev/null ; then
     rm -rf le
     git clone $legit -b $BRANCH
   else
-    _err "Can not get le source code. Unzip or git must be installed"
+    _err "Can not get le source code. tar or git must be installed"
     return 1
   fi
   lehome="$Default_Home"
