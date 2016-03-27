@@ -49,7 +49,7 @@ update() {
     git add "$filename" >/dev/null 2>&1
     cat head.md "$Table" tail.md > README.md
     git add *.md >/dev/null 2>&1
-    git commit -m "Update $plat" >/dev/null 2>&1
+    git commit -m "Test for $plat" >/dev/null 2>&1
     git pull >/dev/null 2>&1
     if ! git push >/dev/null 2>&1 ; then 
       _err "git push error"
