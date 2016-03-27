@@ -28,7 +28,7 @@ update() {
   if [ "$code" == "0" ] ; then
     if [ "$CI" ] ; then
       if [ -f "status/ok.svg" ] ; then
-        cp "status/ok.svg" "status/$statusfile.svg"
+        cat "status/ok.svg" > "status/$statusfile.svg"
       fi
       _setopt "$filename" "|$plat|" "![]($Img/$statusfile.svg?$(date -u "+%s"))|" "$(date -u)| Passed |"
     fi
@@ -37,7 +37,7 @@ update() {
   else
     if [ "$CI" ] ; then
       if [ -f "status/ng.svg" ] ; then
-        cp "status/ng.svg" "status/$statusfile.svg"
+        cat "status/ng.svg" > "status/$statusfile.svg"
       fi
       _setopt "$filename" "|$plat|" "![]($Img/$statusfile.svg?$(date -u "+%s"))|" "$(date -u)| Failed |"
     fi
