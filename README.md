@@ -30,7 +30,7 @@ Unit test project for le project https://github.com/Neilpang/le
 |alpine:3.2|![](https://cdn.rawgit.com/Neilpang/letest/master/status/alpine-3.2.svg?1459086678)|Sun Mar 27 13:51:18 UTC 2016| Passed |
 |alpine:3.3|![](https://cdn.rawgit.com/Neilpang/letest/master/status/alpine-3.3.svg?1459086758)|Sun Mar 27 13:52:38 UTC 2016| Passed |
 |alpine:latest|![](https://cdn.rawgit.com/Neilpang/letest/master/status/alpine-latest.svg?1459086834)|Sun Mar 27 13:53:54 UTC 2016| Passed |
-|oraclelinux:6|![](https://cdn.rawgit.com/Neilpang/letest/master/status/oraclelinux-6.svg?1459086849)|Sun Mar 27 13:54:09 UTC 2016| Failed |
+|oraclelinux:6|![](https://cdn.rawgit.com/Neilpang/letest/master/status/oraclelinux-6.svg?1459088860)|Sun Mar 27 14:27:41 UTC 2016| Passed |
 |oraclelinux:7|![](https://cdn.rawgit.com/Neilpang/letest/master/status/oraclelinux-7.svg?1459086861)|Sun Mar 27 13:54:21 UTC 2016| Failed |
 |oraclelinux:latest|![](https://cdn.rawgit.com/Neilpang/letest/master/status/oraclelinux-latest.svg?1459086873)|Sun Mar 27 13:54:33 UTC 2016| Failed |
 |kalilinux/kali-linux-docker|![](https://cdn.rawgit.com/Neilpang/letest/master/status/kalilinux-kali-linux-docker.svg?1459086982)|Sun Mar 27 13:56:22 UTC 2016| Passed |
