@@ -12,7 +12,7 @@
 |fedora:22|![](https://cdn.rawgit.com/Neilpang/letest/master/status/fedora-22.svg?1459086137)|Sun Mar 27 13:42:17 UTC 2016| Passed |
 |fedora:23|![](https://cdn.rawgit.com/Neilpang/letest/master/status/fedora-23.svg?1459086382)|Sun Mar 27 13:46:22 UTC 2016| Passed |
 |fedora:latest|![](https://cdn.rawgit.com/Neilpang/letest/master/status/fedora-latest.svg?1459086475)|Sun Mar 27 13:47:55 UTC 2016| Passed |
-|opensuse:13.2|![](https://cdn.rawgit.com/Neilpang/letest/master/status/opensuse-13.2.svg?1459086489)|Sun Mar 27 13:48:09 UTC 2016| Failed |
+|opensuse:13.2|![](https://cdn.rawgit.com/Neilpang/letest/master/status/opensuse-13.2.svg?1459087777)|Sun Mar 27 14:09:37 UTC 2016| Passed |
 |opensuse:42.1|![](https://cdn.rawgit.com/Neilpang/letest/master/status/opensuse-42.1.svg?1459086501)|Sun Mar 27 13:48:21 UTC 2016| Failed |
 |opensuse:latest|![](https://cdn.rawgit.com/Neilpang/letest/master/status/opensuse-latest.svg?1459086514)|Sun Mar 27 13:48:34 UTC 2016| Failed |
 |alpine:3.1|![](https://cdn.rawgit.com/Neilpang/letest/master/status/alpine-3.1.svg?1459086596)|Sun Mar 27 13:49:56 UTC 2016| Passed |
