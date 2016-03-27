@@ -9,32 +9,19 @@ Unit test project for le project https://github.com/Neilpang/le
 -----------|-------|--------------|---------|
 |windows|![](https://cdn.rawgit.com/Neilpang/letest/master/status/windows.svg?1458715683)|Wed Mar 23 06:48:03 UTC 2016| Passed |
 |freebsd|![](https://cdn.rawgit.com/Neilpang/letest/master/status/freebsd.svg?1458717740)|Wed Mar 23 07:22:20 UTC 2016| Passed |
-|ubuntu:14.04|![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-14.04.svg?1458869513)|Fri Mar 25 01:31:53 UTC 2016| Passed |
-|ubuntu:15.04|![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-15.04.svg?1458869625)|Fri Mar 25 01:33:45 UTC 2016| Passed |
-|ubuntu:latest|![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-latest.svg?1458869738)|Fri Mar 25 01:35:38 UTC 2016| Passed |
-|debian:7|![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-7.svg?1458869843)|Fri Mar 25 01:37:23 UTC 2016| Passed |
-|debian:8|![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-8.svg?1458869938)|Fri Mar 25 01:38:58 UTC 2016| Passed |
-|debian:latest|![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-latest.svg?1458870028)|Fri Mar 25 01:40:28 UTC 2016| Passed |
-|centos:5|![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-5.svg?1458870129)|Fri Mar 25 01:42:09 UTC 2016| Failed |
-|centos:6|![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-6.svg?1458870246)|Fri Mar 25 01:44:06 UTC 2016| Passed |
-|centos:7|![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-7.svg?1458870350)|Fri Mar 25 01:45:50 UTC 2016| Passed |
-|centos:latest|![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-latest.svg?1458870447)|Fri Mar 25 01:47:27 UTC 2016| Passed |
-|fedora:21|![](https://cdn.rawgit.com/Neilpang/letest/master/status/fedora-21.svg?1458870562)|Fri Mar 25 01:49:22 UTC 2016| Passed |
-|fedora:22|![](https://cdn.rawgit.com/Neilpang/letest/master/status/fedora-22.svg?1458870674)|Fri Mar 25 01:51:14 UTC 2016| Passed |
-|fedora:23|![](https://cdn.rawgit.com/Neilpang/letest/master/status/fedora-23.svg?1458870856)|Fri Mar 25 01:54:16 UTC 2016| Passed |
-|fedora:latest|![](https://cdn.rawgit.com/Neilpang/letest/master/status/fedora-latest.svg?1458870946)|Fri Mar 25 01:55:46 UTC 2016| Passed |
-|opensuse:13.2|![](https://cdn.rawgit.com/Neilpang/letest/master/status/opensuse-13.2.svg?1458871032)|Fri Mar 25 01:57:12 UTC 2016| Passed |
-|opensuse:42.1|![](https://cdn.rawgit.com/Neilpang/letest/master/status/opensuse-42.1.svg?1458871190)|Fri Mar 25 01:59:50 UTC 2016| Passed |
-|opensuse:latest|![](https://cdn.rawgit.com/Neilpang/letest/master/status/opensuse-latest.svg?1458871276)|Fri Mar 25 02:01:16 UTC 2016| Passed |
-|alpine:3.1|![](https://cdn.rawgit.com/Neilpang/letest/master/status/alpine-3.1.svg?1458871359)|Fri Mar 25 02:02:39 UTC 2016| Passed |
-|alpine:3.2|![](https://cdn.rawgit.com/Neilpang/letest/master/status/alpine-3.2.svg?1458871441)|Fri Mar 25 02:04:01 UTC 2016| Passed |
-|alpine:3.3|![](https://cdn.rawgit.com/Neilpang/letest/master/status/alpine-3.3.svg?1458871519)|Fri Mar 25 02:05:19 UTC 2016| Passed |
-|alpine:latest|![](https://cdn.rawgit.com/Neilpang/letest/master/status/alpine-latest.svg?1458871597)|Fri Mar 25 02:06:37 UTC 2016| Passed |
-|oraclelinux:6|![](https://cdn.rawgit.com/Neilpang/letest/master/status/oraclelinux-6.svg?1458871686)|Fri Mar 25 02:08:06 UTC 2016| Passed |
-|oraclelinux:7|![](https://cdn.rawgit.com/Neilpang/letest/master/status/oraclelinux-7.svg?1458871778)|Fri Mar 25 02:09:38 UTC 2016| Passed |
-|oraclelinux:latest|![](https://cdn.rawgit.com/Neilpang/letest/master/status/oraclelinux-latest.svg?1458871872)|Fri Mar 25 02:11:12 UTC 2016| Passed |
-|kalilinux/kali-linux-docker|![](https://cdn.rawgit.com/Neilpang/letest/master/status/kalilinux-kali-linux-docker.svg?1458871979)|Fri Mar 25 02:12:59 UTC 2016| Passed |
-|base/archlinux|![](https://cdn.rawgit.com/Neilpang/letest/master/status/base-archlinux.svg?1458872145)|Fri Mar 25 02:15:45 UTC 2016| Passed |
+|ubuntu:14.04|![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-14.04.svg?1459083389)|Sun Mar 27 12:56:29 UTC 2016| Passed |
+|ubuntu:15.04|![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-15.04.svg?1459083477)|Sun Mar 27 12:57:57 UTC 2016| Passed |
+|ubuntu:latest|![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-latest.svg?1459083562)|Sun Mar 27 12:59:22 UTC 2016| Passed |
+|debian:7|![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-7.svg?1459083750)|Sun Mar 27 13:02:30 UTC 2016| Failed |
+|debian:8|![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-8.svg?1459083843)|Sun Mar 27 13:04:03 UTC 2016| Passed |
+|debian:latest|![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-latest.svg?1459083936)|Sun Mar 27 13:05:36 UTC 2016| Passed |
+|centos:5|![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-5.svg?1459084041)|Sun Mar 27 13:07:21 UTC 2016| Failed |
+|centos:6|![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-6.svg?1459084136)|Sun Mar 27 13:08:56 UTC 2016| Passed |
+|centos:7|![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-7.svg?1459084236)|Sun Mar 27 13:10:36 UTC 2016| Passed |
+|centos:latest|![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-latest.svg?1459084334)|Sun Mar 27 13:12:14 UTC 2016| Passed |
+|fedora:21|![](https://cdn.rawgit.com/Neilpang/letest/master/status/fedora-21.svg?1459084346)|Sun Mar 27 13:12:26 UTC 2016| Failed |
+|fedora:22|![](https://cdn.rawgit.com/Neilpang/letest/master/status/fedora-22.svg?1459084359)|Sun Mar 27 13:12:39 UTC 2016| Failed |
+|fedora:23|![](https://cdn.rawgit.com/Neilpang/letest/master/status/fedora-23.svg?1459084371)|Sun Mar 27 13:12:51 UTC 2016| Failed |
 (The openssl in CentOS 5 doesn't support ECDSA, so the ECDSA test cases failed. However, RSA certificates are working there.)
 
 # How to run tests
