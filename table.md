@@ -21,6 +21,6 @@
 |alpine:latest|![](https://cdn.rawgit.com/Neilpang/letest/master/status/alpine-latest.svg?1459086834)|Sun Mar 27 13:53:54 UTC 2016| Passed |
 |oraclelinux:6|![](https://cdn.rawgit.com/Neilpang/letest/master/status/oraclelinux-6.svg?1459088860)|Sun Mar 27 14:27:41 UTC 2016| Passed |
 |oraclelinux:7|![](https://cdn.rawgit.com/Neilpang/letest/master/status/oraclelinux-7.svg?1459089054)|Sun Mar 27 14:30:54 UTC 2016| Passed |
-|oraclelinux:latest|![](https://cdn.rawgit.com/Neilpang/letest/master/status/oraclelinux-latest.svg?1459086873)|Sun Mar 27 13:54:33 UTC 2016| Failed |
+|oraclelinux:latest|![](https://cdn.rawgit.com/Neilpang/letest/master/status/oraclelinux-latest.svg?1459089144)|Sun Mar 27 14:32:24 UTC 2016| Passed |
 |kalilinux/kali-linux-docker|![](https://cdn.rawgit.com/Neilpang/letest/master/status/kalilinux-kali-linux-docker.svg?1459086982)|Sun Mar 27 13:56:22 UTC 2016| Passed |
 |base/archlinux|![](https://cdn.rawgit.com/Neilpang/letest/master/status/base-archlinux.svg?1459087088)|Sun Mar 27 13:58:08 UTC 2016| Passed |
