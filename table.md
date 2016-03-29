@@ -4,4 +4,4 @@
 |debian:7|![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-7.svg?1459257819)|Tue Mar 29 13:23:39 UTC 2016| Passed |
 |debian:8|![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-8.svg?1459257914)|Tue Mar 29 13:25:14 UTC 2016| Passed |
 |debian:latest|![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-latest.svg?1459258004)|Tue Mar 29 13:26:44 UTC 2016| Passed |
-|centos:5|![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-5.svg?1459258057)|Tue Mar 29 13:27:37 UTC 2016| Failed |
+|centos:5|![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-5.svg?1459258107)|Tue Mar 29 13:28:27 UTC 2016| Failed |
