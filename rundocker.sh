@@ -68,7 +68,7 @@ _sed_i() {
   
   if sed -h 2>&1 | grep "\-i[SUFFIX]" ; then
     _debug "Using sed  -i"
-    sed -i "$options"
+    sed -i "\"$options\""
   else
     _debug "No -i support in sed"
     text="$(cat $filename)"
