@@ -105,15 +105,15 @@ _assertcert() {
   subj="$(openssl x509  -in $filename  -text  -noout | grep 'Subject: CN=' | cut -d '=' -f 2)"
   echo -n "$subj"
   if [[ "$subj" == "$subname" ]] ; then
-    __ok ""
     if [[ "$issuername" ]] ; then
       issuer="$(openssl x509  -in $filename  -text  -noout | grep 'Issuer: CN=' | cut -d '=' -f 2)"
-      echo -n "$issuer"
+      echo -n " $issuer"
       if [[ "$issuername" != "$issuer" ]] ; then
         __fail ""
         return 1
       fi
-    fi  
+    fi
+    __ok ""
     return 0
   else
     __fail ""
