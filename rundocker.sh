@@ -57,6 +57,24 @@ update() {
   fi
 }
 
+#options file
+_sed_i() {
+  options="$1"
+  filename="$2"
+  if [ -z "$filename" ] ; then
+    _err "Usage:_sed_i options filename"
+    return 1
+  fi
+  
+  if sed -h 2>&1 | grep "\-i[SUFFIX]" ; then
+    _debug "Using sed  -i"
+    sed -i ""
+  else
+    _debug "No -i support in sed"
+    text="$(cat $filename)"
+    echo "$text" | sed "$options" > "$filename"
+  fi
+}
 
 #setopt "file"  "opt"  "="  "value" [";"]
 _setopt() {
@@ -79,7 +97,7 @@ _setopt() {
       __val="$(echo $__val | sed 's/&/\\&/g')"
     fi
     set +H
-    sed -i "s\\^$__opt.*$\\$__opt$__sep$__val$__end\\"  "$__conf"
+    _sed_i "s\\^$__opt.*$\\$__opt$__sep$__val$__end\\"  "$__conf"
 
   else
     _debug APP
