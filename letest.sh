@@ -10,6 +10,8 @@ Default_Home="$HOME/.le"
 BEGIN_CERT="-----BEGIN CERTIFICATE-----"
 END_CERT="-----END CERTIFICATE-----"
 
+CA="Fake LE Intermediate X1"
+
 _err() {
   if [ -z "$2" ] ; then
     echo -e "$1" >&2
@@ -94,14 +96,24 @@ __fail() {
   return 1
 }
 
-#file
+#file subname
 _assertcert() {
   filename="$1"
+  subname="$2"
+  issuername="$3"
   echo -n "$filename is cert ? "
   subj="$(openssl x509  -in $filename  -text  -noout | grep 'Subject: CN=' | cut -d '=' -f 2)"
   echo -n "$subj"
-  if [[ "$subj" == "$TestingDomain" ]] ; then
+  if [[ "$subj" == "$subname" ]] ; then
     __ok ""
+    if [[ "$issuername" ]] ; then
+      issuer="$(openssl x509  -in $filename  -text  -noout | grep 'Issuer: CN=' | cut -d '=' -f 2)"
+      echo -n "$issuer"
+      if [[ "$issuername" != "$issuer" ]] ; then
+        __fail ""
+        return 1
+      fi
+    fi  
     return 0
   else
     __fail ""
@@ -326,8 +338,8 @@ le_test_standandalone() {
   fi
 
   _assertcmd "$lehome/le.sh issue no $TestingDomain" ||  return
-  _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" || return
-  _assertcert "$lehome/$TestingDomain/ca.cer" || return
+  _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" "$TestingDomain" "$CA" || return
+  _assertcert "$lehome/$TestingDomain/ca.cer" "$CA" || return
   lp=`_ss | grep ':80 '`
   if [ "$lp" ] ; then
     __fail "80 port is not released: $lp"
@@ -353,8 +365,8 @@ le_test_standandalone_SAN() {
   fi
 
   _assertcmd "$lehome/le.sh issue no $TestingDomain $TestingAltDomains" ||  return
-  _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" || return
-  _assertcert "$lehome/$TestingDomain/ca.cer" || return
+  _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" "$TestingDomain" "$CA" || return
+  _assertcert "$lehome/$TestingDomain/ca.cer" "$CA" || return
   lp=`_ss | grep ':80 '`
   if [ "$lp" ] ; then
     __fail "80 port is not released: $lp"
@@ -379,8 +391,8 @@ le_test_standandalone_ECDSA_256() {
   fi
 
   _assertcmd "$lehome/le.sh issue no $TestingDomain no ec-256" ||  return
-  _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" || return
-  _assertcert "$lehome/$TestingDomain/ca.cer" || return
+  _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" "$TestingDomain" "$CA" || return
+  _assertcert "$lehome/$TestingDomain/ca.cer" "$CA" || return
   
   lp=`_ss | grep ':80 '`
   if [ "$lp" ] ; then
@@ -408,8 +420,8 @@ le_test_standandalone_ECDSA_384() {
   fi
 
   _assertcmd "$lehome/le.sh issue no $TestingDomain no ec-384" ||  return
-  _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" || return
-  _assertcert "$lehome/$TestingDomain/ca.cer" || return
+  _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" "$TestingDomain" "$CA" || return
+  _assertcert "$lehome/$TestingDomain/ca.cer" "$CA" || return
   
   lp=`_ss | grep ':80 '`
   if [ "$lp" ] ; then
