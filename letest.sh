@@ -98,9 +98,9 @@ __fail() {
 _assertcert() {
   filename="$1"
   echo -n "$filename is cert ? "
-  if grep -- "$BEGIN_CERT" "$filename" >/dev/null 2>&1 \
-  && grep -- "$END_CERT" "$filename" >/dev/null 2>&1 \
-  && [ "$(cat "$filename" | wc -l )" -gt 2 ] ; then
+  subj="$(openssl x509  -in $filename  -text  -noout | grep 'Subject: CN=' | cut -d '=' -f 2)"
+  echo -n "$subj"
+  if [[ "$subj" == "$TestingDomain" ]] ; then
     __ok ""
     return 0
   else
