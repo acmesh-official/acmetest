@@ -18,6 +18,7 @@ Unit test project for le project https://github.com/Neilpang/le
 |centos:5|![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-5.svg?1459527687)|Fri Apr  1 16:21:27 UTC 2016| Failed |
 |centos:6|![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-6.svg?1459527840)|Fri Apr  1 16:24:00 UTC 2016| Failed |
 |centos:7|![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-7.svg?1459527940)|Fri Apr  1 16:25:40 UTC 2016| Passed |
+|centos:latest|![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-latest.svg?1459528036)|Fri Apr  1 16:27:16 UTC 2016| Passed |
 (The openssl in CentOS 5 doesn't support ECDSA, so the ECDSA test cases failed. However, RSA certificates are working there.)
 
 # How to run tests
