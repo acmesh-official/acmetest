@@ -125,16 +125,16 @@ _assertcert() {
 _assertcmd() {
   __cmd="$1"
   echo -n "$__cmd"
-  if [ "$DEBUG" ] ; then
-    $__cmd
-  else
-    $__cmd > /dev/null
-  fi
+  
+  $__cmd > "cmd.log" 2>&1
   
   if [ "$?" == "0" ] ; then 
     __ok ""
   else
     __fail ""
+    if [ "$DEBUG" ] ; then
+      cat "cmd.log" > &2
+    fi
     return 1
   fi
   return 0
