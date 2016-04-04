@@ -323,6 +323,33 @@ le_test_uninstalltodir() {
 }
 
 #
+le_test_standandalone_renew() {
+  lehome="$Default_Home"
+
+  lp=`_ss | grep ':80 '`
+  if [ "$lp" ] ; then
+    __fail "80 port is already used."
+    return 1
+  fi
+  
+  if [ -z "$TestingDomain" ] ; then
+    __fail "Please define TestingDomain and try again."
+    return 1
+  fi
+
+  _assertcmd "$lehome/le.sh issue no $TestingDomain" ||  return
+  _assertcmd "$lehome/le.sh renew $TestingDomain" ||  return
+  lp=`_ss | grep ':80 '`
+  if [ "$lp" ] ; then
+    __fail "80 port is not released: $lp"
+    return 1
+  fi
+  
+  rm -rf "$lehome/$TestingDomain"
+
+}
+
+#
 le_test_standandalone() {
   lehome="$Default_Home"
 
@@ -404,6 +431,61 @@ le_test_standandalone_ECDSA_256() {
 
 }
 
+le_test_standandalone_ECDSA_256_renew() {
+  lehome="$Default_Home"
+
+  lp=`_ss | grep ':80 '`
+  if [ "$lp" ] ; then
+    __fail "80 port is already used."
+    return 1
+  fi
+  
+  if [ -z "$TestingDomain" ] ; then
+    __fail "Please define TestingDomain and try again."
+    return 1
+  fi
+
+  _assertcmd "$lehome/le.sh issue no $TestingDomain no ec-256" ||  return
+  _assertcmd "$lehome/le.sh renew $TestingDomain" ||  return
+  
+  lp=`_ss | grep ':80 '`
+  if [ "$lp" ] ; then
+    __fail "80 port is not released: $lp"
+    return 1
+  fi
+  
+  rm -rf "$lehome/$TestingDomain"
+
+}
+
+
+le_test_standandalone_ECDSA_256_SAN_renew() {
+  lehome="$Default_Home"
+
+  lp=`_ss | grep ':80 '`
+  if [ "$lp" ] ; then
+    __fail "80 port is already used."
+    return 1
+  fi
+  
+  if [ -z "$TestingDomain" ] ; then
+    __fail "Please define TestingDomain and try again."
+    return 1
+  fi
+
+  _assertcmd "$lehome/le.sh issue no $TestingDomain $TestingAltDomains ec-256" ||  return
+
+  _assertcmd "$lehome/le.sh renew $TestingDomain" ||  return
+  
+  lp=`_ss | grep ':80 '`
+  if [ "$lp" ] ; then
+    __fail "80 port is not released: $lp"
+    return 1
+  fi
+  
+  rm -rf "$lehome/$TestingDomain"
+
+}
 
 le_test_standandalone_ECDSA_384() {
   lehome="$Default_Home"
