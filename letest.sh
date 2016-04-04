@@ -133,7 +133,7 @@ _assertcmd() {
   else
     __fail ""
     if [ "$DEBUG" ] ; then
-      cat "cmd.log" > &2
+      cat "cmd.log" >&2
     fi
     return 1
   fi
