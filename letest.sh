@@ -126,7 +126,7 @@ _assertcmd() {
   __cmd="$1"
   echo -n "$__cmd"
   
-  $__cmd > "cmd.log" 2>&1
+  eval "$__cmd > \"cmd.log\" 2>&1"
   
   if [ "$?" == "0" ] ; then 
     __ok ""
@@ -195,7 +195,7 @@ _run() {
     fi
   fi
   
-  if ! $1 ; then
+  if ! ( $1 ) ; then
     _ret="1"
   fi
   
@@ -338,7 +338,9 @@ le_test_standandalone_renew() {
   fi
 
   _assertcmd "$lehome/le.sh issue no $TestingDomain" ||  return
+   
   _assertcmd "FORCE=1 $lehome/le.sh renew $TestingDomain" ||  return
+
   lp=`_ss | grep ':80 '`
   if [ "$lp" ] ; then
     __fail "80 port is not released: $lp"
@@ -446,8 +448,9 @@ le_test_standandalone_ECDSA_256_renew() {
   fi
 
   _assertcmd "$lehome/le.sh issue no $TestingDomain no ec-256" ||  return
+
   _assertcmd "FORCE=1 $lehome/le.sh renew $TestingDomain" ||  return
-  
+
   lp=`_ss | grep ':80 '`
   if [ "$lp" ] ; then
     __fail "80 port is not released: $lp"
@@ -476,7 +479,7 @@ le_test_standandalone_ECDSA_256_SAN_renew() {
   _assertcmd "$lehome/le.sh issue no $TestingDomain $TestingAltDomains ec-256" ||  return
 
   _assertcmd "FORCE=1 $lehome/le.sh renew $TestingDomain" ||  return
-  
+
   lp=`_ss | grep ':80 '`
   if [ "$lp" ] ; then
     __fail "80 port is not released: $lp"
