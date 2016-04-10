@@ -351,6 +351,39 @@ le_test_standandalone_renew() {
 
 }
 
+
+#
+le_test_standandalone_renew_v2() {
+  lehome="$Default_Home"
+
+  lp=`_ss | grep ':80 '`
+  if [ "$lp" ] ; then
+    __fail "80 port is already used."
+    return 1
+  fi
+  
+  if [ -z "$TestingDomain" ] ; then
+    __fail "Please define TestingDomain and try again."
+    return 1
+  fi
+
+  _assertcmd "$lehome/le.sh --issue -d $TestingDomain --standalone" ||  return
+   
+  _assertcmd "$lehome/le.sh --renew -d $TestingDomain --force" ||  return
+  
+  _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" "$TestingDomain" "$CA" || return
+  _assertcert "$lehome/$TestingDomain/ca.cer" "$CA" || return
+  
+  lp=`_ss | grep ':80 '`
+  if [ "$lp" ] ; then
+    __fail "80 port is not released: $lp"
+    return 1
+  fi
+  
+  rm -rf "$lehome/$TestingDomain"
+
+}
+
 #
 le_test_standandalone() {
   lehome="$Default_Home"
@@ -480,6 +513,37 @@ le_test_standandalone_ECDSA_256_SAN_renew() {
 
   _assertcmd "FORCE=1 $lehome/le.sh renew $TestingDomain" ||  return
 
+  lp=`_ss | grep ':80 '`
+  if [ "$lp" ] ; then
+    __fail "80 port is not released: $lp"
+    return 1
+  fi
+  
+  rm -rf "$lehome/$TestingDomain"
+
+}
+
+le_test_standandalone_ECDSA_256_SAN_renew_v2() {
+  lehome="$Default_Home"
+
+  lp=`_ss | grep ':80 '`
+  if [ "$lp" ] ; then
+    __fail "80 port is already used."
+    return 1
+  fi
+  
+  if [ -z "$TestingDomain" ] ; then
+    __fail "Please define TestingDomain and try again."
+    return 1
+  fi
+
+  _assertcmd "$lehome/le.sh --issue -d $TestingDomain -d $TestingAltDomains --standalone --keylength ec-256" ||  return
+
+  _assertcmd "$lehome/le.sh --renew -d $TestingDomain" ||  return
+  
+  _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" "$TestingDomain" "$CA" || return
+  _assertcert "$lehome/$TestingDomain/ca.cer" "$CA" || return
+  
   lp=`_ss | grep ':80 '`
   if [ "$lp" ] ; then
     __fail "80 port is not released: $lp"
