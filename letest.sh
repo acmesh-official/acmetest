@@ -539,7 +539,7 @@ le_test_standandalone_ECDSA_256_SAN_renew_v2() {
 
   _assertcmd "$lehome/le.sh --issue -d $TestingDomain -d $TestingAltDomains --standalone --keylength ec-256" ||  return
 
-  _assertcmd "$lehome/le.sh --renew -d $TestingDomain" ||  return
+  _assertcmd "$lehome/le.sh --renew -d $TestingDomain --force" ||  return
   
   _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" "$TestingDomain" "$CA" || return
   _assertcert "$lehome/$TestingDomain/ca.cer" "$CA" || return
