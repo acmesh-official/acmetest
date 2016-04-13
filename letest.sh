@@ -7,6 +7,9 @@ legit="https://github.com/Neilpang/le.git"
 
 Default_Home="$HOME/.le"
 
+PROJECT_ENTRY="le.sh"
+
+
 BEGIN_CERT="-----BEGIN CERTIFICATE-----"
 END_CERT="-----END CERTIFICATE-----"
 
@@ -187,7 +190,7 @@ _run() {
   
   if [ "$1" != "le_test_installtodir" ] && [ "$1" != "le_test_uninstalltodir" ] ; then
     cd le;
-    ./le.sh install > /dev/null
+    ./$PROJECT_ENTRY install > /dev/null
     cd ..
     if [ -f "account.key" ] && [ -d "$HOME/.le/" ] ; then
       cp account.key $HOME/.le/
@@ -201,8 +204,8 @@ _run() {
   
   rm -rf "$lehome/$TestingDomain"
   
-  if [ -f "$lehome/le.sh" ] ; then
-    $lehome/le.sh uninstall >/dev/null
+  if [ -f "$lehome/$PROJECT_ENTRY" ] ; then
+    $lehome/$PROJECT_ENTRY uninstall >/dev/null
     if [ ! -f "account.key" ] && [ -f "$lehome/account.key" ] ; then
       cp "$lehome/account.key" account.key
       cp "$lehome/account.conf" account.conf
@@ -234,8 +237,8 @@ _setup() {
     return 1
   fi
   lehome="$Default_Home"
-  if [ -f "$lehome/le.sh" ] ; then
-    $lehome/le.sh uninstall >/dev/null 2>&1
+  if [ -f "$lehome/$PROJECT_ENTRY" ] ; then
+    $lehome/$PROJECT_ENTRY uninstall >/dev/null 2>&1
   fi
   
   if [ -d $Default_Home ] ; then 
@@ -265,22 +268,22 @@ le_test_install() {
   lehome="$Default_Home"
   
   cd le;
-  _assertcmd  "./le.sh install" || return
+  _assertcmd  "./$PROJECT_ENTRY install" || return
   cd ..
   
-  _assertexists "$lehome/le.sh" || return
-  _assertequals "0 0 * * * LE_WORKING_DIR=\"$lehome\" \"$lehome\"/le.sh cron > /dev/null"  "$(crontab -l | grep le.sh)" || return
-  _assertcmd "$lehome/le.sh uninstall  > /dev/null" ||  return
+  _assertexists "$lehome/$PROJECT_ENTRY" || return
+  _assertequals "0 0 * * * \"$lehome\"/$PROJECT_ENTRY --cron --home \"$lehome\" > /dev/null"  "$(crontab -l | grep $PROJECT_ENTRY)" || return
+  _assertcmd "$lehome/$PROJECT_ENTRY uninstall  > /dev/null" ||  return
 }
 
 le_test_uninstall() {
   lehome="$Default_Home"
   cd le;
-  _assertcmd  "./le.sh install" || return
+  _assertcmd  "./$PROJECT_ENTRY install" || return
   cd ..
-  _assertcmd "$lehome/le.sh uninstall" ||  return
-  _assertnotexists "$lehome/le.sh" ||  return
-  _assertequals "" "$(crontab -l | grep le.sh)"||  return
+  _assertcmd "$lehome/$PROJECT_ENTRY uninstall" ||  return
+  _assertnotexists "$lehome/$PROJECT_ENTRY" ||  return
+  _assertequals "" "$(crontab -l | grep $PROJECT_ENTRY)"||  return
 
 }
 
@@ -293,13 +296,13 @@ le_test_installtodir() {
   cd le;
   LE_WORKING_DIR=$lehome
   export LE_WORKING_DIR
-  _assertcmd "./le.sh install" ||  return
+  _assertcmd "./$PROJECT_ENTRY install" ||  return
   LE_WORKING_DIR=""
   cd ..
   
-  _assertexists "$lehome/le.sh" ||  return
-  _assertequals "0 0 * * * LE_WORKING_DIR=\"$lehome\" \"$lehome\"/le.sh cron > /dev/null"  "$(crontab -l | grep le.sh)" ||  return
-  _assertcmd "$lehome/le.sh uninstall" ||  return
+  _assertexists "$lehome/$PROJECT_ENTRY" ||  return
+  _assertequals "0 0 * * * \"$lehome\"/$PROJECT_ENTRY --cron \"$lehome\" > /dev/null"  "$(crontab -l | grep $PROJECT_ENTRY)" ||  return
+  _assertcmd "$lehome/$PROJECT_ENTRY uninstall" ||  return
 }
 
 le_test_uninstalltodir() {
@@ -312,13 +315,13 @@ le_test_uninstalltodir() {
   cd le;
   LE_WORKING_DIR=$lehome
   export LE_WORKING_DIR
-  _assertcmd "./le.sh install" ||  return
+  _assertcmd "./$PROJECT_ENTRY install" ||  return
   LE_WORKING_DIR=""
   cd ..
   
-  _assertcmd "$lehome/le.sh uninstall" ||  return
-  _assertnotexists "$lehome/le.sh" ||  return
-  _assertequals "" "$(crontab -l | grep le.sh)" ||  return
+  _assertcmd "$lehome/$PROJECT_ENTRY uninstall" ||  return
+  _assertnotexists "$lehome/$PROJECT_ENTRY" ||  return
+  _assertequals "" "$(crontab -l | grep $PROJECT_ENTRY)" ||  return
 
 }
 
@@ -337,9 +340,9 @@ le_test_standandalone_renew() {
     return 1
   fi
 
-  _assertcmd "$lehome/le.sh issue no $TestingDomain" ||  return
+  _assertcmd "$lehome/$PROJECT_ENTRY issue no $TestingDomain" ||  return
    
-  _assertcmd "FORCE=1 $lehome/le.sh renew $TestingDomain" ||  return
+  _assertcmd "FORCE=1 $lehome/$PROJECT_ENTRY renew $TestingDomain" ||  return
 
   lp=`_ss | grep ':80 '`
   if [ "$lp" ] ; then
@@ -367,9 +370,9 @@ le_test_standandalone_renew_v2() {
     return 1
   fi
 
-  _assertcmd "$lehome/le.sh --issue -d $TestingDomain --standalone" ||  return
+  _assertcmd "$lehome/$PROJECT_ENTRY --issue -d $TestingDomain --standalone" ||  return
    
-  _assertcmd "$lehome/le.sh --renew -d $TestingDomain --force" ||  return
+  _assertcmd "$lehome/$PROJECT_ENTRY --renew -d $TestingDomain --force" ||  return
   
   _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" "$TestingDomain" "$CA" || return
   _assertcert "$lehome/$TestingDomain/ca.cer" "$CA" || return
@@ -399,7 +402,7 @@ le_test_standandalone() {
     return 1
   fi
 
-  _assertcmd "$lehome/le.sh issue no $TestingDomain" ||  return
+  _assertcmd "$lehome/$PROJECT_ENTRY issue no $TestingDomain" ||  return
   _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" "$TestingDomain" "$CA" || return
   _assertcert "$lehome/$TestingDomain/ca.cer" "$CA" || return
   lp=`_ss | grep ':80 '`
@@ -426,7 +429,7 @@ le_test_standandalone_SAN() {
     return 1
   fi
 
-  _assertcmd "$lehome/le.sh issue no $TestingDomain $TestingAltDomains" ||  return
+  _assertcmd "$lehome/$PROJECT_ENTRY issue no $TestingDomain $TestingAltDomains" ||  return
   _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" "$TestingDomain" "$CA" || return
   _assertcert "$lehome/$TestingDomain/ca.cer" "$CA" || return
   lp=`_ss | grep ':80 '`
@@ -452,7 +455,7 @@ le_test_standandalone_ECDSA_256() {
     return 1
   fi
 
-  _assertcmd "$lehome/le.sh issue no $TestingDomain no ec-256" ||  return
+  _assertcmd "$lehome/$PROJECT_ENTRY issue no $TestingDomain no ec-256" ||  return
   _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" "$TestingDomain" "$CA" || return
   _assertcert "$lehome/$TestingDomain/ca.cer" "$CA" || return
   
@@ -480,9 +483,9 @@ le_test_standandalone_ECDSA_256_renew() {
     return 1
   fi
 
-  _assertcmd "$lehome/le.sh issue no $TestingDomain no ec-256" ||  return
+  _assertcmd "$lehome/$PROJECT_ENTRY issue no $TestingDomain no ec-256" ||  return
 
-  _assertcmd "FORCE=1 $lehome/le.sh renew $TestingDomain" ||  return
+  _assertcmd "FORCE=1 $lehome/$PROJECT_ENTRY renew $TestingDomain" ||  return
 
   lp=`_ss | grep ':80 '`
   if [ "$lp" ] ; then
@@ -509,9 +512,9 @@ le_test_standandalone_ECDSA_256_SAN_renew() {
     return 1
   fi
 
-  _assertcmd "$lehome/le.sh issue no $TestingDomain $TestingAltDomains ec-256" ||  return
+  _assertcmd "$lehome/$PROJECT_ENTRY issue no $TestingDomain $TestingAltDomains ec-256" ||  return
 
-  _assertcmd "FORCE=1 $lehome/le.sh renew $TestingDomain" ||  return
+  _assertcmd "FORCE=1 $lehome/$PROJECT_ENTRY renew $TestingDomain" ||  return
 
   lp=`_ss | grep ':80 '`
   if [ "$lp" ] ; then
@@ -537,9 +540,9 @@ le_test_standandalone_ECDSA_256_SAN_renew_v2() {
     return 1
   fi
 
-  _assertcmd "$lehome/le.sh --issue -d $TestingDomain -d $TestingAltDomains --standalone --keylength ec-256" ||  return
+  _assertcmd "$lehome/$PROJECT_ENTRY --issue -d $TestingDomain -d $TestingAltDomains --standalone --keylength ec-256" ||  return
 
-  _assertcmd "$lehome/le.sh --renew -d $TestingDomain --force" ||  return
+  _assertcmd "$lehome/$PROJECT_ENTRY --renew -d $TestingDomain --force" ||  return
   
   _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" "$TestingDomain" "$CA" || return
   _assertcert "$lehome/$TestingDomain/ca.cer" "$CA" || return
@@ -568,7 +571,7 @@ le_test_standandalone_ECDSA_384() {
     return 1
   fi
 
-  _assertcmd "$lehome/le.sh issue no $TestingDomain no ec-384" ||  return
+  _assertcmd "$lehome/$PROJECT_ENTRY issue no $TestingDomain no ec-384" ||  return
   _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" "$TestingDomain" "$CA" || return
   _assertcert "$lehome/$TestingDomain/ca.cer" "$CA" || return
   
