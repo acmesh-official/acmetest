@@ -301,7 +301,7 @@ le_test_installtodir() {
   cd ..
   
   _assertexists "$lehome/$PROJECT_ENTRY" ||  return
-  _assertequals "0 0 * * * \"$lehome\"/$PROJECT_ENTRY --cron \"$lehome\" > /dev/null"  "$(crontab -l | grep $PROJECT_ENTRY)" ||  return
+  _assertequals "0 0 * * * \"$lehome\"/$PROJECT_ENTRY --cron --home \"$lehome\" > /dev/null"  "$(crontab -l | grep $PROJECT_ENTRY)" ||  return
   _assertcmd "$lehome/$PROJECT_ENTRY uninstall" ||  return
 }
 
