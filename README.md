@@ -34,7 +34,7 @@ Unit test project for le project https://github.com/Neilpang/le
 |oraclelinux:7|![](https://cdn.rawgit.com/Neilpang/letest/master/status/oraclelinux-7.svg?1460659409)|Thu Apr 14 18:43:29 UTC 2016| Failed |
 |oraclelinux:latest|![](https://cdn.rawgit.com/Neilpang/letest/master/status/oraclelinux-latest.svg?1460659535)|Thu Apr 14 18:45:35 UTC 2016| Failed |
 |kalilinux/kali-linux-docker|![](https://cdn.rawgit.com/Neilpang/letest/master/status/kalilinux-kali-linux-docker.svg?1460659677)|Thu Apr 14 18:47:57 UTC 2016| Failed |
-|base/archlinux|![](https://cdn.rawgit.com/Neilpang/letest/master/status/base-archlinux.svg?1460659736)|Thu Apr 14 18:48:56 UTC 2016| Failed |
+|base/archlinux|![](https://cdn.rawgit.com/Neilpang/letest/master/status/base-archlinux.svg?1460659793)|Thu Apr 14 18:49:53 UTC 2016| Failed |
 (The openssl in CentOS 5 doesn't support ECDSA, so the ECDSA test cases failed. However, RSA certificates are working there.)
 
 # How to run tests
