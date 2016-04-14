@@ -12,7 +12,7 @@ Unit test project for le project https://github.com/Neilpang/le
 |ubuntu:14.04|![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-14.04.svg?1460561558)|Wed Apr 13 15:32:38 UTC 2016| Passed |
 |ubuntu:15.04|![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-15.04.svg?1460561932)|Wed Apr 13 15:38:52 UTC 2016| Passed |
 |ubuntu:latest|![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-latest.svg?1460562633)|Wed Apr 13 15:50:33 UTC 2016| Passed |
-|debian:7|![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-7.svg?1460563379)|Wed Apr 13 16:02:59 UTC 2016| Failed |
+|debian:7|![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-7.svg?1460593774)|Thu Apr 14 00:29:34 UTC 2016| Passed |
 |debian:8|![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-8.svg?1460564192)|Wed Apr 13 16:16:32 UTC 2016| Passed |
 |debian:latest|![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-latest.svg?1460564877)|Wed Apr 13 16:27:57 UTC 2016| Passed |
 |centos:5|![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-5.svg?1460565177)|Wed Apr 13 16:32:57 UTC 2016| Failed |
