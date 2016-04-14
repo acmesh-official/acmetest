@@ -189,7 +189,7 @@ _run() {
   export DEBUG
   
   if [ "$1" != "le_test_installtodir" ] && [ "$1" != "le_test_uninstalltodir" ] ; then
-    cd le;
+    cd acme.sh;
     ./$PROJECT_ENTRY install > /dev/null
     cd ..
     if [ -f "account.key" ] && [ -d "$HOME/.acme.sh/" ] ; then
