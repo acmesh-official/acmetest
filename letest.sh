@@ -2,12 +2,12 @@
 
 STAGE=1
 
-lezip="https://github.com/Neilpang/le/archive"
-legit="https://github.com/Neilpang/le.git"
+lezip="https://github.com/Neilpang/acme.sh/archive"
+legit="https://github.com/Neilpang/acme.sh.git"
 
-Default_Home="$HOME/.le"
+Default_Home="$HOME/.acme.sh"
 
-PROJECT_ENTRY="le.sh"
+PROJECT_ENTRY="acme.sh"
 
 
 BEGIN_CERT="-----BEGIN CERTIFICATE-----"
@@ -192,9 +192,9 @@ _run() {
     cd le;
     ./$PROJECT_ENTRY install > /dev/null
     cd ..
-    if [ -f "account.key" ] && [ -d "$HOME/.le/" ] ; then
-      cp account.key $HOME/.le/
-      cp account.conf $HOME/.le/
+    if [ -f "account.key" ] && [ -d "$HOME/.acme.sh/" ] ; then
+      cp account.key $HOME/.acme.sh/
+      cp account.conf $HOME/.acme.sh/
     fi
   fi
   
@@ -217,8 +217,8 @@ _run() {
 ####################################################
 _setup() {
 
-  if [ -d le ] ; then
-    rm -rf le 
+  if [ -d acme.sh ] ; then
+    rm -rf acme.sh 
   fi
   if [ ! "$BRANCH" ] ; then
     BRANCH="master"
@@ -228,12 +228,12 @@ _setup() {
     link="$lezip/$BRANCH.tar.gz"
     curl -OL "$link" >/dev/null 2>&1
     tar xzf "$BRANCH.tar.gz"  >/dev/null 2>&1
-    mv "le-$BRANCH" le
+    mv "acme.sh-$BRANCH" acme.sh
   elif command -v git > /dev/null ; then
-    rm -rf le
+    rm -rf acme.sh
     git clone $legit -b $BRANCH
   else
-    _err "Can not get le source code. tar or git must be installed"
+    _err "Can not get acme.sh source code. tar or git must be installed"
     return 1
   fi
   lehome="$Default_Home"
@@ -267,7 +267,7 @@ le_test_dependencies() {
 le_test_install() {
   lehome="$Default_Home"
   
-  cd le;
+  cd acme.sh;
   _assertcmd  "./$PROJECT_ENTRY install" || return
   cd ..
   
@@ -278,7 +278,7 @@ le_test_install() {
 
 le_test_uninstall() {
   lehome="$Default_Home"
-  cd le;
+  cd acme.sh;
   _assertcmd  "./$PROJECT_ENTRY install" || return
   cd ..
   _assertcmd "$lehome/$PROJECT_ENTRY uninstall" ||  return
@@ -293,7 +293,7 @@ le_test_installtodir() {
   if [ -d $lehome ] ; then
     rm -rf $lehome
   fi
-  cd le;
+  cd acme.sh;
   LE_WORKING_DIR=$lehome
   export LE_WORKING_DIR
   _assertcmd "./$PROJECT_ENTRY install" ||  return
@@ -312,7 +312,7 @@ le_test_uninstalltodir() {
     rm -rf $lehome
   fi
   
-  cd le;
+  cd acme.sh;
   LE_WORKING_DIR=$lehome
   export LE_WORKING_DIR
   _assertcmd "./$PROJECT_ENTRY install" ||  return
