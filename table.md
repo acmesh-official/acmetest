@@ -9,3 +9,4 @@
 |centos:7|![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-7.svg?1460683939)|Fri Apr 15 01:32:19 UTC 2016| Passed |
 |centos:latest|![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-latest.svg?1460684313)|Fri Apr 15 01:38:33 UTC 2016| Passed |
 |fedora:21|![](https://cdn.rawgit.com/Neilpang/letest/master/status/fedora-21.svg?1460684683)|Fri Apr 15 01:44:43 UTC 2016| Passed |
+|fedora:22|![](https://cdn.rawgit.com/Neilpang/letest/master/status/fedora-22.svg?1460685050)|Fri Apr 15 01:50:50 UTC 2016| Passed |
