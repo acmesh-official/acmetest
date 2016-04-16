@@ -8,7 +8,7 @@ legit="https://github.com/Neilpang/acme.sh.git"
 Default_Home="$HOME/.acme.sh"
 
 PROJECT_ENTRY="acme.sh"
-
+FILE_NAME="letest.sh"
 
 BEGIN_CERT="-----BEGIN CERTIFICATE-----"
 END_CERT="-----END CERTIFICATE-----"
@@ -594,7 +594,7 @@ _setup
 
 _ret=0
 
-for t in $(typeset -F | grep -o 'le_test_.*') 
+for t in $(grep ^le_test_  $FILE_NAME | cut -d '(' -f 1) 
 do
   _run "$t"
   if [ "$DEBUG" ] && [ "$_ret" != "0" ] ; then
