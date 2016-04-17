@@ -588,7 +588,9 @@ le_test_standandalone_ECDSA_384() {
 
 #####################################
 
-BRANCH=$1
+if [ "$1" ] ; then
+  BRANCH=$1
+fi
 
 _setup
 

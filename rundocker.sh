@@ -220,6 +220,7 @@ _runplat() {
     -e TestingDomain=$TestingDomain \
     -e TestingAltDomains=$TestingAltDomains \
     -e DEBUG=$DEBUG \
+    -e BRANCH=$BRANCH \
     -v $(pwd):/letest $myplat /bin/sh -c "cd /letest && ./letest.sh $BRANCH"
     
   else
@@ -227,12 +228,14 @@ _runplat() {
       docker run -p 80:80 --rm \
       -e TestingDomain=$TestingDomain \
       -e TestingAltDomains=$TestingAltDomains \
+      -e BRANCH=$BRANCH \
       -v $(pwd):/letest \
       $myplat /bin/sh -c "cd /letest && ./letest.sh $BRANCH"
     else
       docker run -p 80:80 --rm \
       -e TestingDomain=$TestingDomain \
       -e TestingAltDomains=$TestingAltDomains \
+      -e BRANCH=$BRANCH \
       -v $(pwd):/letest \
       $myplat /bin/sh -c "cd /letest && ./letest.sh $BRANCH" >"$Log_Err" 2>&1
     fi
