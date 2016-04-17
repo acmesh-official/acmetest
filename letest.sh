@@ -223,7 +223,7 @@ _setup() {
   if [ ! "$BRANCH" ] ; then
     BRANCH="master"
   fi
-  
+  _info "Testing branch: $BRANCH"
   if command -v tar > /dev/null ; then
     link="$lezip/$BRANCH.tar.gz"
     curl -OL "$link" >/dev/null 2>&1
