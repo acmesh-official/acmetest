@@ -107,11 +107,11 @@ _assertcert() {
   echo -n "$filename is cert ? "
   subj="$(openssl x509  -in $filename  -text  -noout | grep 'Subject: CN=' | cut -d '=' -f 2 | cut -d / -f 1)"
   echo -n "$subj"
-  if [[ "$subj" = "$subname" ]] ; then
-    if [[ "$issuername" ]] ; then
+  if [ "$subj" = "$subname" ] ; then
+    if [ "$issuername" ] ; then
       issuer="$(openssl x509  -in $filename  -text  -noout | grep 'Issuer: CN=' | cut -d '=' -f 2)"
       echo -n " $issuer"
-      if [[ "$issuername" != "$issuer" ]] ; then
+      if [ "$issuername" != "$issuer" ] ; then
         __fail ""
         return 1
       fi
