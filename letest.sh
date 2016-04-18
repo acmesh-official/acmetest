@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 STAGE=1
 
@@ -107,7 +107,7 @@ _assertcert() {
   echo -n "$filename is cert ? "
   subj="$(openssl x509  -in $filename  -text  -noout | grep 'Subject: CN=' | cut -d '=' -f 2 | cut -d / -f 1)"
   echo -n "$subj"
-  if [[ "$subj" == "$subname" ]] ; then
+  if [[ "$subj" = "$subname" ]] ; then
     if [[ "$issuername" ]] ; then
       issuer="$(openssl x509  -in $filename  -text  -noout | grep 'Issuer: CN=' | cut -d '=' -f 2)"
       echo -n " $issuer"
@@ -131,7 +131,7 @@ _assertcmd() {
   
   eval "$__cmd > \"cmd.log\" 2>&1"
   
-  if [ "$?" == "0" ] ; then 
+  if [ "$?" = "0" ] ; then 
     __ok ""
   else
     __fail ""
@@ -172,7 +172,7 @@ _assertnotexists() {
 }
 
 _assertequals() {
-  if [ "$1" == "$2" ] ; then
+  if [ "$1" = "$2" ] ; then
     echo -n "equals $1"
     __ok ""
   else
@@ -183,7 +183,7 @@ _assertequals() {
 }
 
 _run() {
-  _info "===Running $1 please wait"
+  _info "==Running $1 please wait"
   lehome="$Default_Home"
   export STAGE
   export DEBUG
