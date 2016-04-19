@@ -21,6 +21,7 @@ Unit test project for le project https://github.com/Neilpang/le
 |centos:latest|![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-latest.svg?1461084618)|Tue Apr 19 16:50:18 UTC 2016| Passed |
 |fedora:21|![](https://cdn.rawgit.com/Neilpang/letest/master/status/fedora-21.svg?1461084904)|Tue Apr 19 16:55:04 UTC 2016| Failed |
 |fedora:22|![](https://cdn.rawgit.com/Neilpang/letest/master/status/fedora-22.svg?1461085310)|Tue Apr 19 17:01:50 UTC 2016| Passed |
+|fedora:23|![](https://cdn.rawgit.com/Neilpang/letest/master/status/fedora-23.svg?1461085728)|Tue Apr 19 17:08:48 UTC 2016| Passed |
 (The openssl in CentOS 5 doesn't support ECDSA, so the ECDSA test cases failed. However, RSA certificates are working there.)
 
 # How to run tests
