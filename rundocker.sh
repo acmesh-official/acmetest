@@ -97,7 +97,9 @@ _setopt() {
       __val="$(echo $__val | sed 's/&/\\&/g')"
     fi
     set +H
-    _sed_i "s\\^$__opt.*$\\$__opt$__sep$__val$__end\\"  "$__conf"
+    
+    text="$(cat $__conf)"
+    echo "$text" | sed "s\\^$__opt.*$\\$__opt$__sep$__val$__end\\" > "$__conf"
 
   else
     _debug APP
