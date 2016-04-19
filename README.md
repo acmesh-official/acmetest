@@ -30,6 +30,7 @@ Unit test project for le project https://github.com/Neilpang/le
 |alpine:3.2|![](https://cdn.rawgit.com/Neilpang/letest/master/status/alpine-3.2.svg?1461087594)|Tue Apr 19 17:39:54 UTC 2016| Failed |
 |alpine:3.3|![](https://cdn.rawgit.com/Neilpang/letest/master/status/alpine-3.3.svg?1461087786)|Tue Apr 19 17:43:06 UTC 2016| Failed |
 |alpine:latest|![](https://cdn.rawgit.com/Neilpang/letest/master/status/alpine-latest.svg?1461088088)|Tue Apr 19 17:48:08 UTC 2016| Passed |
+|oraclelinux:6|![](https://cdn.rawgit.com/Neilpang/letest/master/status/oraclelinux-6.svg?1461088372)|Tue Apr 19 17:52:52 UTC 2016| Failed |
 (The openssl in CentOS 5 doesn't support ECDSA, so the ECDSA test cases failed. However, RSA certificates are working there.)
 
 # How to run tests
