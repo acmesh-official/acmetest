@@ -28,7 +28,7 @@ Unit test project for le project https://github.com/Neilpang/le
 |opensuse:latest|![](https://cdn.rawgit.com/Neilpang/letest/master/status/opensuse-latest.svg?1461087121)|Tue Apr 19 17:32:01 UTC 2016| Passed |
 |alpine:3.1|![](https://cdn.rawgit.com/Neilpang/letest/master/status/alpine-3.1.svg?1461115174)|Wed Apr 20 01:19:34 UTC 2016| Passed |
 |alpine:3.2|![](https://cdn.rawgit.com/Neilpang/letest/master/status/alpine-3.2.svg?1461115457)|Wed Apr 20 01:24:17 UTC 2016| Passed |
-|alpine:3.3|![](https://cdn.rawgit.com/Neilpang/letest/master/status/alpine-3.3.svg?1461087786)|Tue Apr 19 17:43:06 UTC 2016| Failed |
+|alpine:3.3|![](https://cdn.rawgit.com/Neilpang/letest/master/status/alpine-3.3.svg?1461115736)|Wed Apr 20 01:28:56 UTC 2016| Passed |
 |alpine:latest|![](https://cdn.rawgit.com/Neilpang/letest/master/status/alpine-latest.svg?1461088088)|Tue Apr 19 17:48:08 UTC 2016| Passed |
 |oraclelinux:6|![](https://cdn.rawgit.com/Neilpang/letest/master/status/oraclelinux-6.svg?1461088372)|Tue Apr 19 17:52:52 UTC 2016| Failed |
 |oraclelinux:7|![](https://cdn.rawgit.com/Neilpang/letest/master/status/oraclelinux-7.svg?1461088809)|Tue Apr 19 18:00:09 UTC 2016| Passed |
