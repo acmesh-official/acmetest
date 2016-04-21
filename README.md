@@ -36,6 +36,7 @@ Unit test project for le project https://github.com/Neilpang/le
 |kalilinux/kali-linux-docker|![](https://cdn.rawgit.com/Neilpang/letest/master/status/kalilinux-kali-linux-docker.svg?1461129366)|Wed Apr 20 05:16:06 UTC 2016| Passed |
 |base/archlinux|![](https://cdn.rawgit.com/Neilpang/letest/master/status/base-archlinux.svg?1461089611)|Tue Apr 19 18:13:31 UTC 2016| Passed |
 
+|0|![](https://cdn.rawgit.com/Neilpang/letest/master/status/0.svg?1461242634)|Thu Apr 21 12:43:54 UTC 2016| Failed |
 (The openssl in CentOS 5 doesn't support ECDSA, so the ECDSA test cases failed. However, RSA certificates are working there.)
 
 # How to run tests
