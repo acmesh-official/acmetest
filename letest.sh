@@ -599,7 +599,7 @@ _ret=0
 for t in $(grep ^le_test_  $FILE_NAME | cut -d '(' -f 1) 
 do
   _run "$t"
-  if [ "$DEBUG" ] && [ "$_ret" != "0" ] ; then
+  if [ "$_ret" != "0" ] && [ "$DEBUG" ] ; then
     break;
   fi
 done
