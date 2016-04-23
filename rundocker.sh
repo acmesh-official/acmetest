@@ -54,25 +54,27 @@ update() {
   statusfile="$(echo "$plat" | tr ':/ \\' '----' )"
 
   if [ "$code" == "0" ] ; then
-    if [ "$CI" ] ; then
-      if [ -f "status/ok.svg" ] ; then
-        cat "status/ok.svg" > "status/$statusfile.svg"
-      fi
-      _setopt "$filename" "|$plat|" "\![]($Img/$statusfile.svg?$(date -u "+%s"))|" "$(date -u)| Passed |"
-    fi
     __ok "$plat"
-
   else
-    if [ "$CI" ] ; then
-      if [ -f "status/ng.svg" ] ; then
-        cat "status/ng.svg" > "status/$statusfile.svg"
-      fi
-      _setopt "$filename" "|$plat|" "\![]($Img/$statusfile.svg?$(date -u "+%s"))|" "$(date -u)| Failed |"
-    fi
     __fail "$plat"
   fi
   
   if [ "$CI" ] ; then
+    _status="Passed"
+    if [ "$code" == "0" ] ; then
+      if [ -f "status/ok.svg" ] ; then
+        cat "status/ok.svg" > "status/$statusfile.svg"
+      fi
+      _status="Passed"
+    else
+      if [ -f "status/ng.svg" ] ; then
+        cat "status/ng.svg" > "status/$statusfile.svg"
+      fi
+      _status="Failed"
+    fi
+    
+    _setopt "$filename" "|$plat|" " " "\![]($Img/$statusfile.svg?$(date -u "+%s"))| $(date -u)| $_status |"
+  
     git add "status/$statusfile.svg" >/dev/null 2>&1
     git add "$filename" >/dev/null 2>&1
     cat head.md "$Table" tail.md > README.md
