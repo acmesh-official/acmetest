@@ -8,3 +8,4 @@ Unit test project for le project https://github.com/Neilpang/le
 | Platform | Status| Last Run Time| Comments|
 -----------|-------|--------------|---------|
 |windows-cygwin| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/windows-cygwin.svg?1461384972)| Sat, Apr 23, 2016  4:16:12 AM| Passed |
+|freebsd| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/freebsd.svg?1461378686)| Sat Apr 23 02:31:26 UTC 2016| Passed |
