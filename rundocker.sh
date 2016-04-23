@@ -57,7 +57,12 @@ update() {
   fi
 }
 
-#options file
+_contains(){
+  _str="$1"
+  _sub="$2"
+  echo $_str | grep $_sub >/dev/null 2>&1
+}
+
 _sed_i() {
   options="$1"
   filename="$2"
@@ -65,10 +70,10 @@ _sed_i() {
     _err "Usage:_sed_i options filename"
     return 1
   fi
-  
-  if sed -h 2>&1 | grep "\-i[SUFFIX]" ; then
+  _debug2 options "$options"
+  if sed -h 2>&1 | grep "\-i\[SUFFIX]" >/dev/null 2>&1; then
     _debug "Using sed  -i"
-    sed -i "\"$options\""
+    sed -i "$options" "$filename"
   else
     _debug "No -i support in sed"
     text="$(cat $filename)"
@@ -91,22 +96,28 @@ _setopt() {
     touch "$__conf"
   fi
 
-  if grep -H -n "^$__opt" "$__conf" > /dev/null ; then
-    _debug OK
-    if [[ "$__val" == *"&"* ]] ; then
+  if grep -H -n "^$__opt *$__sep" "$__conf" > /dev/null ; then
+    _debug2 OK
+    if _contains "$__val" "&" ; then
       __val="$(echo $__val | sed 's/&/\\&/g')"
     fi
-    set +H
     
-    text="$(cat $__conf)"
-    echo "$text" | sed "s\\^$__opt.*$\\$__opt$__sep$__val$__end\\" > "$__conf"
+    _sed_i "s|^$__opt *$__sep.*$|$__opt$__sep$__val$__end|"  "$__conf"
+
+  elif grep -H -n "^#$__opt *$__sep" "$__conf" > /dev/null ; then
+    if _contains "$__val" "&" ; then
+      __val="$(echo $__val | sed 's/&/\\&/g')"
+    fi
+
+    _sed_i "s|^#$__opt *$__sep.*$|$__opt$__sep$__val$__end|"  "$__conf"
 
   else
-    _debug APP
+    _debug2 APP
     echo "$__opt$__sep$__val$__end" >> "$__conf"
   fi
-
+  _debug "$(grep -H -n "^$__opt$__sep" $__conf)"
 }
+
 
 _info() {
   echo -e $1
@@ -173,7 +184,7 @@ _runplat() {
   
   basetag=""
   baseline=""
-  if [[ "$plat" == *":"* ]] ; then
+  if _contains "$plat" ":" ; then
     basetag="$(echo "$plat" | cut -d : -f 1)"
     _debug "basetag" "$basetag"
     baseline="$(grep "^-$basetag[^ |]*" "$Conf" | tr -d "\r\n" )"
