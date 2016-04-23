@@ -132,7 +132,6 @@ _setopt() {
     if _contains "$__val" "&" ; then
       __val="$(echo $__val | sed 's/&/\\&/g')"
     fi
-    set +H
     
     text="$(cat $__conf)"
     echo "$text" | sed "s\\^$__opt.*$\\$__opt$__sep$__val$__end\\" > "$__conf"
