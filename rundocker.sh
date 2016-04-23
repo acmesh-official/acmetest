@@ -129,7 +129,7 @@ _setopt() {
 
   if grep -H -n "^$__opt" "$__conf" > /dev/null ; then
     _debug OK
-    if [[ "$__val" == *"&"* ]] ; then
+    if _contains "$__val" "&" ; then
       __val="$(echo $__val | sed 's/&/\\&/g')"
     fi
     set +H
