@@ -9,6 +9,34 @@ Conf="plat.conf"
 Table="table.md"
 
 
+_info() {
+  if [ -z "$2" ] ; then
+    echo "[$(date)] $1"
+  else
+    echo "[$(date)] $1"="'$2'"
+  fi
+}
+
+_err() {
+  _info "$@" >&2
+  return 1
+}
+
+_debug() {
+  if [ -z "$DEBUG" ] ; then
+    return
+  fi
+  _err "$@"
+  return 0
+}
+
+_debug2() {
+  if [ "$DEBUG" ] && [ "$DEBUG" -ge "2" ] ; then
+    _debug "$@"
+  fi
+  return
+}
+
 #update plat code [file]
 update() {
   plat="$1"
@@ -116,30 +144,6 @@ _setopt() {
     echo "$__opt$__sep$__val$__end" >> "$__conf"
   fi
   _debug "$(grep -H -n "^$__opt$__sep" $__conf)"
-}
-
-
-_info() {
-  echo -e $1
-}
-
-_err() {
-  if [ -z "$2" ] ; then
-    echo -e "$1" >&2
-  else
-    echo -e "$1=$2" >&2
-  fi
-}
-_debug() {
-  if [ -z "$DEBUG" ] ; then
-    return
-  fi
-  
-  if [ -z "$2" ] ; then
-    echo $1
-  else
-    echo "$1"="$2"
-  fi
 }
 
 __ok() {
