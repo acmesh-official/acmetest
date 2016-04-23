@@ -3,7 +3,7 @@
 
 if [ -z "$1" ] ; then
   echo "Usage: plat"
-  return 1
+  exit 1
 fi
 
 plat="$1"
