@@ -112,6 +112,7 @@ _sed_i() {
 }
 
 #setopt "file"  "opt"  "="  "value" [";"]
+#setopt "file"  "opt"  "="  "value" [";"]
 _setopt() {
   __conf="$1"
   __opt="$2"
@@ -126,27 +127,23 @@ _setopt() {
     touch "$__conf"
   fi
 
-  if grep -H -n "^$__opt *$__sep" "$__conf" > /dev/null ; then
-    _debug2 OK
-    if _contains "$__val" "&" ; then
+  if grep -H -n "^$__opt" "$__conf" > /dev/null ; then
+    _debug OK
+    if [[ "$__val" == *"&"* ]] ; then
       __val="$(echo $__val | sed 's/&/\\&/g')"
     fi
+    set +H
     
-    _sed_i "s|^$__opt *$__sep.*$|$__opt$__sep$__val$__end|"  "$__conf"
-
-  elif grep -H -n "^#$__opt *$__sep" "$__conf" > /dev/null ; then
-    if _contains "$__val" "&" ; then
-      __val="$(echo $__val | sed 's/&/\\&/g')"
-    fi
-
-    _sed_i "s|^#$__opt *$__sep.*$|$__opt$__sep$__val$__end|"  "$__conf"
+    text="$(cat $__conf)"
+    echo "$text" | sed "s\\^$__opt.*$\\$__opt$__sep$__val$__end\\" > "$__conf"
 
   else
-    _debug2 APP
+    _debug APP
     echo "$__opt$__sep$__val$__end" >> "$__conf"
   fi
-  _debug "$(grep -H -n "^$__opt$__sep" $__conf)"
+
 }
+
 
 __ok() {
   _info "$1 [\u001B[32mPASS\u001B[0m]"
