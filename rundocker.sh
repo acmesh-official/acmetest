@@ -134,7 +134,7 @@ _setopt() {
     fi
     
     text="$(cat $__conf)"
-    echo "$text" | sed "s\\^$__opt.*$\\$__opt$__sep$__val$__end\\" > "$__conf"
+    echo "$text" | sed "s#^$__opt.*#$__opt$__sep$__val$__end#" > "$__conf"
 
   else
     _debug APP
