@@ -24,13 +24,13 @@ update() {
   fi
   
   statusfile="$(echo "$plat" | tr ':/ \\' '----' )"
-  set +H
+
   if [ "$code" == "0" ] ; then
     if [ "$CI" ] ; then
       if [ -f "status/ok.svg" ] ; then
         cat "status/ok.svg" > "status/$statusfile.svg"
       fi
-      _setopt "$filename" "|$plat|" "![]($Img/$statusfile.svg?$(date -u "+%s"))|" "$(date -u)| Passed |"
+      _setopt "$filename" "|$plat|" "\![]($Img/$statusfile.svg?$(date -u "+%s"))|" "$(date -u)| Passed |"
     fi
     __ok "$plat"
 
@@ -39,7 +39,7 @@ update() {
       if [ -f "status/ng.svg" ] ; then
         cat "status/ng.svg" > "status/$statusfile.svg"
       fi
-      _setopt "$filename" "|$plat|" "![]($Img/$statusfile.svg?$(date -u "+%s"))|" "$(date -u)| Failed |"
+      _setopt "$filename" "|$plat|" "\![]($Img/$statusfile.svg?$(date -u "+%s"))|" "$(date -u)| Failed |"
     fi
     __fail "$plat"
   fi
