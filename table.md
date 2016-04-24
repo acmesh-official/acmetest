@@ -18,3 +18,4 @@
 |opensuse:latest| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/opensuse-latest.svg?1461515863)| Sun Apr 24 16:37:43 UTC 2016| Passed |
 |alpine:3.1| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/alpine-3.1.svg?1461516173)| Sun Apr 24 16:42:53 UTC 2016| Passed |
 |alpine:3.2| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/alpine-3.2.svg?1461516763)| Sun Apr 24 16:52:43 UTC 2016| Passed |
+|alpine:3.3| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/alpine-3.3.svg?1461517069)| Sun Apr 24 16:57:49 UTC 2016| Passed |
