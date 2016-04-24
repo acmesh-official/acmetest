@@ -17,7 +17,7 @@ Unit test project for le project https://github.com/Neilpang/le
 |debian:8| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-8.svg?1461426090)| Sat Apr 23 15:41:30 UTC 2016| Passed |
 |debian:latest| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-latest.svg?1461426460)| Sat Apr 23 15:47:40 UTC 2016| Passed |
 |centos:5| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-5.svg?1461426770)| Sat Apr 23 15:52:50 UTC 2016| Failed |
-|centos:6| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-6.svg?1461427527)| Sat Apr 23 16:05:27 UTC 2016| Failed |
+|centos:6| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-6.svg?1461464583)| Sun Apr 24 02:23:03 UTC 2016| Passed |
 |centos:7| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-7.svg?1461427938)| Sat Apr 23 16:12:18 UTC 2016| Passed |
 |centos:latest| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-latest.svg?1461428349)| Sat Apr 23 16:19:09 UTC 2016| Passed |
 |fedora:21| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/fedora-21.svg?1461428763)| Sat Apr 23 16:26:03 UTC 2016| Passed |
