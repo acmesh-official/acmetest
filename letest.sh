@@ -15,33 +15,25 @@ END_CERT="-----END CERTIFICATE-----"
 
 CA="Fake LE Intermediate X1"
 
-_err() {
+_info() {
   if [ -z "$2" ] ; then
-    echo "$1" >&2
+    echo "$1"
   else
-    echo "$1=$2" >&2
+    echo "$1"="'$2'"
   fi
+}
+
+_err() {
+  _info "$@" >&2
+  return 1
 }
 
 _debug() {
-
   if [ -z "$DEBUG" ] ; then
     return
   fi
-  
-  if [ -z "$2" ] ; then
-    echo $1
-  else
-    echo "$1"="$2"
-  fi
-}
-
-_info() {
-  if [ -z "$2" ] ; then
-    echo -e "$1"
-  else
-    echo -e "$1=$2"
-  fi
+  _err "$@"
+  return 0
 }
 
 _exists() {
@@ -93,12 +85,12 @@ fi
 
 __ok() {
   tput setf 2
-  _info " PASS\t$1"
+  _info " [PASS]\t$1"
   tput sgr0
 }
 __fail() {
   tput setf 4
-  _err " FAIL\t$1"
+  _err " [FAIL]\t$1"
   tput sgr0
   return 1
 }
