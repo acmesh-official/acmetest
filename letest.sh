@@ -17,9 +17,9 @@ CA="Fake LE Intermediate X1"
 
 _err() {
   if [ -z "$2" ] ; then
-    echo -e "$1" >&2
+    echo "$1" >&2
   else
-    echo -e "$1=$2" >&2
+    echo "$1=$2" >&2
   fi
 }
 
@@ -92,10 +92,14 @@ elif command -v apt-get > /dev/null ; then
 fi
 
 __ok() {
-  _info " [\u001B[32mPASS\u001B[0m]\t$1"
+  tput setf 2
+  _info " PASS\t$1"
+  tput sgr0
 }
 __fail() {
-  _err " [\u001B[31mFAIL\u001B[0m]$1"
+  tput setf 4
+  _err " FAIL\t$1"
+  tput sgr0
   return 1
 }
 
