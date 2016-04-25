@@ -84,14 +84,14 @@ elif command -v apt-get > /dev/null ; then
 fi
 
 __ok() {
-  tput setf 2
+  printf '\033[1;31;32m'
   _info " [PASS]\t$1"
-  tput sgr0
+  printf '\033[0m'
 }
 __fail() {
-  tput setf 4
+  printf '\033[1;31;40m'
   _err " [FAIL]\t$1"
-  tput sgr0
+  printf '\033[0m'
   return 1
 }
 
