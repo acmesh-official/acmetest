@@ -85,12 +85,12 @@ fi
 
 __ok() {
   printf '\033[1;31;32m'
-  _info " [PASS]\t$1"
+  _info " [PASS] $1"
   printf '\033[0m'
 }
 __fail() {
   printf '\033[1;31;40m'
-  _err " [FAIL]\t$1"
+  _err " [FAIL] $1"
   printf '\033[0m'
   return 1
 }
