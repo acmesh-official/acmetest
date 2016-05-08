@@ -337,7 +337,7 @@ le_test_standandalone_renew() {
   fi
 
   _assertcmd "$lehome/$PROJECT_ENTRY issue no $TestingDomain" ||  return
-   
+  sleep 5
   _assertcmd "FORCE=1 $lehome/$PROJECT_ENTRY renew $TestingDomain" ||  return
 
   lp=`_ss | grep ':80 '`
@@ -367,7 +367,7 @@ le_test_standandalone_renew_v2() {
   fi
 
   _assertcmd "$lehome/$PROJECT_ENTRY --issue -d $TestingDomain --standalone" ||  return
-   
+  sleep 5
   _assertcmd "$lehome/$PROJECT_ENTRY --renew -d $TestingDomain --force" ||  return
   
   _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" "$TestingDomain" "$CA" || return
@@ -480,7 +480,7 @@ le_test_standandalone_ECDSA_256_renew() {
   fi
 
   _assertcmd "$lehome/$PROJECT_ENTRY issue no $TestingDomain no ec-256" ||  return
-
+  sleep 5
   _assertcmd "FORCE=1 $lehome/$PROJECT_ENTRY renew $TestingDomain" ||  return
 
   lp=`_ss | grep ':80 '`
@@ -509,7 +509,7 @@ le_test_standandalone_ECDSA_256_SAN_renew() {
   fi
 
   _assertcmd "$lehome/$PROJECT_ENTRY issue no $TestingDomain $TestingAltDomains ec-256" ||  return
-
+  sleep 5
   _assertcmd "FORCE=1 $lehome/$PROJECT_ENTRY renew $TestingDomain" ||  return
 
   lp=`_ss | grep ':80 '`
@@ -537,7 +537,7 @@ le_test_standandalone_ECDSA_256_SAN_renew_v2() {
   fi
 
   _assertcmd "$lehome/$PROJECT_ENTRY --issue -d $TestingDomain -d $TestingAltDomains --standalone --keylength ec-256" ||  return
-
+  sleep 5
   _assertcmd "$lehome/$PROJECT_ENTRY --renew -d $TestingDomain --force" ||  return
   
   _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" "$TestingDomain" "$CA" || return
