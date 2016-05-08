@@ -36,6 +36,7 @@ Unit test project for le project https://github.com/Neilpang/acme.sh
 |oraclelinux:7| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/oraclelinux-7.svg?1462702191)| Sun May  8 10:09:51 UTC 2016| Passed |
 |oraclelinux:latest| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/oraclelinux-latest.svg?1462702593)| Sun May  8 10:16:33 UTC 2016| Passed |
 |kalilinux/kali-linux-docker| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/kalilinux-kali-linux-docker.svg?1462703045)| Sun May  8 10:24:05 UTC 2016| Passed |
+|base/archlinux| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/base-archlinux.svg?1462703428)| Sun May  8 10:30:28 UTC 2016| Passed |
 (The openssl in CentOS 5 doesn't support ECDSA, so the ECDSA test cases failed. However, RSA certificates are working there.)
 
 # How to run tests
