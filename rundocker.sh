@@ -153,9 +153,9 @@ __ok() {
 }
 
 __fail() {
-  printf '\033[1;31;40m'
+  printf '\033[1;31;40m' > &2
   _err "$1 [FAIL]"
-  printf '\033[0m'
+  printf '\033[0m' > &2
   return 1
 }
 
