@@ -8,7 +8,7 @@ for example: `aa.com` and `www.aa.com`
 And make sure 80 port is not used by anyone else.
 
 ```
-cd letest
+cd acmetest
 TestingDomain=aa.com   TestingAltDomains=www.aa.com  ./letest.sh
 ```
 
@@ -19,7 +19,7 @@ You must have docker installed, and also point 2 of your domains to your machine
 Then test all the platforms :
 
 ```
-cd letest
+cd acmetest
 TestingDomain=aa.com   TestingAltDomains=www.aa.com  ./rundocker.sh  testall
 ```
 
