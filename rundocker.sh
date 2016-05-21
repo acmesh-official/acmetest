@@ -298,7 +298,10 @@ testplat() {
     if ! _runplat "$plat" ; then
       if [ -z "$DEBUG" ] && [ -z "$DEBUGING" ] ; then
         _info "Let's retry once more:$plat"
-        _runplat "$plat" 
+        if ! _runplat "$plat" ; then
+          _info "Let's retry third time :$plat"
+          _runplat "$plat"
+        fi
       fi
     fi
   done
