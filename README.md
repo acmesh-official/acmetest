@@ -16,7 +16,7 @@ Unit test project for le project https://github.com/Neilpang/acme.sh
 |ubuntu:16.04| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-16.04.svg?1463827745)| Sat May 21 10:49:05 UTC 2016| Passed |
 |ubuntu:latest| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-latest.svg?1463828022)| Sat May 21 10:53:42 UTC 2016| Passed |
 |debian:7| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-7.svg?1463828269)| Sat May 21 10:57:49 UTC 2016| Passed |
-|debian:8| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-8.svg?1463828782)| Sat May 21 11:06:22 UTC 2016| Failed |
+|debian:8| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-8.svg?1463844373)| Sat May 21 15:26:13 UTC 2016| Passed |
 |debian:latest| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-latest.svg?1463829056)| Sat May 21 11:10:56 UTC 2016| Passed |
 |centos:5| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-5.svg?1463829308)| Sat May 21 11:15:08 UTC 2016| Failed |
 |centos:6| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-6.svg?1463829644)| Sat May 21 11:20:44 UTC 2016| Passed |
@@ -37,6 +37,7 @@ Unit test project for le project https://github.com/Neilpang/acme.sh
 |oraclelinux:7| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/oraclelinux-7.svg?1463834665)| Sat May 21 12:44:25 UTC 2016| Passed |
 |oraclelinux:latest| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/oraclelinux-latest.svg?1463834940)| Sat May 21 12:49:00 UTC 2016| Passed |
 |kalilinux/kali-linux-docker| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/kalilinux-kali-linux-docker.svg?1463835278)| Sat May 21 12:54:38 UTC 2016| Passed |
+|base/archlinux| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/base-archlinux.svg?1463843922)| Sat May 21 15:18:42 UTC 2016| Passed |
 (The openssl in CentOS 5 doesn't support ECDSA, so the ECDSA test cases failed. However, RSA certificates are working there.)
 
 # How to run tests
@@ -47,7 +48,7 @@ for example: `aa.com` and `www.aa.com`
 And make sure 80 port is not used by anyone else.
 
 ```
-cd letest
+cd acmetest
 TestingDomain=aa.com   TestingAltDomains=www.aa.com  ./letest.sh
 ```
 
@@ -58,7 +59,7 @@ You must have docker installed, and also point 2 of your domains to your machine
 Then test all the platforms :
 
 ```
-cd letest
+cd acmetest
 TestingDomain=aa.com   TestingAltDomains=www.aa.com  ./rundocker.sh  testall
 ```
 
