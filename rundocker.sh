@@ -147,11 +147,15 @@ _setopt() {
 
 
 __ok() {
-  _info "$1 [\u001B[32mPASS\u001B[0m]"
+  printf '\033[1;31;32m'
+  _info "$1 [PASS]"
+  printf '\033[0m'
 }
 
 __fail() {
-  _err "$1 [\u001B[31mFAIL\u001B[0m]"
+  printf '\033[1;31;40m'
+  _err "$1 [FAIL]"
+  printf '\033[0m'
   return 1
 }
 
