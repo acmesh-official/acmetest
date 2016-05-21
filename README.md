@@ -8,7 +8,7 @@ Unit test project for le project https://github.com/Neilpang/acme.sh
 | Platform | Status| Last Run Time| Comments|
 -----------|-------|--------------|---------|
 |windows-cygwin| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/windows-cygwin.svg?1462640779)| Sat, May 07, 2016  5:06:19 PM| Passed |
-|freebsd| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/freebsd.svg?1462608812)| Sat May  7 08:13:32 UTC 2016| Passed |
+|freebsd| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/freebsd.svg?1463790902)| Sat May 21 00:35:02 UTC 2016| Passed |
 |openbsd| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/openbsd.svg?1462636523)| Sat May  7 15:55:23 UTC 2016| Passed |
 |pfsense| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/pfsense.svg?1462790374)| Mon May  9 10:39:34 UTC 2016| Passed |
 |ubuntu:14.04| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-14.04.svg?1462691662)| Sun May  8 07:14:22 UTC 2016| Passed |
