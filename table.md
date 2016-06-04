@@ -1,15 +1,1 @@
-|ubuntu:14.04| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-14.04.svg?1465046657)| Sat Jun  4 13:24:17 UTC 2016| Failed |
-|ubuntu:15.04| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-15.04.svg?1465046676)| Sat Jun  4 13:24:36 UTC 2016| Failed |
-|ubuntu:16.04| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-16.04.svg?1465046696)| Sat Jun  4 13:24:56 UTC 2016| Failed |
-|ubuntu:latest| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-latest.svg?1465046719)| Sat Jun  4 13:25:19 UTC 2016| Failed |
-|debian:7| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-7.svg?1465046739)| Sat Jun  4 13:25:39 UTC 2016| Failed |
-|debian:8| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-8.svg?1465046758)| Sat Jun  4 13:25:58 UTC 2016| Failed |
-|debian:latest| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-latest.svg?1465046779)| Sat Jun  4 13:26:19 UTC 2016| Failed |
-|centos:5| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-5.svg?1465046799)| Sat Jun  4 13:26:39 UTC 2016| Failed |
-|centos:6| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-6.svg?1465046822)| Sat Jun  4 13:27:02 UTC 2016| Failed |
-|centos:7| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-7.svg?1465046847)| Sat Jun  4 13:27:27 UTC 2016| Failed |
-|centos:latest| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-latest.svg?1465046867)| Sat Jun  4 13:27:47 UTC 2016| Failed |
-|fedora:21| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/fedora-21.svg?1465046891)| Sat Jun  4 13:28:11 UTC 2016| Failed |
-|fedora:22| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/fedora-22.svg?1465046914)| Sat Jun  4 13:28:34 UTC 2016| Failed |
-|fedora:23| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/fedora-23.svg?1465046936)| Sat Jun  4 13:28:56 UTC 2016| Failed |
-|fedora:latest| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/fedora-latest.svg?1465046959)| Sat Jun  4 13:29:19 UTC 2016| Failed |
+|ubuntu:14.04| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-14.04.svg?1465047274)| Sat Jun  4 13:34:34 UTC 2016| Passed |
