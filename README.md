@@ -12,6 +12,7 @@ Unit test project for le project https://github.com/Neilpang/acme.sh
 |openbsd| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/openbsd.svg?1465044824)| Sat Jun  4 12:53:44 UTC 2016| Passed |
 |pfsense| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/pfsense.svg?1465046607)| Sat Jun  4 13:23:27 UTC 2016| Passed |
 |ubuntu:14.04| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-14.04.svg?1465048951)| Sat Jun  4 14:02:31 UTC 2016| Passed |
+|ubuntu:15.04| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-15.04.svg?1465049226)| Sat Jun  4 14:07:06 UTC 2016| Passed |
 (The openssl in CentOS 5 doesn't support ECDSA, so the ECDSA test cases failed. However, RSA certificates are working there.)
 
 # How to run tests
