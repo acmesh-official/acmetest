@@ -581,6 +581,36 @@ le_test_standandalone_ECDSA_384() {
 
 }
 
+le_test_tls_renew_SAN_v2() {
+  lehome="$Default_Home"
+
+  lp=`_ss | grep ':443 '`
+  if [ "$lp" ] ; then
+    __fail "443 port is already used."
+    return 1
+  fi
+  
+  if [ -z "$TestingDomain" ] ; then
+    __fail "Please define TestingDomain and try again."
+    return 1
+  fi
+
+  _assertcmd "$lehome/$PROJECT_ENTRY --issue -d $TestingDomain -d $TestingAltDomains --tls" ||  return
+  sleep 5
+  _assertcmd "$lehome/$PROJECT_ENTRY --renew -d $TestingDomain --force" ||  return
+  
+  _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" "$TestingDomain" "$CA" || return
+  _assertcert "$lehome/$TestingDomain/ca.cer" "$CA" || return
+  
+  lp=`_ss | grep ':443 '`
+  if [ "$lp" ] ; then
+    __fail "443 port is not released: $lp"
+    return 1
+  fi
+  
+  rm -rf "$lehome/$TestingDomain"
+
+}
 
 #####################################
 
