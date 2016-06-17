@@ -1,3 +1,4 @@
 |ubuntu:14.04| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-14.04.svg?1466156950)| Fri Jun 17 09:49:10 UTC 2016| Passed |
 |ubuntu:15.04| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-15.04.svg?1466157630)| Fri Jun 17 10:00:30 UTC 2016| Passed |
 |ubuntu:16.04| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-16.04.svg?1466157991)| Fri Jun 17 10:06:31 UTC 2016| Passed |
+|ubuntu:latest| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-latest.svg?1466158347)| Fri Jun 17 10:12:27 UTC 2016| Passed |
