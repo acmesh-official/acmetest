@@ -582,6 +582,8 @@ le_test_standandalone_ECDSA_384() {
 }
 
 le_test_standandalone_tls_renew_SAN_v2() {
+  #test  standalone and tls hybrid mode.
+  
   lehome="$Default_Home"
 
   lp=`_ss | grep ':443 '`
