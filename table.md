@@ -8,3 +8,4 @@
 |centos:5| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-5.svg?1466160426)| Fri Jun 17 10:47:06 UTC 2016| Failed |
 |centos:6| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-6.svg?1466160766)| Fri Jun 17 10:52:46 UTC 2016| Passed |
 |centos:7| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-7.svg?1466161119)| Fri Jun 17 10:58:39 UTC 2016| Passed |
+|centos:latest| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-latest.svg?1466161475)| Fri Jun 17 11:04:35 UTC 2016| Passed |
