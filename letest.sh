@@ -614,9 +614,7 @@ le_test_tls_renew_SAN_v2() {
 
 #####################################
 
-if [ "$1" ] ; then
-  BRANCH=$1
-fi
+CASE="$1"
 
 _setup
 
@@ -624,7 +622,9 @@ _ret=0
 
 for t in $(grep ^le_test_  $FILE_NAME | cut -d '(' -f 1) 
 do
-  _run "$t"
+  if [ -z "$CASE" ] || [ "$CASE" = "$t" ] ; then
+    _run "$t"
+  fi
   if [ "$_ret" != "0" ] && [ "$DEBUG" ] ; then
     break;
   fi
