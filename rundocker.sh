@@ -237,7 +237,7 @@ _runplat() {
   fi
 
   if [ "$DEBUG" ] ; then
-    docker run -p 80:80 --rm \
+    docker run -p 80:80 -p 443:443 --rm \
     -e TestingDomain=$TestingDomain \
     -e TestingAltDomains=$TestingAltDomains \
     -e DEBUG=$DEBUG \
@@ -247,14 +247,14 @@ _runplat() {
     
   else
     if [ "$DEBUGING" ] ; then
-      docker run -p 80:80 --rm \
+      docker run -p 80:80 -p 443:443 --rm \
       -e TestingDomain=$TestingDomain \
       -e TestingAltDomains=$TestingAltDomains \
       -e BRANCH=$BRANCH \
       -v $(pwd):/acmetest \
       $myplat /bin/sh -c "cd /acmetest && ./letest.sh $BRANCH"
     else
-      docker run -p 80:80 --rm \
+      docker run -p 80:80 -p 443:443 --rm \
       -e TestingDomain=$TestingDomain \
       -e TestingAltDomains=$TestingAltDomains \
       -e BRANCH=$BRANCH \
@@ -269,7 +269,7 @@ _runplat() {
     cat "$Log_Err"
     if [ "$DEBUGING" ] ; then
       _info "Please debuging:"
-      docker run -p 80:80 --rm \
+      docker run -p 80:80 -p 443:443 --rm \
       -i -t \
       -e TestingDomain=$TestingDomain \
       -e TestingAltDomains=$TestingAltDomains \
