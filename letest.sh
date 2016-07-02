@@ -15,6 +15,11 @@ END_CERT="-----END CERTIFICATE-----"
 
 CA="Fake LE Intermediate X1"
 
+#a + b
+_math(){
+  expr "$@"
+}
+
 _info() {
   if [ -z "$2" ] ; then
     echo "$1"
@@ -662,6 +667,7 @@ do
   if [ "$_ret" != "0" ] && [ "$DEBUG" ] ; then
     break;
   fi
+  _ret=$(_math $_ret + 1)
 done
 
 exit $_ret
