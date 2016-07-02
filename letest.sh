@@ -664,7 +664,7 @@ do
   if [ -z "$CASE" ] || [ "$CASE" = "$t" ] ; then
     _run "$t"
   fi
-  _r="?"
+  _r="$?"
   if [ "$_r" != "0" ] && [ "$DEBUG" ] ; then
     break;
   fi
