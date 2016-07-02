@@ -664,10 +664,11 @@ do
   if [ -z "$CASE" ] || [ "$CASE" = "$t" ] ; then
     _run "$t"
   fi
-  if [ "$_ret" != "0" ] && [ "$DEBUG" ] ; then
+  _r="?"
+  if [ "$_r" != "0" ] && [ "$DEBUG" ] ; then
     break;
   fi
-  _ret=$(_math $_ret + 1)
+  _ret=$(_math $_ret + $_r)
 done
 
 exit $_ret
