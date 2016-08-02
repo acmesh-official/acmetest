@@ -11,10 +11,7 @@ Unit test project for le project https://github.com/Neilpang/acme.sh
 |freebsd| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/freebsd.svg?1466114181)| Thu Jun 16 21:56:21 UTC 2016| Passed |
 |openbsd| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/openbsd.svg?1466148414)| Fri Jun 17 07:26:54 UTC 2016| Passed |
 |pfsense| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/pfsense.svg?1466154740)| Fri Jun 17 09:12:20 UTC 2016| Passed |
-|ubuntu:14.04| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-14.04.svg?1470147624)| Tue Aug  2 14:20:24 UTC 2016| Passed |
-|ubuntu:15.04| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-15.04.svg?1470147630)| Tue Aug  2 14:20:30 UTC 2016| Passed |
-|ubuntu:16.04| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-16.04.svg?1470147636)| Tue Aug  2 14:20:36 UTC 2016| Passed |
-|ubuntu:latest| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-latest.svg?1470147641)| Tue Aug  2 14:20:41 UTC 2016| Passed |
+|ubuntu:14.04| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-14.04.svg?1470149566)| Tue Aug  2 14:52:46 UTC 2016| Failed |
 (The openssl in CentOS 5 doesn't support ECDSA, so the ECDSA test cases failed. However, RSA certificates are working there.)
 
 # How to run tests
