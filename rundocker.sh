@@ -273,7 +273,7 @@ _runplat() {
       -i -t \
       -e TestingDomain=$TestingDomain \
       -e TestingAltDomains=$TestingAltDomains \
-      -v $(pwd):/letest $myplat /bin/sh
+      -v $(pwd):/acmetest $myplat /bin/sh
     fi
   fi
   
