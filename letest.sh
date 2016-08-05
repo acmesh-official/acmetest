@@ -193,10 +193,6 @@ _run() {
     cd acme.sh;
     ./$PROJECT_ENTRY install > /dev/null
     cd ..
-    if [ -f "account.key" ] && [ -d "$HOME/.acme.sh/" ] ; then
-      cp account.key $HOME/.acme.sh/
-      cp account.conf $HOME/.acme.sh/
-    fi
   fi
   
   if ! ( $1 ) ; then
@@ -207,10 +203,6 @@ _run() {
   
   if [ -f "$lehome/$PROJECT_ENTRY" ] ; then
     $lehome/$PROJECT_ENTRY uninstall >/dev/null
-    if [ ! -f "account.key" ] && [ -f "$lehome/account.key" ] ; then
-      cp "$lehome/account.key" account.key
-      cp "$lehome/account.conf" account.conf
-    fi
   fi
   _info "------------------------------------------"
 }
