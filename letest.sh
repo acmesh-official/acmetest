@@ -108,6 +108,7 @@ __red() {
 
 __fail() {
   __red " [FAIL] $1" >&2
+  printf "\n" >&2
   return 1
 }
 
