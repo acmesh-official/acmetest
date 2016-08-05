@@ -22,7 +22,7 @@ if [ -z "$DEBUG" ] ; then
   fi
 fi
 
-./letest.sh  $BRANCH
+./letest.sh
 
 ./rundocker.sh  update "$platname" $? "$filename"
 

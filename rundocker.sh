@@ -8,6 +8,14 @@ Conf="plat.conf"
 
 Table="table.md"
 
+if [ -z "$TestingDomain" ] ; then
+  TestingDomain=testdocker.acme.sh
+fi
+
+if [ -z "$TestingAltDomains" ] ; then
+  TestingAltDomains=testdocker2.acme.sh
+fi
+
 
 _info() {
   if [ -z "$2" ] ; then
