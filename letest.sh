@@ -661,12 +661,12 @@ _setup
 
 _ret=0
 
-total=$(grep ^le_test_  $FILE_NAME | wc -l)
+total=$(grep ^le_test_  $FILE_NAME | wc -l | tr -d ' ')
 num=1
 for t in $(grep ^le_test_  $FILE_NAME | cut -d '(' -f 1) 
 do
   if [ -z "$CASE" ] ; then
-    __green "Progress: $num/$total\n"
+    __green "Progress: $num/$total"
     num=$(_math $num + 1)
   fi
   if [ -z "$CASE" ] || [ "$CASE" = "$t" ] ; then
