@@ -91,7 +91,7 @@ fi
 
 __green() {
   printf '\033[1;31;32m'
-  _info "$1"
+  printf "$1"
   printf '\033[0m'
 }
 
@@ -100,13 +100,13 @@ __ok() {
 }
 
 __red() {
-  printf '\033[1;31;40m' >&2
-  _err "$1"
-  printf '\033[0m' >&2
+  printf '\033[1;31;40m'
+  printf "$1"
+  printf '\033[0m'
 }
 
 __fail() {
-  __red " [FAIL] $1"
+  __red " [FAIL] $1" >&2
   return 1
 }
 
