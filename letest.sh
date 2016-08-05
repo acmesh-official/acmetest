@@ -97,6 +97,7 @@ __green() {
 
 __ok() {
   __green " [PASS]"
+  printf "\n"
 }
 
 __red() {
@@ -667,7 +668,7 @@ for t in $(grep ^le_test_  $FILE_NAME | cut -d '(' -f 1)
 do
   if [ -z "$CASE" ] ; then
     __green "Progress: $num/$total"
-    echo ""
+    printf "\n"
     num=$(_math $num + 1)
   fi
   if [ -z "$CASE" ] || [ "$CASE" = "$t" ] ; then
