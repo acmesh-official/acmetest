@@ -88,15 +88,25 @@ elif command -v apt-get > /dev/null ; then
  INSTALL="$SUDO apt-get install -y "
 fi
 
-__ok() {
+
+__green() {
   printf '\033[1;31;32m'
-  _info " [PASS] $1"
+  _info "$1"
   printf '\033[0m'
 }
-__fail() {
+
+__ok() {
+  __green " [PASS]"
+}
+
+__red() {
   printf '\033[1;31;40m' >&2
-  _err " [FAIL] $1"
+  _err "$1"
   printf '\033[0m' >&2
+}
+
+__fail() {
+  __red " [FAIL] $1"
   return 1
 }
 
@@ -651,8 +661,14 @@ _setup
 
 _ret=0
 
+total=$(grep ^le_test_  $FILE_NAME | wc -l)
+num=1
 for t in $(grep ^le_test_  $FILE_NAME | cut -d '(' -f 1) 
 do
+  if [ -z "$CASE" ] ; then
+    __green "Progress: $num/$total\n"
+    num=$(_math $num + 1)
+  fi
   if [ -z "$CASE" ] || [ "$CASE" = "$t" ] ; then
     _run "$t"
   fi
