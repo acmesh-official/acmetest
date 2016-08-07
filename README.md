@@ -8,9 +8,9 @@ Unit test project for le project https://github.com/Neilpang/acme.sh
 | Platform | Status| Last Run Time| Comments|
 -----------|-------|--------------|---------|
 |windows-cygwin| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/windows-cygwin.svg?1462640779)| Sat, May 07, 2016  5:06:19 PM| Passed |
-|freebsd| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/freebsd.svg?1466114181)| Thu Jun 16 21:56:21 UTC 2016| Passed |
-|openbsd| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/openbsd.svg?1470403041)| Fri Aug  5 13:17:21 UTC 2016| Passed |
-|pfsense| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/pfsense.svg?1470403403)| Fri Aug  5 13:23:23 UTC 2016| Passed |
+|freebsd| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/freebsd.svg?1470378398)| Fri Aug  5 06:26:38 UTC 2016| Passed |
+|openbsd| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/openbsd.svg?1470407436)| Fri Aug  5 14:30:36 UTC 2016| Passed |
+|pfsense| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/pfsense.svg?1470405939)| Fri Aug  5 14:05:39 UTC 2016| Passed |
 |ubuntu:14.04| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-14.04.svg?1470195716)| Wed Aug  3 03:41:56 UTC 2016| Passed |
 |ubuntu:15.04| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-15.04.svg?1470195871)| Wed Aug  3 03:44:31 UTC 2016| Passed |
 |ubuntu:16.04| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-16.04.svg?1470196051)| Wed Aug  3 03:47:31 UTC 2016| Passed |
