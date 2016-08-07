@@ -211,11 +211,11 @@ _run() {
     _ret="1"
   fi
   
-  rm -rf "$lehome/$TestingDomain"
-  
   if [ -f "$lehome/$PROJECT_ENTRY" ] ; then
     $lehome/$PROJECT_ENTRY uninstall >/dev/null
   fi
+  rm -rf "$lehome"
+  
   _info "------------------------------------------"
 }
 
