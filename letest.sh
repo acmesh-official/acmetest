@@ -83,7 +83,7 @@ _ss() {
   return 1
 }
 
-SUDO="$(command -v sudo | grep -o 'sudo')"
+SUDO="$(command -v sudo | grep 'sudo')"
 
 if command -v yum > /dev/null ; then
  INSTALL="$SUDO yum install -y "
