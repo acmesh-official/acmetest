@@ -58,7 +58,7 @@ _ss() {
   
   if _exists "ss" ; then
     _debug "Using: ss"
-    ss -ntpl | grep :$_port" "
+    ss -ntpl | grep ":$_port "
     return 0
   fi
 
@@ -66,12 +66,12 @@ _ss() {
     _debug "Using: netstat"
     if netstat -h 2>&1 | grep "\-p proto" >/dev/null ; then
       #for windows version netstat tool
-      netstat -anb -p tcp | grep "LISTENING" | grep :$_port" "
+      netstat -anb -p tcp | grep "LISTENING" | grep ":$_port "
     else
       if netstat -help 2>&1 | grep "\-p protocol" >/dev/null ; then
-        netstat -an -p tcp | grep LISTEN | grep :$_port" "
+        netstat -an -p tcp | grep LISTEN | grep ":$_port "
       else
-        netstat -ntpl | grep :$_port" "
+        netstat -ntpl | grep ":$_port "
       fi
     fi
     return 0
@@ -117,13 +117,13 @@ _assertcert() {
   filename="$1"
   subname="$2"
   issuername="$3"
-  echo -n "$filename is cert ? "
+  printf "$filename is cert ? "
   subj="$(openssl x509  -in $filename  -text  -noout | grep 'Subject: CN=' | cut -d '=' -f 2 | cut -d / -f 1)"
-  echo -n "$subj"
+  printf "$subj"
   if [ "$subj" = "$subname" ] ; then
     if [ "$issuername" ] ; then
       issuer="$(openssl x509  -in $filename  -text  -noout | grep 'Issuer: CN=' | cut -d '=' -f 2)"
-      echo -n " $issuer"
+      printf " $issuer"
       if [ "$issuername" != "$issuer" ] ; then
         __fail ""
         return 1
@@ -140,7 +140,7 @@ _assertcert() {
 #cmd
 _assertcmd() {
   __cmd="$1"
-  echo -n "$__cmd"
+  printf "$__cmd"
   
   eval "$__cmd > \"cmd.log\" 2>&1"
   
@@ -160,10 +160,10 @@ _assertcmd() {
 _assertexists() {
   __file="$1"
   if [ -e "$__file" ] ; then
-    echo -n "$__file exists."
+    printf "$__file exists."
     __ok ""
   else
-    echo -n "$__file missing."
+    printf "$__file missing."
     __fail ""
     return 1
   fi
@@ -174,10 +174,10 @@ _assertexists() {
 _assertnotexists() {
   __file="$1"
   if [ ! -e "$__file" ] ; then
-    echo -n "$__file no exists."
+    printf "$__file no exists."
     __ok ""
   else
-    echo -n "$__file is there."
+    printf "$__file is there."
     __fail ""
     return 1
   fi
@@ -186,7 +186,7 @@ _assertnotexists() {
 
 _assertequals() {
   if [ "$1" = "$2" ] ; then
-    echo -n "equals $1"
+    printf "equals $1"
     __ok ""
   else
     __fail "Failed"
@@ -211,10 +211,12 @@ _run() {
     _ret="1"
   fi
   
+  rm -rf "$lehome/$TestingDomain"
+  
   if [ -f "$lehome/$PROJECT_ENTRY" ] ; then
     $lehome/$PROJECT_ENTRY uninstall >/dev/null
   fi
-  rm -rf "$lehome"
+  
   
   _info "------------------------------------------"
 }
@@ -259,10 +261,10 @@ le_test_dependencies() {
   for cmd in $dependencies 
   do
     if command -v $cmd > /dev/null ; then
-      echo -n "$cmd installed." 
+      printf "$cmd installed." 
       __ok
     else
-      echo -n "$cmd not installed"
+      printf "$cmd not installed"
       __fail
       return 1
     fi
