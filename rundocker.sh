@@ -45,6 +45,13 @@ _debug2() {
   return
 }
 
+_debug3() {
+  if [ "$DEBUG" ] && [ "$DEBUG" -ge "3" ] ; then
+    _debug "$@"
+  fi
+  return
+}
+
 #update plat code [file]
 update() {
   plat="$1"
@@ -122,7 +129,6 @@ _sed_i() {
 }
 
 #setopt "file"  "opt"  "="  "value" [";"]
-#setopt "file"  "opt"  "="  "value" [";"]
 _setopt() {
   __conf="$1"
   __opt="$2"
@@ -137,20 +143,26 @@ _setopt() {
     touch "$__conf"
   fi
 
-  if grep -H -n "^$__opt" "$__conf" > /dev/null ; then
-    _debug OK
+  if grep -n "^$__opt$__sep" "$__conf" > /dev/null ; then
+    _debug3 OK
     if _contains "$__val" "&" ; then
       __val="$(echo $__val | sed 's/&/\\&/g')"
     fi
-    
     text="$(cat $__conf)"
-    echo "$text" | sed "s#^$__opt.*#$__opt$__sep$__val$__end#" > "$__conf"
+    echo "$text" | sed "s|^$__opt$__sep.*$|$__opt$__sep$__val$__end|" > "$__conf"
+
+  elif grep -n "^#$__opt$__sep" "$__conf" > /dev/null ; then
+    if _contains "$__val" "&" ; then
+      __val="$(echo $__val | sed 's/&/\\&/g')"
+    fi
+    text="$(cat $__conf)"
+    echo "$text" | sed "s|^#$__opt$__sep.*$|$__opt$__sep$__val$__end|" > "$__conf"
 
   else
-    _debug APP
+    _debug3 APP
     echo "$__opt$__sep$__val$__end" >> "$__conf"
   fi
-
+  _debug2 "$(grep -n "^$__opt$__sep" $__conf)"
 }
 
 
