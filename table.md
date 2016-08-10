@@ -19,3 +19,4 @@
 |alpine:3.1| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/alpine-3.1.svg?1470842625)| Wed Aug 10 15:23:45 UTC 2016| Passed |
 |alpine:3.2| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/alpine-3.2.svg?1470842772)| Wed Aug 10 15:26:12 UTC 2016| Passed |
 |alpine:3.3| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/alpine-3.3.svg?1470842917)| Wed Aug 10 15:28:37 UTC 2016| Passed |
+|alpine:latest| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/alpine-latest.svg?1470843064)| Wed Aug 10 15:31:04 UTC 2016| Passed |
