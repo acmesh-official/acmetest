@@ -121,11 +121,11 @@ _assertcert() {
   subname="$2"
   issuername="$3"
   printf "$filename is cert ? "
-  subj="$(openssl x509  -in $filename  -text  -noout | grep 'Subject: CN=' | cut -d '=' -f 2 | cut -d / -f 1)"
+  subj="$(openssl x509  -in $filename  -text  -noout | grep 'Subject: CN *=' | cut -d '=' -f 2 | cut -d / -f 1)"
   printf "$subj"
   if [ "$subj" = "$subname" ] ; then
     if [ "$issuername" ] ; then
-      issuer="$(openssl x509  -in $filename  -text  -noout | grep 'Issuer: CN=' | cut -d '=' -f 2)"
+      issuer="$(openssl x509  -in $filename  -text  -noout | grep 'Issuer: CN *=' | cut -d '=' -f 2)"
       printf " $issuer"
       if [ "$issuername" != "$issuer" ] ; then
         __fail ""
