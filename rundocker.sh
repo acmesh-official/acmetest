@@ -166,18 +166,30 @@ _setopt() {
 }
 
 
-__ok() {
+
+__green() {
   printf '\033[1;31;32m'
-  _info "$1 [PASS]"
+  printf "$1"
+  printf '\033[0m'
+}
+
+__ok() {
+  __green "$1 [PASS]"
+  printf "\n"
+}
+
+__red() {
+  printf '\033[1;31;40m'
+  printf "$1"
   printf '\033[0m'
 }
 
 __fail() {
-  printf '\033[1;31;40m' >&2
-  _err "$1 [FAIL]"
-  printf '\033[0m' >&2
+  __red "$1 [FAIL]" >&2
+  printf "\n" >&2
   return 1
 }
+
 
 #platline baseline fieldnum
 _mergefield() {
