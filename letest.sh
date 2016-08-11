@@ -128,14 +128,14 @@ _assertcert() {
       issuer="$(openssl x509  -in $filename  -text  -noout | grep 'Issuer: CN *=' | cut -d '=' -f 2)"
       printf " $issuer"
       if [ "$issuername" != "$issuer" ] ; then
-        __fail ""
+        __fail "Expected issuer is: $issuername, but was: $issuer"
         return 1
       fi
     fi
     __ok ""
     return 0
   else
-    __fail ""
+    __fail "Expected subject is: $subname, but was: $subj"
     return 1
   fi
 }
@@ -214,12 +214,13 @@ _run() {
     _ret="1"
   fi
   
-  rm -rf "$lehome/$TestingDomain"
-  
-  if [ -f "$lehome/$PROJECT_ENTRY" ] ; then
-    $lehome/$PROJECT_ENTRY uninstall >/dev/null
-  fi
-  
+  if [ ! "$DEBUG" ] ; then
+    rm -rf "$lehome/$TestingDomain"
+    
+    if [ -f "$lehome/$PROJECT_ENTRY" ] ; then
+      $lehome/$PROJECT_ENTRY uninstall >/dev/null
+    fi
+  fi  
   
   _info "------------------------------------------"
 }
