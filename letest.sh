@@ -87,6 +87,15 @@ _ss() {
   return 1
 }
 
+#Usage: multiline
+_base64() {
+  if [ "$1" ] ; then
+    openssl base64 -e
+  else
+    openssl base64 -e | tr -d '\r\n'
+  fi
+}
+
 #Usage: hashalg  [outputhex]
 #Output Base64-encoded digest
 _digest() {
