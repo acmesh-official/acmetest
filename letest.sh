@@ -400,7 +400,8 @@ le_test_standandalone_renew() {
     __fail "Please define TestingDomain and try again."
     return 1
   fi
-
+  
+  rm -rf "$lehome/$TestingDomain"
   _assertcmd "$lehome/$PROJECT_ENTRY issue no $TestingDomain" ||  return
   sleep 5
   _assertcmd "FORCE=1 $lehome/$PROJECT_ENTRY renew $TestingDomain" ||  return
@@ -411,7 +412,7 @@ le_test_standandalone_renew() {
     return 1
   fi
   
-  rm -rf "$lehome/$TestingDomain"
+  
 
 }
 
@@ -431,6 +432,8 @@ le_test_standandalone_renew_v2() {
     return 1
   fi
 
+  rm -rf "$lehome/$TestingDomain"
+  
   certdir="$(pwd)/certs"
   mkdir -p "$certdir"
   cert="$certdir/domain.cer"
@@ -465,8 +468,6 @@ le_test_standandalone_renew_v2() {
     __fail "80 port is not released: $lp"
     return 1
   fi
-  
-  rm -rf "$lehome/$TestingDomain"
 
 }
 
@@ -485,6 +486,8 @@ le_test_standandalone() {
     return 1
   fi
 
+  rm -rf "$lehome/$TestingDomain"
+  
   _assertcmd "$lehome/$PROJECT_ENTRY issue no $TestingDomain" ||  return
   _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" "$TestingDomain" "$CA" || return
   _assertcert "$lehome/$TestingDomain/ca.cer" "$CA" || return
@@ -493,8 +496,6 @@ le_test_standandalone() {
     __fail "80 port is not released: $lp"
     return 1
   fi
-  
-  rm -rf "$lehome/$TestingDomain"
 
 }
 
@@ -512,6 +513,8 @@ le_test_standandalone_SAN() {
     return 1
   fi
 
+  rm -rf "$lehome/$TestingDomain"
+  
   _assertcmd "$lehome/$PROJECT_ENTRY issue no $TestingDomain $TestingAltDomains" ||  return
   _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" "$TestingDomain" "$CA" || return
   _assertcert "$lehome/$TestingDomain/ca.cer" "$CA" || return
@@ -521,7 +524,7 @@ le_test_standandalone_SAN() {
     return 1
   fi
   
-  rm -rf "$lehome/$TestingDomain"
+  
 }
 
 le_test_standandalone_ECDSA_256() {
@@ -538,6 +541,7 @@ le_test_standandalone_ECDSA_256() {
     return 1
   fi
 
+  rm -rf "$lehome/$TestingDomain$ECC_SUFFIX"
  
   _assertcmd "$lehome/$PROJECT_ENTRY issue no $TestingDomain no ec-256" ||  return
   _assertcert "$lehome/$TestingDomain$ECC_SUFFIX/$TestingDomain.cer" "$TestingDomain" "$CA" || return
@@ -549,7 +553,7 @@ le_test_standandalone_ECDSA_256() {
     return 1
   fi
   
-  rm -rf "$lehome/$TestingDomain"
+  
 
 }
 
@@ -567,6 +571,8 @@ le_test_standandalone_ECDSA_256_renew() {
     return 1
   fi
 
+  rm -rf "$lehome/$TestingDomain$ECC_SUFFIX"
+  
   _assertcmd "$lehome/$PROJECT_ENTRY issue no $TestingDomain no ec-256" ||  return
   sleep 5
   _assertcmd "FORCE=1 $lehome/$PROJECT_ENTRY renew $TestingDomain" ||  return
@@ -577,7 +583,6 @@ le_test_standandalone_ECDSA_256_renew() {
     return 1
   fi
   
-  rm -rf "$lehome/$TestingDomain"
 
 }
 
@@ -596,6 +601,8 @@ le_test_standandalone_ECDSA_256_SAN_renew() {
     return 1
   fi
 
+  rm -rf "$lehome/$TestingDomain$ECC_SUFFIX"
+  
   _assertcmd "$lehome/$PROJECT_ENTRY issue no $TestingDomain $TestingAltDomains ec-256" ||  return
   sleep 5
   _assertcmd "FORCE=1 $lehome/$PROJECT_ENTRY renew $TestingDomain" ||  return
@@ -605,8 +612,6 @@ le_test_standandalone_ECDSA_256_SAN_renew() {
     __fail "80 port is not released: $lp"
     return 1
   fi
-  
-  rm -rf "$lehome/$TestingDomain"
 
 }
 
@@ -624,6 +629,8 @@ le_test_standandalone_ECDSA_256_SAN_renew_v2() {
     return 1
   fi
 
+  rm -rf "$lehome/$TestingDomain$ECC_SUFFIX"
+  
   certdir="$(pwd)/certs"
   mkdir -p "$certdir"
   cert="$certdir/domain.cer"
@@ -659,8 +666,6 @@ le_test_standandalone_ECDSA_256_SAN_renew_v2() {
     __fail "80 port is not released: $lp"
     return 1
   fi
-  
-  rm -rf "$lehome/$TestingDomain"
 
 }
 
@@ -678,6 +683,8 @@ le_test_standandalone_ECDSA_384() {
     return 1
   fi
 
+  rm -rf "$lehome/$TestingDomain$ECC_SUFFIX"
+  
   _assertcmd "$lehome/$PROJECT_ENTRY issue no $TestingDomain no ec-384" ||  return
   _assertcert "$lehome/$TestingDomain$ECC_SUFFIX/$TestingDomain.cer" "$TestingDomain" "$CA" || return
   _assertcert "$lehome/$TestingDomain$ECC_SUFFIX/ca.cer" "$CA" || return
@@ -687,8 +694,7 @@ le_test_standandalone_ECDSA_384() {
     __fail "80 port is not released: $lp"
     return 1
   fi
-  
-  rm -rf "$lehome/$TestingDomain"
+
 
 }
 
@@ -708,6 +714,8 @@ le_test_standandalone_tls_renew_SAN_v2() {
     return 1
   fi
 
+  rm -rf "$lehome/$TestingDomain"
+  
   _assertcmd "$lehome/$PROJECT_ENTRY --issue -d $TestingDomain --tls  -d $TestingAltDomains --standalone " ||  return
   sleep 5
   _assertcmd "$lehome/$PROJECT_ENTRY --renew -d $TestingDomain --force" ||  return
@@ -720,8 +728,6 @@ le_test_standandalone_tls_renew_SAN_v2() {
     __fail "443 port is not released: $lp"
     return 1
   fi
-  
-  rm -rf "$lehome/$TestingDomain"
 
 }
 
@@ -739,6 +745,8 @@ le_test_tls_renew_SAN_v2() {
     return 1
   fi
 
+  rm -rf "$lehome/$TestingDomain"
+  
   _assertcmd "$lehome/$PROJECT_ENTRY --issue -d $TestingDomain -d $TestingAltDomains --tls" ||  return
   sleep 5
   _assertcmd "$lehome/$PROJECT_ENTRY --renew -d $TestingDomain --force" ||  return
@@ -751,8 +759,6 @@ le_test_tls_renew_SAN_v2() {
     __fail "443 port is not released: $lp"
     return 1
   fi
-  
-  rm -rf "$lehome/$TestingDomain"
 
 }
 
