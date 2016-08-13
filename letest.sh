@@ -650,7 +650,7 @@ le_test_standandalone_ECDSA_256_SAN_renew_v2() {
   rm -rf "$certdir"
   mkdir -p "$certdir"
   
-  _assertcmd "$lehome/$PROJECT_ENTRY --renew -d $TestingDomain --force" ||  return
+  _assertcmd "$lehome/$PROJECT_ENTRY --renew --ecc -d $TestingDomain --force" ||  return
   
   _assertcert "$lehome/$TestingDomain$ECC_SUFFIX/$TestingDomain.cer" "$TestingDomain" "$CA" || return
   _assertcert "$lehome/$TestingDomain$ECC_SUFFIX/ca.cer" "$CA" || return
