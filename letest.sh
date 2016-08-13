@@ -230,7 +230,7 @@ _assertequals() {
 _assertfileequals(){
   file1="$1"
   file2="$2"
-  if [ "$(_digest "$file1")" = "$(_digest "$file2")" ] ; then
+  if [ "$(cat "$file1" | _digest  sha256)" = "$(cat "$file2" | _digest  sha256)" ] ; then
     printf -- "'$file1' equals '$2'"
     __ok
   else
