@@ -15,6 +15,10 @@ END_CERT="-----END CERTIFICATE-----"
 
 CA="Fake LE Intermediate X1"
 
+ECC_SEP="_"
+ECC_SUFFIX="${ECC_SEP}ecc"
+
+
 #a + b
 _math(){
   expr "$@"
@@ -83,6 +87,30 @@ _ss() {
   return 1
 }
 
+#Usage: hashalg  [outputhex]
+#Output Base64-encoded digest
+_digest() {
+  alg="$1"
+  if [ -z "$alg" ] ; then
+    _usage "Usage: _digest hashalg"
+    return 1
+  fi
+  
+  outputhex="$2"
+  
+  if [ "$alg" = "sha256" ] ; then
+    if [ "$outputhex" ] ; then
+      echo $(openssl dgst -sha256 -hex | cut -d = -f 2)
+    else
+      openssl dgst -sha256 -binary | _base64
+    fi
+  else
+    _err "$alg is not supported yet"
+    return 1
+  fi
+
+}
+
 SUDO="$(command -v sudo | grep 'sudo')"
 
 if command -v yum > /dev/null ; then
@@ -94,7 +122,7 @@ fi
 
 __green() {
   printf '\033[1;31;32m'
-  printf "$1"
+  printf -- "$1"
   printf '\033[0m'
 }
 
@@ -105,7 +133,7 @@ __ok() {
 
 __red() {
   printf '\033[1;31;40m'
-  printf "$1"
+  printf -- "$1"
   printf '\033[0m'
 }
 
@@ -195,6 +223,18 @@ _assertequals() {
     __fail "Failed"
     _err "Expected:$1"
     _err "But was:$2"
+  fi
+}
+
+#file1 file2
+_assertfileequals(){
+  file1="$1"
+  file2="$2"
+  if [ "$(_digest "$file1")" = "$(_digest "$file2")" ] ; then
+    printf -- "'$file1' equals '$2'"
+    __ok
+  else
+    __fail "Failed"
   fi
 }
 
@@ -382,12 +422,34 @@ le_test_standandalone_renew_v2() {
     return 1
   fi
 
-  _assertcmd "$lehome/$PROJECT_ENTRY --issue -d $TestingDomain --standalone" ||  return
+  certdir="$(pwd)/certs"
+  mkdir -p "$certdir"
+  cert="$certdir/domain.cer"
+  key="$certdir/domain.key"
+  ca="$certdir/ca.cer"
+  full="$certdir/full.cer"
+  _assertcmd "$lehome/$PROJECT_ENTRY --issue -d $TestingDomain --standalone --certpath '$cert' --keypath '$key'  --capath '$ca'  --reloadcmd 'echo this is reload'  --fullchainpath  '$full'" ||  return
+  
+  _assertfileequals "$lehome/$TestingDomain/$TestingDomain.cer" "$cert" ||  return
+  _assertfileequals "$lehome/$TestingDomain/$TestingDomain.key" "$key" ||  return
+  _assertfileequals "$lehome/$TestingDomain/ca.cer" "$ca" ||  return
+  _assertfileequals "$lehome/$TestingDomain/fullchain.cer" "$full" ||  return
+  
+  rm -rf "$certdir"
+  mkdir -p "$certdir"
+  
   sleep 5
   _assertcmd "$lehome/$PROJECT_ENTRY --renew -d $TestingDomain --force" ||  return
   
   _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" "$TestingDomain" "$CA" || return
   _assertcert "$lehome/$TestingDomain/ca.cer" "$CA" || return
+  
+  _assertfileequals "$lehome/$TestingDomain/$TestingDomain.cer" "$cert" ||  return
+  _assertfileequals "$lehome/$TestingDomain/$TestingDomain.key" "$key" ||  return
+  _assertfileequals "$lehome/$TestingDomain/ca.cer" "$ca" ||  return
+  _assertfileequals "$lehome/$TestingDomain/fullchain.cer" "$full" ||  return
+  
+  rm -rf "$certdir"
   
   lp=`_ss | grep ':80 '`
   if [ "$lp" ] ; then
@@ -468,8 +530,8 @@ le_test_standandalone_ECDSA_256() {
   fi
 
   _assertcmd "$lehome/$PROJECT_ENTRY issue no $TestingDomain no ec-256" ||  return
-  _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" "$TestingDomain" "$CA" || return
-  _assertcert "$lehome/$TestingDomain/ca.cer" "$CA" || return
+  _assertcert "$lehome/$TestingDomain$ECC_SUFFIX/$TestingDomain.cer" "$TestingDomain" "$CA" || return
+  _assertcert "$lehome/$TestingDomain$ECC_SUFFIX/ca.cer" "$CA" || return
   
   lp=`_ss | grep ':80 '`
   if [ "$lp" ] ; then
@@ -556,8 +618,8 @@ le_test_standandalone_ECDSA_256_SAN_renew_v2() {
   sleep 5
   _assertcmd "$lehome/$PROJECT_ENTRY --renew -d $TestingDomain --force" ||  return
   
-  _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" "$TestingDomain" "$CA" || return
-  _assertcert "$lehome/$TestingDomain/ca.cer" "$CA" || return
+  _assertcert "$lehome/$TestingDomain$ECC_SUFFIX/$TestingDomain.cer" "$TestingDomain" "$CA" || return
+  _assertcert "$lehome/$TestingDomain$ECC_SUFFIX/ca.cer" "$CA" || return
   
   lp=`_ss | grep ':80 '`
   if [ "$lp" ] ; then
@@ -584,8 +646,8 @@ le_test_standandalone_ECDSA_384() {
   fi
 
   _assertcmd "$lehome/$PROJECT_ENTRY issue no $TestingDomain no ec-384" ||  return
-  _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" "$TestingDomain" "$CA" || return
-  _assertcert "$lehome/$TestingDomain/ca.cer" "$CA" || return
+  _assertcert "$lehome/$TestingDomain$ECC_SUFFIX/$TestingDomain.cer" "$TestingDomain" "$CA" || return
+  _assertcert "$lehome/$TestingDomain$ECC_SUFFIX/ca.cer" "$CA" || return
   
   lp=`_ss | grep ':80 '`
   if [ "$lp" ] ; then
