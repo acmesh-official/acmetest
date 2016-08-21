@@ -110,6 +110,7 @@ _contains(){
   echo $_str | grep $_sub >/dev/null 2>&1
 }
 
+#options file
 _sed_i() {
   options="$1"
   filename="$2"
@@ -123,7 +124,7 @@ _sed_i() {
     sed -i "$options" "$filename"
   else
     _debug "No -i support in sed"
-    text="$(cat $filename)"
+    text="$(cat "$filename")"
     echo "$text" | sed "$options" > "$filename"
   fi
 }
@@ -148,21 +149,15 @@ _setopt() {
     if _contains "$__val" "&" ; then
       __val="$(echo $__val | sed 's/&/\\&/g')"
     fi
-    text="$(cat $__conf)"
-    echo "$text" | sed "s|^$__opt$__sep.*$|$__opt$__sep$__val$__end|" > "$__conf"
 
-  elif grep -n "^#$__opt$__sep" "$__conf" > /dev/null ; then
-    if _contains "$__val" "&" ; then
-      __val="$(echo $__val | sed 's/&/\\&/g')"
-    fi
     text="$(cat $__conf)"
-    echo "$text" | sed "s|^#$__opt$__sep.*$|$__opt$__sep$__val$__end|" > "$__conf"
+    echo "$text" | sed "s#^$__opt.*#$__opt$__sep$__val$__end#" > "$__conf"
 
   else
     _debug3 APP
     echo "$__opt$__sep$__val$__end" >> "$__conf"
   fi
-  _debug2 "$(grep -n "^$__opt$__sep" $__conf)"
+
 }
 
 
