@@ -67,6 +67,12 @@ TestingDomain=aa.com   TestingAltDomains=www.aa.com  ./rundocker.sh  testall
 
 The script will download all the supported platforms from the official docker hub, then run the test cases in all the supported platforms.
 
+Then test single docker the platforms :
+
+```
+cd acmetest
+TestingDomain=aa.com   TestingAltDomains=www.aa.com  ./rundocker.sh  testplat   centos:latest
+```
 
 
 
