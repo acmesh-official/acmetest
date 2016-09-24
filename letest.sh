@@ -267,6 +267,7 @@ _run() {
     rm -rf "$lehome/$TestingDomain"
     rm -rf "$lehome/$TestingDomain$ECC_SUFFIX"
     if [ -f "$lehome/$PROJECT_ENTRY" ] ; then
+      $lehome/$PROJECT_ENTRY --deactivate -d "$TestingDomain"  -d "$TestingAltDomains"
       $lehome/$PROJECT_ENTRY uninstall >/dev/null
     fi
   fi  
@@ -524,6 +525,51 @@ le_test_standandalone_renew_localaddress_v2() {
   fi
 
 }
+
+#
+le_test_standandalone_deactivate_v2() {
+  lehome="$Default_Home"
+
+  lp=`_ss | grep ':80 '`
+  if [ "$lp" ] ; then
+    __fail "80 port is already used."
+    return 1
+  fi
+  
+  if [ -z "$TestingDomain" ] ; then
+    __fail "Please define TestingDomain and try again."
+    return 1
+  fi
+
+  rm -rf "$lehome/$TestingDomain"
+  
+  certdir="$(pwd)/certs"
+  mkdir -p "$certdir"
+  cert="$certdir/domain.cer"
+  key="$certdir/domain.key"
+  ca="$certdir/ca.cer"
+  full="$certdir/full.cer"
+  _assertcmd "$lehome/$PROJECT_ENTRY --issue -d $TestingDomain --standalone --certpath '$cert' --keypath '$key'  --capath '$ca'  --reloadcmd 'echo this is reload'  --fullchainpath  '$full'" ||  return
+  
+  _assertfileequals "$lehome/$TestingDomain/$TestingDomain.cer" "$cert" ||  return
+  _assertfileequals "$lehome/$TestingDomain/$TestingDomain.key" "$key" ||  return
+  _assertfileequals "$lehome/$TestingDomain/ca.cer" "$ca" ||  return
+  _assertfileequals "$lehome/$TestingDomain/fullchain.cer" "$full" ||  return
+  
+  rm -rf "$certdir"
+  mkdir -p "$certdir"
+  
+  sleep 5
+  _assertcmd "$lehome/$PROJECT_ENTRY --deactivate -d $TestingDomain" ||  return
+  
+  lp=`_ss | grep ':80 '`
+  if [ "$lp" ] ; then
+    __fail "80 port is not released: $lp"
+    return 1
+  fi
+
+}
+
 
 #
 le_test_standandalone() {
