@@ -267,12 +267,14 @@ _run() {
     rm -rf "$lehome/$TestingDomain"
     rm -rf "$lehome/$TestingDomain$ECC_SUFFIX"
     if [ -f "$lehome/$PROJECT_ENTRY" ] ; then
-      $lehome/$PROJECT_ENTRY --deactivate -d "$TestingDomain"  -d "$TestingAltDomains"
+      if [ -f "$lehome/account.key" ] ; then
+        $lehome/$PROJECT_ENTRY --deactivate -d "$TestingDomain"  -d "$TestingAltDomains"
+      fi
       _r="$?"
       $lehome/$PROJECT_ENTRY uninstall >/dev/null
     fi
   fi  
-  
+  _debug "_r" "$_r"
   _info "------------------------------------------"
   return $_r
 }
