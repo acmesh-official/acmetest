@@ -259,6 +259,7 @@ _run() {
     cd ..
   fi
   
+  _r="0"
   if ! ( $1 ) ; then
     _r="1"
   fi
@@ -270,7 +271,10 @@ _run() {
       if [ -f "$lehome/account.key" ] ; then
         $lehome/$PROJECT_ENTRY --deactivate -d "$TestingDomain"  -d "$TestingAltDomains" >/dev/null
       fi
-      _r="$?"
+      __dr="$?"
+      if [ "$_r" = "0" ] ; then
+        _r="$__dr"
+      fi
       $lehome/$PROJECT_ENTRY uninstall >/dev/null
     fi
   else
