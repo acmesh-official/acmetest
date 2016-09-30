@@ -18,6 +18,11 @@ CA="Fake LE Intermediate X1"
 ECC_SEP="_"
 ECC_SUFFIX="${ECC_SEP}ecc"
 
+STAGE_CA="https://acme-staging.api.letsencrypt.org"
+
+_API_HOST="$(echo "$STAGE_CA" | cut -d : -f 2 | tr -d '/')"
+
+
 
 #a + b
 _math(){
@@ -264,11 +269,19 @@ _run() {
     _r="1"
   fi
   
+  DEFAULT_CA_HOME="$lehome/ca"
+
+  if [ -z "$CA_HOME" ] ; then
+    CA_HOME="$DEFAULT_CA_HOME"
+  fi
+    
+  CA_DIR="$CA_HOME/$_API_HOST"
+
   if [ ! "$DEBUG" ] ; then
     rm -rf "$lehome/$TestingDomain"
     rm -rf "$lehome/$TestingDomain$ECC_SUFFIX"
     if [ -f "$lehome/$PROJECT_ENTRY" ] ; then
-      if [ -f "$lehome/account.key" ] ; then
+      if [ -f "$CA_DIR/account.key" ] ; then
         $lehome/$PROJECT_ENTRY --deactivate -d "$TestingDomain"  -d "$TestingAltDomains" >/dev/null
       fi
       __dr="$?"
@@ -278,7 +291,7 @@ _run() {
       $lehome/$PROJECT_ENTRY uninstall >/dev/null
     fi
   else
-    if [ -f "$lehome/account.key" ] ; then
+    if [ -f "$CA_DIR/account.key" ] ; then
       $lehome/$PROJECT_ENTRY --deactivate -d "$TestingDomain"  -d "$TestingAltDomains"
     fi
   fi  
