@@ -23,3 +23,4 @@
 |oraclelinux:6| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/oraclelinux-6.svg?1475335188)| Sat Oct  1 15:19:48 UTC 2016| Passed |
 |oraclelinux:7| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/oraclelinux-7.svg?1475335293)| Sat Oct  1 15:21:33 UTC 2016| Passed |
 |oraclelinux:latest| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/oraclelinux-latest.svg?1475335398)| Sat Oct  1 15:23:18 UTC 2016| Passed |
+|kalilinux/kali-linux-docker| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/kalilinux-kali-linux-docker.svg?1475335747)| Sat Oct  1 15:29:07 UTC 2016| Passed |
