@@ -22,7 +22,13 @@ STAGE_CA="https://acme-staging.api.letsencrypt.org"
 
 _API_HOST="$(echo "$STAGE_CA" | cut -d : -f 2 | tr -d '/')"
 
+if [ -z "$LOG_FILE" ] ; then
+  LOG_FILE="letest.log"
+fi
 
+if [ -z "$LOG_LEVEL" ] ; then
+  LOG_LEVEL=2
+fi
 
 #a + b
 _math(){

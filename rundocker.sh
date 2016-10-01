@@ -263,32 +263,33 @@ _runplat() {
     return 1
   fi
 
-  if [ "$DEBUG" ] ; then
+  if [ -z "$LOG_FILE" ] ; then
+    statusfile="$(echo "$plat" | tr ':/ \\' '----' )"
+    LOG_FILE="$statusfile.log"
+  fi
+  
+  if [ "$DEBUGING" ] ; then
     docker run -p 80:80 -p 443:443 --rm \
     -e TestingDomain=$TestingDomain \
     -e TestingAltDomains=$TestingAltDomains \
-    -e DEBUG=$DEBUG \
+    -e DEBUG="$DEBUG" \
+    -e LOG_FILE="$LOG_FILE" \
+    -e LOG_LEVEL="$LOG_LEVEL" \
     -e BRANCH=$BRANCH \
     -v $(pwd):/acmetest \
     $myplat /bin/sh -c "cd /acmetest && ./letest.sh"
-    
   else
-    if [ "$DEBUGING" ] ; then
-      docker run -p 80:80 -p 443:443 --rm \
-      -e TestingDomain=$TestingDomain \
-      -e TestingAltDomains=$TestingAltDomains \
-      -e BRANCH=$BRANCH \
-      -v $(pwd):/acmetest \
-      $myplat /bin/sh -c "cd /acmetest && ./letest.sh"
-    else
-      docker run -p 80:80 -p 443:443 --rm \
-      -e TestingDomain=$TestingDomain \
-      -e TestingAltDomains=$TestingAltDomains \
-      -e BRANCH=$BRANCH \
-      -v $(pwd):/acmetest \
-      $myplat /bin/sh -c "cd /acmetest && ./letest.sh" >"$Log_Err" 2>&1
-    fi
+    docker run -p 80:80 -p 443:443 --rm \
+    -e TestingDomain=$TestingDomain \
+    -e TestingAltDomains=$TestingAltDomains \
+    -e DEBUG="$DEBUG" \
+    -e LOG_FILE="$LOG_FILE" \
+    -e LOG_LEVEL="$LOG_LEVEL" \
+    -e BRANCH=$BRANCH \
+    -v $(pwd):/acmetest \
+    $myplat /bin/sh -c "cd /acmetest && ./letest.sh" >"$Log_Err" 2>&1
   fi
+
   code="$?"
   _debug "code" "$code"
  
@@ -300,6 +301,9 @@ _runplat() {
       -i -t \
       -e TestingDomain=$TestingDomain \
       -e TestingAltDomains=$TestingAltDomains \
+      -e DEBUG="$DEBUG" \
+      -e LOG_FILE="$LOG_FILE" \
+      -e LOG_LEVEL="$LOG_LEVEL" \
       -e BRANCH=$BRANCH \
       -v $(pwd):/acmetest $myplat /bin/sh
     fi
