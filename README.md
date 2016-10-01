@@ -12,10 +12,10 @@ Unit test project for le project https://github.com/Neilpang/acme.sh
 |openbsd| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/openbsd.svg?1474378907)| Tue Sep 20 13:41:47 UTC 2016| Passed |
 |pfsense| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/pfsense.svg?1470553409)| Sun Aug  7 07:03:29 UTC 2016| Passed |
 |solaris| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/solaris.svg?1470880346)| Thursday, August 11, 2016 01:52:26 AM GMT| Passed |
-|ubuntu:14.04| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-14.04.svg?1475302729)| Sat Oct  1 06:18:49 UTC 2016| Passed |
-|ubuntu:15.04| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-15.04.svg?1475304099)| Sat Oct  1 06:41:39 UTC 2016| Failed |
-|ubuntu:16.04| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-16.04.svg?1475305608)| Sat Oct  1 07:06:48 UTC 2016| Failed |
-|ubuntu:latest| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-latest.svg?1475307177)| Sat Oct  1 07:32:57 UTC 2016| Failed |
+|ubuntu:14.04| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-14.04.svg?1475330201)| Sat Oct  1 13:56:41 UTC 2016| Passed |
+|ubuntu:15.04| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-15.04.svg?1475330298)| Sat Oct  1 13:58:18 UTC 2016| Passed |
+|ubuntu:16.04| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-16.04.svg?1475330412)| Sat Oct  1 14:00:12 UTC 2016| Passed |
+|ubuntu:latest| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-latest.svg?1475330522)| Sat Oct  1 14:02:02 UTC 2016| Passed |
 |debian:7| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-7.svg?1475308526)| Sat Oct  1 07:55:26 UTC 2016| Failed |
 |debian:8| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-8.svg?1475309909)| Sat Oct  1 08:18:29 UTC 2016| Failed |
 |debian:latest| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-latest.svg?1475311290)| Sat Oct  1 08:41:30 UTC 2016| Failed |
