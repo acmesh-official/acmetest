@@ -3,3 +3,4 @@
 |ubuntu:16.04| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-16.04.svg?1475305608)| Sat Oct  1 07:06:48 UTC 2016| Failed |
 |ubuntu:latest| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-latest.svg?1475307177)| Sat Oct  1 07:32:57 UTC 2016| Failed |
 |debian:7| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-7.svg?1475308526)| Sat Oct  1 07:55:26 UTC 2016| Failed |
+|debian:8| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-8.svg?1475308989)| Sat Oct  1 08:03:09 UTC 2016| Failed |
