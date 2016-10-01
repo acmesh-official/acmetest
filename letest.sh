@@ -930,7 +930,7 @@ do
     _run "$t"
     _rr="$?"
   fi
-  _info "_rr" "$_rr"
+  _debug "_rr" "$_rr"
   _ret=$(_math $_ret + $_rr)
   _debug "$_ret"
   
