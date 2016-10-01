@@ -20,7 +20,7 @@ Unit test project for le project https://github.com/Neilpang/acme.sh
 |debian:8| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-8.svg?1475332039)| Sat Oct  1 14:27:19 UTC 2016| Passed |
 |debian:latest| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-latest.svg?1475332137)| Sat Oct  1 14:28:57 UTC 2016| Passed |
 |centos:5| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-5.svg?1475332396)| Sat Oct  1 14:33:16 UTC 2016| Passed |
-|centos:6| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-6.svg?1475312796)| Sat Oct  1 09:06:36 UTC 2016| Passed |
+|centos:6| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-6.svg?1475332903)| Sat Oct  1 14:41:43 UTC 2016| Passed |
 |centos:7| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-7.svg?1475314330)| Sat Oct  1 09:32:10 UTC 2016| Failed |
 |centos:latest| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-latest.svg?1475315860)| Sat Oct  1 09:57:40 UTC 2016| Failed |
 |fedora:21| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/fedora-21.svg?1475317378)| Sat Oct  1 10:22:58 UTC 2016| Failed |
