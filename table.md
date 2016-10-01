@@ -2,4 +2,4 @@
 |ubuntu:15.04| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-15.04.svg?1475304099)| Sat Oct  1 06:41:39 UTC 2016| Failed |
 |ubuntu:16.04| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-16.04.svg?1475305608)| Sat Oct  1 07:06:48 UTC 2016| Failed |
 |ubuntu:latest| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-latest.svg?1475307177)| Sat Oct  1 07:32:57 UTC 2016| Failed |
-|debian:7| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-7.svg?1475307624)| Sat Oct  1 07:40:24 UTC 2016| Failed |
+|debian:7| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-7.svg?1475308071)| Sat Oct  1 07:47:51 UTC 2016| Failed |
