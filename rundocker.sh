@@ -267,7 +267,6 @@ _runplat() {
   fi
 
   if [ -z "$LOG_FILE" ] ; then
-    
     LOG_FILE="$statusfile.log"
   fi
   
@@ -280,7 +279,7 @@ _runplat() {
     -e LOG_LEVEL="$LOG_LEVEL" \
     -e BRANCH=$BRANCH \
     -v $(pwd):/acmetest \
-    $myplat /bin/sh -c "cd /acmetest && ./letest.sh"
+    $myplat /bin/sh -c "cd /acmetest && ./letest.sh"  2>&1 | tee $Log_Out
   else
     docker run -p 80:80 -p 443:443 --rm \
     -e TestingDomain=$TestingDomain \
