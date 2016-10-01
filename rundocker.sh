@@ -2,7 +2,7 @@
 LeTest="https://github.com/Neilpang/letest.git"
 
 Img="https://cdn.rawgit.com/Neilpang/letest/master/status"
-Log_Err="err.log"
+
 
 Conf="plat.conf"
 
@@ -258,13 +258,16 @@ _runplat() {
     cat "$myplat/Dockerfile"
   fi
   
-  if ! docker build -t "$myplat"  "$myplat" >"$Log_Err" 2>&1 ; then
-    cat "$Log_Err"
+  statusfile="$(echo "$plat" | tr ':/ \\' '----' )"
+  Log_Out="$statusfile.out"
+  
+  if ! docker build -t "$myplat"  "$myplat" >"$Log_Out" 2>&1 ; then
+    cat "$Log_Out"
     return 1
   fi
 
   if [ -z "$LOG_FILE" ] ; then
-    statusfile="$(echo "$plat" | tr ':/ \\' '----' )"
+    
     LOG_FILE="$statusfile.log"
   fi
   
@@ -287,14 +290,14 @@ _runplat() {
     -e LOG_LEVEL="$LOG_LEVEL" \
     -e BRANCH=$BRANCH \
     -v $(pwd):/acmetest \
-    $myplat /bin/sh -c "cd /acmetest && ./letest.sh" >"$Log_Err" 2>&1
+    $myplat /bin/sh -c "cd /acmetest && ./letest.sh" >"$Log_Out" 2>&1
   fi
 
   code="$?"
   _debug "code" "$code"
  
   if [ "$code" != "0" ] ; then
-    cat "$Log_Err"
+    cat "$Log_Out"
     if [ "$DEBUGING" ] ; then
       _info "Please debuging:"
       docker run -p 80:80 -p 443:443 --rm \
