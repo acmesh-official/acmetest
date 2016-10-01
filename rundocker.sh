@@ -268,6 +268,7 @@ _runplat() {
 
   if [ -z "$LOG_FILE" ] ; then
     LOG_FILE="$statusfile.log"
+    rm -rf "$LOG_FILE"
   fi
   
   if [ "$DEBUGING" ] ; then
@@ -289,7 +290,7 @@ _runplat() {
     -e LOG_LEVEL="$LOG_LEVEL" \
     -e BRANCH=$BRANCH \
     -v $(pwd):/acmetest \
-    $myplat /bin/sh -c "cd /acmetest && ./letest.sh" >"$Log_Out" 2>&1
+    $myplat /bin/sh -c "cd /acmetest && ./letest.sh" >>"$Log_Out" 2>&1
   fi
 
   code="$?"
