@@ -279,6 +279,7 @@ _runplat() {
     -e LOG_FILE="$LOG_FILE" \
     -e LOG_LEVEL="$LOG_LEVEL" \
     -e BRANCH=$BRANCH \
+    -e RUN_IN_DOCKER=1 \
     -v $(pwd):/acmetest \
     $myplat /bin/sh -c "cd /acmetest && ./letest.sh"
   else
@@ -289,6 +290,7 @@ _runplat() {
     -e LOG_FILE="$LOG_FILE" \
     -e LOG_LEVEL="$LOG_LEVEL" \
     -e BRANCH=$BRANCH \
+    -e RUN_IN_DOCKER=1 \
     -v $(pwd):/acmetest \
     $myplat /bin/sh -c "cd /acmetest && ./letest.sh" >>"$Log_Out" 2>&1
   fi

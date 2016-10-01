@@ -519,6 +519,12 @@ le_test_standandalone_renew_v2() {
 
 #
 le_test_standandalone_renew_localaddress_v2() {
+
+  if [ "$RUN_IN_DOCKER" ] ; then
+    return 0
+  fi
+
+
   lehome="$Default_Home"
 
   lp=`_ss | grep ':80 '`
