@@ -30,6 +30,21 @@ if [ -z "$LOG_LEVEL" ] ; then
   LOG_LEVEL=2
 fi
 
+_dlgVersions() {
+
+  if _exists openssl ; then
+    openssl version
+  fi
+  
+  if _exists curl ; then
+    curl -V
+  fi
+  
+  if _exists wget ; then
+    wget -V
+  fi
+}
+
 #a + b
 _math(){
   expr "$@"
@@ -910,14 +925,17 @@ do
     printf "\n"
     num=$(_math $num + 1)
   fi
+  _rr=0
   if [ -z "$CASE" ] || [ "$CASE" = "$t" ] ; then
     _run "$t"
+    _rr="$?"
   fi
-  _r="$?"
-  if [ "$_r" != "0" ] && [ "$DEBUG" ] ; then
+  _info "_rr" "$_rr"
+  
+  if [ "$_rr" != "0" ] && [ "$DEBUG" ] ; then
     break;
   fi
-  _ret=$(_math $_ret + $_r)
+  _ret=$(_math $_ret + $_rr)
 done
 
 exit $_ret
