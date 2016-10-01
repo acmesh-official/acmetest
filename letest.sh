@@ -50,11 +50,19 @@ _math(){
   expr "$@"
 }
 
+_log() {
+  if [ "$LOG_FILE" ] ; then
+    echo "$@" >> "$LOG_FILE"
+  fi
+}
+
 _info() {
   if [ -z "$2" ] ; then
     echo "$1"
+    _log "$1"
   else
     echo "$1"="'$2'"
+    _log "$1"="'$2'"
   fi
 }
 
