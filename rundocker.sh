@@ -280,7 +280,7 @@ _runplat() {
     -e LOG_LEVEL="$LOG_LEVEL" \
     -e BRANCH=$BRANCH \
     -v $(pwd):/acmetest \
-    $myplat /bin/sh -c "cd /acmetest && ./letest.sh"  2>&1 | tee $Log_Out
+    $myplat /bin/sh -c "cd /acmetest && ./letest.sh"
   else
     docker run -p 80:80 -p 443:443 --rm \
     -e TestingDomain=$TestingDomain \
