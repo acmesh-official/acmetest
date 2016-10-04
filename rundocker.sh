@@ -234,7 +234,7 @@ _runplat() {
   update="$(_mergefield "$platline" "$baseline" 2)"
   _debug "update" "$update"
   
-  buildq=">/dev/null 2>&1"
+  buildq="2>&1"
   if [ "$DEBUG" ] || [ "$DEBUGING" ] ; then
     buildq=""
   fi
@@ -282,6 +282,7 @@ _runplat() {
       -e BRANCH=$BRANCH \
       -e RUN_IN_DOCKER=1 \
       -e DOCKER_OS="$plat" \
+      -e QUICK_TEST="$QUICK_TEST" \
       -v $(pwd):/acmetest \
       $myplat /bin/sh -c "cd /acmetest && ./letest.sh $CASE"
     else
@@ -294,6 +295,7 @@ _runplat() {
       -e BRANCH=$BRANCH \
       -e RUN_IN_DOCKER=1 \
       -e DOCKER_OS="$plat" \
+      -e QUICK_TEST="$QUICK_TEST" \
       -v $(pwd):/acmetest \
       $myplat /bin/sh -c "cd /acmetest && ./letest.sh $CASE" >>"$Log_Out" 2>&1
     fi
