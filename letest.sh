@@ -946,8 +946,10 @@ do
   _ret=$(_math $_ret + $_rr)
   _debug "$_ret"
   
-  if [ "$_ret" != "0" ] && ([ "$DEBUG" ] || [ "$DEBUGING"]); then
-    break;
+  if [ "$_ret" != "0" ] ; then
+    if [ "$DEBUG" ] || [ "$DEBUGING" ] ; then 
+      break;
+    fi
   fi
   if [ "$CASE" = "$t" ] ; then
     break;
