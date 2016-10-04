@@ -250,12 +250,11 @@ _runplat() {
     tools="$(_mergefield "$platline" "$baseline" 4)"
     if [ "$tools" ] ; then
       toolsline=$(echo "$tools" |  tr ',' ' ' )
-      for tool in $toolsline   
-      do
-        if [ "$tool" ] ; then
-          echo "RUN $install $tool  $buildq"  >>  "$myplat/Dockerfile"
-        fi
-      done
+
+      if [ "$toolsline" ] ; then
+        echo "RUN $install $toolsline  $buildq"  >>  "$myplat/Dockerfile"
+      fi
+
     fi
   fi
 
