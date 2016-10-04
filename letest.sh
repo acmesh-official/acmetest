@@ -643,6 +643,70 @@ le_test_standandalone_listen_v4_v2() {
 
 }
 
+
+#
+le_test_standandalone_listen_v6_v2() {
+  if [ -z "$TEST_IPV6" ] ; then
+    _info "Skip"
+    return 0
+  fi
+
+  lehome="$Default_Home"
+
+  lp=`_ss | grep ':80 '`
+  if [ "$lp" ] ; then
+    __fail "80 port is already used."
+    return 1
+  fi
+  
+  if [ -z "$TestingDomain" ] ; then
+    __fail "Please define TestingDomain and try again."
+    return 1
+  fi
+
+  rm -rf "$lehome/$TestingDomain"
+  
+  certdir="$(pwd)/certs"
+  mkdir -p "$certdir"
+  cert="$certdir/domain.cer"
+  key="$certdir/domain.key"
+  ca="$certdir/ca.cer"
+  full="$certdir/full.cer"
+  _assertcmd "$lehome/$PROJECT_ENTRY --issue -d $TestingDomain --standalone --listen-v6 --certpath '$cert' --keypath '$key'  --capath '$ca'  --reloadcmd 'echo this is reload'  --fullchainpath  '$full'" ||  return
+  
+  _assertfileequals "$lehome/$TestingDomain/$TestingDomain.cer" "$cert" ||  return
+  _assertfileequals "$lehome/$TestingDomain/$TestingDomain.key" "$key" ||  return
+  _assertfileequals "$lehome/$TestingDomain/ca.cer" "$ca" ||  return
+  _assertfileequals "$lehome/$TestingDomain/fullchain.cer" "$full" ||  return
+  
+  rm -rf "$certdir"
+  mkdir -p "$certdir"
+  
+  if [ "$QUICK_TEST" ] ; then
+    return 0
+  fi
+  
+  sleep 5
+  _assertcmd "$lehome/$PROJECT_ENTRY --renew -d $TestingDomain --force" ||  return
+  
+  _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" "$TestingDomain" "$CA" || return
+  _assertcert "$lehome/$TestingDomain/ca.cer" "$CA" || return
+  
+  _assertfileequals "$lehome/$TestingDomain/$TestingDomain.cer" "$cert" ||  return
+  _assertfileequals "$lehome/$TestingDomain/$TestingDomain.key" "$key" ||  return
+  _assertfileequals "$lehome/$TestingDomain/ca.cer" "$ca" ||  return
+  _assertfileequals "$lehome/$TestingDomain/fullchain.cer" "$full" ||  return
+  
+  rm -rf "$certdir"
+  
+  lp=`_ss | grep ':80 '`
+  if [ "$lp" ] ; then
+    __fail "80 port is not released: $lp"
+    return 1
+  fi
+
+}
+
 #
 le_test_standandalone_deactivate_v2() {
   lehome="$Default_Home"
