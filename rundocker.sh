@@ -318,7 +318,6 @@ _runplat() {
     code="$?"
     _debug "code" "$code"
     cat "$Log_Out"
-    return 1
   fi
 
   update $plat $code
