@@ -234,8 +234,13 @@ _runplat() {
   update="$(_mergefield "$platline" "$baseline" 2)"
   _debug "update" "$update"
   
+  buildq="2>&1"
+  if [ "$DEBUG" ] || [ "$DEBUGING" ] ; then
+    buildq=""
+  fi
+  
   if [ "$update" ] ; then
-    echo "RUN $update >/dev/null 2>&1" >>  "$myplat/Dockerfile"
+    echo "RUN $update >/dev/null $buildq" >>  "$myplat/Dockerfile"
   fi
   
   install="$(_mergefield "$platline" "$baseline" 3)"
@@ -248,7 +253,7 @@ _runplat() {
       for tool in $toolsline   
       do
         if [ "$tool" ] ; then
-          echo "RUN $install $tool >/dev/null 2>&1"  >>  "$myplat/Dockerfile"
+          echo "RUN $install $tool >/dev/null $buildq"  >>  "$myplat/Dockerfile"
         fi
       done
     fi
@@ -261,7 +266,7 @@ _runplat() {
   statusfile="$(echo "$plat" | tr ':/ \\' '----' )"
   Log_Out="$statusfile.out"
   
-  if docker build -t "$myplat"  "$myplat" >"$Log_Out" 2>&1 ; then
+  if docker build -t "$myplat"  "$myplat" >"$Log_Out" $buildq ; then
 
     if [ -z "$LOG_FILE" ] ; then
       LOG_FILE="$statusfile.log"
