@@ -385,7 +385,9 @@ _cron() {
   CI=""
 }
 
-
+if [ "$CASE" ] ; then
+  _info "Test for case: $(__green "$CASE")"
+fi
 
 if [ -z "$1" ] ; then
   showhelp
