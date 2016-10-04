@@ -234,13 +234,13 @@ _runplat() {
   update="$(_mergefield "$platline" "$baseline" 2)"
   _debug "update" "$update"
   
-  buildq="2>&1"
+  buildq=">/dev/null 2>&1"
   if [ "$DEBUG" ] || [ "$DEBUGING" ] ; then
     buildq=""
   fi
   
   if [ "$update" ] ; then
-    echo "RUN $update >/dev/null $buildq" >>  "$myplat/Dockerfile"
+    echo "RUN $update $buildq" >>  "$myplat/Dockerfile"
   fi
   
   install="$(_mergefield "$platline" "$baseline" 3)"
@@ -253,7 +253,7 @@ _runplat() {
       for tool in $toolsline   
       do
         if [ "$tool" ] ; then
-          echo "RUN $install $tool >/dev/null $buildq"  >>  "$myplat/Dockerfile"
+          echo "RUN $install $tool  $buildq"  >>  "$myplat/Dockerfile"
         fi
       done
     fi
