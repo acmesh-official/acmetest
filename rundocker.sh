@@ -265,7 +265,7 @@ _runplat() {
   statusfile="$(echo "$plat" | tr ':/ \\' '----' )"
   Log_Out="$statusfile.out"
   
-  if docker build -t "$myplat"  "$myplat" >"$Log_Out" $buildq ; then
+  if docker build -t "$myplat"  "$myplat" >"$Log_Out" 2>&1; then
 
     if [ -z "$LOG_FILE" ] ; then
       LOG_FILE="$statusfile.log"
