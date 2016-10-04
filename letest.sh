@@ -994,11 +994,11 @@ do
   if [ -z "$CASE" ] || [ "$CASE" = "$t" ] ; then
     _run "$t"
     _rr="$?"
+    _debug "_rr" "$_rr"
+    _ret=$(_math $_ret + $_rr)
+    _debug _ret "$_ret"
   fi
-  _debug "_rr" "$_rr"
-  _ret=$(_math $_ret + $_rr)
-  _debug _ret "$_ret"
-  
+
   if [ "$_ret" != "0" ] ; then
     if [ "$DEBUG" ] || [ "$DEBUGING" ] ; then 
       break;
