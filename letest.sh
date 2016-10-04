@@ -561,7 +561,7 @@ le_test_standandalone_renew_localaddress_v2() {
   
   if [ "$QUICK_TEST" ] ; then
     return 0
-  if
+  fi
   
   sleep 5
   _assertcmd "$lehome/$PROJECT_ENTRY --renew -d $TestingDomain --force" ||  return
@@ -620,7 +620,7 @@ le_test_standandalone_listen_v4_v2() {
   
   if [ "$QUICK_TEST" ] ; then
     return 0
-  if
+  fi
   
   sleep 5
   _assertcmd "$lehome/$PROJECT_ENTRY --renew -d $TestingDomain --force" ||  return

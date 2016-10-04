@@ -317,6 +317,7 @@ _runplat() {
         -e BRANCH=$BRANCH \
         -e RUN_IN_DOCKER=1 \
         -e DOCKER_OS="$plat" \
+        -e QUICK_TEST="$QUICK_TEST" \
         -v $(pwd):/acmetest $myplat /bin/sh
       fi
     fi
