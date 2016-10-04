@@ -528,9 +528,7 @@ le_test_standandalone_renew_v2() {
 #
 le_test_standandalone_renew_localaddress_v2() {
 
-  if [ "$RUN_IN_DOCKER" ] ; then
-    return 0
-  fi
+
 
 
   lehome="$Default_Home"
@@ -948,7 +946,10 @@ do
   _ret=$(_math $_ret + $_rr)
   _debug "$_ret"
   
-  if [ "$_ret" != "0" ] && [ "$DEBUG" ] ; then
+  if [ "$_ret" != "0" ] && ([ "$DEBUG" ] || [ "$DEBUGING"]); then
+    break;
+  fi
+  if [ "$CASE" = "$t" ] ; then
     break;
   fi
 done

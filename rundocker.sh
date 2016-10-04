@@ -226,7 +226,7 @@ _runplat() {
   fi
   _debug "baseline" "$baseline"
 
-  _info "Running $plat, this may take a few minutes, please wait."
+  _info "Running $( __green $plat), this may take a few minutes, please wait."
   mkdir -p "$myplat"
 
   echo "FROM $plat" > "$myplat/Dockerfile"
@@ -272,7 +272,7 @@ _runplat() {
   fi
   
   if [ "$DEBUGING" ] ; then
-    docker run -p 80:80 -p 443:443 --rm \
+    docker run --net=host --rm \
     -e TestingDomain=$TestingDomain \
     -e TestingAltDomains=$TestingAltDomains \
     -e DEBUG="$DEBUG" \
@@ -281,9 +281,9 @@ _runplat() {
     -e BRANCH=$BRANCH \
     -e RUN_IN_DOCKER=1 \
     -v $(pwd):/acmetest \
-    $myplat /bin/sh -c "cd /acmetest && ./letest.sh"
+    $myplat /bin/sh -c "cd /acmetest && ./letest.sh $CASE"
   else
-    docker run -p 80:80 -p 443:443 --rm \
+    docker run --net=host --rm \
     -e TestingDomain=$TestingDomain \
     -e TestingAltDomains=$TestingAltDomains \
     -e DEBUG="$DEBUG" \
@@ -292,7 +292,7 @@ _runplat() {
     -e BRANCH=$BRANCH \
     -e RUN_IN_DOCKER=1 \
     -v $(pwd):/acmetest \
-    $myplat /bin/sh -c "cd /acmetest && ./letest.sh" >>"$Log_Out" 2>&1
+    $myplat /bin/sh -c "cd /acmetest && ./letest.sh $CASE" >>"$Log_Out" 2>&1
   fi
 
   code="$?"
@@ -302,7 +302,7 @@ _runplat() {
     cat "$Log_Out"
     if [ "$DEBUGING" ] ; then
       _info "Please debuging:"
-      docker run -p 80:80 -p 443:443 --rm \
+      docker run --net=host --rm \
       -i -t \
       -e TestingDomain=$TestingDomain \
       -e TestingAltDomains=$TestingAltDomains \
@@ -339,10 +339,7 @@ testplat() {
     if ! _runplat "$plat" ; then
       if [ -z "$DEBUG" ] && [ -z "$DEBUGING" ] ; then
         _info "Let's retry once more:$plat"
-        if ! _runplat "$plat" ; then
-          _info "Let's retry third time :$plat"
-          _runplat "$plat"
-        fi
+        _runplat "$plat"
       fi
     fi
   done
