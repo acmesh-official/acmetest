@@ -261,59 +261,62 @@ _runplat() {
   statusfile="$(echo "$plat" | tr ':/ \\' '----' )"
   Log_Out="$statusfile.out"
   
-  if ! docker build -t "$myplat"  "$myplat" >"$Log_Out" 2>&1 ; then
-    cat "$Log_Out"
-    return 1
-  fi
+  if docker build -t "$myplat"  "$myplat" >"$Log_Out" 2>&1 ; then
 
-  if [ -z "$LOG_FILE" ] ; then
-    LOG_FILE="$statusfile.log"
-    rm -rf "$LOG_FILE"
-  fi
-  
-  if [ "$DEBUGING" ] ; then
-    docker run --net=host --rm \
-    -e TestingDomain=$TestingDomain \
-    -e TestingAltDomains=$TestingAltDomains \
-    -e DEBUG="$DEBUG" \
-    -e LOG_FILE="$LOG_FILE" \
-    -e LOG_LEVEL="$LOG_LEVEL" \
-    -e BRANCH=$BRANCH \
-    -e RUN_IN_DOCKER=1 \
-    -v $(pwd):/acmetest \
-    $myplat /bin/sh -c "cd /acmetest && ./letest.sh $CASE"
-  else
-    docker run --net=host --rm \
-    -e TestingDomain=$TestingDomain \
-    -e TestingAltDomains=$TestingAltDomains \
-    -e DEBUG="$DEBUG" \
-    -e LOG_FILE="$LOG_FILE" \
-    -e LOG_LEVEL="$LOG_LEVEL" \
-    -e BRANCH=$BRANCH \
-    -e RUN_IN_DOCKER=1 \
-    -v $(pwd):/acmetest \
-    $myplat /bin/sh -c "cd /acmetest && ./letest.sh $CASE" >>"$Log_Out" 2>&1
-  fi
-
-  code="$?"
-  _debug "code" "$code"
- 
-  if [ "$code" != "0" ] ; then
-    cat "$Log_Out"
+    if [ -z "$LOG_FILE" ] ; then
+      LOG_FILE="$statusfile.log"
+      rm -rf "$LOG_FILE"
+    fi
+    
     if [ "$DEBUGING" ] ; then
-      _info "Please debuging:"
       docker run --net=host --rm \
-      -i -t \
       -e TestingDomain=$TestingDomain \
       -e TestingAltDomains=$TestingAltDomains \
       -e DEBUG="$DEBUG" \
       -e LOG_FILE="$LOG_FILE" \
       -e LOG_LEVEL="$LOG_LEVEL" \
       -e BRANCH=$BRANCH \
-      -v $(pwd):/acmetest $myplat /bin/sh
+      -e RUN_IN_DOCKER=1 \
+      -v $(pwd):/acmetest \
+      $myplat /bin/sh -c "cd /acmetest && ./letest.sh $CASE"
+    else
+      docker run --net=host --rm \
+      -e TestingDomain=$TestingDomain \
+      -e TestingAltDomains=$TestingAltDomains \
+      -e DEBUG="$DEBUG" \
+      -e LOG_FILE="$LOG_FILE" \
+      -e LOG_LEVEL="$LOG_LEVEL" \
+      -e BRANCH=$BRANCH \
+      -e RUN_IN_DOCKER=1 \
+      -v $(pwd):/acmetest \
+      $myplat /bin/sh -c "cd /acmetest && ./letest.sh $CASE" >>"$Log_Out" 2>&1
     fi
+
+    code="$?"
+    _debug "code" "$code"
+
+    if [ "$code" != "0" ] ; then
+      cat "$Log_Out"
+      if [ "$DEBUGING" ] ; then
+        _info "Please debuging:"
+        docker run --net=host --rm \
+        -i -t \
+        -e TestingDomain=$TestingDomain \
+        -e TestingAltDomains=$TestingAltDomains \
+        -e DEBUG="$DEBUG" \
+        -e LOG_FILE="$LOG_FILE" \
+        -e LOG_LEVEL="$LOG_LEVEL" \
+        -e BRANCH=$BRANCH \
+        -v $(pwd):/acmetest $myplat /bin/sh
+      fi
+    fi
+  else
+    code="$?"
+    _debug "code" "$code"
+    cat "$Log_Out"
+    return 1
   fi
-  
+
   update $plat $code
   return $code
 
