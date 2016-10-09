@@ -263,7 +263,7 @@ _runplat() {
   fi
   
   statusfile="$(echo "$plat" | tr ':/ \\' '----' )"
-  Log_Out="$statusfile.out"
+  Log_Out="logs/$statusfile.out"
   
   if docker build -t "$myplat"  "$myplat" >"$Log_Out" 2>&1; then
 
