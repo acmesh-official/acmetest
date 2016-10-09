@@ -94,6 +94,7 @@ update() {
     _setopt "$filename" "|$plat|" " " "\![]($Img/$statusfile.svg?$(date -u "+%s"))| $(date -u)| $_status |"
   
     git add "status/$statusfile.svg" >/dev/null 2>&1
+    git add "logs/$statusfile.out" >/dev/null 2>&1
     git add "$filename" >/dev/null 2>&1
     cat head.md "$Table" tail.md > README.md
     git add *.md >/dev/null 2>&1
