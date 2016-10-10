@@ -8,7 +8,7 @@ Step 3 : RUN apt-get -qqy install openssl cron netcat-openbsd curl  2>&1
  ---> Using cache
  ---> c3ed174cfb97
 Successfully built c3ed174cfb97
-Testing branch: master
+Testing branch: nc
 [1;31;32mProgress: 1/20[0m
 ==Running le_test_dependencies please wait
 no crontab for root
@@ -123,9 +123,7 @@ Skip
 ------------------------------------------
 [1;31;32mProgress: 14/20[0m
 ==Running le_test_standandalone_ECDSA_256 please wait
-/root/.acme.sh/acme.sh issue no testdocker.acme.sh no ec-256[1;31;32m [PASS][0m
-/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
-/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh issue no testdocker.acme.sh no ec-256[1;31;40m [FAIL] [0m
 ------------------------------------------
 [1;31;32mProgress: 15/20[0m
 ==Running le_test_standandalone_ECDSA_256_renew please wait
