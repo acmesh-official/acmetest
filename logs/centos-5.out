@@ -2,16 +2,11 @@ Sending build context to Docker daemon 2.048 kB
 Step 1 : FROM centos:5
  ---> 505999341f87
 Step 2 : RUN yum -q -y update     2>&1
- ---> Running in 47835ac35507
-warning: rpmts_HdrFromFdno: Header V3 DSA signature: NOKEY, key ID e8562897
-Importing GPG key 0xE8562897 "CentOS-5 Key (CentOS 5 Official Signing Key) <centos-5-key@centos.org>" from /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
+ ---> Using cache
  ---> 4695b3fe0f61
-Removing intermediate container 47835ac35507
 Step 3 : RUN yum -q -y install    openssl vixie-cron nc curl  2>&1
- ---> Running in fce0b32e9cc4
-Package openssl-0.9.8e-40.el5_11.x86_64 already installed and latest version
+ ---> Using cache
  ---> 83cce30f8b15
-Removing intermediate container fce0b32e9cc4
 Successfully built 83cce30f8b15
 Testing branch: nc
 [1;31;32mProgress: 1/20[0m
