@@ -1,13 +1,22 @@
 Sending build context to Docker daemon 2.048 kB
-Step 1 : FROM ubuntu:latest
- ---> c5f1cf30c96b
-Step 2 : RUN apt-get -qqy update  2>&1
- ---> Using cache
- ---> 44ef9c1bdf15
-Step 3 : RUN apt-get -qqy install openssl cron netcat-openbsd curl  2>&1
- ---> Using cache
- ---> c3ed174cfb97
-Successfully built c3ed174cfb97
+Step 1 : FROM fedora:21
+ ---> c3f52f068a13
+Step 2 : RUN yum -q -y update     2>&1
+ ---> Running in 37285619645c
+Delta RPMs disabled because /usr/bin/applydeltarpm not installed.
+warning: /etc/shadow created as /etc/shadow.rpmnew
+install-info: No such file or directory for /usr/share/info/grep.info.gz
+install-info: No such file or directory for /usr/share/info/libidn.info.gz
+install-info: No such file or directory for /usr/share/info/gettext.info.gz
+install-info: No such file or directory for /usr/share/info/gnupg.info
+ ---> 4307549e98da
+Removing intermediate container 37285619645c
+Step 3 : RUN yum -q -y install    tar openssl crontabs nc curl  2>&1
+ ---> Running in c6ee9cfad97e
+Package curl-7.37.0-14.fc21.x86_64 already installed and latest version
+ ---> 5d7e49737d2a
+Removing intermediate container c6ee9cfad97e
+Successfully built 5d7e49737d2a
 Testing branch: nc
 [1;31;32mProgress: 1/20[0m
 ==Running le_test_dependencies please wait

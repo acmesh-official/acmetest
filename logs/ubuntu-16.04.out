@@ -1,5 +1,5 @@
 Sending build context to Docker daemon 2.048 kB
-Step 1 : FROM ubuntu:latest
+Step 1 : FROM ubuntu:16.04
  ---> c5f1cf30c96b
 Step 2 : RUN apt-get -qqy update  2>&1
  ---> Using cache

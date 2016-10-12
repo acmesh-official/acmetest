@@ -1,18 +1,40 @@
 Sending build context to Docker daemon 2.048 kB
-Step 1 : FROM ubuntu:latest
- ---> c5f1cf30c96b
-Step 2 : RUN apt-get -qqy update  2>&1
- ---> Using cache
- ---> 44ef9c1bdf15
-Step 3 : RUN apt-get -qqy install openssl cron netcat-openbsd curl  2>&1
- ---> Using cache
- ---> c3ed174cfb97
-Successfully built c3ed174cfb97
+Step 1 : FROM alpine:3.2
+ ---> 64979b347581
+Step 2 : RUN apk update -f 2>&1
+ ---> Running in abcb71b1c294
+fetch http://dl-cdn.alpinelinux.org/alpine/v3.2/main/x86_64/APKINDEX.tar.gz
+v3.2.3-338-g533103b [http://dl-cdn.alpinelinux.org/alpine/v3.2/main]
+OK: 5294 distinct packages available
+ ---> d280bfb129da
+Removing intermediate container abcb71b1c294
+Step 3 : RUN apk --no-cache add -f openssl curl netcat-openbsd  2>&1
+ ---> Running in 781a32d8cabb
+apk: unrecognized option: no-cache
+(1/14) Installing run-parts (4.4-r0)
+(2/14) Installing openssl (1.0.2i-r0)
+(3/14) Installing lua5.2-libs (5.2.4-r0)
+(4/14) Installing lua5.2 (5.2.4-r0)
+(5/14) Installing ncurses-terminfo-base (5.9-r3)
+(6/14) Installing ncurses-widec-libs (5.9-r3)
+(7/14) Installing lua5.2-posix (33.3.1-r2)
+(8/14) Installing ca-certificates (20141019-r2)
+(9/14) Installing libssh2 (1.5.0-r1)
+(10/14) Installing curl (7.49.1-r1)
+(11/14) Installing libffi (3.2.1-r2)
+(12/14) Installing libintl (0.19.4-r1)
+(13/14) Installing glib (2.44.0-r1)
+(14/14) Installing netcat-openbsd (1.89-r2)
+Executing busybox-1.23.2-r0.trigger
+Executing ca-certificates-20141019-r2.trigger
+Executing glib-2.44.0-r1.trigger
+OK: 12 MiB in 29 packages
+ ---> e8f540b3aeb1
+Removing intermediate container 781a32d8cabb
+Successfully built e8f540b3aeb1
 Testing branch: nc
 [1;31;32mProgress: 1/20[0m
 ==Running le_test_dependencies please wait
-no crontab for root
-no crontab for root
 curl installed.[1;31;32m [PASS][0m
 crontab installed.[1;31;32m [PASS][0m
 openssl installed.[1;31;32m [PASS][0m

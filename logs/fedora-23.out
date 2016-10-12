@@ -1,13 +1,63 @@
 Sending build context to Docker daemon 2.048 kB
-Step 1 : FROM ubuntu:latest
- ---> c5f1cf30c96b
-Step 2 : RUN apt-get -qqy update  2>&1
- ---> Using cache
- ---> 44ef9c1bdf15
-Step 3 : RUN apt-get -qqy install openssl cron netcat-openbsd curl  2>&1
- ---> Using cache
- ---> c3ed174cfb97
-Successfully built c3ed174cfb97
+Step 1 : FROM fedora:23
+ ---> ddd5c9c1d0f2
+Step 2 : RUN yum -q -y update     2>&1
+ ---> Running in 58742c88b0d1
+Yum command has been deprecated, redirecting to '/usr/bin/dnf -q -y update'.
+See 'man dnf' and 'man yum2dnf' for more information.
+To transfer transaction metadata from yum to DNF, run:
+'dnf install python-dnf-plugins-extras-migrate && dnf-2 migrate'
+
+/usr/share/locale/cs/LC_MESSAGES/cryptsetup.mo: No such file or directory
+cannot reconstruct rpm from disk files
+/usr/share/locale/de/LC_MESSAGES/elfutils.mo: No such file or directory
+cannot reconstruct rpm from disk files
+/usr/share/locale/en@boldquot/LC_MESSAGES/bash.mo: No such file or directory
+cannot reconstruct rpm from disk files
+/usr/share/doc/libarchive/NEWS: No such file or directory
+cannot reconstruct rpm from disk files
+/usr/share/doc/libassuan/AUTHORS: No such file or directory
+cannot reconstruct rpm from disk files
+/usr/share/locale/ca/LC_MESSAGES/glib20.mo: No such file or directory
+cannot reconstruct rpm from disk files
+/usr/share/locale/en@boldquot/LC_MESSAGES/libidn.mo: No such file or directory
+cannot reconstruct rpm from disk files
+/usr/share/locale/de/LC_MESSAGES/libgpg-error.mo: No such file or directory
+cannot reconstruct rpm from disk files
+/usr/share/doc/libmnl/README: No such file or directory
+cannot reconstruct rpm from disk files
+/usr/share/doc/libseccomp/CHANGELOG: No such file or directory
+cannot reconstruct rpm from disk files
+/usr/share/doc/libksba/AUTHORS: No such file or directory
+cannot reconstruct rpm from disk files
+/usr/share/doc/libxkbcommon/COPYING: No such file or directory
+cannot reconstruct rpm from disk files
+/usr/share/doc/libtasn1/AUTHORS: No such file or directory
+cannot reconstruct rpm from disk files
+/usr/share/doc/libgcrypt/AUTHORS: No such file or directory
+cannot reconstruct rpm from disk files
+/usr/share/locale/fi/LC_MESSAGES/rpm.mo: No such file or directory
+cannot reconstruct rpm from disk files
+/usr/share/doc/python3-pygpgme/PKG-INFO: No such file or directory
+cannot reconstruct rpm from disk files
+/usr/share/doc/shadow-utils/HOWTO: No such file or directory
+cannot reconstruct rpm from disk files
+/usr/share/doc/sqlite-libs/README.md: No such file or directory
+cannot reconstruct rpm from disk files
+/usr/share/man/man8/systemd-random-seed.service.8.gz: No such file or directory
+cannot reconstruct rpm from disk files
+/usr/lib64/python3.4/email/architecture.rst: No such file or directory
+cannot reconstruct rpm from disk files
+ ---> 617a167ffb41
+Removing intermediate container 58742c88b0d1
+Step 3 : RUN yum -q -y install    tar openssl crontabs nc curl  2>&1
+ ---> Running in 4e19cafbcfe5
+Redirecting to '/usr/bin/dnf -q -y install tar openssl crontabs nc curl' (see 'man yum2dnf')
+
+Package curl-7.43.0-10.fc23.x86_64 is already installed, skipping.
+ ---> 8fc3c39836db
+Removing intermediate container 4e19cafbcfe5
+Successfully built 8fc3c39836db
 Testing branch: nc
 [1;31;32mProgress: 1/20[0m
 ==Running le_test_dependencies please wait

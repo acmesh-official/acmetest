@@ -1,13 +1,24 @@
 Sending build context to Docker daemon 2.048 kB
-Step 1 : FROM ubuntu:latest
- ---> c5f1cf30c96b
-Step 2 : RUN apt-get -qqy update  2>&1
- ---> Using cache
- ---> 44ef9c1bdf15
-Step 3 : RUN apt-get -qqy install openssl cron netcat-openbsd curl  2>&1
- ---> Using cache
- ---> c3ed174cfb97
-Successfully built c3ed174cfb97
+Step 1 : FROM centos:6
+ ---> ae6154bcd445
+Step 2 : RUN yum -q -y update     2>&1
+ ---> Running in 28bc795075dc
+warning: rpmts_HdrFromFdno: Header V3 RSA/SHA1 Signature, key ID c105b9de: NOKEY
+Importing GPG key 0xC105B9DE:
+ Userid : CentOS-6 Key (CentOS 6 Official Signing Key) <centos-6-key@centos.org>
+ Package: centos-release-6-7.el6.centos.12.3.x86_64 (@CentOS/6.7)
+ From   : /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+install-info: No such file or directory for /usr/share/info/grep.info.gz
+ ---> 9366f4b8e363
+Removing intermediate container 28bc795075dc
+Step 3 : RUN yum -q -y install    openssl crontabs nc curl  2>&1
+ ---> Running in 0c51c457e140
+Package openssl-1.0.1e-48.el6_8.3.x86_64 already installed and latest version
+Package curl-7.19.7-52.el6.x86_64 already installed and latest version
+install-info: No such file or directory for /usr/share/info/ipc.info
+ ---> 297961285bbb
+Removing intermediate container 0c51c457e140
+Successfully built 297961285bbb
 Testing branch: nc
 [1;31;32mProgress: 1/20[0m
 ==Running le_test_dependencies please wait

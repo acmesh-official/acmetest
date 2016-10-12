@@ -1,13 +1,42 @@
 Sending build context to Docker daemon 2.048 kB
-Step 1 : FROM ubuntu:latest
- ---> c5f1cf30c96b
-Step 2 : RUN apt-get -qqy update  2>&1
- ---> Using cache
- ---> 44ef9c1bdf15
-Step 3 : RUN apt-get -qqy install openssl cron netcat-openbsd curl  2>&1
- ---> Using cache
- ---> c3ed174cfb97
-Successfully built c3ed174cfb97
+Step 1 : FROM fedora:22
+ ---> 8b5cf972e254
+Step 2 : RUN yum -q -y update     2>&1
+ ---> Running in d214defb9218
+Yum command has been deprecated, redirecting to '/usr/bin/dnf -q -y update'.
+See 'man dnf' and 'man yum2dnf' for more information.
+To transfer transaction metadata from yum to DNF, run:
+'dnf install python-dnf-plugins-extras-migrate && dnf-2 migrate'
+
+/usr/share/locale/de/LC_MESSAGES/elfutils.mo: No such file or directory
+cannot reconstruct rpm from disk files
+/usr/share/man/man8/ca-legacy.8.gz: No such file or directory
+cannot reconstruct rpm from disk files
+/usr/share/doc/libarchive/NEWS: No such file or directory
+cannot reconstruct rpm from disk files
+/usr/share/doc/lua/README: No such file or directory
+cannot reconstruct rpm from disk files
+/usr/share/doc/libssh2/AUTHORS: No such file or directory
+cannot reconstruct rpm from disk files
+/usr/share/doc/libtasn1/AUTHORS: No such file or directory
+cannot reconstruct rpm from disk files
+/usr/share/doc/python-libs/README: No such file or directory
+cannot reconstruct rpm from disk files
+warning: Unable to get systemd shutdown inhibition lock
+ ---> 4dea882c9cfa
+Removing intermediate container d214defb9218
+Step 3 : RUN yum -q -y install    tar openssl crontabs nc curl  2>&1
+ ---> Running in c63172660147
+Yum command has been deprecated, redirecting to '/usr/bin/dnf -q -y install tar openssl crontabs nc curl'.
+See 'man dnf' and 'man yum2dnf' for more information.
+To transfer transaction metadata from yum to DNF, run:
+'dnf install python-dnf-plugins-extras-migrate && dnf-2 migrate'
+
+Package curl-7.40.0-8.fc22.x86_64 is already installed, skipping.
+warning: Unable to get systemd shutdown inhibition lock
+ ---> 70847d858582
+Removing intermediate container c63172660147
+Successfully built 70847d858582
 Testing branch: nc
 [1;31;32mProgress: 1/20[0m
 ==Running le_test_dependencies please wait

@@ -2,24 +2,13 @@ Sending build context to Docker daemon 2.048 kB
 Step 1 : FROM centos:latest
  ---> 8596123a638e
 Step 2 : RUN yum -q -y update     2>&1
- ---> Running in ea5b4adde3bd
-Delta RPMs disabled because /usr/bin/applydeltarpm not installed.
-warning: /var/cache/yum/x86_64/7/updates/packages/bind-license-9.9.4-29.el7_2.4.noarch.rpm: Header V3 RSA/SHA256 Signature, key ID f4a80eb5: NOKEY
-Public key for bind-license-9.9.4-29.el7_2.4.noarch.rpm is not installed
-Importing GPG key 0xF4A80EB5:
- Userid     : "CentOS-7 Key (CentOS 7 Official Signing Key) <security@centos.org>"
- Fingerprint: 6341 ab27 53d7 8a78 a7c2 7bb1 24c6 a8a7 f4a8 0eb5
- Package    : centos-release-7-2.1511.el7.centos.2.10.x86_64 (@CentOS)
- From       : /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+ ---> Using cache
  ---> 3233fb5de123
-Removing intermediate container ea5b4adde3bd
 Step 3 : RUN yum -q -y install    openssl crontabs nc curl  2>&1
- ---> Running in 5f91d3293007
-Package curl-7.29.0-25.el7.centos.x86_64 already installed and latest version
+ ---> Using cache
  ---> befb80bad2f0
-Removing intermediate container 5f91d3293007
 Successfully built befb80bad2f0
-Testing branch: master
+Testing branch: nc
 [1;31;32mProgress: 1/20[0m
 ==Running le_test_dependencies please wait
 no crontab for root

@@ -1,14 +1,14 @@
 Sending build context to Docker daemon 2.048 kB
-Step 1 : FROM ubuntu:latest
- ---> c5f1cf30c96b
-Step 2 : RUN apt-get -qqy update  2>&1
+Step 1 : FROM fedora:latest
+ ---> ddd5c9c1d0f2
+Step 2 : RUN yum -q -y update     2>&1
  ---> Using cache
- ---> 44ef9c1bdf15
-Step 3 : RUN apt-get -qqy install openssl cron netcat-openbsd curl  2>&1
+ ---> 617a167ffb41
+Step 3 : RUN yum -q -y install    tar openssl crontabs nc curl  2>&1
  ---> Using cache
- ---> c3ed174cfb97
-Successfully built c3ed174cfb97
-Testing branch: nc
+ ---> 8fc3c39836db
+Successfully built 8fc3c39836db
+Testing branch: master
 [1;31;32mProgress: 1/20[0m
 ==Running le_test_dependencies please wait
 no crontab for root
