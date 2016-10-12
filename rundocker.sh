@@ -314,8 +314,9 @@ _runplat() {
       -e QUICK_TEST="$QUICK_TEST" \
       -e TEST_LOCAL="$TEST_LOCAL" \
       -e TEST_IPV6="$TEST_IPV6" \
+      -e CASE="$CASE" \
       -v $(pwd):/acmetest \
-      $myplat /bin/sh -c "cd /acmetest && ./letest.sh $CASE"
+      $myplat /bin/sh -c "cd /acmetest && ./letest.sh"
     else
       docker run --net=host --rm \
       -e TestingDomain=$TestingDomain \
@@ -329,8 +330,9 @@ _runplat() {
       -e QUICK_TEST="$QUICK_TEST" \
       -e TEST_LOCAL="$TEST_LOCAL" \
       -e TEST_IPV6="$TEST_IPV6" \
+      -e CASE="$CASE" \
       -v $(pwd):/acmetest \
-      $myplat /bin/sh -c "cd /acmetest && ./letest.sh $CASE" >>"$Log_Out" 2>&1
+      $myplat /bin/sh -c "cd /acmetest && ./letest.sh" >>"$Log_Out" 2>&1
     fi
 
     code="$?"
@@ -353,6 +355,7 @@ _runplat() {
         -e QUICK_TEST="$QUICK_TEST" \
         -e TEST_LOCAL="$TEST_LOCAL" \
         -e TEST_IPV6="$TEST_IPV6" \
+        -e CASE="$CASE" \
         -v $(pwd):/acmetest \
         $myplat /bin/sh
       fi
