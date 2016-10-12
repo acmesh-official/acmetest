@@ -350,7 +350,8 @@ _runplat() {
         -e DOCKER_OS="$plat" \
         -e QUICK_TEST="$QUICK_TEST" \
         -e TEST_IPV6="$TEST_IPV6" \
-        -v $(pwd):/acmetest $myplat /bin/sh
+        -v $(pwd):/acmetest \
+        $myplat /bin/sh
       fi
     fi
   else

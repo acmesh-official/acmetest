@@ -1084,7 +1084,9 @@ le_test_tls_renew_SAN_v2() {
 
 #####################################
 
-CASE="$1"
+if [ "$1" ] ; then
+  CASE="$1"
+fi
 
 _setup
 
