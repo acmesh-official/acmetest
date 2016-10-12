@@ -297,6 +297,7 @@ _runplat() {
 
     if [ -z "$LOG_FILE" ] ; then
       LOG_FILE="$(_getLogfile $plat)"
+      _debug "LOG_FILE" "$LOG_FILE"
       echo "" > "$LOG_FILE"
     fi
     
