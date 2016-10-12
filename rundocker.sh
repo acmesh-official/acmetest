@@ -52,6 +52,27 @@ _debug3() {
   return
 }
 
+#plat
+_normalizeFilename() {
+  _nplat="$1"
+  echo "$_nplat" | tr ':/ \\' '----' 
+}
+
+#plat
+_getOutfile() {
+  _nplat="$1"
+  statusfile="$(_normalizeFilename "$_nplat")"
+  echo "logs/$statusfile.out"
+}
+
+#plat
+_getLogfile() {
+  _nplat="$1"
+  statusfile="$(_normalizeFilename "$_nplat")"
+  echo "logs/$statusfile.log"
+}
+
+
 #update plat code [file]
 update() {
   plat="$1"
@@ -66,7 +87,7 @@ update() {
     return 1
   fi
   
-  statusfile="$(echo "$plat" | tr ':/ \\' '----' )"
+  statusfile="$(_normalizeFilename "$plat")"
 
   if [ "$code" == "0" ] ; then
     __ok "$plat"
@@ -94,7 +115,13 @@ update() {
     _setopt "$filename" "|$plat|" " " "\![]($Img/$statusfile.svg?$(date -u "+%s"))| $(date -u)| $_status |"
   
     git add "status/$statusfile.svg" >/dev/null 2>&1
-    git add "logs/$statusfile.out" >/dev/null 2>&1
+    
+    outfile="$(_getOutfile "$plat")"
+    _sed_i  's/\x1b\[1;31;32m//g' "$outfile" >/dev/null 2>&1
+    _sed_i  's/\x1b\[0m//g' "$outfile" >/dev/null 2>&1
+    
+    git add "$outfile" >/dev/null 2>&1
+    
     git add "$filename" >/dev/null 2>&1
     cat head.md "$Table" tail.md > README.md
     git add *.md >/dev/null 2>&1
@@ -263,13 +290,13 @@ _runplat() {
     cat "$myplat/Dockerfile"
   fi
   
-  statusfile="$(echo "$plat" | tr ':/ \\' '----' )"
-  Log_Out="logs/$statusfile.out"
+
+  Log_Out="$(_getOutfile "$plat")"
   
   if docker build -t "$myplat"  "$myplat" >"$Log_Out" 2>&1; then
 
     if [ -z "$LOG_FILE" ] ; then
-      LOG_FILE="$statusfile.log"
+      LOG_FILE="$(_getLogfile $plat)"
       rm -rf "$LOG_FILE"
     fi
     

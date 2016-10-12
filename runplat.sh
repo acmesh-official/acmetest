@@ -22,6 +22,13 @@ if [ -z "$DEBUG" ] ; then
   fi
 fi
 
+if [ -z "$LOG_FILE" ] ; then
+  export LOG_FILE="$(./rundocker.sh _getLogfile "$platname" )"
+  rm -f "$LOG_FILE"
+  export Log_Out="$(./rundocker.sh _getOutfile "$platname" )"
+  rm -f "$Log_Out"
+fi
+
 ./letest.sh
 
 ./rundocker.sh  update "$platname" $? "$filename"
