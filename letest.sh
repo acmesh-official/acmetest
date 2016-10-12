@@ -52,7 +52,7 @@ _math(){
 
 _log() {
   if [ "$LOG_FILE" ] ; then
-    echo "$@" >> "$LOG_FILE"
+    echo "$@" >> $LOG_FILE
   fi
 }
 
