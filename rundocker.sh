@@ -312,6 +312,7 @@ _runplat() {
       -e RUN_IN_DOCKER=1 \
       -e DOCKER_OS="$plat" \
       -e QUICK_TEST="$QUICK_TEST" \
+      -e TEST_LOCAL="$TEST_LOCAL" \
       -e TEST_IPV6="$TEST_IPV6" \
       -v $(pwd):/acmetest \
       $myplat /bin/sh -c "cd /acmetest && ./letest.sh $CASE"
@@ -326,6 +327,7 @@ _runplat() {
       -e RUN_IN_DOCKER=1 \
       -e DOCKER_OS="$plat" \
       -e QUICK_TEST="$QUICK_TEST" \
+      -e TEST_LOCAL="$TEST_LOCAL" \
       -e TEST_IPV6="$TEST_IPV6" \
       -v $(pwd):/acmetest \
       $myplat /bin/sh -c "cd /acmetest && ./letest.sh $CASE" >>"$Log_Out" 2>&1
@@ -349,6 +351,7 @@ _runplat() {
         -e RUN_IN_DOCKER=1 \
         -e DOCKER_OS="$plat" \
         -e QUICK_TEST="$QUICK_TEST" \
+        -e TEST_LOCAL="$TEST_LOCAL" \
         -e TEST_IPV6="$TEST_IPV6" \
         -v $(pwd):/acmetest \
         $myplat /bin/sh
