@@ -60,15 +60,15 @@ _normalizeFilename() {
 
 #plat
 _getOutfile() {
-  _nplat="$1"
-  statusfile="$(_normalizeFilename "$_nplat")"
+  _gnplat="$1"
+  statusfile="$(_normalizeFilename "$_gnplat")"
   echo "logs/$statusfile.out"
 }
 
 #plat
 _getLogfile() {
-  _nplat="$1"
-  statusfile="$(_normalizeFilename "$_nplat")"
+  _lnplat="$1"
+  statusfile="$(_normalizeFilename "$_lnplat")"
   echo "logs/$statusfile.log"
 }
 
