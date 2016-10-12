@@ -297,7 +297,7 @@ _runplat() {
 
     if [ -z "$LOG_FILE" ] ; then
       LOG_FILE="$(_getLogfile $plat)"
-      rm -rf "$LOG_FILE"
+      echo "" > "$LOG_FILE"
     fi
     
     if [ "$DEBUGING" ] ; then
