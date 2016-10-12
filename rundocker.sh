@@ -292,7 +292,7 @@ _runplat() {
   
 
   Log_Out="$(_getOutfile "$plat")"
-  
+  _debug "Log_Out" "$Log_Out"
   if docker build -t "$myplat"  "$myplat" >"$Log_Out" 2>&1; then
 
     if [ -z "$LOG_FILE" ] ; then
