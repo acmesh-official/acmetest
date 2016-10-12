@@ -331,7 +331,10 @@ _run() {
 
 ####################################################
 _setup() {
-
+  if [ "$TEST_LOCAL" ] ; then
+    _info "TEST_LOCAL skip setup."
+    return 0
+  fi
   if [ -d acme.sh ] ; then
     rm -rf acme.sh 
   fi
