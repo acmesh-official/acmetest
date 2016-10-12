@@ -442,6 +442,11 @@ le_test_uninstalltodir() {
 
 #
 le_test_standandalone_renew() {
+  if [ "$QUICK_TEST" ] ; then
+    _info "Skip by QUICK_TEST"
+    return 0
+  fi
+  
   lehome="$Default_Home"
 
   lp=`_ss | grep ':80 '`
@@ -560,6 +565,7 @@ le_test_standandalone_renew_localaddress_v2() {
   mkdir -p "$certdir"
   
   if [ "$QUICK_TEST" ] ; then
+    _info "Skip by QUICK_TEST"
     return 0
   fi
   
@@ -619,6 +625,7 @@ le_test_standandalone_listen_v4_v2() {
   mkdir -p "$certdir"
   
   if [ "$QUICK_TEST" ] ; then
+    _info "Skip by QUICK_TEST"
     return 0
   fi
   
@@ -683,6 +690,7 @@ le_test_standandalone_listen_v6_v2() {
   mkdir -p "$certdir"
   
   if [ "$QUICK_TEST" ] ; then
+    _info "Skip by QUICK_TEST"
     return 0
   fi
   
@@ -754,6 +762,11 @@ le_test_standandalone_deactivate_v2() {
 
 #
 le_test_standandalone() {
+  if [ "$QUICK_TEST" ] ; then
+    _info "Skip by QUICK_TEST"
+    return 0
+  fi
+  
   lehome="$Default_Home"
 
   lp=`_ss | grep ':80 '`
@@ -781,6 +794,10 @@ le_test_standandalone() {
 }
 
 le_test_standandalone_SAN() {
+  if [ "$QUICK_TEST" ] ; then
+    _info "Skip by QUICK_TEST"
+    return 0
+  fi
   lehome="$Default_Home"
 
   lp=`_ss| grep ':80 '`
@@ -809,6 +826,10 @@ le_test_standandalone_SAN() {
 }
 
 le_test_standandalone_ECDSA_256() {
+  if [ "$QUICK_TEST" ] ; then
+    _info "Skip by QUICK_TEST"
+    return 0
+  fi
   lehome="$Default_Home"
 
   lp=`_ss | grep ':80 '`
@@ -839,6 +860,10 @@ le_test_standandalone_ECDSA_256() {
 }
 
 le_test_standandalone_ECDSA_256_renew() {
+  if [ "$QUICK_TEST" ] ; then
+    _info "Skip by QUICK_TEST"
+    return 0
+  fi
   lehome="$Default_Home"
 
   lp=`_ss | grep ':80 '`
@@ -869,6 +894,10 @@ le_test_standandalone_ECDSA_256_renew() {
 
 
 le_test_standandalone_ECDSA_256_SAN_renew() {
+  if [ "$QUICK_TEST" ] ; then
+    _info "Skip by QUICK_TEST"
+    return 0
+  fi
   lehome="$Default_Home"
 
   lp=`_ss | grep ':80 '`
@@ -951,6 +980,10 @@ le_test_standandalone_ECDSA_256_SAN_renew_v2() {
 }
 
 le_test_standandalone_ECDSA_384() {
+  if [ "$QUICK_TEST" ] ; then
+    _info "Skip by QUICK_TEST"
+    return 0
+  fi
   lehome="$Default_Home"
 
   lp=`_ss | grep ':80 '`
@@ -1013,6 +1046,11 @@ le_test_standandalone_tls_renew_SAN_v2() {
 }
 
 le_test_tls_renew_SAN_v2() {
+  if [ "$QUICK_TEST" ] ; then
+    _info "Skip by QUICK_TEST"
+    return 0
+  fi
+  
   lehome="$Default_Home"
 
   lp=`_ss | grep ':443 '`
