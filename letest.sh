@@ -22,8 +22,23 @@ STAGE_CA="https://acme-staging.api.letsencrypt.org"
 
 _API_HOST="$(echo "$STAGE_CA" | cut -d : -f 2 | tr -d '/')"
 
+
+
+
+_startswith(){
+  _str="$1"
+  _sub="$2"
+  echo "$_str" | grep "^$_sub" >/dev/null 2>&1
+}
+
+
+
 if [ -z "$LOG_FILE" ] ; then
   LOG_FILE="letest.log"
+else
+  if ! _startswith "$LOG_FILE" "/" ; then
+    LOG_FILE="$(pwd)/$LOG_FILE"
+  fi  
 fi
 
 if [ -z "$LOG_LEVEL" ] ; then

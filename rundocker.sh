@@ -297,9 +297,9 @@ _runplat() {
 
     if [ -z "$LOG_FILE" ] ; then
       LOG_FILE="$(_getLogfile "$plat")"
-      _debug "LOG_FILE" "$LOG_FILE"
       echo "" > "$LOG_FILE"
     fi
+    _debug "LOG_FILE" "$LOG_FILE"
     
     if [ "$DEBUGING" ] ; then
       docker run --net=host --rm \
@@ -332,7 +332,7 @@ _runplat() {
       -e TEST_IPV6="$TEST_IPV6" \
       -e CASE="$CASE" \
       -v $(pwd):/acmetest \
-      $myplat /bin/sh -c "cd /acmetest && ./letest.sh" >>"$Log_Out" 2>&1
+      $myplat /bin/sh -c "cd /acmetest && ./letest.sh" >> "$Log_Out" 2>&1
     fi
 
     code="$?"
