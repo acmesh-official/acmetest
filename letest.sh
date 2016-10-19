@@ -38,6 +38,7 @@ if [ -z "$LOG_FILE" ] ; then
 else
   if ! _startswith "$LOG_FILE" "/" ; then
     LOG_FILE="$(pwd)/$LOG_FILE"
+    export LOG_FILE
   fi  
 fi
 
