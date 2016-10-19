@@ -20,7 +20,7 @@ Unit test project for le project https://github.com/Neilpang/acme.sh
 |debian:8| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-8.svg?1476888815)| Wed Oct 19 14:53:35 UTC 2016| Passed |
 |debian:latest| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-latest.svg?1476889077)| Wed Oct 19 14:57:57 UTC 2016| Passed |
 |centos:5| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-5.svg?1476889479)| Wed Oct 19 15:04:39 UTC 2016| Failed |
-|centos:6| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-6.svg?1476889721)| Wed Oct 19 15:08:41 UTC 2016| Failed |
+|centos:6| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-6.svg?1476889947)| Wed Oct 19 15:12:27 UTC 2016| Passed |
 (The openssl in CentOS 5 doesn't support ECDSA, so the ECDSA test cases failed. However, RSA certificates are working there.)
 
 # How to run tests

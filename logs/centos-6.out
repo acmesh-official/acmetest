@@ -94,10 +94,7 @@ Progress: 11/20
 '/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
 '/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
 '/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
-/root/.acme.sh/acme.sh --deactivate -d testdocker.acme.sh[1;31;40m [FAIL] 
-[Wed Oct 19 15:06:36 UTC 2016] Please refer to https://curl.haxx.se/libcurl/c/libcurl-errors.html for error code: 7
-[Wed Oct 19 15:06:36 UTC 2016] Can not connect to https://acme-staging.api.letsencrypt.org/directory to get nonce.
-[Wed Oct 19 15:06:36 UTC 2016] Can not get domain token.
+/root/.acme.sh/acme.sh --deactivate -d testdocker.acme.sh [PASS]
 ------------------------------------------
 Progress: 12/20
 ==Running le_test_standandalone please wait
