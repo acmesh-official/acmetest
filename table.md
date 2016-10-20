@@ -1,11 +1,1 @@
-|ubuntu:14.04| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-14.04.svg?1476886899)| Wed Oct 19 14:21:39 UTC 2016| Passed |
-|ubuntu:15.04| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-15.04.svg?1476887433)| Wed Oct 19 14:30:33 UTC 2016| Passed |
-|ubuntu:16.04| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-16.04.svg?1476887725)| Wed Oct 19 14:35:25 UTC 2016| Passed |
-|ubuntu:latest| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-latest.svg?1476888316)| Wed Oct 19 14:45:16 UTC 2016| Passed |
-|debian:7| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-7.svg?1476888561)| Wed Oct 19 14:49:21 UTC 2016| Passed |
-|debian:8| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-8.svg?1476888815)| Wed Oct 19 14:53:35 UTC 2016| Passed |
-|debian:latest| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-latest.svg?1476889077)| Wed Oct 19 14:57:57 UTC 2016| Passed |
-|centos:5| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-5.svg?1476889479)| Wed Oct 19 15:04:39 UTC 2016| Failed |
-|centos:6| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-6.svg?1476889947)| Wed Oct 19 15:12:27 UTC 2016| Passed |
-|centos:7| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-7.svg?1476890213)| Wed Oct 19 15:16:53 UTC 2016| Passed |
-|centos:latest| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-latest.svg?1476890724)| Wed Oct 19 15:25:24 UTC 2016| Passed |
+|ubuntu:14.04| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-14.04.svg?1476927272)| Thu Oct 20 01:34:32 UTC 2016| Passed |
