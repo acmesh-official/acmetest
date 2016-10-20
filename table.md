@@ -3,7 +3,7 @@
 |ubuntu:16.04| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-16.04.svg?1476928319)| Thu Oct 20 01:51:59 UTC 2016| Passed |
 |ubuntu:latest| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-latest.svg?1476929361)| Thu Oct 20 02:09:21 UTC 2016| Passed |
 |debian:7| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-7.svg?1476948657)| Thu Oct 20 07:30:57 UTC 2016| Passed |
-|debian:8| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-8.svg?1476930780)| Thu Oct 20 02:33:00 UTC 2016| Failed |
+|debian:8| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-8.svg?1476949134)| Thu Oct 20 07:38:54 UTC 2016| Passed |
 |debian:latest| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-latest.svg?1476931712)| Thu Oct 20 02:48:32 UTC 2016| Failed |
 |centos:5| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-5.svg?1476932413)| Thu Oct 20 03:00:13 UTC 2016| Failed |
 |centos:6| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-6.svg?1476932933)| Thu Oct 20 03:08:53 UTC 2016| Passed |
