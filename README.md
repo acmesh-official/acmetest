@@ -32,6 +32,7 @@ Unit test project for le project https://github.com/Neilpang/acme.sh
 |opensuse:latest| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/opensuse-latest.svg?1476940426)| Thu Oct 20 05:13:46 UTC 2016| Passed |
 |alpine:3.1| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/alpine-3.1.svg?1476940943)| Thu Oct 20 05:22:23 UTC 2016| Passed |
 |alpine:3.2| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/alpine-3.2.svg?1476941415)| Thu Oct 20 05:30:15 UTC 2016| Passed |
+|alpine:3.3| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/alpine-3.3.svg?1476941916)| Thu Oct 20 05:38:36 UTC 2016| Passed |
 (The openssl in CentOS 5 doesn't support ECDSA, so the ECDSA test cases failed. However, RSA certificates are working there.)
 
 # How to run tests
