@@ -29,7 +29,7 @@ if [ -z "$LOG_FILE" ] ; then
   echo "" > "$Log_Out"
 fi
 
-./letest.sh
+./letest.sh | tee "$Log_Out"
 
 ./rundocker.sh  update "$platname" $? "$filename"
 
