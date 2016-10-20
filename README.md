@@ -26,7 +26,7 @@ Unit test project for le project https://github.com/Neilpang/acme.sh
 |fedora:21| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/fedora-21.svg?1476950682)| Thu Oct 20 08:04:42 UTC 2016| Passed |
 |fedora:22| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/fedora-22.svg?1476951191)| Thu Oct 20 08:13:11 UTC 2016| Passed |
 |fedora:23| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/fedora-23.svg?1476951713)| Thu Oct 20 08:21:53 UTC 2016| Passed |
-|fedora:latest| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/fedora-latest.svg?1476952195)| Thu Oct 20 08:29:55 UTC 2016| Failed |
+|fedora:latest| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/fedora-latest.svg?1476952727)| Thu Oct 20 08:38:47 UTC 2016| Passed |
 |opensuse:13.2| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/opensuse-13.2.svg?1476938712)| Thu Oct 20 04:45:12 UTC 2016| Passed |
 |opensuse:42.1| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/opensuse-42.1.svg?1476939307)| Thu Oct 20 04:55:07 UTC 2016| Passed |
 |opensuse:latest| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/opensuse-latest.svg?1476940426)| Thu Oct 20 05:13:46 UTC 2016| Passed |
