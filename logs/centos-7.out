@@ -120,6 +120,7 @@ Progress: 13/20
 /root/.acme.sh/acme.sh issue no testdocker.acme.sh testdocker2.acme.sh [PASS]
 /root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
 /root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+[Fri Oct 21 12:33:24 UTC 2016] new-authz error: <HTML><HEAD><TITLE>Error</TITLE></HEAD><BODY>An error occurred while processing your request.<p>Reference&#32;&#35;179&#46;5ec54543&#46;1477053204&#46;12cff2f8</BODY></HTML>
 ------------------------------------------
 Progress: 14/20
 ==Running le_test_standandalone_ECDSA_256 please wait
