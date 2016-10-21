@@ -95,6 +95,7 @@ Progress: 9/20
 '/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
 '/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
 '/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
+[Fri Oct 21 15:32:48 UTC 2016] new-authz error: <HTML><HEAD><TITLE>Error</TITLE></HEAD><BODY>An error occurred while processing your request.<p>Reference&#32;&#35;179&#46;70c54543&#46;1477063968&#46;3474290</BODY></HTML>
 ------------------------------------------
 Progress: 10/20
 ==Running le_test_standandalone_listen_v6_v2 please wait
