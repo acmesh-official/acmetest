@@ -148,15 +148,7 @@ FORCE=1 /root/.acme.sh/acme.sh renew testpfsense.acme.sh[1;31;32m [PASS][0m
 ------------------------------------------
 [1;31;32mProgress: 19/20[0m
 ==Running le_test_standandalone_tls_renew_SAN_v2 please wait
-/root/.acme.sh/acme.sh --issue -d testpfsense.acme.sh --tls  -d testpfsense2.acme.sh --standalone [1;31;32m [PASS][0m
-/root/.acme.sh/acme.sh --renew -d testpfsense.acme.sh --force[1;31;32m [PASS][0m
-/root/.acme.sh/testpfsense.acme.sh/testpfsense.acme.sh.cer is cert ? 'testpfsense.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
-/root/.acme.sh/testpfsense.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
-------------------------------------------
+/root/.acme.sh/acme.sh --issue -d testpfsense.acme.sh --tls  -d testpfsense2.acme.sh --standalone ------------------------------------------
 [1;31;32mProgress: 20/20[0m
 ==Running le_test_tls_renew_SAN_v2 please wait
-/root/.acme.sh/acme.sh --issue -d testpfsense.acme.sh -d testpfsense2.acme.sh --tls[1;31;32m [PASS][0m
-/root/.acme.sh/acme.sh --renew -d testpfsense.acme.sh --force[1;31;32m [PASS][0m
-/root/.acme.sh/testpfsense.acme.sh/testpfsense.acme.sh.cer is cert ? 'testpfsense.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
-/root/.acme.sh/testpfsense.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
-------------------------------------------
+/root/.acme.sh/acme.sh --issue -d testpfsense.acme.sh -d testpfsense2.acme.sh --tls------------------------------------------
