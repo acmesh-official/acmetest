@@ -134,8 +134,7 @@ FORCE=1 /root/.acme.sh/acme.sh renew testdocker.acme.sh [PASS]
 ------------------------------------------
 Progress: 16/20
 ==Running le_test_standandalone_ECDSA_256_SAN_renew please wait
-/root/.acme.sh/acme.sh issue no testdocker.acme.sh testdocker2.acme.sh ec-256 [PASS]
-FORCE=1 /root/.acme.sh/acme.sh renew testdocker.acme.sh [PASS]
+/root/.acme.sh/acme.sh issue no testdocker.acme.sh testdocker2.acme.sh ec-256[1;31;40m [FAIL] 
 ------------------------------------------
 Progress: 17/20
 ==Running le_test_standandalone_ECDSA_256_SAN_renew_v2 please wait
