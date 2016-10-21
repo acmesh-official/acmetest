@@ -21,3 +21,4 @@
 |alpine:3.3| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/alpine-3.3.svg?1477060961)| Fri Oct 21 14:42:41 UTC 2016| Passed |
 |alpine:latest| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/alpine-latest.svg?1477061725)| Fri Oct 21 14:55:25 UTC 2016| Passed |
 |oraclelinux:6| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/oraclelinux-6.svg?1477062199)| Fri Oct 21 15:03:19 UTC 2016| Passed |
+|oraclelinux:7| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/oraclelinux-7.svg?1477062738)| Fri Oct 21 15:12:18 UTC 2016| Passed |
