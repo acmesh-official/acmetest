@@ -108,14 +108,12 @@ Progress: 11/20
 '/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
 '/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
 /root/.acme.sh/acme.sh --deactivate -d testdocker.acme.sh [PASS]
-[Fri Oct 21 14:02:56 UTC 2016] new-authz error: <HTML><HEAD><TITLE>Error</TITLE></HEAD><BODY>An error occurred while processing your request.<p>Reference&#32;&#35;179&#46;5ec54543&#46;1477058576&#46;1368be91</BODY></HTML>
 ------------------------------------------
 Progress: 12/20
 ==Running le_test_standandalone please wait
 /root/.acme.sh/acme.sh issue no testdocker.acme.sh [PASS]
 /root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
 /root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-[Fri Oct 21 14:03:17 UTC 2016] new-authz error: <HTML><HEAD><TITLE>Error</TITLE></HEAD><BODY>An error occurred while processing your request.<p>Reference&#32;&#35;179&#46;5ec54543&#46;1477058597&#46;136915e6</BODY></HTML>
 ------------------------------------------
 Progress: 13/20
 ==Running le_test_standandalone_SAN please wait
@@ -173,4 +171,5 @@ Progress: 20/20
 /root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force [PASS]
 /root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
 /root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+[Fri Oct 21 14:16:35 UTC 2016] new-authz error: <HTML><HEAD><TITLE>Error</TITLE></HEAD><BODY>An error occurred while processing your request.<p>Reference&#32;&#35;179&#46;5ec54543&#46;1477059395&#46;137dd5db</BODY></HTML>
 ------------------------------------------
