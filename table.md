@@ -6,3 +6,4 @@
 |debian:8| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-8.svg?1477051132)| Fri Oct 21 11:58:52 UTC 2016| Passed |
 |debian:latest| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-latest.svg?1477051629)| Fri Oct 21 12:07:09 UTC 2016| Passed |
 |centos:5| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-5.svg?1477052399)| Fri Oct 21 12:19:59 UTC 2016| Failed |
+|centos:6| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-6.svg?1477052928)| Fri Oct 21 12:28:48 UTC 2016| Passed |
