@@ -397,6 +397,17 @@ testplat() {
   done
 }
 
+#plat1 plat2 plat3
+testplats() {
+  if [ -z "$@" ] ; then
+    _err "Usage: testplats plat1 plat2 plat3 ... "
+    return 1
+  fi
+  for tps in "$@" ; do
+    [ "$tps" ] && testplat "$tps"
+  done
+}
+
 
 cleardocker() {
   docker rm $(docker ps -a -q)
@@ -405,7 +416,7 @@ cleardocker() {
 
 
 showhelp() {
-  _info "testall|testplat|cleardocker|_cron"
+  _info "testall|testplat|testplats|cleardocker|_cron"
 }
 
 
