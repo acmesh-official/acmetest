@@ -7,7 +7,7 @@
 |debian:latest| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-latest.svg?1477051629)| Fri Oct 21 12:07:09 UTC 2016| Passed |
 |centos:5| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-5.svg?1477052399)| Fri Oct 21 12:19:59 UTC 2016| Failed |
 |centos:6| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-6.svg?1477052928)| Fri Oct 21 12:28:48 UTC 2016| Passed |
-|centos:7| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-7.svg?1477054093)| Fri Oct 21 12:48:13 UTC 2016| Failed |
+|centos:7| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-7.svg?1477134904)| Sat Oct 22 11:15:04 UTC 2016| Passed |
 |centos:latest| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-latest.svg?1477054673)| Fri Oct 21 12:57:53 UTC 2016| Passed |
 |fedora:21| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/fedora-21.svg?1477055278)| Fri Oct 21 13:07:58 UTC 2016| Passed |
 |fedora:22| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/fedora-22.svg?1477056313)| Fri Oct 21 13:25:14 UTC 2016| Failed |
