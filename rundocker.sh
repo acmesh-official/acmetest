@@ -389,10 +389,8 @@ testplat() {
   for plat in $platforms 
   do 
     if ! _runplat "$plat" ; then
-      if [ -z "$DEBUG" ] && [ -z "$DEBUGING" ] ; then
-        _info "Let's retry once more:$plat"
-        _runplat "$plat"
-      fi
+      _info "Failed: $plat"
+      _FAILED_PLATS="$_FAILED_PLATS$plat "
     fi
   done
 }
@@ -441,7 +439,14 @@ _cron() {
   CI="1"
   _pullgit
   rm "$Table"
+  _FAILED_PLATS=""
   testall
+  if [ "$_FAILED_PLATS" ] ; then
+    _info "Let's try once more for: $_FAILED_PLATS"
+    _ttft="$_FAILED_PLATS"
+    _FAILED_PLATS=""
+    testplats "$_ttft"
+  fi
   CI=""
 }
 
