@@ -171,4 +171,5 @@ Progress: 20/20
 /root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force [PASS]
 /root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
 /root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+[Fri Oct 21 14:16:35 UTC 2016] new-authz error: <HTML><HEAD><TITLE>Error</TITLE></HEAD><BODY>An error occurred while processing your request.<p>Reference&#32;&#35;179&#46;5ec54543&#46;1477059395&#46;137dd5db</BODY></HTML>
 ------------------------------------------
