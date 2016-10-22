@@ -32,7 +32,7 @@ Unit test project for le project https://github.com/Neilpang/acme.sh
 |opensuse:latest| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/opensuse-latest.svg?1477147432)| Sat Oct 22 14:43:52 UTC 2016| Passed |
 |alpine:3.1| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/alpine-3.1.svg?1477147805)| Sat Oct 22 14:50:05 UTC 2016| Passed |
 |alpine:3.2| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/alpine-3.2.svg?1477148176)| Sat Oct 22 14:56:16 UTC 2016| Passed |
-|alpine:3.3| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/alpine-3.3.svg?1477148543)| Sat Oct 22 15:02:23 UTC 2016| Failed |
+|alpine:3.3| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/alpine-3.3.svg?1477154215)| Sat Oct 22 16:36:55 UTC 2016| Passed |
 |alpine:latest| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/alpine-latest.svg?1477148929)| Sat Oct 22 15:08:49 UTC 2016| Passed |
 |oraclelinux:6| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/oraclelinux-6.svg?1477149420)| Sat Oct 22 15:17:00 UTC 2016| Passed |
 |oraclelinux:7| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/oraclelinux-7.svg?1477150024)| Sat Oct 22 15:27:04 UTC 2016| Passed |
