@@ -1,3 +1,4 @@
+
 Testing branch: master
 [1;31;32mProgress: 1/20[0m
 ==Running le_test_dependencies please wait
@@ -148,7 +149,15 @@ FORCE=1 /root/.acme.sh/acme.sh renew testfreebsd.acme.sh[1;31;32m [PASS][0m
 ------------------------------------------
 [1;31;32mProgress: 19/20[0m
 ==Running le_test_standandalone_tls_renew_SAN_v2 please wait
-/root/.acme.sh/acme.sh --issue -d testfreebsd.acme.sh --tls  -d testfreebsd2.acme.sh --standalone ------------------------------------------
+/root/.acme.sh/acme.sh --issue -d testfreebsd.acme.sh --tls  -d testfreebsd2.acme.sh --standalone [1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --renew -d testfreebsd.acme.sh --force[1;31;32m [PASS][0m
+/root/.acme.sh/testfreebsd.acme.sh/testfreebsd.acme.sh.cer is cert ? 'testfreebsd.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/testfreebsd.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+------------------------------------------
 [1;31;32mProgress: 20/20[0m
 ==Running le_test_tls_renew_SAN_v2 please wait
-/root/.acme.sh/acme.sh --issue -d testfreebsd.acme.sh -d testfreebsd2.acme.sh --tls------------------------------------------
+/root/.acme.sh/acme.sh --issue -d testfreebsd.acme.sh -d testfreebsd2.acme.sh --tls[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --renew -d testfreebsd.acme.sh --force[1;31;32m [PASS][0m
+/root/.acme.sh/testfreebsd.acme.sh/testfreebsd.acme.sh.cer is cert ? 'testfreebsd.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/testfreebsd.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+------------------------------------------
