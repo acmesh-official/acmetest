@@ -23,7 +23,9 @@ STAGE_CA="https://acme-staging.api.letsencrypt.org"
 _API_HOST="$(echo "$STAGE_CA" | cut -d : -f 2 | tr -d '/')"
 
 
-
+if [ -z "TestingIDNDomain" ] ; then
+  TestingIDNDomain="中$TestingDomain"
+fi
 
 _startswith(){
   _str="$1"
@@ -334,7 +336,7 @@ _run() {
     rm -rf "$lehome/$TestingDomain$ECC_SUFFIX"
     if [ -f "$lehome/$PROJECT_ENTRY" ] ; then
       if [ -f "$CA_DIR/account.key" ] ; then
-        $lehome/$PROJECT_ENTRY --deactivate -d "$TestingDomain"  -d "$TestingAltDomains" >/dev/null
+        $lehome/$PROJECT_ENTRY --deactivate -d "$TestingDomain"  -d "$TestingAltDomains" -d "$TestingIDNDomain" >/dev/null
       fi
       __dr="$?"
       if [ "$_r" = "0" ] ; then
@@ -1124,7 +1126,7 @@ le_test_standandalone_renew_idn_v2() {
     return 1
   fi
 
-  _test_idn="中$TestingDomain"
+  _test_idn="$TestingIDNDomain"
   rm -rf "$lehome/$_test_idn"
   
   certdir="$(pwd)/certs"
