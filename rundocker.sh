@@ -314,6 +314,7 @@ _runplat() {
       -e QUICK_TEST="$QUICK_TEST" \
       -e TEST_LOCAL="$TEST_LOCAL" \
       -e TEST_IPV6="$TEST_IPV6" \
+      -e TEST_IDN="$TEST_IDN" \
       -e CASE="$CASE" \
       -v $(pwd):/acmetest \
       $myplat /bin/sh -c "cd /acmetest && ./letest.sh"
@@ -330,6 +331,7 @@ _runplat() {
       -e QUICK_TEST="$QUICK_TEST" \
       -e TEST_LOCAL="$TEST_LOCAL" \
       -e TEST_IPV6="$TEST_IPV6" \
+      -e TEST_IDN="$TEST_IDN" \
       -e CASE="$CASE" \
       -v $(pwd):/acmetest \
       $myplat /bin/sh -c "cd /acmetest && ./letest.sh" >> "$Log_Out" 2>&1
@@ -355,6 +357,7 @@ _runplat() {
         -e QUICK_TEST="$QUICK_TEST" \
         -e TEST_LOCAL="$TEST_LOCAL" \
         -e TEST_IPV6="$TEST_IPV6" \
+        -e TEST_IDN="$TEST_IDN" \
         -e CASE="$CASE" \
         -v $(pwd):/acmetest \
         $myplat /bin/sh
