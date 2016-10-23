@@ -1101,6 +1101,62 @@ le_test_tls_renew_SAN_v2() {
 }
 
 
+
+#
+le_test_standandalone_renew_idn_v2() {
+  lehome="$Default_Home"
+
+  lp=`_ss | grep ':80 '`
+  if [ "$lp" ] ; then
+    __fail "80 port is already used."
+    return 1
+  fi
+  
+  if [ -z "$TestingDomain" ] ; then
+    __fail "Please define TestingDomain and try again."
+    return 1
+  fi
+
+  _test_idn="中$TestingDomain"
+  rm -rf "$lehome/$_test_idn"
+  
+  certdir="$(pwd)/certs"
+  mkdir -p "$certdir"
+  cert="$certdir/domain.cer"
+  key="$certdir/domain.key"
+  ca="$certdir/ca.cer"
+  full="$certdir/full.cer"
+  _assertcmd "$lehome/$PROJECT_ENTRY --issue -d $_test_idn --standalone --certpath '$cert' --keypath '$key'  --capath '$ca'  --reloadcmd 'echo this is reload'  --fullchainpath  '$full'" ||  return
+  
+  _assertfileequals "$lehome/$_test_idn/$_test_idn.cer" "$cert" ||  return
+  _assertfileequals "$lehome/$_test_idn/$_test_idn.key" "$key" ||  return
+  _assertfileequals "$lehome/$_test_idn/ca.cer" "$ca" ||  return
+  _assertfileequals "$lehome/$_test_idn/fullchain.cer" "$full" ||  return
+  
+  rm -rf "$certdir"
+  mkdir -p "$certdir"
+  
+  sleep 5
+  _assertcmd "$lehome/$PROJECT_ENTRY --renew -d $_test_idn --force" ||  return
+  
+  _assertcert "$lehome/$_test_idn/$_test_idn.cer" "$(idn $_test_idn)" "$CA" || return
+  _assertcert "$lehome/$_test_idn/ca.cer" "$CA" || return
+  
+  _assertfileequals "$lehome/$_test_idn/$_test_idn.cer" "$cert" ||  return
+  _assertfileequals "$lehome/$_test_idn/$_test_idn.key" "$key" ||  return
+  _assertfileequals "$lehome/$_test_idn/ca.cer" "$ca" ||  return
+  _assertfileequals "$lehome/$_test_idn/fullchain.cer" "$full" ||  return
+  
+  rm -rf "$certdir"
+  
+  lp=`_ss | grep ':80 '`
+  if [ "$lp" ] ; then
+    __fail "80 port is not released: $lp"
+    return 1
+  fi
+
+}
+
 #####################################
 
 if [ "$1" ] ; then
