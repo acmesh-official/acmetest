@@ -179,6 +179,13 @@ elif command -v apt-get > /dev/null ; then
 fi
 
 
+if _exists export ; then
+  export LC_ALL=en_US.UTF-8
+elif _exists setenv ; then
+  setenv LC_ALL en_US.UTF-8
+fi
+
+
 __green() {
   printf '\033[1;31;32m'
   printf -- "$1"
