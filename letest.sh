@@ -1113,6 +1113,11 @@ le_test_tls_renew_SAN_v2() {
 
 #
 le_test_standandalone_renew_idn_v2() {
+  if [ -z "$TEST_IDN" ] ; then
+    _info "Skip by TEST_IDN"
+    return 0
+  fi
+  
   lehome="$Default_Home"
 
   lp=`_ss | grep ':80 '`
