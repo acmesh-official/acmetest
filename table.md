@@ -1,5 +1,5 @@
 |ubuntu:14.04| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-14.04.svg?1477575130)| Thu Oct 27 13:32:10 UTC 2016| Passed |
-|ubuntu:15.04| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-15.04.svg?1477152433)| Sat Oct 22 16:07:13 UTC 2016| Passed |
+|ubuntu:15.04| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-15.04.svg?1477575373)| Thu Oct 27 13:36:13 UTC 2016| Passed |
 |ubuntu:16.04| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-16.04.svg?1477152987)| Sat Oct 22 16:16:27 UTC 2016| Passed |
 |ubuntu:latest| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-latest.svg?1477153498)| Sat Oct 22 16:24:58 UTC 2016| Passed |
 |debian:7| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-7.svg?1477141066)| Sat Oct 22 12:57:46 UTC 2016| Passed |
