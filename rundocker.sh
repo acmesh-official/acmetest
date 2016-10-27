@@ -112,7 +112,7 @@ update() {
       _status="Failed"
     fi
     
-    _setopt "$filename" "|$plat|" " " "\![]($Img/$statusfile.svg?$(date -u "+%s"))| $(date -u)| $_status |"
+    _setopt "$filename" "|$plat| " '!' "[]($Img/$statusfile.svg?$(date -u "+%s"))| $(date -u)| $_status |"
   
     git add "status/$statusfile.svg" >/dev/null 2>&1
     
