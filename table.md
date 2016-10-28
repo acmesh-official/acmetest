@@ -4,3 +4,4 @@
 |ubuntu:latest| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-latest.svg?1477653448)| Fri Oct 28 11:17:28 UTC 2016| Passed |
 |debian:7| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-7.svg?1477653909)| Fri Oct 28 11:25:09 UTC 2016| Passed |
 |debian:8| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-8.svg?1477654856)| Fri Oct 28 11:40:56 UTC 2016| Passed |
+|debian:latest| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-latest.svg?1477655324)| Fri Oct 28 11:48:44 UTC 2016| Passed |
