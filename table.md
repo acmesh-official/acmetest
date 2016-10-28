@@ -13,3 +13,4 @@
 |fedora:22| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/fedora-22.svg?1477658885)| Fri Oct 28 12:48:05 UTC 2016| Passed |
 |fedora:23| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/fedora-23.svg?1477659439)| Fri Oct 28 12:57:19 UTC 2016| Passed |
 |fedora:latest| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/fedora-latest.svg?1477660486)| Fri Oct 28 13:14:46 UTC 2016| Passed |
+|opensuse:13.2| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/opensuse-13.2.svg?1477660951)| Fri Oct 28 13:22:31 UTC 2016| Failed |
