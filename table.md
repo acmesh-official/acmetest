@@ -16,3 +16,4 @@
 |opensuse:13.2| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/opensuse-13.2.svg?1477661440)| Fri Oct 28 13:30:40 UTC 2016| Passed |
 |opensuse:42.1| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/opensuse-42.1.svg?1477661933)| Fri Oct 28 13:38:53 UTC 2016| Passed |
 |opensuse:latest| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/opensuse-latest.svg?1477662401)| Fri Oct 28 13:46:41 UTC 2016| Passed |
+|alpine:3.1| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/alpine-3.1.svg?1477662768)| Fri Oct 28 13:52:48 UTC 2016| Passed |
