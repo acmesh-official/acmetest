@@ -72,18 +72,7 @@ FORCE=1 /root/.acme.sh/acme.sh renew testopenbsd.acme.sh[1;31;32m [PASS][0m
 ------------------------------------------
 [1;31;32mProgress: 9/21[0m
 ==Running le_test_standandalone_listen_v4_v2 please wait
-/root/.acme.sh/acme.sh --issue -d testopenbsd.acme.sh --standalone --listen-v4 --certpath '/root/acmetest/certs/domain.cer' --keypath '/root/acmetest/certs/domain.key'  --capath '/root/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/root/acmetest/certs/full.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testopenbsd.acme.sh/testopenbsd.acme.sh.cer' equals '/root/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testopenbsd.acme.sh/testopenbsd.acme.sh.key' equals '/root/acmetest/certs/domain.key'[1;31;32m [PASS][0m
-'/root/.acme.sh/testopenbsd.acme.sh/ca.cer' equals '/root/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testopenbsd.acme.sh/fullchain.cer' equals '/root/acmetest/certs/full.cer'[1;31;32m [PASS][0m
-/root/.acme.sh/acme.sh --renew -d testopenbsd.acme.sh --force[1;31;32m [PASS][0m
-/root/.acme.sh/testopenbsd.acme.sh/testopenbsd.acme.sh.cer is cert ? 'testopenbsd.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
-/root/.acme.sh/testopenbsd.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
-'/root/.acme.sh/testopenbsd.acme.sh/testopenbsd.acme.sh.cer' equals '/root/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testopenbsd.acme.sh/testopenbsd.acme.sh.key' equals '/root/acmetest/certs/domain.key'[1;31;32m [PASS][0m
-'/root/.acme.sh/testopenbsd.acme.sh/ca.cer' equals '/root/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testopenbsd.acme.sh/fullchain.cer' equals '/root/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --issue -d testopenbsd.acme.sh --standalone --listen-v4 --certpath '/root/acmetest/certs/domain.cer' --keypath '/root/acmetest/certs/domain.key'  --capath '/root/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/root/acmetest/certs/full.cer'[1;31;40m [FAIL] [0m
 ------------------------------------------
 [1;31;32mProgress: 10/21[0m
 ==Running le_test_standandalone_listen_v6_v2 please wait
