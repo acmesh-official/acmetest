@@ -155,7 +155,8 @@ bash: warning: setlocale: LC_ALL: cannot change locale (en_US.UTF-8)
 ------------------------------------------
 Progress: 16/21
 ==Running le_test_standandalone_ECDSA_256_SAN_renew please wait
-/root/.acme.sh/acme.sh issue no testdocker.acme.sh testdocker2.acme.sh ec-256[1;31;40m [FAIL] 
+/root/.acme.sh/acme.sh issue no testdocker.acme.sh testdocker2.acme.sh ec-256 [PASS]
+FORCE=1 /root/.acme.sh/acme.sh renew testdocker.acme.sh [PASS]
 bash: warning: setlocale: LC_ALL: cannot change locale (en_US.UTF-8)
 bash: warning: setlocale: LC_ALL: cannot change locale (en_US.UTF-8)
 ------------------------------------------
