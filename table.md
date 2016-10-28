@@ -25,3 +25,4 @@
 |oraclelinux:latest| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/oraclelinux-latest.svg?1477681584)| Fri Oct 28 19:06:24 UTC 2016| Passed |
 |kalilinux/kali-linux-docker| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/kalilinux-kali-linux-docker.svg?1477681602)| Fri Oct 28 19:06:42 UTC 2016| Failed |
 |base/archlinux| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/base-archlinux.svg?1477681971)| Fri Oct 28 19:12:51 UTC 2016| Passed |
+|mageia| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/mageia.svg?1477682345)| Fri Oct 28 19:19:05 UTC 2016| Passed |
