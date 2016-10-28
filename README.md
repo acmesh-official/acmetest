@@ -12,34 +12,7 @@ Unit test project for le project https://github.com/Neilpang/acme.sh
 |openbsd| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/openbsd.svg?1477671373)| Fri Oct 28 16:16:13 UTC 2016| Failed |
 |pfsense| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/pfsense.svg?1477671790)| Fri Oct 28 16:23:10 UTC 2016| Passed |
 |solaris| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/solaris.svg?1470880346)| Thursday, August 11, 2016 01:52:26 AM GMT| Passed |
-|ubuntu:14.04| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-14.04.svg?1477651902)| Fri Oct 28 10:51:42 UTC 2016| Passed |
-|ubuntu:15.04| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-15.04.svg?1477652368)| Fri Oct 28 10:59:28 UTC 2016| Passed |
-|ubuntu:16.04| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-16.04.svg?1477652897)| Fri Oct 28 11:08:17 UTC 2016| Passed |
-|ubuntu:latest| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-latest.svg?1477653448)| Fri Oct 28 11:17:28 UTC 2016| Passed |
-|debian:7| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-7.svg?1477653909)| Fri Oct 28 11:25:09 UTC 2016| Passed |
-|debian:8| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-8.svg?1477654856)| Fri Oct 28 11:40:56 UTC 2016| Passed |
-|debian:latest| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-latest.svg?1477655324)| Fri Oct 28 11:48:44 UTC 2016| Passed |
-|centos:5| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-5.svg?1477666906)| Fri Oct 28 15:01:46 UTC 2016| Failed |
-|centos:6| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-6.svg?1477656563)| Fri Oct 28 12:09:23 UTC 2016| Passed |
-|centos:7| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-7.svg?1477657159)| Fri Oct 28 12:19:19 UTC 2016| Passed |
-|centos:latest| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-latest.svg?1477657756)| Fri Oct 28 12:29:16 UTC 2016| Passed |
-|fedora:21| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/fedora-21.svg?1477658347)| Fri Oct 28 12:39:07 UTC 2016| Passed |
-|fedora:22| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/fedora-22.svg?1477658885)| Fri Oct 28 12:48:05 UTC 2016| Passed |
-|fedora:23| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/fedora-23.svg?1477659439)| Fri Oct 28 12:57:19 UTC 2016| Passed |
-|fedora:latest| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/fedora-latest.svg?1477660486)| Fri Oct 28 13:14:46 UTC 2016| Passed |
-|opensuse:13.2| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/opensuse-13.2.svg?1477661440)| Fri Oct 28 13:30:40 UTC 2016| Passed |
-|opensuse:42.1| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/opensuse-42.1.svg?1477661933)| Fri Oct 28 13:38:53 UTC 2016| Passed |
-|opensuse:latest| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/opensuse-latest.svg?1477662401)| Fri Oct 28 13:46:41 UTC 2016| Passed |
-|alpine:3.1| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/alpine-3.1.svg?1477662768)| Fri Oct 28 13:52:48 UTC 2016| Passed |
-|alpine:3.2| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/alpine-3.2.svg?1477663138)| Fri Oct 28 13:58:58 UTC 2016| Passed |
-|alpine:3.3| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/alpine-3.3.svg?1477663509)| Fri Oct 28 14:05:09 UTC 2016| Passed |
-|alpine:latest| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/alpine-latest.svg?1477663886)| Fri Oct 28 14:11:26 UTC 2016| Passed |
-|oraclelinux:6| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/oraclelinux-6.svg?1477664419)| Fri Oct 28 14:20:19 UTC 2016| Passed |
-|oraclelinux:7| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/oraclelinux-7.svg?1477664977)| Fri Oct 28 14:29:37 UTC 2016| Passed |
-|oraclelinux:latest| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/oraclelinux-latest.svg?1477665558)| Fri Oct 28 14:39:18 UTC 2016| Passed |
-|kalilinux/kali-linux-docker| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/kalilinux-kali-linux-docker.svg?1477666920)| Fri Oct 28 15:02:00 UTC 2016| Failed |
-|base/archlinux| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/base-archlinux.svg?1477666069)| Fri Oct 28 14:47:49 UTC 2016| Passed |
-|mageia| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/mageia.svg?1477666555)| Fri Oct 28 14:55:55 UTC 2016| Passed |
+|ubuntu:14.04| \![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-14.04.svg?1477672150)| Fri Oct 28 16:29:10 UTC 2016| Passed |
 (The openssl in CentOS 5 doesn't support ECDSA, so the ECDSA test cases failed. However, RSA certificates are working there.)
 
 # How to run tests
