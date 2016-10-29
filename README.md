@@ -40,6 +40,7 @@ Unit test project for le project https://github.com/Neilpang/acme.sh
 |kalilinux/kali-linux-docker| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/kalilinux-kali-linux-docker.svg?1477743279)| Sat Oct 29 12:14:39 UTC 2016| Failed |
 |base/archlinux| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/base-archlinux.svg?1477742380)| Sat Oct 29 11:59:40 UTC 2016| Passed |
 |mageia| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/mageia.svg?1477743553)| Sat Oct 29 12:19:13 UTC 2016| Passed |
+|gentoo/stage3-amd64| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/gentoo-stage3-amd64.svg?1477752906)| Sat Oct 29 14:55:06 UTC 2016| Passed |
 (The openssl in CentOS 5 doesn't support ECDSA, so the ECDSA test cases failed. However, RSA certificates are working there.)
 
 # How to run tests
