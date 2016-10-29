@@ -39,7 +39,9 @@ if [ "$DOCKER_OS" = "centos:5" ] \
  NO_ECC_CASES="1"
 fi 
 
-
+if [ "$DOCKER_OS" = "gentoo/stage3-amd64" ] ; then
+ NO_TLS_CASES="1"
+fi
 
 
 if [ -z "$LOG_FILE" ] ; then
@@ -1076,6 +1078,11 @@ le_test_standandalone_ECDSA_384() {
 le_test_standandalone_tls_renew_SAN_v2() {
   #test  standalone and tls hybrid mode.
   
+  if [ "$NO_TLS_CASES" ] ; then
+    _info "Skip by NO_TLS_CASES"
+    return 0
+  fi
+  
   lehome="$Default_Home"
 
   lp=`_ss | grep ':443 '`
@@ -1109,6 +1116,11 @@ le_test_standandalone_tls_renew_SAN_v2() {
 le_test_tls_renew_SAN_v2() {
   if [ "$QUICK_TEST" ] ; then
     _info "Skip by QUICK_TEST"
+    return 0
+  fi
+  
+  if [ "$NO_TLS_CASES" ] ; then
+    _info "Skip by NO_TLS_CASES"
     return 0
   fi
   
