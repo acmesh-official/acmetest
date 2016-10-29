@@ -123,23 +123,23 @@ Progress: 13/21
 ------------------------------------------
 Progress: 14/21
 ==Running le_test_standandalone_ECDSA_256 please wait
-/root/.acme.sh/acme.sh issue no testdocker.acme.sh no ec-256[1;31;40m [FAIL] 
+Skip by NO_ECC_CASES
 ------------------------------------------
 Progress: 15/21
 ==Running le_test_standandalone_ECDSA_256_renew please wait
-/root/.acme.sh/acme.sh issue no testdocker.acme.sh no ec-256[1;31;40m [FAIL] 
+Skip by NO_ECC_CASES
 ------------------------------------------
 Progress: 16/21
 ==Running le_test_standandalone_ECDSA_256_SAN_renew please wait
-/root/.acme.sh/acme.sh issue no testdocker.acme.sh testdocker2.acme.sh ec-256[1;31;40m [FAIL] 
+Skip by NO_ECC_CASES
 ------------------------------------------
 Progress: 17/21
 ==Running le_test_standandalone_ECDSA_256_SAN_renew_v2 please wait
-/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh -d testdocker2.acme.sh --standalone --keylength ec-256 --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer'[1;31;40m [FAIL] 
+Skip by NO_ECC_CASES
 ------------------------------------------
 Progress: 18/21
 ==Running le_test_standandalone_ECDSA_384 please wait
-/root/.acme.sh/acme.sh issue no testdocker.acme.sh no ec-384[1;31;40m [FAIL] 
+Skip by NO_ECC_CASES
 ------------------------------------------
 Progress: 19/21
 ==Running le_test_standandalone_tls_renew_SAN_v2 please wait
