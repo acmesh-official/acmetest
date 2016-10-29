@@ -34,6 +34,13 @@ _startswith(){
 }
 
 
+if [ "$DOCKER_OS" = "centos:5" ] \
+ || [ "$DOCKER_OS" = "gentoo/stage3-amd64" ] ; then
+ NO_ECC_CASES="1"
+fi 
+
+
+
 
 if [ -z "$LOG_FILE" ] ; then
   LOG_FILE="letest.log"
@@ -858,6 +865,12 @@ le_test_standandalone_ECDSA_256() {
     _info "Skip by QUICK_TEST"
     return 0
   fi
+  
+  if [ "$NO_ECC_CASES" ] ; then
+    _info "Skip by NO_ECC_CASES"
+    return 0
+  fi
+    
   lehome="$Default_Home"
 
   lp=`_ss | grep ':80 '`
@@ -892,6 +905,11 @@ le_test_standandalone_ECDSA_256_renew() {
     _info "Skip by QUICK_TEST"
     return 0
   fi
+  if [ "$NO_ECC_CASES" ] ; then
+    _info "Skip by NO_ECC_CASES"
+    return 0
+  fi  
+  
   lehome="$Default_Home"
 
   lp=`_ss | grep ':80 '`
@@ -926,6 +944,10 @@ le_test_standandalone_ECDSA_256_SAN_renew() {
     _info "Skip by QUICK_TEST"
     return 0
   fi
+  if [ "$NO_ECC_CASES" ] ; then
+    _info "Skip by NO_ECC_CASES"
+    return 0
+  fi  
   lehome="$Default_Home"
 
   lp=`_ss | grep ':80 '`
@@ -954,6 +976,11 @@ le_test_standandalone_ECDSA_256_SAN_renew() {
 }
 
 le_test_standandalone_ECDSA_256_SAN_renew_v2() {
+  if [ "$NO_ECC_CASES" ] ; then
+    _info "Skip by NO_ECC_CASES"
+    return 0
+  fi 
+  
   lehome="$Default_Home"
 
   lp=`_ss | grep ':80 '`
@@ -1012,6 +1039,12 @@ le_test_standandalone_ECDSA_384() {
     _info "Skip by QUICK_TEST"
     return 0
   fi
+  
+  if [ "$NO_ECC_CASES" ] ; then
+    _info "Skip by NO_ECC_CASES"
+    return 0
+  fi
+  
   lehome="$Default_Home"
 
   lp=`_ss | grep ':80 '`
