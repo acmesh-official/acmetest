@@ -5,7 +5,11 @@ Step 2 : RUN apt-get -qqy update 2>&1
  ---> Using cache
  ---> 6ec25d11fd48
 Step 3 : RUN apt-get -qqy install openssl cron netcat-openbsd curl idn  2>&1
- ---> Running in 6dd9ce5ebce5
+ ---> Running in f3c95790b4e3
+E: Failed to fetch http://http.kali.org/kali/pool/main/g/glibc/libc6_2.24-3_amd64.deb  404  Not Found
+
+E: Failed to fetch http://http.kali.org/kali/pool/main/g/glibc/libc-bin_2.24-3_amd64.deb  404  Not Found
+
 E: Failed to fetch http://http.kali.org/kali/pool/main/g/gnutls28/libgnutls30_3.5.4-2_amd64.deb  404  Not Found
 
 E: Unable to fetch some archives, maybe run apt-get update or try with --fix-missing?
