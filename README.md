@@ -7,7 +7,7 @@ Unit test project for le project https://github.com/Neilpang/acme.sh
 
 | Platform | Status| Last Run Time| Comments|
 -----------|-------|--------------|---------|
-|windows-cygwin| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/windows-cygwin.svg?1462640779)| Sat, May 07, 2016  5:06:19 PM| Passed |
+|windows-cygwin| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/windows-cygwin.svg?1477928564)| Mon Oct 31 15:42:44 UTC 2016| Passed |
 |freebsd| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/freebsd.svg?1477642037)| Fri Oct 28 08:07:17 UTC 2016| Passed |
 |openbsd| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/openbsd.svg?1477744655)| Sat Oct 29 12:37:35 UTC 2016| Passed |
 |pfsense| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/pfsense.svg?1477671790)| Fri Oct 28 16:23:10 UTC 2016| Passed |
@@ -37,7 +37,7 @@ Unit test project for le project https://github.com/Neilpang/acme.sh
 |oraclelinux:6| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/oraclelinux-6.svg?1477741463)| Sat Oct 29 11:44:23 UTC 2016| Passed |
 |oraclelinux:7| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/oraclelinux-7.svg?1477741790)| Sat Oct 29 11:49:50 UTC 2016| Passed |
 |oraclelinux:latest| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/oraclelinux-latest.svg?1477742079)| Sat Oct 29 11:54:39 UTC 2016| Passed |
-|kalilinux/kali-linux-docker| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/kalilinux-kali-linux-docker.svg?1477743279)| Sat Oct 29 12:14:39 UTC 2016| Failed |
+|kalilinux/kali-linux-docker| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/kalilinux-kali-linux-docker.svg?1477923404)| Mon Oct 31 14:16:44 UTC 2016| Passed |
 |base/archlinux| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/base-archlinux.svg?1477742380)| Sat Oct 29 11:59:40 UTC 2016| Passed |
 |mageia| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/mageia.svg?1477743553)| Sat Oct 29 12:19:13 UTC 2016| Passed |
 |gentoo/stage3-amd64| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/gentoo-stage3-amd64.svg?1477752906)| Sat Oct 29 14:55:06 UTC 2016| Passed |
