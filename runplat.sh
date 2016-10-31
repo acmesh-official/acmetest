@@ -15,7 +15,7 @@ fi
 
 
 if [ -z "$DEBUG" ] ; then
-  if type export ; then
+  if type export >/dev/null ; then
     export CI=1
   else
     setenv CI 1
