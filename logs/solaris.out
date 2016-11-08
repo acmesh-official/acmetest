@@ -39,24 +39,6 @@ equals [1;31;32m [PASS][0m
 ==Running le_test_standandalone_renew please wait
 /root/.acme.sh/acme.sh issue no testsolaris.acme.sh[1;31;32m [PASS][0m
 FORCE=1 /root/.acme.sh/acme.sh renew testsolaris.acme.sh[1;31;32m [PASS][0m
-libidn 1.19
-Copyright 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Simon Josefsson.
-GNU Libidn comes with NO WARRANTY, to the extent permitted by law.
-You may redistribute copies of GNU Libidn under the terms of
-the GNU Lesser General Public License.  For more information
-about these matters, see the file named COPYING.LIB.
-libidn 1.19
-Copyright 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Simon Josefsson.
-GNU Libidn comes with NO WARRANTY, to the extent permitted by law.
-You may redistribute copies of GNU Libidn under the terms of
-the GNU Lesser General Public License.  For more information
-about these matters, see the file named COPYING.LIB.
-libidn 1.19
-Copyright 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Simon Josefsson.
-GNU Libidn comes with NO WARRANTY, to the extent permitted by law.
-You may redistribute copies of GNU Libidn under the terms of
-the GNU Lesser General Public License.  For more information
-about these matters, see the file named COPYING.LIB.
 ------------------------------------------
 [1;31;32mProgress: 7/21[0m
 ==Running le_test_standandalone_renew_v2 please wait
@@ -72,24 +54,6 @@ about these matters, see the file named COPYING.LIB.
 '/root/.acme.sh/testsolaris.acme.sh/testsolaris.acme.sh.key' equals '/root/acmetest/certs/domain.key'[1;31;32m [PASS][0m
 '/root/.acme.sh/testsolaris.acme.sh/ca.cer' equals '/root/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
 '/root/.acme.sh/testsolaris.acme.sh/fullchain.cer' equals '/root/acmetest/certs/full.cer'[1;31;32m [PASS][0m
-libidn 1.19
-Copyright 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Simon Josefsson.
-GNU Libidn comes with NO WARRANTY, to the extent permitted by law.
-You may redistribute copies of GNU Libidn under the terms of
-the GNU Lesser General Public License.  For more information
-about these matters, see the file named COPYING.LIB.
-libidn 1.19
-Copyright 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Simon Josefsson.
-GNU Libidn comes with NO WARRANTY, to the extent permitted by law.
-You may redistribute copies of GNU Libidn under the terms of
-the GNU Lesser General Public License.  For more information
-about these matters, see the file named COPYING.LIB.
-libidn 1.19
-Copyright 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Simon Josefsson.
-GNU Libidn comes with NO WARRANTY, to the extent permitted by law.
-You may redistribute copies of GNU Libidn under the terms of
-the GNU Lesser General Public License.  For more information
-about these matters, see the file named COPYING.LIB.
 ------------------------------------------
 [1;31;32mProgress: 8/21[0m
 ==Running le_test_standandalone_renew_localaddress_v2 please wait
@@ -105,24 +69,6 @@ about these matters, see the file named COPYING.LIB.
 '/root/.acme.sh/testsolaris.acme.sh/testsolaris.acme.sh.key' equals '/root/acmetest/certs/domain.key'[1;31;32m [PASS][0m
 '/root/.acme.sh/testsolaris.acme.sh/ca.cer' equals '/root/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
 '/root/.acme.sh/testsolaris.acme.sh/fullchain.cer' equals '/root/acmetest/certs/full.cer'[1;31;32m [PASS][0m
-libidn 1.19
-Copyright 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Simon Josefsson.
-GNU Libidn comes with NO WARRANTY, to the extent permitted by law.
-You may redistribute copies of GNU Libidn under the terms of
-the GNU Lesser General Public License.  For more information
-about these matters, see the file named COPYING.LIB.
-libidn 1.19
-Copyright 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Simon Josefsson.
-GNU Libidn comes with NO WARRANTY, to the extent permitted by law.
-You may redistribute copies of GNU Libidn under the terms of
-the GNU Lesser General Public License.  For more information
-about these matters, see the file named COPYING.LIB.
-libidn 1.19
-Copyright 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Simon Josefsson.
-GNU Libidn comes with NO WARRANTY, to the extent permitted by law.
-You may redistribute copies of GNU Libidn under the terms of
-the GNU Lesser General Public License.  For more information
-about these matters, see the file named COPYING.LIB.
 ------------------------------------------
 [1;31;32mProgress: 9/21[0m
 ==Running le_test_standandalone_listen_v4_v2 please wait
@@ -138,40 +84,10 @@ about these matters, see the file named COPYING.LIB.
 '/root/.acme.sh/testsolaris.acme.sh/testsolaris.acme.sh.key' equals '/root/acmetest/certs/domain.key'[1;31;32m [PASS][0m
 '/root/.acme.sh/testsolaris.acme.sh/ca.cer' equals '/root/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
 '/root/.acme.sh/testsolaris.acme.sh/fullchain.cer' equals '/root/acmetest/certs/full.cer'[1;31;32m [PASS][0m
-libidn 1.19
-Copyright 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Simon Josefsson.
-GNU Libidn comes with NO WARRANTY, to the extent permitted by law.
-You may redistribute copies of GNU Libidn under the terms of
-the GNU Lesser General Public License.  For more information
-about these matters, see the file named COPYING.LIB.
-libidn 1.19
-Copyright 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Simon Josefsson.
-GNU Libidn comes with NO WARRANTY, to the extent permitted by law.
-You may redistribute copies of GNU Libidn under the terms of
-the GNU Lesser General Public License.  For more information
-about these matters, see the file named COPYING.LIB.
-libidn 1.19
-Copyright 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Simon Josefsson.
-GNU Libidn comes with NO WARRANTY, to the extent permitted by law.
-You may redistribute copies of GNU Libidn under the terms of
-the GNU Lesser General Public License.  For more information
-about these matters, see the file named COPYING.LIB.
 ------------------------------------------
 [1;31;32mProgress: 10/21[0m
 ==Running le_test_standandalone_listen_v6_v2 please wait
 Skip
-libidn 1.19
-Copyright 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Simon Josefsson.
-GNU Libidn comes with NO WARRANTY, to the extent permitted by law.
-You may redistribute copies of GNU Libidn under the terms of
-the GNU Lesser General Public License.  For more information
-about these matters, see the file named COPYING.LIB.
-libidn 1.19
-Copyright 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Simon Josefsson.
-GNU Libidn comes with NO WARRANTY, to the extent permitted by law.
-You may redistribute copies of GNU Libidn under the terms of
-the GNU Lesser General Public License.  For more information
-about these matters, see the file named COPYING.LIB.
 ------------------------------------------
 [1;31;32mProgress: 11/21[0m
 ==Running le_test_standandalone_deactivate_v2 please wait
@@ -181,148 +97,34 @@ about these matters, see the file named COPYING.LIB.
 '/root/.acme.sh/testsolaris.acme.sh/ca.cer' equals '/root/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
 '/root/.acme.sh/testsolaris.acme.sh/fullchain.cer' equals '/root/acmetest/certs/full.cer'[1;31;32m [PASS][0m
 /root/.acme.sh/acme.sh --deactivate -d testsolaris.acme.sh[1;31;32m [PASS][0m
-libidn 1.19
-Copyright 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Simon Josefsson.
-GNU Libidn comes with NO WARRANTY, to the extent permitted by law.
-You may redistribute copies of GNU Libidn under the terms of
-the GNU Lesser General Public License.  For more information
-about these matters, see the file named COPYING.LIB.
-libidn 1.19
-Copyright 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Simon Josefsson.
-GNU Libidn comes with NO WARRANTY, to the extent permitted by law.
-You may redistribute copies of GNU Libidn under the terms of
-the GNU Lesser General Public License.  For more information
-about these matters, see the file named COPYING.LIB.
 ------------------------------------------
 [1;31;32mProgress: 12/21[0m
 ==Running le_test_standandalone please wait
 /root/.acme.sh/acme.sh issue no testsolaris.acme.sh[1;31;32m [PASS][0m
 /root/.acme.sh/testsolaris.acme.sh/testsolaris.acme.sh.cer is cert ? 'testsolaris.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
 /root/.acme.sh/testsolaris.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
-libidn 1.19
-Copyright 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Simon Josefsson.
-GNU Libidn comes with NO WARRANTY, to the extent permitted by law.
-You may redistribute copies of GNU Libidn under the terms of
-the GNU Lesser General Public License.  For more information
-about these matters, see the file named COPYING.LIB.
-libidn 1.19
-Copyright 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Simon Josefsson.
-GNU Libidn comes with NO WARRANTY, to the extent permitted by law.
-You may redistribute copies of GNU Libidn under the terms of
-the GNU Lesser General Public License.  For more information
-about these matters, see the file named COPYING.LIB.
-libidn 1.19
-Copyright 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Simon Josefsson.
-GNU Libidn comes with NO WARRANTY, to the extent permitted by law.
-You may redistribute copies of GNU Libidn under the terms of
-the GNU Lesser General Public License.  For more information
-about these matters, see the file named COPYING.LIB.
 ------------------------------------------
 [1;31;32mProgress: 13/21[0m
 ==Running le_test_standandalone_SAN please wait
 /root/.acme.sh/acme.sh issue no testsolaris.acme.sh testsolaris2.acme.sh[1;31;32m [PASS][0m
 /root/.acme.sh/testsolaris.acme.sh/testsolaris.acme.sh.cer is cert ? 'testsolaris.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
 /root/.acme.sh/testsolaris.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
-libidn 1.19
-Copyright 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Simon Josefsson.
-GNU Libidn comes with NO WARRANTY, to the extent permitted by law.
-You may redistribute copies of GNU Libidn under the terms of
-the GNU Lesser General Public License.  For more information
-about these matters, see the file named COPYING.LIB.
-libidn 1.19
-Copyright 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Simon Josefsson.
-GNU Libidn comes with NO WARRANTY, to the extent permitted by law.
-You may redistribute copies of GNU Libidn under the terms of
-the GNU Lesser General Public License.  For more information
-about these matters, see the file named COPYING.LIB.
-libidn 1.19
-Copyright 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Simon Josefsson.
-GNU Libidn comes with NO WARRANTY, to the extent permitted by law.
-You may redistribute copies of GNU Libidn under the terms of
-the GNU Lesser General Public License.  For more information
-about these matters, see the file named COPYING.LIB.
-libidn 1.19
-Copyright 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Simon Josefsson.
-GNU Libidn comes with NO WARRANTY, to the extent permitted by law.
-You may redistribute copies of GNU Libidn under the terms of
-the GNU Lesser General Public License.  For more information
-about these matters, see the file named COPYING.LIB.
 ------------------------------------------
 [1;31;32mProgress: 14/21[0m
 ==Running le_test_standandalone_ECDSA_256 please wait
 /root/.acme.sh/acme.sh issue no testsolaris.acme.sh no ec-256[1;31;32m [PASS][0m
 /root/.acme.sh/testsolaris.acme.sh_ecc/testsolaris.acme.sh.cer is cert ? 'testsolaris.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
 /root/.acme.sh/testsolaris.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
-libidn 1.19
-Copyright 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Simon Josefsson.
-GNU Libidn comes with NO WARRANTY, to the extent permitted by law.
-You may redistribute copies of GNU Libidn under the terms of
-the GNU Lesser General Public License.  For more information
-about these matters, see the file named COPYING.LIB.
-libidn 1.19
-Copyright 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Simon Josefsson.
-GNU Libidn comes with NO WARRANTY, to the extent permitted by law.
-You may redistribute copies of GNU Libidn under the terms of
-the GNU Lesser General Public License.  For more information
-about these matters, see the file named COPYING.LIB.
-libidn 1.19
-Copyright 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Simon Josefsson.
-GNU Libidn comes with NO WARRANTY, to the extent permitted by law.
-You may redistribute copies of GNU Libidn under the terms of
-the GNU Lesser General Public License.  For more information
-about these matters, see the file named COPYING.LIB.
 ------------------------------------------
 [1;31;32mProgress: 15/21[0m
 ==Running le_test_standandalone_ECDSA_256_renew please wait
 /root/.acme.sh/acme.sh issue no testsolaris.acme.sh no ec-256[1;31;32m [PASS][0m
 FORCE=1 /root/.acme.sh/acme.sh renew testsolaris.acme.sh[1;31;32m [PASS][0m
-libidn 1.19
-Copyright 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Simon Josefsson.
-GNU Libidn comes with NO WARRANTY, to the extent permitted by law.
-You may redistribute copies of GNU Libidn under the terms of
-the GNU Lesser General Public License.  For more information
-about these matters, see the file named COPYING.LIB.
-libidn 1.19
-Copyright 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Simon Josefsson.
-GNU Libidn comes with NO WARRANTY, to the extent permitted by law.
-You may redistribute copies of GNU Libidn under the terms of
-the GNU Lesser General Public License.  For more information
-about these matters, see the file named COPYING.LIB.
-libidn 1.19
-Copyright 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Simon Josefsson.
-GNU Libidn comes with NO WARRANTY, to the extent permitted by law.
-You may redistribute copies of GNU Libidn under the terms of
-the GNU Lesser General Public License.  For more information
-about these matters, see the file named COPYING.LIB.
 ------------------------------------------
 [1;31;32mProgress: 16/21[0m
 ==Running le_test_standandalone_ECDSA_256_SAN_renew please wait
 /root/.acme.sh/acme.sh issue no testsolaris.acme.sh testsolaris2.acme.sh ec-256[1;31;32m [PASS][0m
 FORCE=1 /root/.acme.sh/acme.sh renew testsolaris.acme.sh[1;31;32m [PASS][0m
-libidn 1.19
-Copyright 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Simon Josefsson.
-GNU Libidn comes with NO WARRANTY, to the extent permitted by law.
-You may redistribute copies of GNU Libidn under the terms of
-the GNU Lesser General Public License.  For more information
-about these matters, see the file named COPYING.LIB.
-libidn 1.19
-Copyright 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Simon Josefsson.
-GNU Libidn comes with NO WARRANTY, to the extent permitted by law.
-You may redistribute copies of GNU Libidn under the terms of
-the GNU Lesser General Public License.  For more information
-about these matters, see the file named COPYING.LIB.
-libidn 1.19
-Copyright 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Simon Josefsson.
-GNU Libidn comes with NO WARRANTY, to the extent permitted by law.
-You may redistribute copies of GNU Libidn under the terms of
-the GNU Lesser General Public License.  For more information
-about these matters, see the file named COPYING.LIB.
-libidn 1.19
-Copyright 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Simon Josefsson.
-GNU Libidn comes with NO WARRANTY, to the extent permitted by law.
-You may redistribute copies of GNU Libidn under the terms of
-the GNU Lesser General Public License.  For more information
-about these matters, see the file named COPYING.LIB.
 ------------------------------------------
 [1;31;32mProgress: 17/21[0m
 ==Running le_test_standandalone_ECDSA_256_SAN_renew_v2 please wait
@@ -338,54 +140,12 @@ about these matters, see the file named COPYING.LIB.
 '/root/.acme.sh/testsolaris.acme.sh_ecc/testsolaris.acme.sh.key' equals '/root/acmetest/certs/domain.key'[1;31;32m [PASS][0m
 '/root/.acme.sh/testsolaris.acme.sh_ecc/ca.cer' equals '/root/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
 '/root/.acme.sh/testsolaris.acme.sh_ecc/fullchain.cer' equals '/root/acmetest/certs/full.cer'[1;31;32m [PASS][0m
-libidn 1.19
-Copyright 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Simon Josefsson.
-GNU Libidn comes with NO WARRANTY, to the extent permitted by law.
-You may redistribute copies of GNU Libidn under the terms of
-the GNU Lesser General Public License.  For more information
-about these matters, see the file named COPYING.LIB.
-libidn 1.19
-Copyright 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Simon Josefsson.
-GNU Libidn comes with NO WARRANTY, to the extent permitted by law.
-You may redistribute copies of GNU Libidn under the terms of
-the GNU Lesser General Public License.  For more information
-about these matters, see the file named COPYING.LIB.
-libidn 1.19
-Copyright 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Simon Josefsson.
-GNU Libidn comes with NO WARRANTY, to the extent permitted by law.
-You may redistribute copies of GNU Libidn under the terms of
-the GNU Lesser General Public License.  For more information
-about these matters, see the file named COPYING.LIB.
-libidn 1.19
-Copyright 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Simon Josefsson.
-GNU Libidn comes with NO WARRANTY, to the extent permitted by law.
-You may redistribute copies of GNU Libidn under the terms of
-the GNU Lesser General Public License.  For more information
-about these matters, see the file named COPYING.LIB.
 ------------------------------------------
 [1;31;32mProgress: 18/21[0m
 ==Running le_test_standandalone_ECDSA_384 please wait
 /root/.acme.sh/acme.sh issue no testsolaris.acme.sh no ec-384[1;31;32m [PASS][0m
 /root/.acme.sh/testsolaris.acme.sh_ecc/testsolaris.acme.sh.cer is cert ? 'testsolaris.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
 /root/.acme.sh/testsolaris.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
-libidn 1.19
-Copyright 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Simon Josefsson.
-GNU Libidn comes with NO WARRANTY, to the extent permitted by law.
-You may redistribute copies of GNU Libidn under the terms of
-the GNU Lesser General Public License.  For more information
-about these matters, see the file named COPYING.LIB.
-libidn 1.19
-Copyright 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Simon Josefsson.
-GNU Libidn comes with NO WARRANTY, to the extent permitted by law.
-You may redistribute copies of GNU Libidn under the terms of
-the GNU Lesser General Public License.  For more information
-about these matters, see the file named COPYING.LIB.
-libidn 1.19
-Copyright 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Simon Josefsson.
-GNU Libidn comes with NO WARRANTY, to the extent permitted by law.
-You may redistribute copies of GNU Libidn under the terms of
-the GNU Lesser General Public License.  For more information
-about these matters, see the file named COPYING.LIB.
 ------------------------------------------
 [1;31;32mProgress: 19/21[0m
 ==Running le_test_standandalone_tls_renew_SAN_v2 please wait
@@ -393,30 +153,6 @@ about these matters, see the file named COPYING.LIB.
 /root/.acme.sh/acme.sh --renew -d testsolaris.acme.sh --force[1;31;32m [PASS][0m
 /root/.acme.sh/testsolaris.acme.sh/testsolaris.acme.sh.cer is cert ? 'testsolaris.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
 /root/.acme.sh/testsolaris.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
-libidn 1.19
-Copyright 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Simon Josefsson.
-GNU Libidn comes with NO WARRANTY, to the extent permitted by law.
-You may redistribute copies of GNU Libidn under the terms of
-the GNU Lesser General Public License.  For more information
-about these matters, see the file named COPYING.LIB.
-libidn 1.19
-Copyright 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Simon Josefsson.
-GNU Libidn comes with NO WARRANTY, to the extent permitted by law.
-You may redistribute copies of GNU Libidn under the terms of
-the GNU Lesser General Public License.  For more information
-about these matters, see the file named COPYING.LIB.
-libidn 1.19
-Copyright 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Simon Josefsson.
-GNU Libidn comes with NO WARRANTY, to the extent permitted by law.
-You may redistribute copies of GNU Libidn under the terms of
-the GNU Lesser General Public License.  For more information
-about these matters, see the file named COPYING.LIB.
-libidn 1.19
-Copyright 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Simon Josefsson.
-GNU Libidn comes with NO WARRANTY, to the extent permitted by law.
-You may redistribute copies of GNU Libidn under the terms of
-the GNU Lesser General Public License.  For more information
-about these matters, see the file named COPYING.LIB.
 ------------------------------------------
 [1;31;32mProgress: 20/21[0m
 ==Running le_test_tls_renew_SAN_v2 please wait
@@ -424,44 +160,8 @@ about these matters, see the file named COPYING.LIB.
 /root/.acme.sh/acme.sh --renew -d testsolaris.acme.sh --force[1;31;32m [PASS][0m
 /root/.acme.sh/testsolaris.acme.sh/testsolaris.acme.sh.cer is cert ? 'testsolaris.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
 /root/.acme.sh/testsolaris.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
-libidn 1.19
-Copyright 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Simon Josefsson.
-GNU Libidn comes with NO WARRANTY, to the extent permitted by law.
-You may redistribute copies of GNU Libidn under the terms of
-the GNU Lesser General Public License.  For more information
-about these matters, see the file named COPYING.LIB.
-libidn 1.19
-Copyright 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Simon Josefsson.
-GNU Libidn comes with NO WARRANTY, to the extent permitted by law.
-You may redistribute copies of GNU Libidn under the terms of
-the GNU Lesser General Public License.  For more information
-about these matters, see the file named COPYING.LIB.
-libidn 1.19
-Copyright 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Simon Josefsson.
-GNU Libidn comes with NO WARRANTY, to the extent permitted by law.
-You may redistribute copies of GNU Libidn under the terms of
-the GNU Lesser General Public License.  For more information
-about these matters, see the file named COPYING.LIB.
-libidn 1.19
-Copyright 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Simon Josefsson.
-GNU Libidn comes with NO WARRANTY, to the extent permitted by law.
-You may redistribute copies of GNU Libidn under the terms of
-the GNU Lesser General Public License.  For more information
-about these matters, see the file named COPYING.LIB.
 ------------------------------------------
 [1;31;32mProgress: 21/21[0m
 ==Running le_test_standandalone_renew_idn_v2 please wait
 Skip by TEST_IDN
-libidn 1.19
-Copyright 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Simon Josefsson.
-GNU Libidn comes with NO WARRANTY, to the extent permitted by law.
-You may redistribute copies of GNU Libidn under the terms of
-the GNU Lesser General Public License.  For more information
-about these matters, see the file named COPYING.LIB.
-libidn 1.19
-Copyright 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Simon Josefsson.
-GNU Libidn comes with NO WARRANTY, to the extent permitted by law.
-You may redistribute copies of GNU Libidn under the terms of
-the GNU Lesser General Public License.  For more information
-about these matters, see the file named COPYING.LIB.
 ------------------------------------------
