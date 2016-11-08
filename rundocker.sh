@@ -17,6 +17,10 @@ if [ -z "$TestingAltDomains" ] ; then
 fi
 
 
+_date_u() {
+  date -u +"%a, %d %b %Y %T %Z"
+}
+
 _info() {
   if [ -z "$2" ] ; then
     echo "[$(date)] $1"
@@ -112,7 +116,7 @@ update() {
       _status="Failed"
     fi
     
-    _setopt "$filename" "|$plat| " '!' "[]($Img/$statusfile.svg?$(date -u "+%s"))| $(date -u)| $_status |"
+    _setopt "$filename" "|$plat| " '!' "[]($Img/$statusfile.svg?$(_date_u))| $(_date_u)| $_status |"
   
     git add "status/$statusfile.svg" >/dev/null 2>&1
     
