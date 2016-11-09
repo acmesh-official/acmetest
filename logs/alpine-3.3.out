@@ -8,8 +8,8 @@ Step 3 : RUN apk --no-cache add -f openssl curl netcat-openbsd  2>&1
  ---> Using cache
  ---> dc7d4b4bdf06
 Successfully built dc7d4b4bdf06
-Wed, 09 Nov 2016 14:38:39 UTC
-Testing branch: dev
+Wed, 09 Nov 2016 18:29:08 UTC
+Testing branch: master
 Progress: 1/21
 ==Running le_test_dependencies please wait
 curl installed. [PASS]
@@ -128,8 +128,7 @@ Progress: 14/21
 ------------------------------------------
 Progress: 15/21
 ==Running le_test_standandalone_ECDSA_256_renew please wait
-/root/.acme.sh/acme.sh issue no testdocker.acme.sh no ec-256 [PASS]
-FORCE=1 /root/.acme.sh/acme.sh renew testdocker.acme.sh [PASS]
+/root/.acme.sh/acme.sh issue no testdocker.acme.sh no ec-256[1;31;40m [FAIL] 
 ------------------------------------------
 Progress: 16/21
 ==Running le_test_standandalone_ECDSA_256_SAN_renew please wait
