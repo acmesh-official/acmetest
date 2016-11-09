@@ -1,5 +1,5 @@
 
-Wed, 09 Nov 2016 15:51:44 UTC
+Wed, 09 Nov 2016 16:07:19 UTC
 Testing branch: master
 [1;31;32mProgress: 1/21[0m
 ==Running le_test_dependencies please wait
@@ -150,11 +150,17 @@ FORCE=1 /root/.acme.sh/acme.sh renew testopenbsd.acme.sh[1;31;32m [PASS][0m
 ------------------------------------------
 [1;31;32mProgress: 19/21[0m
 ==Running le_test_standandalone_tls_renew_SAN_v2 please wait
-/root/.acme.sh/acme.sh --issue -d testopenbsd.acme.sh --tls  -d testopenbsd2.acme.sh --standalone [1;31;40m [FAIL] [0m
+/root/.acme.sh/acme.sh --issue -d testopenbsd.acme.sh --tls  -d testopenbsd2.acme.sh --standalone [1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --renew -d testopenbsd.acme.sh --force[1;31;32m [PASS][0m
+/root/.acme.sh/testopenbsd.acme.sh/testopenbsd.acme.sh.cer is cert ? 'testopenbsd.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/testopenbsd.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
 ------------------------------------------
 [1;31;32mProgress: 20/21[0m
 ==Running le_test_tls_renew_SAN_v2 please wait
-/root/.acme.sh/acme.sh --issue -d testopenbsd.acme.sh -d testopenbsd2.acme.sh --tls[1;31;40m [FAIL] [0m
+/root/.acme.sh/acme.sh --issue -d testopenbsd.acme.sh -d testopenbsd2.acme.sh --tls[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --renew -d testopenbsd.acme.sh --force[1;31;32m [PASS][0m
+/root/.acme.sh/testopenbsd.acme.sh/testopenbsd.acme.sh.cer is cert ? 'testopenbsd.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/testopenbsd.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
 ------------------------------------------
 [1;31;32mProgress: 21/21[0m
 ==Running le_test_standandalone_renew_idn_v2 please wait
