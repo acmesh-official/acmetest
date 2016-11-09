@@ -72,6 +72,10 @@ _dlgVersions() {
   fi
 }
 
+_data_u () {
+  date -u +"%a, %d %b %Y %T %Z"
+}
+
 #a + b
 _math(){
   expr "$@"
@@ -1221,6 +1225,8 @@ le_test_standandalone_renew_idn_v2() {
 if [ "$1" ] ; then
   CASE="$1"
 fi
+
+_data_u
 
 _setup
 
