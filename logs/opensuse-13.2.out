@@ -8,8 +8,9 @@ Step 3 : RUN zypper install  -y   tar openssl cron netcat curl libidn  2>&1
  ---> Using cache
  ---> eddfc6cac072
 Successfully built eddfc6cac072
-./letest.sh: line 194: warning: setlocale: LC_ALL: cannot change locale (en_US.UTF-8): No such file or directory
-Testing branch: master
+./letest.sh: line 198: warning: setlocale: LC_ALL: cannot change locale (en_US.UTF-8): No such file or directory
+Wed, 09 Nov 2016 14:17:28 UTC
+Testing branch: dev
 Progress: 1/21
 ==Running le_test_dependencies please wait
 sh: warning: setlocale: LC_ALL: cannot change locale (en_US.UTF-8)
