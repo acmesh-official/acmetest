@@ -7,40 +7,40 @@ Unit test project for le project https://github.com/Neilpang/acme.sh
 
 | Platform | Status| Last Run Time| Comments|
 -----------|-------|--------------|---------|
-|windows-cygwin| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/windows-cygwin.svg?1478256273)| Fri Nov  4 10:44:33 UTC 2016| Passed |
-|freebsd| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/freebsd.svg?1478225159)| Fri Nov  4 02:05:59 UTC 2016| Passed |
-|openbsd| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/openbsd.svg?1478254412)| Fri Nov  4 10:13:32 UTC 2016| Passed |
-|pfsense| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/pfsense.svg?1478254729)| Fri Nov  4 10:18:49 UTC 2016| Passed |
-|solaris| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/solaris.svg?1478255334)| Friday, November  4, 2016 10:28:54 AM GMT| Passed |
-|ubuntu:14.04| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-14.04.svg?1478256521)| Fri Nov  4 10:48:41 UTC 2016| Passed |
-|ubuntu:15.04| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-15.04.svg?1478256762)| Fri Nov  4 10:52:42 UTC 2016| Passed |
-|ubuntu:16.04| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-16.04.svg?1478257050)| Fri Nov  4 10:57:30 UTC 2016| Passed |
-|ubuntu:latest| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-latest.svg?1478257347)| Fri Nov  4 11:02:27 UTC 2016| Passed |
-|debian:7| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-7.svg?1478257608)| Fri Nov  4 11:06:48 UTC 2016| Passed |
-|debian:8| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-8.svg?1478258107)| Fri Nov  4 11:15:07 UTC 2016| Passed |
-|debian:latest| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-latest.svg?1478258378)| Fri Nov  4 11:19:38 UTC 2016| Passed |
-|centos:5| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-5.svg?1478258567)| Fri Nov  4 11:22:47 UTC 2016| Passed |
-|centos:6| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-6.svg?1478258834)| Fri Nov  4 11:27:14 UTC 2016| Passed |
-|centos:7| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-7.svg?1478259135)| Fri Nov  4 11:32:15 UTC 2016| Passed |
-|centos:latest| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-latest.svg?1478259476)| Fri Nov  4 11:37:56 UTC 2016| Passed |
-|fedora:21| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/fedora-21.svg?1478259800)| Fri Nov  4 11:43:20 UTC 2016| Passed |
-|fedora:22| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/fedora-22.svg?1478260364)| Fri Nov  4 11:52:44 UTC 2016| Passed |
-|fedora:23| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/fedora-23.svg?1478260651)| Fri Nov  4 11:57:31 UTC 2016| Passed |
-|fedora:latest| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/fedora-latest.svg?1478260949)| Fri Nov  4 12:02:29 UTC 2016| Passed |
-|opensuse:13.2| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/opensuse-13.2.svg?1478261194)| Fri Nov  4 12:06:34 UTC 2016| Passed |
-|opensuse:42.1| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/opensuse-42.1.svg?1478261442)| Fri Nov  4 12:10:42 UTC 2016| Passed |
-|opensuse:latest| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/opensuse-latest.svg?1478261684)| Fri Nov  4 12:14:44 UTC 2016| Passed |
-|alpine:3.1| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/alpine-3.1.svg?1478261898)| Fri Nov  4 12:18:18 UTC 2016| Passed |
-|alpine:3.2| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/alpine-3.2.svg?1478262113)| Fri Nov  4 12:21:53 UTC 2016| Passed |
-|alpine:3.3| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/alpine-3.3.svg?1478262321)| Fri Nov  4 12:25:21 UTC 2016| Passed |
-|alpine:latest| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/alpine-latest.svg?1478262531)| Fri Nov  4 12:28:51 UTC 2016| Passed |
-|oraclelinux:6| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/oraclelinux-6.svg?1478262807)| Fri Nov  4 12:33:27 UTC 2016| Passed |
-|oraclelinux:7| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/oraclelinux-7.svg?1478263095)| Fri Nov  4 12:38:15 UTC 2016| Passed |
-|oraclelinux:latest| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/oraclelinux-latest.svg?1478263389)| Fri Nov  4 12:43:09 UTC 2016| Passed |
-|kalilinux/kali-linux-docker| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/kalilinux-kali-linux-docker.svg?1478263676)| Fri Nov  4 12:47:56 UTC 2016| Passed |
-|base/archlinux| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/base-archlinux.svg?1478263949)| Fri Nov  4 12:52:29 UTC 2016| Passed |
-|mageia| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/mageia.svg?1478264201)| Fri Nov  4 12:56:41 UTC 2016| Passed |
-|gentoo/stage3-amd64| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/gentoo-stage3-amd64.svg?1478264351)| Fri Nov  4 12:59:11 UTC 2016| Passed |
+|windows-cygwin| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/windows-cygwin.svg?1478618798)| Tue Nov  8 15:26:38 UTC 2016| Passed |
+|freebsd| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/freebsd.svg?1478587633)| Tue Nov  8 06:47:13 UTC 2016| Passed |
+|openbsd| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/openbsd.svg?1478616895)| Tue Nov  8 14:54:55 UTC 2016| Passed |
+|pfsense| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/pfsense.svg?1478617229)| Tue Nov  8 15:00:29 UTC 2016| Passed |
+|solaris| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/solaris.svg?1478617856)| Tuesday, November  8, 2016 03:10:56 PM GMT| Passed |
+|ubuntu:14.04| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-14.04.svg?1478619061)| Tue Nov  8 15:31:01 UTC 2016| Passed |
+|ubuntu:15.04| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-15.04.svg?1478619327)| Tue Nov  8 15:35:27 UTC 2016| Passed |
+|ubuntu:16.04| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-16.04.svg?1478619617)| Tue Nov  8 15:40:17 UTC 2016| Passed |
+|ubuntu:latest| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-latest.svg?1478620223)| Tue Nov  8 15:50:23 UTC 2016| Passed |
+|debian:7| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-7.svg?1478620512)| Tue Nov  8 15:55:12 UTC 2016| Passed |
+|debian:8| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-8.svg?1478620792)| Tue Nov  8 15:59:52 UTC 2016| Passed |
+|debian:latest| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-latest.svg?1478621080)| Tue Nov  8 16:04:40 UTC 2016| Passed |
+|centos:5| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-5.svg?1478621285)| Tue Nov  8 16:08:05 UTC 2016| Passed |
+|centos:6| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-6.svg?1478621579)| Tue Nov  8 16:12:59 UTC 2016| Passed |
+|centos:7| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-7.svg?1478621882)| Tue Nov  8 16:18:02 UTC 2016| Passed |
+|centos:latest| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/centos-latest.svg?1478622193)| Tue Nov  8 16:23:13 UTC 2016| Passed |
+|fedora:21| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/fedora-21.svg?1478622497)| Tue Nov  8 16:28:17 UTC 2016| Passed |
+|fedora:22| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/fedora-22.svg?1478622818)| Tue Nov  8 16:33:38 UTC 2016| Passed |
+|fedora:23| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/fedora-23.svg?1478623128)| Tue Nov  8 16:38:48 UTC 2016| Passed |
+|fedora:latest| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/fedora-latest.svg?1478623443)| Tue Nov  8 16:44:03 UTC 2016| Passed |
+|opensuse:13.2| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/opensuse-13.2.svg?1478623722)| Tue Nov  8 16:48:42 UTC 2016| Passed |
+|opensuse:42.1| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/opensuse-42.1.svg?1478623996)| Tue Nov  8 16:53:16 UTC 2016| Passed |
+|opensuse:latest| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/opensuse-latest.svg?1478624265)| Tue Nov  8 16:57:45 UTC 2016| Passed |
+|alpine:3.1| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/alpine-3.1.svg?1478624506)| Tue Nov  8 17:01:46 UTC 2016| Passed |
+|alpine:3.2| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/alpine-3.2.svg?1478624753)| Tue Nov  8 17:05:53 UTC 2016| Passed |
+|alpine:3.3| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/alpine-3.3.svg?1478624991)| Tue Nov  8 17:09:51 UTC 2016| Passed |
+|alpine:latest| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/alpine-latest.svg?1478625225)| Tue Nov  8 17:13:45 UTC 2016| Passed |
+|oraclelinux:6| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/oraclelinux-6.svg?1478625519)| Tue Nov  8 17:18:39 UTC 2016| Passed |
+|oraclelinux:7| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/oraclelinux-7.svg?1478625834)| Tue Nov  8 17:23:54 UTC 2016| Passed |
+|oraclelinux:latest| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/oraclelinux-latest.svg?1478626151)| Tue Nov  8 17:29:11 UTC 2016| Passed |
+|kalilinux/kali-linux-docker| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/kalilinux-kali-linux-docker.svg?1478626465)| Tue Nov  8 17:34:25 UTC 2016| Passed |
+|base/archlinux| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/base-archlinux.svg?1478626749)| Tue Nov  8 17:39:09 UTC 2016| Passed |
+|mageia| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/mageia.svg?1478627024)| Tue Nov  8 17:43:44 UTC 2016| Passed |
+|gentoo/stage3-amd64| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/gentoo-stage3-amd64.svg?1478627173)| Tue Nov  8 17:46:13 UTC 2016| Passed |
 (The openssl in CentOS 5 doesn't support ECDSA, so the ECDSA test cases failed. However, RSA certificates are working there.)
 
 # How to run tests
