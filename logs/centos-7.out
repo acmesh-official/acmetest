@@ -8,8 +8,8 @@ Step 3 : RUN yum -q -y install    openssl crontabs nc curl  2>&1
  ---> Using cache
  ---> befb80bad2f0
 Successfully built befb80bad2f0
-Wed, 09 Nov 2016 13:46:33 UTC
-Testing branch: dev
+Wed, 09 Nov 2016 17:33:11 UTC
+Testing branch: master
 Progress: 1/21
 ==Running le_test_dependencies please wait
 no crontab for root
