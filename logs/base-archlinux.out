@@ -5,7 +5,7 @@ Step 2 : RUN pacman  -Sy -q --force --noconfirm --noprogressbar openssl cron ope
  ---> Using cache
  ---> 55a94a7b903a
 Successfully built 55a94a7b903a
-Wed, 09 Nov 2016 15:06:43 UTC
+Wed, 09 Nov 2016 15:10:57 UTC
 Testing branch: dev
 Progress: 1/21
 ==Running le_test_dependencies please wait
@@ -132,7 +132,8 @@ FORCE=1 /root/.acme.sh/acme.sh renew testdocker.acme.sh [PASS]
 ------------------------------------------
 Progress: 16/21
 ==Running le_test_standandalone_ECDSA_256_SAN_renew please wait
-/root/.acme.sh/acme.sh issue no testdocker.acme.sh testdocker2.acme.sh ec-256[1;31;40m [FAIL] 
+/root/.acme.sh/acme.sh issue no testdocker.acme.sh testdocker2.acme.sh ec-256 [PASS]
+FORCE=1 /root/.acme.sh/acme.sh renew testdocker.acme.sh [PASS]
 ------------------------------------------
 Progress: 17/21
 ==Running le_test_standandalone_ECDSA_256_SAN_renew_v2 please wait
