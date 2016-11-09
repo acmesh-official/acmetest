@@ -26,3 +26,4 @@
 |kalilinux/kali-linux-docker| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/kalilinux-kali-linux-docker.svg?Wed, 09 Nov 2016 19:02:30 UTC)| Wed, 09 Nov 2016 19:02:30 UTC| Passed |
 |base/archlinux| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/base-archlinux.svg?Wed, 09 Nov 2016 19:07:39 UTC)| Wed, 09 Nov 2016 19:07:39 UTC| Passed |
 |mageia| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/mageia.svg?Wed, 09 Nov 2016 19:12:21 UTC)| Wed, 09 Nov 2016 19:12:21 UTC| Passed |
+|gentoo/stage3-amd64| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/gentoo-stage3-amd64.svg?Wed, 09 Nov 2016 19:15:01 UTC)| Wed, 09 Nov 2016 19:15:01 UTC| Passed |
