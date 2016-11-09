@@ -11,4 +11,4 @@ Unit test project for le project https://github.com/Neilpang/acme.sh
 |freebsd| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/freebsd.svg?Wed, 09 Nov 2016 04:21:09 UTC)| Wed, 09 Nov 2016 04:21:09 UTC| Passed |
 |openbsd| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/openbsd.svg?Wed, 09 Nov 2016 12:29:37 UTC)| Wed, 09 Nov 2016 12:29:37 UTC| Passed |
 |pfsense| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/pfsense.svg?Wed, 09 Nov 2016 12:35:23 UTC)| Wed, 09 Nov 2016 12:35:23 UTC| Failed |
-|solaris| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/solaris.svg?1478617856)| Tuesday, November  8, 2016 03:10:56 PM GMT| Passed |
+|solaris| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/solaris.svg?Wed, 09 Nov 2016 12:46:14 GMT)| Wed, 09 Nov 2016 12:46:14 GMT| Passed |
