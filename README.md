@@ -7,7 +7,7 @@ Unit test project for le project https://github.com/Neilpang/acme.sh
 
 | Platform | Status| Last Run Time| Comments|
 -----------|-------|--------------|---------|
-|windows-cygwin| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/windows-cygwin.svg?Fri, 11 Nov 2016 11:43:50 UTC)| Fri, 11 Nov 2016 11:43:50 UTC| Passed |
+|windows-cygwin| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/windows-cygwin.svg?Fri, 11 Nov 2016 17:49:06 UTC)| Fri, 11 Nov 2016 17:49:06 UTC| Passed |
 |freebsd| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/freebsd.svg?Fri, 11 Nov 2016 09:05:37 UTC)| Fri, 11 Nov 2016 09:05:37 UTC| Passed |
 |openbsd| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/openbsd.svg?Fri, 11 Nov 2016 17:14:45 UTC)| Fri, 11 Nov 2016 17:14:45 UTC| Passed |
 |pfsense| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/pfsense.svg?Fri, 11 Nov 2016 17:20:13 UTC)| Fri, 11 Nov 2016 17:20:13 UTC| Passed |
