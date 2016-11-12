@@ -1,1 +1,1 @@
-|ubuntu:14.04| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-14.04.svg?Sat, 12 Nov 2016 04:58:40 UTC)| Sat, 12 Nov 2016 04:58:40 UTC| Failed |
+|ubuntu:14.04| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-14.04.svg?Sat, 12 Nov 2016 05:03:03 UTC)| Sat, 12 Nov 2016 05:03:03 UTC| Passed |

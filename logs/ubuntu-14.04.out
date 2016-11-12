@@ -8,7 +8,7 @@ Step 3 : RUN apt-get -qqy install openssl cron netcat-openbsd curl idn  2>&1
  ---> Using cache
  ---> 182e6065a00f
 Successfully built 182e6065a00f
-Sat, 12 Nov 2016 04:54:20 UTC
+Sat, 12 Nov 2016 04:58:43 UTC
 Testing branch: dev
 Progress: 1/21
 ==Running le_test_dependencies please wait
@@ -135,7 +135,8 @@ FORCE=1 /root/.acme.sh/acme.sh renew testdocker.acme.sh [PASS]
 ------------------------------------------
 Progress: 16/21
 ==Running le_test_standandalone_ECDSA_256_SAN_renew please wait
-/root/.acme.sh/acme.sh issue no testdocker.acme.sh testdocker2.acme.sh ec-256[1;31;40m [FAIL] 
+/root/.acme.sh/acme.sh issue no testdocker.acme.sh testdocker2.acme.sh ec-256 [PASS]
+FORCE=1 /root/.acme.sh/acme.sh renew testdocker.acme.sh [PASS]
 ------------------------------------------
 Progress: 17/21
 ==Running le_test_standandalone_ECDSA_256_SAN_renew_v2 please wait
