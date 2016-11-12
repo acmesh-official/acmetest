@@ -1,5 +1,5 @@
 # acmetest
-Unit test project for le project https://github.com/Neilpang/acme.sh
+Unit test project for **acme.sh** project https://github.com/Neilpang/acme.sh
 
 
 
@@ -7,8 +7,3 @@ Unit test project for le project https://github.com/Neilpang/acme.sh
 
 | Platform | Status| Last Run Time| Comments|
 -----------|-------|--------------|---------|
-|windows-cygwin| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/windows-cygwin.svg?Sat, 12 Nov 2016 04:54:13 UTC)| Sat, 12 Nov 2016 04:54:13 UTC| Passed |
-|freebsd| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/freebsd.svg?Fri, 11 Nov 2016 20:10:29 UTC)| Fri, 11 Nov 2016 20:10:29 UTC| Passed |
-|openbsd| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/openbsd.svg?Sat, 12 Nov 2016 04:19:42 UTC)| Sat, 12 Nov 2016 04:19:42 UTC| Passed |
-|pfsense| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/pfsense.svg?Sat, 12 Nov 2016 04:25:05 UTC)| Sat, 12 Nov 2016 04:25:05 UTC| Passed |
-|solaris| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/solaris.svg?Sat, 12 Nov 2016 04:35:53 GMT)| Sat, 12 Nov 2016 04:35:53 GMT| Passed |
