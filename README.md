@@ -27,6 +27,7 @@ Unit test project for le project https://github.com/Neilpang/acme.sh
 |fedora:22| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/fedora-22.svg?Sat, 12 Nov 2016 05:56:19 UTC)| Sat, 12 Nov 2016 05:56:19 UTC| Passed |
 |fedora:23| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/fedora-23.svg?Sat, 12 Nov 2016 06:01:14 UTC)| Sat, 12 Nov 2016 06:01:14 UTC| Passed |
 |fedora:latest| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/fedora-latest.svg?Sat, 12 Nov 2016 06:06:13 UTC)| Sat, 12 Nov 2016 06:06:13 UTC| Passed |
+|opensuse:13.2| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/opensuse-13.2.svg?Sat, 12 Nov 2016 06:10:33 UTC)| Sat, 12 Nov 2016 06:10:33 UTC| Passed |
 (The openssl in CentOS 5 doesn't support ECDSA, so the ECDSA test cases failed. However, RSA certificates are working there.)
 
 # How to run tests
