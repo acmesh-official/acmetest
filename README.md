@@ -1,5 +1,5 @@
 # acmetest
-Unit test project for le project https://github.com/Neilpang/acme.sh
+Unit test project for **acme.sh** project https://github.com/Neilpang/acme.sh
 
 
 
@@ -7,15 +7,10 @@ Unit test project for le project https://github.com/Neilpang/acme.sh
 
 | Platform | Status| Last Run Time| Comments|
 -----------|-------|--------------|---------|
-|windows-cygwin| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/windows-cygwin.svg?Sat, 12 Nov 2016 04:54:13 UTC)| Sat, 12 Nov 2016 04:54:13 UTC| Passed |
-|freebsd| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/freebsd.svg?Fri, 11 Nov 2016 20:10:29 UTC)| Fri, 11 Nov 2016 20:10:29 UTC| Passed |
-|openbsd| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/openbsd.svg?Sat, 12 Nov 2016 04:19:42 UTC)| Sat, 12 Nov 2016 04:19:42 UTC| Passed |
-|pfsense| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/pfsense.svg?Sat, 12 Nov 2016 04:25:05 UTC)| Sat, 12 Nov 2016 04:25:05 UTC| Passed |
-|solaris| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/solaris.svg?Sat, 12 Nov 2016 04:35:53 GMT)| Sat, 12 Nov 2016 04:35:53 GMT| Passed |
 |ubuntu:14.04| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-14.04.svg?Sat, 12 Nov 2016 05:03:03 UTC)| Sat, 12 Nov 2016 05:03:03 UTC| Passed |
 |ubuntu:15.04| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-15.04.svg?Sat, 12 Nov 2016 05:07:36 UTC)| Sat, 12 Nov 2016 05:07:36 UTC| Passed |
 |ubuntu:16.04| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-16.04.svg?Sat, 12 Nov 2016 05:12:18 UTC)| Sat, 12 Nov 2016 05:12:18 UTC| Passed |
-|ubuntu:latest| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-latest.svg?Sat, 12 Nov 2016 05:17:02 UTC)| Sat, 12 Nov 2016 05:17:02 UTC| Passed |
+|ubuntu:latest| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/ubuntu-latest.svg?Sun, 13 Nov 2016 12:49:41 UTC)| Sun, 13 Nov 2016 12:49:41 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/ubuntu-latest.out) |
 |debian:7| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-7.svg?Sat, 12 Nov 2016 05:21:04 UTC)| Sat, 12 Nov 2016 05:21:04 UTC| Passed |
 |debian:8| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-8.svg?Sat, 12 Nov 2016 05:25:26 UTC)| Sat, 12 Nov 2016 05:25:26 UTC| Passed |
 |debian:latest| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-latest.svg?Sat, 12 Nov 2016 05:29:40 UTC)| Sat, 12 Nov 2016 05:29:40 UTC| Passed |
@@ -41,7 +36,6 @@ Unit test project for le project https://github.com/Neilpang/acme.sh
 |base/archlinux| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/base-archlinux.svg?Sat, 12 Nov 2016 07:02:20 UTC)| Sat, 12 Nov 2016 07:02:20 UTC| Passed |
 |mageia| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/mageia.svg?Sat, 12 Nov 2016 07:06:31 UTC)| Sat, 12 Nov 2016 07:06:31 UTC| Passed |
 |gentoo/stage3-amd64| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/gentoo-stage3-amd64.svg?Sat, 12 Nov 2016 07:09:05 UTC)| Sat, 12 Nov 2016 07:09:05 UTC| Passed |
-(The openssl in CentOS 5 doesn't support ECDSA, so the ECDSA test cases failed. However, RSA certificates are working there.)
 
 # How to run tests
 
