@@ -9,7 +9,7 @@ Step 3 : RUN zypper install  -y   tar openssl cron netcat curl libidn  2>&1
  ---> eddfc6cac072
 Successfully built eddfc6cac072
 ./letest.sh: line 198: warning: setlocale: LC_ALL: cannot change locale (en_US.UTF-8): No such file or directory
-Sat, 12 Nov 2016 06:06:18 UTC
+Sun, 13 Nov 2016 15:13:40 UTC
 Testing branch: dev
 Progress: 1/21
 ==Running le_test_dependencies please wait
@@ -297,6 +297,9 @@ sh: warning: setlocale: LC_ALL: cannot change locale (en_US.UTF-8)
 /root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
 /root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
 bash: warning: setlocale: LC_ALL: cannot change locale (en_US.UTF-8)
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (en_US.UTF-8)
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (en_US.UTF-8)
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (en_US.UTF-8)
 /bin/sh: warning: setlocale: LC_ALL: cannot change locale (en_US.UTF-8)
 /bin/sh: warning: setlocale: LC_ALL: cannot change locale (en_US.UTF-8)
 /bin/sh: warning: setlocale: LC_ALL: cannot change locale (en_US.UTF-8)
