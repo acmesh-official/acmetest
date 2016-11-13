@@ -1,7 +1,7 @@
 |ubuntu:14.04| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-14.04.svg?Sat, 12 Nov 2016 05:03:03 UTC)| Sat, 12 Nov 2016 05:03:03 UTC| Passed |
 |ubuntu:15.04| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-15.04.svg?Sat, 12 Nov 2016 05:07:36 UTC)| Sat, 12 Nov 2016 05:07:36 UTC| Passed |
 |ubuntu:16.04| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-16.04.svg?Sat, 12 Nov 2016 05:12:18 UTC)| Sat, 12 Nov 2016 05:12:18 UTC| Passed |
-|ubuntu:latest| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/ubuntu-latest.svg?Sat, 12 Nov 2016 05:17:02 UTC)| Sat, 12 Nov 2016 05:17:02 UTC| Passed |
+|ubuntu:latest| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/ubuntu-latest.svg?Sun, 13 Nov 2016 12:49:41 UTC)| Sun, 13 Nov 2016 12:49:41 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/ubuntu-latest.out) |
 |debian:7| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-7.svg?Sat, 12 Nov 2016 05:21:04 UTC)| Sat, 12 Nov 2016 05:21:04 UTC| Passed |
 |debian:8| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-8.svg?Sat, 12 Nov 2016 05:25:26 UTC)| Sat, 12 Nov 2016 05:25:26 UTC| Passed |
 |debian:latest| ![](https://cdn.rawgit.com/Neilpang/letest/master/status/debian-latest.svg?Sat, 12 Nov 2016 05:29:40 UTC)| Sat, 12 Nov 2016 05:29:40 UTC| Passed |
