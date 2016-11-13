@@ -104,7 +104,7 @@ update() {
     __fail "$plat"
   fi
   
-  if [ "$CI" ] ; then
+  if [ "$CI" = "1" ] ; then
     if ! git pull >/dev/null 2>&1 ; then 
       _err "git pull error"
     fi
