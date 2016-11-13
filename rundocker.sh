@@ -1,12 +1,13 @@
 
-LeTest="https://github.com/Neilpang/letest.git"
+Img="https://cdn.rawgit.com/Neilpang/acmetest/master/status"
 
-Img="https://cdn.rawgit.com/Neilpang/letest/master/status"
-
+LogLink="https://github.com/Neilpang/acmetest/blob/master"
 
 Conf="plat.conf"
 
 Table="table.md"
+
+DEFAULT_SCRIPT="letest.sh"
 
 if [ -z "$TestingDomain" ] ; then
   TestingDomain=testdocker.acme.sh
@@ -14,6 +15,10 @@ fi
 
 if [ -z "$TestingAltDomains" ] ; then
   TestingAltDomains=testdocker2.acme.sh
+fi
+
+if [ -z "$RUN_SCRIPT" ] ; then
+  RUN_SCRIPT="$DEFAULT_SCRIPT"
 fi
 
 
@@ -59,21 +64,21 @@ _debug3() {
 #plat
 _normalizeFilename() {
   _nplat="$1"
-  echo "$_nplat" | tr ':/ \\' '----' 
+  printf "%s" "$_nplat" | tr ':/ \\' '----' 
 }
 
 #plat
 _getOutfile() {
   _gnplat="$1"
   statusfile="$(_normalizeFilename "$_gnplat")"
-  echo "logs/$statusfile.out"
+  printf "%s" "logs/$statusfile.out"
 }
 
 #plat
 _getLogfile() {
   _lnplat="$1"
   statusfile="$(_normalizeFilename "$_lnplat")"
-  echo "logs/$statusfile.log"
+  printf "%s" "logs/$statusfile.log"
 }
 
 
@@ -116,13 +121,17 @@ update() {
       _status="Failed"
     fi
     
-    _setopt "$filename" "|$plat| " '!' "[]($Img/$statusfile.svg?$(_date_u))| $(_date_u)| $_status |"
-  
     git add "status/$statusfile.svg" >/dev/null 2>&1
     
     outfile="$(_getOutfile "$plat")"
+    
+    _setopt "$filename" "|$plat| " '!' "[]($Img/$statusfile.svg?$(_date_u))| $(_date_u)| [$_status]($LogLink/$outfile) |"
+    
     _sed_i  's/\x1b\[1;31;32m//g' "$outfile" >/dev/null 2>&1
+    _sed_i  's/\[1;31;32m//g' "$outfile" >/dev/null 2>&1
+    
     _sed_i  's/\x1b\[0m//g' "$outfile" >/dev/null 2>&1
+    _sed_i  's/\[0m//g' "$outfile" >/dev/null 2>&1
     
     git add "$outfile" >/dev/null 2>&1
     
@@ -321,7 +330,7 @@ _runplat() {
       -e TEST_IDN="$TEST_IDN" \
       -e CASE="$CASE" \
       -v $(pwd):/acmetest \
-      $myplat /bin/sh -c "cd /acmetest && ./letest.sh"
+      $myplat /bin/sh -c "cd /acmetest && ./$RUN_SCRIPT"
     else
       docker run --net=host --rm \
       -e TestingDomain=$TestingDomain \
@@ -338,7 +347,7 @@ _runplat() {
       -e TEST_IDN="$TEST_IDN" \
       -e CASE="$CASE" \
       -v $(pwd):/acmetest \
-      $myplat /bin/sh -c "cd /acmetest && ./letest.sh" >> "$Log_Out" 2>&1
+      $myplat /bin/sh -c "cd /acmetest && ./$RUN_SCRIPT" >> "$Log_Out" 2>&1
     fi
 
     code="$?"
