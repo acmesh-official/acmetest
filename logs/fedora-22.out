@@ -8,7 +8,7 @@ Step 3 : RUN yum -q -y install    tar openssl crontabs nc curl  2>&1
  ---> Using cache
  ---> 70847d858582
 Successfully built 70847d858582
-Sat, 12 Nov 2016 05:51:29 UTC
+Sun, 13 Nov 2016 14:58:52 UTC
 Testing branch: dev
 Progress: 1/21
 ==Running le_test_dependencies please wait
