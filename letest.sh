@@ -272,7 +272,7 @@ if [ -z "$TestingDomain" ]; then
     ng_temp_1="$(_mktemp)"
     _info "ng_temp_1" "$ng_temp_1"
     if ! $NGROK_BIN http 80 --log stdout --log-format logfmt --log-level debug > "$ng_temp_1" & then
-      _err "ngrok error."
+      _err "ngrok error: $ng_temp_1"
       cat "$ng_temp_1"
       exit 1
     fi
