@@ -8,7 +8,7 @@ Step 3 : RUN yum -q -y install    openssl vixie-cron nc curl  2>&1
  ---> Using cache
  ---> 83cce30f8b15
 Successfully built 83cce30f8b15
-Sat, 12 Nov 2016 05:29:45 UTC
+Sun, 13 Nov 2016 14:36:28 UTC
 Testing branch: dev
 Progress: 1/21
 ==Running le_test_dependencies please wait

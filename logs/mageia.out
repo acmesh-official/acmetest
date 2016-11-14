@@ -9,7 +9,7 @@ Step 3 : RUN urpmi --auto -q  openssl netcat idn  2>&1
  ---> 8e5d29e73319
 Successfully built 8e5d29e73319
 ./letest.sh: line 198: warning: setlocale: LC_ALL: cannot change locale (en_US.UTF-8): No such file or directory
-Sat, 12 Nov 2016 07:02:24 UTC
+Sun, 13 Nov 2016 16:09:03 UTC
 Testing branch: dev
 Progress: 1/21
 ==Running le_test_dependencies please wait
