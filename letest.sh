@@ -5,7 +5,12 @@ STAGE=1
 lezip="https://github.com/Neilpang/acme.sh/archive"
 legit="https://github.com/Neilpang/acme.sh.git"
 
-Default_Home="$HOME/.acme.sh"
+PROJECT="https://github.com/Neilpang/acmetest"
+
+NGROK_WIKI=""
+
+DEFAULT_HOME="$HOME/.acme.sh"
+
 
 PROJECT_ENTRY="acme.sh"
 FILE_NAME="letest.sh"
@@ -23,26 +28,11 @@ STAGE_CA="https://acme-staging.api.letsencrypt.org"
 _API_HOST="$(echo "$STAGE_CA" | cut -d : -f 2 | tr -d '/')"
 
 
-if [ -z "TestingIDNDomain" ] ; then
-  TestingIDNDomain="中$TestingDomain"
-fi
-
 _startswith(){
   _str="$1"
   _sub="$2"
   echo "$_str" | grep "^$_sub" >/dev/null 2>&1
 }
-
-
-if [ "$DOCKER_OS" = "centos:5" ] \
- || [ "$DOCKER_OS" = "gentoo/stage3-amd64" ] ; then
- NO_ECC_CASES="1"
-fi 
-
-if [ "$DOCKER_OS" = "gentoo/stage3-amd64" ] ; then
- NO_TLS_CASES="1"
-fi
-
 
 if [ -z "$LOG_FILE" ] ; then
   LOG_FILE="letest.log"
@@ -56,6 +46,33 @@ fi
 if [ -z "$LOG_LEVEL" ] ; then
   LOG_LEVEL=2
 fi
+
+__green() {
+  printf '\033[1;31;32m'
+  printf -- "$1"
+  printf '\033[0m'
+}
+
+__ok() {
+  __green " [PASS]"
+  printf "\n"
+}
+
+__red() {
+  printf '\033[1;31;40m'
+  printf -- "$1"
+  printf '\033[0m'
+}
+
+__fail() {
+  __red " [FAIL] $1" >&2
+  printf "\n" >&2
+  return 1
+}
+
+_head_n() {
+  head -n "$1"
+}
 
 _dlgVersions() {
 
@@ -122,6 +139,39 @@ _exists() {
   return $ret
 }
 
+_contains() {
+  _str="$1"
+  _sub="$2"
+  echo "$_str" | grep -- "$_sub" >/dev/null 2>&1
+}
+
+_mktemp() {
+  if _exists mktemp; then
+    if mktemp 2>/dev/null; then
+      return 0
+    elif _contains "$(mktemp 2>&1)" "-t prefix" && mktemp -t "$PROJECT_NAME" 2>/dev/null; then
+      #for Mac osx
+      return 0
+    fi
+  fi
+  if [ -d "/tmp" ]; then
+    echo "/tmp/${PROJECT_NAME}wefADf24sf.$(_time).tmp"
+    return 0
+  elif [ "$LE_TEMP_DIR" ] && mkdir -p "$LE_TEMP_DIR"; then
+    echo "/$LE_TEMP_DIR/wefADf24sf.$(_time).tmp"
+    return 0
+  fi
+  _err "Can not create temp file."
+}
+
+_egrep_o() {
+  if _contains "$(egrep -o 2>&1)" "egrep: illegal option -- o"; then
+    sed -n 's/.*\('"$1"'\).*/\1/p'
+  else
+    egrep -o "$1"
+  fi
+}
+
 _ss() {
   _port="$1"
   
@@ -185,44 +235,102 @@ _digest() {
 
 }
 
-SUDO="$(command -v sudo | grep 'sudo')"
 
-if command -v yum > /dev/null ; then
- INSTALL="$SUDO yum install -y "
-elif command -v apt-get > /dev/null ; then
- INSTALL="$SUDO apt-get install -y "
+
+#if _exists export ; then
+#  export LC_ALL=en_US.UTF-8
+#elif _exists setenv ; then
+#  setenv LC_ALL en_US.UTF-8
+#fi
+
+
+TEST_NGROK=""
+if [ -z "$TestingDomain" ]; then
+  if [ "$NGROK_TOKEN" ]; then
+    if [ "$NGROK_BIN" ] && ! [ -x "$NGROK_BIN" ]; then
+      _err "The specified ngrok: $NGROK_BIN is not executable, please fix and try again."
+      exit 1
+    fi
+    
+    if [ -z "$NGROK_BIN" ]; then
+      if _exists "ngrok" ; then
+        _info "Command ngrok is found, so, use it."
+        NGROK_BIN="ngrok"
+      else
+        _err "The NGROK_TOKEN is specified, it seems that you want to use ngrok to test, but the executable ngrok is not found."
+        _err "Please install ngrok command, or specify NGROK_BIN pointing to the ngrok binary. see: $NGROK_WIKI"
+        exit 1
+      fi
+    fi
+    
+    _info "Using ngrok, register auth token first."
+    if ! $NGROK_BIN authtoken "$NGROK_TOKEN" ; then
+      _err "Register ngrok auth token failed."
+      exit 1
+    fi
+    
+    ng_temp_1="$(_mktemp)"
+    _info "ng_temp_1" "$ng_temp_1"
+    if ! $NGROK_BIN http 80 --log stdout --log-format logfmt --log-level debug > "$ng_temp_1" & then
+      _err "ngrok error."
+      exit 1
+    fi
+    sleep 2
+    NGROK_PID="$!"
+    _debug "ngrok 1: $NGROK_PID"
+    sleep 10
+    
+    ng_domain_1="$(_egrep_o "Hostname:[a-z0-9]+.ngrok.io" <"$ng_temp_1" | _head_n 1 | cut -d':' -f2)"
+    _info "ng_domain_1" "$ng_domain_1"
+    
+    if [ -z "$ng_domain_1" ] ; then
+      cat "$ng_temp_1"
+    fi
+    
+    TestingDomain="$ng_domain_1"
+
+#    ng_temp_2="$(_mktemp)"
+#    _info "ng_temp_2" "$ng_temp_2"
+#    if ! $NGROK_BIN tcp 443 --log stdout --log-format logfmt --log-level debug >"$ng_temp_2" & then
+#      _err "ngrok error."
+#      exit 1
+#    fi
+#    _debug "ngrok 2"
+#    sleep 5
+#
+#    ng_domain_2="$(_egrep_o "Hostname:[a-z0-9]+.ngrok.io" <"$ng_temp_2" | _head_n 1 | cut -d':' -f2)"
+#    _info "ng_domain_2" "$ng_domain_2"
+#    
+#    if [ -z "$ng_domain_2" ] ; then
+#      cat "$ng_temp_2"
+#    fi
+#    
+#    TestingAltDomains="$ng_domain_2"
+
+    TEST_NGROK=1
+  fi
+fi
+
+if [ -z "$TestingDomain" ]; then
+  _err "The TestingDomain or TestingAltDomains is not specified, see: $PROJECT"
+  _err "You can also install ngrok to test automatically, see: $NGROK_WIKI"
+  exit 1
+fi
+
+if [ -z "$TestingIDNDomain" ] ; then
+  TestingIDNDomain="中$TestingDomain"
 fi
 
 
-if _exists export ; then
-  export LC_ALL=en_US.UTF-8
-elif _exists setenv ; then
-  setenv LC_ALL en_US.UTF-8
+if [ "$DOCKER_OS" = "centos:5" ] \
+ || [ "$DOCKER_OS" = "gentoo/stage3-amd64" ] ; then
+ NO_ECC_CASES="1"
+fi 
+
+if [ "$DOCKER_OS" = "gentoo/stage3-amd64" ] || [ "$TEST_NGROK" = "1" ]; then
+ NO_TLS_CASES="1"
 fi
 
-
-__green() {
-  printf '\033[1;31;32m'
-  printf -- "$1"
-  printf '\033[0m'
-}
-
-__ok() {
-  __green " [PASS]"
-  printf "\n"
-}
-
-__red() {
-  printf '\033[1;31;40m'
-  printf -- "$1"
-  printf '\033[0m'
-}
-
-__fail() {
-  __red " [FAIL] $1" >&2
-  printf "\n" >&2
-  return 1
-}
 
 #file subname
 _assertcert() {
@@ -321,7 +429,7 @@ _assertfileequals(){
 
 _run() {
   _info "==Running $1 please wait"
-  lehome="$Default_Home"
+  lehome="$DEFAULT_HOME"
   export STAGE
   export DEBUG
   
@@ -369,7 +477,7 @@ _run() {
 
 ####################################################
 _setup() {
-  if [ "$TEST_LOCAL" ] ; then
+  if [ "$TEST_LOCAL" = "1" ] ; then
     _info "TEST_LOCAL skip setup."
     return 0
   fi
@@ -392,13 +500,13 @@ _setup() {
     _err "Can not get acme.sh source code. tar or git must be installed"
     return 1
   fi
-  lehome="$Default_Home"
+  lehome="$DEFAULT_HOME"
   if [ -f "$lehome/$PROJECT_ENTRY" ] ; then
     $lehome/$PROJECT_ENTRY uninstall >/dev/null 2>&1
   fi
   
-  if [ -d $Default_Home ] ; then 
-    rm -rf $Default_Home
+  if [ -d $DEFAULT_HOME ] ; then 
+    rm -rf $DEFAULT_HOME
   fi
   
 
@@ -421,7 +529,7 @@ le_test_dependencies() {
 }
 
 le_test_install() {
-  lehome="$Default_Home"
+  lehome="$DEFAULT_HOME"
   
   cd acme.sh;
   _assertcmd  "./$PROJECT_ENTRY install" || return
@@ -433,7 +541,7 @@ le_test_install() {
 }
 
 le_test_uninstall() {
-  lehome="$Default_Home"
+  lehome="$DEFAULT_HOME"
   cd acme.sh;
   _assertcmd  "./$PROJECT_ENTRY install" || return
   cd ..
@@ -484,11 +592,11 @@ le_test_uninstalltodir() {
 #
 le_test_standandalone_renew() {
   if [ "$QUICK_TEST" ] ; then
-    _info "Skip by QUICK_TEST"
+    _info "Skipped by QUICK_TEST"
     return 0
   fi
   
-  lehome="$Default_Home"
+  lehome="$DEFAULT_HOME"
 
   lp=`_ss | grep ':80 '`
   if [ "$lp" ] ; then
@@ -518,7 +626,7 @@ le_test_standandalone_renew() {
 
 #
 le_test_standandalone_renew_v2() {
-  lehome="$Default_Home"
+  lehome="$DEFAULT_HOME"
 
   lp=`_ss | grep ':80 '`
   if [ "$lp" ] ; then
@@ -574,7 +682,7 @@ le_test_standandalone_renew_v2() {
 #
 le_test_standandalone_renew_localaddress_v2() {
 
-  lehome="$Default_Home"
+  lehome="$DEFAULT_HOME"
 
   lp=`_ss | grep ':80 '`
   if [ "$lp" ] ; then
@@ -606,7 +714,7 @@ le_test_standandalone_renew_localaddress_v2() {
   mkdir -p "$certdir"
   
   if [ "$QUICK_TEST" ] ; then
-    _info "Skip by QUICK_TEST"
+    _info "Skipped by QUICK_TEST"
     return 0
   fi
   
@@ -634,7 +742,7 @@ le_test_standandalone_renew_localaddress_v2() {
 
 #
 le_test_standandalone_listen_v4_v2() {
-  lehome="$Default_Home"
+  lehome="$DEFAULT_HOME"
 
   lp=`_ss | grep ':80 '`
   if [ "$lp" ] ; then
@@ -666,7 +774,7 @@ le_test_standandalone_listen_v4_v2() {
   mkdir -p "$certdir"
   
   if [ "$QUICK_TEST" ] ; then
-    _info "Skip by QUICK_TEST"
+    _info "Skipped by QUICK_TEST"
     return 0
   fi
   
@@ -695,11 +803,11 @@ le_test_standandalone_listen_v4_v2() {
 #
 le_test_standandalone_listen_v6_v2() {
   if [ -z "$TEST_IPV6" ] ; then
-    _info "Skip"
+    _info "Skipped by TEST_IPV6"
     return 0
   fi
 
-  lehome="$Default_Home"
+  lehome="$DEFAULT_HOME"
 
   lp=`_ss | grep ':80 '`
   if [ "$lp" ] ; then
@@ -731,7 +839,7 @@ le_test_standandalone_listen_v6_v2() {
   mkdir -p "$certdir"
   
   if [ "$QUICK_TEST" ] ; then
-    _info "Skip by QUICK_TEST"
+    _info "Skipped by QUICK_TEST"
     return 0
   fi
   
@@ -758,7 +866,7 @@ le_test_standandalone_listen_v6_v2() {
 
 #
 le_test_standandalone_deactivate_v2() {
-  lehome="$Default_Home"
+  lehome="$DEFAULT_HOME"
 
   lp=`_ss | grep ':80 '`
   if [ "$lp" ] ; then
@@ -804,11 +912,11 @@ le_test_standandalone_deactivate_v2() {
 #
 le_test_standandalone() {
   if [ "$QUICK_TEST" ] ; then
-    _info "Skip by QUICK_TEST"
+    _info "Skipped by QUICK_TEST"
     return 0
   fi
   
-  lehome="$Default_Home"
+  lehome="$DEFAULT_HOME"
 
   lp=`_ss | grep ':80 '`
   if [ "$lp" ] ; then
@@ -836,10 +944,10 @@ le_test_standandalone() {
 
 le_test_standandalone_SAN() {
   if [ "$QUICK_TEST" ] ; then
-    _info "Skip by QUICK_TEST"
+    _info "Skipped by QUICK_TEST"
     return 0
   fi
-  lehome="$Default_Home"
+  lehome="$DEFAULT_HOME"
 
   lp=`_ss| grep ':80 '`
   if [ "$lp" ] ; then
@@ -854,7 +962,7 @@ le_test_standandalone_SAN() {
 
   rm -rf "$lehome/$TestingDomain"
   
-  _assertcmd "$lehome/$PROJECT_ENTRY issue no $TestingDomain $TestingAltDomains" ||  return
+  _assertcmd "$lehome/$PROJECT_ENTRY issue no \"$TestingDomain\" \"$TestingAltDomains\"" ||  return
   _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" "$TestingDomain" "$CA" || return
   _assertcert "$lehome/$TestingDomain/ca.cer" "$CA" || return
   lp=`_ss | grep ':80 '`
@@ -868,16 +976,16 @@ le_test_standandalone_SAN() {
 
 le_test_standandalone_ECDSA_256() {
   if [ "$QUICK_TEST" ] ; then
-    _info "Skip by QUICK_TEST"
+    _info "Skipped by QUICK_TEST"
     return 0
   fi
   
   if [ "$NO_ECC_CASES" ] ; then
-    _info "Skip by NO_ECC_CASES"
+    _info "Skipped by NO_ECC_CASES"
     return 0
   fi
     
-  lehome="$Default_Home"
+  lehome="$DEFAULT_HOME"
 
   lp=`_ss | grep ':80 '`
   if [ "$lp" ] ; then
@@ -908,15 +1016,15 @@ le_test_standandalone_ECDSA_256() {
 
 le_test_standandalone_ECDSA_256_renew() {
   if [ "$QUICK_TEST" ] ; then
-    _info "Skip by QUICK_TEST"
+    _info "Skipped by QUICK_TEST"
     return 0
   fi
   if [ "$NO_ECC_CASES" ] ; then
-    _info "Skip by NO_ECC_CASES"
+    _info "Skipped by NO_ECC_CASES"
     return 0
   fi  
   
-  lehome="$Default_Home"
+  lehome="$DEFAULT_HOME"
 
   lp=`_ss | grep ':80 '`
   if [ "$lp" ] ; then
@@ -947,14 +1055,14 @@ le_test_standandalone_ECDSA_256_renew() {
 
 le_test_standandalone_ECDSA_256_SAN_renew() {
   if [ "$QUICK_TEST" ] ; then
-    _info "Skip by QUICK_TEST"
+    _info "Skipped by QUICK_TEST"
     return 0
   fi
   if [ "$NO_ECC_CASES" ] ; then
-    _info "Skip by NO_ECC_CASES"
+    _info "Skipped by NO_ECC_CASES"
     return 0
   fi  
-  lehome="$Default_Home"
+  lehome="$DEFAULT_HOME"
 
   lp=`_ss | grep ':80 '`
   if [ "$lp" ] ; then
@@ -969,9 +1077,9 @@ le_test_standandalone_ECDSA_256_SAN_renew() {
 
   rm -rf "$lehome/$TestingDomain$ECC_SUFFIX"
   
-  _assertcmd "$lehome/$PROJECT_ENTRY issue no $TestingDomain $TestingAltDomains ec-256" ||  return
+  _assertcmd "$lehome/$PROJECT_ENTRY issue no \"$TestingDomain\" \"$TestingAltDomains\" ec-256" ||  return
   sleep 5
-  _assertcmd "FORCE=1 $lehome/$PROJECT_ENTRY renew $TestingDomain" ||  return
+  _assertcmd "FORCE=1 $lehome/$PROJECT_ENTRY renew \"$TestingDomain\"" ||  return
 
   lp=`_ss | grep ':80 '`
   if [ "$lp" ] ; then
@@ -983,11 +1091,11 @@ le_test_standandalone_ECDSA_256_SAN_renew() {
 
 le_test_standandalone_ECDSA_256_SAN_renew_v2() {
   if [ "$NO_ECC_CASES" ] ; then
-    _info "Skip by NO_ECC_CASES"
+    _info "Skipped by NO_ECC_CASES"
     return 0
   fi 
   
-  lehome="$Default_Home"
+  lehome="$DEFAULT_HOME"
 
   lp=`_ss | grep ':80 '`
   if [ "$lp" ] ; then
@@ -1009,7 +1117,7 @@ le_test_standandalone_ECDSA_256_SAN_renew_v2() {
   ca="$certdir/ca.cer"
   full="$certdir/full.cer"
   
-  _assertcmd "$lehome/$PROJECT_ENTRY --issue -d $TestingDomain -d $TestingAltDomains --standalone --keylength ec-256 --certpath '$cert' --keypath '$key'  --capath '$ca'  --reloadcmd 'echo this is reload'  --fullchainpath  '$full'" ||  return
+  _assertcmd "$lehome/$PROJECT_ENTRY --issue -d \"$TestingDomain\" -d \"$TestingAltDomains\" --standalone --keylength ec-256 --certpath '$cert' --keypath '$key'  --capath '$ca'  --reloadcmd 'echo this is reload'  --fullchainpath  '$full'" ||  return
   
   _assertfileequals "$lehome/$TestingDomain$ECC_SUFFIX/$TestingDomain.cer" "$cert" ||  return
   _assertfileequals "$lehome/$TestingDomain$ECC_SUFFIX/$TestingDomain.key" "$key" ||  return
@@ -1021,7 +1129,7 @@ le_test_standandalone_ECDSA_256_SAN_renew_v2() {
   rm -rf "$certdir"
   mkdir -p "$certdir"
   
-  _assertcmd "$lehome/$PROJECT_ENTRY --renew --ecc -d $TestingDomain --force" ||  return
+  _assertcmd "$lehome/$PROJECT_ENTRY --renew --ecc -d \"$TestingDomain\" --force" ||  return
   
   _assertcert "$lehome/$TestingDomain$ECC_SUFFIX/$TestingDomain.cer" "$TestingDomain" "$CA" || return
   _assertcert "$lehome/$TestingDomain$ECC_SUFFIX/ca.cer" "$CA" || return
@@ -1042,16 +1150,16 @@ le_test_standandalone_ECDSA_256_SAN_renew_v2() {
 
 le_test_standandalone_ECDSA_384() {
   if [ "$QUICK_TEST" ] ; then
-    _info "Skip by QUICK_TEST"
+    _info "Skipped by QUICK_TEST"
     return 0
   fi
   
   if [ "$NO_ECC_CASES" ] ; then
-    _info "Skip by NO_ECC_CASES"
+    _info "Skipped by NO_ECC_CASES"
     return 0
   fi
   
-  lehome="$Default_Home"
+  lehome="$DEFAULT_HOME"
 
   lp=`_ss | grep ':80 '`
   if [ "$lp" ] ; then
@@ -1066,7 +1174,7 @@ le_test_standandalone_ECDSA_384() {
 
   rm -rf "$lehome/$TestingDomain$ECC_SUFFIX"
   
-  _assertcmd "$lehome/$PROJECT_ENTRY issue no $TestingDomain no ec-384" ||  return
+  _assertcmd "$lehome/$PROJECT_ENTRY issue no \"$TestingDomain\" no ec-384" ||  return
   _assertcert "$lehome/$TestingDomain$ECC_SUFFIX/$TestingDomain.cer" "$TestingDomain" "$CA" || return
   _assertcert "$lehome/$TestingDomain$ECC_SUFFIX/ca.cer" "$CA" || return
   
@@ -1083,11 +1191,11 @@ le_test_standandalone_tls_renew_SAN_v2() {
   #test  standalone and tls hybrid mode.
   
   if [ "$NO_TLS_CASES" ] ; then
-    _info "Skip by NO_TLS_CASES"
+    _info "Skipped by NO_TLS_CASES"
     return 0
   fi
   
-  lehome="$Default_Home"
+  lehome="$DEFAULT_HOME"
 
   lp=`_ss | grep ':443 '`
   if [ "$lp" ] ; then
@@ -1102,9 +1210,9 @@ le_test_standandalone_tls_renew_SAN_v2() {
 
   rm -rf "$lehome/$TestingDomain"
   
-  _assertcmd "$lehome/$PROJECT_ENTRY --issue -d $TestingDomain --tls  -d $TestingAltDomains --standalone " ||  return
+  _assertcmd "$lehome/$PROJECT_ENTRY --issue -d \"$TestingDomain\" --tls  -d \"$TestingAltDomains\" --standalone " ||  return
   sleep 5
-  _assertcmd "$lehome/$PROJECT_ENTRY --renew -d $TestingDomain --force" ||  return
+  _assertcmd "$lehome/$PROJECT_ENTRY --renew -d \"$TestingDomain\" --force" ||  return
   
   _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" "$TestingDomain" "$CA" || return
   _assertcert "$lehome/$TestingDomain/ca.cer" "$CA" || return
@@ -1119,16 +1227,16 @@ le_test_standandalone_tls_renew_SAN_v2() {
 
 le_test_tls_renew_SAN_v2() {
   if [ "$QUICK_TEST" ] ; then
-    _info "Skip by QUICK_TEST"
+    _info "Skipped by QUICK_TEST"
     return 0
   fi
   
   if [ "$NO_TLS_CASES" ] ; then
-    _info "Skip by NO_TLS_CASES"
+    _info "Skipped by NO_TLS_CASES"
     return 0
   fi
   
-  lehome="$Default_Home"
+  lehome="$DEFAULT_HOME"
 
   lp=`_ss | grep ':443 '`
   if [ "$lp" ] ; then
@@ -1143,9 +1251,9 @@ le_test_tls_renew_SAN_v2() {
 
   rm -rf "$lehome/$TestingDomain"
   
-  _assertcmd "$lehome/$PROJECT_ENTRY --issue -d $TestingDomain -d $TestingAltDomains --tls" ||  return
+  _assertcmd "$lehome/$PROJECT_ENTRY --issue -d \"$TestingDomain\" -d \"$TestingAltDomains\" --tls" ||  return
   sleep 5
-  _assertcmd "$lehome/$PROJECT_ENTRY --renew -d $TestingDomain --force" ||  return
+  _assertcmd "$lehome/$PROJECT_ENTRY --renew -d \"$TestingDomain\" --force" ||  return
   
   _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" "$TestingDomain" "$CA" || return
   _assertcert "$lehome/$TestingDomain/ca.cer" "$CA" || return
@@ -1163,11 +1271,11 @@ le_test_tls_renew_SAN_v2() {
 #
 le_test_standandalone_renew_idn_v2() {
   if [ -z "$TEST_IDN" ] ; then
-    _info "Skip by TEST_IDN"
+    _info "Skipped by TEST_IDN"
     return 0
   fi
   
-  lehome="$Default_Home"
+  lehome="$DEFAULT_HOME"
 
   lp=`_ss | grep ':80 '`
   if [ "$lp" ] ; then
@@ -1260,6 +1368,10 @@ do
     break;
   fi
 done
+
+if [ "$NGROK_PID" ] ; then
+  kill "$NGROK_PID"
+fi
 
 exit $_ret
 
