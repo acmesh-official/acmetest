@@ -271,14 +271,10 @@ if [ -z "$TestingDomain" ]; then
     
     ng_temp_1="ngrok.tmp"
     _info "ng_temp_1" "$ng_temp_1"
-    if ! $NGROK_BIN http 8080 --log stdout --log-format logfmt --log-level debug > "$ng_temp_1" & then
-      _err "ngrok error: $ng_temp_1"
-      cat "$ng_temp_1"
-      exit 1
-    fi
-    sleep 10
+    $NGROK_BIN http 80 --log stdout --log-format logfmt --log-level debug > "$ng_temp_1" &
     NGROK_PID="$!"
-    _debug "ngrok 1: $NGROK_PID"
+    _err "ngrok pid: $NGROK_PID"
+    
     sleep 10
     
     ng_domain_1="$(_egrep_o 'Hostname:.+.ngrok.io' <"$ng_temp_1" | _head_n 1 | cut -d':' -f2)"
