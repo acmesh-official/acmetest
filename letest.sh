@@ -43,9 +43,13 @@ else
   fi  
 fi
 
+export LOG_FILE
+
 if [ -z "$LOG_LEVEL" ] ; then
   LOG_LEVEL=2
 fi
+
+export LOG_LEVEL
 
 __green() {
   printf '\033[1;31;32m'
@@ -275,7 +279,7 @@ if [ -z "$TestingDomain" ]; then
     NGROK_PID="$!"
     _debug "ngrok pid: $NGROK_PID"
     
-    sleep 10
+    sleep 20
     
     ng_domain_1="$(_egrep_o 'Hostname:.+.ngrok.io' <"$ng_temp_1" | _head_n 1 | cut -d':' -f2)"
     _info "ng_domain_1" "$ng_domain_1"
