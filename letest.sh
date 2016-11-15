@@ -273,7 +273,7 @@ if [ -z "$TestingDomain" ]; then
     _info "ng_temp_1" "$ng_temp_1"
     $NGROK_BIN http 80 --log stdout --log-format logfmt --log-level debug > "$ng_temp_1" &
     NGROK_PID="$!"
-    _err "ngrok pid: $NGROK_PID"
+    _debug "ngrok pid: $NGROK_PID"
     
     sleep 10
     
@@ -314,8 +314,11 @@ if [ -z "$TestingDomain" ]; then
   exit 1
 fi
 
-if [ -z "$TestingIDNDomain" ] ; then
-  TestingIDNDomain="中$TestingDomain"
+
+if [ "$TEST_IDN" ] ; then
+  if [ -z "$TestingIDNDomain" ] ; then
+    TestingIDNDomain="中$TestingDomain"
+  fi
 fi
 
 
@@ -1357,6 +1360,10 @@ do
   fi
 
   if [ "$_ret" != "0" ] ; then
+    if [ "$TRAVIS" = "true" ] ; then
+      cat "$LOG_FILE"
+      break
+    fi
     if [ "$DEBUG" ] || [ "$DEBUGING" ] ; then 
       break;
     fi
