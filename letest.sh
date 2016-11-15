@@ -276,12 +276,12 @@ if [ -z "$TestingDomain" ]; then
       cat "$ng_temp_1"
       exit 1
     fi
-    sleep 2
+    sleep 10
     NGROK_PID="$!"
     _debug "ngrok 1: $NGROK_PID"
     sleep 10
     
-    ng_domain_1="$(_egrep_o "Hostname:[a-z0-9]+.ngrok.io" <"$ng_temp_1" | _head_n 1 | cut -d':' -f2)"
+    ng_domain_1="$(_egrep_o 'Hostname:.+.ngrok.io' <"$ng_temp_1" | _head_n 1 | cut -d':' -f2)"
     _info "ng_domain_1" "$ng_domain_1"
     
     if [ -z "$ng_domain_1" ] ; then
