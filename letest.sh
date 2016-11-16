@@ -98,13 +98,14 @@ _data_u () {
 }
 
 #a + b
-_math(){
-  expr "$@"
+_math() {
+  _m_opts="$@"
+  printf "%s" "$(($_m_opts))"
 }
 
 _log() {
   if [ "$LOG_FILE" ] ; then
-    echo "$@" >> $LOG_FILE
+    echo "$@" >> "$LOG_FILE"
   fi
 }
 
