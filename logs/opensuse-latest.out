@@ -8,7 +8,7 @@ Step 3 : RUN zypper install  -y   tar openssl cron netcat curl libidn  2>&1
  ---> Using cache
  ---> caa395e47f17
 Successfully built caa395e47f17
-Thu, 17 Nov 2016 08:04:52 UTC
+Thu, 17 Nov 2016 08:09:11 UTC
 Testing branch: master
 Progress: 1/21
 ==Running le_test_dependencies please wait
@@ -49,7 +49,8 @@ equals  [PASS]
 ------------------------------------------
 Progress: 6/21
 ==Running le_test_standandalone_renew please wait
-/root/.acme.sh/acme.sh issue no testdocker.acme.sh[1;31;40m [FAIL] 
+/root/.acme.sh/acme.sh issue no testdocker.acme.sh [PASS]
+FORCE=1 /root/.acme.sh/acme.sh renew testdocker.acme.sh [PASS]
 ------------------------------------------
 Progress: 7/21
 ==Running le_test_standandalone_renew_v2 please wait
