@@ -21,7 +21,7 @@ Unit test project for **acme.sh** project https://github.com/Neilpang/acme.sh
 |debian:latest| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/debian-latest.svg?Thu, 17 Nov 2016 07:22:13 UTC)| Thu, 17 Nov 2016 07:22:13 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-latest.out) |
 |centos:5| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/centos-5.svg?Thu, 17 Nov 2016 07:23:56 UTC)| Thu, 17 Nov 2016 07:23:56 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/centos-5.out) |
 |centos:6| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/centos-6.svg?Thu, 17 Nov 2016 07:26:06 UTC)| Thu, 17 Nov 2016 07:26:06 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/centos-6.out) |
-|centos:7| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/centos-7.svg?Thu, 17 Nov 2016 07:27:20 UTC)| Thu, 17 Nov 2016 07:27:20 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/centos-7.out) |
+|centos:7| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/centos-7.svg?Thu, 17 Nov 2016 07:28:28 UTC)| Thu, 17 Nov 2016 07:28:28 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/centos-7.out) |
 
 # How to run tests
 
