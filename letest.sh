@@ -311,15 +311,19 @@ if [ -z "$TestingDomain" ]; then
 
         if [ ! -f "$NGROK_BIN" ]; then
           _info "Download from $NGROK_LINK"
-          if ! curl "$NGROK_LINK" >ngrok.zip && unzip ngrok.zip; then
+          if ! curl "$NGROK_LINK" >ngrok.zip; then
             _err "Download error."
+            exit 1
+          fi
+          if ! unzip ngrok.zip; then
+            _err "unzip error."
             exit 1
           fi
         fi
 
         if [ ! -f "$NGROK_BIN" ]; then
           _err "The NGROK_TOKEN is specified, it seems that you want to use ngrok to test, but the executable ngrok is not found."
-          _err "Please install ngrok command, or specify NGROK_BIN pointing to the ngrok binary. see: $NGROK_WIKI"
+          _err "Please install ngrok command, or specify NGROK_BIN=$NGROK_BIN pointing to the ngrok binary. see: $NGROK_WIKI"
           exit 1
         fi
       fi
