@@ -4,3 +4,4 @@
 |ubuntu:latest| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/ubuntu-latest.svg?Fri, 18 Nov 2016 12:09:20 UTC)| Fri, 18 Nov 2016 12:09:20 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/ubuntu-latest.out) |
 |debian:7| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/debian-7.svg?Fri, 18 Nov 2016 12:13:25 UTC)| Fri, 18 Nov 2016 12:13:25 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-7.out) |
 |debian:8| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/debian-8.svg?Fri, 18 Nov 2016 12:17:52 UTC)| Fri, 18 Nov 2016 12:17:52 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-8.out) |
+|debian:latest| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/debian-latest.svg?Fri, 18 Nov 2016 12:22:09 UTC)| Fri, 18 Nov 2016 12:22:09 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-latest.out) |
