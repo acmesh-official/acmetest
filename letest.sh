@@ -348,6 +348,8 @@ if [ -z "$TestingDomain" ]; then
     
     if [ -z "$ng_domain_1" ] ; then
       cat "$ng_temp_1"
+      _err "Can not get ngrok domain."
+      exit 1
     fi
     TestingDomain="$ng_domain_1"
     TEST_NGROK=1
