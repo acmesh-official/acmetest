@@ -8,7 +8,7 @@ Step 3 : RUN zypper install  -y   tar openssl cron netcat curl libidn  2>&1
  ---> Using cache
  ---> caa395e47f17
 Successfully built caa395e47f17
-Thu, 17 Nov 2016 08:09:11 UTC
+Fri, 18 Nov 2016 13:08:52 UTC
 Testing branch: master
 Progress: 1/21
 ==Running le_test_dependencies please wait
