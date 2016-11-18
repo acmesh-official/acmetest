@@ -8,7 +8,7 @@ Step 3 : RUN urpmi --auto -q  openssl netcat idn  2>&1
  ---> Using cache
  ---> 8e5d29e73319
 Successfully built 8e5d29e73319
-Thu, 17 Nov 2016 08:53:40 UTC
+Fri, 18 Nov 2016 13:53:41 UTC
 Testing branch: master
 Progress: 1/21
 ==Running le_test_dependencies please wait
