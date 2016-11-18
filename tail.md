@@ -31,6 +31,20 @@ cd acmetest
 TestingDomain=aa.com   TestingAltDomains=www.aa.com  ./rundocker.sh  testplat   centos:latest
 ```
 
+# Run tests with ngrok automatically
+
+If you don't want to use 2 domains to test, we can use ngrok to test with temp domain.
+
+Please register an free account at https://ngrok.com/
+
+You will get your ngrok auth token.  Then:
+
+```
+export NGROK_TOKEN="xxxxxxxxxx"
+
+./leteset.sh
+
+```
 
 
 

@@ -7,7 +7,7 @@ legit="https://github.com/Neilpang/acme.sh.git"
 
 PROJECT="https://github.com/Neilpang/acmetest"
 
-NGROK_WIKI=""
+NGROK_WIKI="https://github.com/Neilpang/acmetest"
 
 DEFAULT_HOME="$HOME/.acme.sh"
 
@@ -249,22 +249,79 @@ _digest() {
 #fi
 
 
+NGROK_MAC="https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-darwin-amd64.zip"
+NGROK_Linux="https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip"
+NGROK_Win="https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip"
+NGROK_BSD="https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-freebsd-amd64.zip"
+
+
 TEST_NGROK=""
 if [ -z "$TestingDomain" ]; then
-  if [ "$NGROK_TOKEN" ]; then
-    if [ "$NGROK_BIN" ] && ! [ -x "$NGROK_BIN" ]; then
-      _err "The specified ngrok: $NGROK_BIN is not executable, please fix and try again."
-      exit 1
+  if [ -z "$NGROK_TOKEN" ]; then
+    if [ -f "$USERPROFILE/.ngrok2/ngrok.yml" ]; then
+      #cygwin
+      NGROK_TOKEN=$(grep "authtoken:" "$USERPROFILE/.ngrok2/ngrok.yml" | cut -d : -f 2)
     fi
-    
-    if [ -z "$NGROK_BIN" ]; then
+    if [ -z "$NGROK_TOKEN" ] && [ -f "$HOME/.ngrok2/ngrok.yml" ]; then
+      #linux
+      NGROK_TOKEN=$(grep "authtoken:" "$HOME/.ngrok2/ngrok.yml" | cut -d : -f 2)
+    fi
+  fi
+  
+  if [ -z "$NGROK_TOKEN" ]; then
+    _err "The TestingDomain or TestingAltDomains is not specified, see: $PROJECT"
+    _err "You can also specify NGROK_TOKEN to test automatically, see: $NGROK_WIKI"
+    exit 1
+  fi
+
+  if [ "$NGROK_TOKEN" ]; then   
+    if [ -z "$NGROK_BIN" ] || [ ! -x "$NGROK_BIN" ]; then
       if _exists "ngrok" ; then
         _info "Command ngrok is found, so, use it."
         NGROK_BIN="ngrok"
       else
-        _err "The NGROK_TOKEN is specified, it seems that you want to use ngrok to test, but the executable ngrok is not found."
-        _err "Please install ngrok command, or specify NGROK_BIN pointing to the ngrok binary. see: $NGROK_WIKI"
-        exit 1
+        _os_name="$(uname)"
+        _info _os_name "$_os_name"
+        case "$_os_name" in
+          FreeBSD | OpenBSD)
+            _debug "BSD"
+            export NGROK_BIN="$(pwd)/ngrok"
+            NGROK_LINK="$NGROK_BSD"
+            ;;
+          CYGWIN_NT*)
+            _debug "cygwin"
+            export NGROK_BIN="$(pwd)/ngrok.exe"
+            NGROK_LINK="$NGROK_Win"
+            ;;
+          Linux)
+            _debug "Linux"
+            export NGROK_BIN="$(pwd)/ngrok"
+            NGROK_LINK="$NGROK_Linux"
+            ;;
+          Darwin)
+            _debug "Darwin"
+            export NGROK_BIN="$(pwd)/ngrok"
+            NGROK_LINK="$NGROK_MAC"
+            ;;            
+          *)
+            _err "Not supported: $_os_name"
+            exit 1
+            ;;
+        esac
+
+        if [ ! -f "$NGROK_BIN" ]; then
+          _info "Download from $NGROK_LINK"
+          if ! curl "$NGROK_LINK" >ngrok.zip && unzip ngrok.zip; then
+            _err "Download error."
+            exit 1
+          fi
+        fi
+
+        if [ ! -x "$NGROK_BIN" ]; then
+          _err "The NGROK_TOKEN is specified, it seems that you want to use ngrok to test, but the executable ngrok is not found."
+          _err "Please install ngrok command, or specify NGROK_BIN pointing to the ngrok binary. see: $NGROK_WIKI"
+          exit 1
+        fi
       fi
     fi
     
@@ -288,37 +345,10 @@ if [ -z "$TestingDomain" ]; then
     if [ -z "$ng_domain_1" ] ; then
       cat "$ng_temp_1"
     fi
-    
     TestingDomain="$ng_domain_1"
-
-#    ng_temp_2="$(_mktemp)"
-#    _info "ng_temp_2" "$ng_temp_2"
-#    if ! $NGROK_BIN tcp 443 --log stdout --log-format logfmt --log-level debug >"$ng_temp_2" & then
-#      _err "ngrok error."
-#      exit 1
-#    fi
-#    _debug "ngrok 2"
-#    sleep 5
-#
-#    ng_domain_2="$(_egrep_o "Hostname:[a-z0-9]+.ngrok.io" <"$ng_temp_2" | _head_n 1 | cut -d':' -f2)"
-#    _info "ng_domain_2" "$ng_domain_2"
-#    
-#    if [ -z "$ng_domain_2" ] ; then
-#      cat "$ng_temp_2"
-#    fi
-#    
-#    TestingAltDomains="$ng_domain_2"
-
     TEST_NGROK=1
   fi
 fi
-
-if [ -z "$TestingDomain" ]; then
-  _err "The TestingDomain or TestingAltDomains is not specified, see: $PROJECT"
-  _err "You can also install ngrok to test automatically, see: $NGROK_WIKI"
-  exit 1
-fi
-
 
 if [ "$TEST_IDN" ] ; then
   if [ -z "$TestingIDNDomain" ] ; then
@@ -335,7 +365,6 @@ fi
 if [ "$DOCKER_OS" = "gentoo/stage3-amd64" ] || [ "$TEST_NGROK" = "1" ]; then
  NO_TLS_CASES="1"
 fi
-
 
 #file subname
 _assertcert() {
