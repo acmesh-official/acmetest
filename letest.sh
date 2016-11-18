@@ -260,11 +260,11 @@ if [ -z "$TestingDomain" ]; then
   if [ -z "$NGROK_TOKEN" ]; then
     if [ -f "$USERPROFILE/.ngrok2/ngrok.yml" ]; then
       #cygwin
-      NGROK_TOKEN=$(grep "authtoken:" "$USERPROFILE/.ngrok2/ngrok.yml" | cut -d : -f 2)
+      NGROK_TOKEN=$(grep "authtoken:" "$USERPROFILE/.ngrok2/ngrok.yml" | cut -d : -f 2| tr -d " '")
     fi
     if [ -z "$NGROK_TOKEN" ] && [ -f "$HOME/.ngrok2/ngrok.yml" ]; then
       #linux
-      NGROK_TOKEN=$(grep "authtoken:" "$HOME/.ngrok2/ngrok.yml" | cut -d : -f 2)
+      NGROK_TOKEN=$(grep "authtoken:" "$HOME/.ngrok2/ngrok.yml" | cut -d : -f 2 | tr -d " '")
     fi
   fi
   
