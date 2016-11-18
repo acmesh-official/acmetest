@@ -317,7 +317,7 @@ if [ -z "$TestingDomain" ]; then
           fi
         fi
 
-        if [ ! -x "$NGROK_BIN" ]; then
+        if [ ! -f "$NGROK_BIN" ]; then
           _err "The NGROK_TOKEN is specified, it seems that you want to use ngrok to test, but the executable ngrok is not found."
           _err "Please install ngrok command, or specify NGROK_BIN pointing to the ngrok binary. see: $NGROK_WIKI"
           exit 1
