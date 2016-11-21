@@ -356,6 +356,12 @@ if [ -z "$TestingDomain" ]; then
   fi
 fi
 
+if [ -z "$TestingDomain" ] && [ -z "$TEST_DNS" ]; then
+  _err "The TestingDomain or TestingAltDomains is not specified, see: $PROJECT"
+  _err "You can also specify NGROK_TOKEN to test automatically, see: $NGROK_WIKI"
+  exit 1
+fi
+
 if [ "$TEST_IDN" ] ; then
   if [ -z "$TestingIDNDomain" ] ; then
     TestingIDNDomain="中$TestingDomain"
@@ -1365,6 +1371,69 @@ le_test_standandalone_renew_idn_v2() {
     __fail "80 port is not released: $lp"
     return 1
   fi
+
+}
+
+
+le_test_dnsapi() {
+
+  if [ -z "$TEST_DNS" ]; then
+    _info "Skipped by TEST_DNS"
+    return 0
+  fi  
+
+  dnsapis="
+  dns_cf,CF_Key,ClourFlare_api,Test_CF_Domain,""
+  dns_cx,CX_Key,CloudXNS.com_api,Test_CX_Domain,""
+  dns_dp,DP_Id,Dnspod.cn_api,Test_DP_Domain,""
+  dns_gd,GD_Key,Godaddy_api,Test_GD_Domain,""
+  dns_aws,AWS_ACCESS_KEY_ID,Amazon_Route53_api,Test_AWS_Domain,""
+  dns_lua,LUA_Key,luadns.com_api,Test_LUA_Domain,""
+  dns_me,ME_Key,dnsmadeeasy.com_api,Test_ME_Domain,""
+  dns_nsupdate,NSUPDATE_KEY,nsupdate_api,Test_NSU_Domain,""
+  dns_ovh,OVH_AK,OVH.com_api,Test_OVH_Domain,""
+  dns_pdns,PDNS_Token,powerdns.com_api,Test_PDNS_Domain,""
+  "
+  
+  for dnsapi in $dnsapis; do
+    _debug "$dnsapi"
+    api=$(echo $dnsapi | cut -d ',' -f 1)
+    keyname=$(echo $dnsapi | cut -d ',' -f 2)
+    comments=$(echo $dnsapi | cut -d ',' -f 3)
+    dm=$(echo $dnsapi | cut -d ',' -f 4)
+    dnssleep=$(echo $dnsapi | cut -d ',' -f 5)
+    
+    _debug api "$api"
+    _debug keyname "$keyname"
+    _debug comments "$comments"
+    _debug dm "$dm"
+    
+    if [ -z "$(eval "echo \$$keyname")" ]; then
+      _info "$keyname is not defined, skip:$comments"
+      continue
+    fi
+
+    d_domain="$(eval "echo \$$dm")"
+    if [ -z "$d_domain" ]; then
+      _info "The test domain $dm is not defined, skip:$comments"
+      continue
+    fi
+
+    (
+    _info "Testing $api $comments"
+    TestingDomain="$d_domain"
+    _info "TestingDomain" "$TestingDomain"
+    
+    lehome="$DEFAULT_HOME"
+    rm -rf "$lehome/$TestingDomain"
+
+    _assertcmd "$lehome/$PROJECT_ENTRY --issue -d \"$TestingDomain\" --dns $api " ||  return
+    
+    _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" "$TestingDomain" "$CA" || return
+    _assertcert "$lehome/$TestingDomain/ca.cer" "$CA" || return
+    ) || return  
+    
+  done
 
 }
 
