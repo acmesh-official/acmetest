@@ -93,7 +93,7 @@ _dlgVersions() {
   fi
 }
 
-_data_u () {
+_date_u () {
   date -u +"%a, %d %b %Y %T %Z"
 }
 
@@ -1427,7 +1427,7 @@ le_test_dnsapi() {
     lehome="$DEFAULT_HOME"
     rm -rf "$lehome/$TestingDomain"
 
-    _assertcmd "$lehome/$PROJECT_ENTRY --issue -d \"$TestingDomain\" --dns $api " ||  return
+    _assertcmd "$lehome/$PROJECT_ENTRY --issue -d \"$TestingDomain\" --dns $api --dnssleep \"$dnssleep\" " ||  return
     
     _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" "$TestingDomain" "$CA" || return
     _assertcert "$lehome/$TestingDomain/ca.cer" "$CA" || return
@@ -1443,7 +1443,7 @@ if [ "$1" ] ; then
   CASE="$1"
 fi
 
-_data_u
+_date_u
 
 _setup
 

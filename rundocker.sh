@@ -328,6 +328,7 @@ _runplat() {
       -e TEST_LOCAL="$TEST_LOCAL" \
       -e TEST_IPV6="$TEST_IPV6" \
       -e TEST_IDN="$TEST_IDN" \
+      -e TEST_IDN="$TEST_DNS" \
       -e CASE="$CASE" \
       -v $(pwd):/acmetest \
       $myplat /bin/sh -c "cd /acmetest && ./$RUN_SCRIPT"
@@ -345,6 +346,7 @@ _runplat() {
       -e TEST_LOCAL="$TEST_LOCAL" \
       -e TEST_IPV6="$TEST_IPV6" \
       -e TEST_IDN="$TEST_IDN" \
+      -e TEST_IDN="$TEST_DNS" \
       -e CASE="$CASE" \
       -v $(pwd):/acmetest \
       $myplat /bin/sh -c "cd /acmetest && ./$RUN_SCRIPT" >> "$Log_Out" 2>&1
