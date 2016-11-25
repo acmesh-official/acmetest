@@ -22,6 +22,7 @@ Unit test project for **acme.sh** project https://github.com/Neilpang/acme.sh
 |centos:5| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/centos-5.svg?Fri, 25 Nov 2016 12:26:18 UTC)| Fri, 25 Nov 2016 12:26:18 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/centos-5.out) |
 |centos:6| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/centos-6.svg?Fri, 25 Nov 2016 12:31:11 UTC)| Fri, 25 Nov 2016 12:31:11 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/centos-6.out) |
 |centos:7| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/centos-7.svg?Fri, 25 Nov 2016 12:36:35 UTC)| Fri, 25 Nov 2016 12:36:35 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/centos-7.out) |
+|centos:latest| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/centos-latest.svg?Fri, 25 Nov 2016 12:41:44 UTC)| Fri, 25 Nov 2016 12:41:44 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/centos-latest.out) |
 
 # How to run tests
 
