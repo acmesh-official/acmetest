@@ -14,6 +14,7 @@ Unit test project for **acme.sh** project https://github.com/Neilpang/acme.sh
 |windows-cygwin| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/windows-cygwin.svg?Fri, 25 Nov 2016 11:49:27 UTC)| Fri, 25 Nov 2016 11:49:27 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/windows-cygwin.out) |
 |ubuntu:14.04| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/ubuntu-14.04.svg?Fri, 25 Nov 2016 11:54:03 UTC)| Fri, 25 Nov 2016 11:54:03 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/ubuntu-14.04.out) |
 |ubuntu:15.04| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/ubuntu-15.04.svg?Fri, 25 Nov 2016 11:58:24 UTC)| Fri, 25 Nov 2016 11:58:24 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/ubuntu-15.04.out) |
+|ubuntu:16.04| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/ubuntu-16.04.svg?Fri, 25 Nov 2016 12:03:24 UTC)| Fri, 25 Nov 2016 12:03:24 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/ubuntu-16.04.out) |
 
 # How to run tests
 
