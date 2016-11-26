@@ -85,7 +85,7 @@ You will get your ngrok auth token.  Then:
 ```
 export NGROK_TOKEN="xxxxxxxxxx"
 
-./leteset.sh
+./letest.sh
 
 ```
 
