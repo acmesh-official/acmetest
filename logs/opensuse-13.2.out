@@ -8,7 +8,7 @@ Step 3 : RUN zypper install  -y   tar openssl cron netcat curl libidn  2>&1
  ---> Using cache
  ---> eddfc6cac072
 Successfully built eddfc6cac072
-Fri, 25 Nov 2016 13:06:33 UTC
+Fri, 02 Dec 2016 13:06:17 UTC
 Testing branch: master
 Progress: 1/22
 ==Running le_test_dependencies please wait
