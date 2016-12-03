@@ -462,8 +462,8 @@ _pullgit() {
 _cron() {
   if [ "$CI" = "1" ]; then
     _pullgit
+    rm "$Table"
   fi
-  rm "$Table"
   _FAILED_PLATS=""
   testall
   if [ "$_FAILED_PLATS" ] ; then
