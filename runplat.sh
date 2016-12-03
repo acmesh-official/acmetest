@@ -1,5 +1,12 @@
 #!/usr/bin/env sh
 
+DEFAULT_SCRIPT="letest.sh"
+
+if [ -z "$RUN_SCRIPT" ] ; then
+  RUN_SCRIPT="$DEFAULT_SCRIPT"
+fi
+
+export RUN_SCRIPT
 
 if [ -z "$1" ] ; then
   echo "Usage: plat [head.md]"
@@ -30,7 +37,7 @@ if [ -z "$LOG_FILE" ] ; then
 fi
 
 
-./letest.sh >> "$Log_Out" 2>&1
+./$RUN_SCRIPT >> "$Log_Out" 2>&1
 _rplat_exit="$?"
 
 ./rundocker.sh  update "$platname" "$_rplat_exit" "$filename"
