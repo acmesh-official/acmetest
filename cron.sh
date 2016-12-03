@@ -11,7 +11,7 @@ plat="$1"
 export  TestingDomain=test$plat.acme.sh
 export  TestingAltDomains=test${plat}2.acme.sh
 
-export CI=1
+export CI
 
 export RUN_SCRIPT
 

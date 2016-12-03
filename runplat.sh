@@ -21,14 +21,6 @@ else
 fi
 
 
-if [ -z "$DEBUG" ] ; then
-  if type export >/dev/null ; then
-    export CI=1
-  else
-    setenv CI 1
-  fi
-fi
-
 if [ -z "$LOG_FILE" ] ; then
   export LOG_FILE="$(./rundocker.sh _getLogfile "$platname" )"
   echo "" > "$LOG_FILE"
