@@ -460,7 +460,9 @@ _pullgit() {
 }
 
 _cron() {
-  _pullgit
+  if [ "$CI" = "1" ]; then
+    _pullgit
+  fi
   rm "$Table"
   _FAILED_PLATS=""
   testall
