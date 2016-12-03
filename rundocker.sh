@@ -460,7 +460,6 @@ _pullgit() {
 }
 
 _cron() {
-  CI="1"
   _pullgit
   rm "$Table"
   _FAILED_PLATS=""
@@ -471,7 +470,6 @@ _cron() {
     _FAILED_PLATS=""
     testplats "$_ttft"
   fi
-  CI=""
 }
 
 if [ "$CASE" ] ; then
