@@ -15,6 +15,14 @@ DEFAULT_HOME="$HOME/.acme.sh"
 PROJECT_ENTRY="acme.sh"
 FILE_NAME="letest.sh"
 
+
+ENV_FILE="loadenv.sh"
+if [ -f "$ENV_FILE" ]; then
+  . "$ENV_FILE"
+fi
+
+
+
 BEGIN_CERT="-----BEGIN CERTIFICATE-----"
 END_CERT="-----END CERTIFICATE-----"
 
