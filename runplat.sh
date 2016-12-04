@@ -28,8 +28,12 @@ if [ -z "$LOG_FILE" ] ; then
   echo "" > "$Log_Out"
 fi
 
+if [ "$DEBUG" ]; then
+  ./$RUN_SCRIPT
+else
+  ./$RUN_SCRIPT >> "$Log_Out" 2>&1
+fi
 
-./$RUN_SCRIPT >> "$Log_Out" 2>&1
 _rplat_exit="$?"
 
 ./rundocker.sh  update "$platname" "$_rplat_exit" "$filename"
