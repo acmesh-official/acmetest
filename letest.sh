@@ -1391,16 +1391,16 @@ le_test_dnsapi() {
   fi  
 
   dnsapis="
-  dns_cf,CF_Key,ClourFlare_api,Test_CF_Domain,""
-  dns_cx,CX_Key,CloudXNS.com_api,Test_CX_Domain,""
-  dns_dp,DP_Id,Dnspod.cn_api,Test_DP_Domain,""
-  dns_gd,GD_Key,Godaddy_api,Test_GD_Domain,""
-  dns_aws,AWS_ACCESS_KEY_ID,Amazon_Route53_api,Test_AWS_Domain,""
-  dns_lua,LUA_Key,luadns.com_api,Test_LUA_Domain,""
-  dns_me,ME_Key,dnsmadeeasy.com_api,Test_ME_Domain,""
-  dns_nsupdate,NSUPDATE_KEY,nsupdate_api,Test_NSU_Domain,""
-  dns_ovh,OVH_AK,OVH.com_api,Test_OVH_Domain,""
-  dns_pdns,PDNS_Token,powerdns.com_api,Test_PDNS_Domain,""
+  dns_cf,CF_Key,ClourFlare_api,Test_CF_Domain,CF_Sleep
+  dns_cx,CX_Key,CloudXNS.com_api,Test_CX_Domain,CX_Sleep
+  dns_dp,DP_Id,Dnspod.cn_api,Test_DP_Domain,DP_Sleep
+  dns_gd,GD_Key,Godaddy_api,Test_GD_Domain,GD_Sleep
+  dns_aws,AWS_ACCESS_KEY_ID,Amazon_Route53_api,Test_AWS_Domain,AWS_Sleep
+  dns_lua,LUA_Key,luadns.com_api,Test_LUA_Domain,LUA_Sleep
+  dns_me,ME_Key,dnsmadeeasy.com_api,Test_ME_Domain,ME_Sleep
+  dns_nsupdate,NSUPDATE_KEY,nsupdate_api,Test_NSU_Domain,NSU_Sleep
+  dns_ovh,OVH_AK,OVH.com_api,Test_OVH_Domain,OVH_Sleep
+  dns_pdns,PDNS_Token,powerdns.com_api,Test_PDNS_Domain,PDNS_Sleep
   "
   
   for dnsapi in $dnsapis; do
@@ -1427,6 +1427,8 @@ le_test_dnsapi() {
       continue
     fi
 
+    d_sleep="$(eval "echo \$$dnssleep")"
+    
     (
     _info "Testing $api $comments"
     TestingDomain="$d_domain"
@@ -1435,7 +1437,7 @@ le_test_dnsapi() {
     lehome="$DEFAULT_HOME"
     rm -rf "$lehome/$TestingDomain"
 
-    _assertcmd "$lehome/$PROJECT_ENTRY --issue -d \"$TestingDomain\" --dns $api --dnssleep \"$dnssleep\" " ||  return
+    _assertcmd "$lehome/$PROJECT_ENTRY --issue -d \"$TestingDomain\" --dns $api --dnssleep \"$d_sleep\" " ||  return
     
     _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" "$TestingDomain" "$CA" || return
     _assertcert "$lehome/$TestingDomain/ca.cer" "$CA" || return
