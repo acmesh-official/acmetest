@@ -398,6 +398,10 @@ testplat() {
     return 1
   fi
   
+  if [ "$CASE" ] ; then
+    echo "Test for case: $(__green "$CASE")"
+  fi
+  
   platforms=$(grep -o "^$plat[^ |]*" "$Conf" )
   if [ ! "$platforms" ] ; then
     platforms="$plat"
@@ -474,9 +478,6 @@ _cron() {
   fi
 }
 
-if [ "$CASE" ] ; then
-  echo "Test for case: $(__green "$CASE")"
-fi
 
 if [ -z "$1" ] ; then
   showhelp
