@@ -178,10 +178,8 @@ _mktemp() {
 }
 
 _egrep_o() {
-  if _contains "$(egrep -o 2>&1)" "egrep: illegal option -- o"; then
+  if ! egrep -o "$1" 2>/dev/null; then
     sed -n 's/.*\('"$1"'\).*/\1/p'
-  else
-    egrep -o "$1"
   fi
 }
 
@@ -511,7 +509,7 @@ _run() {
     rm -rf "$lehome/$TestingDomain$ECC_SUFFIX"
     if [ -f "$lehome/$PROJECT_ENTRY" ] ; then
       if [ -f "$CA_DIR/account.key" ] ; then
-        $lehome/$PROJECT_ENTRY --deactivate -d "$TestingDomain"  -d "$TestingAltDomains" -d "$TestingIDNDomain" >/dev/null
+        $lehome/$PROJECT_ENTRY --deactivate -d "$TestingDomain"  -d "$TestingAltDomains" -d "$TestingIDNDomain" >/dev/null 2>&1
       fi
       __dr="$?"
       if [ "$_r" = "0" ] ; then
@@ -521,7 +519,7 @@ _run() {
     fi
   else
     if [ -f "$CA_DIR/account.key" ] ; then
-      $lehome/$PROJECT_ENTRY --deactivate -d "$TestingDomain"  -d "$TestingAltDomains"
+      $lehome/$PROJECT_ENTRY --deactivate -d "$TestingDomain"  -d "$TestingAltDomains" >/dev/null 2>&1
     fi
   fi  
   _debug "_r" "$_r"
