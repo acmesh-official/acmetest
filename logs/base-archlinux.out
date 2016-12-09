@@ -5,7 +5,7 @@ Step 2 : RUN pacman  -Sy -q --force --noconfirm --noprogressbar openssl cron ope
  ---> Using cache
  ---> 55a94a7b903a
 Successfully built 55a94a7b903a
-Fri, 09 Dec 2016 17:43:22 UTC
+Fri, 09 Dec 2016 17:48:09 UTC
 Testing branch: master
 Progress: 1/22
 ==Running le_test_dependencies please wait
@@ -56,7 +56,13 @@ Progress: 7/22
 '/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
 '/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
 '/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
-/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force[1;31;40m [FAIL] 
+/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force [PASS]
+/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
 ------------------------------------------
 Progress: 8/22
 ==Running le_test_standandalone_renew_localaddress_v2 please wait
