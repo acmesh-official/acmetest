@@ -7,7 +7,7 @@ Unit test project for **acme.sh** project https://github.com/Neilpang/acme.sh
 
 | Platform | Status| Last Run Time| Comments|
 -----------|-------|--------------|---------|
-|freebsd| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/freebsd.svg?Fri, 23 Dec 2016 13:58:42 UTC)| Fri, 23 Dec 2016 13:58:42 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/freebsd.out) |
+|freebsd| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/freebsd.svg?Fri, 23 Dec 2016 14:14:35 UTC)| Fri, 23 Dec 2016 14:14:35 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/freebsd.out) |
 |openbsd| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/openbsd.svg?Fri, 23 Dec 2016 11:14:05 UTC)| Fri, 23 Dec 2016 11:14:05 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/openbsd.out) |
 |pfsense| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/pfsense.svg?Fri, 23 Dec 2016 11:19:35 UTC)| Fri, 23 Dec 2016 11:19:35 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/pfsense.out) |
 |solaris| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/solaris.svg?Fri, 23 Dec 2016 11:27:03 GMT)| Fri, 23 Dec 2016 11:27:03 GMT| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/solaris.out) |
