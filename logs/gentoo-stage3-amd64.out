@@ -8,7 +8,7 @@ Step 3 : RUN ACCEPT_KEYWORDS="~amd64" emerge   net-misc/curl sys-process/vixie-c
  ---> Using cache
  ---> 7e14b55b9c06
 Successfully built 7e14b55b9c06
-Fri, 23 Dec 2016 13:47:21 UTC
+Fri, 30 Dec 2016 13:47:01 UTC
 Testing branch: master
 Progress: 1/22
 ==Running le_test_dependencies please wait
