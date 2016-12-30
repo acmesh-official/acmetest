@@ -5,7 +5,7 @@ Step 2 : RUN pacman  -Sy -q --force --noconfirm --noprogressbar openssl cron ope
  ---> Using cache
  ---> 55a94a7b903a
 Successfully built 55a94a7b903a
-Fri, 23 Dec 2016 13:38:23 UTC
+Fri, 30 Dec 2016 13:38:12 UTC
 Testing branch: master
 Progress: 1/22
 ==Running le_test_dependencies please wait
