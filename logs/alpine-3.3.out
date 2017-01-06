@@ -8,7 +8,7 @@ Step 3 : RUN apk --no-cache add -f openssl curl netcat-openbsd  2>&1
  ---> Using cache
  ---> dc7d4b4bdf06
 Successfully built dc7d4b4bdf06
-Fri, 30 Dec 2016 13:14:27 UTC
+Fri, 06 Jan 2017 13:19:00 UTC
 Testing branch: master
 Progress: 1/22
 ==Running le_test_dependencies please wait
