@@ -2,3 +2,4 @@
 |ubuntu:15.04| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/ubuntu-15.04.svg?Fri, 13 Jan 2017 12:08:47 UTC)| Fri, 13 Jan 2017 12:08:47 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/ubuntu-15.04.out) |
 |ubuntu:16.04| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/ubuntu-16.04.svg?Fri, 13 Jan 2017 12:15:51 UTC)| Fri, 13 Jan 2017 12:15:51 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/ubuntu-16.04.out) |
 |ubuntu:latest| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/ubuntu-latest.svg?Fri, 13 Jan 2017 12:22:12 UTC)| Fri, 13 Jan 2017 12:22:12 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/ubuntu-latest.out) |
+|debian:7| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/debian-7.svg?Fri, 13 Jan 2017 12:28:53 UTC)| Fri, 13 Jan 2017 12:28:53 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-7.out) |
