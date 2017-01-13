@@ -8,7 +8,7 @@ Step 3 : RUN apt-get -qqy install openssl cron netcat-openbsd curl idn  2>&1
  ---> Using cache
  ---> ef4bddc37e14
 Successfully built ef4bddc37e14
-Fri, 06 Jan 2017 13:38:13 UTC
+Fri, 13 Jan 2017 14:19:11 UTC
 Testing branch: master
 Progress: 1/22
 ==Running le_test_dependencies please wait
