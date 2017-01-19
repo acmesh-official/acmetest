@@ -588,7 +588,8 @@ le_test_install() {
   cd ..
   
   _assertexists "$lehome/$PROJECT_ENTRY" || return
-  _contains "$(crontab -l | grep $PROJECT_ENTRY)" " 0 * * * \"$lehome\"/$PROJECT_ENTRY --cron --home \"$lehome\" > /dev/null" || return
+  _c_entry="$(crontab -l | grep $PROJECT_ENTRY)"
+  _assertcmd "_contains '$_c_entry' '0 \\* \\* \\* \"$lehome\"/$PROJECT_ENTRY --cron --home \"$lehome\" > /dev/null'" || return
   _assertcmd "$lehome/$PROJECT_ENTRY uninstall  > /dev/null" ||  return
 }
 
@@ -617,7 +618,8 @@ le_test_installtodir() {
   cd ..
   
   _assertexists "$lehome/$PROJECT_ENTRY" ||  return
-  _contains "$(crontab -l | grep $PROJECT_ENTRY)" " 0 * * * \"$lehome\"/$PROJECT_ENTRY --cron --home \"$lehome\" > /dev/null" ||  return
+  _c_entry="$(crontab -l | grep $PROJECT_ENTRY)"
+  _assertcmd "_contains '$_c_entry' '0 \\* \\* \\* \"$lehome\"/$PROJECT_ENTRY --cron --home \"$lehome\" > /dev/null'" || return
   _assertcmd "$lehome/$PROJECT_ENTRY uninstall" ||  return
 }
 
