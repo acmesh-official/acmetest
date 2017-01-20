@@ -15,3 +15,4 @@
 |fedora:latest| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/fedora-latest.svg?Fri, 20 Jan 2017 13:00:30 UTC)| Fri, 20 Jan 2017 13:00:30 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/fedora-latest.out) |
 |opensuse:13.2| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/opensuse-13.2.svg?Fri, 20 Jan 2017 13:04:53 UTC)| Fri, 20 Jan 2017 13:04:53 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/opensuse-13.2.out) |
 |opensuse:42.1| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/opensuse-42.1.svg?Fri, 20 Jan 2017 13:09:18 UTC)| Fri, 20 Jan 2017 13:09:18 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/opensuse-42.1.out) |
+|opensuse:latest| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/opensuse-latest.svg?Fri, 20 Jan 2017 13:13:44 UTC)| Fri, 20 Jan 2017 13:13:44 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/opensuse-latest.out) |
