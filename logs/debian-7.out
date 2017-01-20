@@ -8,7 +8,7 @@ Step 3 : RUN apt-get -qqy install openssl cron netcat-openbsd curl idn  2>&1
  ---> Using cache
  ---> 16d87893650c
 Successfully built 16d87893650c
-Fri, 13 Jan 2017 12:22:17 UTC
+Fri, 20 Jan 2017 12:05:38 UTC
 Testing branch: master
 Progress: 1/22
 ==Running le_test_dependencies please wait
@@ -23,7 +23,7 @@ Progress: 2/22
 ==Running le_test_install please wait
 ./acme.sh install [PASS]
 /root/.acme.sh/acme.sh exists. [PASS]
-equals 0 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null [PASS]
+_contains '39 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
 /root/.acme.sh/acme.sh uninstall  > /dev/null [PASS]
 ------------------------------------------
 Progress: 3/22
@@ -37,7 +37,7 @@ Progress: 4/22
 ==Running le_test_installtodir please wait
 ./acme.sh install [PASS]
 /root/myle/acme.sh exists. [PASS]
-equals 0 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null [PASS]
+_contains '40 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
 /root/myle/acme.sh uninstall [PASS]
 ------------------------------------------
 Progress: 5/22
@@ -118,9 +118,7 @@ Progress: 12/22
 ------------------------------------------
 Progress: 13/22
 ==Running le_test_standandalone_SAN please wait
-/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh" [PASS]
-/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh"[1;31;40m [FAIL] 
 ------------------------------------------
 Progress: 14/22
 ==Running le_test_standandalone_ECDSA_256 please wait
