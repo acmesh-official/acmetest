@@ -485,7 +485,7 @@ _run() {
   export STAGE
   export DEBUG
   
-  if [ "$1" != "le_test_installtodir" ] && [ "$1" != "le_test_uninstalltodir" ] ; then
+  if [ "$1" != "le_test_installtodir" ] && [ "$1" != "le_test_uninstalltodir" ] && [ "$1" != "le_test_install_config_home" ]; then
     cd acme.sh;
     ./$PROJECT_ENTRY install > /dev/null
     cd ..
@@ -641,6 +641,25 @@ le_test_uninstalltodir() {
   _assertnotexists "$lehome/$PROJECT_ENTRY" ||  return
   _assertequals "" "$(crontab -l | grep $PROJECT_ENTRY)" ||  return
 
+}
+
+le_test_install_config_home() {
+  lehome="$DEFAULT_HOME"
+  confighome="$HOME/etc/acme"
+  
+  cd acme.sh;
+  _assertcmd  "./$PROJECT_ENTRY --install --config-home $confighome" || return
+  cd ..
+  
+  _assertexists "$lehome/$PROJECT_ENTRY" || return
+  _c_entry="$(crontab -l | grep $PROJECT_ENTRY)"
+  _assertcmd "_contains '$_c_entry' '0 \\* \\* \\* \"$lehome\"/$PROJECT_ENTRY --cron --home \"$lehome\" --config-home \"$confighome\" > /dev/null'" || return
+  _assertexists "$confighome/account.conf" || return
+  _assertnotexists "$lehome/account.conf" || return
+  _assertcmd "$lehome/$PROJECT_ENTRY --cron --config-home $confighome > /dev/null" ||  return
+  _assertcmd "$lehome/$PROJECT_ENTRY --uninstall --config-home $confighome > /dev/null" ||  return
+  _assertexists "$confighome/account.conf" || return
+  _assertnotexists "$lehome/account.conf" || return
 }
 
 #
