@@ -521,7 +521,8 @@ _run() {
     if [ -f "$CA_DIR/account.key" ] ; then
       $lehome/$PROJECT_ENTRY --deactivate -d "$TestingDomain"  -d "$TestingAltDomains" >/dev/null 2>&1
     fi
-  fi  
+  fi
+  rm -f "$lehome/account.conf"
   _debug "_r" "$_r"
   _info "------------------------------------------"
   return $_r
