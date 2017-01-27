@@ -1,53 +1,68 @@
 
-Fri, 20 Jan 2017 11:06:16 UTC
+Fri, 27 Jan 2017 11:06:29 UTC
 Testing branch: master
-Progress: 1/22
+Progress: 1/23
 ==Running le_test_dependencies please wait
 curl installed. [PASS]
 crontab installed. [PASS]
 openssl installed. [PASS]
 nc installed. [PASS]
 ------------------------------------------
-Progress: 2/22
+Progress: 2/23
 ==Running le_test_install please wait
 ./acme.sh install [PASS]
 /root/.acme.sh/acme.sh exists. [PASS]
 printf: unknown escape sequence `\*'
 printf: unknown escape sequence `\*'
 printf: unknown escape sequence `\*'
-_contains '18 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
+_contains '31 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
 /root/.acme.sh/acme.sh uninstall  > /dev/null [PASS]
 ------------------------------------------
-Progress: 3/22
+Progress: 3/23
 ==Running le_test_uninstall please wait
 ./acme.sh install [PASS]
 /root/.acme.sh/acme.sh uninstall [PASS]
 /root/.acme.sh/acme.sh no exists. [PASS]
 equals  [PASS]
 ------------------------------------------
-Progress: 4/22
+Progress: 4/23
 ==Running le_test_installtodir please wait
 ./acme.sh install [PASS]
 /root/myle/acme.sh exists. [PASS]
 printf: unknown escape sequence `\*'
 printf: unknown escape sequence `\*'
 printf: unknown escape sequence `\*'
-_contains '20 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
+_contains '33 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
 /root/myle/acme.sh uninstall [PASS]
 ------------------------------------------
-Progress: 5/22
+Progress: 5/23
 ==Running le_test_uninstalltodir please wait
 ./acme.sh install [PASS]
 /root/myle/acme.sh uninstall [PASS]
 /root/myle/acme.sh no exists. [PASS]
 equals  [PASS]
 ------------------------------------------
-Progress: 6/22
+Progress: 6/23
+==Running le_test_install_config_home please wait
+./acme.sh --install --config-home /root/etc/acme [PASS]
+/root/.acme.sh/acme.sh exists. [PASS]
+printf: unknown escape sequence `\*'
+printf: unknown escape sequence `\*'
+printf: unknown escape sequence `\*'
+_contains '35 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
+/root/etc/acme/account.conf exists. [PASS]
+/root/.acme.sh/account.conf no exists. [PASS]
+/root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null [PASS]
+/root/.acme.sh/acme.sh --uninstall --config-home /root/etc/acme > /dev/null [PASS]
+/root/etc/acme/account.conf exists. [PASS]
+/root/.acme.sh/account.conf no exists. [PASS]
+------------------------------------------
+Progress: 7/23
 ==Running le_test_standandalone_renew please wait
 /root/.acme.sh/acme.sh issue no testopenbsd.acme.sh [PASS]
 FORCE=1 /root/.acme.sh/acme.sh renew testopenbsd.acme.sh [PASS]
 ------------------------------------------
-Progress: 7/22
+Progress: 8/23
 ==Running le_test_standandalone_renew_v2 please wait
 /root/.acme.sh/acme.sh --issue -d testopenbsd.acme.sh --standalone --certpath '/root/acmetest/certs/domain.cer' --keypath '/root/acmetest/certs/domain.key'  --capath '/root/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/root/acmetest/certs/full.cer' [PASS]
 '/root/.acme.sh/testopenbsd.acme.sh/testopenbsd.acme.sh.cer' equals '/root/acmetest/certs/domain.cer' [PASS]
@@ -62,7 +77,7 @@ FORCE=1 /root/.acme.sh/acme.sh renew testopenbsd.acme.sh [PASS]
 '/root/.acme.sh/testopenbsd.acme.sh/ca.cer' equals '/root/acmetest/certs/ca.cer' [PASS]
 '/root/.acme.sh/testopenbsd.acme.sh/fullchain.cer' equals '/root/acmetest/certs/full.cer' [PASS]
 ------------------------------------------
-Progress: 8/22
+Progress: 9/23
 ==Running le_test_standandalone_renew_localaddress_v2 please wait
 /root/.acme.sh/acme.sh --issue -d testopenbsd.acme.sh --standalone --local-address 0.0.0.0 --certpath '/root/acmetest/certs/domain.cer' --keypath '/root/acmetest/certs/domain.key'  --capath '/root/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/root/acmetest/certs/full.cer' [PASS]
 '/root/.acme.sh/testopenbsd.acme.sh/testopenbsd.acme.sh.cer' equals '/root/acmetest/certs/domain.cer' [PASS]
@@ -77,7 +92,7 @@ FORCE=1 /root/.acme.sh/acme.sh renew testopenbsd.acme.sh [PASS]
 '/root/.acme.sh/testopenbsd.acme.sh/ca.cer' equals '/root/acmetest/certs/ca.cer' [PASS]
 '/root/.acme.sh/testopenbsd.acme.sh/fullchain.cer' equals '/root/acmetest/certs/full.cer' [PASS]
 ------------------------------------------
-Progress: 9/22
+Progress: 10/23
 ==Running le_test_standandalone_listen_v4_v2 please wait
 /root/.acme.sh/acme.sh --issue -d testopenbsd.acme.sh --standalone --listen-v4 --certpath '/root/acmetest/certs/domain.cer' --keypath '/root/acmetest/certs/domain.key'  --capath '/root/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/root/acmetest/certs/full.cer' [PASS]
 '/root/.acme.sh/testopenbsd.acme.sh/testopenbsd.acme.sh.cer' equals '/root/acmetest/certs/domain.cer' [PASS]
@@ -92,11 +107,11 @@ FORCE=1 /root/.acme.sh/acme.sh renew testopenbsd.acme.sh [PASS]
 '/root/.acme.sh/testopenbsd.acme.sh/ca.cer' equals '/root/acmetest/certs/ca.cer' [PASS]
 '/root/.acme.sh/testopenbsd.acme.sh/fullchain.cer' equals '/root/acmetest/certs/full.cer' [PASS]
 ------------------------------------------
-Progress: 10/22
+Progress: 11/23
 ==Running le_test_standandalone_listen_v6_v2 please wait
 Skipped by TEST_IPV6
 ------------------------------------------
-Progress: 11/22
+Progress: 12/23
 ==Running le_test_standandalone_deactivate_v2 please wait
 /root/.acme.sh/acme.sh --issue -d testopenbsd.acme.sh --standalone --certpath '/root/acmetest/certs/domain.cer' --keypath '/root/acmetest/certs/domain.key'  --capath '/root/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/root/acmetest/certs/full.cer' [PASS]
 '/root/.acme.sh/testopenbsd.acme.sh/testopenbsd.acme.sh.cer' equals '/root/acmetest/certs/domain.cer' [PASS]
@@ -105,35 +120,35 @@ Skipped by TEST_IPV6
 '/root/.acme.sh/testopenbsd.acme.sh/fullchain.cer' equals '/root/acmetest/certs/full.cer' [PASS]
 /root/.acme.sh/acme.sh --deactivate -d testopenbsd.acme.sh [PASS]
 ------------------------------------------
-Progress: 12/22
+Progress: 13/23
 ==Running le_test_standandalone please wait
 /root/.acme.sh/acme.sh issue no testopenbsd.acme.sh [PASS]
 /root/.acme.sh/testopenbsd.acme.sh/testopenbsd.acme.sh.cer is cert ? 'testopenbsd.acme.sh' 'Fake LE Intermediate X1' [PASS]
 /root/.acme.sh/testopenbsd.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
 ------------------------------------------
-Progress: 13/22
+Progress: 14/23
 ==Running le_test_standandalone_SAN please wait
 /root/.acme.sh/acme.sh issue no "testopenbsd.acme.sh" "testopenbsd2.acme.sh" [PASS]
 /root/.acme.sh/testopenbsd.acme.sh/testopenbsd.acme.sh.cer is cert ? 'testopenbsd.acme.sh' 'Fake LE Intermediate X1' [PASS]
 /root/.acme.sh/testopenbsd.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
 ------------------------------------------
-Progress: 14/22
+Progress: 15/23
 ==Running le_test_standandalone_ECDSA_256 please wait
 /root/.acme.sh/acme.sh issue no testopenbsd.acme.sh no ec-256 [PASS]
 /root/.acme.sh/testopenbsd.acme.sh_ecc/testopenbsd.acme.sh.cer is cert ? 'testopenbsd.acme.sh' 'Fake LE Intermediate X1' [PASS]
 /root/.acme.sh/testopenbsd.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
 ------------------------------------------
-Progress: 15/22
+Progress: 16/23
 ==Running le_test_standandalone_ECDSA_256_renew please wait
 /root/.acme.sh/acme.sh issue no testopenbsd.acme.sh no ec-256 [PASS]
 FORCE=1 /root/.acme.sh/acme.sh renew testopenbsd.acme.sh [PASS]
 ------------------------------------------
-Progress: 16/22
+Progress: 17/23
 ==Running le_test_standandalone_ECDSA_256_SAN_renew please wait
 /root/.acme.sh/acme.sh issue no "testopenbsd.acme.sh" "testopenbsd2.acme.sh" ec-256 [PASS]
 FORCE=1 /root/.acme.sh/acme.sh renew "testopenbsd.acme.sh" [PASS]
 ------------------------------------------
-Progress: 17/22
+Progress: 18/23
 ==Running le_test_standandalone_ECDSA_256_SAN_renew_v2 please wait
 /root/.acme.sh/acme.sh --issue -d "testopenbsd.acme.sh" -d "testopenbsd2.acme.sh" --standalone --keylength ec-256 --certpath '/root/acmetest/certs/domain.cer' --keypath '/root/acmetest/certs/domain.key'  --capath '/root/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/root/acmetest/certs/full.cer' [PASS]
 '/root/.acme.sh/testopenbsd.acme.sh_ecc/testopenbsd.acme.sh.cer' equals '/root/acmetest/certs/domain.cer' [PASS]
@@ -148,31 +163,31 @@ FORCE=1 /root/.acme.sh/acme.sh renew "testopenbsd.acme.sh" [PASS]
 '/root/.acme.sh/testopenbsd.acme.sh_ecc/ca.cer' equals '/root/acmetest/certs/ca.cer' [PASS]
 '/root/.acme.sh/testopenbsd.acme.sh_ecc/fullchain.cer' equals '/root/acmetest/certs/full.cer' [PASS]
 ------------------------------------------
-Progress: 18/22
+Progress: 19/23
 ==Running le_test_standandalone_ECDSA_384 please wait
 /root/.acme.sh/acme.sh issue no "testopenbsd.acme.sh" no ec-384 [PASS]
 /root/.acme.sh/testopenbsd.acme.sh_ecc/testopenbsd.acme.sh.cer is cert ? 'testopenbsd.acme.sh' 'Fake LE Intermediate X1' [PASS]
 /root/.acme.sh/testopenbsd.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
 ------------------------------------------
-Progress: 19/22
+Progress: 20/23
 ==Running le_test_standandalone_tls_renew_SAN_v2 please wait
 /root/.acme.sh/acme.sh --issue -d "testopenbsd.acme.sh" --tls  -d "testopenbsd2.acme.sh" --standalone  [PASS]
 /root/.acme.sh/acme.sh --renew -d "testopenbsd.acme.sh" --force [PASS]
 /root/.acme.sh/testopenbsd.acme.sh/testopenbsd.acme.sh.cer is cert ? 'testopenbsd.acme.sh' 'Fake LE Intermediate X1' [PASS]
 /root/.acme.sh/testopenbsd.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
 ------------------------------------------
-Progress: 20/22
+Progress: 21/23
 ==Running le_test_tls_renew_SAN_v2 please wait
 /root/.acme.sh/acme.sh --issue -d "testopenbsd.acme.sh" -d "testopenbsd2.acme.sh" --tls [PASS]
 /root/.acme.sh/acme.sh --renew -d "testopenbsd.acme.sh" --force [PASS]
 /root/.acme.sh/testopenbsd.acme.sh/testopenbsd.acme.sh.cer is cert ? 'testopenbsd.acme.sh' 'Fake LE Intermediate X1' [PASS]
 /root/.acme.sh/testopenbsd.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
 ------------------------------------------
-Progress: 21/22
+Progress: 22/23
 ==Running le_test_standandalone_renew_idn_v2 please wait
 Skipped by TEST_IDN
 ------------------------------------------
-Progress: 22/22
+Progress: 23/23
 ==Running le_test_dnsapi please wait
 Skipped by TEST_DNS
 ------------------------------------------
