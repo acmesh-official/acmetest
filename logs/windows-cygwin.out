@@ -1,47 +1,59 @@
 
-Fri, 20 Jan 2017 11:28:35 UTC
+Fri, 27 Jan 2017 11:29:33 UTC
 Testing branch: master
-Progress: 1/22
+Progress: 1/23
 ==Running le_test_dependencies please wait
 curl installed. [PASS]
 crontab installed. [PASS]
 openssl installed. [PASS]
 nc installed. [PASS]
 ------------------------------------------
-Progress: 2/22
+Progress: 2/23
 ==Running le_test_install please wait
 ./acme.sh install [PASS]
 /home/root/.acme.sh/acme.sh exists. [PASS]
-_contains '42 0 * * * "/home/root/.acme.sh"/acme.sh --cron --home "/home/root/.acme.sh" > /dev/null' '0 \* \* \* "/home/root/.acme.sh"/acme.sh --cron --home "/home/root/.acme.sh" > /dev/null' [PASS]
+_contains '38 0 * * * "/home/root/.acme.sh"/acme.sh --cron --home "/home/root/.acme.sh" > /dev/null' '0 \* \* \* "/home/root/.acme.sh"/acme.sh --cron --home "/home/root/.acme.sh" > /dev/null' [PASS]
 /home/root/.acme.sh/acme.sh uninstall  > /dev/null [PASS]
 ------------------------------------------
-Progress: 3/22
+Progress: 3/23
 ==Running le_test_uninstall please wait
 ./acme.sh install [PASS]
 /home/root/.acme.sh/acme.sh uninstall [PASS]
 /home/root/.acme.sh/acme.sh no exists. [PASS]
 equals  [PASS]
 ------------------------------------------
-Progress: 4/22
+Progress: 4/23
 ==Running le_test_installtodir please wait
 ./acme.sh install [PASS]
 /home/root/myle/acme.sh exists. [PASS]
-_contains '51 0 * * * "/home/root/myle"/acme.sh --cron --home "/home/root/myle" > /dev/null' '0 \* \* \* "/home/root/myle"/acme.sh --cron --home "/home/root/myle" > /dev/null' [PASS]
+_contains '47 0 * * * "/home/root/myle"/acme.sh --cron --home "/home/root/myle" > /dev/null' '0 \* \* \* "/home/root/myle"/acme.sh --cron --home "/home/root/myle" > /dev/null' [PASS]
 /home/root/myle/acme.sh uninstall [PASS]
 ------------------------------------------
-Progress: 5/22
+Progress: 5/23
 ==Running le_test_uninstalltodir please wait
 ./acme.sh install [PASS]
 /home/root/myle/acme.sh uninstall [PASS]
 /home/root/myle/acme.sh no exists. [PASS]
 equals  [PASS]
 ------------------------------------------
-Progress: 6/22
+Progress: 6/23
+==Running le_test_install_config_home please wait
+./acme.sh --install --config-home /home/root/etc/acme [PASS]
+/home/root/.acme.sh/acme.sh exists. [PASS]
+_contains '53 0 * * * "/home/root/.acme.sh"/acme.sh --cron --home "/home/root/.acme.sh" --config-home "/home/root/etc/acme" > /dev/null' '0 \* \* \* "/home/root/.acme.sh"/acme.sh --cron --home "/home/root/.acme.sh" --config-home "/home/root/etc/acme" > /dev/null' [PASS]
+/home/root/etc/acme/account.conf exists. [PASS]
+/home/root/.acme.sh/account.conf no exists. [PASS]
+/home/root/.acme.sh/acme.sh --cron --config-home /home/root/etc/acme > /dev/null [PASS]
+/home/root/.acme.sh/acme.sh --uninstall --config-home /home/root/etc/acme > /dev/null [PASS]
+/home/root/etc/acme/account.conf exists. [PASS]
+/home/root/.acme.sh/account.conf no exists. [PASS]
+------------------------------------------
+Progress: 7/23
 ==Running le_test_standandalone_renew please wait
 /home/root/.acme.sh/acme.sh issue no testwindows-cygwin.acme.sh [PASS]
 FORCE=1 /home/root/.acme.sh/acme.sh renew testwindows-cygwin.acme.sh [PASS]
 ------------------------------------------
-Progress: 7/22
+Progress: 8/23
 ==Running le_test_standandalone_renew_v2 please wait
 /home/root/.acme.sh/acme.sh --issue -d testwindows-cygwin.acme.sh --standalone --certpath '/home/root/acmetest/certs/domain.cer' --keypath '/home/root/acmetest/certs/domain.key'  --capath '/home/root/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/home/root/acmetest/certs/full.cer' [PASS]
 '/home/root/.acme.sh/testwindows-cygwin.acme.sh/testwindows-cygwin.acme.sh.cer' equals '/home/root/acmetest/certs/domain.cer' [PASS]
@@ -56,7 +68,7 @@ Progress: 7/22
 '/home/root/.acme.sh/testwindows-cygwin.acme.sh/ca.cer' equals '/home/root/acmetest/certs/ca.cer' [PASS]
 '/home/root/.acme.sh/testwindows-cygwin.acme.sh/fullchain.cer' equals '/home/root/acmetest/certs/full.cer' [PASS]
 ------------------------------------------
-Progress: 8/22
+Progress: 9/23
 ==Running le_test_standandalone_renew_localaddress_v2 please wait
 /home/root/.acme.sh/acme.sh --issue -d testwindows-cygwin.acme.sh --standalone --local-address 0.0.0.0 --certpath '/home/root/acmetest/certs/domain.cer' --keypath '/home/root/acmetest/certs/domain.key'  --capath '/home/root/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/home/root/acmetest/certs/full.cer' [PASS]
 '/home/root/.acme.sh/testwindows-cygwin.acme.sh/testwindows-cygwin.acme.sh.cer' equals '/home/root/acmetest/certs/domain.cer' [PASS]
@@ -71,7 +83,7 @@ Progress: 8/22
 '/home/root/.acme.sh/testwindows-cygwin.acme.sh/ca.cer' equals '/home/root/acmetest/certs/ca.cer' [PASS]
 '/home/root/.acme.sh/testwindows-cygwin.acme.sh/fullchain.cer' equals '/home/root/acmetest/certs/full.cer' [PASS]
 ------------------------------------------
-Progress: 9/22
+Progress: 10/23
 ==Running le_test_standandalone_listen_v4_v2 please wait
 /home/root/.acme.sh/acme.sh --issue -d testwindows-cygwin.acme.sh --standalone --listen-v4 --certpath '/home/root/acmetest/certs/domain.cer' --keypath '/home/root/acmetest/certs/domain.key'  --capath '/home/root/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/home/root/acmetest/certs/full.cer' [PASS]
 '/home/root/.acme.sh/testwindows-cygwin.acme.sh/testwindows-cygwin.acme.sh.cer' equals '/home/root/acmetest/certs/domain.cer' [PASS]
@@ -86,11 +98,11 @@ Progress: 9/22
 '/home/root/.acme.sh/testwindows-cygwin.acme.sh/ca.cer' equals '/home/root/acmetest/certs/ca.cer' [PASS]
 '/home/root/.acme.sh/testwindows-cygwin.acme.sh/fullchain.cer' equals '/home/root/acmetest/certs/full.cer' [PASS]
 ------------------------------------------
-Progress: 10/22
+Progress: 11/23
 ==Running le_test_standandalone_listen_v6_v2 please wait
 Skipped by TEST_IPV6
 ------------------------------------------
-Progress: 11/22
+Progress: 12/23
 ==Running le_test_standandalone_deactivate_v2 please wait
 /home/root/.acme.sh/acme.sh --issue -d testwindows-cygwin.acme.sh --standalone --certpath '/home/root/acmetest/certs/domain.cer' --keypath '/home/root/acmetest/certs/domain.key'  --capath '/home/root/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/home/root/acmetest/certs/full.cer' [PASS]
 '/home/root/.acme.sh/testwindows-cygwin.acme.sh/testwindows-cygwin.acme.sh.cer' equals '/home/root/acmetest/certs/domain.cer' [PASS]
@@ -99,35 +111,35 @@ Progress: 11/22
 '/home/root/.acme.sh/testwindows-cygwin.acme.sh/fullchain.cer' equals '/home/root/acmetest/certs/full.cer' [PASS]
 /home/root/.acme.sh/acme.sh --deactivate -d testwindows-cygwin.acme.sh [PASS]
 ------------------------------------------
-Progress: 12/22
+Progress: 13/23
 ==Running le_test_standandalone please wait
 /home/root/.acme.sh/acme.sh issue no testwindows-cygwin.acme.sh [PASS]
 /home/root/.acme.sh/testwindows-cygwin.acme.sh/testwindows-cygwin.acme.sh.cer is cert ? 'testwindows-cygwin.acme.sh' 'Fake LE Intermediate X1' [PASS]
 /home/root/.acme.sh/testwindows-cygwin.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
 ------------------------------------------
-Progress: 13/22
+Progress: 14/23
 ==Running le_test_standandalone_SAN please wait
 /home/root/.acme.sh/acme.sh issue no "testwindows-cygwin.acme.sh" "testwindows-cygwin2.acme.sh" [PASS]
 /home/root/.acme.sh/testwindows-cygwin.acme.sh/testwindows-cygwin.acme.sh.cer is cert ? 'testwindows-cygwin.acme.sh' 'Fake LE Intermediate X1' [PASS]
 /home/root/.acme.sh/testwindows-cygwin.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
 ------------------------------------------
-Progress: 14/22
+Progress: 15/23
 ==Running le_test_standandalone_ECDSA_256 please wait
 /home/root/.acme.sh/acme.sh issue no testwindows-cygwin.acme.sh no ec-256 [PASS]
 /home/root/.acme.sh/testwindows-cygwin.acme.sh_ecc/testwindows-cygwin.acme.sh.cer is cert ? 'testwindows-cygwin.acme.sh' 'Fake LE Intermediate X1' [PASS]
 /home/root/.acme.sh/testwindows-cygwin.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
 ------------------------------------------
-Progress: 15/22
+Progress: 16/23
 ==Running le_test_standandalone_ECDSA_256_renew please wait
 /home/root/.acme.sh/acme.sh issue no testwindows-cygwin.acme.sh no ec-256 [PASS]
 FORCE=1 /home/root/.acme.sh/acme.sh renew testwindows-cygwin.acme.sh [PASS]
 ------------------------------------------
-Progress: 16/22
+Progress: 17/23
 ==Running le_test_standandalone_ECDSA_256_SAN_renew please wait
 /home/root/.acme.sh/acme.sh issue no "testwindows-cygwin.acme.sh" "testwindows-cygwin2.acme.sh" ec-256 [PASS]
 FORCE=1 /home/root/.acme.sh/acme.sh renew "testwindows-cygwin.acme.sh" [PASS]
 ------------------------------------------
-Progress: 17/22
+Progress: 18/23
 ==Running le_test_standandalone_ECDSA_256_SAN_renew_v2 please wait
 /home/root/.acme.sh/acme.sh --issue -d "testwindows-cygwin.acme.sh" -d "testwindows-cygwin2.acme.sh" --standalone --keylength ec-256 --certpath '/home/root/acmetest/certs/domain.cer' --keypath '/home/root/acmetest/certs/domain.key'  --capath '/home/root/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/home/root/acmetest/certs/full.cer' [PASS]
 '/home/root/.acme.sh/testwindows-cygwin.acme.sh_ecc/testwindows-cygwin.acme.sh.cer' equals '/home/root/acmetest/certs/domain.cer' [PASS]
@@ -142,31 +154,31 @@ Progress: 17/22
 '/home/root/.acme.sh/testwindows-cygwin.acme.sh_ecc/ca.cer' equals '/home/root/acmetest/certs/ca.cer' [PASS]
 '/home/root/.acme.sh/testwindows-cygwin.acme.sh_ecc/fullchain.cer' equals '/home/root/acmetest/certs/full.cer' [PASS]
 ------------------------------------------
-Progress: 18/22
+Progress: 19/23
 ==Running le_test_standandalone_ECDSA_384 please wait
 /home/root/.acme.sh/acme.sh issue no "testwindows-cygwin.acme.sh" no ec-384 [PASS]
 /home/root/.acme.sh/testwindows-cygwin.acme.sh_ecc/testwindows-cygwin.acme.sh.cer is cert ? 'testwindows-cygwin.acme.sh' 'Fake LE Intermediate X1' [PASS]
 /home/root/.acme.sh/testwindows-cygwin.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
 ------------------------------------------
-Progress: 19/22
+Progress: 20/23
 ==Running le_test_standandalone_tls_renew_SAN_v2 please wait
 /home/root/.acme.sh/acme.sh --issue -d "testwindows-cygwin.acme.sh" --tls  -d "testwindows-cygwin2.acme.sh" --standalone  [PASS]
 /home/root/.acme.sh/acme.sh --renew -d "testwindows-cygwin.acme.sh" --force [PASS]
 /home/root/.acme.sh/testwindows-cygwin.acme.sh/testwindows-cygwin.acme.sh.cer is cert ? 'testwindows-cygwin.acme.sh' 'Fake LE Intermediate X1' [PASS]
 /home/root/.acme.sh/testwindows-cygwin.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
 ------------------------------------------
-Progress: 20/22
+Progress: 21/23
 ==Running le_test_tls_renew_SAN_v2 please wait
 /home/root/.acme.sh/acme.sh --issue -d "testwindows-cygwin.acme.sh" -d "testwindows-cygwin2.acme.sh" --tls [PASS]
 /home/root/.acme.sh/acme.sh --renew -d "testwindows-cygwin.acme.sh" --force [PASS]
 /home/root/.acme.sh/testwindows-cygwin.acme.sh/testwindows-cygwin.acme.sh.cer is cert ? 'testwindows-cygwin.acme.sh' 'Fake LE Intermediate X1' [PASS]
 /home/root/.acme.sh/testwindows-cygwin.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
 ------------------------------------------
-Progress: 21/22
+Progress: 22/23
 ==Running le_test_standandalone_renew_idn_v2 please wait
 Skipped by TEST_IDN
 ------------------------------------------
-Progress: 22/22
+Progress: 23/23
 ==Running le_test_dnsapi please wait
 Skipped by TEST_DNS
 ------------------------------------------
