@@ -14,6 +14,7 @@ export  TestingAltDomains=test${plat}2.acme.sh
 export CI
 
 export RUN_SCRIPT
+export CASE
 
 ./runplat.sh  "$plat"
 

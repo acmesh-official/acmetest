@@ -28,6 +28,8 @@ if [ -z "$LOG_FILE" ] ; then
   echo "" > "$Log_Out"
 fi
 
+export CASE
+
 if [ "$DEBUG" ]; then
   ./$RUN_SCRIPT
 else
