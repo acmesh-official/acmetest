@@ -13,6 +13,7 @@ Unit test project for **acme.sh** project https://github.com/Neilpang/acme.sh
 |solaris| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/solaris.svg?Fri, 03 Feb 2017 11:18:19 GMT)| Fri, 03 Feb 2017 11:18:19 GMT| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/solaris.out) |
 |windows-cygwin| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/windows-cygwin.svg?Fri, 03 Feb 2017 12:00:53 UTC)| Fri, 03 Feb 2017 12:00:53 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/windows-cygwin.out) |
 |ubuntu:14.04| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/ubuntu-14.04.svg?Fri, 03 Feb 2017 12:07:24 UTC)| Fri, 03 Feb 2017 12:07:24 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/ubuntu-14.04.out) |
+|ubuntu:15.04| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/ubuntu-15.04.svg?Fri, 03 Feb 2017 12:13:56 UTC)| Fri, 03 Feb 2017 12:13:56 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/ubuntu-15.04.out) |
 
 # How to run tests
 
