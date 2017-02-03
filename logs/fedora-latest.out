@@ -8,7 +8,7 @@ Step 3 : RUN yum -q -y install    tar openssl crontabs nc curl  2>&1
  ---> Using cache
  ---> 8fc3c39836db
 Successfully built 8fc3c39836db
-Fri, 03 Feb 2017 13:41:52 UTC
+Fri, 03 Feb 2017 13:48:52 UTC
 Testing branch: master
 Progress: 1/23
 ==Running le_test_dependencies please wait
@@ -180,7 +180,10 @@ Progress: 20/23
 ------------------------------------------
 Progress: 21/23
 ==Running le_test_tls_renew_SAN_v2 please wait
-/root/.acme.sh/acme.sh --issue -d "testdocker.acme.sh" -d "testdocker2.acme.sh" --tls[1;31;40m [FAIL] 
+/root/.acme.sh/acme.sh --issue -d "testdocker.acme.sh" -d "testdocker2.acme.sh" --tls [PASS]
+/root/.acme.sh/acme.sh --renew -d "testdocker.acme.sh" --force [PASS]
+/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
 ------------------------------------------
 Progress: 22/23
 ==Running le_test_standandalone_renew_idn_v2 please wait
