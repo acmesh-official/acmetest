@@ -39,7 +39,7 @@ Unit test project for **acme.sh** project https://github.com/Neilpang/acme.sh
 |oraclelinux:latest| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/oraclelinux-latest.svg?Fri, 10 Feb 2017 15:05:51 UTC)| Fri, 10 Feb 2017 15:05:51 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/oraclelinux-latest.out) |
 |kalilinux/kali-linux-docker| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/kalilinux-kali-linux-docker.svg?Fri, 10 Feb 2017 15:20:24 UTC)| Fri, 10 Feb 2017 15:20:24 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/kalilinux-kali-linux-docker.out) |
 |base/archlinux| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/base-archlinux.svg?Fri, 10 Feb 2017 15:27:18 UTC)| Fri, 10 Feb 2017 15:27:18 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/base-archlinux.out) |
-|mageia| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/mageia.svg?Fri, 10 Feb 2017 15:33:51 UTC)| Fri, 10 Feb 2017 15:33:51 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/mageia.out) |
+|mageia| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/mageia.svg?Fri, 10 Feb 2017 15:40:47 UTC)| Fri, 10 Feb 2017 15:40:47 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/mageia.out) |
 
 # How to run tests
 
