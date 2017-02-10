@@ -294,7 +294,7 @@ if [ -z "$TestingDomain" ]; then
             export NGROK_BIN="$(pwd)/ngrok"
             NGROK_LINK="$NGROK_BSD"
             ;;
-          CYGWIN_NT*)
+          CYGWIN_NT* | MINGW*)
             _debug "cygwin"
             export NGROK_BIN="$(pwd)/ngrok.exe"
             NGROK_LINK="$NGROK_Win"
