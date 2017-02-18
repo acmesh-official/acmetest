@@ -378,6 +378,9 @@ fi
 if [ "$DOCKER_OS" = "centos:5" ] \
  || [ "$DOCKER_OS" = "gentoo/stage3-amd64" ] ; then
  NO_ECC_CASES="1"
+ if ! grep "insecure" ~/.curlrc >/dev/null; then
+   echo insecure >>~/.curlrc
+ fi
 fi 
 
 if [ "$DOCKER_OS" = "gentoo/stage3-amd64" ] || [ "$TEST_NGROK" = "1" ]; then
