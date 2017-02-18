@@ -7,8 +7,8 @@ Unit test project for **acme.sh** project https://github.com/Neilpang/acme.sh
 
 | Platform | Status| Last Run Time| Comments|
 -----------|-------|--------------|---------|
-|freebsd| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/freebsd.svg?Fri, 27 Jan 2017 11:06:21 UTC)| Fri, 27 Jan 2017 11:06:21 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/freebsd.out) |
-|openbsd| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/openbsd.svg?Fri, 27 Jan 2017 11:14:35 UTC)| Fri, 27 Jan 2017 11:14:35 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/openbsd.out) |
-|pfsense| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/pfsense.svg?Fri, 27 Jan 2017 11:20:21 UTC)| Fri, 27 Jan 2017 11:20:21 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/pfsense.out) |
-|solaris| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/solaris.svg?Fri, 27 Jan 2017 14:18:35 GMT)| Fri, 27 Jan 2017 14:18:35 GMT| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/solaris.out) |
-|windows-cygwin| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/windows-cygwin.svg?Fri, 27 Jan 2017 11:48:38 UTC)| Fri, 27 Jan 2017 11:48:38 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/windows-cygwin.out) |
+|freebsd| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/freebsd.svg?Fri, 17 Feb 2017 06:10:47 UTC)| Fri, 17 Feb 2017 06:10:47 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/freebsd.out) |
+|openbsd| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/openbsd.svg?Fri, 17 Feb 2017 06:36:15 UTC)| Fri, 17 Feb 2017 06:36:15 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/openbsd.out) |
+|pfsense| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/pfsense.svg?Fri, 17 Feb 2017 06:46:16 UTC)| Fri, 17 Feb 2017 06:46:16 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/pfsense.out) |
+|solaris| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/solaris.svg?Fri, 17 Feb 2017 06:23:14 GMT)| Fri, 17 Feb 2017 06:23:14 GMT| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/solaris.out) |
+|windows-cygwin| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/windows-cygwin.svg?Fri, 17 Feb 2017 07:13:27 UTC)| Fri, 17 Feb 2017 07:13:27 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/windows-cygwin.out) |
