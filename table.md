@@ -8,3 +8,4 @@
 |centos:5| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/centos-5.svg?Sun, 19 Feb 2017 19:04:43 UTC)| Sun, 19 Feb 2017 19:04:43 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/centos-5.out) |
 |centos:6| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/centos-6.svg?Sun, 19 Feb 2017 19:19:53 UTC)| Sun, 19 Feb 2017 19:19:53 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/centos-6.out) |
 |centos:7| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/centos-7.svg?Sun, 19 Feb 2017 19:36:37 UTC)| Sun, 19 Feb 2017 19:36:37 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/centos-7.out) |
+|centos:latest| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/centos-latest.svg?Sun, 19 Feb 2017 19:52:18 UTC)| Sun, 19 Feb 2017 19:52:18 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/centos-latest.out) |
