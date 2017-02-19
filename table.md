@@ -1,1 +1,2 @@
 |ubuntu:14.04| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/ubuntu-14.04.svg?Sun, 19 Feb 2017 16:56:13 UTC)| Sun, 19 Feb 2017 16:56:13 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/ubuntu-14.04.out) |
+|ubuntu:15.04| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/ubuntu-15.04.svg?Sun, 19 Feb 2017 17:11:15 UTC)| Sun, 19 Feb 2017 17:11:15 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/ubuntu-15.04.out) |
