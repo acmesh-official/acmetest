@@ -1452,7 +1452,7 @@ le_test_dnsapi() {
       continue
     fi
 
-    if [ "$NO_HMAC_CASES" = "1" ] && [ "$dnsapi" = "dns_aws" ]; then
+    if [ "$NO_HMAC_CASES" = "1" ] && [ "$api" = "dns_aws" ]; then
       _info "Skipped for NO_HMAC_CASES"
       continue
     fi
