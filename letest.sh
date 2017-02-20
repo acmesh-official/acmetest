@@ -381,6 +381,7 @@ if [ "$DOCKER_OS" = "centos:5" ] \
  if ! grep "insecure" ~/.curlrc >/dev/null; then
    echo insecure >>~/.curlrc
  fi
+ NO_HMAC_CASES="1"
 fi 
 
 if [ "$DOCKER_OS" = "gentoo/stage3-amd64" ] || [ "$TEST_NGROK" = "1" ]; then
@@ -1451,6 +1452,11 @@ le_test_dnsapi() {
       continue
     fi
 
+    if [ "$NO_HMAC_CASES" = "1" ] && [ "$dnsapi" = "dns_aws" ]; then
+      _info "Skipped for NO_HMAC_CASES"
+      continue
+    fi
+    
     d_sleep="$(eval "echo \$$dnssleep")"
     
     (
