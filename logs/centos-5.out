@@ -9,7 +9,7 @@ Step 3 : RUN yum -q -y install    openssl vixie-cron nc curl  2>&1
  ---> 83cce30f8b15
 Successfully built 83cce30f8b15
 grep: /root/.curlrc: No such file or directory
-Mon, 20 Feb 2017 13:53:17 UTC
+Fri, 24 Feb 2017 09:41:57 UTC
 Testing branch: master
 Progress: 1/23
 ==Running le_test_dependencies please wait
@@ -24,7 +24,7 @@ Progress: 2/23
 ==Running le_test_install please wait
 ./acme.sh install [PASS]
 /root/.acme.sh/acme.sh exists. [PASS]
-_contains '18 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
+_contains '58 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
 /root/.acme.sh/acme.sh uninstall  > /dev/null [PASS]
 ------------------------------------------
 Progress: 3/23
@@ -38,7 +38,7 @@ Progress: 4/23
 ==Running le_test_installtodir please wait
 ./acme.sh install [PASS]
 /root/myle/acme.sh exists. [PASS]
-_contains '19 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
+_contains '59 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
 /root/myle/acme.sh uninstall [PASS]
 ------------------------------------------
 Progress: 5/23
@@ -52,7 +52,7 @@ Progress: 6/23
 ==Running le_test_install_config_home please wait
 ./acme.sh --install --config-home /root/etc/acme [PASS]
 /root/.acme.sh/acme.sh exists. [PASS]
-_contains '20 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
+_contains '0 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
 /root/etc/acme/account.conf exists. [PASS]
 /root/.acme.sh/account.conf no exists. [PASS]
 /root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null [PASS]
@@ -210,10 +210,5 @@ ME_Key is not defined, skip:dnsmadeeasy.com_api
 NSUPDATE_KEY is not defined, skip:nsupdate_api
 OVH_AK is not defined, skip:OVH.com_api
 PDNS_Token is not defined, skip:powerdns.com_api
-Testing dns_ali aliyun_api
-TestingDomain='winux.top'
-/root/.acme.sh/acme.sh --issue -d "winux.top" --dns dns_ali --dnssleep "60"  [PASS]
-/root/.acme.sh/winux.top/winux.top.cer is cert ? 'winux.top' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/winux.top/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/acme.sh --deactivate -d "winux.top" >/dev/null 2>&1 [PASS]
+The test domain Test_ALI_Domain is not defined, skip:aliyun_api
 ------------------------------------------
