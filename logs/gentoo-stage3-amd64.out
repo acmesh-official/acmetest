@@ -9,7 +9,7 @@ Step 3 : RUN ACCEPT_KEYWORDS="~amd64" emerge   net-misc/curl sys-process/vixie-c
  ---> 7e14b55b9c06
 Successfully built 7e14b55b9c06
 grep: /root/.curlrc: No such file or directory
-Mon, 20 Feb 2017 00:12:45 UTC
+Fri, 24 Feb 2017 15:30:12 UTC
 Testing branch: master
 Progress: 1/23
 ==Running le_test_dependencies please wait
@@ -24,7 +24,7 @@ Progress: 2/23
 ==Running le_test_install please wait
 ./acme.sh install [PASS]
 /root/.acme.sh/acme.sh exists. [PASS]
-_contains '46 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
+_contains '13 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
 /root/.acme.sh/acme.sh uninstall  > /dev/null [PASS]
 ------------------------------------------
 Progress: 3/23
@@ -38,7 +38,7 @@ Progress: 4/23
 ==Running le_test_installtodir please wait
 ./acme.sh install [PASS]
 /root/myle/acme.sh exists. [PASS]
-_contains '47 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
+_contains '14 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
 /root/myle/acme.sh uninstall [PASS]
 ------------------------------------------
 Progress: 5/23
@@ -52,7 +52,7 @@ Progress: 6/23
 ==Running le_test_install_config_home please wait
 ./acme.sh --install --config-home /root/etc/acme [PASS]
 /root/.acme.sh/acme.sh exists. [PASS]
-_contains '48 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
+_contains '15 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
 /root/etc/acme/account.conf exists. [PASS]
 /root/.acme.sh/account.conf no exists. [PASS]
 /root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null [PASS]
@@ -193,12 +193,7 @@ TestingDomain='certcompliance.org'
 /root/.acme.sh/certcompliance.org/certcompliance.org.cer is cert ? 'certcompliance.org' 'Fake LE Intermediate X1' [PASS]
 /root/.acme.sh/certcompliance.org/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
 /root/.acme.sh/acme.sh --deactivate -d "certcompliance.org" >/dev/null 2>&1 [PASS]
-Testing dns_aws Amazon_Route53_api
-TestingDomain='awsroute53.acme.sh'
-/root/.acme.sh/acme.sh --issue -d "awsroute53.acme.sh" --dns dns_aws --dnssleep "60"  [PASS]
-/root/.acme.sh/awsroute53.acme.sh/awsroute53.acme.sh.cer is cert ? 'awsroute53.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/awsroute53.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/acme.sh --deactivate -d "awsroute53.acme.sh" >/dev/null 2>&1 [PASS]
+Skipped for NO_HMAC_CASES
 Testing dns_lua luadns.com_api
 TestingDomain='luadns.acme.sh'
 /root/.acme.sh/acme.sh --issue -d "luadns.acme.sh" --dns dns_lua --dnssleep ""  [PASS]
