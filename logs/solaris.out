@@ -1,5 +1,5 @@
 
-Sat, 25 Feb 2017 13:35:09 GMT
+Sat, 25 Feb 2017 14:52:47 GMT
 Testing branch: master
 Progress: 1/23
 ==Running le_test_dependencies please wait
@@ -12,7 +12,7 @@ nc installed. [PASS]
 ==Running le_test_install please wait
 ./acme.sh install [PASS]
 /root/.acme.sh/acme.sh exists. [PASS]
-_contains '10 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
+_contains '49 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
 /root/.acme.sh/acme.sh uninstall  > /dev/null [PASS]
 ------------------------------------------
 Progress: 3/23
@@ -26,7 +26,7 @@ equals  [PASS]
 ==Running le_test_installtodir please wait
 ./acme.sh install [PASS]
 /root/myle/acme.sh exists. [PASS]
-_contains '13 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
+_contains '51 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
 /root/myle/acme.sh uninstall [PASS]
 ------------------------------------------
 Progress: 5/23
@@ -40,7 +40,7 @@ equals  [PASS]
 ==Running le_test_install_config_home please wait
 ./acme.sh --install --config-home /root/etc/acme [PASS]
 /root/.acme.sh/acme.sh exists. [PASS]
-_contains '15 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
+_contains '53 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
 /root/etc/acme/account.conf exists. [PASS]
 /root/.acme.sh/account.conf no exists. [PASS]
 /root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null [PASS]
@@ -104,7 +104,12 @@ Skipped by TEST_IPV6
 ------------------------------------------
 Progress: 12/23
 ==Running le_test_standandalone_deactivate_v2 please wait
-/root/.acme.sh/acme.sh --issue -d testsolaris.acme.sh --standalone --certpath '/root/acmetest/certs/domain.cer' --keypath '/root/acmetest/certs/domain.key'  --capath '/root/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/root/acmetest/certs/full.cer'[1;31;40m [FAIL] 
+/root/.acme.sh/acme.sh --issue -d testsolaris.acme.sh --standalone --certpath '/root/acmetest/certs/domain.cer' --keypath '/root/acmetest/certs/domain.key'  --capath '/root/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/root/acmetest/certs/full.cer' [PASS]
+'/root/.acme.sh/testsolaris.acme.sh/testsolaris.acme.sh.cer' equals '/root/acmetest/certs/domain.cer' [PASS]
+'/root/.acme.sh/testsolaris.acme.sh/testsolaris.acme.sh.key' equals '/root/acmetest/certs/domain.key' [PASS]
+'/root/.acme.sh/testsolaris.acme.sh/ca.cer' equals '/root/acmetest/certs/ca.cer' [PASS]
+'/root/.acme.sh/testsolaris.acme.sh/fullchain.cer' equals '/root/acmetest/certs/full.cer' [PASS]
+/root/.acme.sh/acme.sh --deactivate -d testsolaris.acme.sh [PASS]
 ------------------------------------------
 Progress: 13/23
 ==Running le_test_standandalone please wait
