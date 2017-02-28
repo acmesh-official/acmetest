@@ -1426,6 +1426,7 @@ le_test_dnsapi() {
   dns_ovh,OVH_AK,OVH.com_api,Test_OVH_Domain,OVH_Sleep
   dns_pdns,PDNS_Token,powerdns.com_api,Test_PDNS_Domain,PDNS_Sleep
   dns_ali,Ali_Key,aliyun_api,Test_ALI_Domain,ALI_Sleep
+  dns_gandi_livedns,GANDI_LIVEDNS_KEY,gandi_livedns,Test_GANDI_Domain,GANDI_Sleep
   "
   
   for dnsapi in $dnsapis; do
