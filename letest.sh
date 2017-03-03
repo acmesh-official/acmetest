@@ -382,6 +382,7 @@ if [ "$DOCKER_OS" = "centos:5" ] \
    echo insecure >>~/.curlrc
  fi
  NO_HMAC_CASES="1"
+ TEST_DNS=""
 fi 
 
 if [ "$DOCKER_OS" = "gentoo/stage3-amd64" ] || [ "$TEST_NGROK" = "1" ]; then
