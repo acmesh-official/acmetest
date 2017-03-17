@@ -81,6 +81,9 @@ _getLogfile() {
   printf "%s" "logs/$statusfile.log"
 }
 
+_time() {
+  date -u "+%s"
+}
 
 #update plat code [file]
 update() {
@@ -125,13 +128,13 @@ update() {
     
     outfile="$(_getOutfile "$plat")"
     
-    _setopt "$filename" "|$plat| " '!' "[]($Img/$statusfile.svg?$(_date_u))| $(_date_u)| [$_status]($LogLink/$outfile) |"
+    _setopt "$filename" "|$plat| " '!' "[]($Img/$statusfile.svg?$(_time))| $(_date_u)| [$_status]($LogLink/$outfile) |"
     
-    _sed_i  's/\x1b\[1;31;32m//g' "$outfile" >/dev/null 2>&1
-    _sed_i  's/\[1;31;32m//g' "$outfile" >/dev/null 2>&1
-    
-    _sed_i  's/\x1b\[0m//g' "$outfile" >/dev/null 2>&1
-    _sed_i  's/\[0m//g' "$outfile" >/dev/null 2>&1
+    #_sed_i  's/\x1b\[1;31;32m//g' "$outfile" >/dev/null 2>&1
+    #_sed_i  's/\[1;31;32m//g' "$outfile" >/dev/null 2>&1
+    #
+    #_sed_i  's/\x1b\[0m//g' "$outfile" >/dev/null 2>&1
+    #_sed_i  's/\[0m//g' "$outfile" >/dev/null 2>&1
     
     git add "$outfile" >/dev/null 2>&1
     
