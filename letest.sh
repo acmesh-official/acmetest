@@ -837,12 +837,13 @@ le_test_standandalone_listen_v4_v2() {
   rm -rf "$lehome/$TestingDomain"
   
   certdir="$(pwd)/certs"
+  rm -rf "$certdir"
   mkdir -p "$certdir"
   cert="$certdir/domain.cer"
   key="$certdir/domain.key"
   ca="$certdir/ca.cer"
   full="$certdir/full.cer"
-  _assertcmd "$lehome/$PROJECT_ENTRY --issue -d $TestingDomain --standalone --listen-v4 --certpath '$cert' --keypath '$key'  --capath '$ca'  --reloadcmd 'echo this is reload'  --fullchainpath  '$full'" ||  return
+  _assertcmd "$lehome/$PROJECT_ENTRY --issue -d $TestingDomain --standalone --listen-v4 --cert-file '$cert' --key-file '$key'  --ca-file '$ca'  --reloadcmd 'echo this is reload'  --fullchain-file  '$full'" ||  return
   
   _assertfileequals "$lehome/$TestingDomain/$TestingDomain.cer" "$cert" ||  return
   _assertfileequals "$lehome/$TestingDomain/$TestingDomain.key" "$key" ||  return
