@@ -961,6 +961,7 @@ le_test_standandalone_deactivate_v2() {
   rm -rf "$lehome/$TestingDomain"
   
   certdir="$(pwd)/certs"
+  rm -rf "$certdir"
   mkdir -p "$certdir"
   cert="$certdir/domain.cer"
   key="$certdir/domain.key"
