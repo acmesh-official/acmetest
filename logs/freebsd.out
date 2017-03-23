@@ -1,5 +1,5 @@
 
-Fri, 17 Mar 2017 06:59:11 UTC
+Thu, 23 Mar 2017 16:00:10 UTC
 Testing branch: master
 [1;31;32mProgress: 1/23[0m
 ==Running le_test_dependencies please wait
@@ -26,7 +26,7 @@ equals [1;31;32m [PASS][0m
 ==Running le_test_installtodir please wait
 ./acme.sh install[1;31;32m [PASS][0m
 /root/myle/acme.sh exists.[1;31;32m [PASS][0m
-_contains '19 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null'[1;31;32m [PASS][0m
+_contains '18 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null'[1;31;32m [PASS][0m
 /root/myle/acme.sh uninstall[1;31;32m [PASS][0m
 ------------------------------------------
 [1;31;32mProgress: 5/23[0m
@@ -85,7 +85,7 @@ FORCE=1 /root/.acme.sh/acme.sh renew testfreebsd.acme.sh[1;31;32m [PASS][0m
 ------------------------------------------
 [1;31;32mProgress: 10/23[0m
 ==Running le_test_standandalone_listen_v4_v2 please wait
-/root/.acme.sh/acme.sh --issue -d testfreebsd.acme.sh --standalone --listen-v4 --certpath '/root/acmetest/certs/domain.cer' --keypath '/root/acmetest/certs/domain.key'  --capath '/root/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/root/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --issue -d testfreebsd.acme.sh --standalone --listen-v4 --cert-file '/root/acmetest/certs/domain.cer' --key-file '/root/acmetest/certs/domain.key'  --ca-file '/root/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchain-file  '/root/acmetest/certs/full.cer'[1;31;32m [PASS][0m
 '/root/.acme.sh/testfreebsd.acme.sh/testfreebsd.acme.sh.cer' equals '/root/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
 '/root/.acme.sh/testfreebsd.acme.sh/testfreebsd.acme.sh.key' equals '/root/acmetest/certs/domain.key'[1;31;32m [PASS][0m
 '/root/.acme.sh/testfreebsd.acme.sh/ca.cer' equals '/root/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
