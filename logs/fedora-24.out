@@ -1,95 +1,14 @@
 Sending build context to Docker daemon 2.048 kB
 Step 1 : FROM fedora:24
-24: Pulling from library/fedora
-2bf01635e2a0: Pulling fs layer
-2bf01635e2a0: Verifying Checksum
-2bf01635e2a0: Download complete
-2bf01635e2a0: Pull complete
-Digest: sha256:7ffee69dbfaea363cba55db07942a5c0d29f291eaf510edd6c07f139001f4174
-Status: Downloaded newer image for fedora:24
  ---> f623aaef07f0
 Step 2 : RUN yum -q -y update     2>&1
- ---> Running in 5ec4df64eaa4
-Yum command has been deprecated, redirecting to '/usr/bin/dnf -q -y update'.
-See 'man dnf' and 'man yum2dnf' for more information.
-To transfer transaction metadata from yum to DNF, run:
-'dnf install python-dnf-plugins-extras-migrate && dnf-2 migrate'
-
-/usr/share/locale/ar/LC_MESSAGES/chkconfig.mo: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/man/man8/ca-legacy.8.gz: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/doc/coreutils-common/ABOUT-NLS: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/doc/bash-completion/AUTHORS: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/doc/curl/BUGS: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/locale/cs/LC_MESSAGES/cryptsetup.mo: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/locale/fr/LC_MESSAGES/bash.mo: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/locale/bg/LC_MESSAGES/dnf.mo: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/locale/cs/LC_MESSAGES/glib20.mo: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/locale/de/LC_MESSAGES/gawk.mo: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/doc/gmp/NEWS: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/doc/gnutls/AUTHORS: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/doc/libassuan/AUTHORS: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/doc/krb5-libs/NOTICE: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/locale/nl/LC_MESSAGES/libgpg-error.mo: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/doc/libgcrypt/AUTHORS: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/locale/en@boldquot/LC_MESSAGES/libidn.mo: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/doc/libksba/AUTHORS: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/doc/libmnl/README: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/doc/libsolv/README: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/doc/libtasn1/AUTHORS: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/doc/libxkbcommon/COPYING: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/doc/glibc/BUGS: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/doc/nettle/AUTHORS: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/doc/lua/README: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/doc/python3-pygpgme/PKG-INFO: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/locale/fi/LC_MESSAGES/rpm.mo: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/man/man5/cert8.db.5.gz: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/man/man8/systemd-activate.8.gz: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/doc/python3-libs/LICENSE: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/lib64/python3.5/email/architecture.rst: No such file or directory
-cannot reconstruct rpm from disk files
-Failed to connect to bus: No such file or directory
-Failed to connect to bus: No such file or directory
+ ---> Using cache
  ---> 93b22afde8d0
-Removing intermediate container 5ec4df64eaa4
 Step 3 : RUN yum -q -y install    tar openssl crontabs nc curl  2>&1
- ---> Running in b97138ea78a3
-Redirecting to '/usr/bin/dnf -q -y install tar openssl crontabs nc curl' (see 'man yum2dnf')
-
-Package curl-7.47.1-10.fc24.x86_64 is already installed, skipping.
+ ---> Using cache
  ---> 35e1b6c62c41
-Removing intermediate container b97138ea78a3
 Successfully built 35e1b6c62c41
-Fri, 24 Mar 2017 02:40:22 UTC
+Fri, 24 Mar 2017 02:47:20 UTC
 Testing branch: master
 [1;31;32mProgress: 1/23[0m
 ==Running le_test_dependencies please wait
@@ -104,7 +23,7 @@ nc installed.[1;31;32m [PASS][0m
 ==Running le_test_install please wait
 ./acme.sh install[1;31;32m [PASS][0m
 /root/.acme.sh/acme.sh exists.[1;31;32m [PASS][0m
-_contains '23 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null'[1;31;32m [PASS][0m
+_contains '21 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null'[1;31;32m [PASS][0m
 /root/.acme.sh/acme.sh uninstall  > /dev/null[1;31;32m [PASS][0m
 ------------------------------------------
 [1;31;32mProgress: 3/23[0m
@@ -118,7 +37,7 @@ equals [1;31;32m [PASS][0m
 ==Running le_test_installtodir please wait
 ./acme.sh install[1;31;32m [PASS][0m
 /root/myle/acme.sh exists.[1;31;32m [PASS][0m
-_contains '25 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null'[1;31;32m [PASS][0m
+_contains '22 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null'[1;31;32m [PASS][0m
 /root/myle/acme.sh uninstall[1;31;32m [PASS][0m
 ------------------------------------------
 [1;31;32mProgress: 5/23[0m
@@ -132,7 +51,7 @@ equals [1;31;32m [PASS][0m
 ==Running le_test_install_config_home please wait
 ./acme.sh --install --config-home /root/etc/acme[1;31;32m [PASS][0m
 /root/.acme.sh/acme.sh exists.[1;31;32m [PASS][0m
-_contains '25 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null'[1;31;32m [PASS][0m
+_contains '23 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null'[1;31;32m [PASS][0m
 /root/etc/acme/account.conf exists.[1;31;32m [PASS][0m
 /root/.acme.sh/account.conf no exists.[1;31;32m [PASS][0m
 /root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null[1;31;32m [PASS][0m
@@ -196,7 +115,12 @@ Skipped by TEST_IPV6
 ------------------------------------------
 [1;31;32mProgress: 12/23[0m
 ==Running le_test_standandalone_deactivate_v2 please wait
-/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer'[1;31;40m [FAIL] [0m
+/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --deactivate -d testdocker.acme.sh[1;31;32m [PASS][0m
 ------------------------------------------
 [1;31;32mProgress: 13/23[0m
 ==Running le_test_standandalone please wait
