@@ -1,0 +1,239 @@
+Sending build context to Docker daemon 2.048 kB
+Step 1 : FROM alpine:3.4
+3.4: Pulling from library/alpine
+709515475419: Pulling fs layer
+709515475419: Verifying Checksum
+709515475419: Download complete
+709515475419: Pull complete
+Digest: sha256:39d4b2f8d3f37bc1321b04ca9bca0681c6ba65ef5a8610793383710e3aecf8b5
+Status: Downloaded newer image for alpine:3.4
+ ---> 245f7a86c576
+Step 2 : RUN apk update -f 2>&1
+ ---> Running in 229e1d5fa4b2
+fetch http://dl-cdn.alpinelinux.org/alpine/v3.4/main/x86_64/APKINDEX.tar.gz
+fetch http://dl-cdn.alpinelinux.org/alpine/v3.4/community/x86_64/APKINDEX.tar.gz
+v3.4.6-83-g67e50bc [http://dl-cdn.alpinelinux.org/alpine/v3.4/main]
+v3.4.6-83-g67e50bc [http://dl-cdn.alpinelinux.org/alpine/v3.4/community]
+OK: 5972 distinct packages available
+ ---> e8c03d88cdef
+Removing intermediate container 229e1d5fa4b2
+Step 3 : RUN apk --no-cache add -f openssl curl netcat-openbsd  2>&1
+ ---> Running in cc2bf0aa2216
+fetch http://dl-cdn.alpinelinux.org/alpine/v3.4/main/x86_64/APKINDEX.tar.gz
+fetch http://dl-cdn.alpinelinux.org/alpine/v3.4/community/x86_64/APKINDEX.tar.gz
+(1/10) Installing ca-certificates (20161130-r0)
+(2/10) Installing libssh2 (1.7.0-r0)
+(3/10) Installing libcurl (7.52.1-r1)
+(4/10) Installing curl (7.52.1-r1)
+(5/10) Installing libffi (3.2.1-r2)
+(6/10) Installing libintl (0.19.7-r3)
+(7/10) Installing pcre (8.38-r1)
+(8/10) Installing glib (2.48.0-r0)
+(9/10) Installing netcat-openbsd (1.89-r2)
+(10/10) Installing openssl (1.0.2k-r0)
+Executing busybox-1.24.2-r13.trigger
+Executing ca-certificates-20161130-r0.trigger
+Executing glib-2.48.0-r0.trigger
+OK: 10 MiB in 21 packages
+ ---> 38e8b3b8b2fa
+Removing intermediate container cc2bf0aa2216
+Successfully built 38e8b3b8b2fa
+Fri, 24 Mar 2017 03:49:01 UTC
+Testing branch: master
+[1;31;32mProgress: 1/23[0m
+==Running le_test_dependencies please wait
+curl installed.[1;31;32m [PASS][0m
+crontab installed.[1;31;32m [PASS][0m
+openssl installed.[1;31;32m [PASS][0m
+nc installed.[1;31;32m [PASS][0m
+------------------------------------------
+[1;31;32mProgress: 2/23[0m
+==Running le_test_install please wait
+./acme.sh install[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh exists.[1;31;32m [PASS][0m
+_contains '2 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh uninstall  > /dev/null[1;31;32m [PASS][0m
+------------------------------------------
+[1;31;32mProgress: 3/23[0m
+==Running le_test_uninstall please wait
+./acme.sh install[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh uninstall[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh no exists.[1;31;32m [PASS][0m
+equals [1;31;32m [PASS][0m
+------------------------------------------
+[1;31;32mProgress: 4/23[0m
+==Running le_test_installtodir please wait
+./acme.sh install[1;31;32m [PASS][0m
+/root/myle/acme.sh exists.[1;31;32m [PASS][0m
+_contains '2 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null'[1;31;32m [PASS][0m
+/root/myle/acme.sh uninstall[1;31;32m [PASS][0m
+------------------------------------------
+[1;31;32mProgress: 5/23[0m
+==Running le_test_uninstalltodir please wait
+./acme.sh install[1;31;32m [PASS][0m
+/root/myle/acme.sh uninstall[1;31;32m [PASS][0m
+/root/myle/acme.sh no exists.[1;31;32m [PASS][0m
+equals [1;31;32m [PASS][0m
+------------------------------------------
+[1;31;32mProgress: 6/23[0m
+==Running le_test_install_config_home please wait
+./acme.sh --install --config-home /root/etc/acme[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh exists.[1;31;32m [PASS][0m
+_contains '2 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null'[1;31;32m [PASS][0m
+/root/etc/acme/account.conf exists.[1;31;32m [PASS][0m
+/root/.acme.sh/account.conf no exists.[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --uninstall --config-home /root/etc/acme > /dev/null[1;31;32m [PASS][0m
+/root/etc/acme/account.conf exists.[1;31;32m [PASS][0m
+/root/.acme.sh/account.conf no exists.[1;31;32m [PASS][0m
+------------------------------------------
+[1;31;32mProgress: 7/23[0m
+==Running le_test_standandalone_renew please wait
+/root/.acme.sh/acme.sh issue no testdocker.acme.sh[1;31;32m [PASS][0m
+FORCE=1 /root/.acme.sh/acme.sh renew testdocker.acme.sh[1;31;32m [PASS][0m
+------------------------------------------
+[1;31;32mProgress: 8/23[0m
+==Running le_test_standandalone_renew_v2 please wait
+/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+------------------------------------------
+[1;31;32mProgress: 9/23[0m
+==Running le_test_standandalone_renew_localaddress_v2 please wait
+/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --local-address 0.0.0.0 --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+------------------------------------------
+[1;31;32mProgress: 10/23[0m
+==Running le_test_standandalone_listen_v4_v2 please wait
+/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --listen-v4 --cert-file '/acmetest/certs/domain.cer' --key-file '/acmetest/certs/domain.key'  --ca-file '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchain-file  '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+------------------------------------------
+[1;31;32mProgress: 11/23[0m
+==Running le_test_standandalone_listen_v6_v2 please wait
+Skipped by TEST_IPV6
+------------------------------------------
+[1;31;32mProgress: 12/23[0m
+==Running le_test_standandalone_deactivate_v2 please wait
+/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --deactivate -d testdocker.acme.sh[1;31;32m [PASS][0m
+------------------------------------------
+[1;31;32mProgress: 13/23[0m
+==Running le_test_standandalone please wait
+/root/.acme.sh/acme.sh issue no testdocker.acme.sh[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+------------------------------------------
+[1;31;32mProgress: 14/23[0m
+==Running le_test_standandalone_SAN please wait
+/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh"[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+------------------------------------------
+[1;31;32mProgress: 15/23[0m
+==Running le_test_standandalone_ECDSA_256 please wait
+/root/.acme.sh/acme.sh issue no testdocker.acme.sh no ec-256[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+------------------------------------------
+[1;31;32mProgress: 16/23[0m
+==Running le_test_standandalone_ECDSA_256_renew please wait
+/root/.acme.sh/acme.sh issue no testdocker.acme.sh no ec-256[1;31;32m [PASS][0m
+FORCE=1 /root/.acme.sh/acme.sh renew testdocker.acme.sh[1;31;32m [PASS][0m
+------------------------------------------
+[1;31;32mProgress: 17/23[0m
+==Running le_test_standandalone_ECDSA_256_SAN_renew please wait
+/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh" ec-256[1;31;32m [PASS][0m
+FORCE=1 /root/.acme.sh/acme.sh renew "testdocker.acme.sh"[1;31;32m [PASS][0m
+------------------------------------------
+[1;31;32mProgress: 18/23[0m
+==Running le_test_standandalone_ECDSA_256_SAN_renew_v2 please wait
+/root/.acme.sh/acme.sh --issue -d "testdocker.acme.sh" -d "testdocker2.acme.sh" --standalone --keylength ec-256 --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh_ecc/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --renew --ecc -d "testdocker.acme.sh" --force[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh_ecc/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+------------------------------------------
+[1;31;32mProgress: 19/23[0m
+==Running le_test_standandalone_ECDSA_384 please wait
+/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" no ec-384[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+------------------------------------------
+[1;31;32mProgress: 20/23[0m
+==Running le_test_standandalone_tls_renew_SAN_v2 please wait
+/root/.acme.sh/acme.sh --issue -d "testdocker.acme.sh" --tls  -d "testdocker2.acme.sh" --standalone [1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --renew -d "testdocker.acme.sh" --force[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+------------------------------------------
+[1;31;32mProgress: 21/23[0m
+==Running le_test_tls_renew_SAN_v2 please wait
+/root/.acme.sh/acme.sh --issue -d "testdocker.acme.sh" -d "testdocker2.acme.sh" --tls[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --renew -d "testdocker.acme.sh" --force[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+------------------------------------------
+[1;31;32mProgress: 22/23[0m
+==Running le_test_standandalone_renew_idn_v2 please wait
+Skipped by TEST_IDN
+------------------------------------------
+[1;31;32mProgress: 23/23[0m
+==Running le_test_dnsapi please wait
+The test domain Test_CF_Domain is not defined, skip:ClourFlare_api
+The test domain Test_CX_Domain is not defined, skip:CloudXNS.com_api
+The test domain Test_DP_Domain is not defined, skip:Dnspod.cn_api
+The test domain Test_GD_Domain is not defined, skip:Godaddy_api
+The test domain Test_AWS_Domain is not defined, skip:Amazon_Route53_api
+The test domain Test_LUA_Domain is not defined, skip:luadns.com_api
+ME_Key is not defined, skip:dnsmadeeasy.com_api
+NSUPDATE_KEY is not defined, skip:nsupdate_api
+OVH_AK is not defined, skip:OVH.com_api
+PDNS_Token is not defined, skip:powerdns.com_api
+The test domain Test_ALI_Domain is not defined, skip:aliyun_api
+Testing dns_gandi_livedns gandi_livedns
+TestingDomain='acmetest.xyz'
+/root/.acme.sh/acme.sh --issue -d "acmetest.xyz" --dns dns_gandi_livedns --dnssleep "60" [1;31;32m [PASS][0m
+/root/.acme.sh/acmetest.xyz/acmetest.xyz.cer is cert ? 'acmetest.xyz' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/acmetest.xyz/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --deactivate -d "acmetest.xyz" >/dev/null 2>&1[1;31;32m [PASS][0m
+------------------------------------------
