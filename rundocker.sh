@@ -291,12 +291,15 @@ _runplat() {
   _debug "install" "$install"
   
   if [ "$install" ] ; then
+  
+    echo "RUN ${update:+$update $buildq &&} $install \\" >> "$myplat/Dockerfile"
+
     tools="$(_mergefield "$platline" "$baseline" 4)"
     if [ "$tools" ] ; then
       toolsline=$(echo "$tools" |  tr ',' ' ' )
 
       if [ "$toolsline" ] ; then
-        echo "RUN $install $toolsline  $buildq"  >>  "$myplat/Dockerfile"
+        echo "$toolsline  $buildq"  >>  "$myplat/Dockerfile"
       fi
 
     fi
