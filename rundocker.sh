@@ -282,11 +282,7 @@ _runplat() {
   if [ "$DEBUG" ] || [ "$DEBUGING" ] ; then
     buildq=""
   fi
-  
-  if [ "$update" ] ; then
-    echo "RUN $update $buildq" >>  "$myplat/Dockerfile"
-  fi
-  
+ 
   install="$(_mergefield "$platline" "$baseline" 3)"
   _debug "install" "$install"
   
