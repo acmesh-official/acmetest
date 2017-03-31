@@ -1,14 +1,31 @@
 Sending build context to Docker daemon 2.048 kB
 Step 1 : FROM mageia
  ---> 9171f919fb09
-Step 2 : RUN urpmi --auto-update --auto -q  2>&1
- ---> Using cache
- ---> d064657fcc27
-Step 3 : RUN urpmi --auto -q  openssl netcat idn  2>&1
- ---> Using cache
- ---> 8e5d29e73319
-Successfully built 8e5d29e73319
-Fri, 24 Mar 2017 04:35:37 UTC
+Step 2 : RUN urpmi --auto-update --auto -q  2>&1 && urpmi --auto -q  openssl netcat idn  2>&1
+ ---> Running in 75c42ec0afdb
+    http://mirrors.ustc.edu.cn/mageia/distrib/5/x86_64/media/core/updates/media_info/20170327-212623-synthesis.hdlist.cz
+        0% of 0 completed, ETA = --:--:--, speed = 0                                   1% of 417k completed, ETA = 0:01:32, speed = 7350                              69% of 417k completed, ETA = 0:00:01, speed = 191k                             100% of 417k completed, ETA = --:--:--, speed = 240k                                                                                                      http://mirrors.ustc.edu.cn/mageia/distrib/5/i586/media/core/updates/media_info/20170327-212229-synthesis.hdlist.cz
+        0% of 0 completed, ETA = --:--:--, speed = 0                                   0% of 421k completed, ETA = 0:02:19, speed = 3107                              51% of 421k completed, ETA = 0:00:02, speed = 116k                             100% of 421k completed, ETA = --:--:--, speed = 225k                                                                                                  Failed to get D-Bus connection: Unknown error -1
+You should restart your computer for glibc
+restarting urpmi
+warning: file /usr/share/doc/bash/bashref.html: remove failed: No such file or directory
+warning: file /usr/share/doc/bash/bash.html: remove failed: No such file or directory
+warning: file /usr/share/doc/bash/README: remove failed: No such file or directory
+warning: file /usr/share/doc/bash/RBASH: remove failed: No such file or directory
+warning: file /usr/share/doc/bash/POSIX: remove failed: No such file or directory
+warning: file /usr/share/doc/bash/NEWS: remove failed: No such file or directory
+warning: file /usr/share/doc/bash/INTRO: remove failed: No such file or directory
+warning: file /usr/share/doc/bash/FAQ: remove failed: No such file or directory
+warning: file /usr/share/doc/bash/COMPAT: remove failed: No such file or directory
+warning: file /usr/share/doc/bash/CHANGES: remove failed: No such file or directory
+Failed to get D-Bus connection: Unknown error -1
+Failed to get D-Bus connection: Unknown error -1
+warning: file /usr/share/doc/lib64archive13/README: remove failed: No such file or directory
+You should restart your computer for glibc, systemd
+ ---> 4bc77114d31b
+Removing intermediate container 75c42ec0afdb
+Successfully built 4bc77114d31b
+Fri, 31 Mar 2017 04:10:15 UTC
 Testing branch: master
 [1;31;32mProgress: 1/23[0m
 ==Running le_test_dependencies please wait
@@ -23,7 +40,7 @@ nc installed.[1;31;32m [PASS][0m
 ==Running le_test_install please wait
 ./acme.sh install[1;31;32m [PASS][0m
 /root/.acme.sh/acme.sh exists.[1;31;32m [PASS][0m
-_contains '39 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null'[1;31;32m [PASS][0m
+_contains '17 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null'[1;31;32m [PASS][0m
 /root/.acme.sh/acme.sh uninstall  > /dev/null[1;31;32m [PASS][0m
 ------------------------------------------
 [1;31;32mProgress: 3/23[0m
@@ -37,7 +54,7 @@ equals [1;31;32m [PASS][0m
 ==Running le_test_installtodir please wait
 ./acme.sh install[1;31;32m [PASS][0m
 /root/myle/acme.sh exists.[1;31;32m [PASS][0m
-_contains '40 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null'[1;31;32m [PASS][0m
+_contains '18 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null'[1;31;32m [PASS][0m
 /root/myle/acme.sh uninstall[1;31;32m [PASS][0m
 ------------------------------------------
 [1;31;32mProgress: 5/23[0m
@@ -51,7 +68,7 @@ equals [1;31;32m [PASS][0m
 ==Running le_test_install_config_home please wait
 ./acme.sh --install --config-home /root/etc/acme[1;31;32m [PASS][0m
 /root/.acme.sh/acme.sh exists.[1;31;32m [PASS][0m
-_contains '41 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null'[1;31;32m [PASS][0m
+_contains '18 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null'[1;31;32m [PASS][0m
 /root/etc/acme/account.conf exists.[1;31;32m [PASS][0m
 /root/.acme.sh/account.conf no exists.[1;31;32m [PASS][0m
 /root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null[1;31;32m [PASS][0m
