@@ -1,38 +1,11 @@
 Sending build context to Docker daemon 2.048 kB
 Step 1 : FROM ubuntu:17.04
-17.04: Pulling from library/ubuntu
-dc8785c9f730: Pulling fs layer
-1e5225b7cdc7: Pulling fs layer
-5f946cd1dcc8: Pulling fs layer
-69688ab1f2e9: Pulling fs layer
-559068fd143f: Pulling fs layer
-69688ab1f2e9: Waiting
-559068fd143f: Waiting
-1e5225b7cdc7: Download complete
-5f946cd1dcc8: Verifying Checksum
-5f946cd1dcc8: Download complete
-69688ab1f2e9: Verifying Checksum
-559068fd143f: Verifying Checksum
-559068fd143f: Download complete
-dc8785c9f730: Verifying Checksum
-dc8785c9f730: Download complete
-dc8785c9f730: Pull complete
-1e5225b7cdc7: Pull complete
-5f946cd1dcc8: Pull complete
-69688ab1f2e9: Pull complete
-559068fd143f: Pull complete
-Digest: sha256:33b6a09031b6515ef64739e25d1a454e57344a0352ea6c97f2780864334ba1b3
-Status: Downloaded newer image for ubuntu:17.04
  ---> 9c2402b05ac4
-Step 2 : RUN apt-get -qqy update && locale-gen en_US.UTF-8 && export LANG=en_US.UTF-8  2>&1
- ---> Running in 793eac4efffa
+Step 2 : RUN apt-get -qqy update && locale-gen en_US.UTF-8 && export LANG=en_US.UTF-8  2>&1 && apt-get -qqy install openssl cron netcat-openbsd curl idn  2>&1
+ ---> Running in 5ddc2f3e1528
 Generating locales (this might take a while)...
   en_US.UTF-8... done
 Generation complete.
- ---> bc2c6ccae352
-Removing intermediate container 793eac4efffa
-Step 3 : RUN apt-get -qqy install openssl cron netcat-openbsd curl idn  2>&1
- ---> Running in afb7682cda5a
 debconf: delaying package configuration, since apt-utils is not installed
 Selecting previously unselected package cron.
 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 6563 files and directories currently installed.)
@@ -215,10 +188,10 @@ Updating certificates in /etc/ssl/certs...
 0 added, 0 removed; done.
 Running hooks in /etc/ca-certificates/update.d...
 done.
- ---> bab0d7cac3b0
-Removing intermediate container afb7682cda5a
-Successfully built bab0d7cac3b0
-Fri, 24 Mar 2017 01:17:28 UTC
+ ---> 15155bf1dab1
+Removing intermediate container 5ddc2f3e1528
+Successfully built 15155bf1dab1
+Fri, 31 Mar 2017 00:20:09 UTC
 Testing branch: master
 [1;31;32mProgress: 1/23[0m
 ==Running le_test_dependencies please wait
@@ -233,7 +206,7 @@ nc installed.[1;31;32m [PASS][0m
 ==Running le_test_install please wait
 ./acme.sh install[1;31;32m [PASS][0m
 /root/.acme.sh/acme.sh exists.[1;31;32m [PASS][0m
-_contains '30 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null'[1;31;32m [PASS][0m
+_contains '10 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null'[1;31;32m [PASS][0m
 /root/.acme.sh/acme.sh uninstall  > /dev/null[1;31;32m [PASS][0m
 ------------------------------------------
 [1;31;32mProgress: 3/23[0m
@@ -247,7 +220,7 @@ equals [1;31;32m [PASS][0m
 ==Running le_test_installtodir please wait
 ./acme.sh install[1;31;32m [PASS][0m
 /root/myle/acme.sh exists.[1;31;32m [PASS][0m
-_contains '31 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null'[1;31;32m [PASS][0m
+_contains '11 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null'[1;31;32m [PASS][0m
 /root/myle/acme.sh uninstall[1;31;32m [PASS][0m
 ------------------------------------------
 [1;31;32mProgress: 5/23[0m
@@ -261,7 +234,7 @@ equals [1;31;32m [PASS][0m
 ==Running le_test_install_config_home please wait
 ./acme.sh --install --config-home /root/etc/acme[1;31;32m [PASS][0m
 /root/.acme.sh/acme.sh exists.[1;31;32m [PASS][0m
-_contains '31 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null'[1;31;32m [PASS][0m
+_contains '11 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null'[1;31;32m [PASS][0m
 /root/etc/acme/account.conf exists.[1;31;32m [PASS][0m
 /root/.acme.sh/account.conf no exists.[1;31;32m [PASS][0m
 /root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null[1;31;32m [PASS][0m
