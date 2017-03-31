@@ -1,24 +1,13 @@
 Sending build context to Docker daemon 2.048 kB
 Step 1 : FROM alpine:3.4
-3.4: Pulling from library/alpine
-709515475419: Pulling fs layer
-709515475419: Verifying Checksum
-709515475419: Download complete
-709515475419: Pull complete
-Digest: sha256:39d4b2f8d3f37bc1321b04ca9bca0681c6ba65ef5a8610793383710e3aecf8b5
-Status: Downloaded newer image for alpine:3.4
  ---> 245f7a86c576
-Step 2 : RUN apk update -f 2>&1
- ---> Running in 229e1d5fa4b2
+Step 2 : RUN apk update -f 2>&1 && apk --no-cache add -f openssl curl netcat-openbsd  2>&1
+ ---> Running in a2d4a87e6380
 fetch http://dl-cdn.alpinelinux.org/alpine/v3.4/main/x86_64/APKINDEX.tar.gz
 fetch http://dl-cdn.alpinelinux.org/alpine/v3.4/community/x86_64/APKINDEX.tar.gz
-v3.4.6-83-g67e50bc [http://dl-cdn.alpinelinux.org/alpine/v3.4/main]
+v3.4.6-84-g5ef9a22 [http://dl-cdn.alpinelinux.org/alpine/v3.4/main]
 v3.4.6-83-g67e50bc [http://dl-cdn.alpinelinux.org/alpine/v3.4/community]
 OK: 5972 distinct packages available
- ---> e8c03d88cdef
-Removing intermediate container 229e1d5fa4b2
-Step 3 : RUN apk --no-cache add -f openssl curl netcat-openbsd  2>&1
- ---> Running in cc2bf0aa2216
 fetch http://dl-cdn.alpinelinux.org/alpine/v3.4/main/x86_64/APKINDEX.tar.gz
 fetch http://dl-cdn.alpinelinux.org/alpine/v3.4/community/x86_64/APKINDEX.tar.gz
 (1/10) Installing ca-certificates (20161130-r0)
@@ -35,10 +24,10 @@ Executing busybox-1.24.2-r13.trigger
 Executing ca-certificates-20161130-r0.trigger
 Executing glib-2.48.0-r0.trigger
 OK: 10 MiB in 21 packages
- ---> 38e8b3b8b2fa
-Removing intermediate container cc2bf0aa2216
-Successfully built 38e8b3b8b2fa
-Fri, 24 Mar 2017 03:49:01 UTC
+ ---> fb7b8d7340ab
+Removing intermediate container a2d4a87e6380
+Successfully built fb7b8d7340ab
+Fri, 31 Mar 2017 03:09:40 UTC
 Testing branch: master
 [1;31;32mProgress: 1/23[0m
 ==Running le_test_dependencies please wait
@@ -51,7 +40,7 @@ nc installed.[1;31;32m [PASS][0m
 ==Running le_test_install please wait
 ./acme.sh install[1;31;32m [PASS][0m
 /root/.acme.sh/acme.sh exists.[1;31;32m [PASS][0m
-_contains '2 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null'[1;31;32m [PASS][0m
+_contains '41 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null'[1;31;32m [PASS][0m
 /root/.acme.sh/acme.sh uninstall  > /dev/null[1;31;32m [PASS][0m
 ------------------------------------------
 [1;31;32mProgress: 3/23[0m
@@ -65,7 +54,7 @@ equals [1;31;32m [PASS][0m
 ==Running le_test_installtodir please wait
 ./acme.sh install[1;31;32m [PASS][0m
 /root/myle/acme.sh exists.[1;31;32m [PASS][0m
-_contains '2 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null'[1;31;32m [PASS][0m
+_contains '41 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null'[1;31;32m [PASS][0m
 /root/myle/acme.sh uninstall[1;31;32m [PASS][0m
 ------------------------------------------
 [1;31;32mProgress: 5/23[0m
@@ -79,7 +68,7 @@ equals [1;31;32m [PASS][0m
 ==Running le_test_install_config_home please wait
 ./acme.sh --install --config-home /root/etc/acme[1;31;32m [PASS][0m
 /root/.acme.sh/acme.sh exists.[1;31;32m [PASS][0m
-_contains '2 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null'[1;31;32m [PASS][0m
+_contains '41 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null'[1;31;32m [PASS][0m
 /root/etc/acme/account.conf exists.[1;31;32m [PASS][0m
 /root/.acme.sh/account.conf no exists.[1;31;32m [PASS][0m
 /root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null[1;31;32m [PASS][0m
