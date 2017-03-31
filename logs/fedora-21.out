@@ -1,14 +1,19 @@
 Sending build context to Docker daemon 2.048 kB
 Step 1 : FROM fedora:21
  ---> c3f52f068a13
-Step 2 : RUN yum -q -y update     2>&1
- ---> Using cache
- ---> 4307549e98da
-Step 3 : RUN yum -q -y install    tar openssl crontabs nc curl  2>&1
- ---> Using cache
- ---> 5d7e49737d2a
-Successfully built 5d7e49737d2a
-Fri, 24 Mar 2017 02:15:39 UTC
+Step 2 : RUN yum -q -y update     2>&1 && yum -q -y install    tar openssl crontabs nc curl  2>&1
+ ---> Running in 90af3781a733
+Delta RPMs disabled because /usr/bin/applydeltarpm not installed.
+warning: /etc/shadow created as /etc/shadow.rpmnew
+install-info: No such file or directory for /usr/share/info/grep.info.gz
+install-info: No such file or directory for /usr/share/info/libidn.info.gz
+install-info: No such file or directory for /usr/share/info/gettext.info.gz
+install-info: No such file or directory for /usr/share/info/gnupg.info
+Package curl-7.37.0-14.fc21.x86_64 already installed and latest version
+ ---> 6c9fd8110574
+Removing intermediate container 90af3781a733
+Successfully built 6c9fd8110574
+Fri, 31 Mar 2017 01:28:56 UTC
 Testing branch: master
 [1;31;32mProgress: 1/23[0m
 ==Running le_test_dependencies please wait
@@ -23,7 +28,7 @@ nc installed.[1;31;32m [PASS][0m
 ==Running le_test_install please wait
 ./acme.sh install[1;31;32m [PASS][0m
 /root/.acme.sh/acme.sh exists.[1;31;32m [PASS][0m
-_contains '41 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null'[1;31;32m [PASS][0m
+_contains '59 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null'[1;31;32m [PASS][0m
 /root/.acme.sh/acme.sh uninstall  > /dev/null[1;31;32m [PASS][0m
 ------------------------------------------
 [1;31;32mProgress: 3/23[0m
@@ -37,7 +42,7 @@ equals [1;31;32m [PASS][0m
 ==Running le_test_installtodir please wait
 ./acme.sh install[1;31;32m [PASS][0m
 /root/myle/acme.sh exists.[1;31;32m [PASS][0m
-_contains '42 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null'[1;31;32m [PASS][0m
+_contains '0 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null'[1;31;32m [PASS][0m
 /root/myle/acme.sh uninstall[1;31;32m [PASS][0m
 ------------------------------------------
 [1;31;32mProgress: 5/23[0m
@@ -51,7 +56,7 @@ equals [1;31;32m [PASS][0m
 ==Running le_test_install_config_home please wait
 ./acme.sh --install --config-home /root/etc/acme[1;31;32m [PASS][0m
 /root/.acme.sh/acme.sh exists.[1;31;32m [PASS][0m
-_contains '43 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null'[1;31;32m [PASS][0m
+_contains '0 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null'[1;31;32m [PASS][0m
 /root/etc/acme/account.conf exists.[1;31;32m [PASS][0m
 /root/.acme.sh/account.conf no exists.[1;31;32m [PASS][0m
 /root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null[1;31;32m [PASS][0m
