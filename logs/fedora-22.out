@@ -2,38 +2,10 @@ Sending build context to Docker daemon 2.048 kB
 Step 1 : FROM fedora:22
  ---> 8b5cf972e254
 Step 2 : RUN yum -q -y update     2>&1 && yum -q -y install    tar openssl crontabs nc curl  2>&1
- ---> Running in 15c094f9a101
-Yum command has been deprecated, redirecting to '/usr/bin/dnf -q -y update'.
-See 'man dnf' and 'man yum2dnf' for more information.
-To transfer transaction metadata from yum to DNF, run:
-'dnf install python-dnf-plugins-extras-migrate && dnf-2 migrate'
-
-/usr/share/locale/de/LC_MESSAGES/elfutils.mo: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/man/man8/ca-legacy.8.gz: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/doc/lua/README: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/doc/libssh2/AUTHORS: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/doc/libarchive/NEWS: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/doc/libtasn1/AUTHORS: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/doc/python-libs/README: No such file or directory
-cannot reconstruct rpm from disk files
-warning: Unable to get systemd shutdown inhibition lock
-Yum command has been deprecated, redirecting to '/usr/bin/dnf -q -y install tar openssl crontabs nc curl'.
-See 'man dnf' and 'man yum2dnf' for more information.
-To transfer transaction metadata from yum to DNF, run:
-'dnf install python-dnf-plugins-extras-migrate && dnf-2 migrate'
-
-Package curl-7.40.0-8.fc22.x86_64 is already installed, skipping.
-warning: Unable to get systemd shutdown inhibition lock
+ ---> Using cache
  ---> 94c916cb57aa
-Removing intermediate container 15c094f9a101
 Successfully built 94c916cb57aa
-Fri, 31 Mar 2017 01:37:59 UTC
+Fri, 07 Apr 2017 01:18:52 UTC
 Testing branch: master
 [1;31;32mProgress: 1/23[0m
 ==Running le_test_dependencies please wait
@@ -48,7 +20,7 @@ nc installed.[1;31;32m [PASS][0m
 ==Running le_test_install please wait
 ./acme.sh install[1;31;32m [PASS][0m
 /root/.acme.sh/acme.sh exists.[1;31;32m [PASS][0m
-_contains '1 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null'[1;31;32m [PASS][0m
+_contains '54 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null'[1;31;32m [PASS][0m
 /root/.acme.sh/acme.sh uninstall  > /dev/null[1;31;32m [PASS][0m
 ------------------------------------------
 [1;31;32mProgress: 3/23[0m
@@ -62,7 +34,7 @@ equals [1;31;32m [PASS][0m
 ==Running le_test_installtodir please wait
 ./acme.sh install[1;31;32m [PASS][0m
 /root/myle/acme.sh exists.[1;31;32m [PASS][0m
-_contains '2 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null'[1;31;32m [PASS][0m
+_contains '55 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null'[1;31;32m [PASS][0m
 /root/myle/acme.sh uninstall[1;31;32m [PASS][0m
 ------------------------------------------
 [1;31;32mProgress: 5/23[0m
@@ -76,7 +48,7 @@ equals [1;31;32m [PASS][0m
 ==Running le_test_install_config_home please wait
 ./acme.sh --install --config-home /root/etc/acme[1;31;32m [PASS][0m
 /root/.acme.sh/acme.sh exists.[1;31;32m [PASS][0m
-_contains '3 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null'[1;31;32m [PASS][0m
+_contains '56 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null'[1;31;32m [PASS][0m
 /root/etc/acme/account.conf exists.[1;31;32m [PASS][0m
 /root/.acme.sh/account.conf no exists.[1;31;32m [PASS][0m
 /root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null[1;31;32m [PASS][0m
