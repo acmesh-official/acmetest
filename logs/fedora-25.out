@@ -2,34 +2,10 @@ Sending build context to Docker daemon 2.048 kB
 Step 1 : FROM fedora:25
  ---> 0047cca29c6f
 Step 2 : RUN yum -q -y update     2>&1 && yum -q -y install    tar openssl crontabs nc curl  2>&1
- ---> Running in f484a0ac1d3a
-Redirecting to '/usr/bin/dnf -q -y update' (see 'man yum2dnf')
-
-/usr/share/doc/libsolv/README: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/locale/bg/LC_MESSAGES/dnf.mo: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/doc/pcre/AUTHORS: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/doc/python3-libs/LICENSE: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/lib64/python3.5/email/architecture.rst: No such file or directory
-cannot reconstruct rpm from disk files
-warning: /var/cache/dnf/updates-87ad44ec2dc11249/packages/dnf-1.1.10-6.fc25.noarch.rpm: Header V3 RSA/SHA256 Signature, key ID fdb19c98: NOKEY
-Importing GPG key 0xFDB19C98:
- Userid     : "Fedora 25 Primary (25) <fedora-25-primary@fedoraproject.org>"
- Fingerprint: C437 DCCD 558A 66A3 7D6F 4372 4089 D8F2 FDB1 9C98
- From       : /etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-25-x86_64
-Failed to connect to bus: No such file or directory
-Failed to connect to bus: No such file or directory
-Redirecting to '/usr/bin/dnf -q -y install tar openssl crontabs nc curl' (see 'man yum2dnf')
-
-Package tar-2:1.29-3.fc25.x86_64 is already installed, skipping.
-Package curl-7.51.0-4.fc25.x86_64 is already installed, skipping.
+ ---> Using cache
  ---> 61b8556aeb7e
-Removing intermediate container f484a0ac1d3a
 Successfully built 61b8556aeb7e
-Fri, 31 Mar 2017 02:06:28 UTC
+Fri, 07 Apr 2017 01:40:33 UTC
 Testing branch: master
 [1;31;32mProgress: 1/23[0m
 ==Running le_test_dependencies please wait
@@ -44,7 +20,7 @@ nc installed.[1;31;32m [PASS][0m
 ==Running le_test_install please wait
 ./acme.sh install[1;31;32m [PASS][0m
 /root/.acme.sh/acme.sh exists.[1;31;32m [PASS][0m
-_contains '30 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null'[1;31;32m [PASS][0m
+_contains '35 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null'[1;31;32m [PASS][0m
 /root/.acme.sh/acme.sh uninstall  > /dev/null[1;31;32m [PASS][0m
 ------------------------------------------
 [1;31;32mProgress: 3/23[0m
@@ -58,7 +34,7 @@ equals [1;31;32m [PASS][0m
 ==Running le_test_installtodir please wait
 ./acme.sh install[1;31;32m [PASS][0m
 /root/myle/acme.sh exists.[1;31;32m [PASS][0m
-_contains '31 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null'[1;31;32m [PASS][0m
+_contains '36 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null'[1;31;32m [PASS][0m
 /root/myle/acme.sh uninstall[1;31;32m [PASS][0m
 ------------------------------------------
 [1;31;32mProgress: 5/23[0m
@@ -72,7 +48,7 @@ equals [1;31;32m [PASS][0m
 ==Running le_test_install_config_home please wait
 ./acme.sh --install --config-home /root/etc/acme[1;31;32m [PASS][0m
 /root/.acme.sh/acme.sh exists.[1;31;32m [PASS][0m
-_contains '32 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null'[1;31;32m [PASS][0m
+_contains '37 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null'[1;31;32m [PASS][0m
 /root/etc/acme/account.conf exists.[1;31;32m [PASS][0m
 /root/.acme.sh/account.conf no exists.[1;31;32m [PASS][0m
 /root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null[1;31;32m [PASS][0m
