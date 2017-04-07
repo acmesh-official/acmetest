@@ -2,129 +2,10 @@ Sending build context to Docker daemon 2.048 kB
 Step 1 : FROM opensuse:42.2
  ---> bb2040693d71
 Step 2 : RUN zypper update -y  2>&1 && zypper install  -y   tar openssl cron netcat curl libidn  2>&1
- ---> Running in e3efdf5ffc82
-Retrieving repository 'NON-OSS' metadata [.done]
-Building repository 'NON-OSS' cache [....done]
-Retrieving repository 'OSS' metadata [...done]
-Building repository 'OSS' cache [....done]
-Retrieving repository 'OSS Update' metadata [..done]
-Building repository 'OSS Update' cache [....done]
-Retrieving repository 'Update Non-Oss' metadata [.done]
-Building repository 'Update Non-Oss' cache [....done]
-Loading repository data...
-Reading installed packages...
-
-The following 7 NEW packages are going to be installed:
-  aaa_base dbus-1 kbd kmod ncurses-utils pkg-config udev
-
-The following 5 packages are going to be upgraded:
-  libdbus-1-3 libsystemd0 libudev1 netcfg systemd
-
-5 packages to upgrade, 7 new.
-Overall download size: 8.4 MiB. Already cached: 0 B. After the operation, additional 12.1 MiB will be used.
-Continue? [y/n/? shows all options] (y): y
-Retrieving package kbd-2.0.3-1.4.x86_64 (1/12),   1.7 MiB (  4.0 MiB unpacked)
-Retrieving: kbd-2.0.3-1.4.x86_64.rpm [done]
-Retrieving package ncurses-utils-5.9-54.48.x86_64 (2/12), 154.7 KiB (120.6 KiB unpacked)
-Retrieving: ncurses-utils-5.9-54.48.x86_64.rpm [done]
-Retrieving package pkg-config-0.28-9.54.x86_64 (3/12), 195.9 KiB (611.6 KiB unpacked)
-Retrieving: pkg-config-0.28-9.54.x86_64.rpm [.done]
-Retrieving package aaa_base-13.2+git20140911.61c1681-23.1.x86_64 (4/12), 131.9 KiB (262.1 KiB unpacked)
-Retrieving: aaa_base-13.2+git20140911.61c1681-23.1.x86_64.rpm [done]
-Retrieving package kmod-17-8.1.x86_64 (5/12),  67.8 KiB (142.2 KiB unpacked)
-Retrieving: kmod-17-8.1.x86_64.rpm [done]
-Retrieving package libdbus-1-3-1.8.22-3.1.x86_64 (6/12), 162.0 KiB (284.0 KiB unpacked)
-Retrieving: libdbus-1-3-1.8.22-3.1.x86_64.rpm [done]
-Retrieving package libsystemd0-228-25.1.x86_64 (7/12), 498.6 KiB (780.0 KiB unpacked)
-Retrieving: libsystemd0-228-25.1.x86_64.rpm [done]
-Retrieving package libudev1-228-25.1.x86_64 (8/12), 312.0 KiB (126.2 KiB unpacked)
-Retrieving: libudev1-228-25.1.x86_64.rpm [done]
-Retrieving package netcfg-11.5-28.3.1.noarch (9/12), 163.5 KiB (871.1 KiB unpacked)
-Retrieving: netcfg-11.5-28.3.1.noarch.rpm [done]
-Retrieving package dbus-1-1.8.22-3.1.x86_64 (10/12), 315.1 KiB (898.2 KiB unpacked)
-Retrieving: dbus-1-1.8.22-3.1.x86_64.rpm [done]
-Retrieving package systemd-228-25.1.x86_64 (11/12),   3.5 MiB ( 19.3 MiB unpacked)
-Retrieving: systemd-228-25.1.x86_64.rpm [.done (7.7 MiB/s)]
-Retrieving package udev-228-25.1.x86_64 (12/12),   1.2 MiB (  6.5 MiB unpacked)
-Retrieving: udev-228-25.1.x86_64.rpm [done]
-Checking for file conflicts: [........done]
-( 1/12) Installing: kbd-2.0.3-1.4.x86_64 [............done]
-Additional rpm output:
-Updating /etc/sysconfig/console...
-Updating /etc/sysconfig/keyboard...
-
-
-( 2/12) Installing: ncurses-utils-5.9-54.48.x86_64 [.........done]
-( 3/12) Installing: pkg-config-0.28-9.54.x86_64 [..........done]
-( 4/12) Installing: aaa_base-13.2+git20140911.61c1681-23.1.x86_64 [..........done]
-Additional rpm output:
-Updating /etc/sysconfig/language...
-Updating /etc/sysconfig/backup...
-Updating /etc/sysconfig/proxy...
-Updating /etc/sysconfig/windowmanager...
-Updating /etc/sysconfig/news...
-Updating etc/passwd...unchanged
-Updating etc/group...unchanged
-Updating etc/shadow...unchanged
-
-
-( 5/12) Installing: kmod-17-8.1.x86_64 [.....done]
-( 6/12) Installing: libdbus-1-3-1.8.22-3.1.x86_64 [................done]
-( 7/12) Installing: libsystemd0-228-25.1.x86_64 [..............done]
-( 8/12) Installing: libudev1-228-25.1.x86_64 [........done]
-( 9/12) Installing: netcfg-11.5-28.3.1.noarch [................done]
-(10/12) Installing: dbus-1-1.8.22-3.1.x86_64 [...........done]
-(11/12) Installing: systemd-228-25.1.x86_64 [...................done]
-Additional rpm output:
-Failed to connect to bus: No such file or directory
-Failed to connect to bus: No such file or directory
-
-
-(12/12) Installing: udev-228-25.1.x86_64 [............done]
-Output of kbd-2.0.3-1.4.x86_64.rpm %posttrans script:
-    Please run mkinitrd as soon as your system is complete.
-
-Loading repository data...
-Reading installed packages...
-'cron' is already installed.
-No update candidate for 'cron-4.2-58.25.x86_64'. The highest available version is already installed.
-'openssl' is already installed.
-No update candidate for 'openssl-1.0.2j-4.1.x86_64'. The highest available version is already installed.
-'libidn' not found in package names. Trying capabilities.
-'netcat' not found in package names. Trying capabilities.
-Resolving package dependencies...
-
-The following 5 NEW packages are going to be installed:
-  curl libglib-2_0-0 libidn-tools netcat-openbsd tar
-
-5 new packages to install.
-Overall download size: 1.4 MiB. Already cached: 0 B. After the operation, additional 3.8 MiB will be used.
-Continue? [y/n/? shows all options] (y): y
-Retrieving package curl-7.37.0-15.1.x86_64 (1/5), 149.6 KiB (312.9 KiB unpacked)
-Retrieving: curl-7.37.0-15.1.x86_64.rpm [done]
-Retrieving package libglib-2_0-0-2.48.2-1.10.x86_64 (2/5), 589.1 KiB (  1.4 MiB unpacked)
-Retrieving: libglib-2_0-0-2.48.2-1.10.x86_64.rpm [done]
-Retrieving package libidn-tools-1.28-6.2.x86_64 (3/5), 206.4 KiB (849.2 KiB unpacked)
-Retrieving: libidn-tools-1.28-6.2.x86_64.rpm [.done (1.0 MiB/s)]
-Retrieving package netcat-openbsd-1.89-95.4.x86_64 (4/5),  23.4 KiB ( 39.3 KiB unpacked)
-Retrieving: netcat-openbsd-1.89-95.4.x86_64.rpm [done]
-Retrieving package tar-1.27.1-11.1.x86_64 (5/5), 492.9 KiB (  1.2 MiB unpacked)
-Retrieving: tar-1.27.1-11.1.x86_64.rpm [done]
-Checking for file conflicts: [.......done]
-(1/5) Installing: curl-7.37.0-15.1.x86_64 [........done]
-(2/5) Installing: libglib-2_0-0-2.48.2-1.10.x86_64 [..........done]
-(3/5) Installing: libidn-tools-1.28-6.2.x86_64 [........done]
-(4/5) Installing: netcat-openbsd-1.89-95.4.x86_64 [....done]
-Additional rpm output:
-update-alternatives: using /usr/bin/nc to provide /usr/bin/netcat (netcat) in auto mode
-update-alternatives: warning: skip creation of /usr/share/man/man1/netcat.1.gz because associated file /usr/share/man/man1/nc.1.gz (of link group netcat) doesn't exist
-
-
-(5/5) Installing: tar-1.27.1-11.1.x86_64 [.........done]
+ ---> Using cache
  ---> a8a9bcb4b897
-Removing intermediate container e3efdf5ffc82
 Successfully built a8a9bcb4b897
-Fri, 31 Mar 2017 02:36:06 UTC
+Fri, 07 Apr 2017 02:08:00 UTC
 Testing branch: master
 [1;31;32mProgress: 1/23[0m
 ==Running le_test_dependencies please wait
@@ -139,7 +20,7 @@ nc installed.[1;31;32m [PASS][0m
 ==Running le_test_install please wait
 ./acme.sh install[1;31;32m [PASS][0m
 /root/.acme.sh/acme.sh exists.[1;31;32m [PASS][0m
-_contains '8 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null'[1;31;32m [PASS][0m
+_contains '2 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null'[1;31;32m [PASS][0m
 /root/.acme.sh/acme.sh uninstall  > /dev/null[1;31;32m [PASS][0m
 ------------------------------------------
 [1;31;32mProgress: 3/23[0m
@@ -153,7 +34,7 @@ equals [1;31;32m [PASS][0m
 ==Running le_test_installtodir please wait
 ./acme.sh install[1;31;32m [PASS][0m
 /root/myle/acme.sh exists.[1;31;32m [PASS][0m
-_contains '9 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null'[1;31;32m [PASS][0m
+_contains '3 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null'[1;31;32m [PASS][0m
 /root/myle/acme.sh uninstall[1;31;32m [PASS][0m
 ------------------------------------------
 [1;31;32mProgress: 5/23[0m
@@ -167,7 +48,7 @@ equals [1;31;32m [PASS][0m
 ==Running le_test_install_config_home please wait
 ./acme.sh --install --config-home /root/etc/acme[1;31;32m [PASS][0m
 /root/.acme.sh/acme.sh exists.[1;31;32m [PASS][0m
-_contains '9 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null'[1;31;32m [PASS][0m
+_contains '3 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null'[1;31;32m [PASS][0m
 /root/etc/acme/account.conf exists.[1;31;32m [PASS][0m
 /root/.acme.sh/account.conf no exists.[1;31;32m [PASS][0m
 /root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null[1;31;32m [PASS][0m
