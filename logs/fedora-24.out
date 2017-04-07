@@ -2,83 +2,10 @@ Sending build context to Docker daemon 2.048 kB
 Step 1 : FROM fedora:24
  ---> f623aaef07f0
 Step 2 : RUN yum -q -y update     2>&1 && yum -q -y install    tar openssl crontabs nc curl  2>&1
- ---> Running in 1208950f03ff
-Yum command has been deprecated, redirecting to '/usr/bin/dnf -q -y update'.
-See 'man dnf' and 'man yum2dnf' for more information.
-To transfer transaction metadata from yum to DNF, run:
-'dnf install python-dnf-plugins-extras-migrate && dnf-2 migrate'
-
-/usr/share/man/man8/ca-legacy.8.gz: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/locale/ar/LC_MESSAGES/chkconfig.mo: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/doc/coreutils-common/ABOUT-NLS: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/locale/cs/LC_MESSAGES/cryptsetup.mo: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/doc/bash-completion/AUTHORS: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/locale/bg/LC_MESSAGES/dnf.mo: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/locale/fr/LC_MESSAGES/bash.mo: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/doc/curl/BUGS: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/locale/cs/LC_MESSAGES/glib20.mo: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/locale/de/LC_MESSAGES/gawk.mo: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/doc/gmp/NEWS: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/doc/gnutls/AUTHORS: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/doc/libassuan/AUTHORS: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/doc/krb5-libs/NOTICE: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/locale/nl/LC_MESSAGES/libgpg-error.mo: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/locale/en@boldquot/LC_MESSAGES/libidn.mo: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/doc/libmnl/README: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/doc/libksba/AUTHORS: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/doc/libgcrypt/AUTHORS: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/doc/libsolv/README: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/doc/libtasn1/AUTHORS: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/doc/libxkbcommon/COPYING: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/doc/lua/README: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/doc/nettle/AUTHORS: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/doc/glibc/BUGS: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/doc/python3-pygpgme/PKG-INFO: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/locale/fi/LC_MESSAGES/rpm.mo: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/man/man5/cert8.db.5.gz: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/man/man8/systemd-activate.8.gz: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/doc/python3-libs/LICENSE: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/lib64/python3.5/email/architecture.rst: No such file or directory
-cannot reconstruct rpm from disk files
-Failed to connect to bus: No such file or directory
-Failed to connect to bus: No such file or directory
-Redirecting to '/usr/bin/dnf -q -y install tar openssl crontabs nc curl' (see 'man yum2dnf')
-
-Package curl-7.47.1-10.fc24.x86_64 is already installed, skipping.
+ ---> Using cache
  ---> 77136439b8a8
-Removing intermediate container 1208950f03ff
 Successfully built 77136439b8a8
-Fri, 31 Mar 2017 01:57:36 UTC
+Fri, 07 Apr 2017 01:33:23 UTC
 Testing branch: master
 [1;31;32mProgress: 1/23[0m
 ==Running le_test_dependencies please wait
@@ -93,7 +20,7 @@ nc installed.[1;31;32m [PASS][0m
 ==Running le_test_install please wait
 ./acme.sh install[1;31;32m [PASS][0m
 /root/.acme.sh/acme.sh exists.[1;31;32m [PASS][0m
-_contains '38 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null'[1;31;32m [PASS][0m
+_contains '25 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null'[1;31;32m [PASS][0m
 /root/.acme.sh/acme.sh uninstall  > /dev/null[1;31;32m [PASS][0m
 ------------------------------------------
 [1;31;32mProgress: 3/23[0m
@@ -107,7 +34,7 @@ equals [1;31;32m [PASS][0m
 ==Running le_test_installtodir please wait
 ./acme.sh install[1;31;32m [PASS][0m
 /root/myle/acme.sh exists.[1;31;32m [PASS][0m
-_contains '39 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null'[1;31;32m [PASS][0m
+_contains '27 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null'[1;31;32m [PASS][0m
 /root/myle/acme.sh uninstall[1;31;32m [PASS][0m
 ------------------------------------------
 [1;31;32mProgress: 5/23[0m
@@ -121,7 +48,7 @@ equals [1;31;32m [PASS][0m
 ==Running le_test_install_config_home please wait
 ./acme.sh --install --config-home /root/etc/acme[1;31;32m [PASS][0m
 /root/.acme.sh/acme.sh exists.[1;31;32m [PASS][0m
-_contains '40 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null'[1;31;32m [PASS][0m
+_contains '27 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null'[1;31;32m [PASS][0m
 /root/etc/acme/account.conf exists.[1;31;32m [PASS][0m
 /root/.acme.sh/account.conf no exists.[1;31;32m [PASS][0m
 /root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null[1;31;32m [PASS][0m
