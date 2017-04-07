@@ -5,7 +5,7 @@ Step 2 : RUN apk update -f 2>&1 && apk --no-cache add -f openssl curl netcat-ope
  ---> Using cache
  ---> 7a53a5e6b90c
 Successfully built 7a53a5e6b90c
-Fri, 31 Mar 2017 03:18:16 UTC
+Fri, 07 Apr 2017 02:43:16 UTC
 Testing branch: master
 [1;31;32mProgress: 1/23[0m
 ==Running le_test_dependencies please wait
