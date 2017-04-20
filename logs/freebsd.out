@@ -1,5 +1,5 @@
 
-Thu, 13 Apr 2017 18:00:09 UTC
+Thu, 20 Apr 2017 18:00:08 UTC
 Testing branch: master
 [1;31;32mProgress: 1/23[0m
 ==Running le_test_dependencies please wait
@@ -26,7 +26,7 @@ equals [1;31;32m [PASS][0m
 ==Running le_test_installtodir please wait
 ./acme.sh install[1;31;32m [PASS][0m
 /root/myle/acme.sh exists.[1;31;32m [PASS][0m
-_contains '17 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null'[1;31;32m [PASS][0m
+_contains '16 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null'[1;31;32m [PASS][0m
 /root/myle/acme.sh uninstall[1;31;32m [PASS][0m
 ------------------------------------------
 [1;31;32mProgress: 5/23[0m
@@ -141,18 +141,7 @@ FORCE=1 /root/.acme.sh/acme.sh renew "testfreebsd.acme.sh"[1;31;32m [PASS][0m
 ------------------------------------------
 [1;31;32mProgress: 18/23[0m
 ==Running le_test_standandalone_ECDSA_256_SAN_renew_v2 please wait
-/root/.acme.sh/acme.sh --issue -d "testfreebsd.acme.sh" -d "testfreebsd2.acme.sh" --standalone --keylength ec-256 --certpath '/root/acmetest/certs/domain.cer' --keypath '/root/acmetest/certs/domain.key'  --capath '/root/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/root/acmetest/certs/full.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testfreebsd.acme.sh_ecc/testfreebsd.acme.sh.cer' equals '/root/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testfreebsd.acme.sh_ecc/testfreebsd.acme.sh.key' equals '/root/acmetest/certs/domain.key'[1;31;32m [PASS][0m
-'/root/.acme.sh/testfreebsd.acme.sh_ecc/ca.cer' equals '/root/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testfreebsd.acme.sh_ecc/fullchain.cer' equals '/root/acmetest/certs/full.cer'[1;31;32m [PASS][0m
-/root/.acme.sh/acme.sh --renew --ecc -d "testfreebsd.acme.sh" --force[1;31;32m [PASS][0m
-/root/.acme.sh/testfreebsd.acme.sh_ecc/testfreebsd.acme.sh.cer is cert ? 'testfreebsd.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
-/root/.acme.sh/testfreebsd.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
-'/root/.acme.sh/testfreebsd.acme.sh_ecc/testfreebsd.acme.sh.cer' equals '/root/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testfreebsd.acme.sh_ecc/testfreebsd.acme.sh.key' equals '/root/acmetest/certs/domain.key'[1;31;32m [PASS][0m
-'/root/.acme.sh/testfreebsd.acme.sh_ecc/ca.cer' equals '/root/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testfreebsd.acme.sh_ecc/fullchain.cer' equals '/root/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --issue -d "testfreebsd.acme.sh" -d "testfreebsd2.acme.sh" --standalone --keylength ec-256 --certpath '/root/acmetest/certs/domain.cer' --keypath '/root/acmetest/certs/domain.key'  --capath '/root/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/root/acmetest/certs/full.cer'[1;31;40m [FAIL] [0m
 ------------------------------------------
 [1;31;32mProgress: 19/23[0m
 ==Running le_test_standandalone_ECDSA_384 please wait
