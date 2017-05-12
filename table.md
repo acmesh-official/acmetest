@@ -2,3 +2,4 @@
 |ubuntu:15.04| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/ubuntu-15.04.svg?1494558691)| Fri, 12 May 2017 03:11:31 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/ubuntu-15.04.out) |
 |ubuntu:16.04| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/ubuntu-16.04.svg?1494559396)| Fri, 12 May 2017 03:23:16 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/ubuntu-16.04.out) |
 |ubuntu:17.04| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/ubuntu-17.04.svg?1494560072)| Fri, 12 May 2017 03:34:32 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/ubuntu-17.04.out) |
+|ubuntu:latest| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/ubuntu-latest.svg?1494560490)| Fri, 12 May 2017 03:41:30 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/ubuntu-latest.out) |
