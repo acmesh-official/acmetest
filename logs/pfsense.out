@@ -1,5 +1,5 @@
 
-Fri, 12 May 2017 02:24:27 UTC
+Fri, 12 May 2017 16:00:27 UTC
 Testing branch: master
 [1;31;32mProgress: 1/23[0m
 ==Running le_test_dependencies please wait
@@ -184,7 +184,12 @@ The test domain Test_CF_Domain is not defined, skip:ClourFlare_api
 The test domain Test_CX_Domain is not defined, skip:CloudXNS.com_api
 The test domain Test_DP_Domain is not defined, skip:Dnspod.cn_api
 The test domain Test_GD_Domain is not defined, skip:Godaddy_api
-The test domain Test_AWS_Domain is not defined, skip:Amazon_Route53_api
+Testing dns_aws Amazon_Route53_api
+TestingDomain='awsroute53.acme.sh'
+/root/.acme.sh/acme.sh --issue -d "awsroute53.acme.sh" --dns dns_aws --dnssleep "60" [1;31;32m [PASS][0m
+/root/.acme.sh/awsroute53.acme.sh/awsroute53.acme.sh.cer is cert ? 'awsroute53.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/awsroute53.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --deactivate -d "awsroute53.acme.sh" >/dev/null 2>&1[1;31;32m [PASS][0m
 The test domain Test_LUA_Domain is not defined, skip:luadns.com_api
 ME_Key is not defined, skip:dnsmadeeasy.com_api
 NSUPDATE_KEY is not defined, skip:nsupdate_api
@@ -193,5 +198,8 @@ PDNS_Token is not defined, skip:powerdns.com_api
 The test domain Test_ALI_Domain is not defined, skip:aliyun_api
 Testing dns_gandi_livedns gandi_livedns
 TestingDomain='acmetest.xyz'
-/root/.acme.sh/acme.sh --issue -d "acmetest.xyz" --dns dns_gandi_livedns --dnssleep "60" [1;31;40m [FAIL] [0m
+/root/.acme.sh/acme.sh --issue -d "acmetest.xyz" --dns dns_gandi_livedns --dnssleep "60" [1;31;32m [PASS][0m
+/root/.acme.sh/acmetest.xyz/acmetest.xyz.cer is cert ? 'acmetest.xyz' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/acmetest.xyz/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --deactivate -d "acmetest.xyz" >/dev/null 2>&1[1;31;32m [PASS][0m
 ------------------------------------------
