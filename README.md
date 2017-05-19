@@ -43,7 +43,7 @@ Unit test project for **acme.sh** project https://github.com/Neilpang/acme.sh
 |oraclelinux:6| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/oraclelinux-6.svg?1495187175)| Fri, 19 May 2017 09:46:15 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/oraclelinux-6.out) |
 |oraclelinux:7| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/oraclelinux-7.svg?1495187662)| Fri, 19 May 2017 09:54:22 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/oraclelinux-7.out) |
 |oraclelinux:latest| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/oraclelinux-latest.svg?1495188156)| Fri, 19 May 2017 10:02:36 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/oraclelinux-latest.out) |
-|kalilinux/kali-linux-docker| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/kalilinux-kali-linux-docker.svg?1495188975)| Fri, 19 May 2017 10:16:15 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/kalilinux-kali-linux-docker.out) |
+|kalilinux/kali-linux-docker| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/kalilinux-kali-linux-docker.svg?1495190215)| Fri, 19 May 2017 10:36:55 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/kalilinux-kali-linux-docker.out) |
 
 # How to run tests
 
