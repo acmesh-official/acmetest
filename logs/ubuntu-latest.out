@@ -6,7 +6,7 @@ Step 2/2 : RUN apt-get -qqy update && locale-gen en_US.UTF-8 && export LANG=en_U
  ---> 2fad07aa3de3
 Successfully built 2fad07aa3de3
 Successfully tagged myubuntu:latest
-Fri, 26 May 2017 03:20:16 UTC
+Fri, 26 May 2017 13:38:15 UTC
 Testing branch: master
 [1;31;32mProgress: 1/23[0m
 ==Running le_test_dependencies please wait
