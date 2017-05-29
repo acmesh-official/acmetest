@@ -1,6 +1,6 @@
 
-Mon, 29 May 2017 10:00:12 UTC
-Testing branch: dev
+Mon, 29 May 2017 10:43:15 UTC
+Testing branch: master
 [1;31;32mProgress: 1/23[0m
 ==Running le_test_dependencies please wait
 curl installed.[1;31;32m [PASS][0m
@@ -12,7 +12,7 @@ nc installed.[1;31;32m [PASS][0m
 ==Running le_test_install please wait
 ./acme.sh install[1;31;32m [PASS][0m
 /root/.acme.sh/acme.sh exists.[1;31;32m [PASS][0m
-_contains '17 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null'[1;31;32m [PASS][0m
+_contains '19 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null'[1;31;32m [PASS][0m
 /root/.acme.sh/acme.sh uninstall  > /dev/null[1;31;32m [PASS][0m
 ------------------------------------------
 [1;31;32mProgress: 3/23[0m
@@ -26,7 +26,7 @@ equals [1;31;32m [PASS][0m
 ==Running le_test_installtodir please wait
 ./acme.sh install[1;31;32m [PASS][0m
 /root/myle/acme.sh exists.[1;31;32m [PASS][0m
-_contains '22 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null'[1;31;32m [PASS][0m
+_contains '24 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null'[1;31;32m [PASS][0m
 /root/myle/acme.sh uninstall[1;31;32m [PASS][0m
 ------------------------------------------
 [1;31;32mProgress: 5/23[0m
@@ -40,7 +40,7 @@ equals [1;31;32m [PASS][0m
 ==Running le_test_install_config_home please wait
 ./acme.sh --install --config-home /root/etc/acme[1;31;32m [PASS][0m
 /root/.acme.sh/acme.sh exists.[1;31;32m [PASS][0m
-_contains '26 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null'[1;31;32m [PASS][0m
+_contains '28 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null'[1;31;32m [PASS][0m
 /root/etc/acme/account.conf exists.[1;31;32m [PASS][0m
 /root/.acme.sh/account.conf no exists.[1;31;32m [PASS][0m
 /root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null[1;31;32m [PASS][0m
@@ -95,12 +95,7 @@ unable to load certificate
 ------------------------------------------
 [1;31;32mProgress: 15/23[0m
 ==Running le_test_standandalone_ECDSA_256 please wait
-/root/.acme.sh/acme.sh issue no testfreebsd.acme.sh no ec-256[1;31;32m [PASS][0m
-/root/.acme.sh/testfreebsd.acme.sh_ecc/testfreebsd.acme.sh.cer is cert ? Error opening Certificate /root/.acme.sh/testfreebsd.acme.sh_ecc/testfreebsd.acme.sh.cer
-34379270680:error:02001002:system library:fopen:No such file or directory:/usr/src/secure/lib/libcrypto/../../../crypto/openssl/crypto/bio/bss_file.c:391:fopen('/root/.acme.sh/testfreebsd.acme.sh_ecc/testfreebsd.acme.sh.cer','r')
-34379270680:error:20074002:BIO routines:FILE_CTRL:system lib:/usr/src/secure/lib/libcrypto/../../../crypto/openssl/crypto/bio/bss_file.c:393:
-unable to load certificate
-''[1;31;40m [FAIL] Expected subject is: 'testfreebsd.acme.sh', but was: ''[0m
+/root/.acme.sh/acme.sh issue no testfreebsd.acme.sh no ec-256[1;31;40m [FAIL] [0m
 ------------------------------------------
 [1;31;32mProgress: 16/23[0m
 ==Running le_test_standandalone_ECDSA_256_renew please wait
@@ -139,10 +134,5 @@ The test domain Test_DP_Domain is not defined, skip:Dnspod.cn_api
 The test domain Test_GD_Domain is not defined, skip:Godaddy_api
 Testing dns_aws Amazon_Route53_api
 TestingDomain='awsroute53.acme.sh'
-/root/.acme.sh/acme.sh --issue -d "awsroute53.acme.sh" --dns dns_aws --dnssleep "60" [1;31;32m [PASS][0m
-/root/.acme.sh/awsroute53.acme.sh/awsroute53.acme.sh.cer is cert ? Error opening Certificate /root/.acme.sh/awsroute53.acme.sh/awsroute53.acme.sh.cer
-34379270680:error:02001002:system library:fopen:No such file or directory:/usr/src/secure/lib/libcrypto/../../../crypto/openssl/crypto/bio/bss_file.c:391:fopen('/root/.acme.sh/awsroute53.acme.sh/awsroute53.acme.sh.cer','r')
-34379270680:error:20074002:BIO routines:FILE_CTRL:system lib:/usr/src/secure/lib/libcrypto/../../../crypto/openssl/crypto/bio/bss_file.c:393:
-unable to load certificate
-''[1;31;40m [FAIL] Expected subject is: 'awsroute53.acme.sh', but was: ''[0m
+/root/.acme.sh/acme.sh --issue -d "awsroute53.acme.sh" --dns dns_aws --dnssleep "60" [1;31;40m [FAIL] [0m
 ------------------------------------------
