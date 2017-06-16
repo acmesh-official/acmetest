@@ -6,4 +6,4 @@
 |debian:latest| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/debian-latest.svg?1497588635)| Fri, 16 Jun 2017 04:50:35 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-latest.out) |
 |debian:8| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/debian-8.svg?1497589704)| Fri, 16 Jun 2017 05:08:24 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-8.out) |
 |debian:7| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/debian-7.svg?1497590736)| Fri, 16 Jun 2017 05:25:36 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-7.out) |
-|centos:latest| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/centos-latest.svg?1497591270)| Fri, 16 Jun 2017 05:34:30 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/centos-latest.out) |
+|centos:latest| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/centos-latest.svg?1497591824)| Fri, 16 Jun 2017 05:43:44 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/centos-latest.out) |
