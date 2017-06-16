@@ -1,5 +1,5 @@
 
-Fri, 09 Jun 2017 02:19:43 UTC
+Fri, 16 Jun 2017 02:24:02 UTC
 Testing branch: master
 [1;31;32mProgress: 1/23[0m
 ==Running le_test_dependencies please wait
@@ -12,7 +12,7 @@ nc installed.[1;31;32m [PASS][0m
 ==Running le_test_install please wait
 ./acme.sh install[1;31;32m [PASS][0m
 /root/.acme.sh/acme.sh exists.[1;31;32m [PASS][0m
-_contains '46 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null'[1;31;32m [PASS][0m
+_contains '5 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null'[1;31;32m [PASS][0m
 /root/.acme.sh/acme.sh uninstall  > /dev/null[1;31;32m [PASS][0m
 ------------------------------------------
 [1;31;32mProgress: 3/23[0m
@@ -26,7 +26,7 @@ equals [1;31;32m [PASS][0m
 ==Running le_test_installtodir please wait
 ./acme.sh install[1;31;32m [PASS][0m
 /root/myle/acme.sh exists.[1;31;32m [PASS][0m
-_contains '51 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null'[1;31;32m [PASS][0m
+_contains '10 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null'[1;31;32m [PASS][0m
 /root/myle/acme.sh uninstall[1;31;32m [PASS][0m
 ------------------------------------------
 [1;31;32mProgress: 5/23[0m
@@ -40,7 +40,7 @@ equals [1;31;32m [PASS][0m
 ==Running le_test_install_config_home please wait
 ./acme.sh --install --config-home /root/etc/acme[1;31;32m [PASS][0m
 /root/.acme.sh/acme.sh exists.[1;31;32m [PASS][0m
-_contains '55 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null'[1;31;32m [PASS][0m
+_contains '14 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null'[1;31;32m [PASS][0m
 /root/etc/acme/account.conf exists.[1;31;32m [PASS][0m
 /root/.acme.sh/account.conf no exists.[1;31;32m [PASS][0m
 /root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null[1;31;32m [PASS][0m
@@ -183,13 +183,13 @@ Skipped by TEST_IDN
 The test domain Test_CF_Domain is not defined, skip:ClourFlare_api
 The test domain Test_CX_Domain is not defined, skip:CloudXNS.com_api
 The test domain Test_DP_Domain is not defined, skip:Dnspod.cn_api
-The test domain Test_GD_Domain is not defined, skip:Godaddy_api
-Testing dns_aws Amazon_Route53_api
-TestingDomain='awsroute53.acme.sh'
-/root/.acme.sh/acme.sh --issue -d "awsroute53.acme.sh" --dns dns_aws --dnssleep "60" [1;31;32m [PASS][0m
-/root/.acme.sh/awsroute53.acme.sh/awsroute53.acme.sh.cer is cert ? 'awsroute53.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
-/root/.acme.sh/awsroute53.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
-/root/.acme.sh/acme.sh --deactivate -d "awsroute53.acme.sh" >/dev/null 2>&1[1;31;32m [PASS][0m
+Testing dns_gd Godaddy_api
+TestingDomain='acmetalk.xyz'
+/root/.acme.sh/acme.sh --issue -d "acmetalk.xyz" --dns dns_gd --dnssleep "" [1;31;32m [PASS][0m
+/root/.acme.sh/acmetalk.xyz/acmetalk.xyz.cer is cert ? 'acmetalk.xyz' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/acmetalk.xyz/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --deactivate -d "acmetalk.xyz" >/dev/null 2>&1[1;31;32m [PASS][0m
+The test domain Test_AWS_Domain is not defined, skip:Amazon_Route53_api
 The test domain Test_LUA_Domain is not defined, skip:luadns.com_api
 ME_Key is not defined, skip:dnsmadeeasy.com_api
 NSUPDATE_KEY is not defined, skip:nsupdate_api
@@ -202,4 +202,10 @@ TestingDomain='acmetest.xyz'
 /root/.acme.sh/acmetest.xyz/acmetest.xyz.cer is cert ? 'acmetest.xyz' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
 /root/.acme.sh/acmetest.xyz/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
 /root/.acme.sh/acme.sh --deactivate -d "acmetest.xyz" >/dev/null 2>&1[1;31;32m [PASS][0m
+Testing dns_dynu dynu_api
+TestingDomain='dynu.acme.sh'
+/root/.acme.sh/acme.sh --issue -d "dynu.acme.sh" --dns dns_dynu --dnssleep "60" [1;31;32m [PASS][0m
+/root/.acme.sh/dynu.acme.sh/dynu.acme.sh.cer is cert ? 'dynu.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/dynu.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --deactivate -d "dynu.acme.sh" >/dev/null 2>&1[1;31;32m [PASS][0m
 ------------------------------------------
