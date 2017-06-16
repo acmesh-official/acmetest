@@ -6,7 +6,7 @@ Step 2/2 : RUN apt-get -qqy update  2>&1 && apt-get -qqy install openssl cron ne
  ---> 29a246b2e9ce
 Successfully built 29a246b2e9ce
 Successfully tagged mydebian:latest
-Fri, 16 Jun 2017 04:32:17 UTC
+Fri, 16 Jun 2017 04:41:17 UTC
 Testing branch: master
 [1;31;32mProgress: 1/23[0m
 ==Running le_test_dependencies please wait
