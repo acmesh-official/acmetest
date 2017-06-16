@@ -1,5 +1,5 @@
 
-Fri, 16 Jun 2017 02:47:18 UTC
+Fri, 16 Jun 2017 12:30:06 UTC
 Testing branch: master
 [1;31;32mProgress: 1/23[0m
 ==Running le_test_dependencies please wait
@@ -12,7 +12,7 @@ nc installed.[1;31;32m [PASS][0m
 ==Running le_test_install please wait
 ./acme.sh install[1;31;32m [PASS][0m
 /home/root/.acme.sh/acme.sh exists.[1;31;32m [PASS][0m
-_contains '24 0 * * * "/home/root/.acme.sh"/acme.sh --cron --home "/home/root/.acme.sh" > /dev/null' '0 \* \* \* "/home/root/.acme.sh"/acme.sh --cron --home "/home/root/.acme.sh" > /dev/null'[1;31;32m [PASS][0m
+_contains '12 0 * * * "/home/root/.acme.sh"/acme.sh --cron --home "/home/root/.acme.sh" > /dev/null' '0 \* \* \* "/home/root/.acme.sh"/acme.sh --cron --home "/home/root/.acme.sh" > /dev/null'[1;31;32m [PASS][0m
 /home/root/.acme.sh/acme.sh uninstall  > /dev/null[1;31;32m [PASS][0m
 ------------------------------------------
 [1;31;32mProgress: 3/23[0m
@@ -26,7 +26,7 @@ equals [1;31;32m [PASS][0m
 ==Running le_test_installtodir please wait
 ./acme.sh install[1;31;32m [PASS][0m
 /home/root/myle/acme.sh exists.[1;31;32m [PASS][0m
-_contains '36 0 * * * "/home/root/myle"/acme.sh --cron --home "/home/root/myle" > /dev/null' '0 \* \* \* "/home/root/myle"/acme.sh --cron --home "/home/root/myle" > /dev/null'[1;31;32m [PASS][0m
+_contains '24 0 * * * "/home/root/myle"/acme.sh --cron --home "/home/root/myle" > /dev/null' '0 \* \* \* "/home/root/myle"/acme.sh --cron --home "/home/root/myle" > /dev/null'[1;31;32m [PASS][0m
 /home/root/myle/acme.sh uninstall[1;31;32m [PASS][0m
 ------------------------------------------
 [1;31;32mProgress: 5/23[0m
@@ -40,7 +40,7 @@ equals [1;31;32m [PASS][0m
 ==Running le_test_install_config_home please wait
 ./acme.sh --install --config-home /home/root/etc/acme[1;31;32m [PASS][0m
 /home/root/.acme.sh/acme.sh exists.[1;31;32m [PASS][0m
-_contains '44 0 * * * "/home/root/.acme.sh"/acme.sh --cron --home "/home/root/.acme.sh" --config-home "/home/root/etc/acme" > /dev/null' '0 \* \* \* "/home/root/.acme.sh"/acme.sh --cron --home "/home/root/.acme.sh" --config-home "/home/root/etc/acme" > /dev/null'[1;31;32m [PASS][0m
+_contains '31 0 * * * "/home/root/.acme.sh"/acme.sh --cron --home "/home/root/.acme.sh" --config-home "/home/root/etc/acme" > /dev/null' '0 \* \* \* "/home/root/.acme.sh"/acme.sh --cron --home "/home/root/.acme.sh" --config-home "/home/root/etc/acme" > /dev/null'[1;31;32m [PASS][0m
 /home/root/etc/acme/account.conf exists.[1;31;32m [PASS][0m
 /home/root/.acme.sh/account.conf no exists.[1;31;32m [PASS][0m
 /home/root/.acme.sh/acme.sh --cron --config-home /home/root/etc/acme > /dev/null[1;31;32m [PASS][0m
@@ -202,7 +202,5 @@ TestingDomain='acmetest.xyz'
 /home/root/.acme.sh/acmetest.xyz/acmetest.xyz.cer is cert ? 'acmetest.xyz' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
 /home/root/.acme.sh/acmetest.xyz/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
 /home/root/.acme.sh/acme.sh --deactivate -d "acmetest.xyz" >/dev/null 2>&1[1;31;32m [PASS][0m
-Testing dns_dynu dynu_api
-TestingDomain='dynu.acme.sh'
-/home/root/.acme.sh/acme.sh --issue -d "dynu.acme.sh" --dns dns_dynu --dnssleep "60" [1;31;40m [FAIL] [0m
+The test domain Test_DYNU_Domain is not defined, skip:dynu_api
 ------------------------------------------
