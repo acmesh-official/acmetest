@@ -15,7 +15,7 @@ export CI
 
 export RUN_SCRIPT
 export CASE
-
+export ACME_NO_COLOR
 ./runplat.sh  "$plat"
 
 
