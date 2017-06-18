@@ -59,10 +59,29 @@ fi
 
 export LOG_LEVEL
 
+#__INTERACTIVE=""
+#if [ -t 1 ]; then
+  __INTERACTIVE="1"
+#fi
+
 __green() {
-  printf '\033[1;31;32m'
+  if [ "$__INTERACTIVE${ACME_NO_COLOR}" = "1" ]; then
+    printf '\033[1;31;32m'
+  fi
   printf -- "$1"
-  printf '\033[0m'
+  if [ "$__INTERACTIVE${ACME_NO_COLOR}" = "1" ]; then
+    printf '\033[0m'
+  fi
+}
+
+__red() {
+  if [ "$__INTERACTIVE${ACME_NO_COLOR}" = "1" ]; then
+    printf '\033[1;31;32m'
+  fi
+  printf "$1"
+  if [ "$__INTERACTIVE${ACME_NO_COLOR}" = "1" ]; then
+    printf '\033[0m'
+  fi
 }
 
 __ok() {
@@ -70,11 +89,7 @@ __ok() {
   printf "\n"
 }
 
-__red() {
-  printf '\033[1;31;40m'
-  printf -- "$1"
-  printf '\033[0m'
-}
+
 
 __fail() {
   __red " [FAIL] $1" >&2
