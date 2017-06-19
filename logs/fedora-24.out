@@ -6,7 +6,7 @@ Step 2/2 : RUN yum -q -y update     2>&1 && yum -q -y install    tar openssl cro
  ---> 77136439b8a8
 Successfully built 77136439b8a8
 Successfully tagged myfedora:24
-Mon, 19 Jun 2017 16:46:17 UTC
+Mon, 19 Jun 2017 16:55:29 UTC
 Testing branch: master
 Progress: 1/23
 ==Running le_test_dependencies please wait
@@ -24,7 +24,7 @@ Progress: 2/23
 ./acme.sh: line 454: xargs: command not found
 ./acme.sh install [PASS]
 /root/.acme.sh/acme.sh exists. [PASS]
-_contains '20 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
+_contains '30 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
 /root/.acme.sh/acme.sh uninstall  > /dev/null [PASS]
 ------------------------------------------
 Progress: 3/23
@@ -39,7 +39,7 @@ Progress: 4/23
 ==Running le_test_installtodir please wait
 ./acme.sh install [PASS]
 /root/myle/acme.sh exists. [PASS]
-_contains '21 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
+_contains '32 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
 /root/myle/acme.sh uninstall [PASS]
 ------------------------------------------
 Progress: 5/23
@@ -53,7 +53,7 @@ Progress: 6/23
 ==Running le_test_install_config_home please wait
 ./acme.sh --install --config-home /root/etc/acme [PASS]
 /root/.acme.sh/acme.sh exists. [PASS]
-_contains '22 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
+_contains '32 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
 /root/etc/acme/account.conf exists. [PASS]
 /root/.acme.sh/account.conf no exists. [PASS]
 /root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null [PASS]
@@ -170,7 +170,8 @@ FORCE=1 /root/.acme.sh/acme.sh renew testdocker.acme.sh [PASS]
 Progress: 17/23
 ==Running le_test_standandalone_ECDSA_256_SAN_renew please wait
 ./acme.sh: line 454: xargs: command not found
-/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh" ec-256 [FAIL] 
+/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh" ec-256 [PASS]
+FORCE=1 /root/.acme.sh/acme.sh renew "testdocker.acme.sh" [PASS]
 /root/.acme.sh/acme.sh: line 454: xargs: command not found
 ------------------------------------------
 Progress: 18/23
