@@ -6,25 +6,25 @@ Step 2/2 : RUN yum -q -y update     2>&1 && yum -q -y install    tar openssl cro
  ---> e67ddc17ed0b
 Successfully built e67ddc17ed0b
 Successfully tagged myfedora:latest
-Tue, 20 Jun 2017 18:02:54 UTC
+Fri, 23 Jun 2017 04:50:52 UTC
 Testing branch: master
 Progress: 1/23
 ==Running le_test_dependencies please wait
 ./acme.sh: line 456: xargs: command not found
 no crontab for root
 no crontab for root
-curl installed. [PASS]
+curl installed./root/.acme.sh/acme.sh: line 456: xargs: command not found
+ [PASS]
 crontab installed. [PASS]
 openssl installed. [PASS]
 nc installed. [PASS]
-/root/.acme.sh/acme.sh: line 456: xargs: command not found
 ------------------------------------------
 Progress: 2/23
 ==Running le_test_install please wait
 ./acme.sh: line 456: xargs: command not found
 ./acme.sh install [PASS]
 /root/.acme.sh/acme.sh exists. [PASS]
-_contains '56 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
+_contains '55 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
 /root/.acme.sh/acme.sh uninstall  > /dev/null [PASS]
 ------------------------------------------
 Progress: 3/23
@@ -39,7 +39,7 @@ Progress: 4/23
 ==Running le_test_installtodir please wait
 ./acme.sh install [PASS]
 /root/myle/acme.sh exists. [PASS]
-_contains '57 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
+_contains '56 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
 /root/myle/acme.sh uninstall [PASS]
 ------------------------------------------
 Progress: 5/23
@@ -53,7 +53,7 @@ Progress: 6/23
 ==Running le_test_install_config_home please wait
 ./acme.sh --install --config-home /root/etc/acme [PASS]
 /root/.acme.sh/acme.sh exists. [PASS]
-_contains '58 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
+_contains '57 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
 /root/etc/acme/account.conf exists. [PASS]
 /root/.acme.sh/account.conf no exists. [PASS]
 /root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null [PASS]
