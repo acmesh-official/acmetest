@@ -1,5 +1,5 @@
 
-Fri, 23 Jun 2017 02:31:38 GMT
+Fri, 30 Jun 2017 02:31:38 GMT
 Testing branch: master
 Progress: 1/23
 ==Running le_test_dependencies please wait
@@ -26,7 +26,7 @@ Progress: 4/23
 ==Running le_test_installtodir please wait
 ./acme.sh install [PASS]
 /root/myle/acme.sh exists. [PASS]
-_contains '42 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
+_contains '43 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
 /root/myle/acme.sh uninstall [PASS]
 ------------------------------------------
 Progress: 5/23
