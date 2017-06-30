@@ -22,7 +22,7 @@
 |opensuse:42.1| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/opensuse-42.1.svg?1498803974)| Fri, 30 Jun 2017 06:26:14 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/opensuse-42.1.out) |
 |opensuse:13.2| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/opensuse-13.2.svg?1498804373)| Fri, 30 Jun 2017 06:32:53 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/opensuse-13.2.out) |
 |alpine:latest| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/alpine-latest.svg?1498804492)| Fri, 30 Jun 2017 06:34:52 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-latest.out) |
-|alpine:3.5| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/alpine-3.5.svg?1498797413)| Fri, 30 Jun 2017 04:36:53 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-3.5.out) |
+|alpine:3.5| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/alpine-3.5.svg?1498804551)| Fri, 30 Jun 2017 06:35:51 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-3.5.out) |
 |alpine:3.4| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/alpine-3.4.svg?1498797526)| Fri, 30 Jun 2017 04:38:46 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-3.4.out) |
 |alpine:3.3| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/alpine-3.3.svg?1498797642)| Fri, 30 Jun 2017 04:40:42 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-3.3.out) |
 |alpine:3.2| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/alpine-3.2.svg?1498797756)| Fri, 30 Jun 2017 04:42:36 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-3.2.out) |
