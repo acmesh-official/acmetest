@@ -642,6 +642,9 @@ le_test_installtodir() {
   _c_entry="$(crontab -l | grep $PROJECT_ENTRY)"
   _assertcmd "_contains '$_c_entry' '0 \\* \\* \\* \"$lehome\"/$PROJECT_ENTRY --cron --home \"$lehome\" > /dev/null'" || return
   _assertcmd "$lehome/$PROJECT_ENTRY uninstall" ||  return
+  if [ -z "$DEBUG" ]; then
+    rm -rf $lehome
+  fi
 }
 
 le_test_uninstalltodir() {
@@ -661,7 +664,9 @@ le_test_uninstalltodir() {
   _assertcmd "$lehome/$PROJECT_ENTRY uninstall" ||  return
   _assertnotexists "$lehome/$PROJECT_ENTRY" ||  return
   _assertequals "" "$(crontab -l | grep $PROJECT_ENTRY)" ||  return
-
+  if [ -z "$DEBUG" ]; then
+    rm -rf $lehome
+  fi
 }
 
 le_test_install_config_home() {
@@ -681,6 +686,9 @@ le_test_install_config_home() {
   _assertcmd "$lehome/$PROJECT_ENTRY --uninstall --config-home $confighome > /dev/null" ||  return
   _assertexists "$confighome/account.conf" || return
   _assertnotexists "$lehome/account.conf" || return
+  if [ -z "$DEBUG" ]; then
+    rm -rf "$HOME/etc/"
+  fi
 }
 
 #
