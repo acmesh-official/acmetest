@@ -586,6 +586,7 @@ _setup() {
   if [ -d "ca" ]; then
     mkdir -p "$DEFAULT_HOME"
     cp -r ca "$DEFAULT_HOME/"
+    rm -f "$DEFAULT_HOME/ca/*/ca.conf"
   fi
 
 }
