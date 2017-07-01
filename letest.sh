@@ -582,6 +582,11 @@ _setup() {
     rm -rf $DEFAULT_HOME
   fi
   
+  #reuse ca account keys for the low acount rate limit
+  if [ -d "ca" ]; then
+    mkdir -p "$DEFAULT_HOME"
+    cp -r ca "$DEFAULT_HOME/"
+  fi
 
 }
 
