@@ -1528,8 +1528,10 @@ num=1
 for t in $(grep ^le_test_  $FILE_NAME | cut -d '(' -f 1) 
 do
   if [ -z "$CASE" ] ; then
-    __green "Progress: $num/$total "
-    __red "Failed $_ret of $num"
+    __green "Progress: "
+    __red "$_ret"
+    __green "/$num/$total"
+
     printf "\n"
     num=$(_math $num + 1)
   fi
