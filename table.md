@@ -7,7 +7,7 @@
 |debian:9| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/debian-9.svg?1498895566)| Sat, 01 Jul 2017 07:52:46 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-9.out) |
 |debian:8| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/debian-8.svg?1498895713)| Sat, 01 Jul 2017 07:55:13 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-8.out) |
 |debian:7| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/debian-7.svg?1498895866)| Sat, 01 Jul 2017 07:57:46 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-7.out) |
-|centos:latest| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/centos-latest.svg?1498890435)| Sat, 01 Jul 2017 06:27:15 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/centos-latest.out) |
+|centos:latest| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/centos-latest.svg?1498895952)| Sat, 01 Jul 2017 07:59:12 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/centos-latest.out) |
 |centos:7| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/centos-7.svg?1498890602)| Sat, 01 Jul 2017 06:30:02 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/centos-7.out) |
 |centos:6| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/centos-6.svg?1498890768)| Sat, 01 Jul 2017 06:32:48 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/centos-6.out) |
 |centos:5| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/centos-5.svg?1498890891)| Sat, 01 Jul 2017 06:34:51 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/centos-5.out) |
