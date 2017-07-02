@@ -78,7 +78,7 @@ __red() {
   if [ "$__INTERACTIVE${ACME_NO_COLOR}" = "1" ]; then
     printf '\033[1;31;40m'
   fi
-  printf "$1"
+  printf -- "%b" "$1"
   if [ "$__INTERACTIVE${ACME_NO_COLOR}" = "1" ]; then
     printf '\033[0m'
   fi
@@ -143,7 +143,7 @@ _info() {
 }
 
 _err() {
-  _info "$@" >&2
+  __red "$(_info "$@")" >&2
   return 1
 }
 
