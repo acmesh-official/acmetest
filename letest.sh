@@ -536,7 +536,7 @@ _run() {
         $lehome/$PROJECT_ENTRY --deactivate -d "$TestingDomain"  -d "$TestingAltDomains" -d "$TestingIDNDomain" >/dev/null 2>&1
       fi
       __dr="$?"
-      if [ "$__dr" = "0" ]; then
+      if [ "$__dr" != "0" ]; then
         _err "deactivate failed"
       fi
       if [ "$_r" = "0" ] ; then
