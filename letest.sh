@@ -143,7 +143,7 @@ _info() {
 }
 
 _err() {
-  __red "$(_info "$@")" >&2
+  __red "$(_info "$@")\n" >&2
   return 1
 }
 
