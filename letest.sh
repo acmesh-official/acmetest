@@ -515,7 +515,11 @@ _run() {
   if ! ( $1 ) ; then
     _r="1"
   fi
-  
+  if [ "$_r" = "0" ]; then
+    _debug "Run Success"
+  else
+    _err "Run Failed"
+  fi
   DEFAULT_CA_HOME="$lehome/ca"
 
   if [ -z "$CA_HOME" ] ; then
@@ -532,6 +536,9 @@ _run() {
         $lehome/$PROJECT_ENTRY --deactivate -d "$TestingDomain"  -d "$TestingAltDomains" -d "$TestingIDNDomain" >/dev/null 2>&1
       fi
       __dr="$?"
+      if [ "$__dr" = "0" ]; then
+        _err "deactivate failed"
+      fi
       if [ "$_r" = "0" ] ; then
         _r="$__dr"
       fi
