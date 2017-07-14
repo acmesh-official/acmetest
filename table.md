@@ -9,3 +9,4 @@
 |debian:7| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/debian-7.svg?1500006126)| Fri, 14 Jul 2017 04:22:06 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-7.out) |
 |centos:latest| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/centos-latest.svg?1500006696)| Fri, 14 Jul 2017 04:31:36 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/centos-latest.out) |
 |centos:7| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/centos-7.svg?1500007273)| Fri, 14 Jul 2017 04:41:13 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/centos-7.out) |
+|centos:6| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/centos-6.svg?1500007811)| Fri, 14 Jul 2017 04:50:11 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/centos-6.out) |
