@@ -1,98 +1,12 @@
 Sending build context to Docker daemon  2.048kB
 Step 1/2 : FROM fedora:26
-26: Pulling from library/fedora
-4db9daa7aafd: Pulling fs layer
-4db9daa7aafd: Verifying Checksum
-4db9daa7aafd: Download complete
-4db9daa7aafd: Pull complete
-Digest: sha256:b27b4c551b1d06be25a3c76c1a9ceefd7ff189f6f8b1711d3e4b230c2081bff3
-Status: Downloaded newer image for fedora:26
  ---> 49236bc2f0da
 Step 2/2 : RUN yum -q -y update     2>&1 && yum -q -y install    tar openssl crontabs nc curl  2>&1
- ---> Running in f9c9461cc779
-/usr/share/doc/curl/BUGS: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/locale/ar/LC_MESSAGES/dnf.mo: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/locale/ca/LC_MESSAGES/bash.mo: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/doc/glibc-common/README.timezone: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/doc/gnutls/AUTHORS: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/doc/grep/AUTHORS: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/doc/libdnf/AUTHORS: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/doc/libffi/README: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/doc/krb5-libs/NOTICE: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/doc/libgcrypt/AUTHORS: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/doc/libdb/README: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/doc/lz4-libs/LICENSE: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/doc/libsolv/README: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/doc/nss-tools/pp.1: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/man/man5/cert8.db.5.gz: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/doc/openldap/ANNOUNCEMENT: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/doc/pcre/AUTHORS: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/doc/glibc/INSTALL: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/doc/python3-six/README: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/locale/ca/LC_MESSAGES/rpm.mo: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/doc/tar/AUTHORS: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/doc/python3-setuptools/developer-guide.txt: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/locale/ca/LC_MESSAGES/util-linux.mo: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/doc/sqlite-libs/README.md: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/share/doc/python3-libs/README.rst: No such file or directory
-cannot reconstruct rpm from disk files
-/usr/lib64/python3.6/email/architecture.rst: No such file or directory
-cannot reconstruct rpm from disk files
-Failed to connect to bus: No such file or directory
-error: db5 error(-30969) from dbenv->open: BDB0091 DB_VERSION_MISMATCH: Database environment version mismatch
-error: cannot open Packages index using db5 -  (-30969)
-error: cannot open Packages database in /var/lib/rpm
-error: db5 error(-30969) from dbenv->open: BDB0091 DB_VERSION_MISMATCH: Database environment version mismatch
-error: cannot open Packages index using db5 -  (-30969)
-error: cannot open Packages database in /var/lib/rpm
-error: db5 error(-30969) from dbenv->open: BDB0091 DB_VERSION_MISMATCH: Database environment version mismatch
-error: cannot open Packages index using db5 -  (-30969)
-error: cannot open Packages database in /var/lib/rpm
-error: db5 error(-30969) from dbenv->open: BDB0091 DB_VERSION_MISMATCH: Database environment version mismatch
-error: cannot open Packages index using db5 -  (-30969)
-error: cannot open Packages database in /var/lib/rpm
-error: db5 error(-30969) from dbenv->open: BDB0091 DB_VERSION_MISMATCH: Database environment version mismatch
-error: cannot open Packages index using db5 -  (-30969)
-error: cannot open Packages database in /var/lib/rpm
-error: db5 error(-30969) from dbenv->open: BDB0091 DB_VERSION_MISMATCH: Database environment version mismatch
-error: cannot open Packages index using db5 -  (-30969)
-error: cannot open Packages database in /var/lib/rpm
-error: db5 error(-30969) from dbenv->open: BDB0091 DB_VERSION_MISMATCH: Database environment version mismatch
-error: cannot open Packages index using db5 -  (-30969)
-error: cannot open Packages database in /var/lib/rpm
-error: db5 error(-30969) from dbenv->open: BDB0091 DB_VERSION_MISMATCH: Database environment version mismatch
-error: cannot open Packages index using db5 -  (-30969)
-error: cannot open Packages database in /var/lib/rpm
-Failed to connect to bus: No such file or directory
+ ---> Using cache
  ---> 237d75327ca4
-Removing intermediate container f9c9461cc779
 Successfully built 237d75327ca4
 Successfully tagged myfedora:26
-Fri, 28 Jul 2017 05:21:35 UTC
+Fri, 04 Aug 2017 05:02:03 UTC
 Testing branch: master
 Progress: 0/1/23
 ==Running le_test_dependencies please wait
@@ -107,7 +21,7 @@ Progress: 0/2/23
 ==Running le_test_install please wait
 ./acme.sh install [PASS]
 /root/.acme.sh/acme.sh exists. [PASS]
-_contains '43 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
+_contains '11 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
 /root/.acme.sh/acme.sh uninstall  > /dev/null [PASS]
 ------------------------------------------
 Progress: 0/3/23
@@ -121,7 +35,7 @@ Progress: 0/4/23
 ==Running le_test_installtodir please wait
 ./acme.sh install [PASS]
 /root/myle/acme.sh exists. [PASS]
-_contains '44 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
+_contains '12 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
 /root/myle/acme.sh uninstall [PASS]
 ------------------------------------------
 Progress: 0/5/23
@@ -135,7 +49,7 @@ Progress: 0/6/23
 ==Running le_test_install_config_home please wait
 ./acme.sh --install --config-home /root/etc/acme [PASS]
 /root/.acme.sh/acme.sh exists. [PASS]
-_contains '45 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
+_contains '13 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
 /root/etc/acme/account.conf exists. [PASS]
 /root/.acme.sh/account.conf no exists. [PASS]
 /root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null [PASS]
