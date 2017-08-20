@@ -6,7 +6,7 @@ Step 2/2 : RUN yum -q -y update     2>&1 && yum -q -y install    tar openssl cro
  ---> 237d75327ca4
 Successfully built 237d75327ca4
 Successfully tagged myfedora:26
-Fri, 11 Aug 2017 05:14:10 UTC
+Sun, 20 Aug 2017 04:17:09 UTC
 Testing branch: master
 Progress: 0/1/23
 ==Running le_test_dependencies please wait
