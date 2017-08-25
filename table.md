@@ -32,3 +32,4 @@
 |oraclelinux:7| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/oraclelinux-7.svg?1503645975)| Fri, 25 Aug 2017 07:26:15 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/oraclelinux-7.out) |
 |oraclelinux:6| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/oraclelinux-6.svg?1503646510)| Fri, 25 Aug 2017 07:35:10 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/oraclelinux-6.out) |
 |kalilinux/kali-linux-docker| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/kalilinux-kali-linux-docker.svg?1503647024)| Fri, 25 Aug 2017 07:43:44 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/kalilinux-kali-linux-docker.out) |
+|base/archlinux| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/base-archlinux.svg?1503647535)| Fri, 25 Aug 2017 07:52:15 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/base-archlinux.out) |
