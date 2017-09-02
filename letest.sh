@@ -600,7 +600,7 @@ _setup() {
 
 
 le_test_dependencies() {
-  dependencies="curl crontab openssl nc"
+  dependencies="curl crontab openssl socat"
   for cmd in $dependencies 
   do
     if command -v $cmd > /dev/null ; then
