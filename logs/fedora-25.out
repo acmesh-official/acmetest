@@ -1,12 +1,597 @@
 Sending build context to Docker daemon  2.048kB
 Step 1/2 : FROM fedora:25
  ---> 0047cca29c6f
-Step 2/2 : RUN yum -q -y update     2>&1 && yum -q -y install    tar openssl crontabs nc curl  2>&1
- ---> Using cache
- ---> 61b8556aeb7e
-Successfully built 61b8556aeb7e
+Step 2/2 : RUN yum  -y update     2>&1 && yum  -y install    tar openssl crontabs socat curl  2>&1
+ ---> Running in 7ee569ec0d1f
+Redirecting to '/usr/bin/dnf -y update' (see 'man yum2dnf')
+
+Last metadata expiration check: 0:00:23 ago on Sat Sep  2 17:15:19 2017.
+Dependencies resolved.
+================================================================================
+ Package                       Arch     Version                 Repository
+                                                                           Size
+================================================================================
+Installing:
+ lz4-libs                      x86_64   1.8.0-1.fc25            updates    48 k
+     replacing  lz4.x86_64 1.7.5-1.fc25
+Upgrading:
+ acl                           x86_64   2.2.52-13.fc25          updates    76 k
+ audit-libs                    x86_64   2.7.7-1.fc25            updates   107 k
+ ca-certificates               noarch   2017.2.16-1.0.fc25      updates   452 k
+ coreutils                     x86_64   8.25-17.fc25            updates   1.1 M
+ coreutils-common              x86_64   8.25-17.fc25            updates   1.9 M
+ curl                          x86_64   7.51.0-9.fc25           updates   308 k
+ dbus                          x86_64   1:1.11.16-1.fc25        updates   255 k
+ dbus-libs                     x86_64   1:1.11.16-1.fc25        updates   175 k
+ dnf                           noarch   1.1.10-6.fc25           updates   276 k
+ dnf-conf                      noarch   1.1.10-6.fc25           updates    96 k
+ dnf-yum                       noarch   1.1.10-6.fc25           updates    79 k
+ elfutils-default-yama-scope   noarch   0.169-1.fc25            updates    38 k
+ elfutils-libelf               x86_64   0.169-1.fc25            updates   200 k
+ elfutils-libs                 x86_64   0.169-1.fc25            updates   276 k
+ emacs-filesystem              noarch   1:25.2-3.fc25           updates    66 k
+ expat                         x86_64   2.2.3-1.fc25            updates    86 k
+ fedora-release                noarch   25-2                    updates    27 k
+ fedora-repos                  noarch   25-4                    updates    93 k
+ file-libs                     x86_64   5.29-7.fc25             updates   497 k
+ gdbm                          x86_64   1.13-1.fc25             updates   154 k
+ glibc                         x86_64   2.24-9.fc25             updates   3.3 M
+ glibc-common                  x86_64   2.24-9.fc25             updates   879 k
+ glibc-langpack-en             x86_64   2.24-9.fc25             updates   282 k
+ gnutls                        x86_64   3.5.14-1.fc25           updates   754 k
+ hawkey                        x86_64   0.6.4-3.fc25            updates    64 k
+ info                          x86_64   6.1-4.fc25              updates   190 k
+ krb5-libs                     x86_64   1.14.4-8.fc25           updates   741 k
+ libacl                        x86_64   2.2.52-13.fc25          updates    31 k
+ libarchive                    x86_64   3.2.2-2.fc25            updates   341 k
+ libcrypt-nss                  x86_64   2.24-9.fc25             updates    44 k
+ libcurl                       x86_64   7.51.0-9.fc25           updates   268 k
+ libdb                         x86_64   5.3.28-24.fc25          updates   750 k
+ libdb-utils                   x86_64   5.3.28-24.fc25          updates   139 k
+ libgcc                        x86_64   6.4.1-1.fc25            updates    95 k
+ libgcrypt                     x86_64   1.7.8-1.fc25            updates   435 k
+ libidn2                       x86_64   2.0.3-1.fc25            updates    97 k
+ libsemanage                   x86_64   2.5-9.fc25              updates   151 k
+ libsolv                       x86_64   0.6.28-5.fc25           updates   366 k
+ libsss_idmap                  x86_64   1.15.3-1.fc25           updates    83 k
+ libsss_nss_idmap              x86_64   1.15.3-1.fc25           updates    81 k
+ libtasn1                      x86_64   4.12-1.fc25             updates   326 k
+ libxml2                       x86_64   2.9.4-2.fc25            updates   688 k
+ lua-libs                      x86_64   5.3.4-3.fc25            updates   113 k
+ lz4                           x86_64   1.8.0-1.fc25            updates    83 k
+ nspr                          x86_64   4.15.0-1.fc25           updates   137 k
+ nss                           x86_64   3.31.0-1.1.fc25         updates   862 k
+ nss-pem                       x86_64   1.0.3-3.fc25            updates    76 k
+ nss-softokn                   x86_64   3.31.0-1.0.fc25         updates   385 k
+ nss-softokn-freebl            x86_64   3.31.0-1.0.fc25         updates   224 k
+ nss-sysinit                   x86_64   3.31.0-1.1.fc25         updates    61 k
+ nss-tools                     x86_64   3.31.0-1.1.fc25         updates   504 k
+ nss-util                      x86_64   3.31.0-1.0.fc25         updates    87 k
+ openldap                      x86_64   2.4.44-11.fc25          updates   352 k
+ p11-kit                       x86_64   0.23.8-1.fc25           updates   262 k
+ p11-kit-trust                 x86_64   0.23.8-1.fc25           updates   131 k
+ pcre                          x86_64   8.41-1.fc25             updates   199 k
+ publicsuffix-list-dafsa       noarch   20170424-1.fc25         updates    44 k
+ python3                       x86_64   3.5.3-6.fc25            updates    58 k
+ python3-dnf                   noarch   1.1.10-6.fc25           updates   452 k
+ python3-hawkey                x86_64   0.6.4-3.fc25            updates    46 k
+ python3-libs                  x86_64   3.5.3-6.fc25            updates   1.4 M
+ qrencode-libs                 x86_64   3.4.4-1.fc25            updates    55 k
+ sqlite-libs                   x86_64   3.14.2-3.fc25           updates   454 k
+ sssd-client                   x86_64   1.15.3-1.fc25           updates   134 k
+ system-python                 x86_64   3.5.3-6.fc25            updates    51 k
+ system-python-libs            x86_64   3.5.3-6.fc25            updates   6.9 M
+ systemd                       x86_64   231-17.fc25             updates   2.8 M
+ systemd-libs                  x86_64   231-17.fc25             updates   421 k
+ systemd-pam                   x86_64   231-17.fc25             updates   178 k
+ tar                           x86_64   2:1.29-4.fc25           updates   814 k
+ tzdata                        noarch   2017b-1.fc25            updates   419 k
+ vim-minimal                   x86_64   2:8.0.885-1.fc25        updates   525 k
+
+Transaction Summary
+================================================================================
+Install   1 Package
+Upgrade  72 Packages
+
+Total download size: 34 M
+Downloading Packages:
+/usr/share/doc/coreutils-common/ABOUT-NLS: No such file or directory
+cannot reconstruct rpm from disk files
+/usr/share/locale/bg/LC_MESSAGES/dnf.mo: No such file or directory
+cannot reconstruct rpm from disk files
+/usr/share/locale/de/LC_MESSAGES/elfutils.mo: No such file or directory
+cannot reconstruct rpm from disk files
+/usr/share/doc/libarchive/NEWS: No such file or directory
+cannot reconstruct rpm from disk files
+/usr/share/doc/libtasn1/AUTHORS: No such file or directory
+cannot reconstruct rpm from disk files
+/usr/share/man/man5/semanage.conf.5.gz: No such file or directory
+cannot reconstruct rpm from disk files
+/usr/share/doc/krb5-libs/NOTICE: No such file or directory
+cannot reconstruct rpm from disk files
+/usr/share/doc/qrencode-libs/ChangeLog: No such file or directory
+cannot reconstruct rpm from disk files
+/usr/share/doc/libxml2/AUTHORS: No such file or directory
+cannot reconstruct rpm from disk files
+/usr/share/doc/tar/AUTHORS: No such file or directory
+cannot reconstruct rpm from disk files
+/usr/share/doc/sqlite-libs/README.md: No such file or directory
+cannot reconstruct rpm from disk files
+/usr/share/doc/python3-libs/LICENSE: No such file or directory
+cannot reconstruct rpm from disk files
+/usr/lib64/python3.5/email/architecture.rst: No such file or directory
+cannot reconstruct rpm from disk files
+libarchive-3.2.2-2.fc25.x86_64: Delta RPM rebuild failed
+elfutils-libelf-0.169-1.fc25.x86_64: Delta RPM rebuild failed
+dnf-1.1.10-6.fc25.noarch: Delta RPM rebuild failed
+system-python-libs-3.5.3-6.fc25.x86_64: Delta RPM rebuild failed
+libsemanage-2.5-9.fc25.x86_64: Delta RPM rebuild failed
+qrencode-libs-3.4.4-1.fc25.x86_64: Delta RPM rebuild failed
+krb5-libs-1.14.4-8.fc25.x86_64: Delta RPM rebuild failed
+coreutils-common-8.25-17.fc25.x86_64: Delta RPM rebuild failed
+tar-2:1.29-4.fc25.x86_64: Delta RPM rebuild failed
+libxml2-2.9.4-2.fc25.x86_64: Delta RPM rebuild failed
+libtasn1-4.12-1.fc25.x86_64: Delta RPM rebuild failed
+python3-libs-3.5.3-6.fc25.x86_64: Delta RPM rebuild failed
+sqlite-libs-3.14.2-3.fc25.x86_64: Delta RPM rebuild failed
+--------------------------------------------------------------------------------
+Total                                           2.6 MB/s |  37 MB     00:14     
+Delta RPMs reduced 34.2 MB of updates to 37.3 MB (-9.1% saved)
+warning: /var/cache/dnf/updates-87ad44ec2dc11249/packages/lz4-libs-1.8.0-1.fc25.x86_64.rpm: Header V3 RSA/SHA256 Signature, key ID fdb19c98: NOKEY
+Importing GPG key 0xFDB19C98:
+ Userid     : "Fedora 25 Primary (25) <fedora-25-primary@fedoraproject.org>"
+ Fingerprint: C437 DCCD 558A 66A3 7D6F 4372 4089 D8F2 FDB1 9C98
+ From       : /etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-25-x86_64
+Key imported successfully
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Upgrading   : libgcc-6.4.1-1.fc25.x86_64                                1/145 
+  Upgrading   : fedora-repos-25-4.noarch                                  2/145 
+  Upgrading   : fedora-release-25-2.noarch                                3/145 
+  Upgrading   : tzdata-2017b-1.fc25.noarch                                4/145 
+  Upgrading   : glibc-common-2.24-9.fc25.x86_64                           5/145 
+  Upgrading   : glibc-langpack-en-2.24-9.fc25.x86_64                      6/145 
+  Upgrading   : glibc-2.24-9.fc25.x86_64                                  7/145 
+  Upgrading   : nspr-4.15.0-1.fc25.x86_64                                 8/145 
+  Upgrading   : nss-util-3.31.0-1.0.fc25.x86_64                           9/145 
+  Upgrading   : libacl-2.2.52-13.fc25.x86_64                             10/145 
+  Upgrading   : expat-2.2.3-1.fc25.x86_64                                11/145 
+  Installing  : lz4-libs-1.8.0-1.fc25.x86_64                             12/145 
+  Upgrading   : audit-libs-2.7.7-1.fc25.x86_64                           13/145 
+  Upgrading   : p11-kit-0.23.8-1.fc25.x86_64                             14/145 
+  Upgrading   : info-6.1-4.fc25.x86_64                                   15/145 
+  Upgrading   : libgcrypt-1.7.8-1.fc25.x86_64                            16/145 
+  Upgrading   : systemd-libs-231-17.fc25.x86_64                          17/145 
+  Upgrading   : libidn2-2.0.3-1.fc25.x86_64                              18/145 
+  Upgrading   : elfutils-libelf-0.169-1.fc25.x86_64                      19/145 
+  Upgrading   : libdb-5.3.28-24.fc25.x86_64                              20/145 
+  Upgrading   : libtasn1-4.12-1.fc25.x86_64                              21/145 
+  Upgrading   : p11-kit-trust-0.23.8-1.fc25.x86_64                       22/145 
+  Upgrading   : libxml2-2.9.4-2.fc25.x86_64                              23/145 
+  Upgrading   : libsolv-0.6.28-5.fc25.x86_64                             24/145 
+  Upgrading   : nss-softokn-freebl-3.31.0-1.0.fc25.x86_64                25/145 
+  Upgrading   : libcrypt-nss-2.24-9.fc25.x86_64                          26/145 
+  Upgrading   : sqlite-libs-3.14.2-3.fc25.x86_64                         27/145 
+  Upgrading   : nss-softokn-3.31.0-1.0.fc25.x86_64                       28/145 
+  Upgrading   : hawkey-0.6.4-3.fc25.x86_64                               29/145 
+  Upgrading   : dbus-libs-1:1.11.16-1.fc25.x86_64                        30/145 
+  Upgrading   : coreutils-common-8.25-17.fc25.x86_64                     31/145 
+  Upgrading   : coreutils-8.25-17.fc25.x86_64                            32/145 
+  Upgrading   : krb5-libs-1.14.4-8.fc25.x86_64                           33/145 
+  Upgrading   : nss-pem-1.0.3-3.fc25.x86_64                              34/145 
+  Upgrading   : nss-3.31.0-1.1.fc25.x86_64                               35/145 
+  Upgrading   : nss-sysinit-3.31.0-1.1.fc25.x86_64                       36/145 
+  Upgrading   : nss-tools-3.31.0-1.1.fc25.x86_64                         37/145 
+  Upgrading   : openldap-2.4.44-11.fc25.x86_64                           38/145 
+  Upgrading   : libcurl-7.51.0-9.fc25.x86_64                             39/145 
+  Upgrading   : acl-2.2.52-13.fc25.x86_64                                40/145 
+  Upgrading   : gdbm-1.13-1.fc25.x86_64                                  41/145 
+  Upgrading   : system-python-libs-3.5.3-6.fc25.x86_64                   42/145 
+  Upgrading   : system-python-3.5.3-6.fc25.x86_64                        43/145 
+  Upgrading   : python3-hawkey-0.6.4-3.fc25.x86_64                       44/145 
+  Upgrading   : python3-libs-3.5.3-6.fc25.x86_64                         45/145 
+  Upgrading   : libsss_idmap-1.15.3-1.fc25.x86_64                        46/145 
+  Upgrading   : libsss_nss_idmap-1.15.3-1.fc25.x86_64                    47/145 
+  Upgrading   : qrencode-libs-3.4.4-1.fc25.x86_64                        48/145 
+  Upgrading   : elfutils-default-yama-scope-0.169-1.fc25.noarch          49/145 
+  Upgrading   : elfutils-libs-0.169-1.fc25.x86_64                        50/145 
+  Upgrading   : systemd-pam-231-17.fc25.x86_64                           51/145 
+  Upgrading   : systemd-231-17.fc25.x86_64                               52/145 
+  Upgrading   : dbus-1:1.11.16-1.fc25.x86_64                             53/145 
+  Upgrading   : dnf-conf-1.1.10-6.fc25.noarch                            54/145 
+  Upgrading   : python3-dnf-1.1.10-6.fc25.noarch                         55/145 
+  Upgrading   : dnf-1.1.10-6.fc25.noarch                                 56/145 
+  Upgrading   : dnf-yum-1.1.10-6.fc25.noarch                             57/145 
+  Upgrading   : sssd-client-1.15.3-1.fc25.x86_64                         58/145 
+  Upgrading   : python3-3.5.3-6.fc25.x86_64                              59/145 
+  Upgrading   : curl-7.51.0-9.fc25.x86_64                                60/145 
+  Upgrading   : libarchive-3.2.2-2.fc25.x86_64                           61/145 
+  Upgrading   : ca-certificates-2017.2.16-1.0.fc25.noarch                62/145 
+  Upgrading   : gnutls-3.5.14-1.fc25.x86_64                              63/145 
+  Upgrading   : libdb-utils-5.3.28-24.fc25.x86_64                        64/145 
+  Upgrading   : tar-2:1.29-4.fc25.x86_64                                 65/145 
+  Upgrading   : libsemanage-2.5-9.fc25.x86_64                            66/145 
+  Upgrading   : vim-minimal-2:8.0.885-1.fc25.x86_64                      67/145 
+  Upgrading   : file-libs-5.29-7.fc25.x86_64                             68/145 
+  Upgrading   : lua-libs-5.3.4-3.fc25.x86_64                             69/145 
+  Upgrading   : lz4-1.8.0-1.fc25.x86_64                                  70/145 
+  Upgrading   : pcre-8.41-1.fc25.x86_64                                  71/145 
+  Upgrading   : publicsuffix-list-dafsa-20170424-1.fc25.noarch           72/145 
+  Upgrading   : emacs-filesystem-1:25.2-3.fc25.noarch                    73/145 
+  Cleanup     : ca-certificates-2017.2.11-1.0.fc25.noarch                74/145 
+  Cleanup     : curl-7.51.0-4.fc25.x86_64                                75/145 
+  Cleanup     : fedora-repos-25-3.noarch                                 76/145 
+  Cleanup     : fedora-release-25-1.noarch                               77/145Failed to connect to bus: No such file or directory
+ 
+  Cleanup     : dnf-yum-1.1.10-5.fc25.noarch                             78/145 
+  Cleanup     : dnf-1.1.10-5.fc25.noarch                                 79/145 
+  Cleanup     : python3-dnf-1.1.10-5.fc25.noarch                         80/145 
+  Cleanup     : dnf-conf-1.1.10-5.fc25.noarch                            81/145 
+  Cleanup     : publicsuffix-list-dafsa-20170206-1.fc25.noarch           82/145 
+  Cleanup     : emacs-filesystem-1:25.1-3.fc25.noarch                    83/145 
+  Cleanup     : systemd-pam-231-14.fc25.x86_64                           84/145 
+  Cleanup     : dbus-1:1.11.10-1.fc25.x86_64                             85/145 
+  Cleanup     : systemd-231-14.fc25.x86_64                               86/145 
+  Cleanup     : libcurl-7.51.0-4.fc25.x86_64                             87/145 
+  Cleanup     : openldap-2.4.44-7.fc25.x86_64                            88/145 
+  Cleanup     : nss-tools-3.28.3-1.0.fc25.x86_64                         89/145 
+  Cleanup     : nss-pem-1.0.2-2.fc25.x86_64                              90/145 
+  Cleanup     : nss-sysinit-3.28.3-1.0.fc25.x86_64                       91/145 
+  Cleanup     : nss-3.28.3-1.0.fc25.x86_64                               92/145 
+  Cleanup     : nss-softokn-3.28.3-1.1.fc25.x86_64                       93/145 
+  Cleanup     : python3-hawkey-0.6.4-1.fc25.x86_64                       94/145 
+  Cleanup     : elfutils-libs-0.168-1.fc25.x86_64                        95/145 
+  Cleanup     : gnutls-3.5.10-1.fc25.x86_64                              96/145 
+  Cleanup     : p11-kit-trust-0.23.2-2.fc24.x86_64                       97/145 
+  Cleanup     : nss-util-3.28.3-1.0.fc25.x86_64                          98/145 
+  Cleanup     : sssd-client-1.15.1-1.fc25.x86_64                         99/145 
+  Cleanup     : python3-3.5.2-4.fc25.x86_64                             100/145 
+  Cleanup     : libarchive-3.2.2-1.fc25.x86_64                          101/145 
+  Cleanup     : hawkey-0.6.4-1.fc25.x86_64                              102/145 
+  Cleanup     : libsolv-0.6.26-1.fc25.x86_64                            103/145 
+  Cleanup     : system-python-3.5.2-4.fc25.x86_64                       104/145 
+  Cleanup     : python3-libs-3.5.2-4.fc25.x86_64                        105/145 
+  Cleanup     : system-python-libs-3.5.2-4.fc25.x86_64                  106/145 
+  Cleanup     : krb5-libs-1.14.4-7.fc25.x86_64                          107/145 
+  Cleanup     : coreutils-8.25-16.fc25.x86_64                           108/145 
+  Cleanup     : dbus-libs-1:1.11.10-1.fc25.x86_64                       109/145 
+  Cleanup     : systemd-libs-231-14.fc25.x86_64                         110/145 
+  Cleanup     : tar-2:1.29-3.fc25.x86_64                                111/145 
+  Cleanup     : libsemanage-2.5-8.fc25.x86_64                           112/145 
+  Cleanup     : libdb-utils-5.3.28-16.fc25.x86_64                       113/145 
+  Cleanup     : libcrypt-nss-2.24-4.fc25.x86_64                         114/145 
+  Cleanup     : libidn2-0.16-1.fc25.x86_64                              115/145 
+  Cleanup     : acl-2.2.52-11.fc24.x86_64                               116/145 
+  Cleanup     : vim-minimal-2:8.0.425-1.fc25.x86_64                     117/145 
+  Cleanup     : coreutils-common-8.25-16.fc25.x86_64                    118/145 
+  Cleanup     : info-6.1-3.fc25.x86_64                                  119/145 
+  Cleanup     : libacl-2.2.52-11.fc24.x86_64                            120/145 
+  Cleanup     : nss-softokn-freebl-3.28.3-1.1.fc25.x86_64               121/145 
+  Cleanup     : libdb-5.3.28-16.fc25.x86_64                             122/145 
+  Cleanup     : audit-libs-2.7.3-1.fc25.x86_64                          123/145 
+  Cleanup     : libgcrypt-1.6.6-1.fc25.x86_64                           124/145 
+  Cleanup     : lz4-1.7.5-1.fc25.x86_64                                 125/145 
+  Cleanup     : expat-2.2.0-1.fc25.x86_64                               126/145 
+  Cleanup     : gdbm-1.12-1.fc25.x86_64                                 127/145 
+  Cleanup     : sqlite-libs-3.14.2-1.fc25.x86_64                        128/145 
+  Cleanup     : libxml2-2.9.3-4.fc25.x86_64                             129/145 
+  Cleanup     : libsss_idmap-1.15.1-1.fc25.x86_64                       130/145 
+  Cleanup     : libsss_nss_idmap-1.15.1-1.fc25.x86_64                   131/145 
+  Cleanup     : nspr-4.13.1-1.fc25.x86_64                               132/145 
+  Cleanup     : p11-kit-0.23.2-2.fc24.x86_64                            133/145 
+  Cleanup     : libtasn1-4.10-1.fc25.x86_64                             134/145 
+  Cleanup     : elfutils-libelf-0.168-1.fc25.x86_64                     135/145 
+  Cleanup     : qrencode-libs-3.4.2-6.fc24.x86_64                       136/145 
+  Cleanup     : pcre-8.40-5.fc25.x86_64                                 137/145 
+  Cleanup     : lua-libs-5.3.4-1.fc25.x86_64                            138/145 
+  Cleanup     : file-libs-5.29-3.fc25.x86_64                            139/145 
+  Cleanup     : elfutils-default-yama-scope-0.168-1.fc25.noarch         140/145 
+  Cleanup     : glibc-common-2.24-4.fc25.x86_64                         141/145 
+  Cleanup     : glibc-langpack-en-2.24-4.fc25.x86_64                    142/145 
+  Cleanup     : glibc-2.24-4.fc25.x86_64                                143/145 
+  Cleanup     : tzdata-2016j-2.fc25.noarch                              144/145 
+  Cleanup     : libgcc-6.3.1-1.fc25.x86_64                              145/145Failed to connect to bus: No such file or directory
+ 
+  Verifying   : lz4-libs-1.8.0-1.fc25.x86_64                              1/145 
+  Verifying   : acl-2.2.52-13.fc25.x86_64                                 2/145 
+  Verifying   : libacl-2.2.52-13.fc25.x86_64                              3/145 
+  Verifying   : audit-libs-2.7.7-1.fc25.x86_64                            4/145 
+  Verifying   : ca-certificates-2017.2.16-1.0.fc25.noarch                 5/145 
+  Verifying   : p11-kit-trust-0.23.8-1.fc25.x86_64                        6/145 
+  Verifying   : p11-kit-0.23.8-1.fc25.x86_64                              7/145 
+  Verifying   : coreutils-8.25-17.fc25.x86_64                             8/145 
+  Verifying   : coreutils-common-8.25-17.fc25.x86_64                      9/145 
+  Verifying   : curl-7.51.0-9.fc25.x86_64                                10/145 
+  Verifying   : libcurl-7.51.0-9.fc25.x86_64                             11/145 
+  Verifying   : dbus-1:1.11.16-1.fc25.x86_64                             12/145 
+  Verifying   : dbus-libs-1:1.11.16-1.fc25.x86_64                        13/145 
+  Verifying   : dnf-1.1.10-6.fc25.noarch                                 14/145 
+  Verifying   : python3-dnf-1.1.10-6.fc25.noarch                         15/145 
+  Verifying   : dnf-conf-1.1.10-6.fc25.noarch                            16/145 
+  Verifying   : dnf-yum-1.1.10-6.fc25.noarch                             17/145 
+  Verifying   : elfutils-default-yama-scope-0.169-1.fc25.noarch          18/145 
+  Verifying   : elfutils-libelf-0.169-1.fc25.x86_64                      19/145 
+  Verifying   : elfutils-libs-0.169-1.fc25.x86_64                        20/145 
+  Verifying   : emacs-filesystem-1:25.2-3.fc25.noarch                    21/145 
+  Verifying   : expat-2.2.3-1.fc25.x86_64                                22/145 
+  Verifying   : fedora-release-25-2.noarch                               23/145 
+  Verifying   : fedora-repos-25-4.noarch                                 24/145 
+  Verifying   : file-libs-5.29-7.fc25.x86_64                             25/145 
+  Verifying   : gdbm-1.13-1.fc25.x86_64                                  26/145 
+  Verifying   : glibc-2.24-9.fc25.x86_64                                 27/145 
+  Verifying   : glibc-common-2.24-9.fc25.x86_64                          28/145 
+  Verifying   : glibc-langpack-en-2.24-9.fc25.x86_64                     29/145 
+  Verifying   : libcrypt-nss-2.24-9.fc25.x86_64                          30/145 
+  Verifying   : gnutls-3.5.14-1.fc25.x86_64                              31/145 
+  Verifying   : hawkey-0.6.4-3.fc25.x86_64                               32/145 
+  Verifying   : python3-hawkey-0.6.4-3.fc25.x86_64                       33/145 
+  Verifying   : info-6.1-4.fc25.x86_64                                   34/145 
+  Verifying   : krb5-libs-1.14.4-8.fc25.x86_64                           35/145 
+  Verifying   : libarchive-3.2.2-2.fc25.x86_64                           36/145 
+  Verifying   : libdb-5.3.28-24.fc25.x86_64                              37/145 
+  Verifying   : libdb-utils-5.3.28-24.fc25.x86_64                        38/145 
+  Verifying   : libgcc-6.4.1-1.fc25.x86_64                               39/145 
+  Verifying   : libgcrypt-1.7.8-1.fc25.x86_64                            40/145 
+  Verifying   : libidn2-2.0.3-1.fc25.x86_64                              41/145 
+  Verifying   : libsemanage-2.5-9.fc25.x86_64                            42/145 
+  Verifying   : libsolv-0.6.28-5.fc25.x86_64                             43/145 
+  Verifying   : libsss_idmap-1.15.3-1.fc25.x86_64                        44/145 
+  Verifying   : libsss_nss_idmap-1.15.3-1.fc25.x86_64                    45/145 
+  Verifying   : libtasn1-4.12-1.fc25.x86_64                              46/145 
+  Verifying   : libxml2-2.9.4-2.fc25.x86_64                              47/145 
+  Verifying   : lua-libs-5.3.4-3.fc25.x86_64                             48/145 
+  Verifying   : lz4-1.8.0-1.fc25.x86_64                                  49/145 
+  Verifying   : nspr-4.15.0-1.fc25.x86_64                                50/145 
+  Verifying   : nss-3.31.0-1.1.fc25.x86_64                               51/145 
+  Verifying   : nss-softokn-3.31.0-1.0.fc25.x86_64                       52/145 
+  Verifying   : nss-util-3.31.0-1.0.fc25.x86_64                          53/145 
+  Verifying   : nss-softokn-freebl-3.31.0-1.0.fc25.x86_64                54/145 
+  Verifying   : nss-tools-3.31.0-1.1.fc25.x86_64                         55/145 
+  Verifying   : nss-sysinit-3.31.0-1.1.fc25.x86_64                       56/145 
+  Verifying   : nss-pem-1.0.3-3.fc25.x86_64                              57/145 
+  Verifying   : openldap-2.4.44-11.fc25.x86_64                           58/145 
+  Verifying   : pcre-8.41-1.fc25.x86_64                                  59/145 
+  Verifying   : publicsuffix-list-dafsa-20170424-1.fc25.noarch           60/145 
+  Verifying   : python3-3.5.3-6.fc25.x86_64                              61/145 
+  Verifying   : python3-libs-3.5.3-6.fc25.x86_64                         62/145 
+  Verifying   : system-python-libs-3.5.3-6.fc25.x86_64                   63/145 
+  Verifying   : system-python-3.5.3-6.fc25.x86_64                        64/145 
+  Verifying   : qrencode-libs-3.4.4-1.fc25.x86_64                        65/145 
+  Verifying   : sqlite-libs-3.14.2-3.fc25.x86_64                         66/145 
+  Verifying   : sssd-client-1.15.3-1.fc25.x86_64                         67/145 
+  Verifying   : systemd-231-17.fc25.x86_64                               68/145 
+  Verifying   : systemd-pam-231-17.fc25.x86_64                           69/145 
+  Verifying   : systemd-libs-231-17.fc25.x86_64                          70/145 
+  Verifying   : tar-2:1.29-4.fc25.x86_64                                 71/145 
+  Verifying   : tzdata-2017b-1.fc25.noarch                               72/145 
+  Verifying   : vim-minimal-2:8.0.885-1.fc25.x86_64                      73/145 
+  Verifying   : acl-2.2.52-11.fc24.x86_64                                74/145 
+  Verifying   : audit-libs-2.7.3-1.fc25.x86_64                           75/145 
+  Verifying   : ca-certificates-2017.2.11-1.0.fc25.noarch                76/145 
+  Verifying   : coreutils-8.25-16.fc25.x86_64                            77/145 
+  Verifying   : coreutils-common-8.25-16.fc25.x86_64                     78/145 
+  Verifying   : curl-7.51.0-4.fc25.x86_64                                79/145 
+  Verifying   : dbus-1:1.11.10-1.fc25.x86_64                             80/145 
+  Verifying   : dbus-libs-1:1.11.10-1.fc25.x86_64                        81/145 
+  Verifying   : dnf-1.1.10-5.fc25.noarch                                 82/145 
+  Verifying   : dnf-conf-1.1.10-5.fc25.noarch                            83/145 
+  Verifying   : dnf-yum-1.1.10-5.fc25.noarch                             84/145 
+  Verifying   : elfutils-default-yama-scope-0.168-1.fc25.noarch          85/145 
+  Verifying   : elfutils-libelf-0.168-1.fc25.x86_64                      86/145 
+  Verifying   : elfutils-libs-0.168-1.fc25.x86_64                        87/145 
+  Verifying   : emacs-filesystem-1:25.1-3.fc25.noarch                    88/145 
+  Verifying   : expat-2.2.0-1.fc25.x86_64                                89/145 
+  Verifying   : fedora-release-25-1.noarch                               90/145 
+  Verifying   : fedora-repos-25-3.noarch                                 91/145 
+  Verifying   : file-libs-5.29-3.fc25.x86_64                             92/145 
+  Verifying   : gdbm-1.12-1.fc25.x86_64                                  93/145 
+  Verifying   : glibc-2.24-4.fc25.x86_64                                 94/145 
+  Verifying   : glibc-common-2.24-4.fc25.x86_64                          95/145 
+  Verifying   : glibc-langpack-en-2.24-4.fc25.x86_64                     96/145 
+  Verifying   : gnutls-3.5.10-1.fc25.x86_64                              97/145 
+  Verifying   : hawkey-0.6.4-1.fc25.x86_64                               98/145 
+  Verifying   : info-6.1-3.fc25.x86_64                                   99/145 
+  Verifying   : krb5-libs-1.14.4-7.fc25.x86_64                          100/145 
+  Verifying   : libacl-2.2.52-11.fc24.x86_64                            101/145 
+  Verifying   : libarchive-3.2.2-1.fc25.x86_64                          102/145 
+  Verifying   : libcrypt-nss-2.24-4.fc25.x86_64                         103/145 
+  Verifying   : libcurl-7.51.0-4.fc25.x86_64                            104/145 
+  Verifying   : libdb-5.3.28-16.fc25.x86_64                             105/145 
+  Verifying   : libdb-utils-5.3.28-16.fc25.x86_64                       106/145 
+  Verifying   : libgcc-6.3.1-1.fc25.x86_64                              107/145 
+  Verifying   : libgcrypt-1.6.6-1.fc25.x86_64                           108/145 
+  Verifying   : libidn2-0.16-1.fc25.x86_64                              109/145 
+  Verifying   : libsemanage-2.5-8.fc25.x86_64                           110/145 
+  Verifying   : libsolv-0.6.26-1.fc25.x86_64                            111/145 
+  Verifying   : libsss_idmap-1.15.1-1.fc25.x86_64                       112/145 
+  Verifying   : libsss_nss_idmap-1.15.1-1.fc25.x86_64                   113/145 
+  Verifying   : libtasn1-4.10-1.fc25.x86_64                             114/145 
+  Verifying   : libxml2-2.9.3-4.fc25.x86_64                             115/145 
+  Verifying   : lua-libs-5.3.4-1.fc25.x86_64                            116/145 
+  Verifying   : lz4-1.7.5-1.fc25.x86_64                                 117/145 
+  Verifying   : nspr-4.13.1-1.fc25.x86_64                               118/145 
+  Verifying   : nss-3.28.3-1.0.fc25.x86_64                              119/145 
+  Verifying   : nss-pem-1.0.2-2.fc25.x86_64                             120/145 
+  Verifying   : nss-softokn-3.28.3-1.1.fc25.x86_64                      121/145 
+  Verifying   : nss-softokn-freebl-3.28.3-1.1.fc25.x86_64               122/145 
+  Verifying   : nss-sysinit-3.28.3-1.0.fc25.x86_64                      123/145 
+  Verifying   : nss-tools-3.28.3-1.0.fc25.x86_64                        124/145 
+  Verifying   : nss-util-3.28.3-1.0.fc25.x86_64                         125/145 
+  Verifying   : openldap-2.4.44-7.fc25.x86_64                           126/145 
+  Verifying   : p11-kit-0.23.2-2.fc24.x86_64                            127/145 
+  Verifying   : p11-kit-trust-0.23.2-2.fc24.x86_64                      128/145 
+  Verifying   : pcre-8.40-5.fc25.x86_64                                 129/145 
+  Verifying   : publicsuffix-list-dafsa-20170206-1.fc25.noarch          130/145 
+  Verifying   : python3-3.5.2-4.fc25.x86_64                             131/145 
+  Verifying   : python3-dnf-1.1.10-5.fc25.noarch                        132/145 
+  Verifying   : python3-hawkey-0.6.4-1.fc25.x86_64                      133/145 
+  Verifying   : python3-libs-3.5.2-4.fc25.x86_64                        134/145 
+  Verifying   : qrencode-libs-3.4.2-6.fc24.x86_64                       135/145 
+  Verifying   : sqlite-libs-3.14.2-1.fc25.x86_64                        136/145 
+  Verifying   : sssd-client-1.15.1-1.fc25.x86_64                        137/145 
+  Verifying   : system-python-3.5.2-4.fc25.x86_64                       138/145 
+  Verifying   : system-python-libs-3.5.2-4.fc25.x86_64                  139/145 
+  Verifying   : systemd-231-14.fc25.x86_64                              140/145 
+  Verifying   : systemd-libs-231-14.fc25.x86_64                         141/145 
+  Verifying   : systemd-pam-231-14.fc25.x86_64                          142/145 
+  Verifying   : tar-2:1.29-3.fc25.x86_64                                143/145 
+  Verifying   : tzdata-2016j-2.fc25.noarch                              144/145 
+  Verifying   : vim-minimal-2:8.0.425-1.fc25.x86_64                     145/145 
+
+Installed:
+  lz4-libs.x86_64 1.8.0-1.fc25                                                  
+
+Upgraded:
+  acl.x86_64 2.2.52-13.fc25                                                     
+  audit-libs.x86_64 2.7.7-1.fc25                                                
+  ca-certificates.noarch 2017.2.16-1.0.fc25                                     
+  coreutils.x86_64 8.25-17.fc25                                                 
+  coreutils-common.x86_64 8.25-17.fc25                                          
+  curl.x86_64 7.51.0-9.fc25                                                     
+  dbus.x86_64 1:1.11.16-1.fc25                                                  
+  dbus-libs.x86_64 1:1.11.16-1.fc25                                             
+  dnf.noarch 1.1.10-6.fc25                                                      
+  dnf-conf.noarch 1.1.10-6.fc25                                                 
+  dnf-yum.noarch 1.1.10-6.fc25                                                  
+  elfutils-default-yama-scope.noarch 0.169-1.fc25                               
+  elfutils-libelf.x86_64 0.169-1.fc25                                           
+  elfutils-libs.x86_64 0.169-1.fc25                                             
+  emacs-filesystem.noarch 1:25.2-3.fc25                                         
+  expat.x86_64 2.2.3-1.fc25                                                     
+  fedora-release.noarch 25-2                                                    
+  fedora-repos.noarch 25-4                                                      
+  file-libs.x86_64 5.29-7.fc25                                                  
+  gdbm.x86_64 1.13-1.fc25                                                       
+  glibc.x86_64 2.24-9.fc25                                                      
+  glibc-common.x86_64 2.24-9.fc25                                               
+  glibc-langpack-en.x86_64 2.24-9.fc25                                          
+  gnutls.x86_64 3.5.14-1.fc25                                                   
+  hawkey.x86_64 0.6.4-3.fc25                                                    
+  info.x86_64 6.1-4.fc25                                                        
+  krb5-libs.x86_64 1.14.4-8.fc25                                                
+  libacl.x86_64 2.2.52-13.fc25                                                  
+  libarchive.x86_64 3.2.2-2.fc25                                                
+  libcrypt-nss.x86_64 2.24-9.fc25                                               
+  libcurl.x86_64 7.51.0-9.fc25                                                  
+  libdb.x86_64 5.3.28-24.fc25                                                   
+  libdb-utils.x86_64 5.3.28-24.fc25                                             
+  libgcc.x86_64 6.4.1-1.fc25                                                    
+  libgcrypt.x86_64 1.7.8-1.fc25                                                 
+  libidn2.x86_64 2.0.3-1.fc25                                                   
+  libsemanage.x86_64 2.5-9.fc25                                                 
+  libsolv.x86_64 0.6.28-5.fc25                                                  
+  libsss_idmap.x86_64 1.15.3-1.fc25                                             
+  libsss_nss_idmap.x86_64 1.15.3-1.fc25                                         
+  libtasn1.x86_64 4.12-1.fc25                                                   
+  libxml2.x86_64 2.9.4-2.fc25                                                   
+  lua-libs.x86_64 5.3.4-3.fc25                                                  
+  lz4.x86_64 1.8.0-1.fc25                                                       
+  nspr.x86_64 4.15.0-1.fc25                                                     
+  nss.x86_64 3.31.0-1.1.fc25                                                    
+  nss-pem.x86_64 1.0.3-3.fc25                                                   
+  nss-softokn.x86_64 3.31.0-1.0.fc25                                            
+  nss-softokn-freebl.x86_64 3.31.0-1.0.fc25                                     
+  nss-sysinit.x86_64 3.31.0-1.1.fc25                                            
+  nss-tools.x86_64 3.31.0-1.1.fc25                                              
+  nss-util.x86_64 3.31.0-1.0.fc25                                               
+  openldap.x86_64 2.4.44-11.fc25                                                
+  p11-kit.x86_64 0.23.8-1.fc25                                                  
+  p11-kit-trust.x86_64 0.23.8-1.fc25                                            
+  pcre.x86_64 8.41-1.fc25                                                       
+  publicsuffix-list-dafsa.noarch 20170424-1.fc25                                
+  python3.x86_64 3.5.3-6.fc25                                                   
+  python3-dnf.noarch 1.1.10-6.fc25                                              
+  python3-hawkey.x86_64 0.6.4-3.fc25                                            
+  python3-libs.x86_64 3.5.3-6.fc25                                              
+  qrencode-libs.x86_64 3.4.4-1.fc25                                             
+  sqlite-libs.x86_64 3.14.2-3.fc25                                              
+  sssd-client.x86_64 1.15.3-1.fc25                                              
+  system-python.x86_64 3.5.3-6.fc25                                             
+  system-python-libs.x86_64 3.5.3-6.fc25                                        
+  systemd.x86_64 231-17.fc25                                                    
+  systemd-libs.x86_64 231-17.fc25                                               
+  systemd-pam.x86_64 231-17.fc25                                                
+  tar.x86_64 2:1.29-4.fc25                                                      
+  tzdata.noarch 2017b-1.fc25                                                    
+  vim-minimal.x86_64 2:8.0.885-1.fc25                                           
+
+Complete!
+Redirecting to '/usr/bin/dnf -y install tar openssl crontabs socat curl' (see 'man yum2dnf')
+
+Last metadata expiration check: 0:01:51 ago on Sat Sep  2 17:15:19 2017.
+Package tar-2:1.29-4.fc25.x86_64 is already installed, skipping.
+Package curl-7.51.0-9.fc25.x86_64 is already installed, skipping.
+Dependencies resolved.
+================================================================================
+ Package            Arch       Version                        Repository   Size
+================================================================================
+Installing:
+ cronie             x86_64     1.5.1-2.fc25                   fedora      102 k
+ cronie-anacron     x86_64     1.5.1-2.fc25                   fedora       38 k
+ crontabs           noarch     1.11-12.20150630git.fc24       fedora       24 k
+ gc                 x86_64     7.4.4-1.fc25                   fedora      104 k
+ guile              x86_64     5:2.0.13-1.fc25                fedora      3.5 M
+ libatomic_ops      x86_64     7.4.4-1.fc25                   fedora       32 k
+ libstdc++          x86_64     6.4.1-1.fc25                   updates     459 k
+ libtool-ltdl       x86_64     2.4.6-14.fc25                  updates      54 k
+ make               x86_64     1:4.1-6.fc25                   updates     468 k
+ openssl            x86_64     1:1.0.2k-1.fc25                updates     494 k
+ socat              x86_64     1.7.3.2-1.fc25                 updates     291 k
+
+Transaction Summary
+================================================================================
+Install  11 Packages
+
+Total download size: 5.5 M
+Installed size: 17 M
+Downloading Packages:
+--------------------------------------------------------------------------------
+Total                                           2.2 MB/s | 5.5 MB     00:02     
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Installing  : cronie-1.5.1-2.fc25.x86_64                                 1/11 
+  Installing  : crontabs-1.11-12.20150630git.fc24.noarch                   2/11 
+  Installing  : cronie-anacron-1.5.1-2.fc25.x86_64                         3/11 
+  Installing  : libstdc++-6.4.1-1.fc25.x86_64                              4/11 
+  Installing  : libtool-ltdl-2.4.6-14.fc25.x86_64                          5/11 
+  Installing  : libatomic_ops-7.4.4-1.fc25.x86_64                          6/11 
+  Installing  : gc-7.4.4-1.fc25.x86_64                                     7/11 
+  Installing  : guile-5:2.0.13-1.fc25.x86_64                               8/11 
+  Installing  : make-1:4.1-6.fc25.x86_64                                   9/11 
+  Installing  : openssl-1:1.0.2k-1.fc25.x86_64                            10/11 
+  Installing  : socat-1.7.3.2-1.fc25.x86_64                               11/11 
+  Verifying   : crontabs-1.11-12.20150630git.fc24.noarch                   1/11 
+  Verifying   : cronie-1.5.1-2.fc25.x86_64                                 2/11 
+  Verifying   : openssl-1:1.0.2k-1.fc25.x86_64                             3/11 
+  Verifying   : socat-1.7.3.2-1.fc25.x86_64                                4/11 
+  Verifying   : make-1:4.1-6.fc25.x86_64                                   5/11 
+  Verifying   : gc-7.4.4-1.fc25.x86_64                                     6/11 
+  Verifying   : guile-5:2.0.13-1.fc25.x86_64                               7/11 
+  Verifying   : libatomic_ops-7.4.4-1.fc25.x86_64                          8/11 
+  Verifying   : libtool-ltdl-2.4.6-14.fc25.x86_64                          9/11 
+  Verifying   : libstdc++-6.4.1-1.fc25.x86_64                             10/11 
+  Verifying   : cronie-anacron-1.5.1-2.fc25.x86_64                        11/11 
+
+Installed:
+  cronie.x86_64 1.5.1-2.fc25                cronie-anacron.x86_64 1.5.1-2.fc25 
+  crontabs.noarch 1.11-12.20150630git.fc24  gc.x86_64 7.4.4-1.fc25             
+  guile.x86_64 5:2.0.13-1.fc25              libatomic_ops.x86_64 7.4.4-1.fc25  
+  libstdc++.x86_64 6.4.1-1.fc25             libtool-ltdl.x86_64 2.4.6-14.fc25  
+  make.x86_64 1:4.1-6.fc25                  openssl.x86_64 1:1.0.2k-1.fc25     
+  socat.x86_64 1.7.3.2-1.fc25              
+
+Complete!
+ ---> c624e4d8cde0
+Removing intermediate container 7ee569ec0d1f
+Successfully built c624e4d8cde0
 Successfully tagged myfedora:25
-Fri, 25 Aug 2017 05:17:19 UTC
+Sat, 02 Sep 2017 17:17:34 UTC
 Testing branch: master
 Progress: 0/1/23
 ==Running le_test_dependencies please wait
@@ -15,13 +600,13 @@ no crontab for root
 curl installed. [PASS]
 crontab installed. [PASS]
 openssl installed. [PASS]
-nc installed. [PASS]
+socat installed. [PASS]
 ------------------------------------------
 Progress: 0/2/23
 ==Running le_test_install please wait
 ./acme.sh install [PASS]
 /root/.acme.sh/acme.sh exists. [PASS]
-_contains '26 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
+_contains '41 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
 /root/.acme.sh/acme.sh uninstall  > /dev/null [PASS]
 ------------------------------------------
 Progress: 0/3/23
@@ -35,7 +620,7 @@ Progress: 0/4/23
 ==Running le_test_installtodir please wait
 ./acme.sh install [PASS]
 /root/myle/acme.sh exists. [PASS]
-_contains '28 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
+_contains '43 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
 /root/myle/acme.sh uninstall [PASS]
 ------------------------------------------
 Progress: 0/5/23
@@ -49,7 +634,7 @@ Progress: 0/6/23
 ==Running le_test_install_config_home please wait
 ./acme.sh --install --config-home /root/etc/acme [PASS]
 /root/.acme.sh/acme.sh exists. [PASS]
-_contains '28 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
+_contains '43 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
 /root/etc/acme/account.conf exists. [PASS]
 /root/.acme.sh/account.conf no exists. [PASS]
 /root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null [PASS]
