@@ -1,12 +1,332 @@
 Sending build context to Docker daemon  2.048kB
 Step 1/2 : FROM centos:latest
  ---> 67591570dd29
-Step 2/2 : RUN yum -q -y update     2>&1 && yum -q -y install    openssl crontabs nc curl  2>&1
- ---> Using cache
- ---> 9ee0ae7afd19
-Successfully built 9ee0ae7afd19
+Step 2/2 : RUN yum  -y update     2>&1 && yum  -y install    openssl crontabs socat curl  2>&1
+ ---> Running in 4845076d4b3b
+Loaded plugins: fastestmirror, ovl
+Determining fastest mirrors
+ * base: mirror.neify.es
+ * extras: centos.mirror.ate.info
+ * updates: centos.mirrors.ovh.net
+Resolving Dependencies
+--> Running transaction check
+---> Package audit-libs.x86_64 0:2.6.5-3.el7 will be updated
+---> Package audit-libs.x86_64 0:2.6.5-3.el7_3.1 will be an update
+---> Package bind-license.noarch 32:9.9.4-38.el7_3 will be updated
+---> Package bind-license.noarch 32:9.9.4-50.el7_3.1 will be an update
+---> Package ca-certificates.noarch 0:2015.2.6-73.el7 will be updated
+---> Package ca-certificates.noarch 0:2017.2.14-70.1.el7_3 will be an update
+---> Package chkconfig.x86_64 0:1.7.2-1.el7 will be updated
+---> Package chkconfig.x86_64 0:1.7.2-1.el7_3.1 will be an update
+---> Package device-mapper.x86_64 7:1.02.135-1.el7_3.1 will be updated
+---> Package device-mapper.x86_64 7:1.02.135-1.el7_3.5 will be an update
+---> Package device-mapper-libs.x86_64 7:1.02.135-1.el7_3.1 will be updated
+---> Package device-mapper-libs.x86_64 7:1.02.135-1.el7_3.5 will be an update
+---> Package dracut.x86_64 0:033-463.el7 will be updated
+---> Package dracut.x86_64 0:033-463.el7_3.2 will be an update
+---> Package gawk.x86_64 0:4.0.2-4.el7 will be updated
+---> Package gawk.x86_64 0:4.0.2-4.el7_3.1 will be an update
+---> Package glibc.x86_64 0:2.17-157.el7_3.1 will be updated
+---> Package glibc.x86_64 0:2.17-157.el7_3.5 will be an update
+---> Package glibc-common.x86_64 0:2.17-157.el7_3.1 will be updated
+---> Package glibc-common.x86_64 0:2.17-157.el7_3.5 will be an update
+---> Package kpartx.x86_64 0:0.4.9-99.el7 will be updated
+---> Package kpartx.x86_64 0:0.4.9-99.el7_3.3 will be an update
+---> Package libblkid.x86_64 0:2.23.2-33.el7 will be updated
+---> Package libblkid.x86_64 0:2.23.2-33.el7_3.2 will be an update
+---> Package libmount.x86_64 0:2.23.2-33.el7 will be updated
+---> Package libmount.x86_64 0:2.23.2-33.el7_3.2 will be an update
+---> Package libsemanage.x86_64 0:2.5-4.el7 will be updated
+---> Package libsemanage.x86_64 0:2.5-5.1.el7_3 will be an update
+---> Package libuuid.x86_64 0:2.23.2-33.el7 will be updated
+---> Package libuuid.x86_64 0:2.23.2-33.el7_3.2 will be an update
+---> Package nspr.x86_64 0:4.11.0-1.el7_2 will be updated
+---> Package nspr.x86_64 0:4.13.1-1.0.el7_3 will be an update
+---> Package nss.x86_64 0:3.21.3-2.el7_3 will be updated
+---> Package nss.x86_64 0:3.28.4-1.2.el7_3 will be an update
+---> Package nss-sysinit.x86_64 0:3.21.3-2.el7_3 will be updated
+---> Package nss-sysinit.x86_64 0:3.28.4-1.2.el7_3 will be an update
+---> Package nss-tools.x86_64 0:3.21.3-2.el7_3 will be updated
+---> Package nss-tools.x86_64 0:3.28.4-1.2.el7_3 will be an update
+---> Package nss-util.x86_64 0:3.21.3-1.1.el7_3 will be updated
+---> Package nss-util.x86_64 0:3.28.4-1.0.el7_3 will be an update
+---> Package openssl-libs.x86_64 1:1.0.1e-60.el7 will be updated
+---> Package openssl-libs.x86_64 1:1.0.1e-60.el7_3.1 will be an update
+---> Package systemd.x86_64 0:219-30.el7_3.6 will be updated
+---> Package systemd.x86_64 0:219-30.el7_3.9 will be an update
+---> Package systemd-libs.x86_64 0:219-30.el7_3.6 will be updated
+---> Package systemd-libs.x86_64 0:219-30.el7_3.9 will be an update
+---> Package tzdata.noarch 0:2016j-1.el7 will be updated
+---> Package tzdata.noarch 0:2017b-1.el7 will be an update
+---> Package util-linux.x86_64 0:2.23.2-33.el7 will be updated
+---> Package util-linux.x86_64 0:2.23.2-33.el7_3.2 will be an update
+---> Package vim-minimal.x86_64 2:7.4.160-1.el7 will be updated
+---> Package vim-minimal.x86_64 2:7.4.160-1.el7_3.1 will be an update
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package                Arch       Version                    Repository   Size
+================================================================================
+Updating:
+ audit-libs             x86_64     2.6.5-3.el7_3.1            updates      85 k
+ bind-license           noarch     32:9.9.4-50.el7_3.1        updates      83 k
+ ca-certificates        noarch     2017.2.14-70.1.el7_3       updates     438 k
+ chkconfig              x86_64     1.7.2-1.el7_3.1            updates     175 k
+ device-mapper          x86_64     7:1.02.135-1.el7_3.5       updates     269 k
+ device-mapper-libs     x86_64     7:1.02.135-1.el7_3.5       updates     333 k
+ dracut                 x86_64     033-463.el7_3.2            updates     318 k
+ gawk                   x86_64     4.0.2-4.el7_3.1            updates     874 k
+ glibc                  x86_64     2.17-157.el7_3.5           updates     3.6 M
+ glibc-common           x86_64     2.17-157.el7_3.5           updates      11 M
+ kpartx                 x86_64     0.4.9-99.el7_3.3           updates      68 k
+ libblkid               x86_64     2.23.2-33.el7_3.2          updates     170 k
+ libmount               x86_64     2.23.2-33.el7_3.2          updates     172 k
+ libsemanage            x86_64     2.5-5.1.el7_3              updates     144 k
+ libuuid                x86_64     2.23.2-33.el7_3.2          updates      76 k
+ nspr                   x86_64     4.13.1-1.0.el7_3           updates     126 k
+ nss                    x86_64     3.28.4-1.2.el7_3           updates     872 k
+ nss-sysinit            x86_64     3.28.4-1.2.el7_3           updates      58 k
+ nss-tools              x86_64     3.28.4-1.2.el7_3           updates     496 k
+ nss-util               x86_64     3.28.4-1.0.el7_3           updates      73 k
+ openssl-libs           x86_64     1:1.0.1e-60.el7_3.1        updates     959 k
+ systemd                x86_64     219-30.el7_3.9             updates     5.2 M
+ systemd-libs           x86_64     219-30.el7_3.9             updates     369 k
+ tzdata                 noarch     2017b-1.el7                updates     443 k
+ util-linux             x86_64     2.23.2-33.el7_3.2          updates     1.9 M
+ vim-minimal            x86_64     2:7.4.160-1.el7_3.1        updates     436 k
+
+Transaction Summary
+================================================================================
+Upgrade  26 Packages
+
+Total download size: 29 M
+Downloading packages:
+Delta RPMs disabled because /usr/bin/applydeltarpm not installed.
+warning: /var/cache/yum/x86_64/7/updates/packages/audit-libs-2.6.5-3.el7_3.1.x86_64.rpm: Header V3 RSA/SHA256 Signature, key ID f4a80eb5: NOKEY
+Public key for audit-libs-2.6.5-3.el7_3.1.x86_64.rpm is not installed
+--------------------------------------------------------------------------------
+Total                                              9.1 MB/s |  29 MB  00:03     
+Retrieving key from file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+Importing GPG key 0xF4A80EB5:
+ Userid     : "CentOS-7 Key (CentOS 7 Official Signing Key) <security@centos.org>"
+ Fingerprint: 6341 ab27 53d7 8a78 a7c2 7bb1 24c6 a8a7 f4a8 0eb5
+ Package    : centos-release-7-3.1611.el7.centos.x86_64 (@CentOS)
+ From       : /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Updating   : tzdata-2017b-1.el7.noarch                                   1/52 
+  Updating   : glibc-common-2.17-157.el7_3.5.x86_64                        2/52 
+  Updating   : glibc-2.17-157.el7_3.5.x86_64                               3/52 
+  Updating   : nspr-4.13.1-1.0.el7_3.x86_64                                4/52 
+  Updating   : nss-util-3.28.4-1.0.el7_3.x86_64                            5/52 
+  Updating   : systemd-libs-219-30.el7_3.9.x86_64                          6/52 
+  Updating   : libuuid-2.23.2-33.el7_3.2.x86_64                            7/52 
+  Updating   : libblkid-2.23.2-33.el7_3.2.x86_64                           8/52 
+  Updating   : audit-libs-2.6.5-3.el7_3.1.x86_64                           9/52 
+  Updating   : libmount-2.23.2-33.el7_3.2.x86_64                          10/52 
+  Updating   : util-linux-2.23.2-33.el7_3.2.x86_64                        11/52 
+  Updating   : chkconfig-1.7.2-1.el7_3.1.x86_64                           12/52 
+  Updating   : nss-3.28.4-1.2.el7_3.x86_64                                13/52 
+  Updating   : nss-sysinit-3.28.4-1.2.el7_3.x86_64                        14/52 
+  Updating   : gawk-4.0.2-4.el7_3.1.x86_64                                15/52 
+  Updating   : systemd-219-30.el7_3.9.x86_64                              16/52 
+  Updating   : 7:device-mapper-libs-1.02.135-1.el7_3.5.x86_64             17/52 
+  Updating   : 7:device-mapper-1.02.135-1.el7_3.5.x86_64                  18/52 
+  Updating   : kpartx-0.4.9-99.el7_3.3.x86_64                             19/52 
+  Updating   : ca-certificates-2017.2.14-70.1.el7_3.noarch                20/52 
+  Updating   : 1:openssl-libs-1.0.1e-60.el7_3.1.x86_64                    21/52 
+  Updating   : dracut-033-463.el7_3.2.x86_64                              22/52 
+  Updating   : nss-tools-3.28.4-1.2.el7_3.x86_64                          23/52 
+  Updating   : libsemanage-2.5-5.1.el7_3.x86_64                           24/52 
+  Updating   : 2:vim-minimal-7.4.160-1.el7_3.1.x86_64                     25/52 
+  Updating   : 32:bind-license-9.9.4-50.el7_3.1.noarch                    26/52 
+  Cleanup    : 32:bind-license-9.9.4-38.el7_3.noarch                      27/52 
+  Cleanup    : nss-tools-3.21.3-2.el7_3.x86_64                            28/52 
+  Cleanup    : nss-sysinit-3.21.3-2.el7_3.x86_64                          29/52 
+  Cleanup    : nss-3.21.3-2.el7_3.x86_64                                  30/52 
+  Cleanup    : nss-util-3.21.3-1.1.el7_3.x86_64                           31/52 
+  Cleanup    : dracut-033-463.el7.x86_64                                  32/52 
+  Cleanup    : kpartx-0.4.9-99.el7.x86_64                                 33/52 
+  Cleanup    : 7:device-mapper-1.02.135-1.el7_3.1.x86_64                  34/52 
+  Cleanup    : 7:device-mapper-libs-1.02.135-1.el7_3.1.x86_64             35/52 
+  Cleanup    : util-linux-2.23.2-33.el7.x86_64                            36/52 
+  Cleanup    : systemd-219-30.el7_3.6.x86_64                              37/52 
+  Cleanup    : libmount-2.23.2-33.el7.x86_64                              38/52 
+  Cleanup    : libblkid-2.23.2-33.el7.x86_64                              39/52 
+  Cleanup    : libsemanage-2.5-4.el7.x86_64                               40/52 
+  Cleanup    : 1:openssl-libs-1.0.1e-60.el7.x86_64                        41/52 
+  Cleanup    : audit-libs-2.6.5-3.el7.x86_64                              42/52 
+  Cleanup    : libuuid-2.23.2-33.el7.x86_64                               43/52 
+  Cleanup    : gawk-4.0.2-4.el7.x86_64                                    44/52 
+  Cleanup    : systemd-libs-219-30.el7_3.6.x86_64                         45/52 
+  Cleanup    : nspr-4.11.0-1.el7_2.x86_64                                 46/52 
+  Cleanup    : chkconfig-1.7.2-1.el7.x86_64                               47/52 
+  Cleanup    : 2:vim-minimal-7.4.160-1.el7.x86_64                         48/52 
+  Cleanup    : ca-certificates-2015.2.6-73.el7.noarch                     49/52 
+  Cleanup    : glibc-common-2.17-157.el7_3.1.x86_64                       50/52 
+  Cleanup    : glibc-2.17-157.el7_3.1.x86_64                              51/52 
+  Cleanup    : tzdata-2016j-1.el7.noarch                                  52/52 
+  Verifying  : nspr-4.13.1-1.0.el7_3.x86_64                                1/52 
+  Verifying  : 32:bind-license-9.9.4-50.el7_3.1.noarch                     2/52 
+  Verifying  : nss-3.28.4-1.2.el7_3.x86_64                                 3/52 
+  Verifying  : libmount-2.23.2-33.el7_3.2.x86_64                           4/52 
+  Verifying  : 1:openssl-libs-1.0.1e-60.el7_3.1.x86_64                     5/52 
+  Verifying  : chkconfig-1.7.2-1.el7_3.1.x86_64                            6/52 
+  Verifying  : 7:device-mapper-libs-1.02.135-1.el7_3.5.x86_64              7/52 
+  Verifying  : libsemanage-2.5-5.1.el7_3.x86_64                            8/52 
+  Verifying  : glibc-2.17-157.el7_3.5.x86_64                               9/52 
+  Verifying  : libblkid-2.23.2-33.el7_3.2.x86_64                          10/52 
+  Verifying  : dracut-033-463.el7_3.2.x86_64                              11/52 
+  Verifying  : ca-certificates-2017.2.14-70.1.el7_3.noarch                12/52 
+  Verifying  : nss-sysinit-3.28.4-1.2.el7_3.x86_64                        13/52 
+  Verifying  : gawk-4.0.2-4.el7_3.1.x86_64                                14/52 
+  Verifying  : kpartx-0.4.9-99.el7_3.3.x86_64                             15/52 
+  Verifying  : systemd-libs-219-30.el7_3.9.x86_64                         16/52 
+  Verifying  : nss-util-3.28.4-1.0.el7_3.x86_64                           17/52 
+  Verifying  : glibc-common-2.17-157.el7_3.5.x86_64                       18/52 
+  Verifying  : util-linux-2.23.2-33.el7_3.2.x86_64                        19/52 
+  Verifying  : 7:device-mapper-1.02.135-1.el7_3.5.x86_64                  20/52 
+  Verifying  : tzdata-2017b-1.el7.noarch                                  21/52 
+  Verifying  : nss-tools-3.28.4-1.2.el7_3.x86_64                          22/52 
+  Verifying  : 2:vim-minimal-7.4.160-1.el7_3.1.x86_64                     23/52 
+  Verifying  : libuuid-2.23.2-33.el7_3.2.x86_64                           24/52 
+  Verifying  : audit-libs-2.6.5-3.el7_3.1.x86_64                          25/52 
+  Verifying  : systemd-219-30.el7_3.9.x86_64                              26/52 
+  Verifying  : kpartx-0.4.9-99.el7.x86_64                                 27/52 
+  Verifying  : 2:vim-minimal-7.4.160-1.el7.x86_64                         28/52 
+  Verifying  : systemd-219-30.el7_3.6.x86_64                              29/52 
+  Verifying  : nspr-4.11.0-1.el7_2.x86_64                                 30/52 
+  Verifying  : systemd-libs-219-30.el7_3.6.x86_64                         31/52 
+  Verifying  : libuuid-2.23.2-33.el7.x86_64                               32/52 
+  Verifying  : 1:openssl-libs-1.0.1e-60.el7.x86_64                        33/52 
+  Verifying  : chkconfig-1.7.2-1.el7.x86_64                               34/52 
+  Verifying  : glibc-common-2.17-157.el7_3.1.x86_64                       35/52 
+  Verifying  : audit-libs-2.6.5-3.el7.x86_64                              36/52 
+  Verifying  : dracut-033-463.el7.x86_64                                  37/52 
+  Verifying  : nss-tools-3.21.3-2.el7_3.x86_64                            38/52 
+  Verifying  : gawk-4.0.2-4.el7.x86_64                                    39/52 
+  Verifying  : libmount-2.23.2-33.el7.x86_64                              40/52 
+  Verifying  : glibc-2.17-157.el7_3.1.x86_64                              41/52 
+  Verifying  : 7:device-mapper-libs-1.02.135-1.el7_3.1.x86_64             42/52 
+  Verifying  : 32:bind-license-9.9.4-38.el7_3.noarch                      43/52 
+  Verifying  : nss-3.21.3-2.el7_3.x86_64                                  44/52 
+  Verifying  : nss-sysinit-3.21.3-2.el7_3.x86_64                          45/52 
+  Verifying  : libsemanage-2.5-4.el7.x86_64                               46/52 
+  Verifying  : nss-util-3.21.3-1.1.el7_3.x86_64                           47/52 
+  Verifying  : ca-certificates-2015.2.6-73.el7.noarch                     48/52 
+  Verifying  : libblkid-2.23.2-33.el7.x86_64                              49/52 
+  Verifying  : util-linux-2.23.2-33.el7.x86_64                            50/52 
+  Verifying  : tzdata-2016j-1.el7.noarch                                  51/52 
+  Verifying  : 7:device-mapper-1.02.135-1.el7_3.1.x86_64                  52/52 
+
+Updated:
+  audit-libs.x86_64 0:2.6.5-3.el7_3.1                                           
+  bind-license.noarch 32:9.9.4-50.el7_3.1                                       
+  ca-certificates.noarch 0:2017.2.14-70.1.el7_3                                 
+  chkconfig.x86_64 0:1.7.2-1.el7_3.1                                            
+  device-mapper.x86_64 7:1.02.135-1.el7_3.5                                     
+  device-mapper-libs.x86_64 7:1.02.135-1.el7_3.5                                
+  dracut.x86_64 0:033-463.el7_3.2                                               
+  gawk.x86_64 0:4.0.2-4.el7_3.1                                                 
+  glibc.x86_64 0:2.17-157.el7_3.5                                               
+  glibc-common.x86_64 0:2.17-157.el7_3.5                                        
+  kpartx.x86_64 0:0.4.9-99.el7_3.3                                              
+  libblkid.x86_64 0:2.23.2-33.el7_3.2                                           
+  libmount.x86_64 0:2.23.2-33.el7_3.2                                           
+  libsemanage.x86_64 0:2.5-5.1.el7_3                                            
+  libuuid.x86_64 0:2.23.2-33.el7_3.2                                            
+  nspr.x86_64 0:4.13.1-1.0.el7_3                                                
+  nss.x86_64 0:3.28.4-1.2.el7_3                                                 
+  nss-sysinit.x86_64 0:3.28.4-1.2.el7_3                                         
+  nss-tools.x86_64 0:3.28.4-1.2.el7_3                                           
+  nss-util.x86_64 0:3.28.4-1.0.el7_3                                            
+  openssl-libs.x86_64 1:1.0.1e-60.el7_3.1                                       
+  systemd.x86_64 0:219-30.el7_3.9                                               
+  systemd-libs.x86_64 0:219-30.el7_3.9                                          
+  tzdata.noarch 0:2017b-1.el7                                                   
+  util-linux.x86_64 0:2.23.2-33.el7_3.2                                         
+  vim-minimal.x86_64 2:7.4.160-1.el7_3.1                                        
+
+Complete!
+Loaded plugins: fastestmirror, ovl
+Loading mirror speeds from cached hostfile
+ * base: mirror.neify.es
+ * extras: centos.mirror.ate.info
+ * updates: centos.mirrors.ovh.net
+Package curl-7.29.0-35.el7.centos.x86_64 already installed and latest version
+Resolving Dependencies
+--> Running transaction check
+---> Package crontabs.noarch 0:1.11-6.20121102git.el7 will be installed
+--> Processing Dependency: /etc/cron.d for package: crontabs-1.11-6.20121102git.el7.noarch
+---> Package openssl.x86_64 1:1.0.1e-60.el7_3.1 will be installed
+--> Processing Dependency: make for package: 1:openssl-1.0.1e-60.el7_3.1.x86_64
+---> Package socat.x86_64 0:1.7.2.2-5.el7 will be installed
+--> Running transaction check
+---> Package cronie.x86_64 0:1.4.11-14.el7_2.1 will be installed
+--> Processing Dependency: dailyjobs for package: cronie-1.4.11-14.el7_2.1.x86_64
+---> Package make.x86_64 1:3.82-23.el7 will be installed
+--> Running transaction check
+---> Package cronie-anacron.x86_64 0:1.4.11-14.el7_2.1 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package             Arch        Version                     Repository    Size
+================================================================================
+Installing:
+ crontabs            noarch      1.11-6.20121102git.el7      base          13 k
+ openssl             x86_64      1:1.0.1e-60.el7_3.1         updates      713 k
+ socat               x86_64      1.7.2.2-5.el7               base         255 k
+Installing for dependencies:
+ cronie              x86_64      1.4.11-14.el7_2.1           base          90 k
+ cronie-anacron      x86_64      1.4.11-14.el7_2.1           base          35 k
+ make                x86_64      1:3.82-23.el7               base         420 k
+
+Transaction Summary
+================================================================================
+Install  3 Packages (+3 Dependent packages)
+
+Total download size: 1.5 M
+Installed size: 3.8 M
+Downloading packages:
+--------------------------------------------------------------------------------
+Total                                              3.4 MB/s | 1.5 MB  00:00     
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : cronie-1.4.11-14.el7_2.1.x86_64                              1/6 
+  Installing : crontabs-1.11-6.20121102git.el7.noarch                       2/6 
+  Installing : cronie-anacron-1.4.11-14.el7_2.1.x86_64                      3/6 
+  Installing : 1:make-3.82-23.el7.x86_64                                    4/6 
+  Installing : 1:openssl-1.0.1e-60.el7_3.1.x86_64                           5/6 
+  Installing : socat-1.7.2.2-5.el7.x86_64                                   6/6 
+  Verifying  : 1:openssl-1.0.1e-60.el7_3.1.x86_64                           1/6 
+  Verifying  : crontabs-1.11-6.20121102git.el7.noarch                       2/6 
+  Verifying  : cronie-anacron-1.4.11-14.el7_2.1.x86_64                      3/6 
+  Verifying  : 1:make-3.82-23.el7.x86_64                                    4/6 
+  Verifying  : socat-1.7.2.2-5.el7.x86_64                                   5/6 
+  Verifying  : cronie-1.4.11-14.el7_2.1.x86_64                              6/6 
+
+Installed:
+  crontabs.noarch 0:1.11-6.20121102git.el7  openssl.x86_64 1:1.0.1e-60.el7_3.1 
+  socat.x86_64 0:1.7.2.2-5.el7             
+
+Dependency Installed:
+  cronie.x86_64 0:1.4.11-14.el7_2.1  cronie-anacron.x86_64 0:1.4.11-14.el7_2.1 
+  make.x86_64 1:3.82-23.el7         
+
+Complete!
+ ---> b7ce20f4afe7
+Removing intermediate container 4845076d4b3b
+Successfully built b7ce20f4afe7
 Successfully tagged mycentos:latest
-Fri, 25 Aug 2017 04:26:34 UTC
+Sat, 02 Sep 2017 16:15:44 UTC
 Testing branch: master
 Progress: 0/1/23
 ==Running le_test_dependencies please wait
@@ -15,13 +335,13 @@ no crontab for root
 curl installed. [PASS]
 crontab installed. [PASS]
 openssl installed. [PASS]
-nc installed. [PASS]
+socat installed. [PASS]
 ------------------------------------------
 Progress: 0/2/23
 ==Running le_test_install please wait
 ./acme.sh install [PASS]
 /root/.acme.sh/acme.sh exists. [PASS]
-_contains '45 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
+_contains '51 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
 /root/.acme.sh/acme.sh uninstall  > /dev/null [PASS]
 ------------------------------------------
 Progress: 0/3/23
@@ -35,7 +355,7 @@ Progress: 0/4/23
 ==Running le_test_installtodir please wait
 ./acme.sh install [PASS]
 /root/myle/acme.sh exists. [PASS]
-_contains '46 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
+_contains '52 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
 /root/myle/acme.sh uninstall [PASS]
 ------------------------------------------
 Progress: 0/5/23
@@ -49,7 +369,7 @@ Progress: 0/6/23
 ==Running le_test_install_config_home please wait
 ./acme.sh --install --config-home /root/etc/acme [PASS]
 /root/.acme.sh/acme.sh exists. [PASS]
-_contains '47 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
+_contains '53 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
 /root/etc/acme/account.conf exists. [PASS]
 /root/.acme.sh/account.conf no exists. [PASS]
 /root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null [PASS]
