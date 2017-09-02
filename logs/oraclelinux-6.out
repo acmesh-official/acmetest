@@ -2,782 +2,17 @@ Sending build context to Docker daemon  2.048kB
 Step 1/2 : FROM oraclelinux:6
  ---> 0f6021efa08e
 Step 2/2 : RUN yum -y update     2>&1 && yum -y install    tar openssl crontabs socat curl  2>&1
- ---> Running in a3030d8ad9b2
-Loaded plugins: security, ulninfo
-Setting up Update Process
-Resolving Dependencies
---> Running transaction check
----> Package audit-libs.x86_64 0:2.4.5-3.el6 will be updated
----> Package audit-libs.x86_64 0:2.4.5-6.el6 will be an update
----> Package bash.x86_64 0:4.1.2-40.el6 will be updated
----> Package bash.x86_64 0:4.1.2-48.el6 will be an update
----> Package binutils.x86_64 0:2.20.51.0.2-5.44.el6 will be updated
----> Package binutils.x86_64 0:2.20.51.0.2-5.47.el6_9.1 will be an update
----> Package ca-certificates.noarch 0:2015.2.6-65.0.1.el6_7 will be updated
----> Package ca-certificates.noarch 0:2017.2.14-65.0.1.el6_9 will be an update
----> Package coreutils.x86_64 0:8.4-43.0.1.el6 will be updated
----> Package coreutils.x86_64 0:8.4-46.0.1.el6 will be an update
----> Package coreutils-libs.x86_64 0:8.4-43.0.1.el6 will be updated
----> Package coreutils-libs.x86_64 0:8.4-46.0.1.el6 will be an update
----> Package cpio.x86_64 0:2.10-12.el6_5 will be updated
----> Package cpio.x86_64 0:2.10-13.el6 will be an update
----> Package curl.x86_64 0:7.19.7-52.el6 will be updated
----> Package curl.x86_64 0:7.19.7-53.el6_9 will be an update
----> Package db4.x86_64 0:4.7.25-20.el6_7 will be updated
----> Package db4.x86_64 0:4.7.25-22.el6 will be an update
----> Package db4-utils.x86_64 0:4.7.25-20.el6_7 will be updated
----> Package db4-utils.x86_64 0:4.7.25-22.el6 will be an update
----> Package dhclient.x86_64 12:4.1.1-51.P1.0.1.el6 will be updated
----> Package dhclient.x86_64 12:4.1.1-53.P1.0.1.el6_9.1 will be an update
----> Package dhcp-common.x86_64 12:4.1.1-51.P1.0.1.el6 will be updated
----> Package dhcp-common.x86_64 12:4.1.1-53.P1.0.1.el6_9.1 will be an update
----> Package expat.x86_64 0:2.0.1-11.el6_2 will be updated
----> Package expat.x86_64 0:2.0.1-13.el6_8 will be an update
----> Package glib2.x86_64 0:2.28.8-5.el6 will be updated
----> Package glib2.x86_64 0:2.28.8-9.el6 will be an update
----> Package glibc.x86_64 0:2.12-1.192.el6 will be updated
----> Package glibc.x86_64 0:2.12-1.209.0.3.el6_9.2 will be an update
----> Package glibc-common.x86_64 0:2.12-1.192.el6 will be updated
----> Package glibc-common.x86_64 0:2.12-1.209.0.3.el6_9.2 will be an update
----> Package gmp.x86_64 0:4.3.1-10.el6 will be updated
----> Package gmp.x86_64 0:4.3.1-12.el6 will be an update
----> Package grep.x86_64 0:2.20-3.el6_7.1 will be updated
----> Package grep.x86_64 0:2.20-6.el6 will be an update
----> Package gzip.x86_64 0:1.3.12-22.el6 will be updated
----> Package gzip.x86_64 0:1.3.12-24.el6 will be an update
----> Package hwdata.noarch 0:0.233-16.1.el6 will be updated
----> Package hwdata.noarch 0:0.233-18.1.el6 will be an update
----> Package initscripts.x86_64 0:9.03.53-1.0.1.el6 will be updated
----> Package initscripts.x86_64 0:9.03.58-1.0.1.el6_9.1 will be an update
----> Package iptables.x86_64 0:1.4.7-16.0.2.el6 will be updated
----> Package iptables.x86_64 0:1.4.7-16.0.5.el6 will be an update
----> Package iputils.x86_64 0:20071127-21.el6 will be updated
----> Package iputils.x86_64 0:20071127-24.el6 will be an update
----> Package krb5-libs.x86_64 0:1.10.3-57.el6 will be updated
----> Package krb5-libs.x86_64 0:1.10.3-65.el6 will be an update
----> Package libacl.x86_64 0:2.2.49-6.el6 will be updated
----> Package libacl.x86_64 0:2.2.49-7.el6_9.1 will be an update
----> Package libblkid.x86_64 0:2.17.2-12.24.0.1.el6 will be updated
----> Package libblkid.x86_64 0:2.17.2-12.28.el6 will be an update
----> Package libcom_err.x86_64 0:1.42.8-1.0.2.el6 will be updated
----> Package libcom_err.x86_64 0:1.42.8-1.0.3.el6 will be an update
----> Package libcurl.x86_64 0:7.19.7-52.el6 will be updated
----> Package libcurl.x86_64 0:7.19.7-53.el6_9 will be an update
----> Package libgcc.x86_64 0:4.4.7-17.el6 will be updated
----> Package libgcc.x86_64 0:4.4.7-18.el6 will be an update
----> Package libgcrypt.x86_64 0:1.4.5-11.el6_4 will be updated
----> Package libgcrypt.x86_64 0:1.4.5-12.el6_8 will be an update
----> Package libgudev1.x86_64 0:147-2.73.0.1.el6 will be updated
----> Package libgudev1.x86_64 0:147-2.73.0.1.el6_8.2 will be an update
----> Package libstdc++.x86_64 0:4.4.7-17.el6 will be updated
----> Package libstdc++.x86_64 0:4.4.7-18.el6 will be an update
----> Package libudev.x86_64 0:147-2.73.0.1.el6 will be updated
----> Package libudev.x86_64 0:147-2.73.0.1.el6_8.2 will be an update
----> Package libuuid.x86_64 0:2.17.2-12.24.0.1.el6 will be updated
----> Package libuuid.x86_64 0:2.17.2-12.28.el6 will be an update
----> Package libxml2.x86_64 0:2.7.6-21.0.1.el6 will be updated
----> Package libxml2.x86_64 0:2.7.6-21.0.1.el6_8.1 will be an update
----> Package libxml2-python.x86_64 0:2.7.6-21.0.1.el6 will be updated
----> Package libxml2-python.x86_64 0:2.7.6-21.0.1.el6_8.1 will be an update
----> Package logrotate.x86_64 0:3.7.8-26.el6_7 will be updated
----> Package logrotate.x86_64 0:3.7.8-28.el6 will be an update
----> Package module-init-tools.x86_64 0:3.9-25.0.1.el6 will be updated
----> Package module-init-tools.x86_64 0:3.9-26.0.1.el6 will be an update
----> Package net-tools.x86_64 0:1.60-110.0.1.el6_2 will be updated
----> Package net-tools.x86_64 0:1.60-114.el6 will be an update
----> Package newt.x86_64 0:0.52.11-3.el6 will be updated
----> Package newt.x86_64 0:0.52.11-4.el6 will be an update
----> Package newt-python.x86_64 0:0.52.11-3.el6 will be updated
----> Package newt-python.x86_64 0:0.52.11-4.el6 will be an update
----> Package nspr.x86_64 0:4.11.0-1.el6 will be updated
----> Package nspr.x86_64 0:4.13.1-1.el6 will be an update
----> Package nss.x86_64 0:3.21.0-8.0.1.el6 will be updated
----> Package nss.x86_64 0:3.28.4-3.0.1.el6_9 will be an update
----> Package nss-softokn.x86_64 0:3.14.3-23.el6_7 will be updated
----> Package nss-softokn.x86_64 0:3.14.3-23.3.el6_8 will be an update
----> Package nss-softokn-freebl.x86_64 0:3.14.3-23.el6_7 will be updated
----> Package nss-softokn-freebl.x86_64 0:3.14.3-23.3.el6_8 will be an update
----> Package nss-sysinit.x86_64 0:3.21.0-8.0.1.el6 will be updated
----> Package nss-sysinit.x86_64 0:3.28.4-3.0.1.el6_9 will be an update
----> Package nss-tools.x86_64 0:3.21.0-8.0.1.el6 will be updated
----> Package nss-tools.x86_64 0:3.28.4-3.0.1.el6_9 will be an update
----> Package nss-util.x86_64 0:3.21.0-2.el6 will be updated
----> Package nss-util.x86_64 0:3.28.4-1.el6_9 will be an update
----> Package openldap.x86_64 0:2.4.40-12.el6 will be updated
----> Package openldap.x86_64 0:2.4.40-16.el6 will be an update
----> Package openssh.x86_64 0:5.3p1-118.1.el6_8 will be updated
----> Package openssh.x86_64 0:5.3p1-123.el6_9 will be an update
----> Package openssh-clients.x86_64 0:5.3p1-118.1.el6_8 will be updated
----> Package openssh-clients.x86_64 0:5.3p1-123.el6_9 will be an update
----> Package openssh-server.x86_64 0:5.3p1-118.1.el6_8 will be updated
----> Package openssh-server.x86_64 0:5.3p1-123.el6_9 will be an update
----> Package openssl.x86_64 0:1.0.1e-48.el6_8.1 will be updated
----> Package openssl.x86_64 0:1.0.1e-57.0.1.el6 will be an update
----> Package oracle-logos.noarch 0:60.0.14-1.0.3.el6 will be updated
----> Package oracle-logos.noarch 0:60.0.14-1.0.5.el6 will be an update
----> Package oraclelinux-release.x86_64 6:6Server-8.0.3 will be updated
----> Package oraclelinux-release.x86_64 6:6Server-9.0.3 will be an update
----> Package pam.x86_64 0:1.1.1-22.0.1.el6 will be updated
----> Package pam.x86_64 0:1.1.1-24.0.1.el6 will be an update
----> Package plymouth.x86_64 0:0.8.3-27.0.1.el6_5.1 will be updated
----> Package plymouth.x86_64 0:0.8.3-29.0.1.el6 will be an update
----> Package plymouth-core-libs.x86_64 0:0.8.3-27.0.1.el6_5.1 will be updated
----> Package plymouth-core-libs.x86_64 0:0.8.3-29.0.1.el6 will be an update
----> Package plymouth-scripts.x86_64 0:0.8.3-27.0.1.el6_5.1 will be updated
----> Package plymouth-scripts.x86_64 0:0.8.3-29.0.1.el6 will be an update
----> Package policycoreutils.x86_64 0:2.0.83-29.0.1.el6 will be updated
----> Package policycoreutils.x86_64 0:2.0.83-30.1.0.1.el6_8 will be an update
----> Package procps.x86_64 0:3.2.8-36.0.1.el6 will be updated
----> Package procps.x86_64 0:3.2.8-45.0.1.el6_9.1 will be an update
----> Package psmisc.x86_64 0:22.6-19.el6_5 will be updated
----> Package psmisc.x86_64 0:22.6-24.el6 will be an update
----> Package python.x86_64 0:2.6.6-64.0.1.el6 will be updated
----> Package python.x86_64 0:2.6.6-66.0.1.el6_8 will be an update
----> Package python-dmidecode.x86_64 0:3.10.13-3.el6_4 will be updated
----> Package python-dmidecode.x86_64 0:3.10.15-1.el6 will be an update
----> Package python-ethtool.x86_64 0:0.6-5.el6 will be updated
----> Package python-ethtool.x86_64 0:0.6-6.el6 will be an update
----> Package python-libs.x86_64 0:2.6.6-64.0.1.el6 will be updated
----> Package python-libs.x86_64 0:2.6.6-66.0.1.el6_8 will be an update
----> Package redhat-release-server.x86_64 1:6Server-6.8.0.5.0.1.el6 will be updated
----> Package redhat-release-server.x86_64 1:6Server-6.9.0.4.0.1.el6 will be an update
----> Package rhn-check.noarch 0:1.0.0.1-38.0.4.el6 will be updated
----> Package rhn-check.noarch 0:1.0.0.1-43.0.1.el6 will be an update
----> Package rhn-client-tools.noarch 0:1.0.0.1-38.0.4.el6 will be updated
----> Package rhn-client-tools.noarch 0:1.0.0.1-43.0.1.el6 will be an update
----> Package rhn-setup.noarch 0:1.0.0.1-38.0.4.el6 will be updated
----> Package rhn-setup.noarch 0:1.0.0.1-43.0.1.el6 will be an update
----> Package rhnsd.x86_64 0:4.9.3-2.0.1.el6 will be updated
----> Package rhnsd.x86_64 0:4.9.3-5.0.1.el6 will be an update
----> Package setup.noarch 0:2.8.14-20.el6_4.1 will be updated
----> Package setup.noarch 0:2.8.14-23.el6 will be an update
----> Package tzdata.noarch 0:2016d-1.el6 will be updated
----> Package tzdata.noarch 0:2017b-1.el6 will be an update
----> Package udev.x86_64 0:147-2.73.0.1.el6 will be updated
----> Package udev.x86_64 0:147-2.73.0.1.el6_8.2 will be an update
----> Package util-linux-ng.x86_64 0:2.17.2-12.24.0.1.el6 will be updated
----> Package util-linux-ng.x86_64 0:2.17.2-12.28.el6 will be an update
----> Package vim-minimal.x86_64 2:7.4.629-5.el6 will be updated
----> Package vim-minimal.x86_64 2:7.4.629-5.el6_8.1 will be an update
----> Package yum.noarch 0:3.2.29-73.0.2.el6 will be updated
----> Package yum.noarch 0:3.2.29-81.0.1.el6 will be an update
----> Package yum-plugin-security.noarch 0:1.1.30-37.0.1.el6 will be updated
----> Package yum-plugin-security.noarch 0:1.1.30-40.0.1.el6 will be an update
----> Package yum-rhn-plugin.noarch 0:0.9.1-60.0.1.el6 will be updated
----> Package yum-rhn-plugin.noarch 0:0.9.1-60.2.0.3.el6_8 will be an update
---> Finished Dependency Resolution
-
-Dependencies Resolved
-
-================================================================================
- Package              Arch   Version                    Repository         Size
-================================================================================
-Updating:
- audit-libs           x86_64 2.4.5-6.el6                public_ol6_latest  74 k
- bash                 x86_64 4.1.2-48.el6               public_ol6_latest 910 k
- binutils             x86_64 2.20.51.0.2-5.47.el6_9.1   public_ol6_latest 2.8 M
- ca-certificates      noarch 2017.2.14-65.0.1.el6_9     public_ol6_latest 1.3 M
- coreutils            x86_64 8.4-46.0.1.el6             public_ol6_latest 3.0 M
- coreutils-libs       x86_64 8.4-46.0.1.el6             public_ol6_latest  51 k
- cpio                 x86_64 2.10-13.el6                public_ol6_latest 191 k
- curl                 x86_64 7.19.7-53.el6_9            public_ol6_latest 197 k
- db4                  x86_64 4.7.25-22.el6              public_ol6_latest 563 k
- db4-utils            x86_64 4.7.25-22.el6              public_ol6_latest 130 k
- dhclient             x86_64 12:4.1.1-53.P1.0.1.el6_9.1 public_ol6_latest 321 k
- dhcp-common          x86_64 12:4.1.1-53.P1.0.1.el6_9.1 public_ol6_latest 144 k
- expat                x86_64 2.0.1-13.el6_8             public_ol6_latest  76 k
- glib2                x86_64 2.28.8-9.el6               public_ol6_latest 1.7 M
- glibc                x86_64 2.12-1.209.0.3.el6_9.2     public_ol6_latest 3.8 M
- glibc-common         x86_64 2.12-1.209.0.3.el6_9.2     public_ol6_latest  14 M
- gmp                  x86_64 4.3.1-12.el6               public_ol6_latest 207 k
- grep                 x86_64 2.20-6.el6                 public_ol6_latest 344 k
- gzip                 x86_64 1.3.12-24.el6              public_ol6_latest 116 k
- hwdata               noarch 0.233-18.1.el6             public_ol6_latest 1.3 M
- initscripts          x86_64 9.03.58-1.0.1.el6_9.1      public_ol6_latest 950 k
- iptables             x86_64 1.4.7-16.0.5.el6           public_ol6_latest 258 k
- iputils              x86_64 20071127-24.el6            public_ol6_latest 120 k
- krb5-libs            x86_64 1.10.3-65.el6              public_ol6_latest 674 k
- libacl               x86_64 2.2.49-7.el6_9.1           public_ol6_latest  23 k
- libblkid             x86_64 2.17.2-12.28.el6           public_ol6_latest 118 k
- libcom_err           x86_64 1.42.8-1.0.3.el6           public_ol6_latest  37 k
- libcurl              x86_64 7.19.7-53.el6_9            public_ol6_latest 169 k
- libgcc               x86_64 4.4.7-18.el6               public_ol6_latest 103 k
- libgcrypt            x86_64 1.4.5-12.el6_8             public_ol6_latest 228 k
- libgudev1            x86_64 147-2.73.0.1.el6_8.2       public_ol6_latest  65 k
- libstdc++            x86_64 4.4.7-18.el6               public_ol6_latest 295 k
- libudev              x86_64 147-2.73.0.1.el6_8.2       public_ol6_latest  78 k
- libuuid              x86_64 2.17.2-12.28.el6           public_ol6_latest  71 k
- libxml2              x86_64 2.7.6-21.0.1.el6_8.1       public_ol6_latest 805 k
- libxml2-python       x86_64 2.7.6-21.0.1.el6_8.1       public_ol6_latest 324 k
- logrotate            x86_64 3.7.8-28.el6               public_ol6_latest  58 k
- module-init-tools    x86_64 3.9-26.0.1.el6             public_ol6_latest 467 k
- net-tools            x86_64 1.60-114.el6               public_ol6_latest 268 k
- newt                 x86_64 0.52.11-4.el6              public_ol6_latest  96 k
- newt-python          x86_64 0.52.11-4.el6              public_ol6_latest  48 k
- nspr                 x86_64 4.13.1-1.el6               public_ol6_latest 113 k
- nss                  x86_64 3.28.4-3.0.1.el6_9         public_ol6_latest 879 k
- nss-softokn          x86_64 3.14.3-23.3.el6_8          public_ol6_latest 262 k
- nss-softokn-freebl   x86_64 3.14.3-23.3.el6_8          public_ol6_latest 167 k
- nss-sysinit          x86_64 3.28.4-3.0.1.el6_9         public_ol6_latest  51 k
- nss-tools            x86_64 3.28.4-3.0.1.el6_9         public_ol6_latest 446 k
- nss-util             x86_64 3.28.4-1.el6_9             public_ol6_latest  68 k
- openldap             x86_64 2.4.40-16.el6              public_ol6_latest 285 k
- openssh              x86_64 5.3p1-123.el6_9            public_ol6_latest 277 k
- openssh-clients      x86_64 5.3p1-123.el6_9            public_ol6_latest 443 k
- openssh-server       x86_64 5.3p1-123.el6_9            public_ol6_latest 329 k
- openssl              x86_64 1.0.1e-57.0.1.el6          public_ol6_latest 1.5 M
- oracle-logos         noarch 60.0.14-1.0.5.el6          public_ol6_latest  12 M
- oraclelinux-release  x86_64 6:6Server-9.0.3            public_ol6_latest  24 k
- pam                  x86_64 1.1.1-24.0.1.el6           public_ol6_latest 658 k
- plymouth             x86_64 0.8.3-29.0.1.el6           public_ol6_latest  89 k
- plymouth-core-libs   x86_64 0.8.3-29.0.1.el6           public_ol6_latest  88 k
- plymouth-scripts     x86_64 0.8.3-29.0.1.el6           public_ol6_latest  30 k
- policycoreutils      x86_64 2.0.83-30.1.0.1.el6_8      public_ol6_latest 662 k
- procps               x86_64 3.2.8-45.0.1.el6_9.1       public_ol6_latest 219 k
- psmisc               x86_64 22.6-24.el6                public_ol6_latest  81 k
- python               x86_64 2.6.6-66.0.1.el6_8         public_ol6_latest  76 k
- python-dmidecode     x86_64 3.10.15-1.el6              public_ol6_latest  79 k
- python-ethtool       x86_64 0.6-6.el6                  public_ol6_latest  30 k
- python-libs          x86_64 2.6.6-66.0.1.el6_8         public_ol6_latest 5.3 M
- redhat-release-server
-                      x86_64 1:6Server-6.9.0.4.0.1.el6  public_ol6_latest 9.6 k
- rhn-check            noarch 1.0.0.1-43.0.1.el6         public_ol6_latest  71 k
- rhn-client-tools     noarch 1.0.0.1-43.0.1.el6         public_ol6_latest 509 k
- rhn-setup            noarch 1.0.0.1-43.0.1.el6         public_ol6_latest 107 k
- rhnsd                x86_64 4.9.3-5.0.1.el6            public_ol6_latest  43 k
- setup                noarch 2.8.14-23.el6              public_ol6_latest 151 k
- tzdata               noarch 2017b-1.el6                public_ol6_latest 455 k
- udev                 x86_64 147-2.73.0.1.el6_8.2       public_ol6_latest 360 k
- util-linux-ng        x86_64 2.17.2-12.28.el6           public_ol6_latest 1.6 M
- vim-minimal          x86_64 2:7.4.629-5.el6_8.1        public_ol6_latest 421 k
- yum                  noarch 3.2.29-81.0.1.el6          public_ol6_latest 1.0 M
- yum-plugin-security  noarch 1.1.30-40.0.1.el6          public_ol6_latest  43 k
- yum-rhn-plugin       noarch 0.9.1-60.2.0.3.el6_8       public_ol6_latest  84 k
-
-Transaction Summary
-================================================================================
-Upgrade      79 Package(s)
-
-Total download size: 65 M
-Downloading Packages:
---------------------------------------------------------------------------------
-Total                                           4.6 MB/s |  65 MB     00:14     
-Running rpm_check_debug
-Running Transaction Test
-Transaction Test Succeeded
-Running Transaction
-  Updating   : libgcc-4.4.7-18.el6.x86_64                                 1/158 
-  Updating   : 12:dhcp-common-4.1.1-53.P1.0.1.el6_9.1.x86_64              2/158 
-  Updating   : tzdata-2017b-1.el6.noarch                                  3/158 
-  Updating   : glibc-common-2.12-1.209.0.3.el6_9.2.x86_64                 4/158 
-  Updating   : nss-softokn-freebl-3.14.3-23.3.el6_8.x86_64                5/158 
-  Updating   : glibc-2.12-1.209.0.3.el6_9.2.x86_64                        6/158 
-  Updating   : bash-4.1.2-48.el6.x86_64                                   7/158 
-  Updating   : nspr-4.13.1-1.el6.x86_64                                   8/158 
-  Updating   : nss-util-3.28.4-1.el6_9.x86_64                             9/158 
-  Updating   : libcom_err-1.42.8-1.0.3.el6.x86_64                        10/158 
-  Updating   : krb5-libs-1.10.3-65.el6.x86_64                            11/158 
-  Updating   : grep-2.20-6.el6.x86_64                                    12/158 
-/usr/share/info/dir: could not read (No such file or directory) and could not create (No such file or directory)
-  Updating   : audit-libs-2.4.5-6.el6.x86_64                             13/158 
-  Updating   : glib2-2.28.8-9.el6.x86_64                                 14/158 
-  Updating   : libacl-2.2.49-7.el6_9.1.x86_64                            15/158 
-  Updating   : db4-4.7.25-22.el6.x86_64                                  16/158 
-  Updating   : nss-softokn-3.14.3-23.3.el6_8.x86_64                      17/158 
-  Updating   : libxml2-2.7.6-21.0.1.el6_8.1.x86_64                       18/158 
-  Updating   : libuuid-2.17.2-12.28.el6.x86_64                           19/158 
-  Updating   : libblkid-2.17.2-12.28.el6.x86_64                          20/158 
-  Updating   : binutils-2.20.51.0.2-5.47.el6_9.1.x86_64                  21/158 
-  Updating   : cpio-2.10-13.el6.x86_64                                   22/158 
-  Updating   : newt-0.52.11-4.el6.x86_64                                 23/158 
-  Updating   : expat-2.0.1-13.el6_8.x86_64                               24/158 
-  Updating   : libudev-147-2.73.0.1.el6_8.2.x86_64                       25/158 
-  Updating   : psmisc-22.6-24.el6.x86_64                                 26/158 
-  Updating   : procps-3.2.8-45.0.1.el6_9.1.x86_64                        27/158 
-  Updating   : net-tools-1.60-114.el6.x86_64                             28/158 
-  Updating   : libstdc++-4.4.7-18.el6.x86_64                             29/158 
-  Updating   : gmp-4.3.1-12.el6.x86_64                                   30/158 
-  Updating   : coreutils-libs-8.4-46.0.1.el6.x86_64                      31/158 
-  Updating   : coreutils-8.4-46.0.1.el6.x86_64                           32/158 
-/var/tmp/rpm-tmp.DrusZi: line 1: /usr/share/info/dir.rpmmodify: No such file or directory
-  Updating   : pam-1.1.1-24.0.1.el6.x86_64                               33/158 
-  Updating   : oracle-logos-60.0.14-1.0.5.el6.noarch                     34/158 
-  Updating   : module-init-tools-3.9-26.0.1.el6.x86_64                   35/158 
-  Updating   : hwdata-0.233-18.1.el6.noarch                              36/158 
-  Updating   : plymouth-scripts-0.8.3-29.0.1.el6.x86_64                  37/158 
-  Updating   : nss-sysinit-3.28.4-3.0.1.el6_9.x86_64                     38/158 
-  Updating   : nss-3.28.4-3.0.1.el6_9.x86_64                             39/158 
-  Updating   : nss-tools-3.28.4-3.0.1.el6_9.x86_64                       40/158 
-  Updating   : openldap-2.4.40-16.el6.x86_64                             41/158 
-  Updating   : libcurl-7.19.7-53.el6_9.x86_64                            42/158 
-  Updating   : ca-certificates-2017.2.14-65.0.1.el6_9.noarch             43/158 
-  Updating   : openssl-1.0.1e-57.0.1.el6.x86_64                          44/158 
-  Updating   : python-2.6.6-66.0.1.el6_8.x86_64                          45/158 
-  Updating   : python-libs-2.6.6-66.0.1.el6_8.x86_64                     46/158 
-  Updating   : yum-3.2.29-81.0.1.el6.noarch                              47/158 
-  Updating   : libxml2-python-2.7.6-21.0.1.el6_8.1.x86_64                48/158 
-  Updating   : newt-python-0.52.11-4.el6.x86_64                          49/158 
-  Updating   : python-dmidecode-3.10.15-1.el6.x86_64                     50/158 
-  Updating   : python-ethtool-0.6-6.el6.x86_64                           51/158 
-  Updating   : plymouth-core-libs-0.8.3-29.0.1.el6.x86_64                52/158 
-  Updating   : 1:redhat-release-server-6Server-6.9.0.4.0.1.el6.x86_64    53/158 
-  Updating   : 6:oraclelinux-release-6Server-9.0.3.x86_64                54/158 
-  Updating   : iputils-20071127-24.el6.x86_64                            55/158 
-  Updating   : plymouth-0.8.3-29.0.1.el6.x86_64                          56/158 
-  Updating   : util-linux-ng-2.17.2-12.28.el6.x86_64                     57/158 
-/usr/share/info/dir: could not read (No such file or directory) and could not create (No such file or directory)
-  Updating   : initscripts-9.03.58-1.0.1.el6_9.1.x86_64                  58/158 
-  Updating   : udev-147-2.73.0.1.el6_8.2.x86_64                          59/158 
-  Updating   : rhn-client-tools-1.0.0.1-43.0.1.el6.noarch                60/158 
-  Updating   : openssh-5.3p1-123.el6_9.x86_64                            61/158 
-  Updating   : rhn-check-1.0.0.1-43.0.1.el6.noarch                       62/158 
-  Updating   : rhnsd-4.9.3-5.0.1.el6.x86_64                              63/158 
-  Updating   : rhn-setup-1.0.0.1-43.0.1.el6.noarch                       64/158 
-  Updating   : yum-rhn-plugin-0.9.1-60.2.0.3.el6_8.noarch                65/158 
-  Updating   : policycoreutils-2.0.83-30.1.0.1.el6_8.x86_64              66/158 
-  Updating   : iptables-1.4.7-16.0.5.el6.x86_64                          67/158 
-failed to link /usr/share/man/man8/iptables-restore.8.gz -> /etc/alternatives/man-iptables-restore.x86_64: No such file or directory
-failed to link /usr/share/man/man8/iptables-save.8.gz -> /etc/alternatives/man-iptables-save.x86_64: No such file or directory
-failed to link /usr/share/man/man8/iptables-xml.8.gz -> /etc/alternatives/man-iptables-xml.x86_64: No such file or directory
-failed to link /usr/share/man/man8/iptables.8.gz -> /etc/alternatives/man-iptables.x86_64: No such file or directory
-warning: %post(iptables-1.4.7-16.0.5.el6.x86_64) scriptlet failed, exit status 2
-Non-fatal POSTIN scriptlet failure in rpm package iptables-1.4.7-16.0.5.el6.x86_64
-  Updating   : openssh-server-5.3p1-123.el6_9.x86_64                     68/158 
-  Updating   : openssh-clients-5.3p1-123.el6_9.x86_64                    69/158 
-  Updating   : 12:dhclient-4.1.1-53.P1.0.1.el6_9.1.x86_64                70/158 
-  Updating   : yum-plugin-security-1.1.30-40.0.1.el6.noarch              71/158 
-  Updating   : curl-7.19.7-53.el6_9.x86_64                               72/158 
-  Updating   : gzip-1.3.12-24.el6.x86_64                                 73/158 
-  Updating   : logrotate-3.7.8-28.el6.x86_64                             74/158 
-  Updating   : libgudev1-147-2.73.0.1.el6_8.2.x86_64                     75/158 
-  Updating   : db4-utils-4.7.25-22.el6.x86_64                            76/158 
-  Updating   : 2:vim-minimal-7.4.629-5.el6_8.1.x86_64                    77/158 
-  Updating   : libgcrypt-1.4.5-12.el6_8.x86_64                           78/158 
-  Updating   : setup-2.8.14-23.el6.noarch                                79/158 
-warning: /etc/shadow created as /etc/shadow.rpmnew
-  Cleanup    : openssh-server-5.3p1-118.1.el6_8.x86_64                   80/158 
-  Cleanup    : openssh-clients-5.3p1-118.1.el6_8.x86_64                  81/158 
-  Cleanup    : openssh-5.3p1-118.1.el6_8.x86_64                          82/158 
-  Cleanup    : curl-7.19.7-52.el6.x86_64                                 83/158 
-  Cleanup    : libcurl-7.19.7-52.el6.x86_64                              84/158 
-  Cleanup    : openldap-2.4.40-12.el6.x86_64                             85/158 
-  Cleanup    : nss-tools-3.21.0-8.0.1.el6.x86_64                         86/158 
-  Cleanup    : nss-sysinit-3.21.0-8.0.1.el6.x86_64                       87/158 
-  Cleanup    : nss-3.21.0-8.0.1.el6.x86_64                               88/158 
-  Cleanup    : nss-softokn-3.14.3-23.el6_7.x86_64                        89/158 
-  Cleanup    : 12:dhclient-4.1.1-51.P1.0.1.el6.x86_64                    90/158 
-  Cleanup    : nss-util-3.21.0-2.el6.x86_64                              91/158 
-  Cleanup    : libgudev1-147-2.73.0.1.el6.x86_64                         92/158 
-  Cleanup    : logrotate-3.7.8-26.el6_7.x86_64                           93/158 
-  Cleanup    : gzip-1.3.12-22.el6.x86_64                                 94/158 
-  Cleanup    : iptables-1.4.7-16.0.2.el6.x86_64                          95/158 
-failed to link /usr/share/man/man8/iptables-restore.8.gz -> /etc/alternatives/man-iptables-restore.x86_64: No such file or directory
-failed to link /usr/share/man/man8/iptables-save.8.gz -> /etc/alternatives/man-iptables-save.x86_64: No such file or directory
-failed to link /usr/share/man/man8/iptables-xml.8.gz -> /etc/alternatives/man-iptables-xml.x86_64: No such file or directory
-failed to link /usr/share/man/man8/iptables.8.gz -> /etc/alternatives/man-iptables.x86_64: No such file or directory
-  Cleanup    : policycoreutils-2.0.83-29.0.1.el6.x86_64                  96/158 
-  Cleanup    : db4-utils-4.7.25-20.el6_7.x86_64                          97/158 
-  Cleanup    : rhnsd-4.9.3-2.0.1.el6.x86_64                              98/158 
-  Cleanup    : rhn-check-1.0.0.1-38.0.4.el6.noarch                       99/158 
-  Cleanup    : yum-rhn-plugin-0.9.1-60.0.1.el6.noarch                   100/158 
-  Cleanup    : rhn-setup-1.0.0.1-38.0.4.el6.noarch                      101/158 
-  Cleanup    : util-linux-ng-2.17.2-12.24.0.1.el6.x86_64                102/158 
-  Cleanup    : iputils-20071127-21.el6.x86_64                           103/158 
-  Cleanup    : plymouth-0.8.3-27.0.1.el6_5.1.x86_64                     104/158 
-  Cleanup    : udev-147-2.73.0.1.el6.x86_64                             105/158 
-  Cleanup    : initscripts-9.03.53-1.0.1.el6.x86_64                     106/158 
-  Cleanup    : rhn-client-tools-1.0.0.1-38.0.4.el6.noarch               107/158 
-  Cleanup    : python-dmidecode-3.10.13-3.el6_4.x86_64                  108/158 
-  Cleanup    : libxml2-python-2.7.6-21.0.1.el6.x86_64                   109/158 
-  Cleanup    : python-ethtool-0.6-5.el6.x86_64                          110/158 
-  Cleanup    : newt-python-0.52.11-3.el6.x86_64                         111/158 
-  Cleanup    : libblkid-2.17.2-12.24.0.1.el6.x86_64                     112/158 
-  Cleanup    : plymouth-scripts-0.8.3-27.0.1.el6_5.1.x86_64             113/158 
-  Cleanup    : oracle-logos-60.0.14-1.0.3.el6.noarch                    114/158 
-  Cleanup    : 6:oraclelinux-release-6Server-8.0.3.x86_64               115/158 
-  Cleanup    : cpio-2.10-12.el6_5.x86_64                                116/158 
-  Cleanup    : glib2-2.28.8-5.el6.x86_64                                117/158 
-  Cleanup    : 2:vim-minimal-7.4.629-5.el6.x86_64                       118/158 
-  Cleanup    : hwdata-0.233-16.1.el6.noarch                             119/158 
-  Cleanup    : yum-plugin-security-1.1.30-37.0.1.el6.noarch             120/158 
-  Cleanup    : module-init-tools-3.9-25.0.1.el6.x86_64                  121/158 
-  Cleanup    : yum-3.2.29-73.0.2.el6.noarch                             122/158 
-  Cleanup    : python-libs-2.6.6-64.0.1.el6.x86_64                      123/158 
-  Cleanup    : python-2.6.6-64.0.1.el6.x86_64                           124/158 
-  Cleanup    : openssl-1.0.1e-48.el6_8.1.x86_64                         125/158 
-  Cleanup    : krb5-libs-1.10.3-57.el6.x86_64                           126/158 
-  Cleanup    : ca-certificates-2015.2.6-65.0.1.el6_7.noarch             127/158 
-  Cleanup    : coreutils-libs-8.4-43.0.1.el6.x86_64                     128/158 
-  Cleanup    : pam-1.1.1-22.0.1.el6.x86_64                              129/158 
-  Cleanup    : coreutils-8.4-43.0.1.el6.x86_64                          130/158 
-  Cleanup    : gmp-4.3.1-10.el6.x86_64                                  131/158 
-  Cleanup    : libstdc++-4.4.7-17.el6.x86_64                            132/158 
-  Cleanup    : grep-2.20-3.el6_7.1.x86_64                               133/158 
-  Cleanup    : binutils-2.20.51.0.2-5.44.el6.x86_64                     134/158 
-  Cleanup    : libacl-2.2.49-6.el6.x86_64                               135/158 
-  Cleanup    : audit-libs-2.4.5-3.el6.x86_64                            136/158 
-  Cleanup    : db4-4.7.25-20.el6_7.x86_64                               137/158 
-  Cleanup    : libcom_err-1.42.8-1.0.2.el6.x86_64                       138/158 
-  Cleanup    : expat-2.0.1-11.el6_2.x86_64                              139/158 
-  Cleanup    : libuuid-2.17.2-12.24.0.1.el6.x86_64                      140/158 
-  Cleanup    : newt-0.52.11-3.el6.x86_64                                141/158 
-  Cleanup    : libxml2-2.7.6-21.0.1.el6.x86_64                          142/158 
-  Cleanup    : psmisc-22.6-19.el6_5.x86_64                              143/158 
-  Cleanup    : procps-3.2.8-36.0.1.el6.x86_64                           144/158 
-  Cleanup    : net-tools-1.60-110.0.1.el6_2.x86_64                      145/158 
-  Cleanup    : plymouth-core-libs-0.8.3-27.0.1.el6_5.1.x86_64           146/158 
-  Cleanup    : libudev-147-2.73.0.1.el6.x86_64                          147/158 
-  Cleanup    : nspr-4.11.0-1.el6.x86_64                                 148/158 
-  Cleanup    : libgcrypt-1.4.5-11.el6_4.x86_64                          149/158 
-  Cleanup    : 1:redhat-release-server-6Server-6.8.0.5.0.1.el6.x86_64   150/158 
-  Cleanup    : 12:dhcp-common-4.1.1-51.P1.0.1.el6.x86_64                151/158 
-  Cleanup    : setup-2.8.14-20.el6_4.1.noarch                           152/158 
-  Cleanup    : glibc-common-2.12-1.192.el6.x86_64                       153/158 
-  Cleanup    : bash-4.1.2-40.el6.x86_64                                 154/158 
-  Cleanup    : nss-softokn-freebl-3.14.3-23.el6_7.x86_64                155/158 
-  Cleanup    : glibc-2.12-1.192.el6.x86_64                              156/158 
-  Cleanup    : tzdata-2016d-1.el6.noarch                                157/158 
-  Cleanup    : libgcc-4.4.7-17.el6.x86_64                               158/158 
-  Verifying  : openldap-2.4.40-16.el6.x86_64                              1/158 
-  Verifying  : db4-utils-4.7.25-22.el6.x86_64                             2/158 
-  Verifying  : plymouth-scripts-0.8.3-29.0.1.el6.x86_64                   3/158 
-  Verifying  : nss-util-3.28.4-1.el6_9.x86_64                             4/158 
-  Verifying  : glibc-2.12-1.209.0.3.el6_9.2.x86_64                        5/158 
-  Verifying  : python-ethtool-0.6-6.el6.x86_64                            6/158 
-  Verifying  : newt-0.52.11-4.el6.x86_64                                  7/158 
-  Verifying  : python-libs-2.6.6-66.0.1.el6_8.x86_64                      8/158 
-  Verifying  : nss-sysinit-3.28.4-3.0.1.el6_9.x86_64                      9/158 
-  Verifying  : initscripts-9.03.58-1.0.1.el6_9.1.x86_64                  10/158 
-  Verifying  : rhn-client-tools-1.0.0.1-43.0.1.el6.noarch                11/158 
-  Verifying  : iputils-20071127-24.el6.x86_64                            12/158 
-  Verifying  : libxml2-2.7.6-21.0.1.el6_8.1.x86_64                       13/158 
-  Verifying  : expat-2.0.1-13.el6_8.x86_64                               14/158 
-  Verifying  : glibc-common-2.12-1.209.0.3.el6_9.2.x86_64                15/158 
-  Verifying  : libblkid-2.17.2-12.28.el6.x86_64                          16/158 
-  Verifying  : grep-2.20-6.el6.x86_64                                    17/158 
-  Verifying  : nss-softokn-freebl-3.14.3-23.3.el6_8.x86_64               18/158 
-  Verifying  : 6:oraclelinux-release-6Server-9.0.3.x86_64                19/158 
-  Verifying  : udev-147-2.73.0.1.el6_8.2.x86_64                          20/158 
-  Verifying  : libudev-147-2.73.0.1.el6_8.2.x86_64                       21/158 
-  Verifying  : audit-libs-2.4.5-6.el6.x86_64                             22/158 
-  Verifying  : pam-1.1.1-24.0.1.el6.x86_64                               23/158 
-  Verifying  : 1:redhat-release-server-6Server-6.9.0.4.0.1.el6.x86_64    24/158 
-  Verifying  : libcom_err-1.42.8-1.0.3.el6.x86_64                        25/158 
-  Verifying  : tzdata-2017b-1.el6.noarch                                 26/158 
-  Verifying  : policycoreutils-2.0.83-30.1.0.1.el6_8.x86_64              27/158 
-  Verifying  : psmisc-22.6-24.el6.x86_64                                 28/158 
-  Verifying  : rhn-check-1.0.0.1-43.0.1.el6.noarch                       29/158 
-  Verifying  : procps-3.2.8-45.0.1.el6_9.1.x86_64                        30/158 
-  Verifying  : libuuid-2.17.2-12.28.el6.x86_64                           31/158 
-  Verifying  : openssl-1.0.1e-57.0.1.el6.x86_64                          32/158 
-  Verifying  : python-dmidecode-3.10.15-1.el6.x86_64                     33/158 
-  Verifying  : gmp-4.3.1-12.el6.x86_64                                   34/158 
-  Verifying  : libcurl-7.19.7-53.el6_9.x86_64                            35/158 
-  Verifying  : 2:vim-minimal-7.4.629-5.el6_8.1.x86_64                    36/158 
-  Verifying  : 12:dhclient-4.1.1-53.P1.0.1.el6_9.1.x86_64                37/158 
-  Verifying  : 12:dhcp-common-4.1.1-53.P1.0.1.el6_9.1.x86_64             38/158 
-  Verifying  : iptables-1.4.7-16.0.5.el6.x86_64                          39/158 
-  Verifying  : glib2-2.28.8-9.el6.x86_64                                 40/158 
-  Verifying  : openssh-server-5.3p1-123.el6_9.x86_64                     41/158 
-  Verifying  : binutils-2.20.51.0.2-5.47.el6_9.1.x86_64                  42/158 
-  Verifying  : rhn-setup-1.0.0.1-43.0.1.el6.noarch                       43/158 
-  Verifying  : nss-tools-3.28.4-3.0.1.el6_9.x86_64                       44/158 
-  Verifying  : net-tools-1.60-114.el6.x86_64                             45/158 
-  Verifying  : krb5-libs-1.10.3-65.el6.x86_64                            46/158 
-  Verifying  : gzip-1.3.12-24.el6.x86_64                                 47/158 
-  Verifying  : coreutils-8.4-46.0.1.el6.x86_64                           48/158 
-  Verifying  : libstdc++-4.4.7-18.el6.x86_64                             49/158 
-  Verifying  : util-linux-ng-2.17.2-12.28.el6.x86_64                     50/158 
-  Verifying  : cpio-2.10-13.el6.x86_64                                   51/158 
-  Verifying  : newt-python-0.52.11-4.el6.x86_64                          52/158 
-  Verifying  : coreutils-libs-8.4-46.0.1.el6.x86_64                      53/158 
-  Verifying  : yum-plugin-security-1.1.30-40.0.1.el6.noarch              54/158 
-  Verifying  : module-init-tools-3.9-26.0.1.el6.x86_64                   55/158 
-  Verifying  : oracle-logos-60.0.14-1.0.5.el6.noarch                     56/158 
-  Verifying  : libxml2-python-2.7.6-21.0.1.el6_8.1.x86_64                57/158 
-  Verifying  : curl-7.19.7-53.el6_9.x86_64                               58/158 
-  Verifying  : bash-4.1.2-48.el6.x86_64                                  59/158 
-  Verifying  : rhnsd-4.9.3-5.0.1.el6.x86_64                              60/158 
-  Verifying  : hwdata-0.233-18.1.el6.noarch                              61/158 
-  Verifying  : logrotate-3.7.8-28.el6.x86_64                             62/158 
-  Verifying  : openssh-clients-5.3p1-123.el6_9.x86_64                    63/158 
-  Verifying  : python-2.6.6-66.0.1.el6_8.x86_64                          64/158 
-  Verifying  : plymouth-core-libs-0.8.3-29.0.1.el6.x86_64                65/158 
-  Verifying  : nspr-4.13.1-1.el6.x86_64                                  66/158 
-  Verifying  : libgudev1-147-2.73.0.1.el6_8.2.x86_64                     67/158 
-  Verifying  : libgcrypt-1.4.5-12.el6_8.x86_64                           68/158 
-  Verifying  : openssh-5.3p1-123.el6_9.x86_64                            69/158 
-  Verifying  : plymouth-0.8.3-29.0.1.el6.x86_64                          70/158 
-  Verifying  : libgcc-4.4.7-18.el6.x86_64                                71/158 
-  Verifying  : db4-4.7.25-22.el6.x86_64                                  72/158 
-  Verifying  : ca-certificates-2017.2.14-65.0.1.el6_9.noarch             73/158 
-  Verifying  : libacl-2.2.49-7.el6_9.1.x86_64                            74/158 
-  Verifying  : yum-3.2.29-81.0.1.el6.noarch                              75/158 
-  Verifying  : nss-softokn-3.14.3-23.3.el6_8.x86_64                      76/158 
-  Verifying  : setup-2.8.14-23.el6.noarch                                77/158 
-  Verifying  : yum-rhn-plugin-0.9.1-60.2.0.3.el6_8.noarch                78/158 
-  Verifying  : nss-3.28.4-3.0.1.el6_9.x86_64                             79/158 
-  Verifying  : iputils-20071127-21.el6.x86_64                            80/158 
-  Verifying  : libxml2-python-2.7.6-21.0.1.el6.x86_64                    81/158 
-  Verifying  : newt-0.52.11-3.el6.x86_64                                 82/158 
-  Verifying  : libcurl-7.19.7-52.el6.x86_64                              83/158 
-  Verifying  : nss-3.21.0-8.0.1.el6.x86_64                               84/158 
-  Verifying  : openssh-5.3p1-118.1.el6_8.x86_64                          85/158 
-  Verifying  : plymouth-scripts-0.8.3-27.0.1.el6_5.1.x86_64              86/158 
-  Verifying  : rhn-setup-1.0.0.1-38.0.4.el6.noarch                       87/158 
-  Verifying  : python-2.6.6-64.0.1.el6.x86_64                            88/158 
-  Verifying  : libudev-147-2.73.0.1.el6.x86_64                           89/158 
-  Verifying  : curl-7.19.7-52.el6.x86_64                                 90/158 
-  Verifying  : policycoreutils-2.0.83-29.0.1.el6.x86_64                  91/158 
-  Verifying  : tzdata-2016d-1.el6.noarch                                 92/158 
-  Verifying  : glib2-2.28.8-5.el6.x86_64                                 93/158 
-  Verifying  : iptables-1.4.7-16.0.2.el6.x86_64                          94/158 
-  Verifying  : rhn-check-1.0.0.1-38.0.4.el6.noarch                       95/158 
-  Verifying  : psmisc-22.6-19.el6_5.x86_64                               96/158 
-  Verifying  : coreutils-8.4-43.0.1.el6.x86_64                           97/158 
-  Verifying  : db4-utils-4.7.25-20.el6_7.x86_64                          98/158 
-  Verifying  : nss-tools-3.21.0-8.0.1.el6.x86_64                         99/158 
-  Verifying  : yum-plugin-security-1.1.30-37.0.1.el6.noarch             100/158 
-  Verifying  : 2:vim-minimal-7.4.629-5.el6.x86_64                       101/158 
-  Verifying  : libuuid-2.17.2-12.24.0.1.el6.x86_64                      102/158 
-  Verifying  : libxml2-2.7.6-21.0.1.el6.x86_64                          103/158 
-  Verifying  : oracle-logos-60.0.14-1.0.3.el6.noarch                    104/158 
-  Verifying  : libgudev1-147-2.73.0.1.el6.x86_64                        105/158 
-  Verifying  : python-dmidecode-3.10.13-3.el6_4.x86_64                  106/158 
-  Verifying  : 12:dhclient-4.1.1-51.P1.0.1.el6.x86_64                   107/158 
-  Verifying  : nss-softokn-3.14.3-23.el6_7.x86_64                       108/158 
-  Verifying  : nss-softokn-freebl-3.14.3-23.el6_7.x86_64                109/158 
-  Verifying  : libgcc-4.4.7-17.el6.x86_64                               110/158 
-  Verifying  : 12:dhcp-common-4.1.1-51.P1.0.1.el6.x86_64                111/158 
-  Verifying  : db4-4.7.25-20.el6_7.x86_64                               112/158 
-  Verifying  : setup-2.8.14-20.el6_4.1.noarch                           113/158 
-  Verifying  : openssl-1.0.1e-48.el6_8.1.x86_64                         114/158 
-  Verifying  : nspr-4.11.0-1.el6.x86_64                                 115/158 
-  Verifying  : 1:redhat-release-server-6Server-6.8.0.5.0.1.el6.x86_64   116/158 
-  Verifying  : util-linux-ng-2.17.2-12.24.0.1.el6.x86_64                117/158 
-  Verifying  : rhn-client-tools-1.0.0.1-38.0.4.el6.noarch               118/158 
-  Verifying  : ca-certificates-2015.2.6-65.0.1.el6_7.noarch             119/158 
-  Verifying  : libacl-2.2.49-6.el6.x86_64                               120/158 
-  Verifying  : krb5-libs-1.10.3-57.el6.x86_64                           121/158 
-  Verifying  : logrotate-3.7.8-26.el6_7.x86_64                          122/158 
-  Verifying  : rhnsd-4.9.3-2.0.1.el6.x86_64                             123/158 
-  Verifying  : net-tools-1.60-110.0.1.el6_2.x86_64                      124/158 
-  Verifying  : libstdc++-4.4.7-17.el6.x86_64                            125/158 
-  Verifying  : expat-2.0.1-11.el6_2.x86_64                              126/158 
-  Verifying  : nss-util-3.21.0-2.el6.x86_64                             127/158 
-  Verifying  : libcom_err-1.42.8-1.0.2.el6.x86_64                       128/158 
-  Verifying  : nss-sysinit-3.21.0-8.0.1.el6.x86_64                      129/158 
-  Verifying  : plymouth-core-libs-0.8.3-27.0.1.el6_5.1.x86_64           130/158 
-  Verifying  : glibc-common-2.12-1.192.el6.x86_64                       131/158 
-  Verifying  : pam-1.1.1-22.0.1.el6.x86_64                              132/158 
-  Verifying  : udev-147-2.73.0.1.el6.x86_64                             133/158 
-  Verifying  : coreutils-libs-8.4-43.0.1.el6.x86_64                     134/158 
-  Verifying  : openssh-clients-5.3p1-118.1.el6_8.x86_64                 135/158 
-  Verifying  : yum-rhn-plugin-0.9.1-60.0.1.el6.noarch                   136/158 
-  Verifying  : audit-libs-2.4.5-3.el6.x86_64                            137/158 
-  Verifying  : bash-4.1.2-40.el6.x86_64                                 138/158 
-  Verifying  : yum-3.2.29-73.0.2.el6.noarch                             139/158 
-  Verifying  : libgcrypt-1.4.5-11.el6_4.x86_64                          140/158 
-  Verifying  : python-libs-2.6.6-64.0.1.el6.x86_64                      141/158 
-  Verifying  : newt-python-0.52.11-3.el6.x86_64                         142/158 
-  Verifying  : openldap-2.4.40-12.el6.x86_64                            143/158 
-  Verifying  : module-init-tools-3.9-25.0.1.el6.x86_64                  144/158 
-  Verifying  : grep-2.20-3.el6_7.1.x86_64                               145/158 
-  Verifying  : cpio-2.10-12.el6_5.x86_64                                146/158 
-  Verifying  : plymouth-0.8.3-27.0.1.el6_5.1.x86_64                     147/158 
-  Verifying  : openssh-server-5.3p1-118.1.el6_8.x86_64                  148/158 
-  Verifying  : gmp-4.3.1-10.el6.x86_64                                  149/158 
-  Verifying  : 6:oraclelinux-release-6Server-8.0.3.x86_64               150/158 
-  Verifying  : initscripts-9.03.53-1.0.1.el6.x86_64                     151/158 
-  Verifying  : glibc-2.12-1.192.el6.x86_64                              152/158 
-  Verifying  : libblkid-2.17.2-12.24.0.1.el6.x86_64                     153/158 
-  Verifying  : procps-3.2.8-36.0.1.el6.x86_64                           154/158 
-  Verifying  : python-ethtool-0.6-5.el6.x86_64                          155/158 
-  Verifying  : gzip-1.3.12-22.el6.x86_64                                156/158 
-  Verifying  : binutils-2.20.51.0.2-5.44.el6.x86_64                     157/158 
-  Verifying  : hwdata-0.233-16.1.el6.noarch                             158/158 
-
-Updated:
-  audit-libs.x86_64 0:2.4.5-6.el6                                               
-  bash.x86_64 0:4.1.2-48.el6                                                    
-  binutils.x86_64 0:2.20.51.0.2-5.47.el6_9.1                                    
-  ca-certificates.noarch 0:2017.2.14-65.0.1.el6_9                               
-  coreutils.x86_64 0:8.4-46.0.1.el6                                             
-  coreutils-libs.x86_64 0:8.4-46.0.1.el6                                        
-  cpio.x86_64 0:2.10-13.el6                                                     
-  curl.x86_64 0:7.19.7-53.el6_9                                                 
-  db4.x86_64 0:4.7.25-22.el6                                                    
-  db4-utils.x86_64 0:4.7.25-22.el6                                              
-  dhclient.x86_64 12:4.1.1-53.P1.0.1.el6_9.1                                    
-  dhcp-common.x86_64 12:4.1.1-53.P1.0.1.el6_9.1                                 
-  expat.x86_64 0:2.0.1-13.el6_8                                                 
-  glib2.x86_64 0:2.28.8-9.el6                                                   
-  glibc.x86_64 0:2.12-1.209.0.3.el6_9.2                                         
-  glibc-common.x86_64 0:2.12-1.209.0.3.el6_9.2                                  
-  gmp.x86_64 0:4.3.1-12.el6                                                     
-  grep.x86_64 0:2.20-6.el6                                                      
-  gzip.x86_64 0:1.3.12-24.el6                                                   
-  hwdata.noarch 0:0.233-18.1.el6                                                
-  initscripts.x86_64 0:9.03.58-1.0.1.el6_9.1                                    
-  iptables.x86_64 0:1.4.7-16.0.5.el6                                            
-  iputils.x86_64 0:20071127-24.el6                                              
-  krb5-libs.x86_64 0:1.10.3-65.el6                                              
-  libacl.x86_64 0:2.2.49-7.el6_9.1                                              
-  libblkid.x86_64 0:2.17.2-12.28.el6                                            
-  libcom_err.x86_64 0:1.42.8-1.0.3.el6                                          
-  libcurl.x86_64 0:7.19.7-53.el6_9                                              
-  libgcc.x86_64 0:4.4.7-18.el6                                                  
-  libgcrypt.x86_64 0:1.4.5-12.el6_8                                             
-  libgudev1.x86_64 0:147-2.73.0.1.el6_8.2                                       
-  libstdc++.x86_64 0:4.4.7-18.el6                                               
-  libudev.x86_64 0:147-2.73.0.1.el6_8.2                                         
-  libuuid.x86_64 0:2.17.2-12.28.el6                                             
-  libxml2.x86_64 0:2.7.6-21.0.1.el6_8.1                                         
-  libxml2-python.x86_64 0:2.7.6-21.0.1.el6_8.1                                  
-  logrotate.x86_64 0:3.7.8-28.el6                                               
-  module-init-tools.x86_64 0:3.9-26.0.1.el6                                     
-  net-tools.x86_64 0:1.60-114.el6                                               
-  newt.x86_64 0:0.52.11-4.el6                                                   
-  newt-python.x86_64 0:0.52.11-4.el6                                            
-  nspr.x86_64 0:4.13.1-1.el6                                                    
-  nss.x86_64 0:3.28.4-3.0.1.el6_9                                               
-  nss-softokn.x86_64 0:3.14.3-23.3.el6_8                                        
-  nss-softokn-freebl.x86_64 0:3.14.3-23.3.el6_8                                 
-  nss-sysinit.x86_64 0:3.28.4-3.0.1.el6_9                                       
-  nss-tools.x86_64 0:3.28.4-3.0.1.el6_9                                         
-  nss-util.x86_64 0:3.28.4-1.el6_9                                              
-  openldap.x86_64 0:2.4.40-16.el6                                               
-  openssh.x86_64 0:5.3p1-123.el6_9                                              
-  openssh-clients.x86_64 0:5.3p1-123.el6_9                                      
-  openssh-server.x86_64 0:5.3p1-123.el6_9                                       
-  openssl.x86_64 0:1.0.1e-57.0.1.el6                                            
-  oracle-logos.noarch 0:60.0.14-1.0.5.el6                                       
-  oraclelinux-release.x86_64 6:6Server-9.0.3                                    
-  pam.x86_64 0:1.1.1-24.0.1.el6                                                 
-  plymouth.x86_64 0:0.8.3-29.0.1.el6                                            
-  plymouth-core-libs.x86_64 0:0.8.3-29.0.1.el6                                  
-  plymouth-scripts.x86_64 0:0.8.3-29.0.1.el6                                    
-  policycoreutils.x86_64 0:2.0.83-30.1.0.1.el6_8                                
-  procps.x86_64 0:3.2.8-45.0.1.el6_9.1                                          
-  psmisc.x86_64 0:22.6-24.el6                                                   
-  python.x86_64 0:2.6.6-66.0.1.el6_8                                            
-  python-dmidecode.x86_64 0:3.10.15-1.el6                                       
-  python-ethtool.x86_64 0:0.6-6.el6                                             
-  python-libs.x86_64 0:2.6.6-66.0.1.el6_8                                       
-  redhat-release-server.x86_64 1:6Server-6.9.0.4.0.1.el6                        
-  rhn-check.noarch 0:1.0.0.1-43.0.1.el6                                         
-  rhn-client-tools.noarch 0:1.0.0.1-43.0.1.el6                                  
-  rhn-setup.noarch 0:1.0.0.1-43.0.1.el6                                         
-  rhnsd.x86_64 0:4.9.3-5.0.1.el6                                                
-  setup.noarch 0:2.8.14-23.el6                                                  
-  tzdata.noarch 0:2017b-1.el6                                                   
-  udev.x86_64 0:147-2.73.0.1.el6_8.2                                            
-  util-linux-ng.x86_64 0:2.17.2-12.28.el6                                       
-  vim-minimal.x86_64 2:7.4.629-5.el6_8.1                                        
-  yum.noarch 0:3.2.29-81.0.1.el6                                                
-  yum-plugin-security.noarch 0:1.1.30-40.0.1.el6                                
-  yum-rhn-plugin.noarch 0:0.9.1-60.2.0.3.el6_8                                  
-
-Complete!
-Loaded plugins: security, ulninfo
-Setting up Install Process
-Package openssl-1.0.1e-57.0.1.el6.x86_64 already installed and latest version
-No package socat available.
-Package curl-7.19.7-53.el6_9.x86_64 already installed and latest version
-Resolving Dependencies
---> Running transaction check
----> Package crontabs.noarch 0:1.10-33.el6 will be installed
---> Processing Dependency: /etc/cron.d for package: crontabs-1.10-33.el6.noarch
----> Package tar.x86_64 2:1.23-15.el6_8 will be installed
---> Running transaction check
----> Package cronie.x86_64 0:1.4.4-16.el6_8.2 will be installed
---> Processing Dependency: /usr/sbin/sendmail for package: cronie-1.4.4-16.el6_8.2.x86_64
---> Processing Dependency: dailyjobs for package: cronie-1.4.4-16.el6_8.2.x86_64
---> Running transaction check
----> Package cronie-anacron.x86_64 0:1.4.4-16.el6_8.2 will be installed
----> Package sendmail.x86_64 0:8.14.4-9.el6_8.1 will be installed
---> Processing Dependency: procmail for package: sendmail-8.14.4-9.el6_8.1.x86_64
---> Processing Dependency: /usr/sbin/saslauthd for package: sendmail-8.14.4-9.el6_8.1.x86_64
---> Processing Dependency: libhesiod.so.0()(64bit) for package: sendmail-8.14.4-9.el6_8.1.x86_64
---> Running transaction check
----> Package cyrus-sasl.x86_64 0:2.1.23-15.el6_6.2 will be installed
----> Package hesiod.x86_64 0:3.1.0-19.el6 will be installed
----> Package procmail.x86_64 0:3.22-25.1.el6_5.1 will be installed
---> Finished Dependency Resolution
-
-Dependencies Resolved
-
-================================================================================
- Package           Arch      Version                 Repository            Size
-================================================================================
-Installing:
- crontabs          noarch    1.10-33.el6             public_ol6_latest    9.9 k
- tar               x86_64    2:1.23-15.el6_8         public_ol6_latest    809 k
-Installing for dependencies:
- cronie            x86_64    1.4.4-16.el6_8.2        public_ol6_latest     74 k
- cronie-anacron    x86_64    1.4.4-16.el6_8.2        public_ol6_latest     31 k
- cyrus-sasl        x86_64    2.1.23-15.el6_6.2       public_ol6_latest     78 k
- hesiod            x86_64    3.1.0-19.el6            public_ol6_latest     20 k
- procmail          x86_64    3.22-25.1.el6_5.1       public_ol6_latest    162 k
- sendmail          x86_64    8.14.4-9.el6_8.1        public_ol6_latest    716 k
-
-Transaction Summary
-================================================================================
-Install       8 Package(s)
-
-Total download size: 1.9 M
-Installed size: 4.7 M
-Downloading Packages:
---------------------------------------------------------------------------------
-Total                                           1.2 MB/s | 1.9 MB     00:01     
-Running rpm_check_debug
-Running Transaction Test
-Transaction Test Succeeded
-Running Transaction
-  Installing : cyrus-sasl-2.1.23-15.el6_6.2.x86_64                          1/8 
-  Installing : procmail-3.22-25.1.el6_5.1.x86_64                            2/8 
-  Installing : hesiod-3.1.0-19.el6.x86_64                                   3/8 
-  Installing : sendmail-8.14.4-9.el6_8.1.x86_64                             4/8 
-failed to link /usr/share/man/man8/sendmail.8.gz -> /etc/alternatives/mta-sendmailman: No such file or directory
-failed to link /usr/share/man/man1/mailq.1.gz -> /etc/alternatives/mta-mailqman: No such file or directory
-failed to link /usr/share/man/man1/newaliases.1.gz -> /etc/alternatives/mta-newaliasesman: No such file or directory
-failed to link /usr/share/man/man5/aliases.5.gz -> /etc/alternatives/mta-aliasesman: No such file or directory
-  Installing : crontabs-1.10-33.el6.noarch                                  5/8 
-  Installing : cronie-anacron-1.4.4-16.el6_8.2.x86_64                       6/8 
-  Installing : cronie-1.4.4-16.el6_8.2.x86_64                               7/8 
-  Installing : 2:tar-1.23-15.el6_8.x86_64                                   8/8 
-  Verifying  : hesiod-3.1.0-19.el6.x86_64                                   1/8 
-  Verifying  : 2:tar-1.23-15.el6_8.x86_64                                   2/8 
-  Verifying  : cronie-1.4.4-16.el6_8.2.x86_64                               3/8 
-  Verifying  : sendmail-8.14.4-9.el6_8.1.x86_64                             4/8 
-  Verifying  : crontabs-1.10-33.el6.noarch                                  5/8 
-  Verifying  : procmail-3.22-25.1.el6_5.1.x86_64                            6/8 
-  Verifying  : cronie-anacron-1.4.4-16.el6_8.2.x86_64                       7/8 
-  Verifying  : cyrus-sasl-2.1.23-15.el6_6.2.x86_64                          8/8 
-
-Installed:
-  crontabs.noarch 0:1.10-33.el6            tar.x86_64 2:1.23-15.el6_8           
-
-Dependency Installed:
-  cronie.x86_64 0:1.4.4-16.el6_8.2                                              
-  cronie-anacron.x86_64 0:1.4.4-16.el6_8.2                                      
-  cyrus-sasl.x86_64 0:2.1.23-15.el6_6.2                                         
-  hesiod.x86_64 0:3.1.0-19.el6                                                  
-  procmail.x86_64 0:3.22-25.1.el6_5.1                                           
-  sendmail.x86_64 0:8.14.4-9.el6_8.1                                            
-
-Complete!
+ ---> Using cache
  ---> 407146809289
-Removing intermediate container a3030d8ad9b2
 Successfully built 407146809289
 Successfully tagged myoraclelinux:6
-Sat, 02 Sep 2017 19:23:33 UTC
+Sat, 02 Sep 2017 19:29:02 UTC
 Testing branch: master
 Progress: 0/1/23
 ==Running le_test_dependencies please wait
-[Sat Sep  2 19:23:35 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
-[Sat Sep  2 19:23:35 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
-[Sat Sep  2 19:23:35 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+[Sat Sep  2 19:29:03 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Sat Sep  2 19:29:03 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Sat Sep  2 19:29:03 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
 no crontab for root
 no crontab for root
 curl installed. [PASS]
@@ -788,19 +23,19 @@ Run Failed
 ------------------------------------------
 Progress: 1/2/23
 ==Running le_test_install please wait
-[Sat Sep  2 19:23:40 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
-[Sat Sep  2 19:23:40 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
-[Sat Sep  2 19:23:40 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+[Sat Sep  2 19:29:08 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Sat Sep  2 19:29:08 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Sat Sep  2 19:29:08 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
 ./acme.sh install [PASS]
 /root/.acme.sh/acme.sh exists. [PASS]
-_contains '40 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
+_contains '8 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
 /root/.acme.sh/acme.sh uninstall  > /dev/null [PASS]
 ------------------------------------------
 Progress: 1/3/23
 ==Running le_test_uninstall please wait
-[Sat Sep  2 19:23:41 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
-[Sat Sep  2 19:23:41 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
-[Sat Sep  2 19:23:41 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+[Sat Sep  2 19:29:09 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Sat Sep  2 19:29:09 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Sat Sep  2 19:29:09 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
 ./acme.sh install [PASS]
 /root/.acme.sh/acme.sh uninstall [PASS]
 /root/.acme.sh/acme.sh no exists. [PASS]
@@ -810,7 +45,7 @@ Progress: 1/4/23
 ==Running le_test_installtodir please wait
 ./acme.sh install [PASS]
 /root/myle/acme.sh exists. [PASS]
-_contains '42 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
+_contains '9 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
 /root/myle/acme.sh uninstall [PASS]
 ------------------------------------------
 Progress: 1/5/23
@@ -824,7 +59,7 @@ Progress: 1/6/23
 ==Running le_test_install_config_home please wait
 ./acme.sh --install --config-home /root/etc/acme [PASS]
 /root/.acme.sh/acme.sh exists. [PASS]
-_contains '42 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
+_contains '10 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
 /root/etc/acme/account.conf exists. [PASS]
 /root/.acme.sh/account.conf no exists. [PASS]
 /root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null [PASS]
@@ -834,135 +69,135 @@ _contains '42 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --
 ------------------------------------------
 Progress: 1/7/23
 ==Running le_test_standandalone_renew please wait
-[Sat Sep  2 19:23:43 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
-[Sat Sep  2 19:23:43 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
-[Sat Sep  2 19:23:43 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+[Sat Sep  2 19:29:10 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Sat Sep  2 19:29:10 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Sat Sep  2 19:29:10 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
 /root/.acme.sh/acme.sh issue no testdocker.acme.sh [FAIL] 
 Run Failed
 ------------------------------------------
 Progress: 2/8/23
 ==Running le_test_standandalone_renew_v2 please wait
-[Sat Sep  2 19:23:48 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
-[Sat Sep  2 19:23:48 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
-[Sat Sep  2 19:23:48 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+[Sat Sep  2 19:29:16 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Sat Sep  2 19:29:16 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Sat Sep  2 19:29:16 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
 /root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [FAIL] 
 Run Failed
 ------------------------------------------
 Progress: 3/9/23
 ==Running le_test_standandalone_renew_localaddress_v2 please wait
-[Sat Sep  2 19:23:54 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
-[Sat Sep  2 19:23:54 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
-[Sat Sep  2 19:23:54 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+[Sat Sep  2 19:29:21 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Sat Sep  2 19:29:21 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Sat Sep  2 19:29:21 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
 /root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --local-address 0.0.0.0 --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [FAIL] 
 Run Failed
 ------------------------------------------
 Progress: 4/10/23
 ==Running le_test_standandalone_listen_v4_v2 please wait
-[Sat Sep  2 19:23:59 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
-[Sat Sep  2 19:23:59 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
-[Sat Sep  2 19:23:59 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+[Sat Sep  2 19:29:26 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Sat Sep  2 19:29:26 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Sat Sep  2 19:29:26 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
 /root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --listen-v4 --cert-file '/acmetest/certs/domain.cer' --key-file '/acmetest/certs/domain.key'  --ca-file '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchain-file  '/acmetest/certs/full.cer' [FAIL] 
 Run Failed
 ------------------------------------------
 Progress: 5/11/23
 ==Running le_test_standandalone_listen_v6_v2 please wait
-[Sat Sep  2 19:24:04 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
-[Sat Sep  2 19:24:04 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
-[Sat Sep  2 19:24:04 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+[Sat Sep  2 19:29:32 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Sat Sep  2 19:29:32 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Sat Sep  2 19:29:32 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
 Skipped by TEST_IPV6
 ------------------------------------------
 Progress: 5/12/23
 ==Running le_test_standandalone_deactivate_v2 please wait
-[Sat Sep  2 19:24:09 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
-[Sat Sep  2 19:24:09 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
-[Sat Sep  2 19:24:09 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+[Sat Sep  2 19:29:37 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Sat Sep  2 19:29:37 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Sat Sep  2 19:29:37 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
 /root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [FAIL] 
 Run Failed
 ------------------------------------------
 Progress: 6/13/23
 ==Running le_test_standandalone please wait
-[Sat Sep  2 19:24:15 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
-[Sat Sep  2 19:24:15 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
-[Sat Sep  2 19:24:15 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+[Sat Sep  2 19:29:42 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Sat Sep  2 19:29:42 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Sat Sep  2 19:29:42 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
 /root/.acme.sh/acme.sh issue no testdocker.acme.sh [FAIL] 
 Run Failed
 ------------------------------------------
 Progress: 7/14/23
 ==Running le_test_standandalone_SAN please wait
-[Sat Sep  2 19:24:20 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
-[Sat Sep  2 19:24:20 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
-[Sat Sep  2 19:24:20 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+[Sat Sep  2 19:29:47 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Sat Sep  2 19:29:47 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Sat Sep  2 19:29:47 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
 /root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh" [FAIL] 
 Run Failed
 ------------------------------------------
 Progress: 8/15/23
 ==Running le_test_standandalone_ECDSA_256 please wait
-[Sat Sep  2 19:24:25 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
-[Sat Sep  2 19:24:25 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
-[Sat Sep  2 19:24:25 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+[Sat Sep  2 19:29:53 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Sat Sep  2 19:29:53 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Sat Sep  2 19:29:53 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
 /root/.acme.sh/acme.sh issue no testdocker.acme.sh no ec-256 [FAIL] 
 Run Failed
 ------------------------------------------
 Progress: 9/16/23
 ==Running le_test_standandalone_ECDSA_256_renew please wait
-[Sat Sep  2 19:24:31 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
-[Sat Sep  2 19:24:31 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
-[Sat Sep  2 19:24:31 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+[Sat Sep  2 19:29:59 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Sat Sep  2 19:29:59 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Sat Sep  2 19:29:59 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
 /root/.acme.sh/acme.sh issue no testdocker.acme.sh no ec-256 [FAIL] 
 Run Failed
 ------------------------------------------
 Progress: 10/17/23
 ==Running le_test_standandalone_ECDSA_256_SAN_renew please wait
-[Sat Sep  2 19:24:36 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
-[Sat Sep  2 19:24:36 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
-[Sat Sep  2 19:24:36 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+[Sat Sep  2 19:30:04 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Sat Sep  2 19:30:04 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Sat Sep  2 19:30:04 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
 /root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh" ec-256 [FAIL] 
 Run Failed
 ------------------------------------------
 Progress: 11/18/23
 ==Running le_test_standandalone_ECDSA_256_SAN_renew_v2 please wait
-[Sat Sep  2 19:24:41 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
-[Sat Sep  2 19:24:41 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
-[Sat Sep  2 19:24:41 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+[Sat Sep  2 19:30:09 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Sat Sep  2 19:30:09 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Sat Sep  2 19:30:09 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
 /root/.acme.sh/acme.sh --issue -d "testdocker.acme.sh" -d "testdocker2.acme.sh" --standalone --keylength ec-256 --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [FAIL] 
 Run Failed
 ------------------------------------------
 Progress: 12/19/23
 ==Running le_test_standandalone_ECDSA_384 please wait
-[Sat Sep  2 19:24:46 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
-[Sat Sep  2 19:24:46 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
-[Sat Sep  2 19:24:46 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+[Sat Sep  2 19:30:15 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Sat Sep  2 19:30:15 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Sat Sep  2 19:30:15 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
 /root/.acme.sh/acme.sh issue no "testdocker.acme.sh" no ec-384 [FAIL] 
 Run Failed
 ------------------------------------------
 Progress: 13/20/23
 ==Running le_test_standandalone_tls_renew_SAN_v2 please wait
-[Sat Sep  2 19:24:52 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
-[Sat Sep  2 19:24:52 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
-[Sat Sep  2 19:24:52 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+[Sat Sep  2 19:30:20 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Sat Sep  2 19:30:20 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Sat Sep  2 19:30:20 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
 /root/.acme.sh/acme.sh --issue -d "testdocker.acme.sh" --tls  -d "testdocker2.acme.sh" --standalone  [FAIL] 
 Run Failed
 ------------------------------------------
 Progress: 14/21/23
 ==Running le_test_tls_renew_SAN_v2 please wait
-[Sat Sep  2 19:24:57 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
-[Sat Sep  2 19:24:57 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
-[Sat Sep  2 19:24:57 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+[Sat Sep  2 19:30:26 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Sat Sep  2 19:30:26 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Sat Sep  2 19:30:26 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
 /root/.acme.sh/acme.sh --issue -d "testdocker.acme.sh" -d "testdocker2.acme.sh" --tls [FAIL] 
 Run Failed
 ------------------------------------------
 Progress: 15/22/23
 ==Running le_test_standandalone_renew_idn_v2 please wait
-[Sat Sep  2 19:25:13 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
-[Sat Sep  2 19:25:13 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
-[Sat Sep  2 19:25:13 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+[Sat Sep  2 19:30:43 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Sat Sep  2 19:30:43 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Sat Sep  2 19:30:43 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
 Skipped by TEST_IDN
 ------------------------------------------
 Progress: 15/23/23
 ==Running le_test_dnsapi please wait
-[Sat Sep  2 19:25:18 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
-[Sat Sep  2 19:25:18 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
-[Sat Sep  2 19:25:18 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+[Sat Sep  2 19:30:48 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Sat Sep  2 19:30:48 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Sat Sep  2 19:30:48 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
 The test domain Test_CF_Domain is not defined, skip:ClourFlare_api
 The test domain Test_CX_Domain is not defined, skip:CloudXNS.com_api
 The test domain Test_DP_Domain is not defined, skip:Dnspod.cn_api
