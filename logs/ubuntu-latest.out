@@ -2,289 +2,11 @@ Sending build context to Docker daemon  2.048kB
 Step 1/2 : FROM ubuntu:latest
  ---> c5f1cf30c96b
 Step 2/2 : RUN apt-get -y update && locale-gen en_US.UTF-8 && export LANG=en_US.UTF-8  2>&1 && apt-get -y install openssl cron socat curl idn  2>&1
- ---> Running in 2d5ab9307f0f
-Get:1 http://archive.ubuntu.com/ubuntu xenial InRelease [247 kB]
-Get:2 http://archive.ubuntu.com/ubuntu xenial-updates InRelease [102 kB]
-Get:3 http://archive.ubuntu.com/ubuntu xenial-security InRelease [102 kB]
-Get:4 http://archive.ubuntu.com/ubuntu xenial/main Sources [1103 kB]
-Get:5 http://archive.ubuntu.com/ubuntu xenial/restricted Sources [5179 B]
-Get:6 http://archive.ubuntu.com/ubuntu xenial/universe Sources [9802 kB]
-Get:7 http://archive.ubuntu.com/ubuntu xenial/main amd64 Packages [1558 kB]
-Get:8 http://archive.ubuntu.com/ubuntu xenial/restricted amd64 Packages [14.1 kB]
-Get:9 http://archive.ubuntu.com/ubuntu xenial/universe amd64 Packages [9827 kB]
-Get:10 http://archive.ubuntu.com/ubuntu xenial-updates/main Sources [344 kB]
-Get:11 http://archive.ubuntu.com/ubuntu xenial-updates/restricted Sources [3623 B]
-Get:12 http://archive.ubuntu.com/ubuntu xenial-updates/universe Sources [215 kB]
-Get:13 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 Packages [804 kB]
-Get:14 http://archive.ubuntu.com/ubuntu xenial-updates/restricted amd64 Packages [13.6 kB]
-Get:15 http://archive.ubuntu.com/ubuntu xenial-updates/universe amd64 Packages [669 kB]
-Get:16 http://archive.ubuntu.com/ubuntu xenial-security/main Sources [109 kB]
-Get:17 http://archive.ubuntu.com/ubuntu xenial-security/restricted Sources [2783 B]
-Get:18 http://archive.ubuntu.com/ubuntu xenial-security/universe Sources [47.1 kB]
-Get:19 http://archive.ubuntu.com/ubuntu xenial-security/main amd64 Packages [441 kB]
-Get:20 http://archive.ubuntu.com/ubuntu xenial-security/restricted amd64 Packages [12.8 kB]
-Get:21 http://archive.ubuntu.com/ubuntu xenial-security/universe amd64 Packages [205 kB]
-Fetched 25.6 MB in 3s (7634 kB/s)
-Reading package lists...
-Generating locales (this might take a while)...
-  en_US.UTF-8... done
-Generation complete.
-Reading package lists...
-Building dependency tree...
-The following additional packages will be installed:
-  ca-certificates krb5-locales libasn1-8-heimdal libcurl3-gnutls libffi6
-  libgmp10 libgnutls30 libgssapi-krb5-2 libgssapi3-heimdal libhcrypto4-heimdal
-  libheimbase1-heimdal libheimntlm0-heimdal libhogweed4 libhx509-5-heimdal
-  libidn11 libk5crypto3 libkeyutils1 libkrb5-26-heimdal libkrb5-3
-  libkrb5support0 libldap-2.4-2 libnettle6 libp11-kit0 libroken18-heimdal
-  librtmp1 libsasl2-2 libsasl2-modules libsasl2-modules-db libsqlite3-0
-  libssl1.0.0 libtasn1-6 libwind0-heimdal libwrap0 tcpd
-Suggested packages:
-  anacron logrotate checksecurity exim4 | postfix | mail-transport-agent
-  gnutls-bin krb5-doc krb5-user libsasl2-modules-otp libsasl2-modules-ldap
-  libsasl2-modules-sql libsasl2-modules-gssapi-mit
-  | libsasl2-modules-gssapi-heimdal
-The following NEW packages will be installed:
-  ca-certificates cron curl idn krb5-locales libasn1-8-heimdal libcurl3-gnutls
-  libffi6 libgmp10 libgnutls30 libgssapi-krb5-2 libgssapi3-heimdal
-  libhcrypto4-heimdal libheimbase1-heimdal libheimntlm0-heimdal libhogweed4
-  libhx509-5-heimdal libidn11 libk5crypto3 libkeyutils1 libkrb5-26-heimdal
-  libkrb5-3 libkrb5support0 libldap-2.4-2 libnettle6 libp11-kit0
-  libroken18-heimdal librtmp1 libsasl2-2 libsasl2-modules libsasl2-modules-db
-  libsqlite3-0 libssl1.0.0 libtasn1-6 libwind0-heimdal libwrap0 openssl socat
-  tcpd
-0 upgraded, 39 newly installed, 0 to remove and 41 not upgraded.
-Need to get 5,897 kB of archives.
-After this operation, 20.7 MB of additional disk space will be used.
-Get:1 http://archive.ubuntu.com/ubuntu xenial/main amd64 cron amd64 3.0pl1-128ubuntu2 [68.4 kB]
-Get:2 http://archive.ubuntu.com/ubuntu xenial/main amd64 libwrap0 amd64 7.6.q-25 [46.2 kB]
-Get:3 http://archive.ubuntu.com/ubuntu xenial/main amd64 libffi6 amd64 3.2.1-4 [17.8 kB]
-Get:4 http://archive.ubuntu.com/ubuntu xenial/main amd64 libgmp10 amd64 2:6.1.0+dfsg-2 [240 kB]
-Get:5 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libnettle6 amd64 3.2-1ubuntu0.16.04.1 [93.5 kB]
-Get:6 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libhogweed4 amd64 3.2-1ubuntu0.16.04.1 [136 kB]
-Get:7 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libidn11 amd64 1.32-3ubuntu1.1 [45.6 kB]
-Get:8 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libp11-kit0 amd64 0.23.2-5~ubuntu16.04.1 [105 kB]
-Get:9 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libtasn1-6 amd64 4.7-3ubuntu0.16.04.2 [43.3 kB]
-Get:10 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libgnutls30 amd64 3.4.10-4ubuntu1.3 [548 kB]
-Get:11 http://archive.ubuntu.com/ubuntu xenial/main amd64 libsqlite3-0 amd64 3.11.0-1ubuntu1 [396 kB]
-Get:12 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libssl1.0.0 amd64 1.0.2g-1ubuntu4.8 [1,081 kB]
-Get:13 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 openssl amd64 1.0.2g-1ubuntu4.8 [492 kB]
-Get:14 http://archive.ubuntu.com/ubuntu xenial/main amd64 ca-certificates all 20160104ubuntu1 [191 kB]
-Get:15 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 krb5-locales all 1.13.2+dfsg-5ubuntu2 [13.2 kB]
-Get:16 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libroken18-heimdal amd64 1.7~git20150920+dfsg-4ubuntu1.16.04.1 [41.4 kB]
-Get:17 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libasn1-8-heimdal amd64 1.7~git20150920+dfsg-4ubuntu1.16.04.1 [174 kB]
-Get:18 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libkrb5support0 amd64 1.13.2+dfsg-5ubuntu2 [30.8 kB]
-Get:19 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libk5crypto3 amd64 1.13.2+dfsg-5ubuntu2 [81.2 kB]
-Get:20 http://archive.ubuntu.com/ubuntu xenial/main amd64 libkeyutils1 amd64 1.5.9-8ubuntu1 [9,904 B]
-Get:21 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libkrb5-3 amd64 1.13.2+dfsg-5ubuntu2 [273 kB]
-Get:22 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libgssapi-krb5-2 amd64 1.13.2+dfsg-5ubuntu2 [120 kB]
-Get:23 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libhcrypto4-heimdal amd64 1.7~git20150920+dfsg-4ubuntu1.16.04.1 [85.0 kB]
-Get:24 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libheimbase1-heimdal amd64 1.7~git20150920+dfsg-4ubuntu1.16.04.1 [29.3 kB]
-Get:25 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libwind0-heimdal amd64 1.7~git20150920+dfsg-4ubuntu1.16.04.1 [47.8 kB]
-Get:26 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libhx509-5-heimdal amd64 1.7~git20150920+dfsg-4ubuntu1.16.04.1 [107 kB]
-Get:27 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libkrb5-26-heimdal amd64 1.7~git20150920+dfsg-4ubuntu1.16.04.1 [202 kB]
-Get:28 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libheimntlm0-heimdal amd64 1.7~git20150920+dfsg-4ubuntu1.16.04.1 [15.1 kB]
-Get:29 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libgssapi3-heimdal amd64 1.7~git20150920+dfsg-4ubuntu1.16.04.1 [96.1 kB]
-Get:30 http://archive.ubuntu.com/ubuntu xenial/main amd64 libsasl2-modules-db amd64 2.1.26.dfsg1-14build1 [14.5 kB]
-Get:31 http://archive.ubuntu.com/ubuntu xenial/main amd64 libsasl2-2 amd64 2.1.26.dfsg1-14build1 [48.7 kB]
-Get:32 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libldap-2.4-2 amd64 2.4.42+dfsg-2ubuntu3.2 [160 kB]
-Get:33 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 librtmp1 amd64 2.4+20151223.gitfa8646d-1ubuntu0.1 [54.4 kB]
-Get:34 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libcurl3-gnutls amd64 7.47.0-1ubuntu2.2 [184 kB]
-Get:35 http://archive.ubuntu.com/ubuntu xenial/main amd64 libsasl2-modules amd64 2.1.26.dfsg1-14build1 [47.5 kB]
-Get:36 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 curl amd64 7.47.0-1ubuntu2.2 [139 kB]
-Get:37 http://archive.ubuntu.com/ubuntu xenial-updates/universe amd64 idn amd64 1.32-3ubuntu1.1 [75.7 kB]
-Get:38 http://archive.ubuntu.com/ubuntu xenial/main amd64 tcpd amd64 7.6.q-25 [23.0 kB]
-Get:39 http://archive.ubuntu.com/ubuntu xenial/universe amd64 socat amd64 1.7.3.1-1 [321 kB]
-debconf: delaying package configuration, since apt-utils is not installed
-Fetched 5,897 kB in 2s (2,710 kB/s)
-Selecting previously unselected package cron.
-(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 7253 files and directories currently installed.)
-Preparing to unpack .../cron_3.0pl1-128ubuntu2_amd64.deb ...
-Unpacking cron (3.0pl1-128ubuntu2) ...
-Selecting previously unselected package libwrap0:amd64.
-Preparing to unpack .../libwrap0_7.6.q-25_amd64.deb ...
-Unpacking libwrap0:amd64 (7.6.q-25) ...
-Selecting previously unselected package libffi6:amd64.
-Preparing to unpack .../libffi6_3.2.1-4_amd64.deb ...
-Unpacking libffi6:amd64 (3.2.1-4) ...
-Selecting previously unselected package libgmp10:amd64.
-Preparing to unpack .../libgmp10_2%3a6.1.0+dfsg-2_amd64.deb ...
-Unpacking libgmp10:amd64 (2:6.1.0+dfsg-2) ...
-Selecting previously unselected package libnettle6:amd64.
-Preparing to unpack .../libnettle6_3.2-1ubuntu0.16.04.1_amd64.deb ...
-Unpacking libnettle6:amd64 (3.2-1ubuntu0.16.04.1) ...
-Selecting previously unselected package libhogweed4:amd64.
-Preparing to unpack .../libhogweed4_3.2-1ubuntu0.16.04.1_amd64.deb ...
-Unpacking libhogweed4:amd64 (3.2-1ubuntu0.16.04.1) ...
-Selecting previously unselected package libidn11:amd64.
-Preparing to unpack .../libidn11_1.32-3ubuntu1.1_amd64.deb ...
-Unpacking libidn11:amd64 (1.32-3ubuntu1.1) ...
-Selecting previously unselected package libp11-kit0:amd64.
-Preparing to unpack .../libp11-kit0_0.23.2-5~ubuntu16.04.1_amd64.deb ...
-Unpacking libp11-kit0:amd64 (0.23.2-5~ubuntu16.04.1) ...
-Selecting previously unselected package libtasn1-6:amd64.
-Preparing to unpack .../libtasn1-6_4.7-3ubuntu0.16.04.2_amd64.deb ...
-Unpacking libtasn1-6:amd64 (4.7-3ubuntu0.16.04.2) ...
-Selecting previously unselected package libgnutls30:amd64.
-Preparing to unpack .../libgnutls30_3.4.10-4ubuntu1.3_amd64.deb ...
-Unpacking libgnutls30:amd64 (3.4.10-4ubuntu1.3) ...
-Selecting previously unselected package libsqlite3-0:amd64.
-Preparing to unpack .../libsqlite3-0_3.11.0-1ubuntu1_amd64.deb ...
-Unpacking libsqlite3-0:amd64 (3.11.0-1ubuntu1) ...
-Selecting previously unselected package libssl1.0.0:amd64.
-Preparing to unpack .../libssl1.0.0_1.0.2g-1ubuntu4.8_amd64.deb ...
-Unpacking libssl1.0.0:amd64 (1.0.2g-1ubuntu4.8) ...
-Selecting previously unselected package openssl.
-Preparing to unpack .../openssl_1.0.2g-1ubuntu4.8_amd64.deb ...
-Unpacking openssl (1.0.2g-1ubuntu4.8) ...
-Selecting previously unselected package ca-certificates.
-Preparing to unpack .../ca-certificates_20160104ubuntu1_all.deb ...
-Unpacking ca-certificates (20160104ubuntu1) ...
-Selecting previously unselected package krb5-locales.
-Preparing to unpack .../krb5-locales_1.13.2+dfsg-5ubuntu2_all.deb ...
-Unpacking krb5-locales (1.13.2+dfsg-5ubuntu2) ...
-Selecting previously unselected package libroken18-heimdal:amd64.
-Preparing to unpack .../libroken18-heimdal_1.7~git20150920+dfsg-4ubuntu1.16.04.1_amd64.deb ...
-Unpacking libroken18-heimdal:amd64 (1.7~git20150920+dfsg-4ubuntu1.16.04.1) ...
-Selecting previously unselected package libasn1-8-heimdal:amd64.
-Preparing to unpack .../libasn1-8-heimdal_1.7~git20150920+dfsg-4ubuntu1.16.04.1_amd64.deb ...
-Unpacking libasn1-8-heimdal:amd64 (1.7~git20150920+dfsg-4ubuntu1.16.04.1) ...
-Selecting previously unselected package libkrb5support0:amd64.
-Preparing to unpack .../libkrb5support0_1.13.2+dfsg-5ubuntu2_amd64.deb ...
-Unpacking libkrb5support0:amd64 (1.13.2+dfsg-5ubuntu2) ...
-Selecting previously unselected package libk5crypto3:amd64.
-Preparing to unpack .../libk5crypto3_1.13.2+dfsg-5ubuntu2_amd64.deb ...
-Unpacking libk5crypto3:amd64 (1.13.2+dfsg-5ubuntu2) ...
-Selecting previously unselected package libkeyutils1:amd64.
-Preparing to unpack .../libkeyutils1_1.5.9-8ubuntu1_amd64.deb ...
-Unpacking libkeyutils1:amd64 (1.5.9-8ubuntu1) ...
-Selecting previously unselected package libkrb5-3:amd64.
-Preparing to unpack .../libkrb5-3_1.13.2+dfsg-5ubuntu2_amd64.deb ...
-Unpacking libkrb5-3:amd64 (1.13.2+dfsg-5ubuntu2) ...
-Selecting previously unselected package libgssapi-krb5-2:amd64.
-Preparing to unpack .../libgssapi-krb5-2_1.13.2+dfsg-5ubuntu2_amd64.deb ...
-Unpacking libgssapi-krb5-2:amd64 (1.13.2+dfsg-5ubuntu2) ...
-Selecting previously unselected package libhcrypto4-heimdal:amd64.
-Preparing to unpack .../libhcrypto4-heimdal_1.7~git20150920+dfsg-4ubuntu1.16.04.1_amd64.deb ...
-Unpacking libhcrypto4-heimdal:amd64 (1.7~git20150920+dfsg-4ubuntu1.16.04.1) ...
-Selecting previously unselected package libheimbase1-heimdal:amd64.
-Preparing to unpack .../libheimbase1-heimdal_1.7~git20150920+dfsg-4ubuntu1.16.04.1_amd64.deb ...
-Unpacking libheimbase1-heimdal:amd64 (1.7~git20150920+dfsg-4ubuntu1.16.04.1) ...
-Selecting previously unselected package libwind0-heimdal:amd64.
-Preparing to unpack .../libwind0-heimdal_1.7~git20150920+dfsg-4ubuntu1.16.04.1_amd64.deb ...
-Unpacking libwind0-heimdal:amd64 (1.7~git20150920+dfsg-4ubuntu1.16.04.1) ...
-Selecting previously unselected package libhx509-5-heimdal:amd64.
-Preparing to unpack .../libhx509-5-heimdal_1.7~git20150920+dfsg-4ubuntu1.16.04.1_amd64.deb ...
-Unpacking libhx509-5-heimdal:amd64 (1.7~git20150920+dfsg-4ubuntu1.16.04.1) ...
-Selecting previously unselected package libkrb5-26-heimdal:amd64.
-Preparing to unpack .../libkrb5-26-heimdal_1.7~git20150920+dfsg-4ubuntu1.16.04.1_amd64.deb ...
-Unpacking libkrb5-26-heimdal:amd64 (1.7~git20150920+dfsg-4ubuntu1.16.04.1) ...
-Selecting previously unselected package libheimntlm0-heimdal:amd64.
-Preparing to unpack .../libheimntlm0-heimdal_1.7~git20150920+dfsg-4ubuntu1.16.04.1_amd64.deb ...
-Unpacking libheimntlm0-heimdal:amd64 (1.7~git20150920+dfsg-4ubuntu1.16.04.1) ...
-Selecting previously unselected package libgssapi3-heimdal:amd64.
-Preparing to unpack .../libgssapi3-heimdal_1.7~git20150920+dfsg-4ubuntu1.16.04.1_amd64.deb ...
-Unpacking libgssapi3-heimdal:amd64 (1.7~git20150920+dfsg-4ubuntu1.16.04.1) ...
-Selecting previously unselected package libsasl2-modules-db:amd64.
-Preparing to unpack .../libsasl2-modules-db_2.1.26.dfsg1-14build1_amd64.deb ...
-Unpacking libsasl2-modules-db:amd64 (2.1.26.dfsg1-14build1) ...
-Selecting previously unselected package libsasl2-2:amd64.
-Preparing to unpack .../libsasl2-2_2.1.26.dfsg1-14build1_amd64.deb ...
-Unpacking libsasl2-2:amd64 (2.1.26.dfsg1-14build1) ...
-Selecting previously unselected package libldap-2.4-2:amd64.
-Preparing to unpack .../libldap-2.4-2_2.4.42+dfsg-2ubuntu3.2_amd64.deb ...
-Unpacking libldap-2.4-2:amd64 (2.4.42+dfsg-2ubuntu3.2) ...
-Selecting previously unselected package librtmp1:amd64.
-Preparing to unpack .../librtmp1_2.4+20151223.gitfa8646d-1ubuntu0.1_amd64.deb ...
-Unpacking librtmp1:amd64 (2.4+20151223.gitfa8646d-1ubuntu0.1) ...
-Selecting previously unselected package libcurl3-gnutls:amd64.
-Preparing to unpack .../libcurl3-gnutls_7.47.0-1ubuntu2.2_amd64.deb ...
-Unpacking libcurl3-gnutls:amd64 (7.47.0-1ubuntu2.2) ...
-Selecting previously unselected package libsasl2-modules:amd64.
-Preparing to unpack .../libsasl2-modules_2.1.26.dfsg1-14build1_amd64.deb ...
-Unpacking libsasl2-modules:amd64 (2.1.26.dfsg1-14build1) ...
-Selecting previously unselected package curl.
-Preparing to unpack .../curl_7.47.0-1ubuntu2.2_amd64.deb ...
-Unpacking curl (7.47.0-1ubuntu2.2) ...
-Selecting previously unselected package idn.
-Preparing to unpack .../idn_1.32-3ubuntu1.1_amd64.deb ...
-Unpacking idn (1.32-3ubuntu1.1) ...
-Selecting previously unselected package tcpd.
-Preparing to unpack .../tcpd_7.6.q-25_amd64.deb ...
-Unpacking tcpd (7.6.q-25) ...
-Selecting previously unselected package socat.
-Preparing to unpack .../socat_1.7.3.1-1_amd64.deb ...
-Unpacking socat (1.7.3.1-1) ...
-Processing triggers for systemd (229-4ubuntu4) ...
-Processing triggers for libc-bin (2.23-0ubuntu3) ...
-Setting up cron (3.0pl1-128ubuntu2) ...
-Adding group `crontab' (GID 106) ...
-Done.
-update-rc.d: warning: start and stop actions are no longer supported; falling back to defaults
-update-rc.d: warning: stop runlevel arguments (1) do not match cron Default-Stop values (none)
-invoke-rc.d: policy-rc.d denied execution of start.
-Setting up libwrap0:amd64 (7.6.q-25) ...
-Setting up libffi6:amd64 (3.2.1-4) ...
-Setting up libgmp10:amd64 (2:6.1.0+dfsg-2) ...
-Setting up libnettle6:amd64 (3.2-1ubuntu0.16.04.1) ...
-Setting up libhogweed4:amd64 (3.2-1ubuntu0.16.04.1) ...
-Setting up libidn11:amd64 (1.32-3ubuntu1.1) ...
-Setting up libp11-kit0:amd64 (0.23.2-5~ubuntu16.04.1) ...
-Setting up libtasn1-6:amd64 (4.7-3ubuntu0.16.04.2) ...
-Setting up libgnutls30:amd64 (3.4.10-4ubuntu1.3) ...
-Setting up libsqlite3-0:amd64 (3.11.0-1ubuntu1) ...
-Setting up libssl1.0.0:amd64 (1.0.2g-1ubuntu4.8) ...
-debconf: unable to initialize frontend: Dialog
-debconf: (TERM is not set, so the dialog frontend is not usable.)
-debconf: falling back to frontend: Readline
-debconf: unable to initialize frontend: Readline
-debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC contains: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.22.1 /usr/local/share/perl/5.22.1 /usr/lib/x86_64-linux-gnu/perl5/5.22 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl/5.22 /usr/share/perl/5.22 /usr/local/lib/site_perl /usr/lib/x86_64-linux-gnu/perl-base .) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 7.)
-debconf: falling back to frontend: Teletype
-Setting up openssl (1.0.2g-1ubuntu4.8) ...
-Setting up ca-certificates (20160104ubuntu1) ...
-debconf: unable to initialize frontend: Dialog
-debconf: (TERM is not set, so the dialog frontend is not usable.)
-debconf: falling back to frontend: Readline
-debconf: unable to initialize frontend: Readline
-debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC contains: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.22.1 /usr/local/share/perl/5.22.1 /usr/lib/x86_64-linux-gnu/perl5/5.22 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl/5.22 /usr/share/perl/5.22 /usr/local/lib/site_perl /usr/lib/x86_64-linux-gnu/perl-base .) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 7.)
-debconf: falling back to frontend: Teletype
-Setting up krb5-locales (1.13.2+dfsg-5ubuntu2) ...
-Setting up libroken18-heimdal:amd64 (1.7~git20150920+dfsg-4ubuntu1.16.04.1) ...
-Setting up libasn1-8-heimdal:amd64 (1.7~git20150920+dfsg-4ubuntu1.16.04.1) ...
-Setting up libkrb5support0:amd64 (1.13.2+dfsg-5ubuntu2) ...
-Setting up libk5crypto3:amd64 (1.13.2+dfsg-5ubuntu2) ...
-Setting up libkeyutils1:amd64 (1.5.9-8ubuntu1) ...
-Setting up libkrb5-3:amd64 (1.13.2+dfsg-5ubuntu2) ...
-Setting up libgssapi-krb5-2:amd64 (1.13.2+dfsg-5ubuntu2) ...
-Setting up libhcrypto4-heimdal:amd64 (1.7~git20150920+dfsg-4ubuntu1.16.04.1) ...
-Setting up libheimbase1-heimdal:amd64 (1.7~git20150920+dfsg-4ubuntu1.16.04.1) ...
-Setting up libwind0-heimdal:amd64 (1.7~git20150920+dfsg-4ubuntu1.16.04.1) ...
-Setting up libhx509-5-heimdal:amd64 (1.7~git20150920+dfsg-4ubuntu1.16.04.1) ...
-Setting up libkrb5-26-heimdal:amd64 (1.7~git20150920+dfsg-4ubuntu1.16.04.1) ...
-Setting up libheimntlm0-heimdal:amd64 (1.7~git20150920+dfsg-4ubuntu1.16.04.1) ...
-Setting up libgssapi3-heimdal:amd64 (1.7~git20150920+dfsg-4ubuntu1.16.04.1) ...
-Setting up libsasl2-modules-db:amd64 (2.1.26.dfsg1-14build1) ...
-Setting up libsasl2-2:amd64 (2.1.26.dfsg1-14build1) ...
-Setting up libldap-2.4-2:amd64 (2.4.42+dfsg-2ubuntu3.2) ...
-Setting up librtmp1:amd64 (2.4+20151223.gitfa8646d-1ubuntu0.1) ...
-Setting up libcurl3-gnutls:amd64 (7.47.0-1ubuntu2.2) ...
-Setting up libsasl2-modules:amd64 (2.1.26.dfsg1-14build1) ...
-Setting up curl (7.47.0-1ubuntu2.2) ...
-Setting up idn (1.32-3ubuntu1.1) ...
-Setting up tcpd (7.6.q-25) ...
-Setting up socat (1.7.3.1-1) ...
-Processing triggers for systemd (229-4ubuntu4) ...
-Processing triggers for libc-bin (2.23-0ubuntu3) ...
-Processing triggers for ca-certificates (20160104ubuntu1) ...
-Updating certificates in /etc/ssl/certs...
-173 added, 0 removed; done.
-Running hooks in /etc/ca-certificates/update.d...
-done.
+ ---> Using cache
  ---> 4428f6cb57db
-Removing intermediate container 2d5ab9307f0f
 Successfully built 4428f6cb57db
 Successfully tagged myubuntu:latest
-Sat, 02 Sep 2017 13:14:41 UTC
+Sat, 02 Sep 2017 13:23:51 UTC
 Testing branch: master
 Progress: 0/1/23
 ==Running le_test_dependencies please wait
@@ -299,7 +21,7 @@ Progress: 0/2/23
 ==Running le_test_install please wait
 ./acme.sh install [PASS]
 /root/.acme.sh/acme.sh exists. [PASS]
-_contains '47 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
+_contains '59 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
 /root/.acme.sh/acme.sh uninstall  > /dev/null [PASS]
 ------------------------------------------
 Progress: 0/3/23
@@ -313,7 +35,7 @@ Progress: 0/4/23
 ==Running le_test_installtodir please wait
 ./acme.sh install [PASS]
 /root/myle/acme.sh exists. [PASS]
-_contains '49 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
+_contains '0 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
 /root/myle/acme.sh uninstall [PASS]
 ------------------------------------------
 Progress: 0/5/23
@@ -327,7 +49,7 @@ Progress: 0/6/23
 ==Running le_test_install_config_home please wait
 ./acme.sh --install --config-home /root/etc/acme [PASS]
 /root/.acme.sh/acme.sh exists. [PASS]
-_contains '49 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
+_contains '1 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
 /root/etc/acme/account.conf exists. [PASS]
 /root/.acme.sh/account.conf no exists. [PASS]
 /root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null [PASS]
@@ -342,20 +64,10 @@ FORCE=1 /root/.acme.sh/acme.sh renew testdocker.acme.sh [PASS]
 ------------------------------------------
 Progress: 0/8/23
 ==Running le_test_standandalone_renew_v2 please wait
-/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
-/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force [PASS]
-/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
+/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [FAIL] 
+Run Failed
 ------------------------------------------
-Progress: 0/9/23
+Progress: 1/9/23
 ==Running le_test_standandalone_renew_localaddress_v2 please wait
 /root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --local-address 0.0.0.0 --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [PASS]
 '/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
@@ -370,7 +82,7 @@ Progress: 0/9/23
 '/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
 '/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
 ------------------------------------------
-Progress: 0/10/23
+Progress: 1/10/23
 ==Running le_test_standandalone_listen_v4_v2 please wait
 /root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --listen-v4 --cert-file '/acmetest/certs/domain.cer' --key-file '/acmetest/certs/domain.key'  --ca-file '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchain-file  '/acmetest/certs/full.cer' [PASS]
 '/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
@@ -385,11 +97,11 @@ Progress: 0/10/23
 '/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
 '/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
 ------------------------------------------
-Progress: 0/11/23
+Progress: 1/11/23
 ==Running le_test_standandalone_listen_v6_v2 please wait
 Skipped by TEST_IPV6
 ------------------------------------------
-Progress: 0/12/23
+Progress: 1/12/23
 ==Running le_test_standandalone_deactivate_v2 please wait
 /root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [PASS]
 '/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
@@ -398,35 +110,35 @@ Progress: 0/12/23
 '/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
 /root/.acme.sh/acme.sh --deactivate -d testdocker.acme.sh [PASS]
 ------------------------------------------
-Progress: 0/13/23
+Progress: 1/13/23
 ==Running le_test_standandalone please wait
 /root/.acme.sh/acme.sh issue no testdocker.acme.sh [PASS]
 /root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
 /root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
 ------------------------------------------
-Progress: 0/14/23
+Progress: 1/14/23
 ==Running le_test_standandalone_SAN please wait
 /root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh" [PASS]
 /root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
 /root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
 ------------------------------------------
-Progress: 0/15/23
+Progress: 1/15/23
 ==Running le_test_standandalone_ECDSA_256 please wait
 /root/.acme.sh/acme.sh issue no testdocker.acme.sh no ec-256 [PASS]
 /root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
 /root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
 ------------------------------------------
-Progress: 0/16/23
+Progress: 1/16/23
 ==Running le_test_standandalone_ECDSA_256_renew please wait
 /root/.acme.sh/acme.sh issue no testdocker.acme.sh no ec-256 [PASS]
 FORCE=1 /root/.acme.sh/acme.sh renew testdocker.acme.sh [PASS]
 ------------------------------------------
-Progress: 0/17/23
+Progress: 1/17/23
 ==Running le_test_standandalone_ECDSA_256_SAN_renew please wait
 /root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh" ec-256 [PASS]
 FORCE=1 /root/.acme.sh/acme.sh renew "testdocker.acme.sh" [PASS]
 ------------------------------------------
-Progress: 0/18/23
+Progress: 1/18/23
 ==Running le_test_standandalone_ECDSA_256_SAN_renew_v2 please wait
 /root/.acme.sh/acme.sh --issue -d "testdocker.acme.sh" -d "testdocker2.acme.sh" --standalone --keylength ec-256 --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [PASS]
 '/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
@@ -441,27 +153,27 @@ Progress: 0/18/23
 '/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
 '/root/.acme.sh/testdocker.acme.sh_ecc/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
 ------------------------------------------
-Progress: 0/19/23
+Progress: 1/19/23
 ==Running le_test_standandalone_ECDSA_384 please wait
 /root/.acme.sh/acme.sh issue no "testdocker.acme.sh" no ec-384 [PASS]
 /root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
 /root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
 ------------------------------------------
-Progress: 0/20/23
+Progress: 1/20/23
 ==Running le_test_standandalone_tls_renew_SAN_v2 please wait
 /root/.acme.sh/acme.sh --issue -d "testdocker.acme.sh" --tls  -d "testdocker2.acme.sh" --standalone  [FAIL] 
 Run Failed
 ------------------------------------------
-Progress: 1/21/23
+Progress: 2/21/23
 ==Running le_test_tls_renew_SAN_v2 please wait
 /root/.acme.sh/acme.sh --issue -d "testdocker.acme.sh" -d "testdocker2.acme.sh" --tls [FAIL] 
 Run Failed
 ------------------------------------------
-Progress: 2/22/23
+Progress: 3/22/23
 ==Running le_test_standandalone_renew_idn_v2 please wait
 Skipped by TEST_IDN
 ------------------------------------------
-Progress: 2/23/23
+Progress: 3/23/23
 ==Running le_test_dnsapi please wait
 The test domain Test_CF_Domain is not defined, skip:ClourFlare_api
 The test domain Test_CX_Domain is not defined, skip:CloudXNS.com_api
