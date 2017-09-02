@@ -1,206 +1,191 @@
 
-Fri, 25 Aug 2017 02:00:10 UTC
+Sat, 02 Sep 2017 12:33:29 UTC
 Testing branch: master
 Progress: 0/1/23
 ==Running le_test_dependencies please wait
+[Sat Sep  2 20:33:31 CST 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Sat Sep  2 20:33:31 CST 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Sat Sep  2 20:33:31 CST 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
 curl installed. [PASS]
 crontab installed. [PASS]
 openssl installed. [PASS]
-nc installed. [PASS]
+socat not installed [FAIL] 
+Run Failed
 ------------------------------------------
-Progress: 0/2/23
+Progress: 1/2/23
 ==Running le_test_install please wait
+[Sat Sep  2 20:33:32 CST 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Sat Sep  2 20:33:32 CST 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Sat Sep  2 20:33:32 CST 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
 ./acme.sh install [PASS]
-/root/.acme.sh/acme.sh exists. [PASS]
-_contains '18 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
-/root/.acme.sh/acme.sh uninstall  > /dev/null [PASS]
+/root/.acme.sh/acme.sh missing. [FAIL] 
+Run Failed
 ------------------------------------------
-Progress: 0/3/23
+Progress: 2/3/23
 ==Running le_test_uninstall please wait
+[Sat Sep  2 20:33:32 CST 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Sat Sep  2 20:33:32 CST 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Sat Sep  2 20:33:32 CST 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
 ./acme.sh install [PASS]
-/root/.acme.sh/acme.sh uninstall [PASS]
-/root/.acme.sh/acme.sh no exists. [PASS]
-equals  [PASS]
+/root/.acme.sh/acme.sh uninstall [FAIL] 
+Run Failed
 ------------------------------------------
-Progress: 0/4/23
+Progress: 3/4/23
 ==Running le_test_installtodir please wait
 ./acme.sh install [PASS]
 /root/myle/acme.sh exists. [PASS]
-_contains '23 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
+_contains '31 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
 /root/myle/acme.sh uninstall [PASS]
 ------------------------------------------
-Progress: 0/5/23
+Progress: 3/5/23
 ==Running le_test_uninstalltodir please wait
 ./acme.sh install [PASS]
 /root/myle/acme.sh uninstall [PASS]
 /root/myle/acme.sh no exists. [PASS]
 equals  [PASS]
 ------------------------------------------
-Progress: 0/6/23
+Progress: 3/6/23
 ==Running le_test_install_config_home please wait
 ./acme.sh --install --config-home /root/etc/acme [PASS]
-/root/.acme.sh/acme.sh exists. [PASS]
-_contains '28 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
-/root/etc/acme/account.conf exists. [PASS]
-/root/.acme.sh/account.conf no exists. [PASS]
-/root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null [PASS]
-/root/.acme.sh/acme.sh --uninstall --config-home /root/etc/acme > /dev/null [PASS]
-/root/etc/acme/account.conf exists. [PASS]
-/root/.acme.sh/account.conf no exists. [PASS]
+/root/.acme.sh/acme.sh missing. [FAIL] 
+Run Failed
 ------------------------------------------
-Progress: 0/7/23
+Progress: 4/7/23
 ==Running le_test_standandalone_renew please wait
-/root/.acme.sh/acme.sh issue no testfreebsd.acme.sh [PASS]
-FORCE=1 /root/.acme.sh/acme.sh renew testfreebsd.acme.sh [PASS]
+[Sat Sep  2 20:33:37 CST 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Sat Sep  2 20:33:37 CST 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Sat Sep  2 20:33:37 CST 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+/root/.acme.sh/acme.sh issue no testfreebsd.acme.sh [FAIL] 
+Run Failed
 ------------------------------------------
-Progress: 0/8/23
+Progress: 5/8/23
 ==Running le_test_standandalone_renew_v2 please wait
-/root/.acme.sh/acme.sh --issue -d testfreebsd.acme.sh --standalone --certpath '/root/acmetest/certs/domain.cer' --keypath '/root/acmetest/certs/domain.key'  --capath '/root/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/root/acmetest/certs/full.cer' [PASS]
-'/root/.acme.sh/testfreebsd.acme.sh/testfreebsd.acme.sh.cer' equals '/root/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testfreebsd.acme.sh/testfreebsd.acme.sh.key' equals '/root/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testfreebsd.acme.sh/ca.cer' equals '/root/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testfreebsd.acme.sh/fullchain.cer' equals '/root/acmetest/certs/full.cer' [PASS]
-/root/.acme.sh/acme.sh --renew -d testfreebsd.acme.sh --force [PASS]
-/root/.acme.sh/testfreebsd.acme.sh/testfreebsd.acme.sh.cer is cert ? 'testfreebsd.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testfreebsd.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-'/root/.acme.sh/testfreebsd.acme.sh/testfreebsd.acme.sh.cer' equals '/root/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testfreebsd.acme.sh/testfreebsd.acme.sh.key' equals '/root/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testfreebsd.acme.sh/ca.cer' equals '/root/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testfreebsd.acme.sh/fullchain.cer' equals '/root/acmetest/certs/full.cer' [PASS]
+[Sat Sep  2 20:33:37 CST 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Sat Sep  2 20:33:37 CST 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Sat Sep  2 20:33:37 CST 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+/root/.acme.sh/acme.sh --issue -d testfreebsd.acme.sh --standalone --certpath '/root/acmetest/certs/domain.cer' --keypath '/root/acmetest/certs/domain.key'  --capath '/root/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/root/acmetest/certs/full.cer' [FAIL] 
+Run Failed
 ------------------------------------------
-Progress: 0/9/23
+Progress: 6/9/23
 ==Running le_test_standandalone_renew_localaddress_v2 please wait
-/root/.acme.sh/acme.sh --issue -d testfreebsd.acme.sh --standalone --local-address 0.0.0.0 --certpath '/root/acmetest/certs/domain.cer' --keypath '/root/acmetest/certs/domain.key'  --capath '/root/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/root/acmetest/certs/full.cer' [PASS]
-'/root/.acme.sh/testfreebsd.acme.sh/testfreebsd.acme.sh.cer' equals '/root/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testfreebsd.acme.sh/testfreebsd.acme.sh.key' equals '/root/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testfreebsd.acme.sh/ca.cer' equals '/root/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testfreebsd.acme.sh/fullchain.cer' equals '/root/acmetest/certs/full.cer' [PASS]
-/root/.acme.sh/acme.sh --renew -d testfreebsd.acme.sh --force [PASS]
-/root/.acme.sh/testfreebsd.acme.sh/testfreebsd.acme.sh.cer is cert ? 'testfreebsd.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testfreebsd.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-'/root/.acme.sh/testfreebsd.acme.sh/testfreebsd.acme.sh.cer' equals '/root/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testfreebsd.acme.sh/testfreebsd.acme.sh.key' equals '/root/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testfreebsd.acme.sh/ca.cer' equals '/root/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testfreebsd.acme.sh/fullchain.cer' equals '/root/acmetest/certs/full.cer' [PASS]
+[Sat Sep  2 20:33:37 CST 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Sat Sep  2 20:33:37 CST 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Sat Sep  2 20:33:37 CST 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+/root/.acme.sh/acme.sh --issue -d testfreebsd.acme.sh --standalone --local-address 0.0.0.0 --certpath '/root/acmetest/certs/domain.cer' --keypath '/root/acmetest/certs/domain.key'  --capath '/root/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/root/acmetest/certs/full.cer' [FAIL] 
+Run Failed
 ------------------------------------------
-Progress: 0/10/23
+Progress: 7/10/23
 ==Running le_test_standandalone_listen_v4_v2 please wait
-/root/.acme.sh/acme.sh --issue -d testfreebsd.acme.sh --standalone --listen-v4 --cert-file '/root/acmetest/certs/domain.cer' --key-file '/root/acmetest/certs/domain.key'  --ca-file '/root/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchain-file  '/root/acmetest/certs/full.cer' [PASS]
-'/root/.acme.sh/testfreebsd.acme.sh/testfreebsd.acme.sh.cer' equals '/root/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testfreebsd.acme.sh/testfreebsd.acme.sh.key' equals '/root/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testfreebsd.acme.sh/ca.cer' equals '/root/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testfreebsd.acme.sh/fullchain.cer' equals '/root/acmetest/certs/full.cer' [PASS]
-/root/.acme.sh/acme.sh --renew -d testfreebsd.acme.sh --force [PASS]
-/root/.acme.sh/testfreebsd.acme.sh/testfreebsd.acme.sh.cer is cert ? 'testfreebsd.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testfreebsd.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-'/root/.acme.sh/testfreebsd.acme.sh/testfreebsd.acme.sh.cer' equals '/root/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testfreebsd.acme.sh/testfreebsd.acme.sh.key' equals '/root/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testfreebsd.acme.sh/ca.cer' equals '/root/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testfreebsd.acme.sh/fullchain.cer' equals '/root/acmetest/certs/full.cer' [PASS]
+[Sat Sep  2 20:33:38 CST 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Sat Sep  2 20:33:38 CST 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Sat Sep  2 20:33:38 CST 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+/root/.acme.sh/acme.sh --issue -d testfreebsd.acme.sh --standalone --listen-v4 --cert-file '/root/acmetest/certs/domain.cer' --key-file '/root/acmetest/certs/domain.key'  --ca-file '/root/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchain-file  '/root/acmetest/certs/full.cer' [FAIL] 
+Run Failed
 ------------------------------------------
-Progress: 0/11/23
+Progress: 8/11/23
 ==Running le_test_standandalone_listen_v6_v2 please wait
+[Sat Sep  2 20:33:38 CST 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Sat Sep  2 20:33:38 CST 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Sat Sep  2 20:33:38 CST 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
 Skipped by TEST_IPV6
 ------------------------------------------
-Progress: 0/12/23
+Progress: 8/12/23
 ==Running le_test_standandalone_deactivate_v2 please wait
-/root/.acme.sh/acme.sh --issue -d testfreebsd.acme.sh --standalone --certpath '/root/acmetest/certs/domain.cer' --keypath '/root/acmetest/certs/domain.key'  --capath '/root/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/root/acmetest/certs/full.cer' [PASS]
-'/root/.acme.sh/testfreebsd.acme.sh/testfreebsd.acme.sh.cer' equals '/root/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testfreebsd.acme.sh/testfreebsd.acme.sh.key' equals '/root/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testfreebsd.acme.sh/ca.cer' equals '/root/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testfreebsd.acme.sh/fullchain.cer' equals '/root/acmetest/certs/full.cer' [PASS]
-/root/.acme.sh/acme.sh --deactivate -d testfreebsd.acme.sh [PASS]
+[Sat Sep  2 20:33:38 CST 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Sat Sep  2 20:33:38 CST 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Sat Sep  2 20:33:38 CST 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+/root/.acme.sh/acme.sh --issue -d testfreebsd.acme.sh --standalone --certpath '/root/acmetest/certs/domain.cer' --keypath '/root/acmetest/certs/domain.key'  --capath '/root/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/root/acmetest/certs/full.cer' [FAIL] 
+Run Failed
 ------------------------------------------
-Progress: 0/13/23
+Progress: 9/13/23
 ==Running le_test_standandalone please wait
-/root/.acme.sh/acme.sh issue no testfreebsd.acme.sh [PASS]
-/root/.acme.sh/testfreebsd.acme.sh/testfreebsd.acme.sh.cer is cert ? 'testfreebsd.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testfreebsd.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+[Sat Sep  2 20:33:38 CST 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Sat Sep  2 20:33:38 CST 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Sat Sep  2 20:33:38 CST 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+/root/.acme.sh/acme.sh issue no testfreebsd.acme.sh [FAIL] 
+Run Failed
 ------------------------------------------
-Progress: 0/14/23
+Progress: 10/14/23
 ==Running le_test_standandalone_SAN please wait
-/root/.acme.sh/acme.sh issue no "testfreebsd.acme.sh" "testfreebsd2.acme.sh" [PASS]
-/root/.acme.sh/testfreebsd.acme.sh/testfreebsd.acme.sh.cer is cert ? 'testfreebsd.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testfreebsd.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+[Sat Sep  2 20:33:38 CST 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Sat Sep  2 20:33:38 CST 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Sat Sep  2 20:33:38 CST 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+/root/.acme.sh/acme.sh issue no "testfreebsd.acme.sh" "testfreebsd2.acme.sh" [FAIL] 
+Run Failed
 ------------------------------------------
-Progress: 0/15/23
+Progress: 11/15/23
 ==Running le_test_standandalone_ECDSA_256 please wait
-/root/.acme.sh/acme.sh issue no testfreebsd.acme.sh no ec-256 [PASS]
-/root/.acme.sh/testfreebsd.acme.sh_ecc/testfreebsd.acme.sh.cer is cert ? 'testfreebsd.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testfreebsd.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+[Sat Sep  2 20:33:39 CST 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Sat Sep  2 20:33:39 CST 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Sat Sep  2 20:33:39 CST 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+/root/.acme.sh/acme.sh issue no testfreebsd.acme.sh no ec-256 [FAIL] 
+Run Failed
 ------------------------------------------
-Progress: 0/16/23
+Progress: 12/16/23
 ==Running le_test_standandalone_ECDSA_256_renew please wait
-/root/.acme.sh/acme.sh issue no testfreebsd.acme.sh no ec-256 [PASS]
-FORCE=1 /root/.acme.sh/acme.sh renew testfreebsd.acme.sh [PASS]
+[Sat Sep  2 20:33:39 CST 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Sat Sep  2 20:33:39 CST 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Sat Sep  2 20:33:39 CST 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+/root/.acme.sh/acme.sh issue no testfreebsd.acme.sh no ec-256 [FAIL] 
+Run Failed
 ------------------------------------------
-Progress: 0/17/23
+Progress: 13/17/23
 ==Running le_test_standandalone_ECDSA_256_SAN_renew please wait
-/root/.acme.sh/acme.sh issue no "testfreebsd.acme.sh" "testfreebsd2.acme.sh" ec-256 [PASS]
-FORCE=1 /root/.acme.sh/acme.sh renew "testfreebsd.acme.sh" [PASS]
+[Sat Sep  2 20:33:39 CST 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Sat Sep  2 20:33:39 CST 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Sat Sep  2 20:33:39 CST 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+/root/.acme.sh/acme.sh issue no "testfreebsd.acme.sh" "testfreebsd2.acme.sh" ec-256 [FAIL] 
+Run Failed
 ------------------------------------------
-Progress: 0/18/23
+Progress: 14/18/23
 ==Running le_test_standandalone_ECDSA_256_SAN_renew_v2 please wait
-/root/.acme.sh/acme.sh --issue -d "testfreebsd.acme.sh" -d "testfreebsd2.acme.sh" --standalone --keylength ec-256 --certpath '/root/acmetest/certs/domain.cer' --keypath '/root/acmetest/certs/domain.key'  --capath '/root/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/root/acmetest/certs/full.cer' [PASS]
-'/root/.acme.sh/testfreebsd.acme.sh_ecc/testfreebsd.acme.sh.cer' equals '/root/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testfreebsd.acme.sh_ecc/testfreebsd.acme.sh.key' equals '/root/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testfreebsd.acme.sh_ecc/ca.cer' equals '/root/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testfreebsd.acme.sh_ecc/fullchain.cer' equals '/root/acmetest/certs/full.cer' [PASS]
-/root/.acme.sh/acme.sh --renew --ecc -d "testfreebsd.acme.sh" --force [PASS]
-/root/.acme.sh/testfreebsd.acme.sh_ecc/testfreebsd.acme.sh.cer is cert ? 'testfreebsd.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testfreebsd.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-'/root/.acme.sh/testfreebsd.acme.sh_ecc/testfreebsd.acme.sh.cer' equals '/root/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testfreebsd.acme.sh_ecc/testfreebsd.acme.sh.key' equals '/root/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testfreebsd.acme.sh_ecc/ca.cer' equals '/root/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testfreebsd.acme.sh_ecc/fullchain.cer' equals '/root/acmetest/certs/full.cer' [PASS]
+[Sat Sep  2 20:33:39 CST 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Sat Sep  2 20:33:39 CST 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Sat Sep  2 20:33:39 CST 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+/root/.acme.sh/acme.sh --issue -d "testfreebsd.acme.sh" -d "testfreebsd2.acme.sh" --standalone --keylength ec-256 --certpath '/root/acmetest/certs/domain.cer' --keypath '/root/acmetest/certs/domain.key'  --capath '/root/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/root/acmetest/certs/full.cer' [FAIL] 
+Run Failed
 ------------------------------------------
-Progress: 0/19/23
+Progress: 15/19/23
 ==Running le_test_standandalone_ECDSA_384 please wait
-/root/.acme.sh/acme.sh issue no "testfreebsd.acme.sh" no ec-384 [PASS]
-/root/.acme.sh/testfreebsd.acme.sh_ecc/testfreebsd.acme.sh.cer is cert ? 'testfreebsd.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testfreebsd.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+[Sat Sep  2 20:33:40 CST 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Sat Sep  2 20:33:40 CST 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Sat Sep  2 20:33:40 CST 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+/root/.acme.sh/acme.sh issue no "testfreebsd.acme.sh" no ec-384 [FAIL] 
+Run Failed
 ------------------------------------------
-Progress: 0/20/23
+Progress: 16/20/23
 ==Running le_test_standandalone_tls_renew_SAN_v2 please wait
-/root/.acme.sh/acme.sh --issue -d "testfreebsd.acme.sh" --tls  -d "testfreebsd2.acme.sh" --standalone  [PASS]
-/root/.acme.sh/acme.sh --renew -d "testfreebsd.acme.sh" --force [PASS]
-/root/.acme.sh/testfreebsd.acme.sh/testfreebsd.acme.sh.cer is cert ? 'testfreebsd.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testfreebsd.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+[Sat Sep  2 20:33:40 CST 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Sat Sep  2 20:33:40 CST 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Sat Sep  2 20:33:40 CST 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+/root/.acme.sh/acme.sh --issue -d "testfreebsd.acme.sh" --tls  -d "testfreebsd2.acme.sh" --standalone  [FAIL] 
+Run Failed
 ------------------------------------------
-Progress: 0/21/23
+Progress: 17/21/23
 ==Running le_test_tls_renew_SAN_v2 please wait
-/root/.acme.sh/acme.sh --issue -d "testfreebsd.acme.sh" -d "testfreebsd2.acme.sh" --tls [PASS]
-/root/.acme.sh/acme.sh --renew -d "testfreebsd.acme.sh" --force [PASS]
-/root/.acme.sh/testfreebsd.acme.sh/testfreebsd.acme.sh.cer is cert ? 'testfreebsd.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testfreebsd.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+[Sat Sep  2 20:33:40 CST 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Sat Sep  2 20:33:40 CST 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Sat Sep  2 20:33:40 CST 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+/root/.acme.sh/acme.sh --issue -d "testfreebsd.acme.sh" -d "testfreebsd2.acme.sh" --tls [FAIL] 
+Run Failed
 ------------------------------------------
-Progress: 0/22/23
+Progress: 18/22/23
 ==Running le_test_standandalone_renew_idn_v2 please wait
+[Sat Sep  2 20:33:40 CST 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Sat Sep  2 20:33:40 CST 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Sat Sep  2 20:33:40 CST 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
 Skipped by TEST_IDN
 ------------------------------------------
-Progress: 0/23/23
+Progress: 18/23/23
 ==Running le_test_dnsapi please wait
+[Sat Sep  2 20:33:40 CST 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Sat Sep  2 20:33:40 CST 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Sat Sep  2 20:33:40 CST 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
 The test domain Test_CF_Domain is not defined, skip:ClourFlare_api
 The test domain Test_CX_Domain is not defined, skip:CloudXNS.com_api
 The test domain Test_DP_Domain is not defined, skip:Dnspod.cn_api
 Testing dns_gd Godaddy_api
 TestingDomain='acmetalk.xyz'
-/root/.acme.sh/acme.sh --issue -d "acmetalk.xyz" --dns dns_gd --dnssleep ""  [PASS]
-/root/.acme.sh/acmetalk.xyz/acmetalk.xyz.cer is cert ? 'acmetalk.xyz' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/acmetalk.xyz/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/acme.sh --deactivate -d "acmetalk.xyz" >/dev/null 2>&1 [PASS]
-The test domain Test_AWS_Domain is not defined, skip:Amazon_Route53_api
-The test domain Test_LUA_Domain is not defined, skip:luadns.com_api
-ME_Key is not defined, skip:dnsmadeeasy.com_api
-NSUPDATE_KEY is not defined, skip:nsupdate_api
-OVH_AK is not defined, skip:OVH.com_api
-PDNS_Token is not defined, skip:powerdns.com_api
-The test domain Test_ALI_Domain is not defined, skip:aliyun_api
-Testing dns_gandi_livedns gandi_livedns
-TestingDomain='acmetest.xyz'
-/root/.acme.sh/acme.sh --issue -d "acmetest.xyz" --dns dns_gandi_livedns --dnssleep "60"  [PASS]
-/root/.acme.sh/acmetest.xyz/acmetest.xyz.cer is cert ? 'acmetest.xyz' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/acmetest.xyz/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/acme.sh --deactivate -d "acmetest.xyz" >/dev/null 2>&1 [PASS]
-The test domain Test_DYNU_Domain is not defined, skip:dynu_api
+/root/.acme.sh/acme.sh --issue -d "acmetalk.xyz" --dns dns_gd --dnssleep ""  [FAIL] 
+Run Failed
 ------------------------------------------
