@@ -1,12 +1,679 @@
 Sending build context to Docker daemon  2.048kB
 Step 1/2 : FROM mageia
- ---> 9171f919fb09
-Step 2/2 : RUN urpmi --auto-update --auto -q  2>&1 && urpmi --auto -q  openssl netcat idn  2>&1
- ---> Using cache
- ---> 4bc77114d31b
-Successfully built 4bc77114d31b
+ ---> c0506bfa2294
+Step 2/2 : RUN dnf update -y  2>&1 && dnf install -y  openssl socat idn curl  2>&1
+ ---> Running in 5d5a57911233
+Last metadata expiration check: 0:00:01 ago on Sat Sep  2 19:53:09 2017.
+Dependencies resolved.
+================================================================================
+ Package                   Arch    Version                Repository       Size
+================================================================================
+Upgrading:
+ dnf                       noarch  2.6.2-1.mga6           updates-x86_64  271 k
+ dnf-conf                  noarch  2.6.2-1.mga6           updates-x86_64   30 k
+ hawkey-man                noarch  0.9.3-1.mga6           updates-x86_64   22 k
+ krb5                      x86_64  1.15.1-2.1.mga6        updates-x86_64   33 k
+ lib64curl4                x86_64  1:7.54.1-2.2.mga6      updates-x86_64  218 k
+ lib64dnf1                 x86_64  0.9.3-1.mga6           updates-x86_64  108 k
+ lib64krb53                x86_64  1.15.1-2.1.mga6        updates-x86_64  656 k
+ lib64nspr4                x86_64  2:4.16-1.mga6          updates-x86_64  117 k
+ lib64nss3                 x86_64  2:3.28.5-1.1.mga6      updates-x86_64  1.1 M
+ lib64solv0                x86_64  0.6.28-1.1.mga6        updates-x86_64  364 k
+ lib64sqlite3_0            x86_64  3.17.0-2.1.mga6        updates-x86_64  412 k
+ lib64systemd0             x86_64  230-12.1.mga6          updates-x86_64  215 k
+ lib64udev1                x86_64  230-12.1.mga6          updates-x86_64   63 k
+ libsolv-tools             x86_64  0.6.28-1.1.mga6        updates-x86_64   89 k
+ nss                       x86_64  2:3.28.5-1.1.mga6      updates-x86_64  2.5 M
+ nss-myhostname            x86_64  230-12.1.mga6          updates-x86_64  187 k
+ perl-XML-LibXML           x86_64  2.12.900-1.1.mga6      updates-x86_64  373 k
+ python3-dnf               noarch  2.6.2-1.mga6           updates-x86_64  399 k
+ python3-hawkey            x86_64  0.9.3-1.mga6           updates-x86_64   48 k
+ rootcerts                 noarch  1:20170718.00-1.mga6   updates-x86_64  637 k
+ rpm-mageia-setup          x86_64  2.20-9.1.mga6          updates-x86_64   16 k
+ systemd                   x86_64  230-12.1.mga6          updates-x86_64  5.6 M
+ systemd-units             x86_64  230-12.1.mga6          updates-x86_64  384 k
+Installing dependencies:
+ adwaita-icon-theme        noarch  3.24.0-1.mga6          mageia-x86_64    12 M
+ at-spi2-core              x86_64  2.24.1-1.mga6          mageia-x86_64    84 k
+ atk1.0-common             noarch  2.24.0-1.mga6          mageia-x86_64   153 k
+ fontconfig                x86_64  2.12.1-2.mga6          mageia-x86_64   106 k
+ gdk-pixbuf2.0             x86_64  2.36.7-1.mga6          updates-x86_64  339 k
+ glib2.0-common            x86_64  2.52.2-2.mga6          mageia-x86_64   1.1 M
+ gobject-introspection     x86_64  1.52.1-1.mga6          mageia-x86_64   390 k
+ gtk+3.0                   x86_64  3.22.16-1.mga6         mageia-x86_64   3.1 M
+ hicolor-icon-theme        noarch  0.15-3.mga6            mageia-x86_64    35 k
+ lib64atk-bridge2.0_0      x86_64  2.24.1-1.mga6          mageia-x86_64    61 k
+ lib64atk-gir1.0           x86_64  2.24.0-1.mga6          mageia-x86_64    23 k
+ lib64atk1.0_0             x86_64  2.24.0-1.mga6          mageia-x86_64    48 k
+ lib64atspi0               x86_64  2.24.1-1.mga6          mageia-x86_64    65 k
+ lib64avahi-client3        x86_64  0.6.32-1.mga6          mageia-x86_64    31 k
+ lib64avahi-common3        x86_64  0.6.32-1.mga6          mageia-x86_64    27 k
+ lib64bsd0                 x86_64  0.8.3-1.mga6           mageia-x86_64    42 k
+ lib64cairo-gir1.0         x86_64  1.52.1-1.mga6          mageia-x86_64    11 k
+ lib64cairo2               x86_64  1.14.10-1.mga6         mageia-x86_64   623 k
+ lib64colord2              x86_64  1.3.4-1.mga6           mageia-x86_64   132 k
+ lib64cups2                x86_64  2.2.4-1.mga6           updates-x86_64  302 k
+ lib64datrie1              x86_64  0.2.10-1.mga6          mageia-x86_64    21 k
+ lib64dbus-glib1_2         x86_64  0.108-2.mga6           mageia-x86_64    58 k
+ lib64dri-drivers          x86_64  17.1.5-1.mga6          updates-x86_64  5.2 M
+ lib64drm2                 x86_64  2.4.81-1.mga6          mageia-x86_64    36 k
+ lib64drm_amdgpu1          x86_64  2.4.81-1.mga6          mageia-x86_64    25 k
+ lib64drm_intel1           x86_64  2.4.81-1.mga6          mageia-x86_64    67 k
+ lib64drm_nouveau2         x86_64  2.4.81-1.mga6          mageia-x86_64    24 k
+ lib64drm_radeon1          x86_64  2.4.81-1.mga6          mageia-x86_64    29 k
+ lib64epoxy0               x86_64  1.4.1-1.mga6           mageia-x86_64   185 k
+ lib64fontconfig-gir2.0    x86_64  1.52.1-1.mga6          mageia-x86_64    11 k
+ lib64fontconfig1          x86_64  2.12.1-2.mga6          mageia-x86_64   116 k
+ lib64freetype-gir2.0      x86_64  1.52.1-1.mga6          mageia-x86_64    11 k
+ lib64freetype6            x86_64  2.7.1-2.mga6           mageia-x86_64   289 k
+ lib64gbm1                 x86_64  17.1.5-1.mga6          updates-x86_64   43 k
+ lib64gdk_pixbuf-gir2.0    x86_64  2.36.7-1.mga6          updates-x86_64   14 k
+ lib64gdk_pixbuf2.0_0      x86_64  2.36.7-1.mga6          updates-x86_64  185 k
+ lib64girepository1.0_1    x86_64  1.52.1-1.mga6          mageia-x86_64    88 k
+ lib64glapi0               x86_64  17.1.5-1.mga6          updates-x86_64   48 k
+ lib64glib-gir2.0          x86_64  1.52.1-1.mga6          mageia-x86_64   130 k
+ lib64graphite2_3          x86_64  1.3.10-1.mga6          mageia-x86_64    88 k
+ lib64gtk+3_0              x86_64  3.22.16-1.mga6         mageia-x86_64   2.5 M
+ lib64gtk-gir3.0           x86_64  3.22.16-1.mga6         mageia-x86_64   196 k
+ lib64gusb2                x86_64  0.2.10-1.mga6          mageia-x86_64    41 k
+ lib64harfbuzz0            x86_64  1.3.2-5.mga6           mageia-x86_64   162 k
+ lib64jasper1              x86_64  1.900.23-5.mga6        mageia-x86_64   144 k
+ lib64jbig1                x86_64  2.1-4.mga6             mageia-x86_64    46 k
+ lib64jpeg8                x86_64  1:1.5.1-1.mga6         mageia-x86_64   189 k
+ lib64lcms2_2              x86_64  2.8-2.mga6             mageia-x86_64   142 k
+ lib64llvm3.9              x86_64  3.9.1-6.mga6           mageia-x86_64   9.5 M
+ lib64mesaegl1             x86_64  17.1.5-1.mga6          updates-x86_64   97 k
+ lib64mesagl1              x86_64  17.1.5-1.mga6          updates-x86_64  154 k
+ lib64pango-gir1.0         x86_64  1.40.6-1.mga6          mageia-x86_64    27 k
+ lib64pango1.0_0           x86_64  1.40.6-1.mga6          mageia-x86_64   166 k
+ lib64pciaccess0           x86_64  0.13.5-1.mga6          mageia-x86_64    22 k
+ lib64pixman1_0            x86_64  0.34.0-1.mga6          mageia-x86_64   235 k
+ lib64png16_16             x86_64  2:1.6.29-1.mga6        mageia-x86_64   171 k
+ lib64thai0                x86_64  0.1.26-1.mga6          mageia-x86_64    56 k
+ lib64tiff5                x86_64  4.0.8-3.mga6           mageia-x86_64   162 k
+ lib64wayland-client0      x86_64  1.11.0-1.mga6          mageia-x86_64    28 k
+ lib64wayland-cursor0      x86_64  1.11.0-1.mga6          mageia-x86_64    17 k
+ lib64wayland-egl1         x86_64  17.1.5-1.mga6          updates-x86_64   24 k
+ lib64wayland-server0      x86_64  1.11.0-1.mga6          mageia-x86_64    33 k
+ lib64x11-xcb1             x86_64  1.6.5-1.mga6           mageia-x86_64   9.5 k
+ lib64x11_6                x86_64  1.6.5-1.mga6           mageia-x86_64   562 k
+ lib64xau6                 x86_64  1.0.8-7.mga6           mageia-x86_64    12 k
+ lib64xcb-dri2_0           x86_64  1.12-2.mga6            mageia-x86_64    13 k
+ lib64xcb-dri3_0           x86_64  1.12-2.mga6            mageia-x86_64    11 k
+ lib64xcb-glx0             x86_64  1.12-2.mga6            mageia-x86_64    25 k
+ lib64xcb-present0         x86_64  1.12-2.mga6            mageia-x86_64    12 k
+ lib64xcb-render0          x86_64  1.12-2.mga6            mageia-x86_64    20 k
+ lib64xcb-shm0             x86_64  1.12-2.mga6            mageia-x86_64    11 k
+ lib64xcb-sync1            x86_64  1.12-2.mga6            mageia-x86_64    14 k
+ lib64xcb-xfixes0          x86_64  1.12-2.mga6            mageia-x86_64    14 k
+ lib64xcb-xkb1             x86_64  1.12-2.mga6            mageia-x86_64    33 k
+ lib64xcb1                 x86_64  1.12-2.mga6            mageia-x86_64    45 k
+ lib64xcomposite1          x86_64  0.4.4-8.mga6           mageia-x86_64    12 k
+ lib64xcursor1             x86_64  1.1.14-6.mga6          mageia-x86_64    26 k
+ lib64xdamage1             x86_64  1.1.4-8.mga6           mageia-x86_64    11 k
+ lib64xdmcp6               x86_64  1.1.2-5.mga6           mageia-x86_64    15 k
+ lib64xext6                x86_64  1:1.3.3-4.mga6         mageia-x86_64    55 k
+ lib64xfixes3              x86_64  5.0.3-1.mga6           mageia-x86_64    14 k
+ lib64xft-gir2.0           x86_64  1.52.1-1.mga6          mageia-x86_64    11 k
+ lib64xft2                 x86_64  2.3.2-4.mga6           mageia-x86_64    43 k
+ lib64xi6                  x86_64  1.7.9-1.mga6           mageia-x86_64    32 k
+ lib64xinerama1            x86_64  1.1.3-6.mga6           mageia-x86_64    12 k
+ lib64xkbcommon0           x86_64  0.7.1-1.mga6           mageia-x86_64   111 k
+ lib64xlib-gir2.0          x86_64  1.52.1-1.mga6          mageia-x86_64    11 k
+ lib64xrandr2              x86_64  1.5.1-1.mga6           mageia-x86_64    21 k
+ lib64xrender1             x86_64  0.9.10-1.mga6          mageia-x86_64    22 k
+ lib64xshmfence1           x86_64  1.2-2.mga6             mageia-x86_64   9.9 k
+ lib64xtst6                x86_64  1.2.3-1.mga6           mageia-x86_64    16 k
+ lib64xxf86vm1             x86_64  1.1.4-2.mga6           mageia-x86_64    14 k
+ libdrm-common             x86_64  2.4.81-1.mga6          mageia-x86_64   9.5 k
+ mesa                      x86_64  17.1.5-1.mga6          updates-x86_64   23 k
+ pango                     x86_64  1.40.6-1.mga6          mageia-x86_64    45 k
+ pkgconfig                 x86_64  0.29.1-3.mga6          mageia-x86_64    67 k
+ python3-cairo             x86_64  1.13.2-1.mga6          mageia-x86_64    44 k
+ python3-dnf-plugins-core  noarch  2.1.3-1.mga6           updates-x86_64   63 k
+ python3-gobject3          x86_64  3.24.1-1.mga6          mageia-x86_64   238 k
+ thai-data                 x86_64  0.1.26-1.mga6          mageia-x86_64   133 k
+ xdg-user-dirs             x86_64  0.15-7.mga6            mageia-x86_64    53 k
+Installing weak dependencies:
+ bash-completion           noarch  2:2.5-1.mga6           mageia-x86_64   223 k
+ dnf-plugins-core          noarch  2.1.3-1.mga6           updates-x86_64   72 k
+ dnf-yum                   noarch  2.6.2-1.mga6           updates-x86_64   22 k
+ python3-dbus              x86_64  1.2.4-3.mga6           mageia-x86_64   132 k
+ xdg-user-dirs-gtk         x86_64  0.10-5.mga6            mageia-x86_64    58 k
+
+Transaction Summary
+================================================================================
+Install  106 Packages
+Upgrade   23 Packages
+
+Total download size: 55 M
+Downloading Packages:
+--------------------------------------------------------------------------------
+Total                                           9.2 MB/s |  55 MB     00:06     
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                        1/1 
+  Installing       : lib64glib-gir2.0-1.52.1-1.mga6.x86_64                1/152 
+  Installing       : lib64wayland-client0-1.11.0-1.mga6.x86_64            2/152 
+  Upgrading        : libsolv-tools-0.6.28-1.1.mga6.x86_64                 3/152 
+  Upgrading        : lib64solv0-0.6.28-1.1.mga6.x86_64                    4/152 
+  Installing       : lib64jpeg8-1:1.5.1-1.mga6.x86_64                     5/152 
+  Installing       : lib64xshmfence1-1.2-2.mga6.x86_64                    6/152 
+  Installing       : lib64x11-xcb1-1.6.5-1.mga6.x86_64                    7/152 
+  Installing       : lib64png16_16-2:1.6.29-1.mga6.x86_64                 8/152 
+  Installing       : lib64freetype6-2.7.1-2.mga6.x86_64                   9/152 
+  Installing       : lib64fontconfig1-2.12.1-2.mga6.x86_64               10/152 
+  Installing       : fontconfig-2.12.1-2.mga6.x86_64                     11/152 
+  Running scriptlet: fontconfig-2.12.1-2.mga6.x86_64                     11/152 
+  Installing       : lib64girepository1.0_1-1.52.1-1.mga6.x86_64         12/152 
+  Installing       : gobject-introspection-1.52.1-1.mga6.x86_64          13/152 
+  Upgrading        : lib64sqlite3_0-3.17.0-2.1.mga6.x86_64               14/152 
+  Upgrading        : lib64nspr4-2:4.16-1.mga6.x86_64                     15/152 
+  Installing       : lib64avahi-common3-0.6.32-1.mga6.x86_64             16/152 
+  Installing       : hicolor-icon-theme-0.15-3.mga6.noarch               17/152 
+  Installing       : lib64glapi0-17.1.5-1.mga6.x86_64                    18/152 
+  Installing       : lib64wayland-server0-1.11.0-1.mga6.x86_64           19/152 
+  Installing       : pkgconfig-0.29.1-3.mga6.x86_64                      20/152 
+  Installing       : lib64avahi-client3-0.6.32-1.mga6.x86_64             21/152 
+  Upgrading        : nss-2:3.28.5-1.1.mga6.x86_64                        22/152 
+  Upgrading        : lib64nss3-2:3.28.5-1.1.mga6.x86_64                  23/152 
+  Running scriptlet: lib64nss3-2:3.28.5-1.1.mga6.x86_64                  23/152 
+  Installing       : lib64fontconfig-gir2.0-1.52.1-1.mga6.x86_64         24/152 
+  Installing       : lib64freetype-gir2.0-1.52.1-1.mga6.x86_64           25/152 
+  Installing       : lib64jasper1-1.900.23-5.mga6.x86_64                 26/152 
+  Upgrading        : lib64dnf1-0.9.3-1.mga6.x86_64                       27/152 
+  Installing       : lib64wayland-cursor0-1.11.0-1.mga6.x86_64           28/152 
+  Installing       : lib64gusb2-0.2.10-1.mga6.x86_64                     29/152 
+  Upgrading        : rootcerts-1:20170718.00-1.mga6.noarch               30/152 
+  Upgrading        : nss-myhostname-230-12.1.mga6.x86_64                 31/152 
+  Upgrading        : lib64udev1-230-12.1.mga6.x86_64                     32/152 
+  Upgrading        : krb5-1.15.1-2.1.mga6.x86_64                         33/152 
+  Upgrading        : lib64krb53-1.15.1-2.1.mga6.x86_64                   34/152 
+  Installing       : lib64cups2-2.2.4-1.mga6.x86_64                      35/152 
+  Upgrading        : lib64curl4-1:7.54.1-2.2.mga6.x86_64                 36/152 
+  Upgrading        : systemd-units-230-12.1.mga6.x86_64                  37/152 
+  Running scriptlet: systemd-units-230-12.1.mga6.x86_64                  37/152 
+  Running scriptlet: systemd-230-12.1.mga6.x86_64                        38/152 
+  Upgrading        : systemd-230-12.1.mga6.x86_64                        38/152 
+  Running scriptlet: systemd-230-12.1.mga6.x86_64                        38/152 
+Failed to connect to bus: No such file or directory
+  Upgrading        : hawkey-man-0.9.3-1.mga6.noarch                      39/152 
+  Upgrading        : python3-hawkey-0.9.3-1.mga6.x86_64                  40/152 
+  Upgrading        : dnf-conf-2.6.2-1.mga6.noarch                        41/152 
+  Upgrading        : python3-dnf-2.6.2-1.mga6.noarch                     42/152 
+  Installing       : python3-dnf-plugins-core-2.1.3-1.mga6.noarch        43/152 
+  Upgrading        : dnf-2.6.2-1.mga6.noarch                             44/152 
+  Running scriptlet: dnf-2.6.2-1.mga6.noarch                             44/152 
+  Installing       : xdg-user-dirs-0.15-7.mga6.x86_64                    45/152 
+  Installing       : lib64wayland-egl1-17.1.5-1.mga6.x86_64              46/152 
+  Installing       : lib64jbig1-2.1-4.mga6.x86_64                        47/152 
+  Installing       : lib64tiff5-4.0.8-3.mga6.x86_64                      48/152 
+  Installing       : lib64lcms2_2-2.8-2.mga6.x86_64                      49/152 
+  Installing       : lib64colord2-1.3.4-1.mga6.x86_64                    50/152 
+  Installing       : atk1.0-common-2.24.0-1.mga6.noarch                  51/152 
+  Installing       : lib64atk1.0_0-2.24.0-1.mga6.x86_64                  52/152 
+  Installing       : lib64atk-gir1.0-2.24.0-1.mga6.x86_64                53/152 
+  Installing       : lib64epoxy0-1.4.1-1.mga6.x86_64                     54/152 
+  Installing       : glib2.0-common-2.52.2-2.mga6.x86_64                 55/152 
+  Installing       : lib64pciaccess0-0.13.5-1.mga6.x86_64                56/152 
+  Installing       : lib64llvm3.9-3.9.1-6.mga6.x86_64                    57/152 
+  Installing       : libdrm-common-2.4.81-1.mga6.x86_64                  58/152 
+  Installing       : lib64drm2-2.4.81-1.mga6.x86_64                      59/152 
+  Installing       : lib64drm_amdgpu1-2.4.81-1.mga6.x86_64               60/152 
+  Installing       : lib64drm_intel1-2.4.81-1.mga6.x86_64                61/152 
+  Installing       : lib64drm_nouveau2-2.4.81-1.mga6.x86_64              62/152 
+  Installing       : lib64drm_radeon1-2.4.81-1.mga6.x86_64               63/152 
+  Installing       : lib64gbm1-17.1.5-1.mga6.x86_64                      64/152 
+  Installing       : thai-data-0.1.26-1.mga6.x86_64                      65/152 
+  Installing       : lib64datrie1-0.2.10-1.mga6.x86_64                   66/152 
+  Installing       : lib64thai0-0.1.26-1.mga6.x86_64                     67/152 
+  Installing       : lib64graphite2_3-1.3.10-1.mga6.x86_64               68/152 
+  Installing       : lib64harfbuzz0-1.3.2-5.mga6.x86_64                  69/152 
+  Installing       : lib64bsd0-0.8.3-1.mga6.x86_64                       70/152 
+  Installing       : lib64xdmcp6-1.1.2-5.mga6.x86_64                     71/152 
+  Installing       : pango-1.40.6-1.mga6.x86_64                          72/152 
+  Installing       : lib64xau6-1.0.8-7.mga6.x86_64                       73/152 
+  Installing       : lib64xcb1-1.12-2.mga6.x86_64                        74/152 
+  Installing       : lib64x11_6-1.6.5-1.mga6.x86_64                      75/152 
+  Running scriptlet: lib64x11_6-1.6.5-1.mga6.x86_64                      75/152 
+  Installing       : lib64xext6-1:1.3.3-4.mga6.x86_64                    76/152 
+  Installing       : lib64xrender1-0.9.10-1.mga6.x86_64                  77/152 
+  Installing       : gdk-pixbuf2.0-2.36.7-1.mga6.x86_64                  78/152 
+  Installing       : lib64gdk_pixbuf2.0_0-2.36.7-1.mga6.x86_64           79/152 
+  Running scriptlet: lib64gdk_pixbuf2.0_0-2.36.7-1.mga6.x86_64           79/152 
+  Installing       : lib64xlib-gir2.0-1.52.1-1.mga6.x86_64               80/152 
+  Installing       : lib64xfixes3-5.0.3-1.mga6.x86_64                    81/152 
+  Installing       : lib64xcb-dri2_0-1.12-2.mga6.x86_64                  82/152 
+  Installing       : lib64xcb-dri3_0-1.12-2.mga6.x86_64                  83/152 
+  Installing       : lib64xcb-present0-1.12-2.mga6.x86_64                84/152 
+  Installing       : lib64xcb-sync1-1.12-2.mga6.x86_64                   85/152 
+  Installing       : lib64xft2-2.3.2-4.mga6.x86_64                       86/152 
+  Installing       : lib64xdamage1-1.1.4-8.mga6.x86_64                   87/152 
+  Installing       : lib64xcb-xfixes0-1.12-2.mga6.x86_64                 88/152 
+  Installing       : lib64mesaegl1-17.1.5-1.mga6.x86_64                  89/152 
+  Installing       : lib64xft-gir2.0-1.52.1-1.mga6.x86_64                90/152 
+  Installing       : lib64xcursor1-1.1.14-6.mga6.x86_64                  91/152 
+  Installing       : lib64gdk_pixbuf-gir2.0-2.36.7-1.mga6.x86_64         92/152 
+  Installing       : lib64xrandr2-1.5.1-1.mga6.x86_64                    93/152 
+  Installing       : lib64xxf86vm1-1.1.4-2.mga6.x86_64                   94/152 
+  Installing       : lib64xi6-1.7.9-1.mga6.x86_64                        95/152 
+  Installing       : lib64xinerama1-1.1.3-6.mga6.x86_64                  96/152 
+  Installing       : lib64xtst6-1.2.3-1.mga6.x86_64                      97/152 
+  Installing       : lib64atspi0-2.24.1-1.mga6.x86_64                    98/152 
+  Installing       : at-spi2-core-2.24.1-1.mga6.x86_64                   99/152 
+  Installing       : lib64atk-bridge2.0_0-2.24.1-1.mga6.x86_64          100/152 
+  Installing       : lib64xcomposite1-0.4.4-8.mga6.x86_64               101/152 
+  Installing       : lib64xcb-render0-1.12-2.mga6.x86_64                102/152 
+  Installing       : lib64xcb-shm0-1.12-2.mga6.x86_64                   103/152 
+  Installing       : lib64xcb-glx0-1.12-2.mga6.x86_64                   104/152 
+  Installing       : lib64dri-drivers-17.1.5-1.mga6.x86_64              105/152 
+  Installing       : lib64mesagl1-17.1.5-1.mga6.x86_64                  106/152 
+  Installing       : mesa-17.1.5-1.mga6.x86_64                          107/152 
+  Installing       : lib64xcb-xkb1-1.12-2.mga6.x86_64                   108/152 
+  Installing       : lib64xkbcommon0-0.7.1-1.mga6.x86_64                109/152 
+  Installing       : lib64pixman1_0-0.34.0-1.mga6.x86_64                110/152 
+  Installing       : lib64cairo2-1.14.10-1.mga6.x86_64                  111/152 
+  Installing       : lib64cairo-gir1.0-1.52.1-1.mga6.x86_64             112/152 
+  Installing       : lib64pango1.0_0-1.40.6-1.mga6.x86_64               113/152 
+  Installing       : lib64gtk+3_0-3.22.16-1.mga6.x86_64                 114/152 
+  Installing       : gtk+3.0-3.22.16-1.mga6.x86_64                      115/152 
+  Installing       : adwaita-icon-theme-3.24.0-1.mga6.noarch            116/152 
+  Running scriptlet: adwaita-icon-theme-3.24.0-1.mga6.noarch            116/152 
+  Installing       : lib64pango-gir1.0-1.40.6-1.mga6.x86_64             117/152 
+  Installing       : lib64gtk-gir3.0-3.22.16-1.mga6.x86_64              118/152 
+  Installing       : python3-cairo-1.13.2-1.mga6.x86_64                 119/152 
+  Installing       : python3-gobject3-3.24.1-1.mga6.x86_64              120/152 
+  Installing       : lib64dbus-glib1_2-0.108-2.mga6.x86_64              121/152 
+  Installing       : python3-dbus-1.2.4-3.mga6.x86_64                   122/152 
+  Installing       : xdg-user-dirs-gtk-0.10-5.mga6.x86_64               123/152 
+  Installing       : dnf-yum-2.6.2-1.mga6.noarch                        124/152 
+  Installing       : dnf-plugins-core-2.1.3-1.mga6.noarch               125/152 
+  Installing       : bash-completion-2:2.5-1.mga6.noarch                126/152 
+  Upgrading        : rpm-mageia-setup-2.20-9.1.mga6.x86_64              127/152 
+  Upgrading        : perl-XML-LibXML-2.12.900-1.1.mga6.x86_64           128/152 
+  Running scriptlet: perl-XML-LibXML-2.12.900-1.1.mga6.x86_64           128/152 
+  Upgrading        : lib64systemd0-230-12.1.mga6.x86_64                 129/152 
+  Running scriptlet: dnf-2.5.1-2.mga6.noarch                            130/152 
+  Cleanup          : dnf-2.5.1-2.mga6.noarch                            130/152 
+  Running scriptlet: dnf-2.5.1-2.mga6.noarch                            130/152 
+  Cleanup          : python3-dnf-2.5.1-2.mga6.noarch                    131/152 
+  Cleanup          : dnf-conf-2.5.1-2.mga6.noarch                       132/152 
+  Cleanup          : rpm-mageia-setup-2.20-9.mga6.x86_64                133/152 
+  Cleanup          : nss-2:3.28.5-1.mga6.x86_64                         134/152 
+  Cleanup          : lib64nss3-2:3.28.5-1.mga6.x86_64                   135/152 
+  Cleanup          : python3-hawkey-0.9.2-1.mga6.x86_64                 136/152 
+  Running scriptlet: systemd-units-230-12.mga6.x86_64                   137/152 
+  Cleanup          : systemd-units-230-12.mga6.x86_64                   137/152 
+  Running scriptlet: systemd-units-230-12.mga6.x86_64                   137/152 
+Failed to connect to bus: No such file or directory
+  Cleanup          : systemd-230-12.mga6.x86_64                         138/152 
+  Cleanup          : lib64curl4-1:7.54.1-2.mga6.x86_64                  139/152 
+  Cleanup          : lib64krb53-1.15.1-2.mga6.x86_64                    140/152 
+  Cleanup          : lib64dnf1-0.9.2-1.mga6.x86_64                      141/152 
+  Cleanup          : krb5-1.15.1-2.mga6.x86_64                          142/152 
+  Cleanup          : rootcerts-1:20170404.00-1.mga6.noarch              143/152 
+  Cleanup          : hawkey-man-0.9.2-1.mga6.noarch                     144/152 
+  Cleanup          : libsolv-tools-0.6.28-1.mga6.x86_64                 145/152 
+  Cleanup          : lib64solv0-0.6.28-1.mga6.x86_64                    146/152 
+  Cleanup          : nss-myhostname-230-12.mga6.x86_64                  147/152 
+  Cleanup          : lib64nspr4-2:4.15-2.mga6.x86_64                    148/152 
+  Cleanup          : lib64sqlite3_0-3.17.0-2.mga6.x86_64                149/152 
+  Running scriptlet: perl-XML-LibXML-2.12.900-1.mga6.x86_64             150/152 
+  Cleanup          : perl-XML-LibXML-2.12.900-1.mga6.x86_64             150/152 
+  Cleanup          : lib64udev1-230-12.mga6.x86_64                      151/152 
+  Cleanup          : lib64systemd0-230-12.mga6.x86_64                   152/152 
+  Running scriptlet: lib64gtk+3_0-3.22.16-1.mga6.x86_64                 152/152 
+  Running scriptlet: hicolor-icon-theme-0.15-3.mga6.noarch              152/152 
+  Running scriptlet: systemd-230-12.1.mga6.x86_64                       152/152 
+  Running scriptlet: glib2.0-common-2.52.2-2.mga6.x86_64                152/152 
+  Running scriptlet: gtk+3.0-3.22.16-1.mga6.x86_64                      152/152 
+  Running scriptlet: adwaita-icon-theme-3.24.0-1.mga6.noarch            152/152 
+  Verifying        : dnf-plugins-core-2.1.3-1.mga6.noarch                 1/152 
+  Verifying        : python3-dnf-plugins-core-2.1.3-1.mga6.noarch         2/152 
+  Verifying        : dnf-yum-2.6.2-1.mga6.noarch                          3/152 
+  Verifying        : bash-completion-2:2.5-1.mga6.noarch                  4/152 
+  Verifying        : pkgconfig-0.29.1-3.mga6.x86_64                       5/152 
+  Verifying        : python3-dbus-1.2.4-3.mga6.x86_64                     6/152 
+  Verifying        : lib64dbus-glib1_2-0.108-2.mga6.x86_64                7/152 
+  Verifying        : lib64glib-gir2.0-1.52.1-1.mga6.x86_64                8/152 
+  Verifying        : python3-gobject3-3.24.1-1.mga6.x86_64                9/152 
+  Verifying        : gobject-introspection-1.52.1-1.mga6.x86_64          10/152 
+  Verifying        : lib64cairo2-1.14.10-1.mga6.x86_64                   11/152 
+  Verifying        : lib64girepository1.0_1-1.52.1-1.mga6.x86_64         12/152 
+  Verifying        : lib64pango-gir1.0-1.40.6-1.mga6.x86_64              13/152 
+  Verifying        : python3-cairo-1.13.2-1.mga6.x86_64                  14/152 
+  Verifying        : lib64fontconfig1-2.12.1-2.mga6.x86_64               15/152 
+  Verifying        : lib64freetype6-2.7.1-2.mga6.x86_64                  16/152 
+  Verifying        : lib64pixman1_0-0.34.0-1.mga6.x86_64                 17/152 
+  Verifying        : lib64png16_16-2:1.6.29-1.mga6.x86_64                18/152 
+  Verifying        : lib64x11_6-1.6.5-1.mga6.x86_64                      19/152 
+  Verifying        : lib64xcb-render0-1.12-2.mga6.x86_64                 20/152 
+  Verifying        : lib64xcb-shm0-1.12-2.mga6.x86_64                    21/152 
+  Verifying        : lib64xcb1-1.12-2.mga6.x86_64                        22/152 
+  Verifying        : lib64xext6-1:1.3.3-4.mga6.x86_64                    23/152 
+  Verifying        : lib64xrender1-0.9.10-1.mga6.x86_64                  24/152 
+  Verifying        : lib64cairo-gir1.0-1.52.1-1.mga6.x86_64              25/152 
+  Verifying        : lib64fontconfig-gir2.0-1.52.1-1.mga6.x86_64         26/152 
+  Verifying        : lib64freetype-gir2.0-1.52.1-1.mga6.x86_64           27/152 
+  Verifying        : lib64pango1.0_0-1.40.6-1.mga6.x86_64                28/152 
+  Verifying        : lib64xft-gir2.0-1.52.1-1.mga6.x86_64                29/152 
+  Verifying        : lib64xlib-gir2.0-1.52.1-1.mga6.x86_64               30/152 
+  Verifying        : fontconfig-2.12.1-2.mga6.x86_64                     31/152 
+  Verifying        : lib64xau6-1.0.8-7.mga6.x86_64                       32/152 
+  Verifying        : lib64xdmcp6-1.1.2-5.mga6.x86_64                     33/152 
+  Verifying        : lib64harfbuzz0-1.3.2-5.mga6.x86_64                  34/152 
+  Verifying        : lib64thai0-0.1.26-1.mga6.x86_64                     35/152 
+  Verifying        : lib64xft2-2.3.2-4.mga6.x86_64                       36/152 
+  Verifying        : pango-1.40.6-1.mga6.x86_64                          37/152 
+  Verifying        : lib64bsd0-0.8.3-1.mga6.x86_64                       38/152 
+  Verifying        : lib64graphite2_3-1.3.10-1.mga6.x86_64               39/152 
+  Verifying        : lib64datrie1-0.2.10-1.mga6.x86_64                   40/152 
+  Verifying        : thai-data-0.1.26-1.mga6.x86_64                      41/152 
+  Verifying        : lib64mesaegl1-17.1.5-1.mga6.x86_64                  42/152 
+  Verifying        : lib64drm2-2.4.81-1.mga6.x86_64                      43/152 
+  Verifying        : lib64wayland-client0-1.11.0-1.mga6.x86_64           44/152 
+  Verifying        : lib64wayland-server0-1.11.0-1.mga6.x86_64           45/152 
+  Verifying        : lib64x11-xcb1-1.6.5-1.mga6.x86_64                   46/152 
+  Verifying        : lib64xcb-dri2_0-1.12-2.mga6.x86_64                  47/152 
+  Verifying        : lib64xcb-dri3_0-1.12-2.mga6.x86_64                  48/152 
+  Verifying        : lib64xcb-present0-1.12-2.mga6.x86_64                49/152 
+  Verifying        : lib64xcb-sync1-1.12-2.mga6.x86_64                   50/152 
+  Verifying        : lib64xcb-xfixes0-1.12-2.mga6.x86_64                 51/152 
+  Verifying        : lib64xshmfence1-1.2-2.mga6.x86_64                   52/152 
+  Verifying        : libdrm-common-2.4.81-1.mga6.x86_64                  53/152 
+  Verifying        : lib64mesagl1-17.1.5-1.mga6.x86_64                   54/152 
+  Verifying        : lib64dri-drivers-17.1.5-1.mga6.x86_64               55/152 
+  Verifying        : lib64xcb-glx0-1.12-2.mga6.x86_64                    56/152 
+  Verifying        : lib64xdamage1-1.1.4-8.mga6.x86_64                   57/152 
+  Verifying        : lib64xfixes3-5.0.3-1.mga6.x86_64                    58/152 
+  Verifying        : lib64xxf86vm1-1.1.4-2.mga6.x86_64                   59/152 
+  Verifying        : mesa-17.1.5-1.mga6.x86_64                           60/152 
+  Verifying        : lib64drm_amdgpu1-2.4.81-1.mga6.x86_64               61/152 
+  Verifying        : lib64drm_intel1-2.4.81-1.mga6.x86_64                62/152 
+  Verifying        : lib64drm_nouveau2-2.4.81-1.mga6.x86_64              63/152 
+  Verifying        : lib64drm_radeon1-2.4.81-1.mga6.x86_64               64/152 
+  Verifying        : lib64llvm3.9-3.9.1-6.mga6.x86_64                    65/152 
+  Verifying        : lib64pciaccess0-0.13.5-1.mga6.x86_64                66/152 
+  Verifying        : lib64glapi0-17.1.5-1.mga6.x86_64                    67/152 
+  Verifying        : lib64gbm1-17.1.5-1.mga6.x86_64                      68/152 
+  Verifying        : lib64gtk-gir3.0-3.22.16-1.mga6.x86_64               69/152 
+  Verifying        : lib64atk-gir1.0-2.24.0-1.mga6.x86_64                70/152 
+  Verifying        : lib64gtk+3_0-3.22.16-1.mga6.x86_64                  71/152 
+  Verifying        : lib64atk1.0_0-2.24.0-1.mga6.x86_64                  72/152 
+  Verifying        : adwaita-icon-theme-3.24.0-1.mga6.noarch             73/152 
+  Verifying        : glib2.0-common-2.52.2-2.mga6.x86_64                 74/152 
+  Verifying        : gtk+3.0-3.22.16-1.mga6.x86_64                       75/152 
+  Verifying        : hicolor-icon-theme-0.15-3.mga6.noarch               76/152 
+  Verifying        : lib64atk-bridge2.0_0-2.24.1-1.mga6.x86_64           77/152 
+  Verifying        : lib64colord2-1.3.4-1.mga6.x86_64                    78/152 
+  Verifying        : lib64epoxy0-1.4.1-1.mga6.x86_64                     79/152 
+  Verifying        : lib64wayland-cursor0-1.11.0-1.mga6.x86_64           80/152 
+  Verifying        : lib64xcomposite1-0.4.4-8.mga6.x86_64                81/152 
+  Verifying        : lib64xcursor1-1.1.14-6.mga6.x86_64                  82/152 
+  Verifying        : lib64xi6-1.7.9-1.mga6.x86_64                        83/152 
+  Verifying        : lib64xinerama1-1.1.3-6.mga6.x86_64                  84/152 
+  Verifying        : lib64xkbcommon0-0.7.1-1.mga6.x86_64                 85/152 
+  Verifying        : lib64xrandr2-1.5.1-1.mga6.x86_64                    86/152 
+  Verifying        : atk1.0-common-2.24.0-1.mga6.noarch                  87/152 
+  Verifying        : lib64atspi0-2.24.1-1.mga6.x86_64                    88/152 
+  Verifying        : lib64gusb2-0.2.10-1.mga6.x86_64                     89/152 
+  Verifying        : lib64lcms2_2-2.8-2.mga6.x86_64                      90/152 
+  Verifying        : lib64xcb-xkb1-1.12-2.mga6.x86_64                    91/152 
+  Verifying        : at-spi2-core-2.24.1-1.mga6.x86_64                   92/152 
+  Verifying        : lib64xtst6-1.2.3-1.mga6.x86_64                      93/152 
+  Verifying        : lib64gdk_pixbuf-gir2.0-2.36.7-1.mga6.x86_64         94/152 
+  Verifying        : lib64gdk_pixbuf2.0_0-2.36.7-1.mga6.x86_64           95/152 
+  Verifying        : gdk-pixbuf2.0-2.36.7-1.mga6.x86_64                  96/152 
+  Verifying        : lib64jasper1-1.900.23-5.mga6.x86_64                 97/152 
+  Verifying        : lib64jpeg8-1:1.5.1-1.mga6.x86_64                    98/152 
+  Verifying        : lib64tiff5-4.0.8-3.mga6.x86_64                      99/152 
+  Verifying        : lib64jbig1-2.1-4.mga6.x86_64                       100/152 
+  Verifying        : lib64cups2-2.2.4-1.mga6.x86_64                     101/152 
+  Verifying        : lib64avahi-client3-0.6.32-1.mga6.x86_64            102/152 
+  Verifying        : lib64avahi-common3-0.6.32-1.mga6.x86_64            103/152 
+  Verifying        : lib64wayland-egl1-17.1.5-1.mga6.x86_64             104/152 
+  Verifying        : xdg-user-dirs-gtk-0.10-5.mga6.x86_64               105/152 
+  Verifying        : xdg-user-dirs-0.15-7.mga6.x86_64                   106/152 
+  Verifying        : dnf-2.6.2-1.mga6.noarch                            107/152 
+  Verifying        : python3-dnf-2.6.2-1.mga6.noarch                    108/152 
+  Verifying        : dnf-conf-2.6.2-1.mga6.noarch                       109/152 
+  Verifying        : python3-hawkey-0.9.3-1.mga6.x86_64                 110/152 
+  Verifying        : hawkey-man-0.9.3-1.mga6.noarch                     111/152 
+  Verifying        : lib64dnf1-0.9.3-1.mga6.x86_64                      112/152 
+  Verifying        : krb5-1.15.1-2.1.mga6.x86_64                        113/152 
+  Verifying        : lib64curl4-1:7.54.1-2.2.mga6.x86_64                114/152 
+  Verifying        : lib64krb53-1.15.1-2.1.mga6.x86_64                  115/152 
+  Verifying        : lib64nspr4-2:4.16-1.mga6.x86_64                    116/152 
+  Verifying        : lib64nss3-2:3.28.5-1.1.mga6.x86_64                 117/152 
+  Verifying        : lib64solv0-0.6.28-1.1.mga6.x86_64                  118/152 
+  Verifying        : libsolv-tools-0.6.28-1.1.mga6.x86_64               119/152 
+  Verifying        : lib64sqlite3_0-3.17.0-2.1.mga6.x86_64              120/152 
+  Verifying        : lib64systemd0-230-12.1.mga6.x86_64                 121/152 
+  Verifying        : lib64udev1-230-12.1.mga6.x86_64                    122/152 
+  Verifying        : nss-2:3.28.5-1.1.mga6.x86_64                       123/152 
+  Verifying        : nss-myhostname-230-12.1.mga6.x86_64                124/152 
+  Verifying        : perl-XML-LibXML-2.12.900-1.1.mga6.x86_64           125/152 
+  Verifying        : rootcerts-1:20170718.00-1.mga6.noarch              126/152 
+  Verifying        : rpm-mageia-setup-2.20-9.1.mga6.x86_64              127/152 
+  Verifying        : systemd-230-12.1.mga6.x86_64                       128/152 
+  Verifying        : systemd-units-230-12.1.mga6.x86_64                 129/152 
+  Verifying        : python3-dnf-2.5.1-2.mga6.noarch                    130/152 
+  Verifying        : lib64dnf1-0.9.2-1.mga6.x86_64                      131/152 
+  Verifying        : python3-hawkey-0.9.2-1.mga6.x86_64                 132/152 
+  Verifying        : lib64udev1-230-12.mga6.x86_64                      133/152 
+  Verifying        : libsolv-tools-0.6.28-1.mga6.x86_64                 134/152 
+  Verifying        : rootcerts-1:20170404.00-1.mga6.noarch              135/152 
+  Verifying        : dnf-2.5.1-2.mga6.noarch                            136/152 
+  Verifying        : dnf-conf-2.5.1-2.mga6.noarch                       137/152 
+  Verifying        : rpm-mageia-setup-2.20-9.mga6.x86_64                138/152 
+  Verifying        : lib64krb53-1.15.1-2.mga6.x86_64                    139/152 
+  Verifying        : systemd-230-12.mga6.x86_64                         140/152 
+  Verifying        : systemd-units-230-12.mga6.x86_64                   141/152 
+  Verifying        : hawkey-man-0.9.2-1.mga6.noarch                     142/152 
+  Verifying        : nss-2:3.28.5-1.mga6.x86_64                         143/152 
+  Verifying        : nss-myhostname-230-12.mga6.x86_64                  144/152 
+  Verifying        : lib64nspr4-2:4.15-2.mga6.x86_64                    145/152 
+  Verifying        : lib64nss3-2:3.28.5-1.mga6.x86_64                   146/152 
+  Verifying        : krb5-1.15.1-2.mga6.x86_64                          147/152 
+  Verifying        : lib64curl4-1:7.54.1-2.mga6.x86_64                  148/152 
+  Verifying        : perl-XML-LibXML-2.12.900-1.mga6.x86_64             149/152 
+  Verifying        : lib64solv0-0.6.28-1.mga6.x86_64                    150/152 
+  Verifying        : lib64sqlite3_0-3.17.0-2.mga6.x86_64                151/152 
+  Verifying        : lib64systemd0-230-12.mga6.x86_64                   152/152 
+
+Installed:
+  bash-completion.noarch 2:2.5-1.mga6                                           
+  dnf-plugins-core.noarch 2.1.3-1.mga6                                          
+  dnf-yum.noarch 2.6.2-1.mga6                                                   
+  python3-dbus.x86_64 1.2.4-3.mga6                                              
+  xdg-user-dirs-gtk.x86_64 0.10-5.mga6                                          
+  adwaita-icon-theme.noarch 3.24.0-1.mga6                                       
+  at-spi2-core.x86_64 2.24.1-1.mga6                                             
+  atk1.0-common.noarch 2.24.0-1.mga6                                            
+  fontconfig.x86_64 2.12.1-2.mga6                                               
+  gdk-pixbuf2.0.x86_64 2.36.7-1.mga6                                            
+  glib2.0-common.x86_64 2.52.2-2.mga6                                           
+  gobject-introspection.x86_64 1.52.1-1.mga6                                    
+  gtk+3.0.x86_64 3.22.16-1.mga6                                                 
+  hicolor-icon-theme.noarch 0.15-3.mga6                                         
+  lib64atk-bridge2.0_0.x86_64 2.24.1-1.mga6                                     
+  lib64atk-gir1.0.x86_64 2.24.0-1.mga6                                          
+  lib64atk1.0_0.x86_64 2.24.0-1.mga6                                            
+  lib64atspi0.x86_64 2.24.1-1.mga6                                              
+  lib64avahi-client3.x86_64 0.6.32-1.mga6                                       
+  lib64avahi-common3.x86_64 0.6.32-1.mga6                                       
+  lib64bsd0.x86_64 0.8.3-1.mga6                                                 
+  lib64cairo-gir1.0.x86_64 1.52.1-1.mga6                                        
+  lib64cairo2.x86_64 1.14.10-1.mga6                                             
+  lib64colord2.x86_64 1.3.4-1.mga6                                              
+  lib64cups2.x86_64 2.2.4-1.mga6                                                
+  lib64datrie1.x86_64 0.2.10-1.mga6                                             
+  lib64dbus-glib1_2.x86_64 0.108-2.mga6                                         
+  lib64dri-drivers.x86_64 17.1.5-1.mga6                                         
+  lib64drm2.x86_64 2.4.81-1.mga6                                                
+  lib64drm_amdgpu1.x86_64 2.4.81-1.mga6                                         
+  lib64drm_intel1.x86_64 2.4.81-1.mga6                                          
+  lib64drm_nouveau2.x86_64 2.4.81-1.mga6                                        
+  lib64drm_radeon1.x86_64 2.4.81-1.mga6                                         
+  lib64epoxy0.x86_64 1.4.1-1.mga6                                               
+  lib64fontconfig-gir2.0.x86_64 1.52.1-1.mga6                                   
+  lib64fontconfig1.x86_64 2.12.1-2.mga6                                         
+  lib64freetype-gir2.0.x86_64 1.52.1-1.mga6                                     
+  lib64freetype6.x86_64 2.7.1-2.mga6                                            
+  lib64gbm1.x86_64 17.1.5-1.mga6                                                
+  lib64gdk_pixbuf-gir2.0.x86_64 2.36.7-1.mga6                                   
+  lib64gdk_pixbuf2.0_0.x86_64 2.36.7-1.mga6                                     
+  lib64girepository1.0_1.x86_64 1.52.1-1.mga6                                   
+  lib64glapi0.x86_64 17.1.5-1.mga6                                              
+  lib64glib-gir2.0.x86_64 1.52.1-1.mga6                                         
+  lib64graphite2_3.x86_64 1.3.10-1.mga6                                         
+  lib64gtk+3_0.x86_64 3.22.16-1.mga6                                            
+  lib64gtk-gir3.0.x86_64 3.22.16-1.mga6                                         
+  lib64gusb2.x86_64 0.2.10-1.mga6                                               
+  lib64harfbuzz0.x86_64 1.3.2-5.mga6                                            
+  lib64jasper1.x86_64 1.900.23-5.mga6                                           
+  lib64jbig1.x86_64 2.1-4.mga6                                                  
+  lib64jpeg8.x86_64 1:1.5.1-1.mga6                                              
+  lib64lcms2_2.x86_64 2.8-2.mga6                                                
+  lib64llvm3.9.x86_64 3.9.1-6.mga6                                              
+  lib64mesaegl1.x86_64 17.1.5-1.mga6                                            
+  lib64mesagl1.x86_64 17.1.5-1.mga6                                             
+  lib64pango-gir1.0.x86_64 1.40.6-1.mga6                                        
+  lib64pango1.0_0.x86_64 1.40.6-1.mga6                                          
+  lib64pciaccess0.x86_64 0.13.5-1.mga6                                          
+  lib64pixman1_0.x86_64 0.34.0-1.mga6                                           
+  lib64png16_16.x86_64 2:1.6.29-1.mga6                                          
+  lib64thai0.x86_64 0.1.26-1.mga6                                               
+  lib64tiff5.x86_64 4.0.8-3.mga6                                                
+  lib64wayland-client0.x86_64 1.11.0-1.mga6                                     
+  lib64wayland-cursor0.x86_64 1.11.0-1.mga6                                     
+  lib64wayland-egl1.x86_64 17.1.5-1.mga6                                        
+  lib64wayland-server0.x86_64 1.11.0-1.mga6                                     
+  lib64x11-xcb1.x86_64 1.6.5-1.mga6                                             
+  lib64x11_6.x86_64 1.6.5-1.mga6                                                
+  lib64xau6.x86_64 1.0.8-7.mga6                                                 
+  lib64xcb-dri2_0.x86_64 1.12-2.mga6                                            
+  lib64xcb-dri3_0.x86_64 1.12-2.mga6                                            
+  lib64xcb-glx0.x86_64 1.12-2.mga6                                              
+  lib64xcb-present0.x86_64 1.12-2.mga6                                          
+  lib64xcb-render0.x86_64 1.12-2.mga6                                           
+  lib64xcb-shm0.x86_64 1.12-2.mga6                                              
+  lib64xcb-sync1.x86_64 1.12-2.mga6                                             
+  lib64xcb-xfixes0.x86_64 1.12-2.mga6                                           
+  lib64xcb-xkb1.x86_64 1.12-2.mga6                                              
+  lib64xcb1.x86_64 1.12-2.mga6                                                  
+  lib64xcomposite1.x86_64 0.4.4-8.mga6                                          
+  lib64xcursor1.x86_64 1.1.14-6.mga6                                            
+  lib64xdamage1.x86_64 1.1.4-8.mga6                                             
+  lib64xdmcp6.x86_64 1.1.2-5.mga6                                               
+  lib64xext6.x86_64 1:1.3.3-4.mga6                                              
+  lib64xfixes3.x86_64 5.0.3-1.mga6                                              
+  lib64xft-gir2.0.x86_64 1.52.1-1.mga6                                          
+  lib64xft2.x86_64 2.3.2-4.mga6                                                 
+  lib64xi6.x86_64 1.7.9-1.mga6                                                  
+  lib64xinerama1.x86_64 1.1.3-6.mga6                                            
+  lib64xkbcommon0.x86_64 0.7.1-1.mga6                                           
+  lib64xlib-gir2.0.x86_64 1.52.1-1.mga6                                         
+  lib64xrandr2.x86_64 1.5.1-1.mga6                                              
+  lib64xrender1.x86_64 0.9.10-1.mga6                                            
+  lib64xshmfence1.x86_64 1.2-2.mga6                                             
+  lib64xtst6.x86_64 1.2.3-1.mga6                                                
+  lib64xxf86vm1.x86_64 1.1.4-2.mga6                                             
+  libdrm-common.x86_64 2.4.81-1.mga6                                            
+  mesa.x86_64 17.1.5-1.mga6                                                     
+  pango.x86_64 1.40.6-1.mga6                                                    
+  pkgconfig.x86_64 0.29.1-3.mga6                                                
+  python3-cairo.x86_64 1.13.2-1.mga6                                            
+  python3-dnf-plugins-core.noarch 2.1.3-1.mga6                                  
+  python3-gobject3.x86_64 3.24.1-1.mga6                                         
+  thai-data.x86_64 0.1.26-1.mga6                                                
+  xdg-user-dirs.x86_64 0.15-7.mga6                                              
+
+Upgraded:
+  dnf.noarch 2.6.2-1.mga6                                                       
+  dnf-conf.noarch 2.6.2-1.mga6                                                  
+  hawkey-man.noarch 0.9.3-1.mga6                                                
+  krb5.x86_64 1.15.1-2.1.mga6                                                   
+  lib64curl4.x86_64 1:7.54.1-2.2.mga6                                           
+  lib64dnf1.x86_64 0.9.3-1.mga6                                                 
+  lib64krb53.x86_64 1.15.1-2.1.mga6                                             
+  lib64nspr4.x86_64 2:4.16-1.mga6                                               
+  lib64nss3.x86_64 2:3.28.5-1.1.mga6                                            
+  lib64solv0.x86_64 0.6.28-1.1.mga6                                             
+  lib64sqlite3_0.x86_64 3.17.0-2.1.mga6                                         
+  lib64systemd0.x86_64 230-12.1.mga6                                            
+  lib64udev1.x86_64 230-12.1.mga6                                               
+  libsolv-tools.x86_64 0.6.28-1.1.mga6                                          
+  nss.x86_64 2:3.28.5-1.1.mga6                                                  
+  nss-myhostname.x86_64 230-12.1.mga6                                           
+  perl-XML-LibXML.x86_64 2.12.900-1.1.mga6                                      
+  python3-dnf.noarch 2.6.2-1.mga6                                               
+  python3-hawkey.x86_64 0.9.3-1.mga6                                            
+  rootcerts.noarch 1:20170718.00-1.mga6                                         
+  rpm-mageia-setup.x86_64 2.20-9.1.mga6                                         
+  systemd.x86_64 230-12.1.mga6                                                  
+  systemd-units.x86_64 230-12.1.mga6                                            
+
+Complete!
+Last metadata expiration check: 0:01:51 ago on Sat Sep  2 19:53:09 2017.
+Dependencies resolved.
+================================================================================
+ Package         Arch        Version                  Repository           Size
+================================================================================
+Installing:
+ curl            x86_64      1:7.54.1-2.2.mga6        updates-x86_64      147 k
+ idn             x86_64      1.33-1.mga6              mageia-x86_64       130 k
+ openssl         x86_64      1.0.2l-1.mga6            mageia-x86_64       391 k
+ socat           x86_64      2.0.0-0.b9.3.mga6        mageia-x86_64       193 k
+Installing dependencies:
+ lib64wrap0      x86_64      7.6-47.mga6              mageia-x86_64        38 k
+
+Transaction Summary
+================================================================================
+Install  5 Packages
+
+Total download size: 900 k
+Installed size: 2.6 M
+Downloading Packages:
+(1/5): idn-1.33-1.mga6.x86_64.rpm               1.0 MB/s | 130 kB     00:00    
+(2/5): socat-2.0.0-0.b9.3.mga6.x86_64.rpm       1.3 MB/s | 193 kB     00:00    
+(3/5): openssl-1.0.2l-1.mga6.x86_64.rpm         2.3 MB/s | 391 kB     00:00    
+(4/5): lib64wrap0-7.6-47.mga6.x86_64.rpm        845 kB/s |  38 kB     00:00    
+(5/5): curl-7.54.1-2.2.mga6.x86_64.rpm          425 kB/s | 147 kB     00:00    
+--------------------------------------------------------------------------------
+Total                                           1.1 MB/s | 900 kB     00:00     
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                        1/1 
+  Installing       : lib64wrap0-7.6-47.mga6.x86_64                          1/5 
+  Installing       : socat-2.0.0-0.b9.3.mga6.x86_64                         2/5 
+  Installing       : curl-1:7.54.1-2.2.mga6.x86_64                          3/5 
+  Installing       : idn-1.33-1.mga6.x86_64                                 4/5 
+  Installing       : openssl-1.0.2l-1.mga6.x86_64                           5/5 
+  Running scriptlet: openssl-1.0.2l-1.mga6.x86_64                           5/5 
+  Verifying        : openssl-1.0.2l-1.mga6.x86_64                           1/5 
+  Verifying        : socat-2.0.0-0.b9.3.mga6.x86_64                         2/5 
+  Verifying        : idn-1.33-1.mga6.x86_64                                 3/5 
+  Verifying        : lib64wrap0-7.6-47.mga6.x86_64                          4/5 
+  Verifying        : curl-1:7.54.1-2.2.mga6.x86_64                          5/5 
+
+Installed:
+  curl.x86_64 1:7.54.1-2.2.mga6          idn.x86_64 1.33-1.mga6                 
+  openssl.x86_64 1.0.2l-1.mga6           socat.x86_64 2.0.0-0.b9.3.mga6         
+  lib64wrap0.x86_64 7.6-47.mga6         
+
+Complete!
+ ---> 3d871fdedf0c
+Removing intermediate container 5d5a57911233
+Successfully built 3d871fdedf0c
 Successfully tagged mymageia:latest
-Fri, 25 Aug 2017 07:52:19 UTC
+Sat, 02 Sep 2017 19:55:22 UTC
 Testing branch: master
 Progress: 0/1/23
 ==Running le_test_dependencies please wait
@@ -15,13 +682,13 @@ no crontab for root
 curl installed. [PASS]
 crontab installed. [PASS]
 openssl installed. [PASS]
-nc installed. [PASS]
+socat installed. [PASS]
 ------------------------------------------
 Progress: 0/2/23
 ==Running le_test_install please wait
 ./acme.sh install [PASS]
 /root/.acme.sh/acme.sh exists. [PASS]
-_contains '26 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
+_contains '29 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
 /root/.acme.sh/acme.sh uninstall  > /dev/null [PASS]
 ------------------------------------------
 Progress: 0/3/23
@@ -35,7 +702,7 @@ Progress: 0/4/23
 ==Running le_test_installtodir please wait
 ./acme.sh install [PASS]
 /root/myle/acme.sh exists. [PASS]
-_contains '27 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
+_contains '30 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
 /root/myle/acme.sh uninstall [PASS]
 ------------------------------------------
 Progress: 0/5/23
@@ -49,7 +716,7 @@ Progress: 0/6/23
 ==Running le_test_install_config_home please wait
 ./acme.sh --install --config-home /root/etc/acme [PASS]
 /root/.acme.sh/acme.sh exists. [PASS]
-_contains '28 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
+_contains '31 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
 /root/etc/acme/account.conf exists. [PASS]
 /root/.acme.sh/account.conf no exists. [PASS]
 /root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null [PASS]
