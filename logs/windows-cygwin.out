@@ -1,199 +1,193 @@
 
-Sat, 02 Sep 2017 14:27:24 UTC
+Sun, 03 Sep 2017 09:42:22 UTC
 Testing branch: master
+mv: cannot stat 'acme.sh-master': No such file or directory
 Progress: 0/1/23
 ==Running le_test_dependencies please wait
-[Sat Sep  2 22:27:26 CST 2017] [1;31;40mIt is recommended to install socat first.[0m
-[Sat Sep  2 22:27:26 CST 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
-[Sat Sep  2 22:27:26 CST 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+./letest.sh: line 509: cd: acme.sh: No such file or directory
+./letest.sh: line 510: ./acme.sh: No such file or directory
 curl installed. [PASS]
 crontab installed. [PASS]
 openssl installed. [PASS]
-socat not installed [FAIL] 
-Run Failed
+socat installed. [PASS]
 ------------------------------------------
-Progress: 1/2/23
+Progress: 0/2/23
 ==Running le_test_install please wait
-[Sat Sep  2 22:27:40 CST 2017] [1;31;40mIt is recommended to install socat first.[0m
-[Sat Sep  2 22:27:40 CST 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
-[Sat Sep  2 22:27:40 CST 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
-./acme.sh install [PASS]
-/home/root/.acme.sh/acme.sh exists. [PASS]
-_contains '41 0 * * * "/home/root/.acme.sh"/acme.sh --cron --home "/home/root/.acme.sh" > /dev/null' '0 \* \* \* "/home/root/.acme.sh"/acme.sh --cron --home "/home/root/.acme.sh" > /dev/null' [PASS]
-/home/root/.acme.sh/acme.sh uninstall  > /dev/null [PASS]
+./letest.sh: line 509: cd: acme.sh: No such file or directory
+./letest.sh: line 510: ./acme.sh: No such file or directory
+./letest.sh: line 620: cd: acme.sh: No such file or directory
+./acme.sh install [FAIL] 
+Run Failed
 ------------------------------------------
 Progress: 1/3/23
 ==Running le_test_uninstall please wait
-[Sat Sep  2 22:27:48 CST 2017] [1;31;40mIt is recommended to install socat first.[0m
-[Sat Sep  2 22:27:48 CST 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
-[Sat Sep  2 22:27:48 CST 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
-./acme.sh install [PASS]
-/home/root/.acme.sh/acme.sh uninstall [PASS]
-/home/root/.acme.sh/acme.sh no exists. [PASS]
-equals  [PASS]
+./letest.sh: line 509: cd: acme.sh: No such file or directory
+./letest.sh: line 510: ./acme.sh: No such file or directory
+./letest.sh: line 632: cd: acme.sh: No such file or directory
+./acme.sh install./letest.sh: line 437: cmd.log: Permission denied
+ [FAIL] 
+Run Failed
 ------------------------------------------
-Progress: 1/4/23
+Progress: 2/4/23
 ==Running le_test_installtodir please wait
-./acme.sh install [PASS]
-/home/root/myle/acme.sh exists. [PASS]
-_contains '56 0 * * * "/home/root/myle"/acme.sh --cron --home "/home/root/myle" > /dev/null' '0 \* \* \* "/home/root/myle"/acme.sh --cron --home "/home/root/myle" > /dev/null' [PASS]
-/home/root/myle/acme.sh uninstall [PASS]
+./letest.sh: line 647: cd: acme.sh: No such file or directory
+./acme.sh install./letest.sh: line 437: cmd.log: Permission denied
+ [FAIL] 
+Run Failed
 ------------------------------------------
-Progress: 1/5/23
+Progress: 3/5/23
 ==Running le_test_uninstalltodir please wait
-./acme.sh install [PASS]
-/home/root/myle/acme.sh uninstall [PASS]
-/home/root/myle/acme.sh no exists. [PASS]
-equals  [PASS]
+./letest.sh: line 670: cd: acme.sh: No such file or directory
+./acme.sh install./letest.sh: line 437: cmd.log: Permission denied
+ [FAIL] 
+Run Failed
 ------------------------------------------
-Progress: 1/6/23
+Progress: 4/6/23
 ==Running le_test_install_config_home please wait
-./acme.sh --install --config-home /home/root/etc/acme [PASS]
-/home/root/.acme.sh/acme.sh exists. [PASS]
-_contains '5 0 * * * "/home/root/.acme.sh"/acme.sh --cron --home "/home/root/.acme.sh" --config-home "/home/root/etc/acme" > /dev/null' '0 \* \* \* "/home/root/.acme.sh"/acme.sh --cron --home "/home/root/.acme.sh" --config-home "/home/root/etc/acme" > /dev/null' [PASS]
-/home/root/etc/acme/account.conf exists. [PASS]
-/home/root/.acme.sh/account.conf no exists. [PASS]
-/home/root/.acme.sh/acme.sh --cron --config-home /home/root/etc/acme > /dev/null [PASS]
-/home/root/.acme.sh/acme.sh --uninstall --config-home /home/root/etc/acme > /dev/null [PASS]
-/home/root/etc/acme/account.conf exists. [PASS]
-/home/root/.acme.sh/account.conf no exists. [PASS]
+./letest.sh: line 689: cd: acme.sh: No such file or directory
+./acme.sh --install --config-home /home/root/etc/acme./letest.sh: line 437: cmd.log: Permission denied
+ [FAIL] 
+Run Failed
 ------------------------------------------
-Progress: 1/7/23
+Progress: 5/7/23
 ==Running le_test_standandalone_renew please wait
-[Sat Sep  2 22:28:09 CST 2017] [1;31;40mIt is recommended to install socat first.[0m
-[Sat Sep  2 22:28:09 CST 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
-[Sat Sep  2 22:28:09 CST 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
-/home/root/.acme.sh/acme.sh issue no testwindows-cygwin.acme.sh [FAIL] 
+./letest.sh: line 509: cd: acme.sh: No such file or directory
+./letest.sh: line 510: ./acme.sh: No such file or directory
+/home/root/.acme.sh/acme.sh issue no testwindows-cygwin.acme.sh./letest.sh: line 437: cmd.log: Permission denied
+ [FAIL] 
 Run Failed
 ------------------------------------------
-Progress: 2/8/23
+Progress: 6/8/23
 ==Running le_test_standandalone_renew_v2 please wait
-[Sat Sep  2 22:28:25 CST 2017] [1;31;40mIt is recommended to install socat first.[0m
-[Sat Sep  2 22:28:25 CST 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
-[Sat Sep  2 22:28:25 CST 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
-/home/root/.acme.sh/acme.sh --issue -d testwindows-cygwin.acme.sh --standalone --certpath '/home/root/acmetest/certs/domain.cer' --keypath '/home/root/acmetest/certs/domain.key'  --capath '/home/root/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/home/root/acmetest/certs/full.cer' [FAIL] 
+./letest.sh: line 509: cd: acme.sh: No such file or directory
+./letest.sh: line 510: ./acme.sh: No such file or directory
+mkdir: cannot create directory '//certs': Read-only file system
+/home/root/.acme.sh/acme.sh --issue -d testwindows-cygwin.acme.sh --standalone --certpath '//certs/domain.cer' --keypath '//certs/domain.key'  --capath '//certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '//certs/full.cer'./letest.sh: line 437: cmd.log: Permission denied
+ [FAIL] 
 Run Failed
 ------------------------------------------
-Progress: 3/9/23
+Progress: 7/9/23
 ==Running le_test_standandalone_renew_localaddress_v2 please wait
-[Sat Sep  2 22:28:42 CST 2017] [1;31;40mIt is recommended to install socat first.[0m
-[Sat Sep  2 22:28:42 CST 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
-[Sat Sep  2 22:28:42 CST 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
-/home/root/.acme.sh/acme.sh --issue -d testwindows-cygwin.acme.sh --standalone --local-address 0.0.0.0 --certpath '/home/root/acmetest/certs/domain.cer' --keypath '/home/root/acmetest/certs/domain.key'  --capath '/home/root/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/home/root/acmetest/certs/full.cer' [FAIL] 
+./letest.sh: line 509: cd: acme.sh: No such file or directory
+./letest.sh: line 510: ./acme.sh: No such file or directory
+mkdir: cannot create directory '//certs': Read-only file system
+/home/root/.acme.sh/acme.sh --issue -d testwindows-cygwin.acme.sh --standalone --local-address 0.0.0.0 --certpath '//certs/domain.cer' --keypath '//certs/domain.key'  --capath '//certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '//certs/full.cer'./letest.sh: line 437: cmd.log: Permission denied
+ [FAIL] 
 Run Failed
 ------------------------------------------
-Progress: 4/10/23
+Progress: 8/10/23
 ==Running le_test_standandalone_listen_v4_v2 please wait
-[Sat Sep  2 22:29:00 CST 2017] [1;31;40mIt is recommended to install socat first.[0m
-[Sat Sep  2 22:29:00 CST 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
-[Sat Sep  2 22:29:00 CST 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
-/home/root/.acme.sh/acme.sh --issue -d testwindows-cygwin.acme.sh --standalone --listen-v4 --cert-file '/home/root/acmetest/certs/domain.cer' --key-file '/home/root/acmetest/certs/domain.key'  --ca-file '/home/root/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchain-file  '/home/root/acmetest/certs/full.cer' [FAIL] 
+./letest.sh: line 509: cd: acme.sh: No such file or directory
+./letest.sh: line 510: ./acme.sh: No such file or directory
+mkdir: cannot create directory '//certs': Read-only file system
+/home/root/.acme.sh/acme.sh --issue -d testwindows-cygwin.acme.sh --standalone --listen-v4 --cert-file '//certs/domain.cer' --key-file '//certs/domain.key'  --ca-file '//certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchain-file  '//certs/full.cer'./letest.sh: line 437: cmd.log: Permission denied
+ [FAIL] 
 Run Failed
 ------------------------------------------
-Progress: 5/11/23
+Progress: 9/11/23
 ==Running le_test_standandalone_listen_v6_v2 please wait
-[Sat Sep  2 22:29:17 CST 2017] [1;31;40mIt is recommended to install socat first.[0m
-[Sat Sep  2 22:29:17 CST 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
-[Sat Sep  2 22:29:17 CST 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+./letest.sh: line 509: cd: acme.sh: No such file or directory
+./letest.sh: line 510: ./acme.sh: No such file or directory
 Skipped by TEST_IPV6
 ------------------------------------------
-Progress: 5/12/23
+Progress: 9/12/23
 ==Running le_test_standandalone_deactivate_v2 please wait
-[Sat Sep  2 22:29:31 CST 2017] [1;31;40mIt is recommended to install socat first.[0m
-[Sat Sep  2 22:29:31 CST 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
-[Sat Sep  2 22:29:31 CST 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
-/home/root/.acme.sh/acme.sh --issue -d testwindows-cygwin.acme.sh --standalone --certpath '/home/root/acmetest/certs/domain.cer' --keypath '/home/root/acmetest/certs/domain.key'  --capath '/home/root/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/home/root/acmetest/certs/full.cer' [FAIL] 
+./letest.sh: line 509: cd: acme.sh: No such file or directory
+./letest.sh: line 510: ./acme.sh: No such file or directory
+mkdir: cannot create directory '//certs': Read-only file system
+/home/root/.acme.sh/acme.sh --issue -d testwindows-cygwin.acme.sh --standalone --certpath '//certs/domain.cer' --keypath '//certs/domain.key'  --capath '//certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '//certs/full.cer'./letest.sh: line 437: cmd.log: Permission denied
+ [FAIL] 
 Run Failed
 ------------------------------------------
-Progress: 6/13/23
+Progress: 10/13/23
 ==Running le_test_standandalone please wait
-[Sat Sep  2 22:29:48 CST 2017] [1;31;40mIt is recommended to install socat first.[0m
-[Sat Sep  2 22:29:48 CST 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
-[Sat Sep  2 22:29:48 CST 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
-/home/root/.acme.sh/acme.sh issue no testwindows-cygwin.acme.sh [FAIL] 
+./letest.sh: line 509: cd: acme.sh: No such file or directory
+./letest.sh: line 510: ./acme.sh: No such file or directory
+/home/root/.acme.sh/acme.sh issue no testwindows-cygwin.acme.sh./letest.sh: line 437: cmd.log: Permission denied
+ [FAIL] 
 Run Failed
 ------------------------------------------
-Progress: 7/14/23
+Progress: 11/14/23
 ==Running le_test_standandalone_SAN please wait
-[Sat Sep  2 22:30:05 CST 2017] [1;31;40mIt is recommended to install socat first.[0m
-[Sat Sep  2 22:30:05 CST 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
-[Sat Sep  2 22:30:05 CST 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
-/home/root/.acme.sh/acme.sh issue no "testwindows-cygwin.acme.sh" "testwindows-cygwin2.acme.sh" [FAIL] 
+./letest.sh: line 509: cd: acme.sh: No such file or directory
+./letest.sh: line 510: ./acme.sh: No such file or directory
+/home/root/.acme.sh/acme.sh issue no "testwindows-cygwin.acme.sh" "testwindows-cygwin2.acme.sh"./letest.sh: line 437: cmd.log: Permission denied
+ [FAIL] 
 Run Failed
 ------------------------------------------
-Progress: 8/15/23
+Progress: 12/15/23
 ==Running le_test_standandalone_ECDSA_256 please wait
-[Sat Sep  2 22:30:21 CST 2017] [1;31;40mIt is recommended to install socat first.[0m
-[Sat Sep  2 22:30:21 CST 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
-[Sat Sep  2 22:30:21 CST 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
-/home/root/.acme.sh/acme.sh issue no testwindows-cygwin.acme.sh no ec-256 [FAIL] 
+./letest.sh: line 509: cd: acme.sh: No such file or directory
+./letest.sh: line 510: ./acme.sh: No such file or directory
+/home/root/.acme.sh/acme.sh issue no testwindows-cygwin.acme.sh no ec-256./letest.sh: line 437: cmd.log: Permission denied
+ [FAIL] 
 Run Failed
 ------------------------------------------
-Progress: 9/16/23
+Progress: 13/16/23
 ==Running le_test_standandalone_ECDSA_256_renew please wait
-[Sat Sep  2 22:30:37 CST 2017] [1;31;40mIt is recommended to install socat first.[0m
-[Sat Sep  2 22:30:37 CST 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
-[Sat Sep  2 22:30:37 CST 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
-/home/root/.acme.sh/acme.sh issue no testwindows-cygwin.acme.sh no ec-256 [FAIL] 
+./letest.sh: line 509: cd: acme.sh: No such file or directory
+./letest.sh: line 510: ./acme.sh: No such file or directory
+/home/root/.acme.sh/acme.sh issue no testwindows-cygwin.acme.sh no ec-256./letest.sh: line 437: cmd.log: Permission denied
+ [FAIL] 
 Run Failed
 ------------------------------------------
-Progress: 10/17/23
+Progress: 14/17/23
 ==Running le_test_standandalone_ECDSA_256_SAN_renew please wait
-[Sat Sep  2 22:30:54 CST 2017] [1;31;40mIt is recommended to install socat first.[0m
-[Sat Sep  2 22:30:54 CST 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
-[Sat Sep  2 22:30:54 CST 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
-/home/root/.acme.sh/acme.sh issue no "testwindows-cygwin.acme.sh" "testwindows-cygwin2.acme.sh" ec-256 [FAIL] 
+./letest.sh: line 509: cd: acme.sh: No such file or directory
+./letest.sh: line 510: ./acme.sh: No such file or directory
+/home/root/.acme.sh/acme.sh issue no "testwindows-cygwin.acme.sh" "testwindows-cygwin2.acme.sh" ec-256./letest.sh: line 437: cmd.log: Permission denied
+ [FAIL] 
 Run Failed
 ------------------------------------------
-Progress: 11/18/23
+Progress: 15/18/23
 ==Running le_test_standandalone_ECDSA_256_SAN_renew_v2 please wait
-[Sat Sep  2 22:31:11 CST 2017] [1;31;40mIt is recommended to install socat first.[0m
-[Sat Sep  2 22:31:11 CST 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
-[Sat Sep  2 22:31:11 CST 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
-/home/root/.acme.sh/acme.sh --issue -d "testwindows-cygwin.acme.sh" -d "testwindows-cygwin2.acme.sh" --standalone --keylength ec-256 --certpath '/home/root/acmetest/certs/domain.cer' --keypath '/home/root/acmetest/certs/domain.key'  --capath '/home/root/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/home/root/acmetest/certs/full.cer' [FAIL] 
+./letest.sh: line 509: cd: acme.sh: No such file or directory
+./letest.sh: line 510: ./acme.sh: No such file or directory
+mkdir: cannot create directory '//certs': Read-only file system
+/home/root/.acme.sh/acme.sh --issue -d "testwindows-cygwin.acme.sh" -d "testwindows-cygwin2.acme.sh" --standalone --keylength ec-256 --certpath '//certs/domain.cer' --keypath '//certs/domain.key'  --capath '//certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '//certs/full.cer'./letest.sh: line 437: cmd.log: Permission denied
+ [FAIL] 
 Run Failed
 ------------------------------------------
-Progress: 12/19/23
+Progress: 16/19/23
 ==Running le_test_standandalone_ECDSA_384 please wait
-[Sat Sep  2 22:31:28 CST 2017] [1;31;40mIt is recommended to install socat first.[0m
-[Sat Sep  2 22:31:28 CST 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
-[Sat Sep  2 22:31:28 CST 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
-/home/root/.acme.sh/acme.sh issue no "testwindows-cygwin.acme.sh" no ec-384 [FAIL] 
+./letest.sh: line 509: cd: acme.sh: No such file or directory
+./letest.sh: line 510: ./acme.sh: No such file or directory
+/home/root/.acme.sh/acme.sh issue no "testwindows-cygwin.acme.sh" no ec-384./letest.sh: line 437: cmd.log: Permission denied
+ [FAIL] 
 Run Failed
 ------------------------------------------
-Progress: 13/20/23
+Progress: 17/20/23
 ==Running le_test_standandalone_tls_renew_SAN_v2 please wait
-[Sat Sep  2 22:31:45 CST 2017] [1;31;40mIt is recommended to install socat first.[0m
-[Sat Sep  2 22:31:45 CST 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
-[Sat Sep  2 22:31:45 CST 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
-/home/root/.acme.sh/acme.sh --issue -d "testwindows-cygwin.acme.sh" --tls  -d "testwindows-cygwin2.acme.sh" --standalone  [FAIL] 
+./letest.sh: line 509: cd: acme.sh: No such file or directory
+./letest.sh: line 510: ./acme.sh: No such file or directory
+/home/root/.acme.sh/acme.sh --issue -d "testwindows-cygwin.acme.sh" --tls  -d "testwindows-cygwin2.acme.sh" --standalone ./letest.sh: line 437: cmd.log: Permission denied
+ [FAIL] 
 Run Failed
 ------------------------------------------
-Progress: 14/21/23
+Progress: 18/21/23
 ==Running le_test_tls_renew_SAN_v2 please wait
-[Sat Sep  2 22:32:02 CST 2017] [1;31;40mIt is recommended to install socat first.[0m
-[Sat Sep  2 22:32:02 CST 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
-[Sat Sep  2 22:32:02 CST 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
-/home/root/.acme.sh/acme.sh --issue -d "testwindows-cygwin.acme.sh" -d "testwindows-cygwin2.acme.sh" --tls [FAIL] 
+./letest.sh: line 509: cd: acme.sh: No such file or directory
+./letest.sh: line 510: ./acme.sh: No such file or directory
+/home/root/.acme.sh/acme.sh --issue -d "testwindows-cygwin.acme.sh" -d "testwindows-cygwin2.acme.sh" --tls./letest.sh: line 437: cmd.log: Permission denied
+ [FAIL] 
 Run Failed
 ------------------------------------------
-Progress: 15/22/23
+Progress: 19/22/23
 ==Running le_test_standandalone_renew_idn_v2 please wait
-[Sat Sep  2 22:32:43 CST 2017] [1;31;40mIt is recommended to install socat first.[0m
-[Sat Sep  2 22:32:43 CST 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
-[Sat Sep  2 22:32:43 CST 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+./letest.sh: line 509: cd: acme.sh: No such file or directory
+./letest.sh: line 510: ./acme.sh: No such file or directory
 Skipped by TEST_IDN
 ------------------------------------------
-Progress: 15/23/23
+Progress: 19/23/23
 ==Running le_test_dnsapi please wait
-[Sat Sep  2 22:32:58 CST 2017] [1;31;40mIt is recommended to install socat first.[0m
-[Sat Sep  2 22:32:58 CST 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
-[Sat Sep  2 22:32:58 CST 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+./letest.sh: line 509: cd: acme.sh: No such file or directory
+./letest.sh: line 510: ./acme.sh: No such file or directory
 The test domain Test_CF_Domain is not defined, skip:ClourFlare_api
 The test domain Test_CX_Domain is not defined, skip:CloudXNS.com_api
 The test domain Test_DP_Domain is not defined, skip:Dnspod.cn_api
 Testing dns_gd Godaddy_api
 TestingDomain='acmetalk.xyz'
-/home/root/.acme.sh/acme.sh --issue -d "acmetalk.xyz" --dns dns_gd --dnssleep ""  [FAIL] 
+/home/root/.acme.sh/acme.sh --issue -d "acmetalk.xyz" --dns dns_gd --dnssleep "" ./letest.sh: line 437: cmd.log: Permission denied
+ [FAIL] 
 Run Failed
 ------------------------------------------
