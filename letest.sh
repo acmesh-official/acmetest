@@ -1537,7 +1537,7 @@ for t in $(grep ^le_test_  $FILE_NAME | cut -d '(' -f 1)
 do
   if [ -z "$CASE" ] ; then
     __green "Progress: "
-    __red "$_ret"
+    [ "$_ret" = "0" ] && __green "$_ret" || __red "$_ret"
     __green "/$num/$total"
 
     printf "\n"
