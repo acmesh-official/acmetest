@@ -1,47 +1,8 @@
 Sending build context to Docker daemon  2.048kB
 Step 1/2 : FROM opensuse:latest
- ---> 7617deda9fe6
-Step 2/2 : RUN zypper update -y  2>&1 && zypper install  -y   tar openssl cron socat curl libidn  2>&1
- ---> Running in 2828767a45b1
-Retrieving repository 'NON-OSS' metadata [.
-File '/media.1/media' not found on medium 'http://download.opensuse.org/distribution/leap/42.1/repo/non-oss/'
-
-Abort, retry, ignore? [a/r/i/? shows all options] (a): a
-error]
-Repository 'NON-OSS' is invalid.
-[non-oss|http://download.opensuse.org/distribution/leap/42.1/repo/non-oss/] Valid metadata not found at specified URL
-Please check if the URIs defined for this repository are pointing to a valid repository.
-Warning: Skipping repository 'NON-OSS' because of the above error.
-Retrieving repository 'OSS' metadata [.
-File '/media.1/media' not found on medium 'http://download.opensuse.org/distribution/leap/42.1/repo/oss/'
-
-Abort, retry, ignore? [a/r/i/? shows all options] (a): a
-error]
-Repository 'OSS' is invalid.
-[oss|http://download.opensuse.org/distribution/leap/42.1/repo/oss/] Valid metadata not found at specified URL
-Please check if the URIs defined for this repository are pointing to a valid repository.
-Warning: Skipping repository 'OSS' because of the above error.
-Retrieving repository 'OSS Update' metadata [.
-File '/repodata/repomd.xml' not found on medium 'http://download.opensuse.org/update/42.1/'
-
-Abort, retry, ignore? [a/r/i/? shows all options] (a): a
-error]
-Repository 'OSS Update' is invalid.
-[oss-update|http://download.opensuse.org/update/42.1/] Valid metadata not found at specified URL
-Please check if the URIs defined for this repository are pointing to a valid repository.
-Warning: Skipping repository 'OSS Update' because of the above error.
-Retrieving repository 'Update Non-Oss' metadata [.
-File '/repodata/repomd.xml' not found on medium 'http://download.opensuse.org/update/leap/42.1/non-oss/'
-
-Abort, retry, ignore? [a/r/i/? shows all options] (a): a
-error]
-Repository 'Update Non-Oss' is invalid.
-[update-non-oss|http://download.opensuse.org/update/leap/42.1/non-oss/] Valid metadata not found at specified URL
-Please check if the URIs defined for this repository are pointing to a valid repository.
-Warning: Skipping repository 'Update Non-Oss' because of the above error.
-Some of the repositories have not been refreshed because of an error.
-Loading repository data...
-Reading installed packages...
-
-Nothing to do.
-The command '/bin/sh -c zypper update -y  2>&1 && zypper install  -y   tar openssl cron socat curl libidn  2>&1' returned a non-zero code: 4
+ ---> 19b630b6033c
+Step 2/2 : RUN zypper update -y   && zypper install  -y   tar openssl cron socat curl libidn
+ ---> Using cache
+ ---> 7202d0f6cc8d
+Successfully built 7202d0f6cc8d
+Successfully tagged myopensuse:latest
