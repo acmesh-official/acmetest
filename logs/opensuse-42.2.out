@@ -1,455 +1,270 @@
 Sending build context to Docker daemon  2.048kB
 Step 1/2 : FROM opensuse:42.2
- ---> bb2040693d71
+ ---> f948ea0d12f6
 Step 2/2 : RUN zypper update -y  2>&1 && zypper install  -y   tar openssl cron socat curl libidn  2>&1
- ---> Running in 579aec7a2107
+ ---> Running in 4bcb0053cda9
 Retrieving repository 'NON-OSS' metadata [.done]
 Building repository 'NON-OSS' cache [....done]
 Retrieving repository 'OSS' metadata [..done]
 Building repository 'OSS' cache [....done]
-Retrieving repository 'OSS Update' metadata [......done]
+Retrieving repository 'OSS Update' metadata [...done]
 Building repository 'OSS Update' cache [....done]
-Retrieving repository 'Update Non-Oss' metadata [..done]
+Retrieving repository 'Update Non-Oss' metadata [...done]
 Building repository 'Update Non-Oss' cache [....done]
 Loading repository data...
 Reading installed packages...
 
-The following 8 NEW packages are going to be installed:
-  aaa_base dbus-1 kbd kmod ncurses-utils pinentry pkg-config udev
+The following 2 packages are going to be upgraded:
+  expat libexpat1
 
-The following 42 packages are going to be upgraded:
-  bash binutils cpio device-mapper dirmngr glibc gpg2 libapparmor1 libblkid1 libcom_err2 libcryptsetup4 libcurl4 libdbus-1-3 libfdisk1 libffi4 libgcc_s1 libgcrypt20 liblua5_1 libmount1 libncurses5 libopenssl1_0_0 libprocps3 libreadline6 libsasl2-3 libsemanage1 libsmartcols1 libsolv-tools libstdc++6 libsystemd0 libudev1 libuuid1 libxml2-2 libzypp netcfg openssl procps sed shadow systemd terminfo-base util-linux zypper
-
-42 packages to upgrade, 8 new.
-Overall download size: 27.7 MiB. Already cached: 0 B. After the operation, additional 12.5 MiB will be used.
-Continue? [y/n/? shows all options] (y): y
-Retrieving package glibc-2.22-4.9.1.x86_64 (1/50),   1.7 MiB (  6.4 MiB unpacked)
-Retrieving: glibc-2.22-4.9.1.x86_64.rpm [done]
-Retrieving package terminfo-base-5.9-55.6.1.x86_64 (2/50), 185.3 KiB (  1.1 MiB unpacked)
-Retrieving: terminfo-base-5.9-55.6.1.x86_64.rpm [done]
-Retrieving package libxml2-2-2.9.4-5.17.1.x86_64 (3/50), 575.0 KiB (  1.6 MiB unpacked)
-Retrieving: libxml2-2-2.9.4-5.17.1.x86_64.rpm [done]
-Retrieving package libuuid1-2.28-12.6.1.x86_64 (4/50),  73.6 KiB ( 18.2 KiB unpacked)
-Retrieving: libuuid1-2.28-12.6.1.x86_64.rpm [done]
-Retrieving package libudev1-228-25.12.1.x86_64 (5/50), 320.6 KiB (126.2 KiB unpacked)
-Retrieving: libudev1-228-25.12.1.x86_64.rpm [done]
-Retrieving package libsmartcols1-2.28-12.6.1.x86_64 (6/50), 122.4 KiB (150.2 KiB unpacked)
-Retrieving: libsmartcols1-2.28-12.6.1.x86_64.rpm [.done (55.6 KiB/s)]
-Retrieving package libsemanage1-2.5-2.6.1.x86_64 (7/50),  84.5 KiB (240.5 KiB unpacked)
-Retrieving: libsemanage1-2.5-2.6.1.x86_64.rpm [done]
-Retrieving package libsasl2-3-2.1.26-10.3.1.x86_64 (8/50),  56.0 KiB (115.8 KiB unpacked)
-Retrieving: libsasl2-3-2.1.26-10.3.1.x86_64.rpm [done]
-Retrieving package libprocps3-3.3.9-7.9.1.x86_64 (9/50),  53.0 KiB ( 71.1 KiB unpacked)
-Retrieving: libprocps3-3.3.9-7.9.1.x86_64.rpm [done]
-Retrieving package libopenssl1_0_0-1.0.2j-6.3.1.x86_64 (10/50),   1.0 MiB (  2.9 MiB unpacked)
-Retrieving: libopenssl1_0_0-1.0.2j-6.3.1.x86_64.rpm [done]
-Retrieving package liblua5_1-5.1.5-13.3.1.x86_64 (11/50),  77.7 KiB (192.6 KiB unpacked)
-Retrieving: liblua5_1-5.1.5-13.3.1.x86_64.rpm [done]
-Retrieving package libgcrypt20-1.6.1-34.6.1.x86_64 (12/50), 330.3 KiB (944.7 KiB unpacked)
-Retrieving: libgcrypt20-1.6.1-34.6.1.x86_64.rpm [done]
-Retrieving package libgcc_s1-6.2.1+r239768-5.5.2.x86_64 (13/50),  43.4 KiB ( 90.5 KiB unpacked)
-Retrieving: libgcc_s1-6.2.1+r239768-5.5.2.x86_64.rpm [done]
-Retrieving package libffi4-5.3.1+r233831-8.3.1.x86_64 (14/50),  25.5 KiB ( 34.5 KiB unpacked)
-Retrieving: libffi4-5.3.1+r233831-8.3.1.x86_64.rpm [done]
-Retrieving package libdbus-1-3-1.8.22-3.1.x86_64 (15/50), 162.0 KiB (284.0 KiB unpacked)
-Retrieving: libdbus-1-3-1.8.22-3.1.x86_64.rpm [done]
-Retrieving package libcom_err2-1.42.11-12.6.1.x86_64 (16/50),  32.2 KiB ( 41.1 KiB unpacked)
-Retrieving: libcom_err2-1.42.11-12.6.1.x86_64.rpm [done]
-Retrieving package libapparmor1-2.10.2-12.3.1.x86_64 (17/50),  62.7 KiB ( 67.5 KiB unpacked)
-Retrieving: libapparmor1-2.10.2-12.3.1.x86_64.rpm [.done]
-Retrieving package libblkid1-2.28-12.6.1.x86_64 (18/50), 164.4 KiB (263.1 KiB unpacked)
-Retrieving: libblkid1-2.28-12.6.1.x86_64.rpm [done]
-Retrieving package libcurl4-7.37.0-16.6.1.x86_64 (19/50), 200.2 KiB (449.4 KiB unpacked)
-Retrieving: libcurl4-7.37.0-16.6.1.x86_64.rpm [done]
-Retrieving package libsystemd0-228-25.12.1.x86_64 (20/50), 507.0 KiB (780.0 KiB unpacked)
-Retrieving: libsystemd0-228-25.12.1.x86_64.rpm [done]
-Retrieving package libstdc++6-6.2.1+r239768-5.5.2.x86_64 (21/50), 364.2 KiB (  1.5 MiB unpacked)
-Retrieving: libstdc++6-6.2.1+r239768-5.5.2.x86_64.rpm [done]
-Retrieving package libmount1-2.28-12.6.1.x86_64 (22/50), 174.3 KiB (294.5 KiB unpacked)
-Retrieving: libmount1-2.28-12.6.1.x86_64.rpm [done]
-Retrieving package libfdisk1-2.28-12.6.1.x86_64 (23/50), 196.2 KiB (353.6 KiB unpacked)
-Retrieving: libfdisk1-2.28-12.6.1.x86_64.rpm [done]
-Retrieving package libncurses5-5.9-55.6.1.x86_64 (24/50), 341.1 KiB (  1.0 MiB unpacked)
-Retrieving: libncurses5-5.9-55.6.1.x86_64.rpm [done]
-Retrieving package ncurses-utils-5.9-55.6.1.x86_64 (25/50), 155.5 KiB (120.6 KiB unpacked)
-Retrieving: ncurses-utils-5.9-55.6.1.x86_64.rpm [done]
-Retrieving package libreadline6-6.3-80.3.1.x86_64 (26/50), 152.5 KiB (332.6 KiB unpacked)
-Retrieving: libreadline6-6.3-80.3.1.x86_64.rpm [.done]
-Retrieving package bash-4.3-80.3.1.x86_64 (27/50), 380.1 KiB (746.5 KiB unpacked)
-Retrieving: bash-4.3-80.3.1.x86_64.rpm [done]
-Retrieving package sed-4.2.2-8.3.1.x86_64 (28/50),  99.8 KiB (192.0 KiB unpacked)
-Retrieving: sed-4.2.2-8.3.1.x86_64.rpm [done]
-Retrieving package openssl-1.0.2j-6.3.1.x86_64 (29/50), 658.0 KiB (  1.5 MiB unpacked)
-Retrieving: openssl-1.0.2j-6.3.1.x86_64.rpm [done]
-Retrieving package kmod-17-8.1.x86_64 (30/50),  67.8 KiB (142.2 KiB unpacked)
-Retrieving: kmod-17-8.1.x86_64.rpm [done]
-Retrieving package cpio-2.11-35.3.1.x86_64 (31/50),  83.8 KiB (220.5 KiB unpacked)
-Retrieving: cpio-2.11-35.3.1.x86_64.rpm [done]
-Retrieving package binutils-2.26.1-9.3.1.x86_64 (32/50),   4.8 MiB ( 31.6 MiB unpacked)
-Retrieving: binutils-2.26.1-9.3.1.x86_64.rpm [.done (9.2 MiB/s)]
-Retrieving package util-linux-2.28-12.6.1.x86_64 (33/50), 991.3 KiB (  3.6 MiB unpacked)
-Retrieving: util-linux-2.28-12.6.1.x86_64.rpm [done]
-Retrieving package procps-3.3.9-7.9.1.x86_64 (34/50), 231.2 KiB (578.2 KiB unpacked)
-Retrieving: procps-3.3.9-7.9.1.x86_64.rpm [done]
-Retrieving package dirmngr-1.1.1-16.3.1.x86_64 (35/50), 195.1 KiB (481.4 KiB unpacked)
-Retrieving: dirmngr-1.1.1-16.3.1.x86_64.rpm [done]
-Retrieving package aaa_base-13.2+git20140911.61c1681-24.3.1.x86_64 (36/50), 132.3 KiB (262.1 KiB unpacked)
-Retrieving: aaa_base-13.2+git20140911.61c1681-24.3.1.x86_64.rpm [done]
-Retrieving package shadow-4.2.1-6.3.1.x86_64 (37/50), 551.4 KiB (  2.9 MiB unpacked)
-Retrieving: shadow-4.2.1-6.3.1.x86_64.rpm [.done]
-Retrieving package netcfg-11.5-28.3.1.noarch (38/50), 163.5 KiB (871.1 KiB unpacked)
-Retrieving: netcfg-11.5-28.3.1.noarch.rpm [done]
-Retrieving package dbus-1-1.8.22-3.1.x86_64 (39/50), 315.1 KiB (898.2 KiB unpacked)
-Retrieving: dbus-1-1.8.22-3.1.x86_64.rpm [done]
-Retrieving package pkg-config-0.28-9.54.x86_64 (40/50), 195.9 KiB (611.6 KiB unpacked)
-Retrieving: pkg-config-0.28-9.54.x86_64.rpm [done]
-Retrieving package pinentry-0.8.3-4.5.x86_64 (41/50),  46.9 KiB ( 90.0 KiB unpacked)
-Retrieving: pinentry-0.8.3-4.5.x86_64.rpm [done]
-Retrieving package kbd-2.0.3-1.4.x86_64 (42/50),   1.7 MiB (  4.0 MiB unpacked)
-Retrieving: kbd-2.0.3-1.4.x86_64.rpm [done]
-Retrieving package gpg2-2.0.24-6.3.1.x86_64 (43/50),   1.1 MiB (  3.9 MiB unpacked)
-Retrieving: gpg2-2.0.24-6.3.1.x86_64.rpm [.done]
-Retrieving package libcryptsetup4-1.6.4-5.3.1.x86_64 (44/50),  84.2 KiB (151.2 KiB unpacked)
-Retrieving: libcryptsetup4-1.6.4-5.3.1.x86_64.rpm [done]
-Retrieving package libsolv-tools-0.6.26-5.3.1.x86_64 (45/50), 527.8 KiB (  4.3 MiB unpacked)
-Retrieving: libsolv-tools-0.6.26-5.3.1.x86_64.rpm [done]
-Retrieving package systemd-228-25.12.1.x86_64 (46/50),   3.5 MiB ( 19.5 MiB unpacked)
-Retrieving: systemd-228-25.12.1.x86_64.rpm [done]
-Retrieving package libzypp-16.15.2-5.9.1.x86_64 (47/50),   2.0 MiB (  7.4 MiB unpacked)
-Retrieving: libzypp-16.15.2-5.9.1.x86_64.rpm [.done]
-Retrieving package device-mapper-1.02.97-73.3.1.x86_64 (48/50), 519.9 KiB (  2.0 MiB unpacked)
-Retrieving: device-mapper-1.02.97-73.3.1.x86_64.rpm [done]
-Retrieving package zypper-1.13.30-5.9.1.x86_64 (49/50),   1.2 MiB (  6.5 MiB unpacked)
-Retrieving: zypper-1.13.30-5.9.1.x86_64.rpm [done]
-Retrieving package udev-228-25.12.1.x86_64 (50/50),   1.2 MiB (  6.5 MiB unpacked)
-Retrieving: udev-228-25.12.1.x86_64.rpm [.done (8.4 MiB/s)]
-Checking for file conflicts: [.........done]
-( 1/50) Installing: glibc-2.22-4.9.1.x86_64 [...................done]
-( 2/50) Installing: terminfo-base-5.9-55.6.1.x86_64 [...................done]
-( 3/50) Installing: libxml2-2-2.9.4-5.17.1.x86_64 [...............done]
-( 4/50) Installing: libuuid1-2.28-12.6.1.x86_64 [........done]
-( 5/50) Installing: libudev1-228-25.12.1.x86_64 [........done]
-( 6/50) Installing: libsmartcols1-2.28-12.6.1.x86_64 [.........done]
-( 7/50) Installing: libsemanage1-2.5-2.6.1.x86_64 [..........done]
-( 8/50) Installing: libsasl2-3-2.1.26-10.3.1.x86_64 [........done]
-( 9/50) Installing: libprocps3-3.3.9-7.9.1.x86_64 [........done]
-(10/50) Installing: libopenssl1_0_0-1.0.2j-6.3.1.x86_64 [..............done]
-(11/50) Installing: liblua5_1-5.1.5-13.3.1.x86_64 [........done]
-(12/50) Installing: libgcrypt20-1.6.1-34.6.1.x86_64 [............done]
-(13/50) Installing: libgcc_s1-6.2.1+r239768-5.5.2.x86_64 [........done]
-(14/50) Installing: libffi4-5.3.1+r233831-8.3.1.x86_64 [........done]
-(15/50) Installing: libdbus-1-3-1.8.22-3.1.x86_64 [................done]
-(16/50) Installing: libcom_err2-1.42.11-12.6.1.x86_64 [..............done]
-(17/50) Installing: libapparmor1-2.10.2-12.3.1.x86_64 [........done]
-(18/50) Installing: libblkid1-2.28-12.6.1.x86_64 [.........done]
-(19/50) Installing: libcurl4-7.37.0-16.6.1.x86_64 [..........done]
-(20/50) Installing: libsystemd0-228-25.12.1.x86_64 [..............done]
-(21/50) Installing: libstdc++6-6.2.1+r239768-5.5.2.x86_64 [...........done]
-(22/50) Installing: libmount1-2.28-12.6.1.x86_64 [..........done]
-(23/50) Installing: libfdisk1-2.28-12.6.1.x86_64 [.........done]
-(24/50) Installing: libncurses5-5.9-55.6.1.x86_64 [.................done]
-(25/50) Installing: ncurses-utils-5.9-55.6.1.x86_64 [.........done]
-(26/50) Installing: libreadline6-6.3-80.3.1.x86_64 [............done]
-(27/50) Installing: bash-4.3-80.3.1.x86_64 [..................done]
-(28/50) Installing: sed-4.2.2-8.3.1.x86_64 [...............done]
-(29/50) Installing: openssl-1.0.2j-6.3.1.x86_64 [..................done]
-(30/50) Installing: kmod-17-8.1.x86_64 [.....done]
-(31/50) Installing: cpio-2.11-35.3.1.x86_64 [.............done]
-(32/50) Installing: binutils-2.26.1-9.3.1.x86_64 [...................done]
-(33/50) Installing: util-linux-2.28-12.6.1.x86_64 [...................done]
-Additional rpm output:
-setting /usr/bin/wall to root:tty 2755. (wrong permissions 0755)
-setting /usr/bin/write to root:tty 2755. (wrong permissions 0755)
-
-
-(34/50) Installing: procps-3.3.9-7.9.1.x86_64 [..................done]
-(35/50) Installing: dirmngr-1.1.1-16.3.1.x86_64 [..................done]
-(36/50) Installing: aaa_base-13.2+git20140911.61c1681-24.3.1.x86_64 [..........done]
-Additional rpm output:
-Updating /etc/sysconfig/language...
-Updating /etc/sysconfig/backup...
-Updating /etc/sysconfig/proxy...
-Updating /etc/sysconfig/windowmanager...
-Updating /etc/sysconfig/news...
-Updating etc/passwd...unchanged
-Updating etc/group...unchanged
-Updating etc/shadow...unchanged
-
-
-(37/50) Installing: shadow-4.2.1-6.3.1.x86_64 [...................done]
-Additional rpm output:
-Failed to connect to bus: No such file or directory
-Failed to connect to bus: No such file or directory
-Failed to connect to bus: No such file or directory
-
-
-(38/50) Installing: netcfg-11.5-28.3.1.noarch [................done]
-(39/50) Installing: dbus-1-1.8.22-3.1.x86_64 [...........done]
-Additional rpm output:
-can't open dbus: No such file or directory at /sbin/insserv line 80.
-
-
-(40/50) Installing: pkg-config-0.28-9.54.x86_64 [..........done]
-(41/50) Installing: pinentry-0.8.3-4.5.x86_64 [.......done]
-(42/50) Installing: kbd-2.0.3-1.4.x86_64 [............done]
-Additional rpm output:
-Updating /etc/sysconfig/console...
-Updating /etc/sysconfig/keyboard...
-
-
-(43/50) Installing: gpg2-2.0.24-6.3.1.x86_64 [...................done]
-(44/50) Installing: libcryptsetup4-1.6.4-5.3.1.x86_64 [.........done]
-(45/50) Installing: libsolv-tools-0.6.26-5.3.1.x86_64 [...................done]
-(46/50) Installing: systemd-228-25.12.1.x86_64 [...................done]
-Additional rpm output:
-Failed to connect to bus: No such file or directory
-Failed to connect to bus: No such file or directory
-
-
-(47/50) Installing: libzypp-16.15.2-5.9.1.x86_64 [...................done]
-Additional rpm output:
-warning: /etc/zypp/zypp.conf created as /etc/zypp/zypp.conf.rpmnew
-
-
-(48/50) Installing: device-mapper-1.02.97-73.3.1.x86_64 [...................done]
-Additional rpm output:
-Failed to connect to bus: No such file or directory
-Failed to connect to bus: No such file or directory
-Failed to connect to bus: No such file or directory
-
-
-(49/50) Installing: zypper-1.13.30-5.9.1.x86_64 [...................done]
-(50/50) Installing: udev-228-25.12.1.x86_64 [............done]
-Output of kbd-2.0.3-1.4.x86_64.rpm %posttrans script:
-    Please run mkinitrd as soon as your system is complete.
-
+2 packages to upgrade.
+Overall download size: 112.6 KiB. Already cached: 0 B. No additional space will be used or freed after the operation.
+Continue? [y/n/...? shows all options] (y): y
+Retrieving package libexpat1-2.1.0-21.3.1.x86_64 (1/2),  58.3 KiB (166.2 KiB unpacked)
+Retrieving: libexpat1-2.1.0-21.3.1.x86_64.rpm [done]
+Retrieving package expat-2.1.0-21.3.1.x86_64 (2/2),  54.4 KiB (152.4 KiB unpacked)
+Retrieving: expat-2.1.0-21.3.1.x86_64.rpm [done]
+Checking for file conflicts: [.......done]
+(1/2) Installing: libexpat1-2.1.0-21.3.1.x86_64 [.........done]
+(2/2) Installing: expat-2.1.0-21.3.1.x86_64 [..............done]
 Loading repository data...
 Reading installed packages...
-'cron' is already installed.
-No update candidate for 'cron-4.2-58.25.x86_64'. The highest available version is already installed.
 'openssl' is already installed.
 No update candidate for 'openssl-1.0.2j-6.3.1.x86_64'. The highest available version is already installed.
 'libidn' not found in package names. Trying capabilities.
 Resolving package dependencies...
 
-The following 5 NEW packages are going to be installed:
-  curl libidn-tools libwrap0 socat tar
+The following 7 NEW packages are going to be installed:
+  cron cronie curl libidn-tools libwrap0 socat tar
 
-5 new packages to install.
-Overall download size: 1.1 MiB. Already cached: 0 B. After the operation, additional 2.9 MiB will be used.
+7 new packages to install.
+Overall download size: 1.2 MiB. Already cached: 0 B. After the operation, additional 3.2 MiB will be used.
 Continue? [y/n/...? shows all options] (y): y
-Retrieving package libidn-tools-1.28-6.2.x86_64 (1/5), 206.4 KiB (849.2 KiB unpacked)
+Retrieving package cron-4.2-58.25.x86_64 (1/7),  12.0 KiB (  181   B unpacked)
+Retrieving: cron-4.2-58.25.x86_64.rpm [done]
+Retrieving package libidn-tools-1.28-6.2.x86_64 (2/7), 206.4 KiB (849.2 KiB unpacked)
 Retrieving: libidn-tools-1.28-6.2.x86_64.rpm [done]
-Retrieving package libwrap0-7.6-886.55.x86_64 (2/5),  19.9 KiB ( 40.8 KiB unpacked)
-Retrieving: libwrap0-7.6-886.55.x86_64.rpm [.done]
-Retrieving package socat-1.7.3.1-7.1.x86_64 (3/5), 208.3 KiB (633.4 KiB unpacked)
+Retrieving package libwrap0-7.6-886.55.x86_64 (3/7),  19.9 KiB ( 40.8 KiB unpacked)
+Retrieving: libwrap0-7.6-886.55.x86_64.rpm [done]
+Retrieving package cronie-1.4.11-58.25.x86_64 (4/7),  89.8 KiB (219.9 KiB unpacked)
+Retrieving: cronie-1.4.11-58.25.x86_64.rpm [done]
+Retrieving package socat-1.7.3.1-7.1.x86_64 (5/7), 208.3 KiB (633.4 KiB unpacked)
 Retrieving: socat-1.7.3.1-7.1.x86_64.rpm [done]
-Retrieving package curl-7.37.0-16.6.1.x86_64 (4/5), 150.7 KiB (312.9 KiB unpacked)
+Retrieving package curl-7.37.0-16.6.1.x86_64 (6/7), 150.7 KiB (312.9 KiB unpacked)
 Retrieving: curl-7.37.0-16.6.1.x86_64.rpm [done]
-Retrieving package tar-1.27.1-11.1.x86_64 (5/5), 492.9 KiB (  1.2 MiB unpacked)
-Retrieving: tar-1.27.1-11.1.x86_64.rpm [done]
+Retrieving package tar-1.27.1-11.1.x86_64 (7/7), 492.9 KiB (  1.2 MiB unpacked)
+Retrieving: tar-1.27.1-11.1.x86_64.rpm [.done (5.9 MiB/s)]
 Checking for file conflicts: [.......done]
-(1/5) Installing: libidn-tools-1.28-6.2.x86_64 [........done]
-(2/5) Installing: libwrap0-7.6-886.55.x86_64 [....done]
-(3/5) Installing: socat-1.7.3.1-7.1.x86_64 [.........done]
-(4/5) Installing: curl-7.37.0-16.6.1.x86_64 [........done]
-(5/5) Installing: tar-1.27.1-11.1.x86_64 [.........done]
- ---> 986f537b6272
-Removing intermediate container 579aec7a2107
-Successfully built 986f537b6272
+(1/7) Installing: cron-4.2-58.25.x86_64 [.....done]
+(2/7) Installing: libidn-tools-1.28-6.2.x86_64 [........done]
+(3/7) Installing: libwrap0-7.6-886.55.x86_64 [....done]
+(4/7) Installing: cronie-1.4.11-58.25.x86_64 [.......done]
+Additional rpm output:
+setting /usr/bin/crontab to root:trusted 4755. (wrong permissions 4750)
+Updating /etc/sysconfig/cron...
+Failed to connect to bus: No such file or directory
+Created symlink from /etc/systemd/system/multi-user.target.wants/cron.service to /usr/lib/systemd/system/cron.service.
+
+
+(5/7) Installing: socat-1.7.3.1-7.1.x86_64 [.........done]
+(6/7) Installing: curl-7.37.0-16.6.1.x86_64 [........done]
+(7/7) Installing: tar-1.27.1-11.1.x86_64 [.........done]
+ ---> c03329bfccc4
+Removing intermediate container 4bcb0053cda9
+Successfully built c03329bfccc4
 Successfully tagged myopensuse:42.2
-Sat, 02 Sep 2017 18:22:38 UTC
+Tue, 05 Sep 2017 13:39:31 UTC
 Testing branch: master
-Progress: 0/1/23
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/1/23[0m
 ==Running le_test_dependencies please wait
 no crontab for root
 no crontab for root
-curl installed. [PASS]
-crontab installed. [PASS]
-openssl installed. [PASS]
-socat installed. [PASS]
+curl installed.[1;31;32m [PASS][0m
+crontab installed.[1;31;32m [PASS][0m
+openssl installed.[1;31;32m [PASS][0m
+socat installed.[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/2/23
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/2/23[0m
 ==Running le_test_install please wait
-./acme.sh install [PASS]
-/root/.acme.sh/acme.sh exists. [PASS]
-_contains '44 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
-/root/.acme.sh/acme.sh uninstall  > /dev/null [PASS]
+./acme.sh install[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh exists.[1;31;32m [PASS][0m
+_contains '37 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh uninstall  > /dev/null[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/3/23
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/3/23[0m
 ==Running le_test_uninstall please wait
-./acme.sh install [PASS]
-/root/.acme.sh/acme.sh uninstall [PASS]
-/root/.acme.sh/acme.sh no exists. [PASS]
-equals  [PASS]
+./acme.sh install[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh uninstall[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh no exists.[1;31;32m [PASS][0m
+equals [1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/4/23
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/4/23[0m
 ==Running le_test_installtodir please wait
-./acme.sh install [PASS]
-/root/myle/acme.sh exists. [PASS]
-_contains '46 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
-/root/myle/acme.sh uninstall [PASS]
+./acme.sh install[1;31;32m [PASS][0m
+/root/myle/acme.sh exists.[1;31;32m [PASS][0m
+_contains '38 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null'[1;31;32m [PASS][0m
+/root/myle/acme.sh uninstall[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/5/23
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/5/23[0m
 ==Running le_test_uninstalltodir please wait
-./acme.sh install [PASS]
-/root/myle/acme.sh uninstall [PASS]
-/root/myle/acme.sh no exists. [PASS]
-equals  [PASS]
+./acme.sh install[1;31;32m [PASS][0m
+/root/myle/acme.sh uninstall[1;31;32m [PASS][0m
+/root/myle/acme.sh no exists.[1;31;32m [PASS][0m
+equals [1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/6/23
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/6/23[0m
 ==Running le_test_install_config_home please wait
-./acme.sh --install --config-home /root/etc/acme [PASS]
-/root/.acme.sh/acme.sh exists. [PASS]
-_contains '46 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
-/root/etc/acme/account.conf exists. [PASS]
-/root/.acme.sh/account.conf no exists. [PASS]
-/root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null [PASS]
-/root/.acme.sh/acme.sh --uninstall --config-home /root/etc/acme > /dev/null [PASS]
-/root/etc/acme/account.conf exists. [PASS]
-/root/.acme.sh/account.conf no exists. [PASS]
+./acme.sh --install --config-home /root/etc/acme[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh exists.[1;31;32m [PASS][0m
+_contains '39 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null'[1;31;32m [PASS][0m
+/root/etc/acme/account.conf exists.[1;31;32m [PASS][0m
+/root/.acme.sh/account.conf no exists.[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --uninstall --config-home /root/etc/acme > /dev/null[1;31;32m [PASS][0m
+/root/etc/acme/account.conf exists.[1;31;32m [PASS][0m
+/root/.acme.sh/account.conf no exists.[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/7/23
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/7/23[0m
 ==Running le_test_standandalone_renew please wait
-/root/.acme.sh/acme.sh issue no testdocker.acme.sh [PASS]
-FORCE=1 /root/.acme.sh/acme.sh renew testdocker.acme.sh [PASS]
+/root/.acme.sh/acme.sh issue no testdocker.acme.sh[1;31;32m [PASS][0m
+FORCE=1 /root/.acme.sh/acme.sh renew testdocker.acme.sh[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/8/23
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/8/23[0m
 ==Running le_test_standandalone_renew_v2 please wait
-/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
-/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force [PASS]
-/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
+/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/9/23
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/9/23[0m
 ==Running le_test_standandalone_renew_localaddress_v2 please wait
-/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --local-address 0.0.0.0 --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
-/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force [PASS]
-/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
+/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --local-address 0.0.0.0 --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/10/23
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/10/23[0m
 ==Running le_test_standandalone_listen_v4_v2 please wait
-/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --listen-v4 --cert-file '/acmetest/certs/domain.cer' --key-file '/acmetest/certs/domain.key'  --ca-file '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchain-file  '/acmetest/certs/full.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
-/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force [PASS]
-/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
+/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --listen-v4 --cert-file '/acmetest/certs/domain.cer' --key-file '/acmetest/certs/domain.key'  --ca-file '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchain-file  '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/11/23
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/11/23[0m
 ==Running le_test_standandalone_listen_v6_v2 please wait
 Skipped by TEST_IPV6
 ------------------------------------------
-Progress: 0/12/23
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/12/23[0m
 ==Running le_test_standandalone_deactivate_v2 please wait
-/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
-/root/.acme.sh/acme.sh --deactivate -d testdocker.acme.sh [PASS]
+/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --deactivate -d testdocker.acme.sh[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/13/23
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/13/23[0m
 ==Running le_test_standandalone please wait
-/root/.acme.sh/acme.sh issue no testdocker.acme.sh [PASS]
-/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/acme.sh issue no testdocker.acme.sh[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/14/23
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/14/23[0m
 ==Running le_test_standandalone_SAN please wait
-/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh" [PASS]
-/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh"[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/15/23
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/15/23[0m
 ==Running le_test_standandalone_ECDSA_256 please wait
-/root/.acme.sh/acme.sh issue no testdocker.acme.sh no ec-256 [PASS]
-/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/acme.sh issue no testdocker.acme.sh no ec-256[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/16/23
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/16/23[0m
 ==Running le_test_standandalone_ECDSA_256_renew please wait
-/root/.acme.sh/acme.sh issue no testdocker.acme.sh no ec-256 [PASS]
-FORCE=1 /root/.acme.sh/acme.sh renew testdocker.acme.sh [PASS]
+/root/.acme.sh/acme.sh issue no testdocker.acme.sh no ec-256[1;31;32m [PASS][0m
+FORCE=1 /root/.acme.sh/acme.sh renew testdocker.acme.sh[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/17/23
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/17/23[0m
 ==Running le_test_standandalone_ECDSA_256_SAN_renew please wait
-/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh" ec-256 [PASS]
-FORCE=1 /root/.acme.sh/acme.sh renew "testdocker.acme.sh" [PASS]
+/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh" ec-256[1;31;32m [PASS][0m
+FORCE=1 /root/.acme.sh/acme.sh renew "testdocker.acme.sh"[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/18/23
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/18/23[0m
 ==Running le_test_standandalone_ECDSA_256_SAN_renew_v2 please wait
-/root/.acme.sh/acme.sh --issue -d "testdocker.acme.sh" -d "testdocker2.acme.sh" --standalone --keylength ec-256 --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh_ecc/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
-/root/.acme.sh/acme.sh --renew --ecc -d "testdocker.acme.sh" --force [PASS]
-/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh_ecc/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
+/root/.acme.sh/acme.sh --issue -d "testdocker.acme.sh" -d "testdocker2.acme.sh" --standalone --keylength ec-256 --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh_ecc/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --renew --ecc -d "testdocker.acme.sh" --force[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh_ecc/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/19/23
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/19/23[0m
 ==Running le_test_standandalone_ECDSA_384 please wait
-/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" no ec-384 [PASS]
-/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" no ec-384[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/20/23
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/20/23[0m
 ==Running le_test_standandalone_tls_renew_SAN_v2 please wait
-/root/.acme.sh/acme.sh --issue -d "testdocker.acme.sh" --tls  -d "testdocker2.acme.sh" --standalone  [PASS]
-/root/.acme.sh/acme.sh --renew -d "testdocker.acme.sh" --force [PASS]
-/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/acme.sh --issue -d "testdocker.acme.sh" --tls  -d "testdocker2.acme.sh" --standalone [1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --renew -d "testdocker.acme.sh" --force[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/21/23
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/21/23[0m
 ==Running le_test_tls_renew_SAN_v2 please wait
-/root/.acme.sh/acme.sh --issue -d "testdocker.acme.sh" -d "testdocker2.acme.sh" --tls [PASS]
-/root/.acme.sh/acme.sh --renew -d "testdocker.acme.sh" --force [PASS]
-/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/acme.sh --issue -d "testdocker.acme.sh" -d "testdocker2.acme.sh" --tls[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --renew -d "testdocker.acme.sh" --force[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/22/23
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/22/23[0m
 ==Running le_test_standandalone_renew_idn_v2 please wait
 Skipped by TEST_IDN
 ------------------------------------------
-Progress: 0/23/23
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/23/23[0m
 ==Running le_test_dnsapi please wait
 The test domain Test_CF_Domain is not defined, skip:ClourFlare_api
 The test domain Test_CX_Domain is not defined, skip:CloudXNS.com_api
 The test domain Test_DP_Domain is not defined, skip:Dnspod.cn_api
 Testing dns_gd Godaddy_api
 TestingDomain='acmetalk.xyz'
-/root/.acme.sh/acme.sh --issue -d "acmetalk.xyz" --dns dns_gd --dnssleep ""  [PASS]
-/root/.acme.sh/acmetalk.xyz/acmetalk.xyz.cer is cert ? 'acmetalk.xyz' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/acmetalk.xyz/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/acme.sh --deactivate -d "acmetalk.xyz" >/dev/null 2>&1 [PASS]
+/root/.acme.sh/acme.sh --issue -d "acmetalk.xyz" --dns dns_gd --dnssleep "" [1;31;32m [PASS][0m
+/root/.acme.sh/acmetalk.xyz/acmetalk.xyz.cer is cert ? 'acmetalk.xyz' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/acmetalk.xyz/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --deactivate -d "acmetalk.xyz" >/dev/null 2>&1[1;31;32m [PASS][0m
 The test domain Test_AWS_Domain is not defined, skip:Amazon_Route53_api
 The test domain Test_LUA_Domain is not defined, skip:luadns.com_api
 ME_Key is not defined, skip:dnsmadeeasy.com_api
@@ -459,9 +274,9 @@ PDNS_Token is not defined, skip:powerdns.com_api
 The test domain Test_ALI_Domain is not defined, skip:aliyun_api
 Testing dns_gandi_livedns gandi_livedns
 TestingDomain='acmetest.xyz'
-/root/.acme.sh/acme.sh --issue -d "acmetest.xyz" --dns dns_gandi_livedns --dnssleep "60"  [PASS]
-/root/.acme.sh/acmetest.xyz/acmetest.xyz.cer is cert ? 'acmetest.xyz' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/acmetest.xyz/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/acme.sh --deactivate -d "acmetest.xyz" >/dev/null 2>&1 [PASS]
+/root/.acme.sh/acme.sh --issue -d "acmetest.xyz" --dns dns_gandi_livedns --dnssleep "60" [1;31;32m [PASS][0m
+/root/.acme.sh/acmetest.xyz/acmetest.xyz.cer is cert ? 'acmetest.xyz' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/acmetest.xyz/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --deactivate -d "acmetest.xyz" >/dev/null 2>&1[1;31;32m [PASS][0m
 The test domain Test_DYNU_Domain is not defined, skip:dynu_api
 ------------------------------------------
