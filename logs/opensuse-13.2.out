@@ -1,8 +1,8 @@
 Sending build context to Docker daemon  2.048kB
 Step 1/2 : FROM opensuse:13.2
- ---> dbd7a8c508bb
+ ---> f44cbabf9361
 Step 2/2 : RUN zypper update -y  2>&1 && zypper install  -y   tar openssl cron socat curl libidn  2>&1
- ---> Running in c20ddf267f8f
+ ---> Running in 891413bbe265
 Warning: Legacy commandline option -y/--no-confirm detected. Please use global option -n/--non-interactive instead.
 Retrieving repository 'NON-OSS' metadata [.done]
 Building repository 'NON-OSS' cache [....done]
@@ -31,4 +31,4 @@ Loading repository data...
 Reading installed packages...
 
 Nothing to do.
-The command '/bin/sh -c zypper update -y  2>&1 && zypper install  -y   tar openssl cron socat curl libidn  2>&1' returned a non-zero code: 4
+The command '/bin/sh -c zypper update -y  2>&1 && zypper install  -y   tar openssl cron socat curl libidn  2>&1' returned a non-zero code: 106
