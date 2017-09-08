@@ -2,251 +2,17 @@ Sending build context to Docker daemon  2.048kB
 Step 1/2 : FROM centos:6
  ---> 7ea307891843
 Step 2/2 : RUN yum  -y update     2>&1 && yum  -y install    openssl crontabs socat curl  2>&1
- ---> Running in 4adcfa6e6e17
-Loaded plugins: fastestmirror, ovl
-Setting up Update Process
-Resolving Dependencies
---> Running transaction check
----> Package libacl.x86_64 0:2.2.49-7.el6 will be updated
----> Package libacl.x86_64 0:2.2.49-7.el6_9.1 will be an update
---> Finished Dependency Resolution
-
-Dependencies Resolved
-
-================================================================================
- Package        Arch           Version                    Repository       Size
-================================================================================
-Updating:
- libacl         x86_64         2.2.49-7.el6_9.1           updates          24 k
-
-Transaction Summary
-================================================================================
-Upgrade       1 Package(s)
-
-Total download size: 24 k
-Downloading Packages:
-warning: rpmts_HdrFromFdno: Header V3 RSA/SHA1 Signature, key ID c105b9de: NOKEY
-Retrieving key from file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
-Importing GPG key 0xC105B9DE:
- Userid : CentOS-6 Key (CentOS 6 Official Signing Key) <centos-6-key@centos.org>
- Package: centos-release-6-9.el6.12.3.x86_64 (@CentOS/6.9)
- From   : /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
-Running rpm_check_debug
-Running Transaction Test
-Transaction Test Succeeded
-Running Transaction
-  Updating   : libacl-2.2.49-7.el6_9.1.x86_64                               1/2 
-  Cleanup    : libacl-2.2.49-7.el6.x86_64                                   2/2 
-  Verifying  : libacl-2.2.49-7.el6_9.1.x86_64                               1/2 
-  Verifying  : libacl-2.2.49-7.el6.x86_64                                   2/2 
-
-Updated:
-  libacl.x86_64 0:2.2.49-7.el6_9.1                                              
-
-Complete!
-Loaded plugins: fastestmirror, ovl
-Setting up Install Process
-Determining fastest mirrors
- * base: mirror.ibcp.fr
- * extras: fr.mirror.babylon.network
- * updates: fr.mirror.babylon.network
-Package openssl-1.0.1e-57.el6.x86_64 already installed and latest version
-No package socat available.
-Package curl-7.19.7-53.el6_9.x86_64 already installed and latest version
-Resolving Dependencies
---> Running transaction check
----> Package crontabs.noarch 0:1.10-33.el6 will be installed
---> Processing Dependency: /etc/cron.d for package: crontabs-1.10-33.el6.noarch
---> Running transaction check
----> Package cronie.x86_64 0:1.4.4-16.el6_8.2 will be installed
---> Processing Dependency: syslog for package: cronie-1.4.4-16.el6_8.2.x86_64
---> Processing Dependency: dailyjobs for package: cronie-1.4.4-16.el6_8.2.x86_64
---> Processing Dependency: /usr/sbin/sendmail for package: cronie-1.4.4-16.el6_8.2.x86_64
---> Processing Dependency: /sbin/service for package: cronie-1.4.4-16.el6_8.2.x86_64
---> Running transaction check
----> Package cronie-anacron.x86_64 0:1.4.4-16.el6_8.2 will be installed
----> Package initscripts.x86_64 0:9.03.58-1.el6.centos.1 will be installed
---> Processing Dependency: util-linux-ng >= 2.16 for package: initscripts-9.03.58-1.el6.centos.1.x86_64
---> Processing Dependency: upstart >= 0.6.5-11 for package: initscripts-9.03.58-1.el6.centos.1.x86_64
---> Processing Dependency: udev >= 125-1 for package: initscripts-9.03.58-1.el6.centos.1.x86_64
---> Processing Dependency: sysvinit-tools >= 2.87-6 for package: initscripts-9.03.58-1.el6.centos.1.x86_64
---> Processing Dependency: plymouth for package: initscripts-9.03.58-1.el6.centos.1.x86_64
---> Processing Dependency: /sbin/pidof for package: initscripts-9.03.58-1.el6.centos.1.x86_64
---> Processing Dependency: /sbin/ip for package: initscripts-9.03.58-1.el6.centos.1.x86_64
---> Processing Dependency: /sbin/blkid for package: initscripts-9.03.58-1.el6.centos.1.x86_64
---> Processing Dependency: /sbin/arping for package: initscripts-9.03.58-1.el6.centos.1.x86_64
----> Package postfix.x86_64 2:2.6.6-8.el6 will be installed
---> Processing Dependency: cyrus-sasl >= 2.1.10 for package: 2:postfix-2.6.6-8.el6.x86_64
---> Processing Dependency: mysql-libs for package: 2:postfix-2.6.6-8.el6.x86_64
---> Processing Dependency: libmysqlclient.so.16(libmysqlclient_16)(64bit) for package: 2:postfix-2.6.6-8.el6.x86_64
---> Processing Dependency: libmysqlclient.so.16()(64bit) for package: 2:postfix-2.6.6-8.el6.x86_64
----> Package rsyslog.x86_64 0:5.8.10-10.el6_6 will be installed
---> Processing Dependency: logrotate >= 3.5.2 for package: rsyslog-5.8.10-10.el6_6.x86_64
---> Running transaction check
----> Package cyrus-sasl.x86_64 0:2.1.23-15.el6_6.2 will be installed
----> Package iproute.x86_64 0:2.6.32-54.el6 will be installed
---> Processing Dependency: iptables >= 1.4.5 for package: iproute-2.6.32-54.el6.x86_64
---> Processing Dependency: libxtables.so.4()(64bit) for package: iproute-2.6.32-54.el6.x86_64
----> Package iputils.x86_64 0:20071127-24.el6 will be installed
----> Package logrotate.x86_64 0:3.7.8-28.el6 will be installed
----> Package mysql-libs.x86_64 0:5.1.73-8.el6_8 will be installed
----> Package plymouth.x86_64 0:0.8.3-29.el6.centos will be installed
---> Processing Dependency: system-logos for package: plymouth-0.8.3-29.el6.centos.x86_64
---> Processing Dependency: libdrm_radeon.so.1()(64bit) for package: plymouth-0.8.3-29.el6.centos.x86_64
---> Processing Dependency: libdrm_nouveau.so.1()(64bit) for package: plymouth-0.8.3-29.el6.centos.x86_64
---> Processing Dependency: libdrm_intel.so.1()(64bit) for package: plymouth-0.8.3-29.el6.centos.x86_64
---> Processing Dependency: libdrm.so.2()(64bit) for package: plymouth-0.8.3-29.el6.centos.x86_64
----> Package sysvinit-tools.x86_64 0:2.87-6.dsf.el6 will be installed
----> Package udev.x86_64 0:147-2.73.el6_8.2 will be installed
---> Processing Dependency: hwdata for package: udev-147-2.73.el6_8.2.x86_64
----> Package upstart.x86_64 0:0.6.5-16.el6 will be installed
----> Package util-linux-ng.x86_64 0:2.17.2-12.28.el6 will be installed
---> Running transaction check
----> Package hwdata.noarch 0:0.233-18.1.el6 will be installed
----> Package iptables.x86_64 0:1.4.7-16.el6 will be installed
---> Processing Dependency: policycoreutils for package: iptables-1.4.7-16.el6.x86_64
----> Package libdrm.x86_64 0:2.4.65-2.el6 will be installed
---> Processing Dependency: libpciaccess.so.0()(64bit) for package: libdrm-2.4.65-2.el6.x86_64
----> Package redhat-logos.noarch 0:60.0.14-12.el6.centos will be installed
---> Running transaction check
----> Package libpciaccess.x86_64 0:0.13.4-1.el6 will be installed
----> Package policycoreutils.x86_64 0:2.0.83-30.1.el6_8 will be installed
---> Processing Dependency: libdbus-glib-1.so.2()(64bit) for package: policycoreutils-2.0.83-30.1.el6_8.x86_64
---> Running transaction check
----> Package dbus-glib.x86_64 0:0.86-6.el6 will be installed
---> Finished Dependency Resolution
-
-Dependencies Resolved
-
-================================================================================
- Package             Arch       Version                       Repository   Size
-================================================================================
-Installing:
- crontabs            noarch     1.10-33.el6                   base         10 k
-Installing for dependencies:
- cronie              x86_64     1.4.4-16.el6_8.2              base         75 k
- cronie-anacron      x86_64     1.4.4-16.el6_8.2              base         31 k
- cyrus-sasl          x86_64     2.1.23-15.el6_6.2             base         78 k
- dbus-glib           x86_64     0.86-6.el6                    base        170 k
- hwdata              noarch     0.233-18.1.el6                base        1.3 M
- initscripts         x86_64     9.03.58-1.el6.centos.1        updates     949 k
- iproute             x86_64     2.6.32-54.el6                 base        389 k
- iptables            x86_64     1.4.7-16.el6                  base        254 k
- iputils             x86_64     20071127-24.el6               base        121 k
- libdrm              x86_64     2.4.65-2.el6                  base        136 k
- libpciaccess        x86_64     0.13.4-1.el6                  base         24 k
- logrotate           x86_64     3.7.8-28.el6                  base         59 k
- mysql-libs          x86_64     5.1.73-8.el6_8                base        1.2 M
- plymouth            x86_64     0.8.3-29.el6.centos           base         89 k
- policycoreutils     x86_64     2.0.83-30.1.el6_8             base        663 k
- postfix             x86_64     2:2.6.6-8.el6                 base        2.0 M
- redhat-logos        noarch     60.0.14-12.el6.centos         base         15 M
- rsyslog             x86_64     5.8.10-10.el6_6               base        650 k
- sysvinit-tools      x86_64     2.87-6.dsf.el6                base         60 k
- udev                x86_64     147-2.73.el6_8.2              base        358 k
- upstart             x86_64     0.6.5-16.el6                  base        177 k
- util-linux-ng       x86_64     2.17.2-12.28.el6              base        1.6 M
-
-Transaction Summary
-================================================================================
-Install      23 Package(s)
-
-Total download size: 25 M
-Installed size: 56 M
-Downloading Packages:
---------------------------------------------------------------------------------
-Total                                           7.8 MB/s |  25 MB     00:03     
-Running rpm_check_debug
-Running Transaction Test
-Transaction Test Succeeded
-Running Transaction
-  Installing : sysvinit-tools-2.87-6.dsf.el6.x86_64                        1/23 
-  Installing : hwdata-0.233-18.1.el6.noarch                                2/23 
-  Installing : libpciaccess-0.13.4-1.el6.x86_64                            3/23 
-  Installing : logrotate-3.7.8-28.el6.x86_64                               4/23 
-  Installing : dbus-glib-0.86-6.el6.x86_64                                 5/23 
-  Installing : redhat-logos-60.0.14-12.el6.centos.noarch                   6/23 
-  Installing : mysql-libs-5.1.73-8.el6_8.x86_64                            7/23 
-  Installing : upstart-0.6.5-16.el6.x86_64                                 8/23 
-  Installing : policycoreutils-2.0.83-30.1.el6_8.x86_64                    9/23 
-  Installing : iptables-1.4.7-16.el6.x86_64                               10/23 
-  Installing : iproute-2.6.32-54.el6.x86_64                               11/23 
-  Installing : libdrm-2.4.65-2.el6.x86_64                                 12/23 
-  Installing : iputils-20071127-24.el6.x86_64                             13/23 
-  Installing : plymouth-0.8.3-29.el6.centos.x86_64                        14/23 
-  Installing : util-linux-ng-2.17.2-12.28.el6.x86_64                      15/23 
-install-info: No such file or directory for /usr/share/info/ipc.info
-  Installing : initscripts-9.03.58-1.el6.centos.1.x86_64                  16/23 
-  Installing : udev-147-2.73.el6_8.2.x86_64                               17/23 
-  Installing : rsyslog-5.8.10-10.el6_6.x86_64                             18/23 
-  Installing : cyrus-sasl-2.1.23-15.el6_6.2.x86_64                        19/23 
-  Installing : 2:postfix-2.6.6-8.el6.x86_64                               20/23 
-  Installing : crontabs-1.10-33.el6.noarch                                21/23 
-  Installing : cronie-1.4.4-16.el6_8.2.x86_64                             22/23 
-  Installing : cronie-anacron-1.4.4-16.el6_8.2.x86_64                     23/23 
-  Verifying  : cronie-anacron-1.4.4-16.el6_8.2.x86_64                      1/23 
-  Verifying  : udev-147-2.73.el6_8.2.x86_64                                2/23 
-  Verifying  : initscripts-9.03.58-1.el6.centos.1.x86_64                   3/23 
-  Verifying  : upstart-0.6.5-16.el6.x86_64                                 4/23 
-  Verifying  : plymouth-0.8.3-29.el6.centos.x86_64                         5/23 
-  Verifying  : hwdata-0.233-18.1.el6.noarch                                6/23 
-  Verifying  : rsyslog-5.8.10-10.el6_6.x86_64                              7/23 
-  Verifying  : cronie-1.4.4-16.el6_8.2.x86_64                              8/23 
-  Verifying  : sysvinit-tools-2.87-6.dsf.el6.x86_64                        9/23 
-  Verifying  : iproute-2.6.32-54.el6.x86_64                               10/23 
-  Verifying  : crontabs-1.10-33.el6.noarch                                11/23 
-  Verifying  : cyrus-sasl-2.1.23-15.el6_6.2.x86_64                        12/23 
-  Verifying  : mysql-libs-5.1.73-8.el6_8.x86_64                           13/23 
-  Verifying  : util-linux-ng-2.17.2-12.28.el6.x86_64                      14/23 
-  Verifying  : redhat-logos-60.0.14-12.el6.centos.noarch                  15/23 
-  Verifying  : iputils-20071127-24.el6.x86_64                             16/23 
-  Verifying  : dbus-glib-0.86-6.el6.x86_64                                17/23 
-  Verifying  : libpciaccess-0.13.4-1.el6.x86_64                           18/23 
-  Verifying  : 2:postfix-2.6.6-8.el6.x86_64                               19/23 
-  Verifying  : libdrm-2.4.65-2.el6.x86_64                                 20/23 
-  Verifying  : policycoreutils-2.0.83-30.1.el6_8.x86_64                   21/23 
-  Verifying  : iptables-1.4.7-16.el6.x86_64                               22/23 
-  Verifying  : logrotate-3.7.8-28.el6.x86_64                              23/23 
-
-Installed:
-  crontabs.noarch 0:1.10-33.el6                                                 
-
-Dependency Installed:
-  cronie.x86_64 0:1.4.4-16.el6_8.2                                              
-  cronie-anacron.x86_64 0:1.4.4-16.el6_8.2                                      
-  cyrus-sasl.x86_64 0:2.1.23-15.el6_6.2                                         
-  dbus-glib.x86_64 0:0.86-6.el6                                                 
-  hwdata.noarch 0:0.233-18.1.el6                                                
-  initscripts.x86_64 0:9.03.58-1.el6.centos.1                                   
-  iproute.x86_64 0:2.6.32-54.el6                                                
-  iptables.x86_64 0:1.4.7-16.el6                                                
-  iputils.x86_64 0:20071127-24.el6                                              
-  libdrm.x86_64 0:2.4.65-2.el6                                                  
-  libpciaccess.x86_64 0:0.13.4-1.el6                                            
-  logrotate.x86_64 0:3.7.8-28.el6                                               
-  mysql-libs.x86_64 0:5.1.73-8.el6_8                                            
-  plymouth.x86_64 0:0.8.3-29.el6.centos                                         
-  policycoreutils.x86_64 0:2.0.83-30.1.el6_8                                    
-  postfix.x86_64 2:2.6.6-8.el6                                                  
-  redhat-logos.noarch 0:60.0.14-12.el6.centos                                   
-  rsyslog.x86_64 0:5.8.10-10.el6_6                                              
-  sysvinit-tools.x86_64 0:2.87-6.dsf.el6                                        
-  udev.x86_64 0:147-2.73.el6_8.2                                                
-  upstart.x86_64 0:0.6.5-16.el6                                                 
-  util-linux-ng.x86_64 0:2.17.2-12.28.el6                                       
-
-Complete!
+ ---> Using cache
  ---> f4fc88f7eeab
-Removing intermediate container 4adcfa6e6e17
 Successfully built f4fc88f7eeab
 Successfully tagged mycentos:6
-Fri, 08 Sep 2017 16:30:21 UTC
+Fri, 08 Sep 2017 16:35:55 UTC
 Testing branch: master
 Progress: 0/1/23
 ==Running le_test_dependencies please wait
-[Fri Sep  8 16:30:23 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
-[Fri Sep  8 16:30:23 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
-[Fri Sep  8 16:30:23 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+[Fri Sep  8 16:35:57 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Fri Sep  8 16:35:57 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Fri Sep  8 16:35:57 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
 no crontab for root
 no crontab for root
 curl installed. [PASS]
@@ -257,19 +23,19 @@ Run Failed
 ------------------------------------------
 Progress: 1/2/23
 ==Running le_test_install please wait
-[Fri Sep  8 16:30:28 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
-[Fri Sep  8 16:30:28 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
-[Fri Sep  8 16:30:28 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+[Fri Sep  8 16:36:02 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Fri Sep  8 16:36:02 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Fri Sep  8 16:36:02 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
 ./acme.sh install [PASS]
 /root/.acme.sh/acme.sh exists. [PASS]
-_contains '28 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
+_contains '2 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
 /root/.acme.sh/acme.sh uninstall  > /dev/null [PASS]
 ------------------------------------------
 Progress: 1/3/23
 ==Running le_test_uninstall please wait
-[Fri Sep  8 16:30:29 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
-[Fri Sep  8 16:30:29 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
-[Fri Sep  8 16:30:29 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+[Fri Sep  8 16:36:03 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Fri Sep  8 16:36:03 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Fri Sep  8 16:36:03 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
 ./acme.sh install [PASS]
 /root/.acme.sh/acme.sh uninstall [PASS]
 /root/.acme.sh/acme.sh no exists. [PASS]
@@ -279,7 +45,7 @@ Progress: 1/4/23
 ==Running le_test_installtodir please wait
 ./acme.sh install [PASS]
 /root/myle/acme.sh exists. [PASS]
-_contains '29 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
+_contains '3 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
 /root/myle/acme.sh uninstall [PASS]
 ------------------------------------------
 Progress: 1/5/23
@@ -293,7 +59,7 @@ Progress: 1/6/23
 ==Running le_test_install_config_home please wait
 ./acme.sh --install --config-home /root/etc/acme [PASS]
 /root/.acme.sh/acme.sh exists. [PASS]
-_contains '30 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
+_contains '4 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
 /root/etc/acme/account.conf exists. [PASS]
 /root/.acme.sh/account.conf no exists. [PASS]
 /root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null [PASS]
@@ -303,135 +69,135 @@ _contains '30 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --
 ------------------------------------------
 Progress: 1/7/23
 ==Running le_test_standandalone_renew please wait
-[Fri Sep  8 16:30:30 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
-[Fri Sep  8 16:30:30 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
-[Fri Sep  8 16:30:30 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+[Fri Sep  8 16:36:05 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Fri Sep  8 16:36:05 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Fri Sep  8 16:36:05 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
 /root/.acme.sh/acme.sh issue no testdocker.acme.sh [FAIL] 
 Run Failed
 ------------------------------------------
 Progress: 2/8/23
 ==Running le_test_standandalone_renew_v2 please wait
-[Fri Sep  8 16:30:36 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
-[Fri Sep  8 16:30:36 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
-[Fri Sep  8 16:30:36 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+[Fri Sep  8 16:36:10 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Fri Sep  8 16:36:10 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Fri Sep  8 16:36:10 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
 /root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [FAIL] 
 Run Failed
 ------------------------------------------
 Progress: 3/9/23
 ==Running le_test_standandalone_renew_localaddress_v2 please wait
-[Fri Sep  8 16:30:41 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
-[Fri Sep  8 16:30:41 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
-[Fri Sep  8 16:30:41 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+[Fri Sep  8 16:36:16 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Fri Sep  8 16:36:16 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Fri Sep  8 16:36:16 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
 /root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --local-address 0.0.0.0 --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [FAIL] 
 Run Failed
 ------------------------------------------
 Progress: 4/10/23
 ==Running le_test_standandalone_listen_v4_v2 please wait
-[Fri Sep  8 16:30:47 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
-[Fri Sep  8 16:30:47 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
-[Fri Sep  8 16:30:47 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+[Fri Sep  8 16:36:21 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Fri Sep  8 16:36:21 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Fri Sep  8 16:36:21 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
 /root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --listen-v4 --cert-file '/acmetest/certs/domain.cer' --key-file '/acmetest/certs/domain.key'  --ca-file '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchain-file  '/acmetest/certs/full.cer' [FAIL] 
 Run Failed
 ------------------------------------------
 Progress: 5/11/23
 ==Running le_test_standandalone_listen_v6_v2 please wait
-[Fri Sep  8 16:30:52 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
-[Fri Sep  8 16:30:52 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
-[Fri Sep  8 16:30:52 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+[Fri Sep  8 16:36:27 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Fri Sep  8 16:36:27 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Fri Sep  8 16:36:27 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
 Skipped by TEST_IPV6
 ------------------------------------------
 Progress: 5/12/23
 ==Running le_test_standandalone_deactivate_v2 please wait
-[Fri Sep  8 16:30:57 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
-[Fri Sep  8 16:30:57 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
-[Fri Sep  8 16:30:57 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+[Fri Sep  8 16:36:32 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Fri Sep  8 16:36:32 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Fri Sep  8 16:36:32 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
 /root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [FAIL] 
 Run Failed
 ------------------------------------------
 Progress: 6/13/23
 ==Running le_test_standandalone please wait
-[Fri Sep  8 16:31:03 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
-[Fri Sep  8 16:31:03 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
-[Fri Sep  8 16:31:03 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+[Fri Sep  8 16:36:38 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Fri Sep  8 16:36:38 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Fri Sep  8 16:36:38 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
 /root/.acme.sh/acme.sh issue no testdocker.acme.sh [FAIL] 
 Run Failed
 ------------------------------------------
 Progress: 7/14/23
 ==Running le_test_standandalone_SAN please wait
-[Fri Sep  8 16:31:08 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
-[Fri Sep  8 16:31:08 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
-[Fri Sep  8 16:31:08 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+[Fri Sep  8 16:36:44 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Fri Sep  8 16:36:44 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Fri Sep  8 16:36:44 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
 /root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh" [FAIL] 
 Run Failed
 ------------------------------------------
 Progress: 8/15/23
 ==Running le_test_standandalone_ECDSA_256 please wait
-[Fri Sep  8 16:31:14 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
-[Fri Sep  8 16:31:14 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
-[Fri Sep  8 16:31:14 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+[Fri Sep  8 16:36:49 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Fri Sep  8 16:36:49 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Fri Sep  8 16:36:49 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
 /root/.acme.sh/acme.sh issue no testdocker.acme.sh no ec-256 [FAIL] 
 Run Failed
 ------------------------------------------
 Progress: 9/16/23
 ==Running le_test_standandalone_ECDSA_256_renew please wait
-[Fri Sep  8 16:31:19 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
-[Fri Sep  8 16:31:19 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
-[Fri Sep  8 16:31:19 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+[Fri Sep  8 16:36:55 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Fri Sep  8 16:36:55 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Fri Sep  8 16:36:55 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
 /root/.acme.sh/acme.sh issue no testdocker.acme.sh no ec-256 [FAIL] 
 Run Failed
 ------------------------------------------
 Progress: 10/17/23
 ==Running le_test_standandalone_ECDSA_256_SAN_renew please wait
-[Fri Sep  8 16:31:25 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
-[Fri Sep  8 16:31:25 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
-[Fri Sep  8 16:31:25 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+[Fri Sep  8 16:37:01 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Fri Sep  8 16:37:01 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Fri Sep  8 16:37:01 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
 /root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh" ec-256 [FAIL] 
 Run Failed
 ------------------------------------------
 Progress: 11/18/23
 ==Running le_test_standandalone_ECDSA_256_SAN_renew_v2 please wait
-[Fri Sep  8 16:31:30 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
-[Fri Sep  8 16:31:30 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
-[Fri Sep  8 16:31:30 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+[Fri Sep  8 16:37:06 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Fri Sep  8 16:37:06 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Fri Sep  8 16:37:06 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
 /root/.acme.sh/acme.sh --issue -d "testdocker.acme.sh" -d "testdocker2.acme.sh" --standalone --keylength ec-256 --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [FAIL] 
 Run Failed
 ------------------------------------------
 Progress: 12/19/23
 ==Running le_test_standandalone_ECDSA_384 please wait
-[Fri Sep  8 16:31:36 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
-[Fri Sep  8 16:31:36 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
-[Fri Sep  8 16:31:36 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+[Fri Sep  8 16:37:12 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Fri Sep  8 16:37:12 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Fri Sep  8 16:37:12 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
 /root/.acme.sh/acme.sh issue no "testdocker.acme.sh" no ec-384 [FAIL] 
 Run Failed
 ------------------------------------------
 Progress: 13/20/23
 ==Running le_test_standandalone_tls_renew_SAN_v2 please wait
-[Fri Sep  8 16:31:41 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
-[Fri Sep  8 16:31:41 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
-[Fri Sep  8 16:31:41 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+[Fri Sep  8 16:37:17 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Fri Sep  8 16:37:17 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Fri Sep  8 16:37:17 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
 /root/.acme.sh/acme.sh --issue -d "testdocker.acme.sh" --tls  -d "testdocker2.acme.sh" --standalone  [FAIL] 
 Run Failed
 ------------------------------------------
 Progress: 14/21/23
 ==Running le_test_tls_renew_SAN_v2 please wait
-[Fri Sep  8 16:31:47 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
-[Fri Sep  8 16:31:47 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
-[Fri Sep  8 16:31:47 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+[Fri Sep  8 16:37:23 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Fri Sep  8 16:37:23 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Fri Sep  8 16:37:23 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
 /root/.acme.sh/acme.sh --issue -d "testdocker.acme.sh" -d "testdocker2.acme.sh" --tls [FAIL] 
 Run Failed
 ------------------------------------------
 Progress: 15/22/23
 ==Running le_test_standandalone_renew_idn_v2 please wait
-[Fri Sep  8 16:32:04 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
-[Fri Sep  8 16:32:04 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
-[Fri Sep  8 16:32:04 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+[Fri Sep  8 16:37:45 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Fri Sep  8 16:37:45 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Fri Sep  8 16:37:45 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
 Skipped by TEST_IDN
 ------------------------------------------
 Progress: 15/23/23
 ==Running le_test_dnsapi please wait
-[Fri Sep  8 16:32:09 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
-[Fri Sep  8 16:32:09 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
-[Fri Sep  8 16:32:09 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+[Fri Sep  8 16:37:50 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Fri Sep  8 16:37:50 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Fri Sep  8 16:37:50 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
 The test domain Test_CF_Domain is not defined, skip:ClourFlare_api
 The test domain Test_CX_Domain is not defined, skip:CloudXNS.com_api
 The test domain Test_DP_Domain is not defined, skip:Dnspod.cn_api
