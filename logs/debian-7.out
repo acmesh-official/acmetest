@@ -2,269 +2,11 @@ Sending build context to Docker daemon  2.048kB
 Step 1/2 : FROM debian:7
  ---> 0ec46eb38976
 Step 2/2 : RUN apt-get -y update  2>&1 && apt-get -y install openssl cron socat curl idn  2>&1
- ---> Running in 5708d446fa8b
-Get:1 http://security.debian.org wheezy/updates Release.gpg [1554 B]
-Get:2 http://security.debian.org wheezy/updates Release [39.0 kB]
-Get:3 http://deb.debian.org wheezy Release.gpg [2373 B]
-Get:4 http://deb.debian.org wheezy-updates Release.gpg [1554 B]
-Get:5 http://security.debian.org wheezy/updates/main amd64 Packages [705 kB]
-Get:6 http://deb.debian.org wheezy Release [191 kB]
-Get:7 http://deb.debian.org wheezy-updates Release [155 kB]
-Get:8 http://deb.debian.org wheezy/main amd64 Packages [7634 kB]
-Get:9 http://deb.debian.org wheezy-updates/main amd64 Packages [7481 B]
-Fetched 8737 kB in 1s (5274 kB/s)
-Reading package lists...
-Reading package lists...
-Building dependency tree...
-Reading state information...
-The following extra packages will be installed:
-  adduser ca-certificates exim4 exim4-base exim4-config exim4-daemon-light
-  heirloom-mailx krb5-locales libclass-isa-perl libcurl3 libgcrypt11 libgdbm3
-  libgnutls26 libgpg-error0 libgssapi-krb5-2 libidn11 libk5crypto3
-  libkeyutils1 libkrb5-3 libkrb5support0 libldap-2.4-2 libp11-kit0 libpcre3
-  librtmp0 libsasl2-2 libsasl2-modules libssh2-1 libssl1.0.0 libswitch-perl
-  libtasn1-3 libwrap0 perl perl-modules psmisc tcpd
-Suggested packages:
-  anacron logrotate checksecurity mail-reader eximon4 exim4-doc-html
-  exim4-doc-info file spf-tools-perl swaks rng-tools krb5-doc krb5-user
-  libsasl2-modules-otp libsasl2-modules-ldap libsasl2-modules-sql
-  libsasl2-modules-gssapi-mit libsasl2-modules-gssapi-heimdal perl-doc
-  libterm-readline-gnu-perl libterm-readline-perl-perl make
-  libpod-plainer-perl
-Recommended packages:
-  mailx
-The following NEW packages will be installed:
-  adduser ca-certificates cron curl exim4 exim4-base exim4-config
-  exim4-daemon-light heirloom-mailx idn krb5-locales libclass-isa-perl
-  libcurl3 libgcrypt11 libgdbm3 libgnutls26 libgpg-error0 libgssapi-krb5-2
-  libidn11 libk5crypto3 libkeyutils1 libkrb5-3 libkrb5support0 libldap-2.4-2
-  libp11-kit0 libpcre3 librtmp0 libsasl2-2 libsasl2-modules libssh2-1
-  libssl1.0.0 libswitch-perl libtasn1-3 libwrap0 openssl perl perl-modules
-  psmisc socat tcpd
-0 upgraded, 40 newly installed, 0 to remove and 0 not upgraded.
-Need to get 18.8 MB of archives.
-After this operation, 53.8 MB of additional disk space will be used.
-Get:1 http://security.debian.org/ wheezy/updates/main libgcrypt11 amd64 1.5.0-5+deb7u6 [301 kB]
-Get:2 http://security.debian.org/ wheezy/updates/main libssl1.0.0 amd64 1.0.1t-1+deb7u2 [1278 kB]
-Get:3 http://deb.debian.org/debian/ wheezy/main adduser all 3.113+nmu3 [264 kB]
-Get:4 http://security.debian.org/ wheezy/updates/main libtasn1-3 amd64 2.13-2+deb7u5 [68.9 kB]
-Get:5 http://deb.debian.org/debian/ wheezy/main cron amd64 3.0pl1-124 [108 kB]
-Get:6 http://security.debian.org/ wheezy/updates/main libkrb5support0 amd64 1.10.1+dfsg-5+deb7u8 [50.5 kB]
-Get:7 http://security.debian.org/ wheezy/updates/main libk5crypto3 amd64 1.10.1+dfsg-5+deb7u8 [113 kB]
-Get:8 http://security.debian.org/ wheezy/updates/main libkrb5-3 amd64 1.10.1+dfsg-5+deb7u8 [394 kB]
-Get:9 http://deb.debian.org/debian/ wheezy/main libgpg-error0 amd64 1.10-3.1 [77.9 kB]
-Get:10 http://security.debian.org/ wheezy/updates/main libgssapi-krb5-2 amd64 1.10.1+dfsg-5+deb7u8 [150 kB]
-Get:11 http://security.debian.org/ wheezy/updates/main libidn11 amd64 1.25-2+deb7u3 [180 kB]
-Get:12 http://deb.debian.org/debian/ wheezy/main libgdbm3 amd64 1.8.3-11 [46.9 kB]
-Get:13 http://security.debian.org/ wheezy/updates/main libldap-2.4-2 amd64 2.4.31-2+deb7u3 [244 kB]
-Get:14 http://security.debian.org/ wheezy/updates/main librtmp0 amd64 2.4+20111222.git4e06e21-1+deb7u1 [62.5 kB]
-Get:15 http://security.debian.org/ wheezy/updates/main libcurl3 amd64 7.26.0-1+wheezy20 [334 kB]
-Get:16 http://deb.debian.org/debian/ wheezy/main libp11-kit0 amd64 0.12-3 [52.8 kB]
-Get:17 http://security.debian.org/ wheezy/updates/main exim4-config all 4.80-7+deb7u5 [473 kB]
-Get:18 http://security.debian.org/ wheezy/updates/main exim4-base amd64 4.80-7+deb7u5 [1040 kB]
-Get:19 http://deb.debian.org/debian/ wheezy/main libgnutls26 amd64 2.12.20-8+deb7u5 [620 kB]
-Get:20 http://security.debian.org/ wheezy/updates/main exim4-daemon-light amd64 4.80-7+deb7u5 [658 kB]
-Get:21 http://deb.debian.org/debian/ wheezy/main libkeyutils1 amd64 1.5.5-3+deb7u1 [8664 B]
-Get:22 http://deb.debian.org/debian/ wheezy/main libpcre3 amd64 1:8.30-5 [242 kB]
-Get:23 http://security.debian.org/ wheezy/updates/main exim4 all 4.80-7+deb7u5 [7810 B]
-Get:24 http://security.debian.org/ wheezy/updates/main krb5-locales all 1.10.1+dfsg-5+deb7u8 [1504 kB]
-Get:25 http://deb.debian.org/debian/ wheezy/main libsasl2-2 amd64 2.1.25.dfsg1-6+deb7u1 [120 kB]
-Get:26 http://security.debian.org/ wheezy/updates/main perl-modules all 5.14.2-21+deb7u5 [3441 kB]
-Get:27 http://deb.debian.org/debian/ wheezy/main libwrap0 amd64 7.6.q-24 [62.4 kB]
-Get:28 http://deb.debian.org/debian/ wheezy/main libssh2-1 amd64 1.4.2-1.1+deb7u2 [134 kB]
-Get:29 http://deb.debian.org/debian/ wheezy/main libclass-isa-perl all 0.36-3 [12.3 kB]
-Get:30 http://deb.debian.org/debian/ wheezy/main libswitch-perl all 2.16-2 [21.0 kB]
-Get:31 http://security.debian.org/ wheezy/updates/main perl amd64 5.14.2-21+deb7u5 [4434 kB]
-Get:32 http://deb.debian.org/debian/ wheezy/main ca-certificates all 20130119+deb7u1 [210 kB]
-Get:33 http://deb.debian.org/debian/ wheezy/main heirloom-mailx amd64 12.5-2+deb7u1 [274 kB]
-Get:34 http://deb.debian.org/debian/ wheezy/main libsasl2-modules amd64 2.1.25.dfsg1-6+deb7u1 [116 kB]
-Get:35 http://deb.debian.org/debian/ wheezy/main psmisc amd64 22.19-1+deb7u1 [135 kB]
-Get:36 http://security.debian.org/ wheezy/updates/main openssl amd64 1.0.1t-1+deb7u2 [700 kB]
-Get:37 http://deb.debian.org/debian/ wheezy/main tcpd amd64 7.6.q-24 [28.2 kB]
-Get:38 http://security.debian.org/ wheezy/updates/main curl amd64 7.26.0-1+wheezy20 [273 kB]
-Get:39 http://security.debian.org/ wheezy/updates/main idn amd64 1.25-2+deb7u3 [133 kB]
-Get:40 http://deb.debian.org/debian/ wheezy/main socat amd64 1.7.1.3-1.4 [384 kB]
-debconf: delaying package configuration, since apt-utils is not installed
-Fetched 18.8 MB in 2s (9056 kB/s)
-Selecting previously unselected package adduser.
-(Reading database ... 6747 files and directories currently installed.)
-Unpacking adduser (from .../adduser_3.113+nmu3_all.deb) ...
-Selecting previously unselected package cron.
-Unpacking cron (from .../cron_3.0pl1-124_amd64.deb) ...
-Selecting previously unselected package libgpg-error0:amd64.
-Unpacking libgpg-error0:amd64 (from .../libgpg-error0_1.10-3.1_amd64.deb) ...
-Selecting previously unselected package libgcrypt11:amd64.
-Unpacking libgcrypt11:amd64 (from .../libgcrypt11_1.5.0-5+deb7u6_amd64.deb) ...
-Selecting previously unselected package libgdbm3:amd64.
-Unpacking libgdbm3:amd64 (from .../libgdbm3_1.8.3-11_amd64.deb) ...
-Selecting previously unselected package libssl1.0.0:amd64.
-Unpacking libssl1.0.0:amd64 (from .../libssl1.0.0_1.0.1t-1+deb7u2_amd64.deb) ...
-Selecting previously unselected package libtasn1-3:amd64.
-Unpacking libtasn1-3:amd64 (from .../libtasn1-3_2.13-2+deb7u5_amd64.deb) ...
-Selecting previously unselected package libp11-kit0:amd64.
-Unpacking libp11-kit0:amd64 (from .../libp11-kit0_0.12-3_amd64.deb) ...
-Selecting previously unselected package libgnutls26:amd64.
-Unpacking libgnutls26:amd64 (from .../libgnutls26_2.12.20-8+deb7u5_amd64.deb) ...
-Selecting previously unselected package libkeyutils1:amd64.
-Unpacking libkeyutils1:amd64 (from .../libkeyutils1_1.5.5-3+deb7u1_amd64.deb) ...
-Selecting previously unselected package libkrb5support0:amd64.
-Unpacking libkrb5support0:amd64 (from .../libkrb5support0_1.10.1+dfsg-5+deb7u8_amd64.deb) ...
-Selecting previously unselected package libk5crypto3:amd64.
-Unpacking libk5crypto3:amd64 (from .../libk5crypto3_1.10.1+dfsg-5+deb7u8_amd64.deb) ...
-Selecting previously unselected package libkrb5-3:amd64.
-Unpacking libkrb5-3:amd64 (from .../libkrb5-3_1.10.1+dfsg-5+deb7u8_amd64.deb) ...
-Selecting previously unselected package libgssapi-krb5-2:amd64.
-Unpacking libgssapi-krb5-2:amd64 (from .../libgssapi-krb5-2_1.10.1+dfsg-5+deb7u8_amd64.deb) ...
-Selecting previously unselected package libidn11:amd64.
-Unpacking libidn11:amd64 (from .../libidn11_1.25-2+deb7u3_amd64.deb) ...
-Selecting previously unselected package libpcre3:amd64.
-Unpacking libpcre3:amd64 (from .../libpcre3_1%3a8.30-5_amd64.deb) ...
-Selecting previously unselected package libsasl2-2:amd64.
-Unpacking libsasl2-2:amd64 (from .../libsasl2-2_2.1.25.dfsg1-6+deb7u1_amd64.deb) ...
-Selecting previously unselected package libwrap0:amd64.
-Unpacking libwrap0:amd64 (from .../libwrap0_7.6.q-24_amd64.deb) ...
-Selecting previously unselected package libldap-2.4-2:amd64.
-Unpacking libldap-2.4-2:amd64 (from .../libldap-2.4-2_2.4.31-2+deb7u3_amd64.deb) ...
-Selecting previously unselected package librtmp0:amd64.
-Unpacking librtmp0:amd64 (from .../librtmp0_2.4+20111222.git4e06e21-1+deb7u1_amd64.deb) ...
-Selecting previously unselected package libssh2-1:amd64.
-Unpacking libssh2-1:amd64 (from .../libssh2-1_1.4.2-1.1+deb7u2_amd64.deb) ...
-Selecting previously unselected package libcurl3:amd64.
-Unpacking libcurl3:amd64 (from .../libcurl3_7.26.0-1+wheezy20_amd64.deb) ...
-Selecting previously unselected package exim4-config.
-Unpacking exim4-config (from .../exim4-config_4.80-7+deb7u5_all.deb) ...
-Selecting previously unselected package exim4-base.
-Unpacking exim4-base (from .../exim4-base_4.80-7+deb7u5_amd64.deb) ...
-Selecting previously unselected package exim4-daemon-light.
-Unpacking exim4-daemon-light (from .../exim4-daemon-light_4.80-7+deb7u5_amd64.deb) ...
-Selecting previously unselected package exim4.
-Unpacking exim4 (from .../exim4_4.80-7+deb7u5_all.deb) ...
-Selecting previously unselected package krb5-locales.
-Unpacking krb5-locales (from .../krb5-locales_1.10.1+dfsg-5+deb7u8_all.deb) ...
-Selecting previously unselected package libclass-isa-perl.
-Unpacking libclass-isa-perl (from .../libclass-isa-perl_0.36-3_all.deb) ...
-Selecting previously unselected package perl-modules.
-Unpacking perl-modules (from .../perl-modules_5.14.2-21+deb7u5_all.deb) ...
-Selecting previously unselected package perl.
-Unpacking perl (from .../perl_5.14.2-21+deb7u5_amd64.deb) ...
-Selecting previously unselected package libswitch-perl.
-Unpacking libswitch-perl (from .../libswitch-perl_2.16-2_all.deb) ...
-Selecting previously unselected package openssl.
-Unpacking openssl (from .../openssl_1.0.1t-1+deb7u2_amd64.deb) ...
-Selecting previously unselected package ca-certificates.
-Unpacking ca-certificates (from .../ca-certificates_20130119+deb7u1_all.deb) ...
-Selecting previously unselected package curl.
-Unpacking curl (from .../curl_7.26.0-1+wheezy20_amd64.deb) ...
-Selecting previously unselected package heirloom-mailx.
-Unpacking heirloom-mailx (from .../heirloom-mailx_12.5-2+deb7u1_amd64.deb) ...
-Selecting previously unselected package idn.
-Unpacking idn (from .../idn_1.25-2+deb7u3_amd64.deb) ...
-Selecting previously unselected package libsasl2-modules:amd64.
-Unpacking libsasl2-modules:amd64 (from .../libsasl2-modules_2.1.25.dfsg1-6+deb7u1_amd64.deb) ...
-Selecting previously unselected package psmisc.
-Unpacking psmisc (from .../psmisc_22.19-1+deb7u1_amd64.deb) ...
-Selecting previously unselected package tcpd.
-Unpacking tcpd (from .../tcpd_7.6.q-24_amd64.deb) ...
-Selecting previously unselected package socat.
-Unpacking socat (from .../socat_1.7.1.3-1.4_amd64.deb) ...
-Setting up adduser (3.113+nmu3) ...
-debconf: unable to initialize frontend: Dialog
-debconf: (TERM is not set, so the dialog frontend is not usable.)
-debconf: falling back to frontend: Readline
-debconf: unable to initialize frontend: Readline
-debconf: (This frontend requires a controlling tty.)
-debconf: falling back to frontend: Teletype
-Setting up cron (3.0pl1-124) ...
-Adding group `crontab' (GID 102) ...
-Done.
-invoke-rc.d: policy-rc.d denied execution of start.
-Setting up libgpg-error0:amd64 (1.10-3.1) ...
-Setting up libgcrypt11:amd64 (1.5.0-5+deb7u6) ...
-Setting up libgdbm3:amd64 (1.8.3-11) ...
-Setting up libssl1.0.0:amd64 (1.0.1t-1+deb7u2) ...
-debconf: unable to initialize frontend: Dialog
-debconf: (TERM is not set, so the dialog frontend is not usable.)
-debconf: falling back to frontend: Readline
-debconf: unable to initialize frontend: Readline
-debconf: (This frontend requires a controlling tty.)
-debconf: falling back to frontend: Teletype
-Setting up libtasn1-3:amd64 (2.13-2+deb7u5) ...
-Setting up libp11-kit0:amd64 (0.12-3) ...
-Setting up libgnutls26:amd64 (2.12.20-8+deb7u5) ...
-Setting up libkeyutils1:amd64 (1.5.5-3+deb7u1) ...
-Setting up libkrb5support0:amd64 (1.10.1+dfsg-5+deb7u8) ...
-Setting up libk5crypto3:amd64 (1.10.1+dfsg-5+deb7u8) ...
-Setting up libkrb5-3:amd64 (1.10.1+dfsg-5+deb7u8) ...
-Setting up libgssapi-krb5-2:amd64 (1.10.1+dfsg-5+deb7u8) ...
-Setting up libidn11:amd64 (1.25-2+deb7u3) ...
-Setting up libpcre3:amd64 (1:8.30-5) ...
-Setting up libsasl2-2:amd64 (2.1.25.dfsg1-6+deb7u1) ...
-Setting up libwrap0:amd64 (7.6.q-24) ...
-Setting up libldap-2.4-2:amd64 (2.4.31-2+deb7u3) ...
-Setting up librtmp0:amd64 (2.4+20111222.git4e06e21-1+deb7u1) ...
-Setting up libssh2-1:amd64 (1.4.2-1.1+deb7u2) ...
-Setting up libcurl3:amd64 (7.26.0-1+wheezy20) ...
-Setting up exim4-config (4.80-7+deb7u5) ...
-debconf: unable to initialize frontend: Dialog
-debconf: (TERM is not set, so the dialog frontend is not usable.)
-debconf: falling back to frontend: Readline
-debconf: unable to initialize frontend: Readline
-debconf: (This frontend requires a controlling tty.)
-debconf: falling back to frontend: Teletype
-Adding system-user for exim (v4)
-Setting up exim4-base (4.80-7+deb7u5) ...
-debconf: unable to initialize frontend: Dialog
-debconf: (TERM is not set, so the dialog frontend is not usable.)
-debconf: falling back to frontend: Readline
-debconf: unable to initialize frontend: Readline
-debconf: (This frontend requires a controlling tty.)
-debconf: falling back to frontend: Teletype
-exim: DB upgrade, deleting hints-db
-Setting up exim4-daemon-light (4.80-7+deb7u5) ...
-debconf: unable to initialize frontend: Dialog
-debconf: (TERM is not set, so the dialog frontend is not usable.)
-debconf: falling back to frontend: Readline
-debconf: unable to initialize frontend: Readline
-debconf: (This frontend requires a controlling tty.)
-debconf: falling back to frontend: Teletype
-invoke-rc.d: policy-rc.d denied execution of start.
-Setting up exim4 (4.80-7+deb7u5) ...
-debconf: unable to initialize frontend: Dialog
-debconf: (TERM is not set, so the dialog frontend is not usable.)
-debconf: falling back to frontend: Readline
-debconf: unable to initialize frontend: Readline
-debconf: (This frontend requires a controlling tty.)
-debconf: falling back to frontend: Teletype
-Setting up krb5-locales (1.10.1+dfsg-5+deb7u8) ...
-Setting up libclass-isa-perl (0.36-3) ...
-Setting up openssl (1.0.1t-1+deb7u2) ...
-Setting up ca-certificates (20130119+deb7u1) ...
-debconf: unable to initialize frontend: Dialog
-debconf: (TERM is not set, so the dialog frontend is not usable.)
-debconf: falling back to frontend: Readline
-debconf: unable to initialize frontend: Readline
-debconf: (This frontend requires a controlling tty.)
-debconf: falling back to frontend: Teletype
-Setting up curl (7.26.0-1+wheezy20) ...
-Setting up heirloom-mailx (12.5-2+deb7u1) ...
-update-alternatives: using /usr/bin/heirloom-mailx to provide /usr/bin/mailx (mailx) in auto mode
-Setting up idn (1.25-2+deb7u3) ...
-Setting up libsasl2-modules:amd64 (2.1.25.dfsg1-6+deb7u1) ...
-Setting up psmisc (22.19-1+deb7u1) ...
-Setting up tcpd (7.6.q-24) ...
-Setting up socat (1.7.1.3-1.4) ...
-Setting up perl-modules (5.14.2-21+deb7u5) ...
-Setting up perl (5.14.2-21+deb7u5) ...
-update-alternatives: using /usr/bin/prename to provide /usr/bin/rename (rename) in auto mode
-Setting up libswitch-perl (2.16-2) ...
-Processing triggers for ca-certificates ...
-Updating certificates in /etc/ssl/certs... 171 added, 0 removed; done.
-Running hooks in /etc/ca-certificates/update.d....done.
+ ---> Using cache
  ---> fec940ca2d76
-Removing intermediate container 5708d446fa8b
 Successfully built fec940ca2d76
 Successfully tagged mydebian:7
-Fri, 08 Sep 2017 03:39:55 UTC
+Fri, 08 Sep 2017 16:02:08 UTC
 Testing branch: master
 Progress: 0/1/23
 ==Running le_test_dependencies please wait
@@ -279,7 +21,7 @@ Progress: 0/2/23
 ==Running le_test_install please wait
 ./acme.sh install [PASS]
 /root/.acme.sh/acme.sh exists. [PASS]
-_contains '1 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
+_contains '15 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
 /root/.acme.sh/acme.sh uninstall  > /dev/null [PASS]
 ------------------------------------------
 Progress: 0/3/23
@@ -293,7 +35,7 @@ Progress: 0/4/23
 ==Running le_test_installtodir please wait
 ./acme.sh install [PASS]
 /root/myle/acme.sh exists. [PASS]
-_contains '2 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
+_contains '16 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
 /root/myle/acme.sh uninstall [PASS]
 ------------------------------------------
 Progress: 0/5/23
@@ -307,7 +49,7 @@ Progress: 0/6/23
 ==Running le_test_install_config_home please wait
 ./acme.sh --install --config-home /root/etc/acme [PASS]
 /root/.acme.sh/acme.sh exists. [PASS]
-_contains '3 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
+_contains '17 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
 /root/etc/acme/account.conf exists. [PASS]
 /root/.acme.sh/account.conf no exists. [PASS]
 /root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null [PASS]
