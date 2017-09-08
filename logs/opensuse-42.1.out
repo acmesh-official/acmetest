@@ -2,7 +2,7 @@ Sending build context to Docker daemon  2.048kB
 Step 1/2 : FROM opensuse:42.1
  ---> 4d74fa6343be
 Step 2/2 : RUN zypper update -y  2>&1 && zypper install  -y   tar openssl cron socat curl libidn  2>&1
- ---> Running in 97d4287dd004
+ ---> Running in e73f5b5f6566
 Retrieving repository 'NON-OSS' metadata [.
 File '/media.1/media' not found on medium 'http://download.opensuse.org/distribution/leap/42.1/repo/non-oss/'
 
