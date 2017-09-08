@@ -2,29 +2,29 @@ Sending build context to Docker daemon  2.048kB
 Step 1/2 : FROM ubuntu:17.04
  ---> bde41be8de8c
 Step 2/2 : RUN apt-get -y update && locale-gen en_US.UTF-8 && export LANG=en_US.UTF-8  2>&1 && apt-get -y install openssl cron socat curl idn  2>&1
- ---> Running in 9a08ff4d7dae
+ ---> Running in 2798f1d331ec
 Get:1 http://security.ubuntu.com/ubuntu zesty-security InRelease [89.2 kB]
-Get:2 http://archive.ubuntu.com/ubuntu zesty InRelease [243 kB]
-Get:3 http://archive.ubuntu.com/ubuntu zesty-updates InRelease [89.2 kB]
-Get:4 http://archive.ubuntu.com/ubuntu zesty-backports InRelease [89.2 kB]
-Get:5 http://security.ubuntu.com/ubuntu zesty-security/universe Sources [22.1 kB]
-Get:6 http://security.ubuntu.com/ubuntu zesty-security/universe amd64 Packages [82.3 kB]
-Get:7 http://security.ubuntu.com/ubuntu zesty-security/main amd64 Packages [171 kB]
-Get:8 http://security.ubuntu.com/ubuntu zesty-security/multiverse amd64 Packages [2641 B]
-Get:9 http://security.ubuntu.com/ubuntu zesty-security/restricted amd64 Packages [2880 B]
+Get:2 http://security.ubuntu.com/ubuntu zesty-security/universe Sources [22.1 kB]
+Get:3 http://security.ubuntu.com/ubuntu zesty-security/restricted amd64 Packages [2880 B]
+Get:4 http://security.ubuntu.com/ubuntu zesty-security/main amd64 Packages [171 kB]
+Get:5 http://archive.ubuntu.com/ubuntu zesty InRelease [243 kB]
+Get:6 http://security.ubuntu.com/ubuntu zesty-security/multiverse amd64 Packages [2641 B]
+Get:7 http://security.ubuntu.com/ubuntu zesty-security/universe amd64 Packages [82.3 kB]
+Get:8 http://archive.ubuntu.com/ubuntu zesty-updates InRelease [89.2 kB]
+Get:9 http://archive.ubuntu.com/ubuntu zesty-backports InRelease [89.2 kB]
 Get:10 http://archive.ubuntu.com/ubuntu zesty/universe Sources [10.7 MB]
-Get:11 http://archive.ubuntu.com/ubuntu zesty/main amd64 Packages [1574 kB]
-Get:12 http://archive.ubuntu.com/ubuntu zesty/multiverse amd64 Packages [189 kB]
+Get:11 http://archive.ubuntu.com/ubuntu zesty/multiverse amd64 Packages [189 kB]
+Get:12 http://archive.ubuntu.com/ubuntu zesty/main amd64 Packages [1574 kB]
 Get:13 http://archive.ubuntu.com/ubuntu zesty/restricted amd64 Packages [14.3 kB]
 Get:14 http://archive.ubuntu.com/ubuntu zesty/universe amd64 Packages [10.5 MB]
 Get:15 http://archive.ubuntu.com/ubuntu zesty-updates/universe Sources [58.0 kB]
-Get:16 http://archive.ubuntu.com/ubuntu zesty-updates/main amd64 Packages [262 kB]
-Get:17 http://archive.ubuntu.com/ubuntu zesty-updates/multiverse amd64 Packages [12.4 kB]
-Get:18 http://archive.ubuntu.com/ubuntu zesty-updates/restricted amd64 Packages [3257 B]
-Get:19 http://archive.ubuntu.com/ubuntu zesty-updates/universe amd64 Packages [167 kB]
-Get:20 http://archive.ubuntu.com/ubuntu zesty-backports/main amd64 Packages [1462 B]
-Get:21 http://archive.ubuntu.com/ubuntu zesty-backports/universe amd64 Packages [3254 B]
-Fetched 24.3 MB in 3s (6442 kB/s)
+Get:16 http://archive.ubuntu.com/ubuntu zesty-updates/multiverse amd64 Packages [12.4 kB]
+Get:17 http://archive.ubuntu.com/ubuntu zesty-updates/restricted amd64 Packages [3257 B]
+Get:18 http://archive.ubuntu.com/ubuntu zesty-updates/universe amd64 Packages [167 kB]
+Get:19 http://archive.ubuntu.com/ubuntu zesty-updates/main amd64 Packages [262 kB]
+Get:20 http://archive.ubuntu.com/ubuntu zesty-backports/universe amd64 Packages [3254 B]
+Get:21 http://archive.ubuntu.com/ubuntu zesty-backports/main amd64 Packages [1462 B]
+Fetched 24.3 MB in 4s (5635 kB/s)
 Reading package lists...
-[91m/bin/sh: 1: [0m[91mlocale-gen: not found
+[91m/bin/sh: 1: locale-gen: not found
 [0mThe command '/bin/sh -c apt-get -y update && locale-gen en_US.UTF-8 && export LANG=en_US.UTF-8  2>&1 && apt-get -y install openssl cron socat curl idn  2>&1' returned a non-zero code: 127
