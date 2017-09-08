@@ -1,14 +1,14 @@
 Sending build context to Docker daemon  2.048kB
 Step 1/2 : FROM fedora:22
- ---> 8b5cf972e254
+ ---> 01a9fe974dba
 Step 2/2 : RUN yum  -y update     2>&1 && yum  -y install    tar openssl crontabs socat curl  2>&1
- ---> Running in 339bef26d09b
+ ---> Running in dd0ea879a06a
 Yum command has been deprecated, redirecting to '/usr/bin/dnf -y update'.
 See 'man dnf' and 'man yum2dnf' for more information.
 To transfer transaction metadata from yum to DNF, run:
 'dnf install python-dnf-plugins-extras-migrate && dnf-2 migrate'
 
-Last metadata expiration check performed 0:00:09 ago on Sat Sep  2 17:51:20 2017.
+Last metadata expiration check performed 0:00:09 ago on Fri Sep  8 17:55:29 2017.
 Dependencies resolved.
 ================================================================================
  Package                        Arch      Version              Repository  Size
@@ -71,9 +71,9 @@ cannot reconstruct rpm from disk files
 cannot reconstruct rpm from disk files
 /usr/share/doc/libssh2/AUTHORS: No such file or directory
 cannot reconstruct rpm from disk files
-/usr/share/doc/lua/README: No such file or directory
-cannot reconstruct rpm from disk files
 /usr/share/doc/libtasn1/AUTHORS: No such file or directory
+cannot reconstruct rpm from disk files
+/usr/share/doc/lua/README: No such file or directory
 cannot reconstruct rpm from disk files
 /usr/share/doc/python-libs/README: No such file or directory
 cannot reconstruct rpm from disk files
@@ -85,7 +85,7 @@ libarchive-3.1.2-14.fc22.x86_64: Delta RPM rebuild failed
 elfutils-libelf-0.166-1.fc22.x86_64: Delta RPM rebuild failed
 libssh2-1.5.0-2.fc22.x86_64: Delta RPM rebuild failed
 --------------------------------------------------------------------------------
-Total                                            91 kB/s |  35 MB     06:35     
+Total                                           4.0 MB/s |  35 MB     00:08     
 Delta RPMs reduced 34.7 MB of updates to 35.2 MB (-1.1% saved)
 Running transaction check
 Transaction check succeeded.
@@ -292,7 +292,7 @@ See 'man dnf' and 'man yum2dnf' for more information.
 To transfer transaction metadata from yum to DNF, run:
 'dnf install python-dnf-plugins-extras-migrate && dnf-2 migrate'
 
-Last metadata expiration check performed 0:07:33 ago on Sat Sep  2 17:51:20 2017.
+Last metadata expiration check performed 0:01:02 ago on Fri Sep  8 17:55:29 2017.
 Package curl-7.40.0-8.fc22.x86_64 is already installed, skipping.
 Dependencies resolved.
 ================================================================================
@@ -315,7 +315,7 @@ Total download size: 2.3 M
 Installed size: 6.3 M
 Downloading Packages:
 --------------------------------------------------------------------------------
-Total                                           2.5 MB/s | 2.3 MB     00:00     
+Total                                            76 kB/s | 2.3 MB     00:30     
 Running transaction check
 Transaction check succeeded.
 Running transaction test
@@ -344,11 +344,11 @@ Installed:
   tar.x86_64 2:1.28-6.fc22                
 
 Complete!
- ---> b083f1b75c84
-Removing intermediate container 339bef26d09b
-Successfully built b083f1b75c84
+ ---> 85bb199faf8d
+Removing intermediate container dd0ea879a06a
+Successfully built 85bb199faf8d
 Successfully tagged myfedora:22
-Sat, 02 Sep 2017 17:59:14 UTC
+Fri, 08 Sep 2017 17:57:20 UTC
 Testing branch: master
 Progress: 0/1/23
 ==Running le_test_dependencies please wait
@@ -363,7 +363,7 @@ Progress: 0/2/23
 ==Running le_test_install please wait
 ./acme.sh install [PASS]
 /root/.acme.sh/acme.sh exists. [PASS]
-_contains '21 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
+_contains '27 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
 /root/.acme.sh/acme.sh uninstall  > /dev/null [PASS]
 ------------------------------------------
 Progress: 0/3/23
@@ -377,7 +377,7 @@ Progress: 0/4/23
 ==Running le_test_installtodir please wait
 ./acme.sh install [PASS]
 /root/myle/acme.sh exists. [PASS]
-_contains '22 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
+_contains '28 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
 /root/myle/acme.sh uninstall [PASS]
 ------------------------------------------
 Progress: 0/5/23
@@ -391,7 +391,7 @@ Progress: 0/6/23
 ==Running le_test_install_config_home please wait
 ./acme.sh --install --config-home /root/etc/acme [PASS]
 /root/.acme.sh/acme.sh exists. [PASS]
-_contains '23 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
+_contains '29 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
 /root/etc/acme/account.conf exists. [PASS]
 /root/.acme.sh/account.conf no exists. [PASS]
 /root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null [PASS]
