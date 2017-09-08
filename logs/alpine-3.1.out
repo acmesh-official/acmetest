@@ -1,11 +1,11 @@
 Sending build context to Docker daemon  2.048kB
 Step 1/2 : FROM alpine:3.1
- ---> 885194f4c89a
+ ---> 00772ebf9244
 Step 2/2 : RUN apk update -f 2>&1 && apk --no-cache add -f openssl curl socat  2>&1
- ---> Running in 20d281d5379e
+ ---> Running in d4d61d62ec8c
 fetch http://dl-cdn.alpinelinux.org/alpine/v3.1/main/x86_64/APKINDEX.tar.gz
 v3.1.4-336-gba3dc3d [http://dl-cdn.alpinelinux.org/alpine/v3.1/main]
-OK: 4865 distinct packages available
+OK: 4861 distinct packages available
 unrecognized option `--no-cache'
 (1/12) Installing openssl (1.0.1u-r0)
 (2/12) Installing run-parts (4.4-r0)
@@ -22,11 +22,11 @@ unrecognized option `--no-cache'
 Executing busybox-1.22.1-r15.trigger
 Executing ca-certificates-20141019-r0.trigger
 OK: 9 MiB in 27 packages
- ---> d7c9fafbbaab
-Removing intermediate container 20d281d5379e
-Successfully built d7c9fafbbaab
+ ---> ecde45ecc05c
+Removing intermediate container d4d61d62ec8c
+Successfully built ecde45ecc05c
 Successfully tagged myalpine:3.1
-Sat, 02 Sep 2017 18:52:56 UTC
+Fri, 08 Sep 2017 18:59:22 UTC
 Testing branch: master
 Progress: 0/1/23
 ==Running le_test_dependencies please wait
@@ -39,7 +39,7 @@ Progress: 0/2/23
 ==Running le_test_install please wait
 ./acme.sh install [PASS]
 /root/.acme.sh/acme.sh exists. [PASS]
-_contains '2 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
+_contains '27 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
 /root/.acme.sh/acme.sh uninstall  > /dev/null [PASS]
 ------------------------------------------
 Progress: 0/3/23
@@ -53,7 +53,7 @@ Progress: 0/4/23
 ==Running le_test_installtodir please wait
 ./acme.sh install [PASS]
 /root/myle/acme.sh exists. [PASS]
-_contains '2 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
+_contains '28 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
 /root/myle/acme.sh uninstall [PASS]
 ------------------------------------------
 Progress: 0/5/23
@@ -67,7 +67,7 @@ Progress: 0/6/23
 ==Running le_test_install_config_home please wait
 ./acme.sh --install --config-home /root/etc/acme [PASS]
 /root/.acme.sh/acme.sh exists. [PASS]
-_contains '2 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
+_contains '28 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
 /root/etc/acme/account.conf exists. [PASS]
 /root/.acme.sh/account.conf no exists. [PASS]
 /root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null [PASS]
