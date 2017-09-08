@@ -1,32 +1,35 @@
 Sending build context to Docker daemon  2.048kB
 Step 1/2 : FROM alpine:latest
- ---> 13e1761bf172
+ ---> 7328f6f8b418
 Step 2/2 : RUN apk update -f 2>&1 && apk --no-cache add -f openssl curl socat  2>&1
- ---> Running in 544869e88a84
-fetch http://dl-cdn.alpinelinux.org/alpine/v3.3/main/x86_64/APKINDEX.tar.gz
-fetch http://dl-cdn.alpinelinux.org/alpine/v3.3/community/x86_64/APKINDEX.tar.gz
-v3.3.3-336-g8bb5cf0 [http://dl-cdn.alpinelinux.org/alpine/v3.3/main]
-v3.3.3-294-g70e4c85 [http://dl-cdn.alpinelinux.org/alpine/v3.3/community]
-OK: 5854 distinct packages available
-fetch http://dl-cdn.alpinelinux.org/alpine/v3.3/main/x86_64/APKINDEX.tar.gz
-fetch http://dl-cdn.alpinelinux.org/alpine/v3.3/community/x86_64/APKINDEX.tar.gz
-(1/9) Installing openssl (1.0.2k-r0)
-(2/9) Installing ca-certificates (20161130-r0)
-(3/9) Installing libssh2 (1.6.0-r1)
-(4/9) Installing curl (7.55.0-r0)
-(5/9) Installing ncurses-terminfo-base (6.0-r7)
-(6/9) Installing ncurses-terminfo (6.0-r7)
-(7/9) Installing ncurses-libs (6.0-r7)
-(8/9) Installing readline (6.3.008-r4)
-(9/9) Installing socat (1.7.3.0-r0)
-Executing busybox-1.24.1-r7.trigger
-Executing ca-certificates-20161130-r0.trigger
-OK: 15 MiB in 20 packages
- ---> 15cf517b37cf
-Removing intermediate container 544869e88a84
-Successfully built 15cf517b37cf
+ ---> Running in db56fb156f16
+fetch http://dl-cdn.alpinelinux.org/alpine/v3.6/main/x86_64/APKINDEX.tar.gz
+fetch http://dl-cdn.alpinelinux.org/alpine/v3.6/community/x86_64/APKINDEX.tar.gz
+v3.6.2-118-g57a88ee6b0 [http://dl-cdn.alpinelinux.org/alpine/v3.6/main]
+v3.6.2-114-gc754f178e4 [http://dl-cdn.alpinelinux.org/alpine/v3.6/community]
+OK: 8441 distinct packages available
+fetch http://dl-cdn.alpinelinux.org/alpine/v3.6/main/x86_64/APKINDEX.tar.gz
+fetch http://dl-cdn.alpinelinux.org/alpine/v3.6/community/x86_64/APKINDEX.tar.gz
+(1/12) Installing ca-certificates (20161130-r2)
+(2/12) Installing libssh2 (1.8.0-r1)
+(3/12) Installing libcurl (7.55.0-r0)
+(4/12) Installing curl (7.55.0-r0)
+(5/12) Installing libcrypto1.0 (1.0.2k-r0)
+(6/12) Installing libssl1.0 (1.0.2k-r0)
+(7/12) Installing openssl (1.0.2k-r0)
+(8/12) Installing ncurses-terminfo-base (6.0-r8)
+(9/12) Installing ncurses-terminfo (6.0-r8)
+(10/12) Installing ncurses-libs (6.0-r8)
+(11/12) Installing readline (6.3.008-r5)
+(12/12) Installing socat (1.7.3.2-r1)
+Executing busybox-1.26.2-r5.trigger
+Executing ca-certificates-20161130-r2.trigger
+OK: 17 MiB in 23 packages
+ ---> 1ac5f291cc86
+Removing intermediate container db56fb156f16
+Successfully built 1ac5f291cc86
 Successfully tagged myalpine:latest
-Sat, 02 Sep 2017 18:31:49 UTC
+Fri, 08 Sep 2017 18:37:48 UTC
 Testing branch: master
 Progress: 0/1/23
 ==Running le_test_dependencies please wait
