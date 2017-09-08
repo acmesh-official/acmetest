@@ -1,12 +1,12 @@
 Sending build context to Docker daemon  2.048kB
 Step 1/2 : FROM oraclelinux:7
- ---> 3ca6f4a2fc9e
+ ---> 9fe41720f939
 Step 2/2 : RUN yum -y update     2>&1 && yum -y install    tar openssl crontabs socat curl  2>&1
  ---> Using cache
- ---> b4be3852541d
-Successfully built b4be3852541d
+ ---> 0905bf290f10
+Successfully built 0905bf290f10
 Successfully tagged myoraclelinux:7
-Sat, 02 Sep 2017 19:08:47 UTC
+Fri, 08 Sep 2017 19:10:42 UTC
 Testing branch: master
 Progress: 0/1/23
 ==Running le_test_dependencies please wait
@@ -21,7 +21,7 @@ Progress: 0/2/23
 ==Running le_test_install please wait
 ./acme.sh install [PASS]
 /root/.acme.sh/acme.sh exists. [PASS]
-_contains '54 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
+_contains '49 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
 /root/.acme.sh/acme.sh uninstall  > /dev/null [PASS]
 ------------------------------------------
 Progress: 0/3/23
@@ -35,7 +35,7 @@ Progress: 0/4/23
 ==Running le_test_installtodir please wait
 ./acme.sh install [PASS]
 /root/myle/acme.sh exists. [PASS]
-_contains '55 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
+_contains '51 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
 /root/myle/acme.sh uninstall [PASS]
 ------------------------------------------
 Progress: 0/5/23
@@ -49,7 +49,7 @@ Progress: 0/6/23
 ==Running le_test_install_config_home please wait
 ./acme.sh --install --config-home /root/etc/acme [PASS]
 /root/.acme.sh/acme.sh exists. [PASS]
-_contains '56 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
+_contains '51 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
 /root/etc/acme/account.conf exists. [PASS]
 /root/.acme.sh/account.conf no exists. [PASS]
 /root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null [PASS]
