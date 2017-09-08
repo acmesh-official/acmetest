@@ -2,17 +2,17 @@ Sending build context to Docker daemon  2.048kB
 Step 1/2 : FROM ubuntu:latest
  ---> ccc7a11d65b1
 Step 2/2 : RUN apt-get -y update && locale-gen en_US.UTF-8 && export LANG=en_US.UTF-8  2>&1 && apt-get -y install openssl cron socat curl idn  2>&1
- ---> Running in fe61b746edaa
-Get:1 http://archive.ubuntu.com/ubuntu xenial InRelease [247 kB]
-Get:2 http://security.ubuntu.com/ubuntu xenial-security InRelease [102 kB]
+ ---> Running in 6f3baeefe3d2
+Get:1 http://security.ubuntu.com/ubuntu xenial-security InRelease [102 kB]
+Get:2 http://archive.ubuntu.com/ubuntu xenial InRelease [247 kB]
 Get:3 http://archive.ubuntu.com/ubuntu xenial-updates InRelease [102 kB]
 Get:4 http://archive.ubuntu.com/ubuntu xenial-backports InRelease [102 kB]
 Get:5 http://security.ubuntu.com/ubuntu xenial-security/universe Sources [48.9 kB]
 Get:6 http://security.ubuntu.com/ubuntu xenial-security/main amd64 Packages [443 kB]
 Get:7 http://security.ubuntu.com/ubuntu xenial-security/restricted amd64 Packages [12.8 kB]
 Get:8 http://security.ubuntu.com/ubuntu xenial-security/universe amd64 Packages [207 kB]
-Get:9 http://archive.ubuntu.com/ubuntu xenial/universe Sources [9802 kB]
-Get:10 http://security.ubuntu.com/ubuntu xenial-security/multiverse amd64 Packages [2935 B]
+Get:9 http://security.ubuntu.com/ubuntu xenial-security/multiverse amd64 Packages [2935 B]
+Get:10 http://archive.ubuntu.com/ubuntu xenial/universe Sources [9802 kB]
 Get:11 http://archive.ubuntu.com/ubuntu xenial/main amd64 Packages [1558 kB]
 Get:12 http://archive.ubuntu.com/ubuntu xenial/restricted amd64 Packages [14.1 kB]
 Get:13 http://archive.ubuntu.com/ubuntu xenial/universe amd64 Packages [9827 kB]
@@ -24,7 +24,7 @@ Get:18 http://archive.ubuntu.com/ubuntu xenial-updates/universe amd64 Packages [
 Get:19 http://archive.ubuntu.com/ubuntu xenial-updates/multiverse amd64 Packages [17.5 kB]
 Get:20 http://archive.ubuntu.com/ubuntu xenial-backports/main amd64 Packages [5177 B]
 Get:21 http://archive.ubuntu.com/ubuntu xenial-backports/universe amd64 Packages [6236 B]
-Fetched 24.4 MB in 3s (6502 kB/s)
+Fetched 24.4 MB in 3s (7464 kB/s)
 Reading package lists...
 [91m/bin/sh: 1: locale-gen: not found
 [0mThe command '/bin/sh -c apt-get -y update && locale-gen en_US.UTF-8 && export LANG=en_US.UTF-8  2>&1 && apt-get -y install openssl cron socat curl idn  2>&1' returned a non-zero code: 127
