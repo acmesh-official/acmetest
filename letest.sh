@@ -404,6 +404,11 @@ if [ "$DOCKER_OS" = "gentoo/stage3-amd64" ] || [ "$TEST_NGROK" = "1" ]; then
  NO_TLS_CASES="1"
 fi
 
+if [ "$DOCKER_OS" = "centos:6" ]; then
+ curl http://www.convirture.com/repos/definitions/rhel/6.x/convirt.repo > /etc/yum.repos.d/convirt.repo
+ yum install -y socat
+fi
+
 #file subname
 _assertcert() {
   filename="$1"
