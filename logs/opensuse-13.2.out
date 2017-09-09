@@ -2,12 +2,26 @@ Sending build context to Docker daemon  2.048kB
 Step 1/2 : FROM opensuse:13.2
  ---> f44cbabf9361
 Step 2/2 : RUN zypper update -y  2>&1 && zypper install  -y   tar openssl cron socat curl libidn  2>&1
- ---> Running in 529a360a7b12
+ ---> Running in 549e45e82d77
 Warning: Legacy commandline option -y/--no-confirm detected. Please use global option -n/--non-interactive instead.
-Retrieving repository 'NON-OSS' metadata [.done]
-Building repository 'NON-OSS' cache [....done]
-Retrieving repository 'OSS' metadata [...done]
-Building repository 'OSS' cache [....done]
+Retrieving repository 'NON-OSS' metadata [.
+File '/media.1/media' not found on medium 'http://download.opensuse.org/distribution/13.2/repo/non-oss/'
+
+Abort, retry, ignore? [a/r/i/? shows all options] (a): a
+error]
+Repository 'NON-OSS' is invalid.
+[non-oss|http://download.opensuse.org/distribution/13.2/repo/non-oss/] Valid metadata not found at specified URL
+Please check if the URIs defined for this repository are pointing to a valid repository.
+Warning: Skipping repository 'NON-OSS' because of the above error.
+Retrieving repository 'OSS' metadata [.
+File '/media.1/media' not found on medium 'http://download.opensuse.org/distribution/13.2/repo/oss/'
+
+Abort, retry, ignore? [a/r/i/? shows all options] (a): a
+error]
+Repository 'OSS' is invalid.
+[oss|http://download.opensuse.org/distribution/13.2/repo/oss/] Valid metadata not found at specified URL
+Please check if the URIs defined for this repository are pointing to a valid repository.
+Warning: Skipping repository 'OSS' because of the above error.
 Retrieving repository 'OSS Update' metadata [.
 File '/repodata/repomd.xml' not found on medium 'http://download.opensuse.org/update/13.2/'
 

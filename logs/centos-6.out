@@ -3,210 +3,210 @@ Step 1/2 : FROM centos:6
  ---> 7ea307891843
 Step 2/2 : RUN yum  -y update     2>&1 && yum  -y install    openssl crontabs socat curl  2>&1
  ---> Using cache
- ---> ea9106841740
-Successfully built ea9106841740
+ ---> f4fc88f7eeab
+Successfully built f4fc88f7eeab
 Successfully tagged mycentos:6
-Wed, 06 Sep 2017 05:25:37 UTC
+Fri, 08 Sep 2017 20:18:01 UTC
 Testing branch: master
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/1/23[0m
+Progress: 0/1/23
 ==Running le_test_dependencies please wait
-[Wed Sep  6 05:25:38 UTC 2017] It is recommended to install socat first.
-[Wed Sep  6 05:25:38 UTC 2017] We use socat for standalone server if you use standalone mode.
-[Wed Sep  6 05:25:38 UTC 2017] If you don't use standalone mode, just ignore this warning.
+[Fri Sep  8 20:18:02 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Fri Sep  8 20:18:02 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Fri Sep  8 20:18:02 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
 no crontab for root
 no crontab for root
-curl installed.[1;31;32m [PASS][0m
-crontab installed.[1;31;32m [PASS][0m
-openssl installed.[1;31;32m [PASS][0m
-socat not installed[1;31;40m [FAIL] [0m
-[1;31;40mRun Failed
-[0m------------------------------------------
-[1;31;32mProgress: [0m[1;31;40m1[0m[1;31;32m/2/23[0m
+curl installed. [PASS]
+crontab installed. [PASS]
+openssl installed. [PASS]
+socat not installed [FAIL] 
+Run Failed
+------------------------------------------
+Progress: 1/2/23
 ==Running le_test_install please wait
-[Wed Sep  6 05:25:43 UTC 2017] It is recommended to install socat first.
-[Wed Sep  6 05:25:43 UTC 2017] We use socat for standalone server if you use standalone mode.
-[Wed Sep  6 05:25:43 UTC 2017] If you don't use standalone mode, just ignore this warning.
-./acme.sh install[1;31;32m [PASS][0m
-/root/.acme.sh/acme.sh exists.[1;31;32m [PASS][0m
-_contains '43 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null'[1;31;32m [PASS][0m
-/root/.acme.sh/acme.sh uninstall  > /dev/null[1;31;32m [PASS][0m
+[Fri Sep  8 20:18:07 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Fri Sep  8 20:18:07 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Fri Sep  8 20:18:07 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+./acme.sh install [PASS]
+/root/.acme.sh/acme.sh exists. [PASS]
+_contains '7 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
+/root/.acme.sh/acme.sh uninstall  > /dev/null [PASS]
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;40m1[0m[1;31;32m/3/23[0m
+Progress: 1/3/23
 ==Running le_test_uninstall please wait
-[Wed Sep  6 05:25:43 UTC 2017] It is recommended to install socat first.
-[Wed Sep  6 05:25:43 UTC 2017] We use socat for standalone server if you use standalone mode.
-[Wed Sep  6 05:25:43 UTC 2017] If you don't use standalone mode, just ignore this warning.
-./acme.sh install[1;31;32m [PASS][0m
-/root/.acme.sh/acme.sh uninstall[1;31;32m [PASS][0m
-/root/.acme.sh/acme.sh no exists.[1;31;32m [PASS][0m
-equals [1;31;32m [PASS][0m
+[Fri Sep  8 20:18:07 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Fri Sep  8 20:18:07 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Fri Sep  8 20:18:07 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+./acme.sh install [PASS]
+/root/.acme.sh/acme.sh uninstall [PASS]
+/root/.acme.sh/acme.sh no exists. [PASS]
+equals  [PASS]
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;40m1[0m[1;31;32m/4/23[0m
+Progress: 1/4/23
 ==Running le_test_installtodir please wait
-./acme.sh install[1;31;32m [PASS][0m
-/root/myle/acme.sh exists.[1;31;32m [PASS][0m
-_contains '44 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null'[1;31;32m [PASS][0m
-/root/myle/acme.sh uninstall[1;31;32m [PASS][0m
+./acme.sh install [PASS]
+/root/myle/acme.sh exists. [PASS]
+_contains '8 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
+/root/myle/acme.sh uninstall [PASS]
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;40m1[0m[1;31;32m/5/23[0m
+Progress: 1/5/23
 ==Running le_test_uninstalltodir please wait
-./acme.sh install[1;31;32m [PASS][0m
-/root/myle/acme.sh uninstall[1;31;32m [PASS][0m
-/root/myle/acme.sh no exists.[1;31;32m [PASS][0m
-equals [1;31;32m [PASS][0m
+./acme.sh install [PASS]
+/root/myle/acme.sh uninstall [PASS]
+/root/myle/acme.sh no exists. [PASS]
+equals  [PASS]
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;40m1[0m[1;31;32m/6/23[0m
+Progress: 1/6/23
 ==Running le_test_install_config_home please wait
-./acme.sh --install --config-home /root/etc/acme[1;31;32m [PASS][0m
-/root/.acme.sh/acme.sh exists.[1;31;32m [PASS][0m
-_contains '45 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null'[1;31;32m [PASS][0m
-/root/etc/acme/account.conf exists.[1;31;32m [PASS][0m
-/root/.acme.sh/account.conf no exists.[1;31;32m [PASS][0m
-/root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null[1;31;32m [PASS][0m
-/root/.acme.sh/acme.sh --uninstall --config-home /root/etc/acme > /dev/null[1;31;32m [PASS][0m
-/root/etc/acme/account.conf exists.[1;31;32m [PASS][0m
-/root/.acme.sh/account.conf no exists.[1;31;32m [PASS][0m
+./acme.sh --install --config-home /root/etc/acme [PASS]
+/root/.acme.sh/acme.sh exists. [PASS]
+_contains '9 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
+/root/etc/acme/account.conf exists. [PASS]
+/root/.acme.sh/account.conf no exists. [PASS]
+/root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null [PASS]
+/root/.acme.sh/acme.sh --uninstall --config-home /root/etc/acme > /dev/null [PASS]
+/root/etc/acme/account.conf exists. [PASS]
+/root/.acme.sh/account.conf no exists. [PASS]
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;40m1[0m[1;31;32m/7/23[0m
+Progress: 1/7/23
 ==Running le_test_standandalone_renew please wait
-[Wed Sep  6 05:25:45 UTC 2017] It is recommended to install socat first.
-[Wed Sep  6 05:25:45 UTC 2017] We use socat for standalone server if you use standalone mode.
-[Wed Sep  6 05:25:45 UTC 2017] If you don't use standalone mode, just ignore this warning.
-/root/.acme.sh/acme.sh issue no testdocker.acme.sh[1;31;40m [FAIL] [0m
-[1;31;40mRun Failed
-[0m------------------------------------------
-[1;31;32mProgress: [0m[1;31;40m2[0m[1;31;32m/8/23[0m
+[Fri Sep  8 20:18:09 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Fri Sep  8 20:18:09 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Fri Sep  8 20:18:09 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+/root/.acme.sh/acme.sh issue no testdocker.acme.sh [FAIL] 
+Run Failed
+------------------------------------------
+Progress: 2/8/23
 ==Running le_test_standandalone_renew_v2 please wait
-[Wed Sep  6 05:25:50 UTC 2017] It is recommended to install socat first.
-[Wed Sep  6 05:25:50 UTC 2017] We use socat for standalone server if you use standalone mode.
-[Wed Sep  6 05:25:50 UTC 2017] If you don't use standalone mode, just ignore this warning.
-/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer'[1;31;40m [FAIL] [0m
-[1;31;40mRun Failed
-[0m------------------------------------------
-[1;31;32mProgress: [0m[1;31;40m3[0m[1;31;32m/9/23[0m
+[Fri Sep  8 20:18:15 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Fri Sep  8 20:18:15 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Fri Sep  8 20:18:15 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [FAIL] 
+Run Failed
+------------------------------------------
+Progress: 3/9/23
 ==Running le_test_standandalone_renew_localaddress_v2 please wait
-[Wed Sep  6 05:25:56 UTC 2017] It is recommended to install socat first.
-[Wed Sep  6 05:25:56 UTC 2017] We use socat for standalone server if you use standalone mode.
-[Wed Sep  6 05:25:56 UTC 2017] If you don't use standalone mode, just ignore this warning.
-/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --local-address 0.0.0.0 --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer'[1;31;40m [FAIL] [0m
-[1;31;40mRun Failed
-[0m------------------------------------------
-[1;31;32mProgress: [0m[1;31;40m4[0m[1;31;32m/10/23[0m
+[Fri Sep  8 20:18:20 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Fri Sep  8 20:18:20 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Fri Sep  8 20:18:20 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --local-address 0.0.0.0 --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [FAIL] 
+Run Failed
+------------------------------------------
+Progress: 4/10/23
 ==Running le_test_standandalone_listen_v4_v2 please wait
-[Wed Sep  6 05:26:01 UTC 2017] It is recommended to install socat first.
-[Wed Sep  6 05:26:01 UTC 2017] We use socat for standalone server if you use standalone mode.
-[Wed Sep  6 05:26:01 UTC 2017] If you don't use standalone mode, just ignore this warning.
-/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --listen-v4 --cert-file '/acmetest/certs/domain.cer' --key-file '/acmetest/certs/domain.key'  --ca-file '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchain-file  '/acmetest/certs/full.cer'[1;31;40m [FAIL] [0m
-[1;31;40mRun Failed
-[0m------------------------------------------
-[1;31;32mProgress: [0m[1;31;40m5[0m[1;31;32m/11/23[0m
+[Fri Sep  8 20:18:25 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Fri Sep  8 20:18:25 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Fri Sep  8 20:18:25 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --listen-v4 --cert-file '/acmetest/certs/domain.cer' --key-file '/acmetest/certs/domain.key'  --ca-file '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchain-file  '/acmetest/certs/full.cer' [FAIL] 
+Run Failed
+------------------------------------------
+Progress: 5/11/23
 ==Running le_test_standandalone_listen_v6_v2 please wait
-[Wed Sep  6 05:26:06 UTC 2017] It is recommended to install socat first.
-[Wed Sep  6 05:26:06 UTC 2017] We use socat for standalone server if you use standalone mode.
-[Wed Sep  6 05:26:06 UTC 2017] If you don't use standalone mode, just ignore this warning.
+[Fri Sep  8 20:18:30 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Fri Sep  8 20:18:30 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Fri Sep  8 20:18:30 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
 Skipped by TEST_IPV6
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;40m5[0m[1;31;32m/12/23[0m
+Progress: 5/12/23
 ==Running le_test_standandalone_deactivate_v2 please wait
-[Wed Sep  6 05:26:12 UTC 2017] It is recommended to install socat first.
-[Wed Sep  6 05:26:12 UTC 2017] We use socat for standalone server if you use standalone mode.
-[Wed Sep  6 05:26:12 UTC 2017] If you don't use standalone mode, just ignore this warning.
-/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer'[1;31;40m [FAIL] [0m
-[1;31;40mRun Failed
-[0m------------------------------------------
-[1;31;32mProgress: [0m[1;31;40m6[0m[1;31;32m/13/23[0m
+[Fri Sep  8 20:18:35 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Fri Sep  8 20:18:35 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Fri Sep  8 20:18:35 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [FAIL] 
+Run Failed
+------------------------------------------
+Progress: 6/13/23
 ==Running le_test_standandalone please wait
-[Wed Sep  6 05:26:17 UTC 2017] It is recommended to install socat first.
-[Wed Sep  6 05:26:17 UTC 2017] We use socat for standalone server if you use standalone mode.
-[Wed Sep  6 05:26:17 UTC 2017] If you don't use standalone mode, just ignore this warning.
-/root/.acme.sh/acme.sh issue no testdocker.acme.sh[1;31;40m [FAIL] [0m
-[1;31;40mRun Failed
-[0m------------------------------------------
-[1;31;32mProgress: [0m[1;31;40m7[0m[1;31;32m/14/23[0m
+[Fri Sep  8 20:18:41 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Fri Sep  8 20:18:41 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Fri Sep  8 20:18:41 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+/root/.acme.sh/acme.sh issue no testdocker.acme.sh [FAIL] 
+Run Failed
+------------------------------------------
+Progress: 7/14/23
 ==Running le_test_standandalone_SAN please wait
-[Wed Sep  6 05:26:22 UTC 2017] It is recommended to install socat first.
-[Wed Sep  6 05:26:22 UTC 2017] We use socat for standalone server if you use standalone mode.
-[Wed Sep  6 05:26:22 UTC 2017] If you don't use standalone mode, just ignore this warning.
-/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh"[1;31;40m [FAIL] [0m
-[1;31;40mRun Failed
-[0m------------------------------------------
-[1;31;32mProgress: [0m[1;31;40m8[0m[1;31;32m/15/23[0m
+[Fri Sep  8 20:18:46 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Fri Sep  8 20:18:46 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Fri Sep  8 20:18:46 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh" [FAIL] 
+Run Failed
+------------------------------------------
+Progress: 8/15/23
 ==Running le_test_standandalone_ECDSA_256 please wait
-[Wed Sep  6 05:26:28 UTC 2017] It is recommended to install socat first.
-[Wed Sep  6 05:26:28 UTC 2017] We use socat for standalone server if you use standalone mode.
-[Wed Sep  6 05:26:28 UTC 2017] If you don't use standalone mode, just ignore this warning.
-/root/.acme.sh/acme.sh issue no testdocker.acme.sh no ec-256[1;31;40m [FAIL] [0m
-[1;31;40mRun Failed
-[0m------------------------------------------
-[1;31;32mProgress: [0m[1;31;40m9[0m[1;31;32m/16/23[0m
+[Fri Sep  8 20:18:52 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Fri Sep  8 20:18:52 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Fri Sep  8 20:18:52 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+/root/.acme.sh/acme.sh issue no testdocker.acme.sh no ec-256 [FAIL] 
+Run Failed
+------------------------------------------
+Progress: 9/16/23
 ==Running le_test_standandalone_ECDSA_256_renew please wait
-[Wed Sep  6 05:26:33 UTC 2017] It is recommended to install socat first.
-[Wed Sep  6 05:26:33 UTC 2017] We use socat for standalone server if you use standalone mode.
-[Wed Sep  6 05:26:33 UTC 2017] If you don't use standalone mode, just ignore this warning.
-/root/.acme.sh/acme.sh issue no testdocker.acme.sh no ec-256[1;31;40m [FAIL] [0m
-[1;31;40mRun Failed
-[0m------------------------------------------
-[1;31;32mProgress: [0m[1;31;40m10[0m[1;31;32m/17/23[0m
+[Fri Sep  8 20:18:57 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Fri Sep  8 20:18:57 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Fri Sep  8 20:18:57 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+/root/.acme.sh/acme.sh issue no testdocker.acme.sh no ec-256 [FAIL] 
+Run Failed
+------------------------------------------
+Progress: 10/17/23
 ==Running le_test_standandalone_ECDSA_256_SAN_renew please wait
-[Wed Sep  6 05:26:38 UTC 2017] It is recommended to install socat first.
-[Wed Sep  6 05:26:38 UTC 2017] We use socat for standalone server if you use standalone mode.
-[Wed Sep  6 05:26:38 UTC 2017] If you don't use standalone mode, just ignore this warning.
-/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh" ec-256[1;31;40m [FAIL] [0m
-[1;31;40mRun Failed
-[0m------------------------------------------
-[1;31;32mProgress: [0m[1;31;40m11[0m[1;31;32m/18/23[0m
+[Fri Sep  8 20:19:02 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Fri Sep  8 20:19:02 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Fri Sep  8 20:19:02 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh" ec-256 [FAIL] 
+Run Failed
+------------------------------------------
+Progress: 11/18/23
 ==Running le_test_standandalone_ECDSA_256_SAN_renew_v2 please wait
-[Wed Sep  6 05:26:44 UTC 2017] It is recommended to install socat first.
-[Wed Sep  6 05:26:44 UTC 2017] We use socat for standalone server if you use standalone mode.
-[Wed Sep  6 05:26:44 UTC 2017] If you don't use standalone mode, just ignore this warning.
-/root/.acme.sh/acme.sh --issue -d "testdocker.acme.sh" -d "testdocker2.acme.sh" --standalone --keylength ec-256 --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer'[1;31;40m [FAIL] [0m
-[1;31;40mRun Failed
-[0m------------------------------------------
-[1;31;32mProgress: [0m[1;31;40m12[0m[1;31;32m/19/23[0m
+[Fri Sep  8 20:19:08 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Fri Sep  8 20:19:08 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Fri Sep  8 20:19:08 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+/root/.acme.sh/acme.sh --issue -d "testdocker.acme.sh" -d "testdocker2.acme.sh" --standalone --keylength ec-256 --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [FAIL] 
+Run Failed
+------------------------------------------
+Progress: 12/19/23
 ==Running le_test_standandalone_ECDSA_384 please wait
-[Wed Sep  6 05:26:49 UTC 2017] It is recommended to install socat first.
-[Wed Sep  6 05:26:49 UTC 2017] We use socat for standalone server if you use standalone mode.
-[Wed Sep  6 05:26:49 UTC 2017] If you don't use standalone mode, just ignore this warning.
-/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" no ec-384[1;31;40m [FAIL] [0m
-[1;31;40mRun Failed
-[0m------------------------------------------
-[1;31;32mProgress: [0m[1;31;40m13[0m[1;31;32m/20/23[0m
+[Fri Sep  8 20:19:13 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Fri Sep  8 20:19:13 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Fri Sep  8 20:19:13 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" no ec-384 [FAIL] 
+Run Failed
+------------------------------------------
+Progress: 13/20/23
 ==Running le_test_standandalone_tls_renew_SAN_v2 please wait
-[Wed Sep  6 05:26:54 UTC 2017] It is recommended to install socat first.
-[Wed Sep  6 05:26:54 UTC 2017] We use socat for standalone server if you use standalone mode.
-[Wed Sep  6 05:26:54 UTC 2017] If you don't use standalone mode, just ignore this warning.
-/root/.acme.sh/acme.sh --issue -d "testdocker.acme.sh" --tls  -d "testdocker2.acme.sh" --standalone [1;31;40m [FAIL] [0m
-[1;31;40mRun Failed
-[0m------------------------------------------
-[1;31;32mProgress: [0m[1;31;40m14[0m[1;31;32m/21/23[0m
+[Fri Sep  8 20:19:19 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Fri Sep  8 20:19:19 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Fri Sep  8 20:19:19 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+/root/.acme.sh/acme.sh --issue -d "testdocker.acme.sh" --tls  -d "testdocker2.acme.sh" --standalone  [FAIL] 
+Run Failed
+------------------------------------------
+Progress: 14/21/23
 ==Running le_test_tls_renew_SAN_v2 please wait
-[Wed Sep  6 05:27:00 UTC 2017] It is recommended to install socat first.
-[Wed Sep  6 05:27:00 UTC 2017] We use socat for standalone server if you use standalone mode.
-[Wed Sep  6 05:27:00 UTC 2017] If you don't use standalone mode, just ignore this warning.
-/root/.acme.sh/acme.sh --issue -d "testdocker.acme.sh" -d "testdocker2.acme.sh" --tls[1;31;40m [FAIL] [0m
-[1;31;40mRun Failed
-[0m------------------------------------------
-[1;31;32mProgress: [0m[1;31;40m15[0m[1;31;32m/22/23[0m
+[Fri Sep  8 20:19:24 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Fri Sep  8 20:19:24 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Fri Sep  8 20:19:24 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
+/root/.acme.sh/acme.sh --issue -d "testdocker.acme.sh" -d "testdocker2.acme.sh" --tls [FAIL] 
+Run Failed
+------------------------------------------
+Progress: 15/22/23
 ==Running le_test_standandalone_renew_idn_v2 please wait
-[Wed Sep  6 05:27:16 UTC 2017] It is recommended to install socat first.
-[Wed Sep  6 05:27:16 UTC 2017] We use socat for standalone server if you use standalone mode.
-[Wed Sep  6 05:27:16 UTC 2017] If you don't use standalone mode, just ignore this warning.
+[Fri Sep  8 20:19:40 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Fri Sep  8 20:19:40 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Fri Sep  8 20:19:40 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
 Skipped by TEST_IDN
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;40m15[0m[1;31;32m/23/23[0m
+Progress: 15/23/23
 ==Running le_test_dnsapi please wait
-[Wed Sep  6 05:27:21 UTC 2017] It is recommended to install socat first.
-[Wed Sep  6 05:27:21 UTC 2017] We use socat for standalone server if you use standalone mode.
-[Wed Sep  6 05:27:21 UTC 2017] If you don't use standalone mode, just ignore this warning.
+[Fri Sep  8 20:19:45 UTC 2017] [1;31;40mIt is recommended to install socat first.[0m
+[Fri Sep  8 20:19:45 UTC 2017] [1;31;40mWe use socat for standalone server if you use standalone mode.[0m
+[Fri Sep  8 20:19:45 UTC 2017] [1;31;40mIf you don't use standalone mode, just ignore this warning.[0m
 The test domain Test_CF_Domain is not defined, skip:ClourFlare_api
 The test domain Test_CX_Domain is not defined, skip:CloudXNS.com_api
 The test domain Test_DP_Domain is not defined, skip:Dnspod.cn_api
 Testing dns_gd Godaddy_api
 TestingDomain='acmetalk.xyz'
-/root/.acme.sh/acme.sh --issue -d "acmetalk.xyz" --dns dns_gd --dnssleep "" [1;31;32m [PASS][0m
-/root/.acme.sh/acmetalk.xyz/acmetalk.xyz.cer is cert ? 'acmetalk.xyz' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
-/root/.acme.sh/acmetalk.xyz/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
-/root/.acme.sh/acme.sh --deactivate -d "acmetalk.xyz" >/dev/null 2>&1[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --issue -d "acmetalk.xyz" --dns dns_gd --dnssleep ""  [PASS]
+/root/.acme.sh/acmetalk.xyz/acmetalk.xyz.cer is cert ? 'acmetalk.xyz' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/acmetalk.xyz/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/acme.sh --deactivate -d "acmetalk.xyz" >/dev/null 2>&1 [PASS]
 The test domain Test_AWS_Domain is not defined, skip:Amazon_Route53_api
 The test domain Test_LUA_Domain is not defined, skip:luadns.com_api
 ME_Key is not defined, skip:dnsmadeeasy.com_api
@@ -216,9 +216,9 @@ PDNS_Token is not defined, skip:powerdns.com_api
 The test domain Test_ALI_Domain is not defined, skip:aliyun_api
 Testing dns_gandi_livedns gandi_livedns
 TestingDomain='acmetest.xyz'
-/root/.acme.sh/acme.sh --issue -d "acmetest.xyz" --dns dns_gandi_livedns --dnssleep "60" [1;31;32m [PASS][0m
-/root/.acme.sh/acmetest.xyz/acmetest.xyz.cer is cert ? 'acmetest.xyz' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
-/root/.acme.sh/acmetest.xyz/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
-/root/.acme.sh/acme.sh --deactivate -d "acmetest.xyz" >/dev/null 2>&1[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --issue -d "acmetest.xyz" --dns dns_gandi_livedns --dnssleep "60"  [PASS]
+/root/.acme.sh/acmetest.xyz/acmetest.xyz.cer is cert ? 'acmetest.xyz' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/acmetest.xyz/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/acme.sh --deactivate -d "acmetest.xyz" >/dev/null 2>&1 [PASS]
 The test domain Test_DYNU_Domain is not defined, skip:dynu_api
 ------------------------------------------

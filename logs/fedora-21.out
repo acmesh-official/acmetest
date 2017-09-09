@@ -1,10 +1,8 @@
 Sending build context to Docker daemon  2.048kB
 Step 1/2 : FROM fedora:21
- ---> c3f52f068a13
+ ---> ba6369d667d1
 Step 2/2 : RUN yum  -y update     2>&1 && yum  -y install    tar openssl crontabs socat curl  2>&1
- ---> Running in 102eb6da6463
-http://fedora-mirror01.rbc.ru/pub/fedora-archive/fedora/linux/releases/21/Everything/x86_64/os/repodata/repomd.xml: [Errno 14] HTTP Error 404 - Not Found
-Trying other mirror.
+ ---> Running in ab00f48cc88e
 Resolving Dependencies
 --> Running transaction check
 ---> Package audit-libs.x86_64 0:2.4.1-1.fc21 will be updated
@@ -343,7 +341,7 @@ Total download size: 72 M
 Downloading packages:
 Delta RPMs disabled because /usr/bin/applydeltarpm not installed.
 --------------------------------------------------------------------------------
-Total                                              1.9 MB/s |  72 MB  00:37     
+Total                                              2.6 MB/s |  72 MB  00:27     
 Running transaction check
 Running transaction test
 Transaction test succeeded
@@ -919,8 +917,12 @@ Install  4 Packages (+3 Dependent packages)
 Total download size: 2.2 M
 Installed size: 6.1 M
 Downloading packages:
+http://fedora-mirror01.rbc.ru/pub/fedora-archive/fedora/linux/releases/21/Everything/x86_64/os/Packages/c/cronie-anacron-1.4.12-1.fc21.x86_64.rpm: [Errno 14] HTTP Error 404 - Not Found
+Trying other mirror.
+http://fedora-mirror01.rbc.ru/pub/fedora-archive/fedora/linux/releases/21/Everything/x86_64/os/Packages/m/make-4.0-3.fc21.x86_64.rpm: [Errno 14] HTTP Error 404 - Not Found
+Trying other mirror.
 --------------------------------------------------------------------------------
-Total                                              880 kB/s | 2.2 MB  00:02     
+Total                                              1.0 MB/s | 2.2 MB  00:02     
 Running transaction check
 Running transaction test
 Transaction test succeeded
@@ -949,11 +951,11 @@ Dependency Installed:
   make.x86_64 1:4.0-3.fc21          
 
 Complete!
- ---> 0c0c69550c00
-Removing intermediate container 102eb6da6463
-Successfully built 0c0c69550c00
+ ---> ebdb66cf55e6
+Removing intermediate container ab00f48cc88e
+Successfully built ebdb66cf55e6
 Successfully tagged myfedora:21
-Sat, 02 Sep 2017 18:11:50 UTC
+Fri, 08 Sep 2017 18:10:06 UTC
 Testing branch: master
 Progress: 0/1/23
 ==Running le_test_dependencies please wait
@@ -968,7 +970,7 @@ Progress: 0/2/23
 ==Running le_test_install please wait
 ./acme.sh install [PASS]
 /root/.acme.sh/acme.sh exists. [PASS]
-_contains '58 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
+_contains '14 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
 /root/.acme.sh/acme.sh uninstall  > /dev/null [PASS]
 ------------------------------------------
 Progress: 0/3/23
@@ -982,7 +984,7 @@ Progress: 0/4/23
 ==Running le_test_installtodir please wait
 ./acme.sh install [PASS]
 /root/myle/acme.sh exists. [PASS]
-_contains '0 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
+_contains '15 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
 /root/myle/acme.sh uninstall [PASS]
 ------------------------------------------
 Progress: 0/5/23
@@ -996,7 +998,7 @@ Progress: 0/6/23
 ==Running le_test_install_config_home please wait
 ./acme.sh --install --config-home /root/etc/acme [PASS]
 /root/.acme.sh/acme.sh exists. [PASS]
-_contains '0 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
+_contains '15 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
 /root/etc/acme/account.conf exists. [PASS]
 /root/.acme.sh/account.conf no exists. [PASS]
 /root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null [PASS]
