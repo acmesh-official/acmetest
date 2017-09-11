@@ -1,5 +1,5 @@
 
-Sun, 10 Sep 2017 10:01:53 UTC
+Mon, 11 Sep 2017 03:12:52 UTC
 Testing branch: master
 Progress: 0/1/23
 ==Running le_test_dependencies please wait
@@ -162,19 +162,23 @@ Progress: 0/19/23
 ------------------------------------------
 Progress: 0/20/23
 ==Running le_test_standandalone_tls_renew_SAN_v2 please wait
-/root/.acme.sh/acme.sh --issue -d "testfreebsd.acme.sh" --tls  -d "testfreebsd2.acme.sh" --standalone  [FAIL] 
-Run Failed
+/root/.acme.sh/acme.sh --issue -d "testfreebsd.acme.sh" --tls  -d "testfreebsd2.acme.sh" --standalone  [PASS]
+/root/.acme.sh/acme.sh --renew -d "testfreebsd.acme.sh" --force [PASS]
+/root/.acme.sh/testfreebsd.acme.sh/testfreebsd.acme.sh.cer is cert ? 'testfreebsd.acme.sh' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/testfreebsd.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
 ------------------------------------------
-Progress: 1/21/23
+Progress: 0/21/23
 ==Running le_test_tls_renew_SAN_v2 please wait
-/root/.acme.sh/acme.sh --issue -d "testfreebsd.acme.sh" -d "testfreebsd2.acme.sh" --tls [FAIL] 
-Run Failed
+/root/.acme.sh/acme.sh --issue -d "testfreebsd.acme.sh" -d "testfreebsd2.acme.sh" --tls [PASS]
+/root/.acme.sh/acme.sh --renew -d "testfreebsd.acme.sh" --force [PASS]
+/root/.acme.sh/testfreebsd.acme.sh/testfreebsd.acme.sh.cer is cert ? 'testfreebsd.acme.sh' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/testfreebsd.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
 ------------------------------------------
-Progress: 2/22/23
+Progress: 0/22/23
 ==Running le_test_standandalone_renew_idn_v2 please wait
 Skipped by TEST_IDN
 ------------------------------------------
-Progress: 2/23/23
+Progress: 0/23/23
 ==Running le_test_dnsapi please wait
 The test domain Test_CF_Domain is not defined, skip:ClourFlare_api
 The test domain Test_CX_Domain is not defined, skip:CloudXNS.com_api
