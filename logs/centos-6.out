@@ -1,8 +1,471 @@
 Sending build context to Docker daemon  2.048kB
 Step 1/2 : FROM centos:6
  ---> 7ea307891843
-Step 2/2 : RUN curl http://www.convirture.com/repos/definitions/rhel/6.x/convirt.repo > /etc/yum.repos.d/convirt.repo && yum  -y update      && yum  -y install    openssl crontabs socat curl
- ---> Using cache
- ---> 3915a0fedc3d
-Successfully built 3915a0fedc3d
+Step 2/2 : RUN curl http://www.convirture.com/repos/definitions/rhel/6.x/convirt.repo > /etc/yum.repos.d/convirt.repo && yum  -y update     2>&1 && yum  -y install    openssl crontabs socat curl  2>&1
+ ---> Running in 99ebf2d067ab
+[91m  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0[0m[91m184   184  184   184    0     0    336      0 --:--:-- --:--:-- --:--:--  1179
+[0mLoaded plugins: fastestmirror, ovl
+Setting up Update Process
+Resolving Dependencies
+--> Running transaction check
+---> Package libacl.x86_64 0:2.2.49-7.el6 will be updated
+---> Package libacl.x86_64 0:2.2.49-7.el6_9.1 will be an update
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package        Arch           Version                    Repository       Size
+================================================================================
+Updating:
+ libacl         x86_64         2.2.49-7.el6_9.1           updates          24 k
+
+Transaction Summary
+================================================================================
+Upgrade       1 Package(s)
+
+Total download size: 24 k
+Downloading Packages:
+warning: rpmts_HdrFromFdno: Header V3 RSA/SHA1 Signature, key ID c105b9de: NOKEY
+Retrieving key from file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+Importing GPG key 0xC105B9DE:
+ Userid : CentOS-6 Key (CentOS 6 Official Signing Key) <centos-6-key@centos.org>
+ Package: centos-release-6-9.el6.12.3.x86_64 (@CentOS/6.9)
+ From   : /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+Running rpm_check_debug
+Running Transaction Test
+Transaction Test Succeeded
+Running Transaction
+  Updating   : libacl-2.2.49-7.el6_9.1.x86_64                               1/2 
+  Cleanup    : libacl-2.2.49-7.el6.x86_64                                   2/2 
+  Verifying  : libacl-2.2.49-7.el6_9.1.x86_64                               1/2 
+  Verifying  : libacl-2.2.49-7.el6.x86_64                                   2/2 
+
+Updated:
+  libacl.x86_64 0:2.2.49-7.el6_9.1                                              
+
+Complete!
+Loaded plugins: fastestmirror, ovl
+Setting up Install Process
+Determining fastest mirrors
+ * base: centos.mirrors.ovh.net
+ * extras: mirror.guru
+ * updates: centos.mirrors.ovh.net
+Package openssl-1.0.1e-57.el6.x86_64 already installed and latest version
+Package curl-7.19.7-53.el6_9.x86_64 already installed and latest version
+Resolving Dependencies
+--> Running transaction check
+---> Package crontabs.noarch 0:1.10-33.el6 will be installed
+--> Processing Dependency: /etc/cron.d for package: crontabs-1.10-33.el6.noarch
+---> Package socat.x86_64 0:1.7.1.3-1.el6.rf will be installed
+--> Processing Dependency: tcp_wrappers for package: socat-1.7.1.3-1.el6.rf.x86_64
+--> Processing Dependency: libwrap.so.0()(64bit) for package: socat-1.7.1.3-1.el6.rf.x86_64
+--> Running transaction check
+---> Package cronie.x86_64 0:1.4.4-16.el6_8.2 will be installed
+--> Processing Dependency: syslog for package: cronie-1.4.4-16.el6_8.2.x86_64
+--> Processing Dependency: dailyjobs for package: cronie-1.4.4-16.el6_8.2.x86_64
+--> Processing Dependency: /usr/sbin/sendmail for package: cronie-1.4.4-16.el6_8.2.x86_64
+--> Processing Dependency: /sbin/service for package: cronie-1.4.4-16.el6_8.2.x86_64
+---> Package tcp_wrappers.x86_64 0:7.6-58.el6 will be installed
+---> Package tcp_wrappers-libs.x86_64 0:7.6-58.el6 will be installed
+--> Running transaction check
+---> Package cronie-anacron.x86_64 0:1.4.4-16.el6_8.2 will be installed
+---> Package initscripts.x86_64 0:9.03.58-1.el6.centos.1 will be installed
+--> Processing Dependency: util-linux-ng >= 2.16 for package: initscripts-9.03.58-1.el6.centos.1.x86_64
+--> Processing Dependency: upstart >= 0.6.5-11 for package: initscripts-9.03.58-1.el6.centos.1.x86_64
+--> Processing Dependency: udev >= 125-1 for package: initscripts-9.03.58-1.el6.centos.1.x86_64
+--> Processing Dependency: sysvinit-tools >= 2.87-6 for package: initscripts-9.03.58-1.el6.centos.1.x86_64
+--> Processing Dependency: plymouth for package: initscripts-9.03.58-1.el6.centos.1.x86_64
+--> Processing Dependency: /sbin/pidof for package: initscripts-9.03.58-1.el6.centos.1.x86_64
+--> Processing Dependency: /sbin/ip for package: initscripts-9.03.58-1.el6.centos.1.x86_64
+--> Processing Dependency: /sbin/blkid for package: initscripts-9.03.58-1.el6.centos.1.x86_64
+--> Processing Dependency: /sbin/arping for package: initscripts-9.03.58-1.el6.centos.1.x86_64
+---> Package rsyslog.x86_64 0:5.8.10-10.el6_6 will be installed
+--> Processing Dependency: logrotate >= 3.5.2 for package: rsyslog-5.8.10-10.el6_6.x86_64
+---> Package sendmail.x86_64 0:8.14.4-9.el6_8.1 will be installed
+--> Processing Dependency: procmail for package: sendmail-8.14.4-9.el6_8.1.x86_64
+--> Processing Dependency: /usr/sbin/saslauthd for package: sendmail-8.14.4-9.el6_8.1.x86_64
+--> Processing Dependency: libhesiod.so.0()(64bit) for package: sendmail-8.14.4-9.el6_8.1.x86_64
+--> Running transaction check
+---> Package cyrus-sasl.x86_64 0:2.1.23-15.el6_6.2 will be installed
+---> Package hesiod.x86_64 0:3.1.0-19.el6 will be installed
+---> Package iproute.x86_64 0:2.6.32-54.el6 will be installed
+--> Processing Dependency: iptables >= 1.4.5 for package: iproute-2.6.32-54.el6.x86_64
+--> Processing Dependency: libxtables.so.4()(64bit) for package: iproute-2.6.32-54.el6.x86_64
+---> Package iputils.x86_64 0:20071127-24.el6 will be installed
+---> Package logrotate.x86_64 0:3.7.8-28.el6 will be installed
+---> Package plymouth.x86_64 0:0.8.3-29.el6.centos will be installed
+--> Processing Dependency: system-logos for package: plymouth-0.8.3-29.el6.centos.x86_64
+--> Processing Dependency: libdrm_radeon.so.1()(64bit) for package: plymouth-0.8.3-29.el6.centos.x86_64
+--> Processing Dependency: libdrm_nouveau.so.1()(64bit) for package: plymouth-0.8.3-29.el6.centos.x86_64
+--> Processing Dependency: libdrm_intel.so.1()(64bit) for package: plymouth-0.8.3-29.el6.centos.x86_64
+--> Processing Dependency: libdrm.so.2()(64bit) for package: plymouth-0.8.3-29.el6.centos.x86_64
+---> Package procmail.x86_64 0:3.22-25.1.el6_5.1 will be installed
+---> Package sysvinit-tools.x86_64 0:2.87-6.dsf.el6 will be installed
+---> Package udev.x86_64 0:147-2.73.el6_8.2 will be installed
+--> Processing Dependency: hwdata for package: udev-147-2.73.el6_8.2.x86_64
+---> Package upstart.x86_64 0:0.6.5-16.el6 will be installed
+---> Package util-linux-ng.x86_64 0:2.17.2-12.28.el6 will be installed
+--> Running transaction check
+---> Package hwdata.noarch 0:0.233-18.1.el6 will be installed
+---> Package iptables.x86_64 0:1.4.7-16.el6 will be installed
+--> Processing Dependency: policycoreutils for package: iptables-1.4.7-16.el6.x86_64
+---> Package libdrm.x86_64 0:2.4.65-2.el6 will be installed
+--> Processing Dependency: libpciaccess.so.0()(64bit) for package: libdrm-2.4.65-2.el6.x86_64
+---> Package redhat-logos.noarch 0:60.0.14-12.el6.centos will be installed
+--> Running transaction check
+---> Package libpciaccess.x86_64 0:0.13.4-1.el6 will be installed
+---> Package policycoreutils.x86_64 0:2.0.83-30.1.el6_8 will be installed
+--> Processing Dependency: libdbus-glib-1.so.2()(64bit) for package: policycoreutils-2.0.83-30.1.el6_8.x86_64
+--> Running transaction check
+---> Package dbus-glib.x86_64 0:0.86-6.el6 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package              Arch      Version                    Repository      Size
+================================================================================
+Installing:
+ crontabs             noarch    1.10-33.el6                base            10 k
+ socat                x86_64    1.7.1.3-1.el6.rf           convirt-dep    325 k
+Installing for dependencies:
+ cronie               x86_64    1.4.4-16.el6_8.2           base            75 k
+ cronie-anacron       x86_64    1.4.4-16.el6_8.2           base            31 k
+ cyrus-sasl           x86_64    2.1.23-15.el6_6.2          base            78 k
+ dbus-glib            x86_64    0.86-6.el6                 base           170 k
+ hesiod               x86_64    3.1.0-19.el6               base            20 k
+ hwdata               noarch    0.233-18.1.el6             base           1.3 M
+ initscripts          x86_64    9.03.58-1.el6.centos.1     updates        949 k
+ iproute              x86_64    2.6.32-54.el6              base           389 k
+ iptables             x86_64    1.4.7-16.el6               base           254 k
+ iputils              x86_64    20071127-24.el6            base           121 k
+ libdrm               x86_64    2.4.65-2.el6               base           136 k
+ libpciaccess         x86_64    0.13.4-1.el6               base            24 k
+ logrotate            x86_64    3.7.8-28.el6               base            59 k
+ plymouth             x86_64    0.8.3-29.el6.centos        base            89 k
+ policycoreutils      x86_64    2.0.83-30.1.el6_8          base           663 k
+ procmail             x86_64    3.22-25.1.el6_5.1          base           162 k
+ redhat-logos         noarch    60.0.14-12.el6.centos      base            15 M
+ rsyslog              x86_64    5.8.10-10.el6_6            base           650 k
+ sendmail             x86_64    8.14.4-9.el6_8.1           base           717 k
+ sysvinit-tools       x86_64    2.87-6.dsf.el6             base            60 k
+ tcp_wrappers         x86_64    7.6-58.el6                 base            70 k
+ tcp_wrappers-libs    x86_64    7.6-58.el6                 base            62 k
+ udev                 x86_64    147-2.73.el6_8.2           base           358 k
+ upstart              x86_64    0.6.5-16.el6               base           177 k
+ util-linux-ng        x86_64    2.17.2-12.28.el6           base           1.6 M
+
+Transaction Summary
+================================================================================
+Install      27 Package(s)
+
+Total download size: 23 M
+Installed size: 46 M
+Downloading Packages:
+--------------------------------------------------------------------------------
+Total                                           5.6 MB/s |  23 MB     00:04     
+Running rpm_check_debug
+Running Transaction Test
+Transaction Test Succeeded
+Running Transaction
+  Installing : tcp_wrappers-libs-7.6-58.el6.x86_64                         1/27 
+  Installing : sysvinit-tools-2.87-6.dsf.el6.x86_64                        2/27 
+  Installing : hwdata-0.233-18.1.el6.noarch                                3/27 
+  Installing : libpciaccess-0.13.4-1.el6.x86_64                            4/27 
+  Installing : tcp_wrappers-7.6-58.el6.x86_64                              5/27 
+  Installing : logrotate-3.7.8-28.el6.x86_64                               6/27 
+  Installing : dbus-glib-0.86-6.el6.x86_64                                 7/27 
+  Installing : redhat-logos-60.0.14-12.el6.centos.noarch                   8/27 
+  Installing : hesiod-3.1.0-19.el6.x86_64                                  9/27 
+  Installing : procmail-3.22-25.1.el6_5.1.x86_64                          10/27 
+  Installing : upstart-0.6.5-16.el6.x86_64                                11/27 
+  Installing : policycoreutils-2.0.83-30.1.el6_8.x86_64                   12/27 
+  Installing : iptables-1.4.7-16.el6.x86_64                               13/27 
+  Installing : iproute-2.6.32-54.el6.x86_64                               14/27 
+  Installing : libdrm-2.4.65-2.el6.x86_64                                 15/27 
+  Installing : iputils-20071127-24.el6.x86_64                             16/27 
+  Installing : plymouth-0.8.3-29.el6.centos.x86_64                        17/27 
+  Installing : util-linux-ng-2.17.2-12.28.el6.x86_64                      18/27 
+install-info: No such file or directory for /usr/share/info/ipc.info
+  Installing : initscripts-9.03.58-1.el6.centos.1.x86_64                  19/27 
+  Installing : udev-147-2.73.el6_8.2.x86_64                               20/27 
+  Installing : rsyslog-5.8.10-10.el6_6.x86_64                             21/27 
+  Installing : cyrus-sasl-2.1.23-15.el6_6.2.x86_64                        22/27 
+  Installing : sendmail-8.14.4-9.el6_8.1.x86_64                           23/27 
+  Installing : crontabs-1.10-33.el6.noarch                                24/27 
+  Installing : cronie-1.4.4-16.el6_8.2.x86_64                             25/27 
+  Installing : cronie-anacron-1.4.4-16.el6_8.2.x86_64                     26/27 
+  Installing : socat-1.7.1.3-1.el6.rf.x86_64                              27/27 
+  Verifying  : cronie-anacron-1.4.4-16.el6_8.2.x86_64                      1/27 
+  Verifying  : udev-147-2.73.el6_8.2.x86_64                                2/27 
+  Verifying  : initscripts-9.03.58-1.el6.centos.1.x86_64                   3/27 
+  Verifying  : upstart-0.6.5-16.el6.x86_64                                 4/27 
+  Verifying  : plymouth-0.8.3-29.el6.centos.x86_64                         5/27 
+  Verifying  : hwdata-0.233-18.1.el6.noarch                                6/27 
+  Verifying  : rsyslog-5.8.10-10.el6_6.x86_64                              7/27 
+  Verifying  : cronie-1.4.4-16.el6_8.2.x86_64                              8/27 
+  Verifying  : sysvinit-tools-2.87-6.dsf.el6.x86_64                        9/27 
+  Verifying  : iproute-2.6.32-54.el6.x86_64                               10/27 
+  Verifying  : sendmail-8.14.4-9.el6_8.1.x86_64                           11/27 
+  Verifying  : crontabs-1.10-33.el6.noarch                                12/27 
+  Verifying  : procmail-3.22-25.1.el6_5.1.x86_64                          13/27 
+  Verifying  : cyrus-sasl-2.1.23-15.el6_6.2.x86_64                        14/27 
+  Verifying  : tcp_wrappers-7.6-58.el6.x86_64                             15/27 
+  Verifying  : util-linux-ng-2.17.2-12.28.el6.x86_64                      16/27 
+  Verifying  : hesiod-3.1.0-19.el6.x86_64                                 17/27 
+  Verifying  : redhat-logos-60.0.14-12.el6.centos.noarch                  18/27 
+  Verifying  : iputils-20071127-24.el6.x86_64                             19/27 
+  Verifying  : dbus-glib-0.86-6.el6.x86_64                                20/27 
+  Verifying  : libpciaccess-0.13.4-1.el6.x86_64                           21/27 
+  Verifying  : tcp_wrappers-libs-7.6-58.el6.x86_64                        22/27 
+  Verifying  : socat-1.7.1.3-1.el6.rf.x86_64                              23/27 
+  Verifying  : libdrm-2.4.65-2.el6.x86_64                                 24/27 
+  Verifying  : policycoreutils-2.0.83-30.1.el6_8.x86_64                   25/27 
+  Verifying  : iptables-1.4.7-16.el6.x86_64                               26/27 
+  Verifying  : logrotate-3.7.8-28.el6.x86_64                              27/27 
+
+Installed:
+  crontabs.noarch 0:1.10-33.el6         socat.x86_64 0:1.7.1.3-1.el6.rf        
+
+Dependency Installed:
+  cronie.x86_64 0:1.4.4-16.el6_8.2                                              
+  cronie-anacron.x86_64 0:1.4.4-16.el6_8.2                                      
+  cyrus-sasl.x86_64 0:2.1.23-15.el6_6.2                                         
+  dbus-glib.x86_64 0:0.86-6.el6                                                 
+  hesiod.x86_64 0:3.1.0-19.el6                                                  
+  hwdata.noarch 0:0.233-18.1.el6                                                
+  initscripts.x86_64 0:9.03.58-1.el6.centos.1                                   
+  iproute.x86_64 0:2.6.32-54.el6                                                
+  iptables.x86_64 0:1.4.7-16.el6                                                
+  iputils.x86_64 0:20071127-24.el6                                              
+  libdrm.x86_64 0:2.4.65-2.el6                                                  
+  libpciaccess.x86_64 0:0.13.4-1.el6                                            
+  logrotate.x86_64 0:3.7.8-28.el6                                               
+  plymouth.x86_64 0:0.8.3-29.el6.centos                                         
+  policycoreutils.x86_64 0:2.0.83-30.1.el6_8                                    
+  procmail.x86_64 0:3.22-25.1.el6_5.1                                           
+  redhat-logos.noarch 0:60.0.14-12.el6.centos                                   
+  rsyslog.x86_64 0:5.8.10-10.el6_6                                              
+  sendmail.x86_64 0:8.14.4-9.el6_8.1                                            
+  sysvinit-tools.x86_64 0:2.87-6.dsf.el6                                        
+  tcp_wrappers.x86_64 0:7.6-58.el6                                              
+  tcp_wrappers-libs.x86_64 0:7.6-58.el6                                         
+  udev.x86_64 0:147-2.73.el6_8.2                                                
+  upstart.x86_64 0:0.6.5-16.el6                                                 
+  util-linux-ng.x86_64 0:2.17.2-12.28.el6                                       
+
+Complete!
+ ---> 18edae045ab2
+Removing intermediate container 99ebf2d067ab
+Successfully built 18edae045ab2
 Successfully tagged mycentos:6
+Fri, 15 Sep 2017 05:13:45 UTC
+Testing branch: master
+Progress: 0/1/23
+==Running le_test_dependencies please wait
+no crontab for root
+no crontab for root
+curl installed. [PASS]
+crontab installed. [PASS]
+openssl installed. [PASS]
+socat installed. [PASS]
+------------------------------------------
+Progress: 0/2/23
+==Running le_test_install please wait
+./acme.sh install [PASS]
+/root/.acme.sh/acme.sh exists. [PASS]
+_contains '52 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
+/root/.acme.sh/acme.sh uninstall  > /dev/null [PASS]
+------------------------------------------
+Progress: 0/3/23
+==Running le_test_uninstall please wait
+./acme.sh install [PASS]
+/root/.acme.sh/acme.sh uninstall [PASS]
+/root/.acme.sh/acme.sh no exists. [PASS]
+equals  [PASS]
+------------------------------------------
+Progress: 0/4/23
+==Running le_test_installtodir please wait
+./acme.sh install [PASS]
+/root/myle/acme.sh exists. [PASS]
+_contains '53 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
+/root/myle/acme.sh uninstall [PASS]
+------------------------------------------
+Progress: 0/5/23
+==Running le_test_uninstalltodir please wait
+./acme.sh install [PASS]
+/root/myle/acme.sh uninstall [PASS]
+/root/myle/acme.sh no exists. [PASS]
+equals  [PASS]
+------------------------------------------
+Progress: 0/6/23
+==Running le_test_install_config_home please wait
+./acme.sh --install --config-home /root/etc/acme [PASS]
+/root/.acme.sh/acme.sh exists. [PASS]
+_contains '54 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
+/root/etc/acme/account.conf exists. [PASS]
+/root/.acme.sh/account.conf no exists. [PASS]
+/root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null [PASS]
+/root/.acme.sh/acme.sh --uninstall --config-home /root/etc/acme > /dev/null [PASS]
+/root/etc/acme/account.conf exists. [PASS]
+/root/.acme.sh/account.conf no exists. [PASS]
+------------------------------------------
+Progress: 0/7/23
+==Running le_test_standandalone_renew please wait
+/root/.acme.sh/acme.sh issue no testdocker.acme.sh [PASS]
+FORCE=1 /root/.acme.sh/acme.sh renew testdocker.acme.sh [PASS]
+------------------------------------------
+Progress: 0/8/23
+==Running le_test_standandalone_renew_v2 please wait
+/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
+/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force [PASS]
+/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
+------------------------------------------
+Progress: 0/9/23
+==Running le_test_standandalone_renew_localaddress_v2 please wait
+/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --local-address 0.0.0.0 --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
+/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force [PASS]
+/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
+------------------------------------------
+Progress: 0/10/23
+==Running le_test_standandalone_listen_v4_v2 please wait
+/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --listen-v4 --cert-file '/acmetest/certs/domain.cer' --key-file '/acmetest/certs/domain.key'  --ca-file '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchain-file  '/acmetest/certs/full.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
+/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force [PASS]
+/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
+------------------------------------------
+Progress: 0/11/23
+==Running le_test_standandalone_listen_v6_v2 please wait
+Skipped by TEST_IPV6
+------------------------------------------
+Progress: 0/12/23
+==Running le_test_standandalone_deactivate_v2 please wait
+/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
+/root/.acme.sh/acme.sh --deactivate -d testdocker.acme.sh [PASS]
+------------------------------------------
+Progress: 0/13/23
+==Running le_test_standandalone please wait
+/root/.acme.sh/acme.sh issue no testdocker.acme.sh [PASS]
+/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+------------------------------------------
+Progress: 0/14/23
+==Running le_test_standandalone_SAN please wait
+/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh" [PASS]
+/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+------------------------------------------
+Progress: 0/15/23
+==Running le_test_standandalone_ECDSA_256 please wait
+/root/.acme.sh/acme.sh issue no testdocker.acme.sh no ec-256 [PASS]
+/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+------------------------------------------
+Progress: 0/16/23
+==Running le_test_standandalone_ECDSA_256_renew please wait
+/root/.acme.sh/acme.sh issue no testdocker.acme.sh no ec-256 [PASS]
+FORCE=1 /root/.acme.sh/acme.sh renew testdocker.acme.sh [PASS]
+------------------------------------------
+Progress: 0/17/23
+==Running le_test_standandalone_ECDSA_256_SAN_renew please wait
+/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh" ec-256 [PASS]
+FORCE=1 /root/.acme.sh/acme.sh renew "testdocker.acme.sh" [PASS]
+------------------------------------------
+Progress: 0/18/23
+==Running le_test_standandalone_ECDSA_256_SAN_renew_v2 please wait
+/root/.acme.sh/acme.sh --issue -d "testdocker.acme.sh" -d "testdocker2.acme.sh" --standalone --keylength ec-256 --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
+'/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh_ecc/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
+/root/.acme.sh/acme.sh --renew --ecc -d "testdocker.acme.sh" --force [PASS]
+/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
+'/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh_ecc/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
+------------------------------------------
+Progress: 0/19/23
+==Running le_test_standandalone_ECDSA_384 please wait
+/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" no ec-384 [PASS]
+/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+------------------------------------------
+Progress: 0/20/23
+==Running le_test_standandalone_tls_renew_SAN_v2 please wait
+/root/.acme.sh/acme.sh --issue -d "testdocker.acme.sh" --tls  -d "testdocker2.acme.sh" --standalone  [PASS]
+/root/.acme.sh/acme.sh --renew -d "testdocker.acme.sh" --force [PASS]
+/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+------------------------------------------
+Progress: 0/21/23
+==Running le_test_tls_renew_SAN_v2 please wait
+/root/.acme.sh/acme.sh --issue -d "testdocker.acme.sh" -d "testdocker2.acme.sh" --tls [PASS]
+/root/.acme.sh/acme.sh --renew -d "testdocker.acme.sh" --force [PASS]
+/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+------------------------------------------
+Progress: 0/22/23
+==Running le_test_standandalone_renew_idn_v2 please wait
+Skipped by TEST_IDN
+------------------------------------------
+Progress: 0/23/23
+==Running le_test_dnsapi please wait
+The test domain Test_CF_Domain is not defined, skip:ClourFlare_api
+The test domain Test_CX_Domain is not defined, skip:CloudXNS.com_api
+The test domain Test_DP_Domain is not defined, skip:Dnspod.cn_api
+Testing dns_gd Godaddy_api
+TestingDomain='acmetalk.xyz'
+/root/.acme.sh/acme.sh --issue -d "acmetalk.xyz" --dns dns_gd --dnssleep ""  [PASS]
+/root/.acme.sh/acmetalk.xyz/acmetalk.xyz.cer is cert ? 'acmetalk.xyz' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/acmetalk.xyz/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/acme.sh --deactivate -d "acmetalk.xyz" >/dev/null 2>&1 [PASS]
+The test domain Test_AWS_Domain is not defined, skip:Amazon_Route53_api
+The test domain Test_LUA_Domain is not defined, skip:luadns.com_api
+ME_Key is not defined, skip:dnsmadeeasy.com_api
+NSUPDATE_KEY is not defined, skip:nsupdate_api
+OVH_AK is not defined, skip:OVH.com_api
+PDNS_Token is not defined, skip:powerdns.com_api
+The test domain Test_ALI_Domain is not defined, skip:aliyun_api
+Testing dns_gandi_livedns gandi_livedns
+TestingDomain='acmetest.xyz'
+/root/.acme.sh/acme.sh --issue -d "acmetest.xyz" --dns dns_gandi_livedns --dnssleep "60"  [PASS]
+/root/.acme.sh/acmetest.xyz/acmetest.xyz.cer is cert ? 'acmetest.xyz' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/acmetest.xyz/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/acme.sh --deactivate -d "acmetest.xyz" >/dev/null 2>&1 [PASS]
+The test domain Test_DYNU_Domain is not defined, skip:dynu_api
+------------------------------------------
