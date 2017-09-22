@@ -11,3 +11,4 @@
 |centos:7| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/centos-7.svg?1506055446)| Fri, 22 Sep 2017 04:44:06 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/centos-7.out) |
 |centos:6| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/centos-6.svg?1506055973)| Fri, 22 Sep 2017 04:52:53 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/centos-6.out) |
 |fedora:latest| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/fedora-latest.svg?1506056537)| Fri, 22 Sep 2017 05:02:17 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/fedora-latest.out) |
+|fedora:26| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/fedora-26.svg?1506057094)| Fri, 22 Sep 2017 05:11:34 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/fedora-26.out) |
