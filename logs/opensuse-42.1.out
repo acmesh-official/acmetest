@@ -2,55 +2,11 @@ Sending build context to Docker daemon  2.048kB
 Step 1/2 : FROM opensuse:42.1
  ---> 4d74fa6343be
 Step 2/2 : RUN zypper rr OSS NON-OSS && zypper update -y  2>&1 && zypper install  -y   tar openssl cron socat curl libidn  2>&1
- ---> Running in 0863245f074f
-Removing repository 'NON-OSS' [...done]
-Repository 'NON-OSS' has been removed.
-Removing repository 'OSS' [...done]
-Repository 'OSS' has been removed.
-Retrieving repository 'OSS Update' metadata [.......done]
-Building repository 'OSS Update' cache [....done]
-Retrieving repository 'Update Non-Oss' metadata [...done]
-Building repository 'Update Non-Oss' cache [....done]
-Loading repository data...
-Reading installed packages...
-
-Nothing to do.
-Loading repository data...
-Reading installed packages...
-'openssl' is already installed.
-No update candidate for 'openssl-1.0.1i-21.1.x86_64'. The highest available version is already installed.
-'cron' is already installed.
-Package 'cron' is not available in your repositories. Cannot reinstall, upgrade, or downgrade.
-'libidn' not found in package names. Trying capabilities.
-Resolving package dependencies...
-
-The following 4 NEW packages are going to be installed:
-  curl libidn-tools socat tar
-
-The following package is recommended, but will not be installed (only required packages will be installed):
-  tar-lang
-
-4 new packages to install.
-Overall download size: 1.0 MiB. Already cached: 0 B. After the operation, additional 2.9 MiB will be used.
-Continue? [y/n/? shows all options] (y): y
-Retrieving package curl-7.37.0-19.1.x86_64 (1/4), 150.3 KiB (312.9 KiB unpacked)
-Retrieving: curl-7.37.0-19.1.x86_64.rpm [done]
-Retrieving package libidn-tools-1.28-6.1.x86_64 (2/4), 206.5 KiB (849.2 KiB unpacked)
-Retrieving: libidn-tools-1.28-6.1.x86_64.rpm [done]
-Retrieving package socat-1.7.3.1-6.1.x86_64 (3/4), 208.5 KiB (633.3 KiB unpacked)
-Retrieving: socat-1.7.3.1-6.1.x86_64.rpm [done]
-Retrieving package tar-1.27.1-12.1.x86_64 (4/4), 492.9 KiB (  1.2 MiB unpacked)
-Retrieving: tar-1.27.1-12.1.x86_64.rpm [done]
-Checking for file conflicts: [.......done]
-(1/4) Installing: curl-7.37.0-19.1.x86_64 [........done]
-(2/4) Installing: libidn-tools-1.28-6.1.x86_64 [........done]
-(3/4) Installing: socat-1.7.3.1-6.1.x86_64 [.........done]
-(4/4) Installing: tar-1.27.1-12.1.x86_64 [.........done]
+ ---> Using cache
  ---> e17dfc584164
-Removing intermediate container 0863245f074f
 Successfully built e17dfc584164
 Successfully tagged myopensuse:42.1
-Fri, 15 Sep 2017 06:44:50 UTC
+Fri, 22 Sep 2017 06:14:09 UTC
 Testing branch: master
 Progress: 0/1/23
 ==Running le_test_dependencies please wait
@@ -65,7 +21,7 @@ Progress: 0/2/23
 ==Running le_test_install please wait
 ./acme.sh install [PASS]
 /root/.acme.sh/acme.sh exists. [PASS]
-_contains '56 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
+_contains '15 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
 /root/.acme.sh/acme.sh uninstall  > /dev/null [PASS]
 ------------------------------------------
 Progress: 0/3/23
@@ -79,7 +35,7 @@ Progress: 0/4/23
 ==Running le_test_installtodir please wait
 ./acme.sh install [PASS]
 /root/myle/acme.sh exists. [PASS]
-_contains '57 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
+_contains '16 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
 /root/myle/acme.sh uninstall [PASS]
 ------------------------------------------
 Progress: 0/5/23
@@ -93,7 +49,7 @@ Progress: 0/6/23
 ==Running le_test_install_config_home please wait
 ./acme.sh --install --config-home /root/etc/acme [PASS]
 /root/.acme.sh/acme.sh exists. [PASS]
-_contains '58 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
+_contains '17 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
 /root/etc/acme/account.conf exists. [PASS]
 /root/.acme.sh/account.conf no exists. [PASS]
 /root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null [PASS]
