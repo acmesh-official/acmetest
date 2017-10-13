@@ -29,3 +29,4 @@
 |oraclelinux:latest| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/oraclelinux-latest.svg?1507878410)| Fri, 13 Oct 2017 07:06:50 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/oraclelinux-latest.out) |
 |oraclelinux:7| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/oraclelinux-7.svg?1507878966)| Fri, 13 Oct 2017 07:16:06 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/oraclelinux-7.out) |
 |oraclelinux:6| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/oraclelinux-6.svg?1507879502)| Fri, 13 Oct 2017 07:25:02 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/oraclelinux-6.out) |
+|kalilinux/kali-linux-docker| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/kalilinux-kali-linux-docker.svg?1507880024)| Fri, 13 Oct 2017 07:33:44 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/kalilinux-kali-linux-docker.out) |
