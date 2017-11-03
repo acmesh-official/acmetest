@@ -6,7 +6,7 @@ Step 2/2 : RUN yum  -y update     2>&1 && yum  -y install    tar openssl crontab
  ---> ebdb66cf55e6
 Successfully built ebdb66cf55e6
 Successfully tagged myfedora:21
-Fri, 03 Nov 2017 06:48:31 UTC
+Fri, 03 Nov 2017 06:57:36 UTC
 Testing branch: master
 Progress: 0/1/23
 ==Running le_test_dependencies please wait
@@ -21,7 +21,7 @@ Progress: 0/2/23
 ==Running le_test_install please wait
 ./acme.sh install [PASS]
 /root/.acme.sh/acme.sh exists. [PASS]
-_contains '39 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
+_contains '44 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
 /root/.acme.sh/acme.sh uninstall  > /dev/null [PASS]
 ------------------------------------------
 Progress: 0/3/23
@@ -35,7 +35,7 @@ Progress: 0/4/23
 ==Running le_test_installtodir please wait
 ./acme.sh install [PASS]
 /root/myle/acme.sh exists. [PASS]
-_contains '40 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
+_contains '45 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
 /root/myle/acme.sh uninstall [PASS]
 ------------------------------------------
 Progress: 0/5/23
@@ -49,7 +49,7 @@ Progress: 0/6/23
 ==Running le_test_install_config_home please wait
 ./acme.sh --install --config-home /root/etc/acme [PASS]
 /root/.acme.sh/acme.sh exists. [PASS]
-_contains '41 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
+_contains '46 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
 /root/etc/acme/account.conf exists. [PASS]
 /root/.acme.sh/account.conf no exists. [PASS]
 /root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null [PASS]
@@ -168,27 +168,26 @@ Progress: 0/19/23
 /root/.acme.sh/acme.sh issue no "testdocker.acme.sh" no ec-384 [PASS]
 /root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
 /root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-deactivate failed
 ------------------------------------------
-Progress: 1/20/23
+Progress: 0/20/23
 ==Running le_test_standandalone_tls_renew_SAN_v2 please wait
 /root/.acme.sh/acme.sh --issue -d "testdocker.acme.sh" --tls  -d "testdocker2.acme.sh" --standalone  [PASS]
 /root/.acme.sh/acme.sh --renew -d "testdocker.acme.sh" --force [PASS]
 /root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
 /root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
 ------------------------------------------
-Progress: 1/21/23
+Progress: 0/21/23
 ==Running le_test_tls_renew_SAN_v2 please wait
 /root/.acme.sh/acme.sh --issue -d "testdocker.acme.sh" -d "testdocker2.acme.sh" --tls [PASS]
 /root/.acme.sh/acme.sh --renew -d "testdocker.acme.sh" --force [PASS]
 /root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
 /root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
 ------------------------------------------
-Progress: 1/22/23
+Progress: 0/22/23
 ==Running le_test_standandalone_renew_idn_v2 please wait
 Skipped by TEST_IDN
 ------------------------------------------
-Progress: 1/23/23
+Progress: 0/23/23
 ==Running le_test_dnsapi please wait
 The test domain Test_CF_Domain is not defined, skip:ClourFlare_api
 The test domain Test_CX_Domain is not defined, skip:CloudXNS.com_api
