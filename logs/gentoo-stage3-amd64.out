@@ -6,7 +6,7 @@ Step 2/2 : RUN emerge --sync  2>&1 &&  ACCEPT_KEYWORDS="~amd64" emerge   net-mis
  ---> 23b3e54afb5e
 Successfully built 23b3e54afb5e
 Successfully tagged mygentoo-stage3-amd64:latest
-Fri, 10 Nov 2017 08:47:49 UTC
+Fri, 17 Nov 2017 08:35:49 UTC
 Testing branch: master
 Progress: 0/1/23
 ==Running le_test_dependencies please wait
