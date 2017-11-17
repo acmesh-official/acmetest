@@ -6,7 +6,7 @@ Step 2/2 : RUN apt-get -y update 2>&1 && apt-get -y install openssl cron socat c
  ---> 88be49568863
 Successfully built 88be49568863
 Successfully tagged mykalilinux-kali-linux-docker:latest
-Fri, 10 Nov 2017 08:22:00 UTC
+Fri, 17 Nov 2017 08:10:00 UTC
 Testing branch: master
 Progress: 0/1/23
 ==Running le_test_dependencies please wait
