@@ -345,6 +345,7 @@ _runplat() {
       -e TEST_IDN="$TEST_DNS" \
       -e CASE="$CASE" \
       -e ACME_NO_COLOR="$ACME_NO_COLOR" \
+      -e NGROK_TOKEN=$NGROK_TOKEN \
       -v $(pwd):/acmetest \
       $myplat /bin/sh -c "cd /acmetest && ./$RUN_SCRIPT"
     else
@@ -364,6 +365,7 @@ _runplat() {
       -e TEST_IDN="$TEST_DNS" \
       -e CASE="$CASE" \
       -e ACME_NO_COLOR="$ACME_NO_COLOR" \
+      -e NGROK_TOKEN=$NGROK_TOKEN \
       -v $(pwd):/acmetest \
       $myplat /bin/sh -c "cd /acmetest && ./$RUN_SCRIPT" >> "$Log_Out" 2>&1
     fi
@@ -391,6 +393,7 @@ _runplat() {
         -e TEST_IDN="$TEST_IDN" \
         -e CASE="$CASE" \
         -e ACME_NO_COLOR="$ACME_NO_COLOR" \
+        -e NGROK_TOKEN=$NGROK_TOKEN \
         -v $(pwd):/acmetest \
         $myplat /bin/sh
       fi
