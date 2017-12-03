@@ -350,6 +350,8 @@ _runplat() {
       $myplat /bin/sh -c "cd /acmetest && ./$RUN_SCRIPT"
     else
       if [ "$TRAVIS" = "true" ] ; then
+        export TestingDomain=""
+        export TestingAltDomains=""
         docker run --net=host --rm \
         -e TestingDomain=$TestingDomain \
         -e TestingAltDomains=$TestingAltDomains \
