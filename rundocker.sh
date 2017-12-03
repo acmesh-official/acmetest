@@ -101,7 +101,7 @@ update() {
   
   statusfile="$(_normalizeFilename "$plat")"
 
-  if [ "$code" == "0" ] ; then
+  if [ "$code" = "0" ] ; then
     __ok "$plat"
   else
     __fail "$plat"
@@ -112,7 +112,7 @@ update() {
       _err "git pull error"
     fi
     _status="Passed"
-    if [ "$code" == "0" ] ; then
+    if [ "$code" = "0" ] ; then
       if [ -f "status/ok.svg" ] ; then
         cat "status/ok.svg" > "status/$statusfile.svg"
       fi
