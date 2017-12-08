@@ -2,7 +2,7 @@ Sending build context to Docker daemon  2.048kB
 Step 1/2 : FROM ubuntu:15.04
  ---> d1b55fd07600
 Step 2/2 : RUN apt-get -y update  2>&1 && apt-get -y install unzip openssl cron socat curl idn  2>&1
- ---> Running in d9da6d92cba5
+ ---> Running in 29fbe17ed41d
 Ign http://archive.ubuntu.com vivid InRelease
 Ign http://archive.ubuntu.com vivid-updates InRelease
 Ign http://archive.ubuntu.com vivid-security InRelease
@@ -15,76 +15,76 @@ Ign http://archive.ubuntu.com vivid-security Release
 Ign http://archive.ubuntu.com vivid/main amd64 Packages/DiffIndex
 Ign http://archive.ubuntu.com vivid/restricted amd64 Packages/DiffIndex
 Err http://archive.ubuntu.com vivid/main Sources
-  404  Not Found [IP: 91.189.88.149 80]
+  404  Not Found [IP: 91.189.91.26 80]
 Err http://archive.ubuntu.com vivid/restricted Sources
-  404  Not Found [IP: 91.189.88.149 80]
+  404  Not Found [IP: 91.189.91.26 80]
 Err http://archive.ubuntu.com vivid/universe Sources
-  404  Not Found [IP: 91.189.88.149 80]
+  404  Not Found [IP: 91.189.91.26 80]
 Err http://archive.ubuntu.com vivid/universe amd64 Packages
-  404  Not Found [IP: 91.189.88.149 80]
+  404  Not Found [IP: 91.189.91.26 80]
 Err http://archive.ubuntu.com vivid-updates/main Sources
-  404  Not Found [IP: 91.189.88.149 80]
+  404  Not Found [IP: 91.189.91.26 80]
 Err http://archive.ubuntu.com vivid-updates/restricted Sources
-  404  Not Found [IP: 91.189.88.149 80]
+  404  Not Found [IP: 91.189.91.26 80]
 Err http://archive.ubuntu.com vivid-updates/universe Sources
-  404  Not Found [IP: 91.189.88.149 80]
+  404  Not Found [IP: 91.189.91.26 80]
 Err http://archive.ubuntu.com vivid-updates/main amd64 Packages
-  404  Not Found [IP: 91.189.88.149 80]
+  404  Not Found [IP: 91.189.91.26 80]
 Err http://archive.ubuntu.com vivid-updates/restricted amd64 Packages
-  404  Not Found [IP: 91.189.88.149 80]
+  404  Not Found [IP: 91.189.91.26 80]
 Err http://archive.ubuntu.com vivid-updates/universe amd64 Packages
-  404  Not Found [IP: 91.189.88.149 80]
+  404  Not Found [IP: 91.189.91.26 80]
 Err http://archive.ubuntu.com vivid-security/main Sources
-  404  Not Found [IP: 91.189.88.149 80]
+  404  Not Found [IP: 91.189.91.26 80]
 Err http://archive.ubuntu.com vivid-security/restricted Sources
-  404  Not Found [IP: 91.189.88.149 80]
+  404  Not Found [IP: 91.189.91.26 80]
 Err http://archive.ubuntu.com vivid-security/universe Sources
-  404  Not Found [IP: 91.189.88.149 80]
+  404  Not Found [IP: 91.189.91.26 80]
 Err http://archive.ubuntu.com vivid-security/main amd64 Packages
-  404  Not Found [IP: 91.189.88.149 80]
+  404  Not Found [IP: 91.189.91.26 80]
 Err http://archive.ubuntu.com vivid-security/restricted amd64 Packages
-  404  Not Found [IP: 91.189.88.149 80]
+  404  Not Found [IP: 91.189.91.26 80]
 Err http://archive.ubuntu.com vivid-security/universe amd64 Packages
-  404  Not Found [IP: 91.189.88.149 80]
+  404  Not Found [IP: 91.189.91.26 80]
 Err http://archive.ubuntu.com vivid/main amd64 Packages
-  404  Not Found [IP: 91.189.88.149 80]
+  404  Not Found [IP: 91.189.91.26 80]
 Err http://archive.ubuntu.com vivid/restricted amd64 Packages
-  404  Not Found [IP: 91.189.88.149 80]
-W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/vivid/main/source/Sources  404  Not Found [IP: 91.189.88.149 80]
+  404  Not Found [IP: 91.189.91.26 80]
+W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/vivid/main/source/Sources  404  Not Found [IP: 91.189.91.26 80]
 
-W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/vivid/restricted/source/Sources  404  Not Found [IP: 91.189.88.149 80]
+W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/vivid/restricted/source/Sources  404  Not Found [IP: 91.189.91.26 80]
 
-W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/vivid/universe/source/Sources  404  Not Found [IP: 91.189.88.149 80]
+W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/vivid/universe/source/Sources  404  Not Found [IP: 91.189.91.26 80]
 
-W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/vivid/universe/binary-amd64/Packages  404  Not Found [IP: 91.189.88.149 80]
+W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/vivid/universe/binary-amd64/Packages  404  Not Found [IP: 91.189.91.26 80]
 
-W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/vivid-updates/main/source/Sources  404  Not Found [IP: 91.189.88.149 80]
+W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/vivid-updates/main/source/Sources  404  Not Found [IP: 91.189.91.26 80]
 
-W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/vivid-updates/restricted/source/Sources  404  Not Found [IP: 91.189.88.149 80]
+W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/vivid-updates/restricted/source/Sources  404  Not Found [IP: 91.189.91.26 80]
 
-W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/vivid-updates/universe/source/Sources  404  Not Found [IP: 91.189.88.149 80]
+W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/vivid-updates/universe/source/Sources  404  Not Found [IP: 91.189.91.26 80]
 
-W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/vivid-updates/main/binary-amd64/Packages  404  Not Found [IP: 91.189.88.149 80]
+W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/vivid-updates/main/binary-amd64/Packages  404  Not Found [IP: 91.189.91.26 80]
 
-W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/vivid-updates/restricted/binary-amd64/Packages  404  Not Found [IP: 91.189.88.149 80]
+W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/vivid-updates/restricted/binary-amd64/Packages  404  Not Found [IP: 91.189.91.26 80]
 
-W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/vivid-updates/universe/binary-amd64/Packages  404  Not Found [IP: 91.189.88.149 80]
+W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/vivid-updates/universe/binary-amd64/Packages  404  Not Found [IP: 91.189.91.26 80]
 
-W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/vivid-security/main/source/Sources  404  Not Found [IP: 91.189.88.149 80]
+W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/vivid-security/main/source/Sources  404  Not Found [IP: 91.189.91.26 80]
 
-W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/vivid-security/restricted/source/Sources  404  Not Found [IP: 91.189.88.149 80]
+W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/vivid-security/restricted/source/Sources  404  Not Found [IP: 91.189.91.26 80]
 
-W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/vivid-security/universe/source/Sources  404  Not Found [IP: 91.189.88.149 80]
+W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/vivid-security/universe/source/Sources  404  Not Found [IP: 91.189.91.26 80]
 
-W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/vivid-security/main/binary-amd64/Packages  404  Not Found [IP: 91.189.88.149 80]
+W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/vivid-security/main/binary-amd64/Packages  404  Not Found [IP: 91.189.91.26 80]
 
-W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/vivid-security/restricted/binary-amd64/Packages  404  Not Found [IP: 91.189.88.149 80]
+W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/vivid-security/restricted/binary-amd64/Packages  404  Not Found [IP: 91.189.91.26 80]
 
-W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/vivid-security/universe/binary-amd64/Packages  404  Not Found [IP: 91.189.88.149 80]
+W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/vivid-security/universe/binary-amd64/Packages  404  Not Found [IP: 91.189.91.26 80]
 
-W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/vivid/main/binary-amd64/Packages  404  Not Found [IP: 91.189.88.149 80]
+W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/vivid/main/binary-amd64/Packages  404  Not Found [IP: 91.189.91.26 80]
 
-W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/vivid/restricted/binary-amd64/Packages  404  Not Found [IP: 91.189.88.149 80]
+W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/vivid/restricted/binary-amd64/Packages  404  Not Found [IP: 91.189.91.26 80]
 
 E: Some index files failed to download. They have been ignored, or old ones used instead.
 The command '/bin/sh -c apt-get -y update  2>&1 && apt-get -y install unzip openssl cron socat curl idn  2>&1' returned a non-zero code: 100
