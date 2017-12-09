@@ -261,7 +261,28 @@ _digest() {
 
 }
 
+_hasfield() {
+  _str="$1"
+  _field="$2"
+  _sep="$3"
+  if [ -z "$_field" ]; then
+    _usage "Usage: str field  [sep]"
+    return 1
+  fi
 
+  if [ -z "$_sep" ]; then
+    _sep=","
+  fi
+
+  for f in $(echo "$_str" | tr "$_sep" ' '); do
+    if [ "$f" = "$_field" ]; then
+      _debug2 "'$_str' contains '$_field'"
+      return 0 #contains ok
+    fi
+  done
+  _debug2 "'$_str' does not contain '$_field'"
+  return 1 #not contains
+}
 
 #if _exists export ; then
 #  export LC_ALL=en_US.UTF-8
@@ -1546,7 +1567,7 @@ do
   fi
   _rr=0
   _debug t "$t"
-  if [ -z "$CASE" ] || [ "$CASE" = "$t" ] ; then
+  if [ -z "$CASE" ] || _hasfield "$CASE" "$t"; then
     _run "$t"
     _rr="$?"
     _debug "_rr" "$_rr"
