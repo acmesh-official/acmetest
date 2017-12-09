@@ -522,20 +522,20 @@ _assertfileequals(){
 }
 
 _run() {
-  _info "==Running $1 please wait"
+  _test="$1"
+  _info "==Running $_test please wait"
   lehome="$DEFAULT_HOME"
   export STAGE
   export DEBUG
   
-  if [ "$1" != "le_test_installtodir" ] && [ "$1" != "le_test_uninstalltodir" ] && [ "$1" != "le_test_install_config_home" ]; then
+  if [ "$_test" != "le_test_installtodir" ] && [ "$_test" != "le_test_uninstalltodir" ] && [ "$_test" != "le_test_install_config_home" ]; then
     cd acme.sh;
     ./$PROJECT_ENTRY install > /dev/null
     cd ..
   fi
   
-  _DEACTIVATE_DOMAIN=""
   _r="0"
-  if ! ( $1 ) ; then
+  if ! ( $_test ) ; then
     _r="1"
   fi
   if [ "$_r" = "0" ]; then
@@ -550,13 +550,19 @@ _run() {
   fi
     
   CA_DIR="$CA_HOME/$_API_HOST"
-  _debug _DEACTIVATE_DOMAIN "$_DEACTIVATE_DOMAIN"
+
+  if _contains "$_test" "SAN"; then
+    _deactivateDomains="$TestingDomain$TestingAltDomains"
+  else
+    _deactivateDomains="$TestingDomain"
+  fi
+  _debug "_deactivateDomains" "$_deactivateDomains"
   if [ ! "$DEBUG" ] ; then
     rm -rf "$lehome/$TestingDomain"
     rm -rf "$lehome/$TestingDomain$ECC_SUFFIX"
     if [ -f "$lehome/$PROJECT_ENTRY" ] ; then
-      if [ -f "$CA_DIR/account.key" ] && [ "$_DEACTIVATE_DOMAIN" ] ; then
-        $lehome/$PROJECT_ENTRY --deactivate -d "$_DEACTIVATE_DOMAIN" >/dev/null 2>&1
+      if [ -f "$CA_DIR/account.key" ] ; then
+        $lehome/$PROJECT_ENTRY --deactivate -d "$_deactivateDomains" >/dev/null 2>&1
       fi
       __dr="$?"
       if [ "$__dr" != "0" ]; then
@@ -568,9 +574,8 @@ _run() {
       $lehome/$PROJECT_ENTRY uninstall >/dev/null
     fi
   else
-    if [ -f "$CA_DIR/account.key" ] && [ "$_DEACTIVATE_DOMAIN" ]; then
-      _debug "deactivate domain: $_DEACTIVATE_DOMAIN"
-      $lehome/$PROJECT_ENTRY --deactivate -d "$_DEACTIVATE_DOMAIN" >/dev/null 2>&1
+    if [ -f "$CA_DIR/account.key" ] ; then
+      $lehome/$PROJECT_ENTRY --deactivate -d "$_deactivateDomains" >/dev/null 2>&1
     fi
   fi
   rm -f "$lehome/account.conf"
@@ -747,7 +752,7 @@ le_test_standandalone_renew() {
     __fail "Please define TestingDomain and try again."
     return 1
   fi
-  _DEACTIVATE_DOMAIN="$TestingDomain"
+  
   rm -rf "$lehome/$TestingDomain"
   _assertcmd "$lehome/$PROJECT_ENTRY issue no $TestingDomain" ||  return
   sleep 5
@@ -777,7 +782,7 @@ le_test_standandalone_renew_v2() {
     __fail "Please define TestingDomain and try again."
     return 1
   fi
-  _DEACTIVATE_DOMAIN="$TestingDomain"
+
   rm -rf "$lehome/$TestingDomain"
   
   certdir="$(pwd)/certs"
@@ -833,7 +838,7 @@ le_test_standandalone_renew_localaddress_v2() {
     __fail "Please define TestingDomain and try again."
     return 1
   fi
-  _DEACTIVATE_DOMAIN="$TestingDomain"
+
   rm -rf "$lehome/$TestingDomain"
   
   certdir="$(pwd)/certs"
@@ -893,7 +898,7 @@ le_test_standandalone_listen_v4_v2() {
     __fail "Please define TestingDomain and try again."
     return 1
   fi
-  _DEACTIVATE_DOMAIN="$TestingDomain"
+
   rm -rf "$lehome/$TestingDomain"
   
   certdir="$(pwd)/certs"
@@ -959,7 +964,7 @@ le_test_standandalone_listen_v6_v2() {
     __fail "Please define TestingDomain and try again."
     return 1
   fi
-  _DEACTIVATE_DOMAIN="$TestingDomain"
+
   rm -rf "$lehome/$TestingDomain"
   
   certdir="$(pwd)/certs"
@@ -1018,7 +1023,7 @@ le_test_standandalone_deactivate_v2() {
     __fail "Please define TestingDomain and try again."
     return 1
   fi
-  _DEACTIVATE_DOMAIN="$TestingDomain"
+
   rm -rf "$lehome/$TestingDomain"
   
   certdir="$(pwd)/certs"
@@ -1069,7 +1074,7 @@ le_test_standandalone() {
     __fail "Please define TestingDomain and try again."
     return 1
   fi
-  _DEACTIVATE_DOMAIN="$TestingDomain"
+
   rm -rf "$lehome/$TestingDomain"
   
   _assertcmd "$lehome/$PROJECT_ENTRY issue no $TestingDomain" ||  return
@@ -1100,7 +1105,7 @@ le_test_standandalone_SAN() {
     __fail "Please define TestingDomain and TestingAltDomains, and try again."
     return 1
   fi
-  _DEACTIVATE_DOMAIN="$TestingDomain,$TestingAltDomains"
+
   rm -rf "$lehome/$TestingDomain"
   
   _assertcmd "$lehome/$PROJECT_ENTRY issue no \"$TestingDomain\" \"$TestingAltDomains\"" ||  return
@@ -1138,7 +1143,7 @@ le_test_standandalone_ECDSA_256() {
     __fail "Please define TestingDomain and try again."
     return 1
   fi
-  _DEACTIVATE_DOMAIN="$TestingDomain"
+
   rm -rf "$lehome/$TestingDomain$ECC_SUFFIX"
  
   _assertcmd "$lehome/$PROJECT_ENTRY issue no $TestingDomain no ec-256" ||  return
@@ -1177,7 +1182,7 @@ le_test_standandalone_ECDSA_256_renew() {
     __fail "Please define TestingDomain and try again."
     return 1
   fi
-  _DEACTIVATE_DOMAIN="$TestingDomain"
+
   rm -rf "$lehome/$TestingDomain$ECC_SUFFIX"
   
   _assertcmd "$lehome/$PROJECT_ENTRY issue no $TestingDomain no ec-256" ||  return
@@ -1215,7 +1220,7 @@ le_test_standandalone_ECDSA_256_SAN_renew() {
     __fail "Please define TestingDomain and try again."
     return 1
   fi
-  _DEACTIVATE_DOMAIN="$TestingDomain,$TestingAltDomains"
+
   rm -rf "$lehome/$TestingDomain$ECC_SUFFIX"
   
   _assertcmd "$lehome/$PROJECT_ENTRY issue no \"$TestingDomain\" \"$TestingAltDomains\" ec-256" ||  return
@@ -1248,7 +1253,7 @@ le_test_standandalone_ECDSA_256_SAN_renew_v2() {
     __fail "Please define TestingDomain and try again."
     return 1
   fi
-  _DEACTIVATE_DOMAIN="$TestingDomain,$TestingAltDomains"
+
   rm -rf "$lehome/$TestingDomain$ECC_SUFFIX"
   
   certdir="$(pwd)/certs"
@@ -1312,7 +1317,7 @@ le_test_standandalone_ECDSA_384() {
     __fail "Please define TestingDomain and try again."
     return 1
   fi
-  _DEACTIVATE_DOMAIN="$TestingDomain"
+
   rm -rf "$lehome/$TestingDomain$ECC_SUFFIX"
   
   _assertcmd "$lehome/$PROJECT_ENTRY issue no \"$TestingDomain\" no ec-384" ||  return
@@ -1348,7 +1353,7 @@ le_test_standandalone_tls_renew_SAN_v2() {
     __fail "Please define TestingDomain and try again."
     return 1
   fi
-  _DEACTIVATE_DOMAIN="$TestingDomain,$TestingAltDomains"
+
   rm -rf "$lehome/$TestingDomain"
   
   _assertcmd "$lehome/$PROJECT_ENTRY --issue -d \"$TestingDomain\" --tls  -d \"$TestingAltDomains\" --standalone " ||  return
@@ -1389,7 +1394,7 @@ le_test_tls_renew_SAN_v2() {
     __fail "Please define TestingDomain and try again."
     return 1
   fi
-  _DEACTIVATE_DOMAIN="$TestingDomain,$TestingAltDomains"
+
   rm -rf "$lehome/$TestingDomain"
   
   _assertcmd "$lehome/$PROJECT_ENTRY --issue -d \"$TestingDomain\" -d \"$TestingAltDomains\" --tls" ||  return
@@ -1428,7 +1433,7 @@ le_test_standandalone_renew_idn_v2() {
     __fail "Please define TestingDomain and try again."
     return 1
   fi
-  _DEACTIVATE_DOMAIN="$TestingIDNDomain"
+
   _test_idn="$TestingIDNDomain"
   rm -rf "$lehome/$_test_idn"
   
@@ -1521,7 +1526,7 @@ le_test_dnsapi() {
       _info "Skipped for NO_HMAC_CASES"
       continue
     fi
-    _DEACTIVATE_DOMAIN="$d_domain,$_DEACTIVATE_DOMAIN"
+    
     d_sleep="$(eval "echo \$$dnssleep")"
     
     (
