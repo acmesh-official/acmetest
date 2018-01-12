@@ -421,9 +421,9 @@ if [ "$DOCKER_OS" = "centos:5" ] \
  TEST_DNS=""
 fi 
 
-if [ "$DOCKER_OS" = "gentoo/stage3-amd64" ] || [ "$TEST_NGROK" = "1" ]; then
+#if [ "$DOCKER_OS" = "gentoo/stage3-amd64" ] || [ "$TEST_NGROK" = "1" ]; then
  NO_TLS_CASES="1"
-fi
+#fi
 
 
 #file subname
