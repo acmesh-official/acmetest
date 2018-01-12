@@ -1,5 +1,5 @@
 
-Fri, 05 Jan 2018 03:36:06 UTC
+Fri, 12 Jan 2018 03:34:05 UTC
 Testing branch: master
 Progress: 0/1/23
 ==Running le_test_dependencies please wait
@@ -162,23 +162,19 @@ Progress: 0/19/23
 ------------------------------------------
 Progress: 0/20/23
 ==Running le_test_standandalone_tls_renew_SAN_v2 please wait
-/home/root/.acme.sh/acme.sh --issue -d "testwindows-cygwin.acme.sh" --tls  -d "testwindows-cygwin2.acme.sh" --standalone  [PASS]
-/home/root/.acme.sh/acme.sh --renew -d "testwindows-cygwin.acme.sh" --force [PASS]
-/home/root/.acme.sh/testwindows-cygwin.acme.sh/testwindows-cygwin.acme.sh.cer is cert ? 'testwindows-cygwin.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/home/root/.acme.sh/testwindows-cygwin.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+/home/root/.acme.sh/acme.sh --issue -d "testwindows-cygwin.acme.sh" --tls  -d "testwindows-cygwin2.acme.sh" --standalone  [FAIL] 
+Run Failed
 ------------------------------------------
-Progress: 0/21/23
+Progress: 1/21/23
 ==Running le_test_tls_renew_SAN_v2 please wait
-/home/root/.acme.sh/acme.sh --issue -d "testwindows-cygwin.acme.sh" -d "testwindows-cygwin2.acme.sh" --tls [PASS]
-/home/root/.acme.sh/acme.sh --renew -d "testwindows-cygwin.acme.sh" --force [PASS]
-/home/root/.acme.sh/testwindows-cygwin.acme.sh/testwindows-cygwin.acme.sh.cer is cert ? 'testwindows-cygwin.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/home/root/.acme.sh/testwindows-cygwin.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+/home/root/.acme.sh/acme.sh --issue -d "testwindows-cygwin.acme.sh" -d "testwindows-cygwin2.acme.sh" --tls [FAIL] 
+Run Failed
 ------------------------------------------
-Progress: 0/22/23
+Progress: 2/22/23
 ==Running le_test_standandalone_renew_idn_v2 please wait
 Skipped by TEST_IDN
 ------------------------------------------
-Progress: 0/23/23
+Progress: 2/23/23
 ==Running le_test_dnsapi please wait
 The test domain Test_CF_Domain is not defined, skip:ClourFlare_api
 The test domain Test_CX_Domain is not defined, skip:CloudXNS.com_api
