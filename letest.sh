@@ -1496,6 +1496,8 @@ le_test_dnsapi() {
   dns_ali,Ali_Key,aliyun_api,Test_ALI_Domain,ALI_Sleep
   dns_gandi_livedns,GANDI_LIVEDNS_KEY,gandi_livedns,Test_GANDI_Domain,GANDI_Sleep
   dns_dynu,Dynu_ClientId,dynu_api,Test_DYNU_Domain,DYNU_Sleep
+  dns_he,HE_Username,dns_he_net,Test_HE_Domain,HE_Sleep
+  dns_zonomi,ZM_Key,dns_zonomi,Test_ZM_Domain,ZM_Sleep
   "
   
   for dnsapi in $dnsapis; do
