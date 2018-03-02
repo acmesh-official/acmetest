@@ -31,3 +31,4 @@
 |kalilinux/kali-linux-docker| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/kalilinux-kali-linux-docker.svg?1519988511)| Fri, 02 Mar 2018 11:01:51 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/kalilinux-kali-linux-docker.out) |
 |base/archlinux| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/base-archlinux.svg?1519989380)| Fri, 02 Mar 2018 11:16:20 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/base-archlinux.out) |
 |mageia| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/mageia.svg?1519990263)| Fri, 02 Mar 2018 11:31:03 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/mageia.out) |
+|gentoo/stage3-amd64| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/gentoo-stage3-amd64.svg?1519990437)| Fri, 02 Mar 2018 11:33:57 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/gentoo-stage3-amd64.out) |
