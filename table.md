@@ -1,1 +1,1 @@
-|ubuntu:latest| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/ubuntu-latest.svg?1519962769)| Fri, 02 Mar 2018 03:52:49 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/ubuntu-latest.out) |
+|ubuntu:latest| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/ubuntu-latest.svg?1519963228)| Fri, 02 Mar 2018 04:00:28 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/ubuntu-latest.out) |
