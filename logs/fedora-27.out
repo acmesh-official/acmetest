@@ -1,0 +1,329 @@
+Sending build context to Docker daemon  2.048kB
+Step 1/2 : FROM fedora:27
+27: Pulling from library/fedora
+2176639d844b: Pulling fs layer
+2176639d844b: Verifying Checksum
+2176639d844b: Download complete
+2176639d844b: Pull complete
+Digest: sha256:ec588fc80b05e19d3006bf2e8aa325f0a2e2ff1f609b7afb39176ca8e3e13467
+Status: Downloaded newer image for fedora:27
+ ---> 9110ae7f579f
+Step 2/2 : RUN yum  -y update     2>&1 && yum  -y install    tar openssl crontabs socat curl  2>&1
+ ---> Running in 696e50c2ba79
+Fedora 27 - x86_64 - Updates                    2.7 MB/s |  20 MB     00:07    
+Fedora 27 - x86_64                              7.0 MB/s |  58 MB     00:08    
+Last metadata expiration check: 0:00:12 ago on Fri Mar  9 05:50:08 2018.
+Dependencies resolved.
+Nothing to do.
+Complete!
+Last metadata expiration check: 0:00:32 ago on Fri Mar  9 05:50:08 2018.
+Package tar-2:1.29-7.fc27.x86_64 is already installed, skipping.
+Package curl-7.55.1-9.fc27.x86_64 is already installed, skipping.
+Dependencies resolved.
+================================================================================
+ Package              Arch      Version                        Repository  Size
+================================================================================
+Installing:
+ crontabs             noarch    1.11-15.20150630git.fc27       fedora      24 k
+ openssl              x86_64    1:1.1.0g-1.fc27                updates    564 k
+ socat                x86_64    1.7.3.2-4.fc27                 fedora     296 k
+Installing dependencies:
+ cronie-anacron       x86_64    1.5.1-8.fc27                   fedora      39 k
+ gc                   x86_64    7.6.0-7.fc27                   fedora     110 k
+ guile                x86_64    5:2.0.14-3.fc27                fedora     3.5 M
+ libatomic_ops        x86_64    7.4.6-3.fc27                   fedora      33 k
+ libstdc++            x86_64    7.3.1-5.fc27                   updates    482 k
+ libtool-ltdl         x86_64    2.4.6-20.fc27                  fedora      55 k
+ make                 x86_64    1:4.2.1-4.fc27                 fedora     494 k
+ tcp_wrappers-libs    x86_64    7.6-87.fc27                    fedora      72 k
+Installing weak dependencies:
+ cronie               x86_64    1.5.1-8.fc27                   fedora     104 k
+
+Transaction Summary
+================================================================================
+Install  12 Packages
+
+Total download size: 5.7 M
+Installed size: 17 M
+Downloading Packages:
+(1/12): crontabs-1.11-15.20150630git.fc27.noarc  91 kB/s |  24 kB     00:00    
+(2/12): tcp_wrappers-libs-7.6-87.fc27.x86_64.rp 205 kB/s |  72 kB     00:00    
+(3/12): socat-1.7.3.2-4.fc27.x86_64.rpm         582 kB/s | 296 kB     00:00    
+(4/12): gc-7.6.0-7.fc27.x86_64.rpm              1.1 MB/s | 110 kB     00:00    
+(5/12): openssl-1.1.0g-1.fc27.x86_64.rpm        1.1 MB/s | 564 kB     00:00    
+(6/12): make-4.2.1-4.fc27.x86_64.rpm            1.1 MB/s | 494 kB     00:00    
+(7/12): libatomic_ops-7.4.6-3.fc27.x86_64.rpm   396 kB/s |  33 kB     00:00    
+(8/12): libtool-ltdl-2.4.6-20.fc27.x86_64.rpm   618 kB/s |  55 kB     00:00    
+(9/12): cronie-1.5.1-8.fc27.x86_64.rpm          927 kB/s | 104 kB     00:00    
+(10/12): cronie-anacron-1.5.1-8.fc27.x86_64.rpm 462 kB/s |  39 kB     00:00    
+(11/12): libstdc++-7.3.1-5.fc27.x86_64.rpm      1.8 MB/s | 482 kB     00:00    
+(12/12): guile-2.0.14-3.fc27.x86_64.rpm         2.9 MB/s | 3.5 MB     00:01    
+--------------------------------------------------------------------------------
+Total                                           2.1 MB/s | 5.7 MB     00:02     
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                        1/1 
+  Installing       : libstdc++-7.3.1-5.fc27.x86_64                         1/12 
+  Running scriptlet: libstdc++-7.3.1-5.fc27.x86_64                         1/12 
+  Installing       : libtool-ltdl-2.4.6-20.fc27.x86_64                     2/12 
+  Running scriptlet: libtool-ltdl-2.4.6-20.fc27.x86_64                     2/12 
+  Installing       : libatomic_ops-7.4.6-3.fc27.x86_64                     3/12 
+  Running scriptlet: libatomic_ops-7.4.6-3.fc27.x86_64                     3/12 
+  Installing       : gc-7.6.0-7.fc27.x86_64                                4/12 
+  Running scriptlet: gc-7.6.0-7.fc27.x86_64                                4/12 
+  Installing       : guile-5:2.0.14-3.fc27.x86_64                          5/12 
+  Running scriptlet: guile-5:2.0.14-3.fc27.x86_64                          5/12 
+  Installing       : make-1:4.2.1-4.fc27.x86_64                            6/12 
+  Running scriptlet: make-1:4.2.1-4.fc27.x86_64                            6/12 
+  Installing       : tcp_wrappers-libs-7.6-87.fc27.x86_64                  7/12 
+  Running scriptlet: tcp_wrappers-libs-7.6-87.fc27.x86_64                  7/12 
+  Installing       : crontabs-1.11-15.20150630git.fc27.noarch              8/12 
+  Installing       : cronie-1.5.1-8.fc27.x86_64                            9/12 
+  Running scriptlet: cronie-1.5.1-8.fc27.x86_64                            9/12 
+  Installing       : cronie-anacron-1.5.1-8.fc27.x86_64                   10/12 
+  Running scriptlet: cronie-anacron-1.5.1-8.fc27.x86_64                   10/12 
+  Installing       : socat-1.7.3.2-4.fc27.x86_64                          11/12 
+  Installing       : openssl-1:1.1.0g-1.fc27.x86_64                       12/12 
+  Running scriptlet: guile-5:2.0.14-3.fc27.x86_64                         12/12 
+  Verifying        : crontabs-1.11-15.20150630git.fc27.noarch              1/12 
+  Verifying        : socat-1.7.3.2-4.fc27.x86_64                           2/12 
+  Verifying        : tcp_wrappers-libs-7.6-87.fc27.x86_64                  3/12 
+  Verifying        : openssl-1:1.1.0g-1.fc27.x86_64                        4/12 
+  Verifying        : make-1:4.2.1-4.fc27.x86_64                            5/12 
+  Verifying        : gc-7.6.0-7.fc27.x86_64                                6/12 
+  Verifying        : guile-5:2.0.14-3.fc27.x86_64                          7/12 
+  Verifying        : libatomic_ops-7.4.6-3.fc27.x86_64                     8/12 
+  Verifying        : libtool-ltdl-2.4.6-20.fc27.x86_64                     9/12 
+  Verifying        : libstdc++-7.3.1-5.fc27.x86_64                        10/12 
+  Verifying        : cronie-1.5.1-8.fc27.x86_64                           11/12 
+  Verifying        : cronie-anacron-1.5.1-8.fc27.x86_64                   12/12 
+
+Installed:
+  crontabs.noarch 1.11-15.20150630git.fc27 openssl.x86_64 1:1.1.0g-1.fc27      
+  socat.x86_64 1.7.3.2-4.fc27              cronie.x86_64 1.5.1-8.fc27          
+  cronie-anacron.x86_64 1.5.1-8.fc27       gc.x86_64 7.6.0-7.fc27              
+  guile.x86_64 5:2.0.14-3.fc27             libatomic_ops.x86_64 7.4.6-3.fc27   
+  libstdc++.x86_64 7.3.1-5.fc27            libtool-ltdl.x86_64 2.4.6-20.fc27   
+  make.x86_64 1:4.2.1-4.fc27               tcp_wrappers-libs.x86_64 7.6-87.fc27
+
+Complete!
+ ---> 82e6a8cb753c
+Removing intermediate container 696e50c2ba79
+Successfully built 82e6a8cb753c
+Successfully tagged myfedora:27
+Fri, 09 Mar 2018 05:50:59 UTC
+Testing branch: master
+Progress: 0/1/23
+==Running le_test_dependencies please wait
+no crontab for root
+no crontab for root
+curl installed. [PASS]
+crontab installed. [PASS]
+openssl installed. [PASS]
+socat installed. [PASS]
+------------------------------------------
+Progress: 0/2/23
+==Running le_test_install please wait
+./acme.sh install [PASS]
+/root/.acme.sh/acme.sh exists. [PASS]
+_contains '4 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
+/root/.acme.sh/acme.sh uninstall  > /dev/null [PASS]
+------------------------------------------
+Progress: 0/3/23
+==Running le_test_uninstall please wait
+./acme.sh install [PASS]
+/root/.acme.sh/acme.sh uninstall [PASS]
+/root/.acme.sh/acme.sh no exists. [PASS]
+equals  [PASS]
+------------------------------------------
+Progress: 0/4/23
+==Running le_test_installtodir please wait
+./acme.sh install [PASS]
+/root/myle/acme.sh exists. [PASS]
+_contains '5 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
+/root/myle/acme.sh uninstall [PASS]
+------------------------------------------
+Progress: 0/5/23
+==Running le_test_uninstalltodir please wait
+./acme.sh install [PASS]
+/root/myle/acme.sh uninstall [PASS]
+/root/myle/acme.sh no exists. [PASS]
+equals  [PASS]
+------------------------------------------
+Progress: 0/6/23
+==Running le_test_install_config_home please wait
+./acme.sh --install --config-home /root/etc/acme [PASS]
+/root/.acme.sh/acme.sh exists. [PASS]
+_contains '6 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
+/root/etc/acme/account.conf exists. [PASS]
+/root/.acme.sh/account.conf no exists. [PASS]
+/root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null [PASS]
+/root/.acme.sh/acme.sh --uninstall --config-home /root/etc/acme > /dev/null [PASS]
+/root/etc/acme/account.conf exists. [PASS]
+/root/.acme.sh/account.conf no exists. [PASS]
+------------------------------------------
+Progress: 0/7/23
+==Running le_test_standandalone_renew please wait
+/root/.acme.sh/acme.sh issue no testdocker.acme.sh [PASS]
+FORCE=1 /root/.acme.sh/acme.sh renew testdocker.acme.sh [PASS]
+------------------------------------------
+Progress: 0/8/23
+==Running le_test_standandalone_renew_v2 please wait
+/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
+/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force [PASS]
+/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
+------------------------------------------
+Progress: 0/9/23
+==Running le_test_standandalone_renew_localaddress_v2 please wait
+/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --local-address 0.0.0.0 --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
+/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force [PASS]
+/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
+------------------------------------------
+Progress: 0/10/23
+==Running le_test_standandalone_listen_v4_v2 please wait
+/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --listen-v4 --cert-file '/acmetest/certs/domain.cer' --key-file '/acmetest/certs/domain.key'  --ca-file '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchain-file  '/acmetest/certs/full.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
+/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force [PASS]
+/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
+------------------------------------------
+Progress: 0/11/23
+==Running le_test_standandalone_listen_v6_v2 please wait
+Skipped by TEST_IPV6
+------------------------------------------
+Progress: 0/12/23
+==Running le_test_standandalone_deactivate_v2 please wait
+/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
+/root/.acme.sh/acme.sh --deactivate -d testdocker.acme.sh [PASS]
+------------------------------------------
+Progress: 0/13/23
+==Running le_test_standandalone please wait
+/root/.acme.sh/acme.sh issue no testdocker.acme.sh [PASS]
+/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+------------------------------------------
+Progress: 0/14/23
+==Running le_test_standandalone_SAN please wait
+/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh" [PASS]
+/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+------------------------------------------
+Progress: 0/15/23
+==Running le_test_standandalone_ECDSA_256 please wait
+/root/.acme.sh/acme.sh issue no testdocker.acme.sh no ec-256 [PASS]
+/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+------------------------------------------
+Progress: 0/16/23
+==Running le_test_standandalone_ECDSA_256_renew please wait
+/root/.acme.sh/acme.sh issue no testdocker.acme.sh no ec-256 [PASS]
+FORCE=1 /root/.acme.sh/acme.sh renew testdocker.acme.sh [PASS]
+------------------------------------------
+Progress: 0/17/23
+==Running le_test_standandalone_ECDSA_256_SAN_renew please wait
+/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh" ec-256 [PASS]
+FORCE=1 /root/.acme.sh/acme.sh renew "testdocker.acme.sh" [PASS]
+------------------------------------------
+Progress: 0/18/23
+==Running le_test_standandalone_ECDSA_256_SAN_renew_v2 please wait
+/root/.acme.sh/acme.sh --issue -d "testdocker.acme.sh" -d "testdocker2.acme.sh" --standalone --keylength ec-256 --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
+'/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh_ecc/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
+/root/.acme.sh/acme.sh --renew --ecc -d "testdocker.acme.sh" --force [PASS]
+/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
+'/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh_ecc/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
+------------------------------------------
+Progress: 0/19/23
+==Running le_test_standandalone_ECDSA_384 please wait
+/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" no ec-384 [PASS]
+/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+------------------------------------------
+Progress: 0/20/23
+==Running le_test_standandalone_tls_renew_SAN_v2 please wait
+Skipped by NO_TLS_CASES
+------------------------------------------
+Progress: 0/21/23
+==Running le_test_tls_renew_SAN_v2 please wait
+Skipped by NO_TLS_CASES
+------------------------------------------
+Progress: 0/22/23
+==Running le_test_standandalone_renew_idn_v2 please wait
+Skipped by TEST_IDN
+------------------------------------------
+Progress: 0/23/23
+==Running le_test_dnsapi please wait
+The test domain Test_CF_Domain is not defined, skip:ClourFlare_api
+The test domain Test_CX_Domain is not defined, skip:CloudXNS.com_api
+The test domain Test_DP_Domain is not defined, skip:Dnspod.cn_api
+Testing dns_gd Godaddy_api
+TestingDomain='acmetalk.xyz'
+/root/.acme.sh/acme.sh --issue -d "acmetalk.xyz" --dns dns_gd --dnssleep ""  [PASS]
+/root/.acme.sh/acmetalk.xyz/acmetalk.xyz.cer is cert ? 'acmetalk.xyz' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/acmetalk.xyz/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/acme.sh --deactivate -d "acmetalk.xyz" >/dev/null 2>&1 [PASS]
+The test domain Test_AWS_Domain is not defined, skip:Amazon_Route53_api
+The test domain Test_LUA_Domain is not defined, skip:luadns.com_api
+ME_Key is not defined, skip:dnsmadeeasy.com_api
+NSUPDATE_KEY is not defined, skip:nsupdate_api
+OVH_AK is not defined, skip:OVH.com_api
+PDNS_Token is not defined, skip:powerdns.com_api
+The test domain Test_ALI_Domain is not defined, skip:aliyun_api
+Testing dns_gandi_livedns gandi_livedns
+TestingDomain='acmetest.pw'
+/root/.acme.sh/acme.sh --issue -d "acmetest.pw" --dns dns_gandi_livedns --dnssleep "60"  [PASS]
+/root/.acme.sh/acmetest.pw/acmetest.pw.cer is cert ? 'acmetest.pw' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/acmetest.pw/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/acme.sh --deactivate -d "acmetest.pw" >/dev/null 2>&1 [PASS]
+The test domain Test_DYNU_Domain is not defined, skip:dynu_api
+Testing dns_he dns_he_net
+TestingDomain='he.acme.sh'
+/root/.acme.sh/acme.sh --issue -d "he.acme.sh" --dns dns_he --dnssleep "60"  [PASS]
+/root/.acme.sh/he.acme.sh/he.acme.sh.cer is cert ? 'he.acme.sh' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/he.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/acme.sh --deactivate -d "he.acme.sh" >/dev/null 2>&1 [PASS]
+Testing dns_zonomi dns_zonomi
+TestingDomain='zonomi.acme.sh'
+/root/.acme.sh/acme.sh --issue -d "zonomi.acme.sh" --dns dns_zonomi --dnssleep "30"  [PASS]
+/root/.acme.sh/zonomi.acme.sh/zonomi.acme.sh.cer is cert ? 'zonomi.acme.sh' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/zonomi.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/acme.sh --deactivate -d "zonomi.acme.sh" >/dev/null 2>&1 [PASS]
+------------------------------------------
