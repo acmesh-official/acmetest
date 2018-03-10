@@ -1,17 +1,45 @@
 Sending build context to Docker daemon  2.048kB
-Step 1/2 : FROM oraclelinux:7
- ---> 9fe41720f939
-Step 2/2 : RUN yum -y update     2>&1 && yum -y install    tar openssl crontabs socat curl  2>&1
- ---> Using cache
- ---> 0905bf290f10
-Successfully built 0905bf290f10
-Successfully tagged myoraclelinux:7
-Fri, 09 Mar 2018 08:46:32 UTC
+Step 1/2 : FROM alpine:3.6
+3.6: Pulling from library/alpine
+605ce1bd3f31: Pulling fs layer
+605ce1bd3f31: Verifying Checksum
+605ce1bd3f31: Download complete
+605ce1bd3f31: Pull complete
+Digest: sha256:f625bd3ff910ad2c68a405ccc5e294d2714fc8cfe7b5d80a8331c72ad5cc7630
+Status: Downloaded newer image for alpine:3.6
+ ---> 77144d8c6bdc
+Step 2/2 : RUN apk update -f 2>&1 && apk --no-cache add -f openssl curl socat  2>&1
+ ---> Running in ff285a8f2635
+fetch http://dl-cdn.alpinelinux.org/alpine/v3.6/main/x86_64/APKINDEX.tar.gz
+fetch http://dl-cdn.alpinelinux.org/alpine/v3.6/community/x86_64/APKINDEX.tar.gz
+v3.6.2-278-g19539511a2 [http://dl-cdn.alpinelinux.org/alpine/v3.6/main]
+v3.6.2-277-g4c7d815e52 [http://dl-cdn.alpinelinux.org/alpine/v3.6/community]
+OK: 8437 distinct packages available
+fetch http://dl-cdn.alpinelinux.org/alpine/v3.6/main/x86_64/APKINDEX.tar.gz
+fetch http://dl-cdn.alpinelinux.org/alpine/v3.6/community/x86_64/APKINDEX.tar.gz
+(1/12) Installing ca-certificates (20161130-r2)
+(2/12) Installing libssh2 (1.8.0-r1)
+(3/12) Installing libcurl (7.58.0-r1)
+(4/12) Installing curl (7.58.0-r1)
+(5/12) Installing libcrypto1.0 (1.0.2n-r0)
+(6/12) Installing libssl1.0 (1.0.2n-r0)
+(7/12) Installing openssl (1.0.2n-r0)
+(8/12) Installing ncurses-terminfo-base (6.0_p20171125-r0)
+(9/12) Installing ncurses-terminfo (6.0_p20171125-r0)
+(10/12) Installing ncurses-libs (6.0_p20171125-r0)
+(11/12) Installing readline (6.3.008-r5)
+(12/12) Installing socat (1.7.3.2-r1)
+Executing busybox-1.26.2-r9.trigger
+Executing ca-certificates-20161130-r2.trigger
+OK: 17 MiB in 23 packages
+ ---> d0b0f47ca7c7
+Removing intermediate container ff285a8f2635
+Successfully built d0b0f47ca7c7
+Successfully tagged myalpine:3.6
+Fri, 09 Mar 2018 07:43:42 UTC
 Testing branch: master
 Progress: 0/1/23
 ==Running le_test_dependencies please wait
-no crontab for root
-no crontab for root
 curl installed. [PASS]
 crontab installed. [PASS]
 openssl installed. [PASS]
@@ -21,7 +49,7 @@ Progress: 0/2/23
 ==Running le_test_install please wait
 ./acme.sh install [PASS]
 /root/.acme.sh/acme.sh exists. [PASS]
-_contains '38 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
+_contains '45 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
 /root/.acme.sh/acme.sh uninstall  > /dev/null [PASS]
 ------------------------------------------
 Progress: 0/3/23
@@ -35,7 +63,7 @@ Progress: 0/4/23
 ==Running le_test_installtodir please wait
 ./acme.sh install [PASS]
 /root/myle/acme.sh exists. [PASS]
-_contains '39 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
+_contains '46 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
 /root/myle/acme.sh uninstall [PASS]
 ------------------------------------------
 Progress: 0/5/23
@@ -49,7 +77,7 @@ Progress: 0/6/23
 ==Running le_test_install_config_home please wait
 ./acme.sh --install --config-home /root/etc/acme [PASS]
 /root/.acme.sh/acme.sh exists. [PASS]
-_contains '40 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
+_contains '46 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
 /root/etc/acme/account.conf exists. [PASS]
 /root/.acme.sh/account.conf no exists. [PASS]
 /root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null [PASS]
