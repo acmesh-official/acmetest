@@ -421,9 +421,6 @@ if [ "$DOCKER_OS" = "centos:5" ] \
  TEST_DNS=""
 fi 
 
-#if [ "$DOCKER_OS" = "gentoo/stage3-amd64" ] || [ "$TEST_NGROK" = "1" ]; then
- NO_TLS_CASES="1"
-#fi
 
 
 #file subname
@@ -1332,87 +1329,6 @@ le_test_standandalone_ECDSA_384() {
 
 
 }
-
-le_test_standandalone_tls_renew_SAN_v2() {
-  #test  standalone and tls hybrid mode.
-  
-  if [ "$NO_TLS_CASES" ] ; then
-    _info "Skipped by NO_TLS_CASES"
-    return 0
-  fi
-  
-  lehome="$DEFAULT_HOME"
-
-  lp=`_ss | grep ':443 '`
-  if [ "$lp" ] ; then
-    __fail "443 port is already used."
-    return 1
-  fi
-  
-  if [ -z "$TestingDomain" ] ; then
-    __fail "Please define TestingDomain and try again."
-    return 1
-  fi
-
-  rm -rf "$lehome/$TestingDomain"
-  
-  _assertcmd "$lehome/$PROJECT_ENTRY --issue -d \"$TestingDomain\" --tls  -d \"$TestingAltDomains\" --standalone " ||  return
-  sleep 5
-  _assertcmd "$lehome/$PROJECT_ENTRY --renew -d \"$TestingDomain\" --force" ||  return
-  
-  _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" "$TestingDomain" "$CA" || return
-  _assertcert "$lehome/$TestingDomain/ca.cer" "$CA" || return
-  
-  lp=`_ss | grep ':443 '`
-  if [ "$lp" ] ; then
-    __fail "443 port is not released: $lp"
-    return 1
-  fi
-
-}
-
-le_test_tls_renew_SAN_v2() {
-  if [ "$QUICK_TEST" ] ; then
-    _info "Skipped by QUICK_TEST"
-    return 0
-  fi
-  
-  if [ "$NO_TLS_CASES" ] ; then
-    _info "Skipped by NO_TLS_CASES"
-    return 0
-  fi
-  
-  lehome="$DEFAULT_HOME"
-
-  lp=`_ss | grep ':443 '`
-  if [ "$lp" ] ; then
-    __fail "443 port is already used."
-    return 1
-  fi
-  
-  if [ -z "$TestingDomain" ] ; then
-    __fail "Please define TestingDomain and try again."
-    return 1
-  fi
-
-  rm -rf "$lehome/$TestingDomain"
-  
-  _assertcmd "$lehome/$PROJECT_ENTRY --issue -d \"$TestingDomain\" -d \"$TestingAltDomains\" --tls" ||  return
-  sleep 5
-  _assertcmd "$lehome/$PROJECT_ENTRY --renew -d \"$TestingDomain\" --force" ||  return
-  
-  _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" "$TestingDomain" "$CA" || return
-  _assertcert "$lehome/$TestingDomain/ca.cer" "$CA" || return
-  
-  lp=`_ss | grep ':443 '`
-  if [ "$lp" ] ; then
-    __fail "443 port is not released: $lp"
-    return 1
-  fi
-
-}
-
-
 
 #
 le_test_standandalone_renew_idn_v2() {
