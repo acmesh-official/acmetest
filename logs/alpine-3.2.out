@@ -6,7 +6,7 @@ Step 2/2 : RUN apk update -f 2>&1 && apk --no-cache add -f openssl curl socat  2
  ---> 9eba5c084461
 Successfully built 9eba5c084461
 Successfully tagged myalpine:3.2
-Fri, 16 Mar 2018 10:00:37 UTC
+Fri, 23 Mar 2018 08:02:37 UTC
 Testing branch: master
 Progress: 0/1/21
 ==Running le_test_dependencies please wait
