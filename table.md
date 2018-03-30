@@ -1,2 +1,2 @@
 |ubuntu:latest| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/ubuntu-latest.svg?1522379836)| Fri, 30 Mar 2018 03:17:16 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/ubuntu-latest.out) |
-|ubuntu:17.04| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/ubuntu-17.04.svg?1522380406)| Fri, 30 Mar 2018 03:26:46 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/ubuntu-17.04.out) |
+|ubuntu:17.04| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/ubuntu-17.04.svg?1522380950)| Fri, 30 Mar 2018 03:35:50 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/ubuntu-17.04.out) |
