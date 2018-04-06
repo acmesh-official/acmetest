@@ -22,3 +22,4 @@
 |opensuse:42.1| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/opensuse-42.1.svg?1522992572)| Fri, 06 Apr 2018 05:29:32 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/opensuse-42.1.out) |
 |alpine:latest| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/alpine-latest.svg?1522992923)| Fri, 06 Apr 2018 05:35:23 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-latest.out) |
 |alpine:3.7| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/alpine-3.7.svg?1522993246)| Fri, 06 Apr 2018 05:40:46 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-3.7.out) |
+|alpine:3.6| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/alpine-3.6.svg?1522993489)| Fri, 06 Apr 2018 05:44:49 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-3.6.out) |
