@@ -2,7 +2,7 @@
 |ubuntu:17.04| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/ubuntu-17.04.svg?1522999293)| Fri, 06 Apr 2018 07:21:33 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/ubuntu-17.04.out) |
 |ubuntu:16.04| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/ubuntu-16.04.svg?1522999840)| Fri, 06 Apr 2018 07:30:40 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/ubuntu-16.04.out) |
 |ubuntu:14.04| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/ubuntu-14.04.svg?1523000276)| Fri, 06 Apr 2018 07:37:56 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/ubuntu-14.04.out) |
-|debian:latest| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/debian-latest.svg?1522984207)| Fri, 06 Apr 2018 03:10:07 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-latest.out) |
+|debian:latest| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/debian-latest.svg?1523000494)| Fri, 06 Apr 2018 07:41:34 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-latest.out) |
 |debian:9| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/debian-9.svg?1522984650)| Fri, 06 Apr 2018 03:17:30 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-9.out) |
 |debian:8| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/debian-8.svg?1522985218)| Fri, 06 Apr 2018 03:26:58 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-8.out) |
 |debian:7| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/debian-7.svg?1522985628)| Fri, 06 Apr 2018 03:33:48 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-7.out) |
