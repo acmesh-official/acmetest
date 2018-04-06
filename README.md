@@ -10,7 +10,7 @@ Unit test project for **acme.sh** project https://github.com/Neilpang/acme.sh
 |freebsd| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/freebsd.svg?1522980282)| Fri, 06 Apr 2018 02:04:42 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/freebsd.out) |
 |openbsd| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/openbsd.svg?1522980614)| Fri, 06 Apr 2018 02:10:14 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/openbsd.out) |
 |pfsense| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/pfsense.svg?1522980879)| Fri, 06 Apr 2018 02:14:39 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/pfsense.out) |
-|solaris| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/solaris.svg?1522377758)| Fri, 30 Mar 2018 02:42:38 GMT| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/solaris.out) |
+|solaris| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/solaris.svg?1522981198)| Fri, 06 Apr 2018 02:19:58 GMT| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/solaris.out) |
 |windows-cygwin| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/windows-cygwin.svg?1522378736)| Fri, 30 Mar 2018 02:58:56 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/windows-cygwin.out) |
 |ubuntu:latest| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/ubuntu-latest.svg?1522408580)| Fri, 30 Mar 2018 11:16:20 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/ubuntu-latest.out) |
 |ubuntu:17.04| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/ubuntu-17.04.svg?1522380950)| Fri, 30 Mar 2018 03:35:50 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/ubuntu-17.04.out) |
