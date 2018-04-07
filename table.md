@@ -30,4 +30,4 @@
 |alpine:3.1| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/alpine-3.1.svg?1523091638)| Sat, 07 Apr 2018 09:00:38 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-3.1.out) |
 |oraclelinux:latest| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/oraclelinux-latest.svg?1523092137)| Sat, 07 Apr 2018 09:08:57 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/oraclelinux-latest.out) |
 |oraclelinux:7| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/oraclelinux-7.svg?1523092626)| Sat, 07 Apr 2018 09:17:06 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/oraclelinux-7.out) |
-|oraclelinux:6| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/oraclelinux-6.svg?1523092939)| Sat, 07 Apr 2018 09:22:19 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/oraclelinux-6.out) |
+|oraclelinux:6| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/oraclelinux-6.svg?1523093166)| Sat, 07 Apr 2018 09:26:06 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/oraclelinux-6.out) |
