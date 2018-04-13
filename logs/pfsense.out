@@ -1,6 +1,6 @@
 
-Sat, 07 Apr 2018 04:23:22 UTC
-Testing branch: dev
+Fri, 13 Apr 2018 02:09:59 UTC
+Testing branch: master
 Progress: 0/1/21
 ==Running le_test_dependencies please wait
 curl installed. [PASS]
@@ -12,7 +12,7 @@ Progress: 0/2/21
 ==Running le_test_install please wait
 ./acme.sh install [PASS]
 /root/.acme.sh/acme.sh exists. [PASS]
-_contains '28 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
+_contains '5 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
 /root/.acme.sh/acme.sh uninstall  > /dev/null [PASS]
 ------------------------------------------
 Progress: 0/3/21
@@ -26,7 +26,7 @@ Progress: 0/4/21
 ==Running le_test_installtodir please wait
 ./acme.sh install [PASS]
 /root/myle/acme.sh exists. [PASS]
-_contains '33 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
+_contains '9 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
 /root/myle/acme.sh uninstall [PASS]
 ------------------------------------------
 Progress: 0/5/21
@@ -40,7 +40,7 @@ Progress: 0/6/21
 ==Running le_test_install_config_home please wait
 ./acme.sh --install --config-home /root/etc/acme [PASS]
 /root/.acme.sh/acme.sh exists. [PASS]
-_contains '37 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
+_contains '14 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
 /root/etc/acme/account.conf exists. [PASS]
 /root/.acme.sh/account.conf no exists. [PASS]
 /root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null [PASS]
@@ -60,10 +60,15 @@ Progress: 0/8/21
 '/root/.acme.sh/testpfsense.acme.sh/testpfsense.acme.sh.key' equals '/root/acmetest/certs/domain.key' [PASS]
 '/root/.acme.sh/testpfsense.acme.sh/ca.cer' equals '/root/acmetest/certs/ca.cer' [PASS]
 '/root/.acme.sh/testpfsense.acme.sh/fullchain.cer' equals '/root/acmetest/certs/full.cer' [PASS]
-/root/.acme.sh/acme.sh --renew -d testpfsense.acme.sh --force [FAIL] 
-Run Failed
+/root/.acme.sh/acme.sh --renew -d testpfsense.acme.sh --force [PASS]
+/root/.acme.sh/testpfsense.acme.sh/testpfsense.acme.sh.cer is cert ? 'testpfsense.acme.sh' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/testpfsense.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+'/root/.acme.sh/testpfsense.acme.sh/testpfsense.acme.sh.cer' equals '/root/acmetest/certs/domain.cer' [PASS]
+'/root/.acme.sh/testpfsense.acme.sh/testpfsense.acme.sh.key' equals '/root/acmetest/certs/domain.key' [PASS]
+'/root/.acme.sh/testpfsense.acme.sh/ca.cer' equals '/root/acmetest/certs/ca.cer' [PASS]
+'/root/.acme.sh/testpfsense.acme.sh/fullchain.cer' equals '/root/acmetest/certs/full.cer' [PASS]
 ------------------------------------------
-Progress: 1/9/21
+Progress: 0/9/21
 ==Running le_test_standandalone_renew_localaddress_v2 please wait
 /root/.acme.sh/acme.sh --issue -d testpfsense.acme.sh --standalone --local-address 0.0.0.0 --certpath '/root/acmetest/certs/domain.cer' --keypath '/root/acmetest/certs/domain.key'  --capath '/root/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/root/acmetest/certs/full.cer' [PASS]
 '/root/.acme.sh/testpfsense.acme.sh/testpfsense.acme.sh.cer' equals '/root/acmetest/certs/domain.cer' [PASS]
@@ -78,7 +83,7 @@ Progress: 1/9/21
 '/root/.acme.sh/testpfsense.acme.sh/ca.cer' equals '/root/acmetest/certs/ca.cer' [PASS]
 '/root/.acme.sh/testpfsense.acme.sh/fullchain.cer' equals '/root/acmetest/certs/full.cer' [PASS]
 ------------------------------------------
-Progress: 1/10/21
+Progress: 0/10/21
 ==Running le_test_standandalone_listen_v4_v2 please wait
 /root/.acme.sh/acme.sh --issue -d testpfsense.acme.sh --standalone --listen-v4 --cert-file '/root/acmetest/certs/domain.cer' --key-file '/root/acmetest/certs/domain.key'  --ca-file '/root/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchain-file  '/root/acmetest/certs/full.cer' [PASS]
 '/root/.acme.sh/testpfsense.acme.sh/testpfsense.acme.sh.cer' equals '/root/acmetest/certs/domain.cer' [PASS]
@@ -93,11 +98,11 @@ Progress: 1/10/21
 '/root/.acme.sh/testpfsense.acme.sh/ca.cer' equals '/root/acmetest/certs/ca.cer' [PASS]
 '/root/.acme.sh/testpfsense.acme.sh/fullchain.cer' equals '/root/acmetest/certs/full.cer' [PASS]
 ------------------------------------------
-Progress: 1/11/21
+Progress: 0/11/21
 ==Running le_test_standandalone_listen_v6_v2 please wait
 Skipped by TEST_IPV6
 ------------------------------------------
-Progress: 1/12/21
+Progress: 0/12/21
 ==Running le_test_standandalone_deactivate_v2 please wait
 /root/.acme.sh/acme.sh --issue -d testpfsense.acme.sh --standalone --certpath '/root/acmetest/certs/domain.cer' --keypath '/root/acmetest/certs/domain.key'  --capath '/root/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/root/acmetest/certs/full.cer' [PASS]
 '/root/.acme.sh/testpfsense.acme.sh/testpfsense.acme.sh.cer' equals '/root/acmetest/certs/domain.cer' [PASS]
@@ -106,34 +111,35 @@ Progress: 1/12/21
 '/root/.acme.sh/testpfsense.acme.sh/fullchain.cer' equals '/root/acmetest/certs/full.cer' [PASS]
 /root/.acme.sh/acme.sh --deactivate -d testpfsense.acme.sh [PASS]
 ------------------------------------------
-Progress: 1/13/21
+Progress: 0/13/21
 ==Running le_test_standandalone please wait
-/root/.acme.sh/acme.sh issue no testpfsense.acme.sh [FAIL] 
-Run Failed
+/root/.acme.sh/acme.sh issue no testpfsense.acme.sh [PASS]
+/root/.acme.sh/testpfsense.acme.sh/testpfsense.acme.sh.cer is cert ? 'testpfsense.acme.sh' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/testpfsense.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
 ------------------------------------------
-Progress: 2/14/21
+Progress: 0/14/21
 ==Running le_test_standandalone_SAN please wait
 /root/.acme.sh/acme.sh issue no "testpfsense.acme.sh" "testpfsense2.acme.sh" [PASS]
 /root/.acme.sh/testpfsense.acme.sh/testpfsense.acme.sh.cer is cert ? 'testpfsense.acme.sh' 'Fake LE Intermediate X1' [PASS]
 /root/.acme.sh/testpfsense.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
 ------------------------------------------
-Progress: 2/15/21
+Progress: 0/15/21
 ==Running le_test_standandalone_ECDSA_256 please wait
 /root/.acme.sh/acme.sh issue no testpfsense.acme.sh no ec-256 [PASS]
 /root/.acme.sh/testpfsense.acme.sh_ecc/testpfsense.acme.sh.cer is cert ? 'testpfsense.acme.sh' 'Fake LE Intermediate X1' [PASS]
 /root/.acme.sh/testpfsense.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
 ------------------------------------------
-Progress: 2/16/21
+Progress: 0/16/21
 ==Running le_test_standandalone_ECDSA_256_renew please wait
 /root/.acme.sh/acme.sh issue no testpfsense.acme.sh no ec-256 [PASS]
 FORCE=1 /root/.acme.sh/acme.sh renew testpfsense.acme.sh [PASS]
 ------------------------------------------
-Progress: 2/17/21
+Progress: 0/17/21
 ==Running le_test_standandalone_ECDSA_256_SAN_renew please wait
 /root/.acme.sh/acme.sh issue no "testpfsense.acme.sh" "testpfsense2.acme.sh" ec-256 [PASS]
 FORCE=1 /root/.acme.sh/acme.sh renew "testpfsense.acme.sh" [PASS]
 ------------------------------------------
-Progress: 2/18/21
+Progress: 0/18/21
 ==Running le_test_standandalone_ECDSA_256_SAN_renew_v2 please wait
 /root/.acme.sh/acme.sh --issue -d "testpfsense.acme.sh" -d "testpfsense2.acme.sh" --standalone --keylength ec-256 --certpath '/root/acmetest/certs/domain.cer' --keypath '/root/acmetest/certs/domain.key'  --capath '/root/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/root/acmetest/certs/full.cer' [PASS]
 '/root/.acme.sh/testpfsense.acme.sh_ecc/testpfsense.acme.sh.cer' equals '/root/acmetest/certs/domain.cer' [PASS]
@@ -148,51 +154,23 @@ Progress: 2/18/21
 '/root/.acme.sh/testpfsense.acme.sh_ecc/ca.cer' equals '/root/acmetest/certs/ca.cer' [PASS]
 '/root/.acme.sh/testpfsense.acme.sh_ecc/fullchain.cer' equals '/root/acmetest/certs/full.cer' [PASS]
 ------------------------------------------
-Progress: 2/19/21
+Progress: 0/19/21
 ==Running le_test_standandalone_ECDSA_384 please wait
 /root/.acme.sh/acme.sh issue no "testpfsense.acme.sh" no ec-384 [PASS]
 /root/.acme.sh/testpfsense.acme.sh_ecc/testpfsense.acme.sh.cer is cert ? 'testpfsense.acme.sh' 'Fake LE Intermediate X1' [PASS]
 /root/.acme.sh/testpfsense.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
 ------------------------------------------
-Progress: 2/20/21
+Progress: 0/20/21
 ==Running le_test_standandalone_renew_idn_v2 please wait
 Skipped by TEST_IDN
 ------------------------------------------
-Progress: 2/21/21
+Progress: 0/21/21
 ==Running le_test_dnsapi please wait
 The test domain Test_CF_Domain is not defined, skip:ClourFlare_api
 The test domain Test_CX_Domain is not defined, skip:CloudXNS.com_api
 The test domain Test_DP_Domain is not defined, skip:Dnspod.cn_api
 Testing dns_gd Godaddy_api
 TestingDomain='testgdapi.xyz'
-/root/.acme.sh/acme.sh --issue -d "testgdapi.xyz" --dns dns_gd --dnssleep ""  [PASS]
-/root/.acme.sh/testgdapi.xyz/testgdapi.xyz.cer is cert ? 'testgdapi.xyz' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testgdapi.xyz/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/acme.sh --deactivate -d "testgdapi.xyz" >/dev/null 2>&1 [PASS]
-The test domain Test_AWS_Domain is not defined, skip:Amazon_Route53_api
-The test domain Test_LUA_Domain is not defined, skip:luadns.com_api
-ME_Key is not defined, skip:dnsmadeeasy.com_api
-NSUPDATE_KEY is not defined, skip:nsupdate_api
-OVH_AK is not defined, skip:OVH.com_api
-PDNS_Token is not defined, skip:powerdns.com_api
-The test domain Test_ALI_Domain is not defined, skip:aliyun_api
-Testing dns_gandi_livedns gandi_livedns
-TestingDomain='acmetest.pw'
-/root/.acme.sh/acme.sh --issue -d "acmetest.pw" --dns dns_gandi_livedns --dnssleep "60"  [PASS]
-/root/.acme.sh/acmetest.pw/acmetest.pw.cer is cert ? 'acmetest.pw' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/acmetest.pw/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/acme.sh --deactivate -d "acmetest.pw" >/dev/null 2>&1 [PASS]
-The test domain Test_DYNU_Domain is not defined, skip:dynu_api
-Testing dns_he dns_he_net
-TestingDomain='he.acme.sh'
-/root/.acme.sh/acme.sh --issue -d "he.acme.sh" --dns dns_he --dnssleep "60"  [PASS]
-/root/.acme.sh/he.acme.sh/he.acme.sh.cer is cert ? 'he.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/he.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/acme.sh --deactivate -d "he.acme.sh" >/dev/null 2>&1 [PASS]
-Testing dns_zonomi dns_zonomi
-TestingDomain='zonomi.acme.sh'
-/root/.acme.sh/acme.sh --issue -d "zonomi.acme.sh" --dns dns_zonomi --dnssleep "30"  [PASS]
-/root/.acme.sh/zonomi.acme.sh/zonomi.acme.sh.cer is cert ? 'zonomi.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/zonomi.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/acme.sh --deactivate -d "zonomi.acme.sh" >/dev/null 2>&1 [PASS]
+/root/.acme.sh/acme.sh --issue -d "testgdapi.xyz" --dns dns_gd --dnssleep ""  [FAIL] 
+Run Failed
 ------------------------------------------
