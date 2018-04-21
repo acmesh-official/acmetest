@@ -1493,9 +1493,14 @@ do
   fi
   _rr=0
   _debug t "$t"
+  _case_log="$t.log"
   if [ -z "$CASE" ] || _hasfield "$CASE" "$t"; then
+    _saved_log="$LOG_FILE"
+    export LOG_FILE="$_case_log"
     _run "$t"
     _rr="$?"
+    export LOG_FILE="$_saved_log"
+    cat "$_case_log" >> "$LOG_FILE"
     _debug "_rr" "$_rr"
     _ret=$(_math $_ret + $_rr)
     _debug _ret "$_ret"
@@ -1503,7 +1508,7 @@ do
 
   if [ "$_ret" != "0" ] ; then
     if [ "$TRAVIS" = "true" ] ; then
-      cat "$LOG_FILE"
+      cat "$_case_log"
       break
     fi
     if [ "$DEBUG" ] || [ "$DEBUGING" ] ; then 
