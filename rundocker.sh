@@ -456,13 +456,18 @@ testplat() {
   for plat in $platforms 
   do 
     if ! _runplat "$plat" ; then
+      _rret="$?"
       if [ -z "$DEBUG" ] && [ -z "$DEBUGING" ] ; then
         _info "Let's retry once more:$plat"
         _runplat "$plat"
+        _rret="$?"
       fi
-      if [ "$?" != "0" ] ; then
+      if [ "$_rret" != "0" ] ; then
         _info "Failed: $plat"
         _FAILED_PLATS="$_FAILED_PLATS$plat "
+        if [ "$TRAVIS" = "true" ] ; then
+          return "$_rret"
+        fi
       fi
     fi
   done
