@@ -559,11 +559,12 @@ _run() {
     rm -rf "$lehome/$TestingDomain$ECC_SUFFIX"
     if [ -f "$lehome/$PROJECT_ENTRY" ] ; then
       if [ -f "$CA_DIR/account.key" ] ; then
-        $lehome/$PROJECT_ENTRY --deactivate -d "$_deactivateDomains" >/dev/null 2>&1
+        $lehome/$PROJECT_ENTRY --deactivate -d "$_deactivateDomains" >deactivate.log 2>&1
       fi
       __dr="$?"
       if [ "$__dr" != "0" ]; then
         _err "deactivate failed"
+        cat deactivate.log
       fi
       if [ "$_r" = "0" ] ; then
         _r="$__dr"
