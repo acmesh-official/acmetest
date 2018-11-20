@@ -1,213 +1,581 @@
 Sending build context to Docker daemon  2.048kB
 Step 1/2 : FROM fedora:27
- ---> 9110ae7f579f
+27: Pulling from library/fedora
+c8ae8b35783e: Pulling fs layer
+c8ae8b35783e: Verifying Checksum
+c8ae8b35783e: Download complete
+c8ae8b35783e: Pull complete
+Digest: sha256:f4fb457f7cd858e0f6efa1a78390622823e83c393981b0bf91a2b6e8da3b6f50
+Status: Downloaded newer image for fedora:27
+ ---> 7a2e85963474
 Step 2/2 : RUN yum  -y update     2>&1 && yum  -y install    tar openssl crontabs socat curl  2>&1
- ---> Using cache
- ---> 82e6a8cb753c
-Successfully built 82e6a8cb753c
+ ---> Running in c9a6c1084251
+Fedora 27 - x86_64 - Updates                     10 MB/s |  27 MB     00:02    
+Fedora 27 - x86_64                               10 MB/s |  58 MB     00:05    
+Last metadata expiration check: 0:00:10 ago on Tue Nov 20 16:24:52 2018.
+Dependencies resolved.
+================================================================================
+ Package                       Arch      Version               Repository  Size
+================================================================================
+Upgrading:
+ ca-certificates               noarch    2018.2.26-1.0.fc27    updates    394 k
+ curl                          x86_64    7.55.1-14.fc27        updates    313 k
+ fedora-gpg-keys               noarch    27-4                  updates     98 k
+ fedora-repos                  noarch    27-4                  updates    8.8 k
+ glibc                         x86_64    2.26-30.fc27          updates    3.4 M
+ glibc-common                  x86_64    2.26-30.fc27          updates    791 k
+ glibc-langpack-en             x86_64    2.26-30.fc27          updates    280 k
+ libcrypt-nss                  x86_64    2.26-30.fc27          updates     42 k
+ libcurl                       x86_64    7.55.1-14.fc27        updates    274 k
+ libsss_idmap                  x86_64    1.16.3-2.fc27         updates     94 k
+ libsss_nss_idmap              x86_64    1.16.3-2.fc27         updates    100 k
+ libxkbcommon                  x86_64    0.8.2-1.fc27          updates    114 k
+ libzstd                       x86_64    1.3.6-1.fc27          updates    250 k
+ nspr                          x86_64    4.20.0-1.fc27         updates    139 k
+ nss                           x86_64    3.39.0-1.0.fc27       updates    681 k
+ nss-softokn                   x86_64    3.39.0-1.0.fc27       updates    396 k
+ nss-softokn-freebl            x86_64    3.39.0-1.0.fc27       updates    234 k
+ nss-sysinit                   x86_64    3.39.0-1.0.fc27       updates     64 k
+ nss-tools                     x86_64    3.39.0-1.0.fc27       updates    538 k
+ nss-util                      x86_64    3.39.0-1.0.fc27       updates     90 k
+ openssl-libs                  x86_64    1:1.1.0i-1.fc27       updates    1.3 M
+ p11-kit                       x86_64    0.23.14-1.fc27        updates    264 k
+ p11-kit-trust                 x86_64    0.23.14-1.fc27        updates    135 k
+ pcre                          x86_64    8.42-5.fc27           updates    206 k
+ pcre2                         x86_64    10.32-4.fc27          updates    242 k
+ python3-rpm                   x86_64    4.14.2.1-1.fc27       updates    117 k
+ rpm                           x86_64    4.14.2.1-1.fc27       updates    531 k
+ rpm-build-libs                x86_64    4.14.2.1-1.fc27       updates    144 k
+ rpm-libs                      x86_64    4.14.2.1-1.fc27       updates    327 k
+ rpm-plugin-selinux            x86_64    4.14.2.1-1.fc27       updates     66 k
+ rpm-plugin-systemd-inhibit    x86_64    4.14.2.1-1.fc27       updates     67 k
+ sssd-client                   x86_64    1.16.3-2.fc27         updates    151 k
+ vim-minimal                   x86_64    2:8.1.483-1.fc27      updates    589 k
+
+Transaction Summary
+================================================================================
+Upgrade  33 Packages
+
+Total download size: 12 M
+Downloading Packages:
+(1/33): curl-7.55.1-14.fc27.x86_64.rpm          2.6 MB/s | 313 kB     00:00    
+(2/33): libcurl-7.55.1-14.fc27.x86_64.rpm       2.1 MB/s | 274 kB     00:00    
+(3/33): ca-certificates-2018.2.26-1.0.fc27.noar 2.5 MB/s | 394 kB     00:00    
+(4/33): fedora-repos-27-4.noarch.rpm            249 kB/s | 8.8 kB     00:00    
+(5/33): fedora-gpg-keys-27-4.noarch.rpm         2.2 MB/s |  98 kB     00:00    
+(6/33): glibc-langpack-en-2.26-30.fc27.x86_64.r 3.2 MB/s | 280 kB     00:00    
+(7/33): libcrypt-nss-2.26-30.fc27.x86_64.rpm    1.0 MB/s |  42 kB     00:00    
+(8/33): libsss_idmap-1.16.3-2.fc27.x86_64.rpm   1.8 MB/s |  94 kB     00:00    
+(9/33): glibc-common-2.26-30.fc27.x86_64.rpm    3.5 MB/s | 791 kB     00:00    
+(10/33): libsss_nss_idmap-1.16.3-2.fc27.x86_64. 1.8 MB/s | 100 kB     00:00    
+(11/33): libxkbcommon-0.8.2-1.fc27.x86_64.rpm   1.4 MB/s | 114 kB     00:00    
+(12/33): libzstd-1.3.6-1.fc27.x86_64.rpm        2.6 MB/s | 250 kB     00:00    
+(13/33): nspr-4.20.0-1.fc27.x86_64.rpm          2.1 MB/s | 139 kB     00:00    
+(14/33): nss-softokn-3.39.0-1.0.fc27.x86_64.rpm 2.9 MB/s | 396 kB     00:00    
+(15/33): nss-3.39.0-1.0.fc27.x86_64.rpm         3.5 MB/s | 681 kB     00:00    
+(16/33): nss-util-3.39.0-1.0.fc27.x86_64.rpm    2.7 MB/s |  90 kB     00:00    
+(17/33): nss-softokn-freebl-3.39.0-1.0.fc27.x86 3.1 MB/s | 234 kB     00:00    
+(18/33): nss-sysinit-3.39.0-1.0.fc27.x86_64.rpm 1.7 MB/s |  64 kB     00:00    
+(19/33): glibc-2.26-30.fc27.x86_64.rpm          4.9 MB/s | 3.4 MB     00:00    
+(20/33): nss-tools-3.39.0-1.0.fc27.x86_64.rpm   3.3 MB/s | 538 kB     00:00    
+(21/33): p11-kit-trust-0.23.14-1.fc27.x86_64.rp 1.9 MB/s | 135 kB     00:00    
+(22/33): p11-kit-0.23.14-1.fc27.x86_64.rpm      2.4 MB/s | 264 kB     00:00    
+(23/33): pcre-8.42-5.fc27.x86_64.rpm            3.9 MB/s | 206 kB     00:00    
+(24/33): python3-rpm-4.14.2.1-1.fc27.x86_64.rpm 2.0 MB/s | 117 kB     00:00    
+(25/33): pcre2-10.32-4.fc27.x86_64.rpm          2.8 MB/s | 242 kB     00:00    
+(26/33): openssl-libs-1.1.0i-1.fc27.x86_64.rpm  4.8 MB/s | 1.3 MB     00:00    
+(27/33): rpm-plugin-selinux-4.14.2.1-1.fc27.x86 2.3 MB/s |  66 kB     00:00    
+(28/33): rpm-libs-4.14.2.1-1.fc27.x86_64.rpm    4.2 MB/s | 327 kB     00:00    
+(29/33): rpm-plugin-systemd-inhibit-4.14.2.1-1. 2.2 MB/s |  67 kB     00:00    
+(30/33): rpm-4.14.2.1-1.fc27.x86_64.rpm         5.0 MB/s | 531 kB     00:00    
+(31/33): rpm-build-libs-4.14.2.1-1.fc27.x86_64. 3.5 MB/s | 144 kB     00:00    
+(32/33): sssd-client-1.16.3-2.fc27.x86_64.rpm   2.1 MB/s | 151 kB     00:00    
+(33/33): vim-minimal-8.1.483-1.fc27.x86_64.rpm  7.7 MB/s | 589 kB     00:00    
+--------------------------------------------------------------------------------
+Total                                           5.8 MB/s |  12 MB     00:02     
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                        1/1 
+  Upgrading        : glibc-common-2.26-30.fc27.x86_64                      1/66 
+  Upgrading        : glibc-langpack-en-2.26-30.fc27.x86_64                 2/66 
+  Running scriptlet: glibc-2.26-30.fc27.x86_64                             3/66 
+  Upgrading        : glibc-2.26-30.fc27.x86_64                             3/66 
+  Running scriptlet: glibc-2.26-30.fc27.x86_64                             3/66 
+  Upgrading        : nspr-4.20.0-1.fc27.x86_64                             4/66 
+  Running scriptlet: nspr-4.20.0-1.fc27.x86_64                             4/66 
+  Upgrading        : nss-util-3.39.0-1.0.fc27.x86_64                       5/66 
+  Running scriptlet: nss-util-3.39.0-1.0.fc27.x86_64                       5/66 
+  Upgrading        : libzstd-1.3.6-1.fc27.x86_64                           6/66 
+  Running scriptlet: libzstd-1.3.6-1.fc27.x86_64                           6/66 
+  Upgrading        : nss-softokn-freebl-3.39.0-1.0.fc27.x86_64             7/66 
+  Upgrading        : nss-softokn-3.39.0-1.0.fc27.x86_64                    8/66 
+  Running scriptlet: nss-softokn-3.39.0-1.0.fc27.x86_64                    8/66 
+  Upgrading        : p11-kit-0.23.14-1.fc27.x86_64                         9/66 
+  Running scriptlet: p11-kit-0.23.14-1.fc27.x86_64                         9/66 
+  Upgrading        : p11-kit-trust-0.23.14-1.fc27.x86_64                  10/66 
+  Running scriptlet: p11-kit-trust-0.23.14-1.fc27.x86_64                  10/66 
+  Upgrading        : nss-sysinit-3.39.0-1.0.fc27.x86_64                   11/66 
+  Upgrading        : nss-3.39.0-1.0.fc27.x86_64                           12/66 
+  Running scriptlet: nss-3.39.0-1.0.fc27.x86_64                           12/66 
+  Running scriptlet: ca-certificates-2018.2.26-1.0.fc27.noarch            13/66 
+  Upgrading        : ca-certificates-2018.2.26-1.0.fc27.noarch            13/66 
+  Running scriptlet: ca-certificates-2018.2.26-1.0.fc27.noarch            13/66 
+  Upgrading        : openssl-libs-1:1.1.0i-1.fc27.x86_64                  14/66 
+  Running scriptlet: openssl-libs-1:1.1.0i-1.fc27.x86_64                  14/66 
+  Upgrading        : libcurl-7.55.1-14.fc27.x86_64                        15/66 
+  Running scriptlet: libcurl-7.55.1-14.fc27.x86_64                        15/66 
+  Upgrading        : curl-7.55.1-14.fc27.x86_64                           16/66 
+  Upgrading        : rpm-4.14.2.1-1.fc27.x86_64                           17/66 
+  Upgrading        : rpm-libs-4.14.2.1-1.fc27.x86_64                      18/66 
+  Running scriptlet: rpm-libs-4.14.2.1-1.fc27.x86_64                      18/66 
+  Upgrading        : rpm-plugin-selinux-4.14.2.1-1.fc27.x86_64            19/66 
+  Upgrading        : rpm-build-libs-4.14.2.1-1.fc27.x86_64                20/66 
+  Running scriptlet: rpm-build-libs-4.14.2.1-1.fc27.x86_64                20/66 
+  Upgrading        : libsss_idmap-1.16.3-2.fc27.x86_64                    21/66 
+  Running scriptlet: libsss_idmap-1.16.3-2.fc27.x86_64                    21/66 
+  Upgrading        : libsss_nss_idmap-1.16.3-2.fc27.x86_64                22/66 
+  Running scriptlet: libsss_nss_idmap-1.16.3-2.fc27.x86_64                22/66 
+  Upgrading        : fedora-gpg-keys-27-4.noarch                          23/66 
+  Upgrading        : fedora-repos-27-4.noarch                             24/66 
+  Upgrading        : sssd-client-1.16.3-2.fc27.x86_64                     25/66 
+  Running scriptlet: sssd-client-1.16.3-2.fc27.x86_64                     25/66 
+  Upgrading        : python3-rpm-4.14.2.1-1.fc27.x86_64                   26/66 
+  Upgrading        : rpm-plugin-systemd-inhibit-4.14.2.1-1.fc27.x86_64    27/66 
+  Upgrading        : nss-tools-3.39.0-1.0.fc27.x86_64                     28/66 
+  Upgrading        : libcrypt-nss-2.26-30.fc27.x86_64                     29/66 
+  Running scriptlet: libcrypt-nss-2.26-30.fc27.x86_64                     29/66 
+  Upgrading        : libxkbcommon-0.8.2-1.fc27.x86_64                     30/66 
+  Running scriptlet: libxkbcommon-0.8.2-1.fc27.x86_64                     30/66 
+  Upgrading        : pcre-8.42-5.fc27.x86_64                              31/66 
+  Running scriptlet: pcre-8.42-5.fc27.x86_64                              31/66 
+  Upgrading        : pcre2-10.32-4.fc27.x86_64                            32/66 
+  Running scriptlet: pcre2-10.32-4.fc27.x86_64                            32/66 
+  Upgrading        : vim-minimal-2:8.1.483-1.fc27.x86_64                  33/66 
+  Cleanup          : fedora-repos-27-2.noarch                             34/66 
+  Cleanup          : nss-tools-3.38.0-1.0.fc27.x86_64                     35/66 
+  Cleanup          : nss-3.38.0-1.0.fc27.x86_64                           36/66 
+  Running scriptlet: nss-3.38.0-1.0.fc27.x86_64                           36/66 
+  Cleanup          : nss-softokn-3.38.0-1.0.fc27.x86_64                   37/66 
+  Running scriptlet: nss-softokn-3.38.0-1.0.fc27.x86_64                   37/66 
+  Running scriptlet: sssd-client-1.16.2-4.fc27.x86_64                     38/66 
+  Cleanup          : sssd-client-1.16.2-4.fc27.x86_64                     38/66 
+  Running scriptlet: sssd-client-1.16.2-4.fc27.x86_64                     38/66 
+  Cleanup          : libsss_nss_idmap-1.16.2-4.fc27.x86_64                39/66 
+  Running scriptlet: libsss_nss_idmap-1.16.2-4.fc27.x86_64                39/66 
+  Cleanup          : nss-sysinit-3.38.0-1.0.fc27.x86_64                   40/66 
+  Cleanup          : rpm-plugin-systemd-inhibit-4.14.1-1.fc27.x86_64      41/66 
+  Cleanup          : python3-rpm-4.14.1-1.fc27.x86_64                     42/66 
+  Cleanup          : rpm-build-libs-4.14.1-1.fc27.x86_64                  43/66 
+  Running scriptlet: rpm-build-libs-4.14.1-1.fc27.x86_64                  43/66 
+  Cleanup          : rpm-libs-4.14.1-1.fc27.x86_64                        44/66 
+  Running scriptlet: rpm-libs-4.14.1-1.fc27.x86_64                        44/66 
+  Cleanup          : rpm-4.14.1-1.fc27.x86_64                             45/66 
+  Cleanup          : curl-7.55.1-12.fc27.x86_64                           46/66 
+  Cleanup          : libcurl-7.55.1-12.fc27.x86_64                        47/66 
+  Running scriptlet: libcurl-7.55.1-12.fc27.x86_64                        47/66 
+  Cleanup          : libsss_idmap-1.16.2-4.fc27.x86_64                    48/66 
+  Running scriptlet: libsss_idmap-1.16.2-4.fc27.x86_64                    48/66 
+  Cleanup          : pcre2-10.31-8.fc27.x86_64                            49/66 
+  Running scriptlet: pcre2-10.31-8.fc27.x86_64                            49/66 
+  Cleanup          : pcre-8.42-2.fc27.x86_64                              50/66 
+  Running scriptlet: pcre-8.42-2.fc27.x86_64                              50/66 
+  Cleanup          : rpm-plugin-selinux-4.14.1-1.fc27.x86_64              51/66 
+  Cleanup          : openssl-libs-1:1.1.0h-3.fc27.x86_64                  52/66 
+  Running scriptlet: openssl-libs-1:1.1.0h-3.fc27.x86_64                  52/66 
+  Cleanup          : libxkbcommon-0.7.1-5.fc27.x86_64                     53/66 
+  Running scriptlet: libxkbcommon-0.7.1-5.fc27.x86_64                     53/66 
+  Cleanup          : vim-minimal-2:8.1.209-1.fc27.x86_64                  54/66 
+  Cleanup          : libzstd-1.3.5-1.fc27.x86_64                          55/66 
+  Running scriptlet: libzstd-1.3.5-1.fc27.x86_64                          55/66 
+  Cleanup          : libcrypt-nss-2.26-28.fc27.x86_64                     56/66 
+  Running scriptlet: libcrypt-nss-2.26-28.fc27.x86_64                     56/66 
+  Cleanup          : ca-certificates-2018.2.24-1.0.fc27.noarch            57/66 
+  Cleanup          : fedora-gpg-keys-27-2.noarch                          58/66 
+  Cleanup          : p11-kit-trust-0.23.12-1.fc27.x86_64                  59/66 
+  Running scriptlet: p11-kit-trust-0.23.12-1.fc27.x86_64                  59/66 
+  Cleanup          : p11-kit-0.23.12-1.fc27.x86_64                        60/66 
+  Running scriptlet: p11-kit-0.23.12-1.fc27.x86_64                        60/66 
+  Cleanup          : nss-softokn-freebl-3.38.0-1.0.fc27.x86_64            61/66 
+  Cleanup          : nss-util-3.38.0-1.0.fc27.x86_64                      62/66 
+  Running scriptlet: nss-util-3.38.0-1.0.fc27.x86_64                      62/66 
+  Cleanup          : nspr-4.19.0-1.fc27.x86_64                            63/66 
+  Running scriptlet: nspr-4.19.0-1.fc27.x86_64                            63/66 
+  Cleanup          : glibc-2.26-28.fc27.x86_64                            64/66 
+  Running scriptlet: glibc-2.26-28.fc27.x86_64                            64/66 
+  Cleanup          : glibc-langpack-en-2.26-28.fc27.x86_64                65/66 
+  Cleanup          : glibc-common-2.26-28.fc27.x86_64                     66/66 
+  Verifying        : ca-certificates-2018.2.26-1.0.fc27.noarch             1/66 
+  Verifying        : curl-7.55.1-14.fc27.x86_64                            2/66 
+  Verifying        : libcurl-7.55.1-14.fc27.x86_64                         3/66 
+  Verifying        : fedora-gpg-keys-27-4.noarch                           4/66 
+  Verifying        : fedora-repos-27-4.noarch                              5/66 
+  Verifying        : glibc-2.26-30.fc27.x86_64                             6/66 
+  Verifying        : glibc-common-2.26-30.fc27.x86_64                      7/66 
+  Verifying        : glibc-langpack-en-2.26-30.fc27.x86_64                 8/66 
+  Verifying        : libcrypt-nss-2.26-30.fc27.x86_64                      9/66 
+  Verifying        : libsss_idmap-1.16.3-2.fc27.x86_64                    10/66 
+  Verifying        : libsss_nss_idmap-1.16.3-2.fc27.x86_64                11/66 
+  Verifying        : libxkbcommon-0.8.2-1.fc27.x86_64                     12/66 
+  Verifying        : libzstd-1.3.6-1.fc27.x86_64                          13/66 
+  Verifying        : nspr-4.20.0-1.fc27.x86_64                            14/66 
+  Verifying        : nss-3.39.0-1.0.fc27.x86_64                           15/66 
+  Verifying        : nss-softokn-3.39.0-1.0.fc27.x86_64                   16/66 
+  Verifying        : nss-util-3.39.0-1.0.fc27.x86_64                      17/66 
+  Verifying        : nss-softokn-freebl-3.39.0-1.0.fc27.x86_64            18/66 
+  Verifying        : nss-tools-3.39.0-1.0.fc27.x86_64                     19/66 
+  Verifying        : nss-sysinit-3.39.0-1.0.fc27.x86_64                   20/66 
+  Verifying        : openssl-libs-1:1.1.0i-1.fc27.x86_64                  21/66 
+  Verifying        : p11-kit-0.23.14-1.fc27.x86_64                        22/66 
+  Verifying        : p11-kit-trust-0.23.14-1.fc27.x86_64                  23/66 
+  Verifying        : pcre-8.42-5.fc27.x86_64                              24/66 
+  Verifying        : pcre2-10.32-4.fc27.x86_64                            25/66 
+  Verifying        : python3-rpm-4.14.2.1-1.fc27.x86_64                   26/66 
+  Verifying        : rpm-libs-4.14.2.1-1.fc27.x86_64                      27/66 
+  Verifying        : rpm-4.14.2.1-1.fc27.x86_64                           28/66 
+  Verifying        : rpm-plugin-selinux-4.14.2.1-1.fc27.x86_64            29/66 
+  Verifying        : rpm-plugin-systemd-inhibit-4.14.2.1-1.fc27.x86_64    30/66 
+  Verifying        : rpm-build-libs-4.14.2.1-1.fc27.x86_64                31/66 
+  Verifying        : sssd-client-1.16.3-2.fc27.x86_64                     32/66 
+  Verifying        : vim-minimal-2:8.1.483-1.fc27.x86_64                  33/66 
+  Verifying        : pcre-8.42-2.fc27.x86_64                              34/66 
+  Verifying        : pcre2-10.31-8.fc27.x86_64                            35/66 
+  Verifying        : ca-certificates-2018.2.24-1.0.fc27.noarch            36/66 
+  Verifying        : curl-7.55.1-12.fc27.x86_64                           37/66 
+  Verifying        : python3-rpm-4.14.1-1.fc27.x86_64                     38/66 
+  Verifying        : rpm-4.14.1-1.fc27.x86_64                             39/66 
+  Verifying        : rpm-build-libs-4.14.1-1.fc27.x86_64                  40/66 
+  Verifying        : rpm-libs-4.14.1-1.fc27.x86_64                        41/66 
+  Verifying        : rpm-plugin-selinux-4.14.1-1.fc27.x86_64              42/66 
+  Verifying        : rpm-plugin-systemd-inhibit-4.14.1-1.fc27.x86_64      43/66 
+  Verifying        : fedora-gpg-keys-27-2.noarch                          44/66 
+  Verifying        : fedora-repos-27-2.noarch                             45/66 
+  Verifying        : sssd-client-1.16.2-4.fc27.x86_64                     46/66 
+  Verifying        : glibc-2.26-28.fc27.x86_64                            47/66 
+  Verifying        : glibc-common-2.26-28.fc27.x86_64                     48/66 
+  Verifying        : glibc-langpack-en-2.26-28.fc27.x86_64                49/66 
+  Verifying        : vim-minimal-2:8.1.209-1.fc27.x86_64                  50/66 
+  Verifying        : libcrypt-nss-2.26-28.fc27.x86_64                     51/66 
+  Verifying        : libcurl-7.55.1-12.fc27.x86_64                        52/66 
+  Verifying        : libsss_idmap-1.16.2-4.fc27.x86_64                    53/66 
+  Verifying        : libsss_nss_idmap-1.16.2-4.fc27.x86_64                54/66 
+  Verifying        : libxkbcommon-0.7.1-5.fc27.x86_64                     55/66 
+  Verifying        : libzstd-1.3.5-1.fc27.x86_64                          56/66 
+  Verifying        : nspr-4.19.0-1.fc27.x86_64                            57/66 
+  Verifying        : nss-3.38.0-1.0.fc27.x86_64                           58/66 
+  Verifying        : nss-softokn-3.38.0-1.0.fc27.x86_64                   59/66 
+  Verifying        : nss-softokn-freebl-3.38.0-1.0.fc27.x86_64            60/66 
+  Verifying        : nss-sysinit-3.38.0-1.0.fc27.x86_64                   61/66 
+  Verifying        : nss-tools-3.38.0-1.0.fc27.x86_64                     62/66 
+  Verifying        : nss-util-3.38.0-1.0.fc27.x86_64                      63/66 
+  Verifying        : openssl-libs-1:1.1.0h-3.fc27.x86_64                  64/66 
+  Verifying        : p11-kit-0.23.12-1.fc27.x86_64                        65/66 
+  Verifying        : p11-kit-trust-0.23.12-1.fc27.x86_64                  66/66 
+
+Upgraded:
+  ca-certificates.noarch 2018.2.26-1.0.fc27                                     
+  curl.x86_64 7.55.1-14.fc27                                                    
+  fedora-gpg-keys.noarch 27-4                                                   
+  fedora-repos.noarch 27-4                                                      
+  glibc.x86_64 2.26-30.fc27                                                     
+  glibc-common.x86_64 2.26-30.fc27                                              
+  glibc-langpack-en.x86_64 2.26-30.fc27                                         
+  libcrypt-nss.x86_64 2.26-30.fc27                                              
+  libcurl.x86_64 7.55.1-14.fc27                                                 
+  libsss_idmap.x86_64 1.16.3-2.fc27                                             
+  libsss_nss_idmap.x86_64 1.16.3-2.fc27                                         
+  libxkbcommon.x86_64 0.8.2-1.fc27                                              
+  libzstd.x86_64 1.3.6-1.fc27                                                   
+  nspr.x86_64 4.20.0-1.fc27                                                     
+  nss.x86_64 3.39.0-1.0.fc27                                                    
+  nss-softokn.x86_64 3.39.0-1.0.fc27                                            
+  nss-softokn-freebl.x86_64 3.39.0-1.0.fc27                                     
+  nss-sysinit.x86_64 3.39.0-1.0.fc27                                            
+  nss-tools.x86_64 3.39.0-1.0.fc27                                              
+  nss-util.x86_64 3.39.0-1.0.fc27                                               
+  openssl-libs.x86_64 1:1.1.0i-1.fc27                                           
+  p11-kit.x86_64 0.23.14-1.fc27                                                 
+  p11-kit-trust.x86_64 0.23.14-1.fc27                                           
+  pcre.x86_64 8.42-5.fc27                                                       
+  pcre2.x86_64 10.32-4.fc27                                                     
+  python3-rpm.x86_64 4.14.2.1-1.fc27                                            
+  rpm.x86_64 4.14.2.1-1.fc27                                                    
+  rpm-build-libs.x86_64 4.14.2.1-1.fc27                                         
+  rpm-libs.x86_64 4.14.2.1-1.fc27                                               
+  rpm-plugin-selinux.x86_64 4.14.2.1-1.fc27                                     
+  rpm-plugin-systemd-inhibit.x86_64 4.14.2.1-1.fc27                             
+  sssd-client.x86_64 1.16.3-2.fc27                                              
+  vim-minimal.x86_64 2:8.1.483-1.fc27                                           
+
+Complete!
+Last metadata expiration check: 0:01:01 ago on Tue Nov 20 16:24:52 2018.
+Package tar-2:1.29-7.fc27.x86_64 is already installed, skipping.
+Package curl-7.55.1-14.fc27.x86_64 is already installed, skipping.
+Dependencies resolved.
+================================================================================
+ Package              Arch      Version                        Repository  Size
+================================================================================
+Installing:
+ crontabs             noarch    1.11-15.20150630git.fc27       fedora      24 k
+ openssl              x86_64    1:1.1.0i-1.fc27                updates    575 k
+ socat                x86_64    1.7.3.2-4.fc27                 fedora     296 k
+Installing dependencies:
+ cronie-anacron       x86_64    1.5.1-8.fc27                   fedora      39 k
+ gc                   x86_64    7.6.0-7.fc27                   fedora     110 k
+ guile                x86_64    5:2.0.14-3.fc27                fedora     3.5 M
+ libatomic_ops        x86_64    7.4.6-3.fc27                   fedora      33 k
+ libstdc++            x86_64    7.3.1-6.fc27                   updates    486 k
+ libtool-ltdl         x86_64    2.4.6-20.fc27                  fedora      55 k
+ make                 x86_64    1:4.2.1-4.fc27                 fedora     494 k
+ tcp_wrappers-libs    x86_64    7.6-87.fc27                    fedora      72 k
+Installing weak dependencies:
+ cronie               x86_64    1.5.1-8.fc27                   fedora     104 k
+
+Transaction Summary
+================================================================================
+Install  12 Packages
+
+Total download size: 5.7 M
+Installed size: 17 M
+Downloading Packages:
+(1/12): crontabs-1.11-15.20150630git.fc27.noarc 268 kB/s |  24 kB     00:00    
+(2/12): tcp_wrappers-libs-7.6-87.fc27.x86_64.rp 566 kB/s |  72 kB     00:00    
+(3/12): socat-1.7.3.2-4.fc27.x86_64.rpm         1.6 MB/s | 296 kB     00:00    
+(4/12): gc-7.6.0-7.fc27.x86_64.rpm              2.0 MB/s | 110 kB     00:00    
+(5/12): openssl-1.1.0i-1.fc27.x86_64.rpm        2.6 MB/s | 575 kB     00:00    
+(6/12): make-4.2.1-4.fc27.x86_64.rpm            2.4 MB/s | 494 kB     00:00    
+(7/12): libatomic_ops-7.4.6-3.fc27.x86_64.rpm   783 kB/s |  33 kB     00:00    
+(8/12): libtool-ltdl-2.4.6-20.fc27.x86_64.rpm   1.3 MB/s |  55 kB     00:00    
+(9/12): cronie-1.5.1-8.fc27.x86_64.rpm          1.5 MB/s | 104 kB     00:00    
+(10/12): cronie-anacron-1.5.1-8.fc27.x86_64.rpm 959 kB/s |  39 kB     00:00    
+(11/12): libstdc++-7.3.1-6.fc27.x86_64.rpm      3.4 MB/s | 486 kB     00:00    
+(12/12): guile-2.0.14-3.fc27.x86_64.rpm         6.4 MB/s | 3.5 MB     00:00    
+--------------------------------------------------------------------------------
+Total                                           2.9 MB/s | 5.7 MB     00:01     
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                        1/1 
+  Installing       : cronie-1.5.1-8.fc27.x86_64                            1/12 
+  Running scriptlet: cronie-1.5.1-8.fc27.x86_64                            1/12 
+  Installing       : crontabs-1.11-15.20150630git.fc27.noarch              2/12 
+  Installing       : cronie-anacron-1.5.1-8.fc27.x86_64                    3/12 
+  Running scriptlet: cronie-anacron-1.5.1-8.fc27.x86_64                    3/12 
+  Installing       : libstdc++-7.3.1-6.fc27.x86_64                         4/12 
+  Running scriptlet: libstdc++-7.3.1-6.fc27.x86_64                         4/12 
+  Installing       : libtool-ltdl-2.4.6-20.fc27.x86_64                     5/12 
+  Running scriptlet: libtool-ltdl-2.4.6-20.fc27.x86_64                     5/12 
+  Installing       : libatomic_ops-7.4.6-3.fc27.x86_64                     6/12 
+  Running scriptlet: libatomic_ops-7.4.6-3.fc27.x86_64                     6/12 
+  Installing       : gc-7.6.0-7.fc27.x86_64                                7/12 
+  Running scriptlet: gc-7.6.0-7.fc27.x86_64                                7/12 
+  Installing       : guile-5:2.0.14-3.fc27.x86_64                          8/12 
+  Running scriptlet: guile-5:2.0.14-3.fc27.x86_64                          8/12 
+  Installing       : make-1:4.2.1-4.fc27.x86_64                            9/12 
+  Running scriptlet: make-1:4.2.1-4.fc27.x86_64                            9/12 
+  Installing       : tcp_wrappers-libs-7.6-87.fc27.x86_64                 10/12 
+  Running scriptlet: tcp_wrappers-libs-7.6-87.fc27.x86_64                 10/12 
+  Installing       : socat-1.7.3.2-4.fc27.x86_64                          11/12 
+  Installing       : openssl-1:1.1.0i-1.fc27.x86_64                       12/12 
+  Running scriptlet: guile-5:2.0.14-3.fc27.x86_64                         12/12 
+  Verifying        : crontabs-1.11-15.20150630git.fc27.noarch              1/12 
+  Verifying        : socat-1.7.3.2-4.fc27.x86_64                           2/12 
+  Verifying        : tcp_wrappers-libs-7.6-87.fc27.x86_64                  3/12 
+  Verifying        : openssl-1:1.1.0i-1.fc27.x86_64                        4/12 
+  Verifying        : make-1:4.2.1-4.fc27.x86_64                            5/12 
+  Verifying        : gc-7.6.0-7.fc27.x86_64                                6/12 
+  Verifying        : guile-5:2.0.14-3.fc27.x86_64                          7/12 
+  Verifying        : libatomic_ops-7.4.6-3.fc27.x86_64                     8/12 
+  Verifying        : libtool-ltdl-2.4.6-20.fc27.x86_64                     9/12 
+  Verifying        : libstdc++-7.3.1-6.fc27.x86_64                        10/12 
+  Verifying        : cronie-1.5.1-8.fc27.x86_64                           11/12 
+  Verifying        : cronie-anacron-1.5.1-8.fc27.x86_64                   12/12 
+
+Installed:
+  crontabs.noarch 1.11-15.20150630git.fc27 openssl.x86_64 1:1.1.0i-1.fc27      
+  socat.x86_64 1.7.3.2-4.fc27              cronie.x86_64 1.5.1-8.fc27          
+  cronie-anacron.x86_64 1.5.1-8.fc27       gc.x86_64 7.6.0-7.fc27              
+  guile.x86_64 5:2.0.14-3.fc27             libatomic_ops.x86_64 7.4.6-3.fc27   
+  libstdc++.x86_64 7.3.1-6.fc27            libtool-ltdl.x86_64 2.4.6-20.fc27   
+  make.x86_64 1:4.2.1-4.fc27               tcp_wrappers-libs.x86_64 7.6-87.fc27
+
+Complete!
+ ---> 512464447d2c
+Removing intermediate container c9a6c1084251
+Successfully built 512464447d2c
 Successfully tagged myfedora:27
-Fri, 11 May 2018 04:53:38 UTC
+Tue, 20 Nov 2018 16:26:11 UTC
 Testing branch: master
-Progress: 0/1/21
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/1/21[0m
 ==Running le_test_dependencies please wait
 no crontab for root
 no crontab for root
-curl installed. [PASS]
-crontab installed. [PASS]
-openssl installed. [PASS]
-socat installed. [PASS]
+curl installed.[1;31;32m [PASS][0m
+crontab installed.[1;31;32m [PASS][0m
+openssl installed.[1;31;32m [PASS][0m
+socat installed.[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/2/21
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/2/21[0m
 ==Running le_test_install please wait
-./acme.sh install [PASS]
-/root/.acme.sh/acme.sh exists. [PASS]
-_contains '43 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
-/root/.acme.sh/acme.sh uninstall  > /dev/null [PASS]
+./acme.sh install[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh exists.[1;31;32m [PASS][0m
+_contains '13 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh uninstall  > /dev/null[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/3/21
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/3/21[0m
 ==Running le_test_uninstall please wait
-./acme.sh install [PASS]
-/root/.acme.sh/acme.sh uninstall [PASS]
-/root/.acme.sh/acme.sh no exists. [PASS]
-equals  [PASS]
+./acme.sh install[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh uninstall[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh no exists.[1;31;32m [PASS][0m
+equals [1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/4/21
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/4/21[0m
 ==Running le_test_installtodir please wait
-./acme.sh install [PASS]
-/root/myle/acme.sh exists. [PASS]
-_contains '45 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
-/root/myle/acme.sh uninstall [PASS]
+./acme.sh install[1;31;32m [PASS][0m
+/root/myle/acme.sh exists.[1;31;32m [PASS][0m
+_contains '15 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null'[1;31;32m [PASS][0m
+/root/myle/acme.sh uninstall[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/5/21
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/5/21[0m
 ==Running le_test_uninstalltodir please wait
-./acme.sh install [PASS]
-/root/myle/acme.sh uninstall [PASS]
-/root/myle/acme.sh no exists. [PASS]
-equals  [PASS]
+./acme.sh install[1;31;32m [PASS][0m
+/root/myle/acme.sh uninstall[1;31;32m [PASS][0m
+/root/myle/acme.sh no exists.[1;31;32m [PASS][0m
+equals [1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/6/21
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/6/21[0m
 ==Running le_test_install_config_home please wait
-./acme.sh --install --config-home /root/etc/acme [PASS]
-/root/.acme.sh/acme.sh exists. [PASS]
-_contains '46 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
-/root/etc/acme/account.conf exists. [PASS]
-/root/.acme.sh/account.conf no exists. [PASS]
-/root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null [PASS]
-/root/.acme.sh/acme.sh --uninstall --config-home /root/etc/acme > /dev/null [PASS]
-/root/etc/acme/account.conf exists. [PASS]
-/root/.acme.sh/account.conf no exists. [PASS]
+./acme.sh --install --config-home /root/etc/acme[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh exists.[1;31;32m [PASS][0m
+_contains '16 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null'[1;31;32m [PASS][0m
+/root/etc/acme/account.conf exists.[1;31;32m [PASS][0m
+/root/.acme.sh/account.conf no exists.[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --uninstall --config-home /root/etc/acme > /dev/null[1;31;32m [PASS][0m
+/root/etc/acme/account.conf exists.[1;31;32m [PASS][0m
+/root/.acme.sh/account.conf no exists.[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/7/21
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/7/21[0m
 ==Running le_test_standandalone_renew please wait
-/root/.acme.sh/acme.sh issue no testdocker.acme.sh [PASS]
-FORCE=1 /root/.acme.sh/acme.sh renew testdocker.acme.sh [PASS]
+/root/.acme.sh/acme.sh issue no testdocker.acme.sh[1;31;32m [PASS][0m
+FORCE=1 /root/.acme.sh/acme.sh renew testdocker.acme.sh[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/8/21
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/8/21[0m
 ==Running le_test_standandalone_renew_v2 please wait
-/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
-/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force [PASS]
-/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
+/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/9/21
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/9/21[0m
 ==Running le_test_standandalone_renew_localaddress_v2 please wait
-/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --local-address 0.0.0.0 --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
-/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force [PASS]
-/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
+/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --local-address 0.0.0.0 --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/10/21
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/10/21[0m
 ==Running le_test_standandalone_listen_v4_v2 please wait
-/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --listen-v4 --cert-file '/acmetest/certs/domain.cer' --key-file '/acmetest/certs/domain.key'  --ca-file '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchain-file  '/acmetest/certs/full.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
-/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force [PASS]
-/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
+/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --listen-v4 --cert-file '/acmetest/certs/domain.cer' --key-file '/acmetest/certs/domain.key'  --ca-file '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchain-file  '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/11/21
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/11/21[0m
 ==Running le_test_standandalone_listen_v6_v2 please wait
 Skipped by TEST_IPV6
 ------------------------------------------
-Progress: 0/12/21
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/12/21[0m
 ==Running le_test_standandalone_deactivate_v2 please wait
-/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
-/root/.acme.sh/acme.sh --deactivate -d testdocker.acme.sh [PASS]
+/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --deactivate -d testdocker.acme.sh[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/13/21
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/13/21[0m
 ==Running le_test_standandalone please wait
-/root/.acme.sh/acme.sh issue no testdocker.acme.sh [PASS]
-/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/acme.sh issue no testdocker.acme.sh[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/14/21
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/14/21[0m
 ==Running le_test_standandalone_SAN please wait
-/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh" [PASS]
-/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh"[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/15/21
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/15/21[0m
 ==Running le_test_standandalone_ECDSA_256 please wait
-/root/.acme.sh/acme.sh issue no testdocker.acme.sh no ec-256 [PASS]
-/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/acme.sh issue no testdocker.acme.sh no ec-256[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/16/21
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/16/21[0m
 ==Running le_test_standandalone_ECDSA_256_renew please wait
-/root/.acme.sh/acme.sh issue no testdocker.acme.sh no ec-256 [PASS]
-FORCE=1 /root/.acme.sh/acme.sh renew testdocker.acme.sh [PASS]
+/root/.acme.sh/acme.sh issue no testdocker.acme.sh no ec-256[1;31;32m [PASS][0m
+FORCE=1 /root/.acme.sh/acme.sh renew testdocker.acme.sh[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/17/21
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/17/21[0m
 ==Running le_test_standandalone_ECDSA_256_SAN_renew please wait
-/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh" ec-256 [PASS]
-FORCE=1 /root/.acme.sh/acme.sh renew "testdocker.acme.sh" [PASS]
+/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh" ec-256[1;31;32m [PASS][0m
+FORCE=1 /root/.acme.sh/acme.sh renew "testdocker.acme.sh"[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/18/21
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/18/21[0m
 ==Running le_test_standandalone_ECDSA_256_SAN_renew_v2 please wait
-/root/.acme.sh/acme.sh --issue -d "testdocker.acme.sh" -d "testdocker2.acme.sh" --standalone --keylength ec-256 --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh_ecc/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
-/root/.acme.sh/acme.sh --renew --ecc -d "testdocker.acme.sh" --force [PASS]
-/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh_ecc/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
+/root/.acme.sh/acme.sh --issue -d "testdocker.acme.sh" -d "testdocker2.acme.sh" --standalone --keylength ec-256 --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh_ecc/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --renew --ecc -d "testdocker.acme.sh" --force[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh_ecc/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/19/21
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/19/21[0m
 ==Running le_test_standandalone_ECDSA_384 please wait
-/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" no ec-384 [PASS]
-/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" no ec-384[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/20/21
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/20/21[0m
 ==Running le_test_standandalone_renew_idn_v2 please wait
 Skipped by TEST_IDN
 ------------------------------------------
-Progress: 0/21/21
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/21/21[0m
 ==Running le_test_dnsapi please wait
-The test domain Test_CF_Domain is not defined, skip:ClourFlare_api
-The test domain Test_CX_Domain is not defined, skip:CloudXNS.com_api
-The test domain Test_DP_Domain is not defined, skip:Dnspod.cn_api
-Testing dns_gd Godaddy_api
-TestingDomain='testgdapi.xyz'
-/root/.acme.sh/acme.sh --issue -d "testgdapi.xyz" --dns dns_gd --dnssleep ""  [PASS]
-/root/.acme.sh/testgdapi.xyz/testgdapi.xyz.cer is cert ? 'testgdapi.xyz' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testgdapi.xyz/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/acme.sh --deactivate -d "testgdapi.xyz" >/dev/null 2>&1 [PASS]
-The test domain Test_AWS_Domain is not defined, skip:Amazon_Route53_api
-The test domain Test_LUA_Domain is not defined, skip:luadns.com_api
-ME_Key is not defined, skip:dnsmadeeasy.com_api
-NSUPDATE_KEY is not defined, skip:nsupdate_api
-OVH_AK is not defined, skip:OVH.com_api
-PDNS_Token is not defined, skip:powerdns.com_api
-The test domain Test_ALI_Domain is not defined, skip:aliyun_api
-Testing dns_gandi_livedns gandi_livedns
-TestingDomain='acmetest.pw'
-/root/.acme.sh/acme.sh --issue -d "acmetest.pw" --dns dns_gandi_livedns --dnssleep "60"  [PASS]
-/root/.acme.sh/acmetest.pw/acmetest.pw.cer is cert ? 'acmetest.pw' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/acmetest.pw/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/acme.sh --deactivate -d "acmetest.pw" >/dev/null 2>&1 [PASS]
-The test domain Test_DYNU_Domain is not defined, skip:dynu_api
-Testing dns_he dns_he_net
-TestingDomain='he.acme.sh'
-/root/.acme.sh/acme.sh --issue -d "he.acme.sh" --dns dns_he --dnssleep "60"  [PASS]
-/root/.acme.sh/he.acme.sh/he.acme.sh.cer is cert ? 'he.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/he.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/acme.sh --deactivate -d "he.acme.sh" >/dev/null 2>&1 [PASS]
-Testing dns_zonomi dns_zonomi
-TestingDomain='zonomi.acme.sh'
-/root/.acme.sh/acme.sh --issue -d "zonomi.acme.sh" --dns dns_zonomi --dnssleep "30"  [PASS]
-/root/.acme.sh/zonomi.acme.sh/zonomi.acme.sh.cer is cert ? 'zonomi.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/zonomi.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/acme.sh --deactivate -d "zonomi.acme.sh" >/dev/null 2>&1 [PASS]
+Skipped by TEST_DNS
 ------------------------------------------
