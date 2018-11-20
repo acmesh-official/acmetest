@@ -1,213 +1,1124 @@
 Sending build context to Docker daemon  2.048kB
 Step 1/2 : FROM fedora:21
- ---> ba6369d667d1
+ ---> c3f52f068a13
 Step 2/2 : RUN yum  -y update     2>&1 && yum  -y install    tar openssl crontabs socat curl  2>&1
- ---> Using cache
- ---> ebdb66cf55e6
-Successfully built ebdb66cf55e6
+ ---> Running in 5885007e2709
+Resolving Dependencies
+--> Running transaction check
+---> Package audit-libs.x86_64 0:2.4.1-1.fc21 will be updated
+---> Package audit-libs.x86_64 0:2.4.4-1.fc21 will be an update
+---> Package bash.x86_64 0:4.3.30-2.fc21 will be updated
+---> Package bash.x86_64 0:4.3.42-1.fc21 will be an update
+---> Package ca-certificates.noarch 0:2014.2.1-1.5.fc21 will be updated
+---> Package ca-certificates.noarch 0:2015.2.5-1.0.fc21 will be an update
+---> Package coreutils.x86_64 0:8.22-19.fc21 will be updated
+---> Package coreutils.x86_64 0:8.22-22.fc21 will be an update
+---> Package cpio.x86_64 0:2.11-30.fc21 will be updated
+---> Package cpio.x86_64 0:2.11-33.fc21 will be an update
+---> Package crypto-policies.noarch 0:20140905-1.git4649b7d.fc21 will be updated
+---> Package crypto-policies.noarch 0:20150305-1.gitf618101.fc21 will be an update
+---> Package cryptsetup-libs.x86_64 0:1.6.6-1.fc21 will be updated
+---> Package cryptsetup-libs.x86_64 0:1.6.8-2.fc21 will be an update
+---> Package curl.x86_64 0:7.37.0-9.fc21 will be updated
+---> Package curl.x86_64 0:7.37.0-14.fc21 will be an update
+---> Package dbus.x86_64 1:1.8.6-3.fc21 will be updated
+---> Package dbus.x86_64 1:1.8.20-1.fc21 will be an update
+---> Package dbus-glib.x86_64 0:0.100.2-4.fc21 will be updated
+---> Package dbus-glib.x86_64 0:0.104-1.fc21 will be an update
+---> Package dbus-libs.x86_64 1:1.8.6-3.fc21 will be updated
+---> Package dbus-libs.x86_64 1:1.8.20-1.fc21 will be an update
+---> Package device-mapper.x86_64 0:1.02.90-1.fc21 will be updated
+---> Package device-mapper.x86_64 0:1.02.93-3.fc21 will be an update
+---> Package device-mapper-libs.x86_64 0:1.02.90-1.fc21 will be updated
+---> Package device-mapper-libs.x86_64 0:1.02.93-3.fc21 will be an update
+---> Package dracut.x86_64 0:038-30.git20140903.fc21 will be updated
+---> Package dracut.x86_64 0:038-39.git20150518.fc21 will be an update
+---> Package e2fsprogs.x86_64 0:1.42.11-4.fc21 will be updated
+---> Package e2fsprogs.x86_64 0:1.42.12-4.fc21 will be an update
+---> Package e2fsprogs-libs.x86_64 0:1.42.11-4.fc21 will be updated
+---> Package e2fsprogs-libs.x86_64 0:1.42.12-4.fc21 will be an update
+---> Package elfutils-libelf.x86_64 0:0.160-1.fc21 will be updated
+---> Package elfutils-libelf.x86_64 0:0.163-4.fc21 will be an update
+---> Package elfutils-libs.x86_64 0:0.160-1.fc21 will be updated
+---> Package elfutils-libs.x86_64 0:0.163-4.fc21 will be an update
+---> Package fedora-repos.noarch 0:21-2 will be updated
+---> Package fedora-repos.noarch 0:21-3 will be an update
+---> Package file.x86_64 0:5.19-7.fc21 will be updated
+---> Package file.x86_64 0:5.22-4.fc21 will be an update
+---> Package file-libs.x86_64 0:5.19-7.fc21 will be updated
+---> Package file-libs.x86_64 0:5.22-4.fc21 will be an update
+---> Package filesystem.x86_64 0:3.2-27.fc21 will be updated
+---> Package filesystem.x86_64 0:3.2-28.fc21 will be an update
+---> Package findutils.x86_64 1:4.5.12-7.fc21 will be updated
+---> Package findutils.x86_64 1:4.5.12-8.fc21 will be an update
+---> Package firewalld.noarch 0:0.3.12-1.fc21 will be updated
+---> Package firewalld.noarch 0:0.3.14.2-2.fc21 will be an update
+--> Processing Dependency: python-firewall = 0.3.14.2-2.fc21 for package: firewalld-0.3.14.2-2.fc21.noarch
+--> Processing Dependency: firewalld-filesystem = 0.3.14.2-2.fc21 for package: firewalld-0.3.14.2-2.fc21.noarch
+---> Package firewalld-config-standard.noarch 0:0.3.12-1.fc21 will be updated
+---> Package firewalld-config-standard.noarch 0:0.3.14.2-2.fc21 will be an update
+---> Package freetype.x86_64 0:2.5.3-11.fc21 will be updated
+---> Package freetype.x86_64 0:2.5.3-16.fc21 will be an update
+---> Package gawk.x86_64 0:4.1.1-5.fc21 will be updated
+---> Package gawk.x86_64 0:4.1.1-6.fc21 will be an update
+---> Package gettext.x86_64 0:0.19.2-6.fc21 will be updated
+---> Package gettext.x86_64 0:0.19.4-2.fc21 will be an update
+---> Package gettext-libs.x86_64 0:0.19.2-6.fc21 will be updated
+---> Package gettext-libs.x86_64 0:0.19.4-2.fc21 will be an update
+---> Package glib2.x86_64 0:2.42.1-1.fc21 will be updated
+---> Package glib2.x86_64 0:2.42.2-1.fc21 will be an update
+---> Package glibc.x86_64 0:2.20-5.fc21 will be updated
+---> Package glibc.x86_64 0:2.20-8.fc21 will be an update
+---> Package glibc-common.x86_64 0:2.20-5.fc21 will be updated
+---> Package glibc-common.x86_64 0:2.20-8.fc21 will be an update
+---> Package gmp.x86_64 1:6.0.0-7.fc21 will be updated
+---> Package gmp.x86_64 1:6.0.0-9.fc21 will be an update
+---> Package gnupg2.x86_64 0:2.0.25-2.fc21 will be updated
+---> Package gnupg2.x86_64 0:2.0.29-1.fc21 will be an update
+---> Package gpgme.x86_64 0:1.4.3-4.fc21 will be updated
+---> Package gpgme.x86_64 0:1.4.3-5.fc21 will be an update
+---> Package grep.x86_64 0:2.20-6.fc21 will be updated
+---> Package grep.x86_64 0:2.21-3.fc21 will be an update
+---> Package grub2.x86_64 1:2.02-0.11.fc21 will be updated
+---> Package grub2.x86_64 1:2.02-0.13.fc21 will be an update
+---> Package grub2-tools.x86_64 1:2.02-0.11.fc21 will be updated
+---> Package grub2-tools.x86_64 1:2.02-0.13.fc21 will be an update
+---> Package gzip.x86_64 0:1.6-5.fc21 will be updated
+---> Package gzip.x86_64 0:1.6-8.fc21 will be an update
+---> Package kmod.x86_64 0:18-4.fc21 will be updated
+---> Package kmod.x86_64 0:19-1.fc21 will be an update
+---> Package kmod-libs.x86_64 0:18-4.fc21 will be updated
+---> Package kmod-libs.x86_64 0:19-1.fc21 will be an update
+---> Package kpartx.x86_64 0:0.4.9-68.fc21.1 will be updated
+---> Package kpartx.x86_64 0:0.4.9-68.fc21.3 will be an update
+---> Package krb5-libs.x86_64 0:1.12.2-9.fc21 will be updated
+---> Package krb5-libs.x86_64 0:1.12.2-19.fc21 will be an update
+---> Package libarchive.x86_64 0:3.1.2-10.fc21 will be updated
+---> Package libarchive.x86_64 0:3.1.2-11.fc21 will be an update
+---> Package libassuan.x86_64 0:2.1.0-5.fc21 will be updated
+---> Package libassuan.x86_64 0:2.3.0-1.fc21 will be an update
+---> Package libattr.x86_64 0:2.4.47-9.fc21 will be updated
+---> Package libattr.x86_64 0:2.4.47-10.fc21 will be an update
+---> Package libblkid.x86_64 0:2.25.2-1.fc21 will be updated
+---> Package libblkid.x86_64 0:2.25.2-3.fc21 will be an update
+---> Package libcap-ng.x86_64 0:0.7.4-7.fc21 will be updated
+---> Package libcap-ng.x86_64 0:0.7.5-2.fc21 will be an update
+---> Package libcom_err.x86_64 0:1.42.11-4.fc21 will be updated
+---> Package libcom_err.x86_64 0:1.42.12-4.fc21 will be an update
+---> Package libcurl.x86_64 0:7.37.0-9.fc21 will be updated
+---> Package libcurl.x86_64 0:7.37.0-14.fc21 will be an update
+---> Package libdb.x86_64 0:5.3.28-9.fc21 will be updated
+---> Package libdb.x86_64 0:5.3.28-12.fc21 will be an update
+---> Package libdb-utils.x86_64 0:5.3.28-9.fc21 will be updated
+---> Package libdb-utils.x86_64 0:5.3.28-12.fc21 will be an update
+---> Package libffi.x86_64 0:3.1-6.fc21 will be updated
+---> Package libffi.x86_64 0:3.1-7.fc21 will be an update
+---> Package libgcc.x86_64 0:4.9.2-1.fc21 will be updated
+---> Package libgcc.x86_64 0:4.9.2-6.fc21 will be an update
+---> Package libgcrypt.x86_64 0:1.6.1-7.fc21 will be updated
+---> Package libgcrypt.x86_64 0:1.6.3-4.fc21 will be an update
+---> Package libgomp.x86_64 0:4.9.2-1.fc21 will be updated
+---> Package libgomp.x86_64 0:4.9.2-6.fc21 will be an update
+---> Package libgpg-error.x86_64 0:1.13-3.fc21 will be updated
+---> Package libgpg-error.x86_64 0:1.17-2.fc21 will be an update
+---> Package libidn.x86_64 0:1.28-5.fc21 will be updated
+---> Package libidn.x86_64 0:1.32-1.fc21 will be an update
+---> Package libmount.x86_64 0:2.25.2-1.fc21 will be updated
+---> Package libmount.x86_64 0:2.25.2-3.fc21 will be an update
+---> Package libpwquality.x86_64 0:1.2.4-2.fc21 will be updated
+---> Package libpwquality.x86_64 0:1.2.4-3.fc21 will be an update
+---> Package libseccomp.x86_64 0:2.1.1-5.fc21 will be updated
+---> Package libseccomp.x86_64 0:2.2.3-0.fc21 will be an update
+---> Package libselinux.x86_64 0:2.3-5.fc21 will be updated
+---> Package libselinux.x86_64 0:2.3-10.fc21 will be an update
+---> Package libselinux-python.x86_64 0:2.3-5.fc21 will be updated
+---> Package libselinux-python.x86_64 0:2.3-10.fc21 will be an update
+---> Package libsmartcols.x86_64 0:2.25.2-1.fc21 will be updated
+---> Package libsmartcols.x86_64 0:2.25.2-3.fc21 will be an update
+---> Package libss.x86_64 0:1.42.11-4.fc21 will be updated
+---> Package libss.x86_64 0:1.42.12-4.fc21 will be an update
+---> Package libssh2.x86_64 0:1.4.3-16.fc21 will be updated
+---> Package libssh2.x86_64 0:1.5.0-1.fc21 will be an update
+---> Package libstdc++.x86_64 0:4.9.2-1.fc21 will be updated
+---> Package libstdc++.x86_64 0:4.9.2-6.fc21 will be an update
+---> Package libtasn1.x86_64 0:4.2-1.fc21 will be updated
+---> Package libtasn1.x86_64 0:4.5-1.fc21 will be an update
+---> Package libuser.x86_64 0:0.60-6.fc21 will be updated
+---> Package libuser.x86_64 0:0.62-1.fc21 will be an update
+---> Package libuuid.x86_64 0:2.25.2-1.fc21 will be updated
+---> Package libuuid.x86_64 0:2.25.2-3.fc21 will be an update
+---> Package libxml2.x86_64 0:2.9.1-6.fc21 will be updated
+---> Package libxml2.x86_64 0:2.9.1-7.fc21 will be an update
+---> Package nspr.x86_64 0:4.10.7-1.fc21 will be updated
+---> Package nspr.x86_64 0:4.10.10-1.fc21 will be an update
+---> Package nss.x86_64 0:3.17.2-1.fc21 will be updated
+---> Package nss.x86_64 0:3.20.1-1.0.fc21 will be an update
+---> Package nss-softokn.x86_64 0:3.17.2-1.fc21 will be updated
+---> Package nss-softokn.x86_64 0:3.20.1-1.0.fc21 will be an update
+---> Package nss-softokn-freebl.x86_64 0:3.17.2-1.fc21 will be updated
+---> Package nss-softokn-freebl.x86_64 0:3.20.1-1.0.fc21 will be an update
+---> Package nss-sysinit.x86_64 0:3.17.2-1.fc21 will be updated
+---> Package nss-sysinit.x86_64 0:3.20.1-1.0.fc21 will be an update
+---> Package nss-tools.x86_64 0:3.17.2-1.fc21 will be updated
+---> Package nss-tools.x86_64 0:3.20.1-1.0.fc21 will be an update
+---> Package nss-util.x86_64 0:3.17.2-1.fc21 will be updated
+---> Package nss-util.x86_64 0:3.20.1-1.0.fc21 will be an update
+---> Package openldap.x86_64 0:2.4.40-2.fc21 will be updated
+---> Package openldap.x86_64 0:2.4.40-3.fc21 will be an update
+---> Package openssl-libs.x86_64 1:1.0.1j-1.fc21 will be updated
+---> Package openssl-libs.x86_64 1:1.0.1k-12.fc21 will be an update
+---> Package os-prober.x86_64 0:1.58-11.fc21 will be updated
+---> Package os-prober.x86_64 0:1.68-1.fc21 will be an update
+---> Package pam.x86_64 0:1.1.8-16.fc21 will be updated
+---> Package pam.x86_64 0:1.1.8-19.fc21 will be an update
+---> Package pcre.x86_64 0:8.35-7.fc21 will be updated
+---> Package pcre.x86_64 0:8.35-14.fc21 will be an update
+---> Package pkgconfig.x86_64 1:0.28-6.fc21 will be updated
+---> Package pkgconfig.x86_64 1:0.28-8.fc21 will be an update
+---> Package procps-ng.x86_64 0:3.3.10-4.fc21 will be updated
+---> Package procps-ng.x86_64 0:3.3.10-8.fc21 will be an update
+---> Package python.x86_64 0:2.7.8-7.fc21 will be updated
+---> Package python.x86_64 0:2.7.8-15.fc21 will be an update
+---> Package python-libs.x86_64 0:2.7.8-7.fc21 will be updated
+---> Package python-libs.x86_64 0:2.7.8-15.fc21 will be an update
+---> Package python-pycurl.x86_64 0:7.19.3.1-5.fc21 will be updated
+---> Package python-pycurl.x86_64 0:7.19.3.1-6.fc21 will be an update
+---> Package python-six.noarch 0:1.7.3-2.fc21 will be updated
+---> Package python-six.noarch 0:1.9.0-1.fc21 will be an update
+---> Package python-slip.noarch 0:0.6.0-3.fc21 will be updated
+---> Package python-slip.noarch 0:0.6.4-1.fc21 will be an update
+---> Package python-slip-dbus.noarch 0:0.6.0-3.fc21 will be updated
+---> Package python-slip-dbus.noarch 0:0.6.4-1.fc21 will be an update
+---> Package rpm.x86_64 0:4.12.0.1-3.fc21 will be updated
+---> Package rpm.x86_64 0:4.12.0.1-7.fc21 will be an update
+---> Package rpm-build-libs.x86_64 0:4.12.0.1-3.fc21 will be updated
+---> Package rpm-build-libs.x86_64 0:4.12.0.1-7.fc21 will be an update
+---> Package rpm-libs.x86_64 0:4.12.0.1-3.fc21 will be updated
+---> Package rpm-libs.x86_64 0:4.12.0.1-7.fc21 will be an update
+---> Package rpm-plugin-selinux.x86_64 0:4.12.0.1-3.fc21 will be updated
+---> Package rpm-plugin-selinux.x86_64 0:4.12.0.1-7.fc21 will be an update
+---> Package rpm-python.x86_64 0:4.12.0.1-3.fc21 will be updated
+---> Package rpm-python.x86_64 0:4.12.0.1-7.fc21 will be an update
+---> Package setup.noarch 0:2.9.0-2.fc21 will be updated
+---> Package setup.noarch 0:2.9.0-4.fc21 will be an update
+---> Package sqlite.x86_64 0:3.8.7-1.fc21 will be updated
+---> Package sqlite.x86_64 0:3.8.11.1-1.fc21 will be an update
+---> Package systemd.x86_64 0:216-12.fc21 will be updated
+---> Package systemd.x86_64 0:216-25.fc21 will be an update
+---> Package systemd-libs.x86_64 0:216-12.fc21 will be updated
+---> Package systemd-libs.x86_64 0:216-25.fc21 will be an update
+---> Package tzdata.noarch 0:2014i-1.fc21 will be updated
+---> Package tzdata.noarch 0:2015g-1.fc21 will be an update
+---> Package util-linux.x86_64 0:2.25.2-1.fc21 will be updated
+---> Package util-linux.x86_64 0:2.25.2-3.fc21 will be an update
+---> Package vim-minimal.x86_64 2:7.4.475-2.fc21 will be updated
+---> Package vim-minimal.x86_64 2:7.4.827-1.fc21 will be an update
+--> Running transaction check
+---> Package firewalld-filesystem.noarch 0:0.3.14.2-2.fc21 will be installed
+---> Package python-firewall.noarch 0:0.3.14.2-2.fc21 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package                    Arch    Version                      Repository
+                                                                           Size
+================================================================================
+Updating:
+ audit-libs                 x86_64  2.4.4-1.fc21                 updates   94 k
+ bash                       x86_64  4.3.42-1.fc21                updates  1.6 M
+ ca-certificates            noarch  2015.2.5-1.0.fc21            updates  442 k
+ coreutils                  x86_64  8.22-22.fc21                 updates  2.8 M
+ cpio                       x86_64  2.11-33.fc21                 updates  216 k
+ crypto-policies            noarch  20150305-1.gitf618101.fc21   updates   24 k
+ cryptsetup-libs            x86_64  1.6.8-2.fc21                 updates  209 k
+ curl                       x86_64  7.37.0-14.fc21               updates  270 k
+ dbus                       x86_64  1:1.8.20-1.fc21              updates  354 k
+ dbus-glib                  x86_64  0.104-1.fc21                 updates  120 k
+ dbus-libs                  x86_64  1:1.8.20-1.fc21              updates  167 k
+ device-mapper              x86_64  1.02.93-3.fc21               updates  235 k
+ device-mapper-libs         x86_64  1.02.93-3.fc21               updates  298 k
+ dracut                     x86_64  038-39.git20150518.fc21      updates  316 k
+ e2fsprogs                  x86_64  1.42.12-4.fc21               updates  799 k
+ e2fsprogs-libs             x86_64  1.42.12-4.fc21               updates  171 k
+ elfutils-libelf            x86_64  0.163-4.fc21                 updates  207 k
+ elfutils-libs              x86_64  0.163-4.fc21                 updates  268 k
+ fedora-repos               noarch  21-3                         updates   25 k
+ file                       x86_64  5.22-4.fc21                  updates   65 k
+ file-libs                  x86_64  5.22-4.fc21                  updates  423 k
+ filesystem                 x86_64  3.2-28.fc21                  updates  1.1 M
+ findutils                  x86_64  1:4.5.12-8.fc21              updates  482 k
+ firewalld                  noarch  0.3.14.2-2.fc21              updates  335 k
+ firewalld-config-standard  noarch  0.3.14.2-2.fc21              updates   49 k
+ freetype                   x86_64  2.5.3-16.fc21                updates  410 k
+ gawk                       x86_64  4.1.1-6.fc21                 updates  1.0 M
+ gettext                    x86_64  0.19.4-2.fc21                updates  1.0 M
+ gettext-libs               x86_64  0.19.4-2.fc21                updates  272 k
+ glib2                      x86_64  2.42.2-1.fc21                updates  2.2 M
+ glibc                      x86_64  2.20-8.fc21                  updates  3.5 M
+ glibc-common               x86_64  2.20-8.fc21                  updates   11 M
+ gmp                        x86_64  1:6.0.0-9.fc21               updates  282 k
+ gnupg2                     x86_64  2.0.29-1.fc21                updates  1.6 M
+ gpgme                      x86_64  1.4.3-5.fc21                 updates  157 k
+ grep                       x86_64  2.21-3.fc21                  updates  364 k
+ grub2                      x86_64  1:2.02-0.13.fc21             updates  3.8 M
+ grub2-tools                x86_64  1:2.02-0.13.fc21             updates  7.3 M
+ gzip                       x86_64  1.6-8.fc21                   updates  155 k
+ kmod                       x86_64  19-1.fc21                    updates  108 k
+ kmod-libs                  x86_64  19-1.fc21                    updates   60 k
+ kpartx                     x86_64  0.4.9-68.fc21.3              updates   56 k
+ krb5-libs                  x86_64  1.12.2-19.fc21               updates  835 k
+ libarchive                 x86_64  3.1.2-11.fc21                updates  325 k
+ libassuan                  x86_64  2.3.0-1.fc21                 updates   72 k
+ libattr                    x86_64  2.4.47-10.fc21               updates   23 k
+ libblkid                   x86_64  2.25.2-3.fc21                updates  175 k
+ libcap-ng                  x86_64  0.7.5-2.fc21                 updates   30 k
+ libcom_err                 x86_64  1.42.12-4.fc21               updates   45 k
+ libcurl                    x86_64  7.37.0-14.fc21               updates  242 k
+ libdb                      x86_64  5.3.28-12.fc21               updates  735 k
+ libdb-utils                x86_64  5.3.28-12.fc21               updates  108 k
+ libffi                     x86_64  3.1-7.fc21                   updates   34 k
+ libgcc                     x86_64  4.9.2-6.fc21                 updates   89 k
+ libgcrypt                  x86_64  1.6.3-4.fc21                 updates  374 k
+ libgomp                    x86_64  4.9.2-6.fc21                 updates  127 k
+ libgpg-error               x86_64  1.17-2.fc21                  updates  120 k
+ libidn                     x86_64  1.32-1.fc21                  updates  228 k
+ libmount                   x86_64  2.25.2-3.fc21                updates  190 k
+ libpwquality               x86_64  1.2.4-3.fc21                 updates   89 k
+ libseccomp                 x86_64  2.2.3-0.fc21                 updates   54 k
+ libselinux                 x86_64  2.3-10.fc21                  updates  150 k
+ libselinux-python          x86_64  2.3-10.fc21                  updates  301 k
+ libsmartcols               x86_64  2.25.2-3.fc21                updates  134 k
+ libss                      x86_64  1.42.12-4.fc21               updates   49 k
+ libssh2                    x86_64  1.5.0-1.fc21                 updates  145 k
+ libstdc++                  x86_64  4.9.2-6.fc21                 updates  299 k
+ libtasn1                   x86_64  4.5-1.fc21                   updates  324 k
+ libuser                    x86_64  0.62-1.fc21                  updates  398 k
+ libuuid                    x86_64  2.25.2-3.fc21                updates   78 k
+ libxml2                    x86_64  2.9.1-7.fc21                 updates  667 k
+ nspr                       x86_64  4.10.10-1.fc21               updates  133 k
+ nss                        x86_64  3.20.1-1.0.fc21              updates  858 k
+ nss-softokn                x86_64  3.20.1-1.0.fc21              updates  309 k
+ nss-softokn-freebl         x86_64  3.20.1-1.0.fc21              updates  207 k
+ nss-sysinit                x86_64  3.20.1-1.0.fc21              updates   54 k
+ nss-tools                  x86_64  3.20.1-1.0.fc21              updates  486 k
+ nss-util                   x86_64  3.20.1-1.0.fc21              updates   81 k
+ openldap                   x86_64  2.4.40-3.fc21                updates  343 k
+ openssl-libs               x86_64  1:1.0.1k-12.fc21             updates  945 k
+ os-prober                  x86_64  1.68-1.fc21                  updates   47 k
+ pam                        x86_64  1.1.8-19.fc21                updates  726 k
+ pcre                       x86_64  8.35-14.fc21                 updates  480 k
+ pkgconfig                  x86_64  1:0.28-8.fc21                updates   59 k
+ procps-ng                  x86_64  3.3.10-8.fc21                updates  382 k
+ python                     x86_64  2.7.8-15.fc21                updates   93 k
+ python-libs                x86_64  2.7.8-15.fc21                updates  5.7 M
+ python-pycurl              x86_64  7.19.3.1-6.fc21              updates  149 k
+ python-six                 noarch  1.9.0-1.fc21                 updates   34 k
+ python-slip                noarch  0.6.4-1.fc21                 updates   36 k
+ python-slip-dbus           noarch  0.6.4-1.fc21                 updates   36 k
+ rpm                        x86_64  4.12.0.1-7.fc21              updates  500 k
+ rpm-build-libs             x86_64  4.12.0.1-7.fc21              updates  110 k
+ rpm-libs                   x86_64  4.12.0.1-7.fc21              updates  275 k
+ rpm-plugin-selinux         x86_64  4.12.0.1-7.fc21              updates   48 k
+ rpm-python                 x86_64  4.12.0.1-7.fc21              updates   90 k
+ setup                      noarch  2.9.0-4.fc21                 updates  171 k
+ sqlite                     x86_64  3.8.11.1-1.fc21              updates  465 k
+ systemd                    x86_64  216-25.fc21                  updates  5.1 M
+ systemd-libs               x86_64  216-25.fc21                  updates  323 k
+ tzdata                     noarch  2015g-1.fc21                 updates  422 k
+ util-linux                 x86_64  2.25.2-3.fc21                updates  2.0 M
+ vim-minimal                x86_64  2:7.4.827-1.fc21             updates  461 k
+Installing for dependencies:
+ firewalld-filesystem       noarch  0.3.14.2-2.fc21              updates   48 k
+ python-firewall            noarch  0.3.14.2-2.fc21              updates  236 k
+
+Transaction Summary
+================================================================================
+Install               ( 2 Dependent packages)
+Upgrade  103 Packages
+
+Total download size: 72 M
+Downloading packages:
+Delta RPMs disabled because /usr/bin/applydeltarpm not installed.
+--------------------------------------------------------------------------------
+Total                                              7.0 MB/s |  72 MB  00:10     
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Updating   : libgcc-4.9.2-6.fc21.x86_64                                 1/208 
+  Installing : firewalld-filesystem-0.3.14.2-2.fc21.noarch                2/208 
+  Updating   : setup-2.9.0-4.fc21.noarch                                  3/208 
+warning: /etc/shadow created as /etc/shadow.rpmnew
+  Updating   : filesystem-3.2-28.fc21.x86_64                              4/208 
+  Updating   : tzdata-2015g-1.fc21.noarch                                 5/208 
+  Updating   : bash-4.3.42-1.fc21.x86_64                                  6/208 
+  Updating   : nss-softokn-freebl-3.20.1-1.0.fc21.x86_64                  7/208 
+  Updating   : glibc-common-2.20-8.fc21.x86_64                            8/208 
+  Updating   : glibc-2.20-8.fc21.x86_64                                   9/208 
+  Updating   : libstdc++-4.9.2-6.fc21.x86_64                             10/208 
+  Updating   : pcre-8.35-14.fc21.x86_64                                  11/208 
+  Updating   : libselinux-2.3-10.fc21.x86_64                             12/208 
+  Updating   : nspr-4.10.10-1.fc21.x86_64                                13/208 
+  Updating   : nss-util-3.20.1-1.0.fc21.x86_64                           14/208 
+  Updating   : libdb-5.3.28-12.fc21.x86_64                               15/208 
+  Updating   : libcom_err-1.42.12-4.fc21.x86_64                          16/208 
+  Updating   : elfutils-libelf-0.163-4.fc21.x86_64                       17/208 
+  Updating   : libgpg-error-1.17-2.fc21.x86_64                           18/208 
+  Updating   : libuuid-2.25.2-3.fc21.x86_64                              19/208 
+  Updating   : libgcrypt-1.6.3-4.fc21.x86_64                             20/208 
+  Updating   : grep-2.21-3.fc21.x86_64                                   21/208 
+install-info: No such file or directory for /usr/share/info/grep.info.gz
+  Updating   : audit-libs-2.4.4-1.fc21.x86_64                            22/208 
+  Updating   : libxml2-2.9.1-7.fc21.x86_64                               23/208 
+  Updating   : libidn-1.32-1.fc21.x86_64                                 24/208 
+install-info: No such file or directory for /usr/share/info/libidn.info.gz
+  Updating   : libassuan-2.3.0-1.fc21.x86_64                             25/208 
+  Updating   : elfutils-libs-0.163-4.fc21.x86_64                         26/208 
+  Updating   : kmod-libs-19-1.fc21.x86_64                                27/208 
+  Updating   : kmod-19-1.fc21.x86_64                                     28/208 
+  Updating   : file-libs-5.22-4.fc21.x86_64                              29/208 
+  Updating   : file-5.22-4.fc21.x86_64                                   30/208 
+  Updating   : libcap-ng-0.7.5-2.fc21.x86_64                             31/208 
+  Updating   : libgomp-4.9.2-6.fc21.x86_64                               32/208 
+  Updating   : libffi-3.1-7.fc21.x86_64                                  33/208 
+  Updating   : glib2-2.42.2-1.fc21.x86_64                                34/208 
+  Updating   : 1:dbus-libs-1.8.20-1.fc21.x86_64                          35/208 
+  Updating   : libattr-2.4.47-10.fc21.x86_64                             36/208 
+  Updating   : sqlite-3.8.11.1-1.fc21.x86_64                             37/208 
+  Updating   : nss-softokn-3.20.1-1.0.fc21.x86_64                        38/208 
+  Updating   : gettext-libs-0.19.4-2.fc21.x86_64                         39/208 
+  Updating   : e2fsprogs-libs-1.42.12-4.fc21.x86_64                      40/208 
+  Updating   : libss-1.42.12-4.fc21.x86_64                               41/208 
+  Updating   : libdb-utils-5.3.28-12.fc21.x86_64                         42/208 
+  Updating   : 1:findutils-4.5.12-8.fc21.x86_64                          43/208 
+  Updating   : 1:gmp-6.0.0-9.fc21.x86_64                                 44/208 
+  Updating   : gawk-4.1.1-6.fc21.x86_64                                  45/208 
+  Updating   : krb5-libs-1.12.2-19.fc21.x86_64                           46/208 
+  Updating   : 1:openssl-libs-1.0.1k-12.fc21.x86_64                      47/208 
+  Updating   : coreutils-8.22-22.fc21.x86_64                             48/208 
+  Updating   : ca-certificates-2015.2.5-1.0.fc21.noarch                  49/208 
+  Updating   : crypto-policies-20150305-1.gitf618101.fc21.noarch         50/208 
+  Updating   : libpwquality-1.2.4-3.fc21.x86_64                          51/208 
+  Updating   : pam-1.1.8-19.fc21.x86_64                                  52/208 
+  Updating   : systemd-libs-216-25.fc21.x86_64                           53/208 
+  Updating   : libblkid-2.25.2-3.fc21.x86_64                             54/208 
+  Updating   : python-libs-2.7.8-15.fc21.x86_64                          55/208 
+  Updating   : python-2.7.8-15.fc21.x86_64                               56/208 
+  Updating   : python-six-1.9.0-1.fc21.noarch                            57/208 
+  Updating   : gettext-0.19.4-2.fc21.x86_64                              58/208 
+install-info: No such file or directory for /usr/share/info/gettext.info.gz
+  Updating   : libssh2-1.5.0-1.fc21.x86_64                               59/208 
+  Updating   : libselinux-python-2.3-10.fc21.x86_64                      60/208 
+  Updating   : python-slip-0.6.4-1.fc21.noarch                           61/208 
+  Updating   : python-slip-dbus-0.6.4-1.fc21.noarch                      62/208 
+  Installing : python-firewall-0.3.14.2-2.fc21.noarch                    63/208 
+  Updating   : libmount-2.25.2-3.fc21.x86_64                             64/208 
+  Updating   : procps-ng-3.3.10-8.fc21.x86_64                            65/208 
+  Updating   : nss-3.20.1-1.0.fc21.x86_64                                66/208 
+  Updating   : nss-sysinit-3.20.1-1.0.fc21.x86_64                        67/208 
+  Updating   : nss-tools-3.20.1-1.0.fc21.x86_64                          68/208 
+  Updating   : openldap-2.4.40-3.fc21.x86_64                             69/208 
+  Updating   : libcurl-7.37.0-14.fc21.x86_64                             70/208 
+  Updating   : gnupg2-2.0.29-1.fc21.x86_64                               71/208 
+install-info: No such file or directory for /usr/share/info/gnupg.info
+  Updating   : curl-7.37.0-14.fc21.x86_64                                72/208 
+  Updating   : libuser-0.62-1.fc21.x86_64                                73/208 
+  Updating   : gzip-1.6-8.fc21.x86_64                                    74/208 
+  Updating   : libarchive-3.1.2-11.fc21.x86_64                           75/208 
+  Updating   : rpm-plugin-selinux-4.12.0.1-7.fc21.x86_64                 76/208 
+  Updating   : rpm-libs-4.12.0.1-7.fc21.x86_64                           77/208 
+  Updating   : rpm-4.12.0.1-7.fc21.x86_64                                78/208 
+  Updating   : rpm-build-libs-4.12.0.1-7.fc21.x86_64                     79/208 
+  Updating   : libseccomp-2.2.3-0.fc21.x86_64                            80/208 
+  Updating   : libsmartcols-2.25.2-3.fc21.x86_64                         81/208 
+  Updating   : util-linux-2.25.2-3.fc21.x86_64                           82/208 
+  Updating   : device-mapper-1.02.93-3.fc21.x86_64                       83/208 
+  Updating   : device-mapper-libs-1.02.93-3.fc21.x86_64                  84/208 
+  Updating   : cryptsetup-libs-1.6.8-2.fc21.x86_64                       85/208 
+  Updating   : systemd-216-25.fc21.x86_64                                86/208 
+  Updating   : 1:dbus-1.8.20-1.fc21.x86_64                               87/208 
+  Updating   : os-prober-1.68-1.fc21.x86_64                              88/208 
+  Updating   : firewalld-config-standard-0.3.14.2-2.fc21.noarch          89/208 
+  Updating   : firewalld-0.3.14.2-2.fc21.noarch                          90/208 
+  Updating   : kpartx-0.4.9-68.fc21.3.x86_64                             91/208 
+  Updating   : freetype-2.5.3-16.fc21.x86_64                             92/208 
+  Updating   : 1:grub2-tools-2.02-0.13.fc21.x86_64                       93/208 
+  Updating   : cpio-2.11-33.fc21.x86_64                                  94/208 
+  Updating   : dracut-038-39.git20150518.fc21.x86_64                     95/208 
+  Updating   : 1:grub2-2.02-0.13.fc21.x86_64                             96/208 
+  Updating   : rpm-python-4.12.0.1-7.fc21.x86_64                         97/208 
+  Updating   : gpgme-1.4.3-5.fc21.x86_64                                 98/208 
+  Updating   : python-pycurl-7.19.3.1-6.fc21.x86_64                      99/208 
+  Updating   : e2fsprogs-1.42.12-4.fc21.x86_64                          100/208 
+  Updating   : dbus-glib-0.104-1.fc21.x86_64                            101/208 
+  Updating   : 1:pkgconfig-0.28-8.fc21.x86_64                           102/208 
+  Updating   : 2:vim-minimal-7.4.827-1.fc21.x86_64                      103/208 
+  Updating   : libtasn1-4.5-1.fc21.x86_64                               104/208 
+  Updating   : fedora-repos-21-3.noarch                                 105/208 
+  Cleanup    : firewalld-config-standard-0.3.12-1.fc21.noarch           106/208 
+  Cleanup    : firewalld-0.3.12-1.fc21.noarch                           107/208 
+  Cleanup    : 1:grub2-2.02-0.11.fc21.x86_64                            108/208 
+  Cleanup    : dracut-038-30.git20140903.fc21.x86_64                    109/208 
+  Cleanup    : rpm-python-4.12.0.1-3.fc21.x86_64                        110/208 
+  Cleanup    : rpm-build-libs-4.12.0.1-3.fc21.x86_64                    111/208 
+  Cleanup    : rpm-4.12.0.1-3.fc21.x86_64                               112/208 
+  Cleanup    : rpm-libs-4.12.0.1-3.fc21.x86_64                          113/208 
+  Cleanup    : rpm-plugin-selinux-4.12.0.1-3.fc21.x86_64                114/208 
+  Cleanup    : curl-7.37.0-9.fc21.x86_64                                115/208 
+  Cleanup    : 1:grub2-tools-2.02-0.11.fc21.x86_64                      116/208 
+  Cleanup    : gettext-0.19.2-6.fc21.x86_64                             117/208 
+  Cleanup    : gettext-libs-0.19.2-6.fc21.x86_64                        118/208 
+  Cleanup    : e2fsprogs-1.42.11-4.fc21.x86_64                          119/208 
+  Cleanup    : python-pycurl-7.19.3.1-5.fc21.x86_64                     120/208 
+  Cleanup    : os-prober-1.58-11.fc21.x86_64                            121/208 
+  Cleanup    : libarchive-3.1.2-10.fc21.x86_64                          122/208 
+  Cleanup    : gpgme-1.4.3-4.fc21.x86_64                                123/208 
+  Cleanup    : gnupg2-2.0.25-2.fc21.x86_64                              124/208 
+  Cleanup    : file-5.19-7.fc21.x86_64                                  125/208 
+  Cleanup    : 1:findutils-4.5.12-7.fc21.x86_64                         126/208 
+  Cleanup    : dbus-glib-0.100.2-4.fc21.x86_64                          127/208 
+  Cleanup    : python-slip-dbus-0.6.0-3.fc21.noarch                     128/208 
+  Cleanup    : python-slip-0.6.0-3.fc21.noarch                          129/208 
+  Cleanup    : libselinux-python-2.3-5.fc21.x86_64                      130/208 
+  Cleanup    : libassuan-2.1.0-5.fc21.x86_64                            131/208 
+  Cleanup    : e2fsprogs-libs-1.42.11-4.fc21.x86_64                     132/208 
+  Cleanup    : libss-1.42.11-4.fc21.x86_64                              133/208 
+  Cleanup    : libdb-utils-5.3.28-9.fc21.x86_64                         134/208 
+  Cleanup    : gzip-1.6-5.fc21.x86_64                                   135/208 
+  Cleanup    : kpartx-0.4.9-68.fc21.1.x86_64                            136/208 
+  Cleanup    : cryptsetup-libs-1.6.6-1.fc21.x86_64                      137/208 
+  Cleanup    : device-mapper-libs-1.02.90-1.fc21.x86_64                 138/208 
+  Cleanup    : device-mapper-1.02.90-1.fc21.x86_64                      139/208 
+  Cleanup    : 1:dbus-1.8.6-3.fc21.x86_64                               140/208 
+  Cleanup    : systemd-216-12.fc21.x86_64                               141/208 
+  Cleanup    : util-linux-2.25.2-1.fc21.x86_64                          142/208 
+  Cleanup    : libcurl-7.37.0-9.fc21.x86_64                             143/208 
+  Cleanup    : libuser-0.60-6.fc21.x86_64                               144/208 
+  Cleanup    : openldap-2.4.40-2.fc21.x86_64                            145/208 
+  Cleanup    : nss-tools-3.17.2-1.fc21.x86_64                           146/208 
+  Cleanup    : nss-sysinit-3.17.2-1.fc21.x86_64                         147/208 
+  Cleanup    : nss-3.17.2-1.fc21.x86_64                                 148/208 
+  Cleanup    : nss-softokn-3.17.2-1.fc21.x86_64                         149/208 
+  Cleanup    : libmount-2.25.2-1.fc21.x86_64                            150/208 
+  Cleanup    : libblkid-2.25.2-1.fc21.x86_64                            151/208 
+  Cleanup    : nss-util-3.17.2-1.fc21.x86_64                            152/208 
+  Cleanup    : kmod-18-4.fc21.x86_64                                    153/208 
+  Cleanup    : kmod-libs-18-4.fc21.x86_64                               154/208 
+  Cleanup    : libssh2-1.4.3-16.fc21.x86_64                             155/208 
+  Cleanup    : procps-ng-3.3.10-4.fc21.x86_64                           156/208 
+  Cleanup    : systemd-libs-216-12.fc21.x86_64                          157/208 
+  Cleanup    : libpwquality-1.2.4-2.fc21.x86_64                         158/208 
+  Cleanup    : pam-1.1.8-16.fc21.x86_64                                 159/208 
+  Cleanup    : elfutils-libs-0.160-1.fc21.x86_64                        160/208 
+  Cleanup    : libgcrypt-1.6.1-7.fc21.x86_64                            161/208 
+  Cleanup    : 1:pkgconfig-0.28-6.fc21.x86_64                           162/208 
+  Cleanup    : glib2-2.42.1-1.fc21.x86_64                               163/208 
+  Cleanup    : 2:vim-minimal-7.4.475-2.fc21.x86_64                      164/208 
+  Cleanup    : python-six-1.7.3-2.fc21.noarch                           165/208 
+  Cleanup    : filesystem-3.2-27.fc21.x86_64                            166/208 
+  Cleanup    : python-2.7.8-7.fc21.x86_64                               167/208 
+  Cleanup    : python-libs-2.7.8-7.fc21.x86_64                          168/208 
+  Cleanup    : ca-certificates-2014.2.1-1.5.fc21.noarch                 169/208 
+  Cleanup    : crypto-policies-20140905-1.git4649b7d.fc21.noarch        170/208 
+  Cleanup    : krb5-libs-1.12.2-9.fc21.x86_64                           171/208 
+  Cleanup    : coreutils-8.22-19.fc21.x86_64                            172/208 
+  Cleanup    : 1:openssl-libs-1.0.1j-1.fc21.x86_64                      173/208 
+  Cleanup    : 1:gmp-6.0.0-7.fc21.x86_64                                174/208 
+  Cleanup    : grep-2.20-6.fc21.x86_64                                  175/208 
+  Cleanup    : gawk-4.1.1-5.fc21.x86_64                                 176/208 
+  Cleanup    : libidn-1.28-5.fc21.x86_64                                177/208 
+  Cleanup    : libgomp-4.9.2-1.fc21.x86_64                              178/208 
+  Cleanup    : freetype-2.5.3-11.fc21.x86_64                            179/208 
+  Cleanup    : cpio-2.11-30.fc21.x86_64                                 180/208 
+  Cleanup    : libcom_err-1.42.11-4.fc21.x86_64                         181/208 
+  Cleanup    : libattr-2.4.47-9.fc21.x86_64                             182/208 
+  Cleanup    : libdb-5.3.28-9.fc21.x86_64                               183/208 
+  Cleanup    : libffi-3.1-6.fc21.x86_64                                 184/208 
+  Cleanup    : sqlite-3.8.7-1.fc21.x86_64                               185/208 
+  Cleanup    : libgpg-error-1.13-3.fc21.x86_64                          186/208 
+  Cleanup    : elfutils-libelf-0.160-1.fc21.x86_64                      187/208 
+  Cleanup    : audit-libs-2.4.1-1.fc21.x86_64                           188/208 
+  Cleanup    : nspr-4.10.7-1.fc21.x86_64                                189/208 
+  Cleanup    : libuuid-2.25.2-1.fc21.x86_64                             190/208 
+  Cleanup    : libcap-ng-0.7.4-7.fc21.x86_64                            191/208 
+  Cleanup    : libsmartcols-2.25.2-1.fc21.x86_64                        192/208 
+  Cleanup    : libseccomp-2.1.1-5.fc21.x86_64                           193/208 
+  Cleanup    : 1:dbus-libs-1.8.6-3.fc21.x86_64                          194/208 
+  Cleanup    : file-libs-5.19-7.fc21.x86_64                             195/208 
+  Cleanup    : libxml2-2.9.1-6.fc21.x86_64                              196/208 
+  Cleanup    : libtasn1-4.2-1.fc21.x86_64                               197/208 
+  Cleanup    : setup-2.9.0-2.fc21.noarch                                198/208 
+  Cleanup    : fedora-repos-21-2.noarch                                 199/208 
+  Cleanup    : bash-4.3.30-2.fc21.x86_64                                200/208 
+  Cleanup    : libstdc++-4.9.2-1.fc21.x86_64                            201/208 
+  Cleanup    : pcre-8.35-7.fc21.x86_64                                  202/208 
+  Cleanup    : libselinux-2.3-5.fc21.x86_64                             203/208 
+  Cleanup    : glibc-common-2.20-5.fc21.x86_64                          204/208 
+  Cleanup    : nss-softokn-freebl-3.17.2-1.fc21.x86_64                  205/208 
+  Cleanup    : glibc-2.20-5.fc21.x86_64                                 206/208 
+  Cleanup    : tzdata-2014i-1.fc21.noarch                               207/208 
+  Cleanup    : libgcc-4.9.2-1.fc21.x86_64                               208/208 
+  Verifying  : 1:grub2-2.02-0.13.fc21.x86_64                              1/208 
+  Verifying  : python-six-1.9.0-1.fc21.noarch                             2/208 
+  Verifying  : gawk-4.1.1-6.fc21.x86_64                                   3/208 
+  Verifying  : kmod-libs-19-1.fc21.x86_64                                 4/208 
+  Verifying  : libdb-5.3.28-12.fc21.x86_64                                5/208 
+  Verifying  : python-slip-0.6.4-1.fc21.noarch                            6/208 
+  Verifying  : libselinux-2.3-10.fc21.x86_64                              7/208 
+  Verifying  : nspr-4.10.10-1.fc21.x86_64                                 8/208 
+  Verifying  : filesystem-3.2-28.fc21.x86_64                              9/208 
+  Verifying  : pcre-8.35-14.fc21.x86_64                                  10/208 
+  Verifying  : file-libs-5.22-4.fc21.x86_64                              11/208 
+  Verifying  : util-linux-2.25.2-3.fc21.x86_64                           12/208 
+  Verifying  : libgcc-4.9.2-6.fc21.x86_64                                13/208 
+  Verifying  : nss-sysinit-3.20.1-1.0.fc21.x86_64                        14/208 
+  Verifying  : 2:vim-minimal-7.4.827-1.fc21.x86_64                       15/208 
+  Verifying  : tzdata-2015g-1.fc21.noarch                                16/208 
+  Verifying  : python-firewall-0.3.14.2-2.fc21.noarch                    17/208 
+  Verifying  : device-mapper-1.02.93-3.fc21.x86_64                       18/208 
+  Verifying  : procps-ng-3.3.10-8.fc21.x86_64                            19/208 
+  Verifying  : 1:dbus-1.8.20-1.fc21.x86_64                               20/208 
+  Verifying  : coreutils-8.22-22.fc21.x86_64                             21/208 
+  Verifying  : rpm-plugin-selinux-4.12.0.1-7.fc21.x86_64                 22/208 
+  Verifying  : python-2.7.8-15.fc21.x86_64                               23/208 
+  Verifying  : firewalld-0.3.14.2-2.fc21.noarch                          24/208 
+  Verifying  : glibc-2.20-8.fc21.x86_64                                  25/208 
+  Verifying  : dracut-038-39.git20150518.fc21.x86_64                     26/208 
+  Verifying  : setup-2.9.0-4.fc21.noarch                                 27/208 
+  Verifying  : rpm-build-libs-4.12.0.1-7.fc21.x86_64                     28/208 
+  Verifying  : 1:pkgconfig-0.28-8.fc21.x86_64                            29/208 
+  Verifying  : glibc-common-2.20-8.fc21.x86_64                           30/208 
+  Verifying  : audit-libs-2.4.4-1.fc21.x86_64                            31/208 
+  Verifying  : cryptsetup-libs-1.6.8-2.fc21.x86_64                       32/208 
+  Verifying  : python-libs-2.7.8-15.fc21.x86_64                          33/208 
+  Verifying  : rpm-4.12.0.1-7.fc21.x86_64                                34/208 
+  Verifying  : libcom_err-1.42.12-4.fc21.x86_64                          35/208 
+  Verifying  : libarchive-3.1.2-11.fc21.x86_64                           36/208 
+  Verifying  : 1:gmp-6.0.0-9.fc21.x86_64                                 37/208 
+  Verifying  : libassuan-2.3.0-1.fc21.x86_64                             38/208 
+  Verifying  : libdb-utils-5.3.28-12.fc21.x86_64                         39/208 
+  Verifying  : gzip-1.6-8.fc21.x86_64                                    40/208 
+  Verifying  : libselinux-python-2.3-10.fc21.x86_64                      41/208 
+  Verifying  : python-slip-dbus-0.6.4-1.fc21.noarch                      42/208 
+  Verifying  : 1:findutils-4.5.12-8.fc21.x86_64                          43/208 
+  Verifying  : 1:grub2-tools-2.02-0.13.fc21.x86_64                       44/208 
+  Verifying  : 1:openssl-libs-1.0.1k-12.fc21.x86_64                      45/208 
+  Verifying  : grep-2.21-3.fc21.x86_64                                   46/208 
+  Verifying  : firewalld-config-standard-0.3.14.2-2.fc21.noarch          47/208 
+  Verifying  : file-5.22-4.fc21.x86_64                                   48/208 
+  Verifying  : nss-util-3.20.1-1.0.fc21.x86_64                           49/208 
+  Verifying  : ca-certificates-2015.2.5-1.0.fc21.noarch                  50/208 
+  Verifying  : kmod-19-1.fc21.x86_64                                     51/208 
+  Verifying  : gettext-libs-0.19.4-2.fc21.x86_64                         52/208 
+  Verifying  : nss-tools-3.20.1-1.0.fc21.x86_64                          53/208 
+  Verifying  : nss-softokn-freebl-3.20.1-1.0.fc21.x86_64                 54/208 
+  Verifying  : libssh2-1.5.0-1.fc21.x86_64                               55/208 
+  Verifying  : libcurl-7.37.0-14.fc21.x86_64                             56/208 
+  Verifying  : libcap-ng-0.7.5-2.fc21.x86_64                             57/208 
+  Verifying  : glib2-2.42.2-1.fc21.x86_64                                58/208 
+  Verifying  : libgcrypt-1.6.3-4.fc21.x86_64                             59/208 
+  Verifying  : libgomp-4.9.2-6.fc21.x86_64                               60/208 
+  Verifying  : libseccomp-2.2.3-0.fc21.x86_64                            61/208 
+  Verifying  : gnupg2-2.0.29-1.fc21.x86_64                               62/208 
+  Verifying  : python-pycurl-7.19.3.1-6.fc21.x86_64                      63/208 
+  Verifying  : libsmartcols-2.25.2-3.fc21.x86_64                         64/208 
+  Verifying  : freetype-2.5.3-16.fc21.x86_64                             65/208 
+  Verifying  : e2fsprogs-libs-1.42.12-4.fc21.x86_64                      66/208 
+  Verifying  : libffi-3.1-7.fc21.x86_64                                  67/208 
+  Verifying  : kpartx-0.4.9-68.fc21.3.x86_64                             68/208 
+  Verifying  : systemd-216-25.fc21.x86_64                                69/208 
+  Verifying  : dbus-glib-0.104-1.fc21.x86_64                             70/208 
+  Verifying  : gpgme-1.4.3-5.fc21.x86_64                                 71/208 
+  Verifying  : gettext-0.19.4-2.fc21.x86_64                              72/208 
+  Verifying  : 1:dbus-libs-1.8.20-1.fc21.x86_64                          73/208 
+  Verifying  : libuuid-2.25.2-3.fc21.x86_64                              74/208 
+  Verifying  : elfutils-libs-0.163-4.fc21.x86_64                         75/208 
+  Verifying  : libmount-2.25.2-3.fc21.x86_64                             76/208 
+  Verifying  : libxml2-2.9.1-7.fc21.x86_64                               77/208 
+  Verifying  : elfutils-libelf-0.163-4.fc21.x86_64                       78/208 
+  Verifying  : rpm-python-4.12.0.1-7.fc21.x86_64                         79/208 
+  Verifying  : libtasn1-4.5-1.fc21.x86_64                                80/208 
+  Verifying  : systemd-libs-216-25.fc21.x86_64                           81/208 
+  Verifying  : libstdc++-4.9.2-6.fc21.x86_64                             82/208 
+  Verifying  : nss-softokn-3.20.1-1.0.fc21.x86_64                        83/208 
+  Verifying  : os-prober-1.68-1.fc21.x86_64                              84/208 
+  Verifying  : libblkid-2.25.2-3.fc21.x86_64                             85/208 
+  Verifying  : libattr-2.4.47-10.fc21.x86_64                             86/208 
+  Verifying  : openldap-2.4.40-3.fc21.x86_64                             87/208 
+  Verifying  : libss-1.42.12-4.fc21.x86_64                               88/208 
+  Verifying  : libgpg-error-1.17-2.fc21.x86_64                           89/208 
+  Verifying  : libidn-1.32-1.fc21.x86_64                                 90/208 
+  Verifying  : firewalld-filesystem-0.3.14.2-2.fc21.noarch               91/208 
+  Verifying  : krb5-libs-1.12.2-19.fc21.x86_64                           92/208 
+  Verifying  : sqlite-3.8.11.1-1.fc21.x86_64                             93/208 
+  Verifying  : curl-7.37.0-14.fc21.x86_64                                94/208 
+  Verifying  : bash-4.3.42-1.fc21.x86_64                                 95/208 
+  Verifying  : e2fsprogs-1.42.12-4.fc21.x86_64                           96/208 
+  Verifying  : device-mapper-libs-1.02.93-3.fc21.x86_64                  97/208 
+  Verifying  : nss-3.20.1-1.0.fc21.x86_64                                98/208 
+  Verifying  : rpm-libs-4.12.0.1-7.fc21.x86_64                           99/208 
+  Verifying  : fedora-repos-21-3.noarch                                 100/208 
+  Verifying  : pam-1.1.8-19.fc21.x86_64                                 101/208 
+  Verifying  : cpio-2.11-33.fc21.x86_64                                 102/208 
+  Verifying  : libpwquality-1.2.4-3.fc21.x86_64                         103/208 
+  Verifying  : crypto-policies-20150305-1.gitf618101.fc21.noarch        104/208 
+  Verifying  : libuser-0.62-1.fc21.x86_64                               105/208 
+  Verifying  : curl-7.37.0-9.fc21.x86_64                                106/208 
+  Verifying  : gettext-0.19.2-6.fc21.x86_64                             107/208 
+  Verifying  : cryptsetup-libs-1.6.6-1.fc21.x86_64                      108/208 
+  Verifying  : firewalld-0.3.12-1.fc21.noarch                           109/208 
+  Verifying  : rpm-build-libs-4.12.0.1-3.fc21.x86_64                    110/208 
+  Verifying  : python-slip-0.6.0-3.fc21.noarch                          111/208 
+  Verifying  : tzdata-2014i-1.fc21.noarch                               112/208 
+  Verifying  : libtasn1-4.2-1.fc21.x86_64                               113/208 
+  Verifying  : elfutils-libs-0.160-1.fc21.x86_64                        114/208 
+  Verifying  : setup-2.9.0-2.fc21.noarch                                115/208 
+  Verifying  : rpm-plugin-selinux-4.12.0.1-3.fc21.x86_64                116/208 
+  Verifying  : crypto-policies-20140905-1.git4649b7d.fc21.noarch        117/208 
+  Verifying  : pam-1.1.8-16.fc21.x86_64                                 118/208 
+  Verifying  : e2fsprogs-libs-1.42.11-4.fc21.x86_64                     119/208 
+  Verifying  : python-pycurl-7.19.3.1-5.fc21.x86_64                     120/208 
+  Verifying  : coreutils-8.22-19.fc21.x86_64                            121/208 
+  Verifying  : gzip-1.6-5.fc21.x86_64                                   122/208 
+  Verifying  : libcurl-7.37.0-9.fc21.x86_64                             123/208 
+  Verifying  : libseccomp-2.1.1-5.fc21.x86_64                           124/208 
+  Verifying  : libdb-utils-5.3.28-9.fc21.x86_64                         125/208 
+  Verifying  : 1:findutils-4.5.12-7.fc21.x86_64                         126/208 
+  Verifying  : libselinux-python-2.3-5.fc21.x86_64                      127/208 
+  Verifying  : fedora-repos-21-2.noarch                                 128/208 
+  Verifying  : python-slip-dbus-0.6.0-3.fc21.noarch                     129/208 
+  Verifying  : glibc-common-2.20-5.fc21.x86_64                          130/208 
+  Verifying  : firewalld-config-standard-0.3.12-1.fc21.noarch           131/208 
+  Verifying  : libsmartcols-2.25.2-1.fc21.x86_64                        132/208 
+  Verifying  : nss-3.17.2-1.fc21.x86_64                                 133/208 
+  Verifying  : libmount-2.25.2-1.fc21.x86_64                            134/208 
+  Verifying  : rpm-python-4.12.0.1-3.fc21.x86_64                        135/208 
+  Verifying  : libffi-3.1-6.fc21.x86_64                                 136/208 
+  Verifying  : sqlite-3.8.7-1.fc21.x86_64                               137/208 
+  Verifying  : krb5-libs-1.12.2-9.fc21.x86_64                           138/208 
+  Verifying  : libssh2-1.4.3-16.fc21.x86_64                             139/208 
+  Verifying  : dbus-glib-0.100.2-4.fc21.x86_64                          140/208 
+  Verifying  : libstdc++-4.9.2-1.fc21.x86_64                            141/208 
+  Verifying  : glibc-2.20-5.fc21.x86_64                                 142/208 
+  Verifying  : libgpg-error-1.13-3.fc21.x86_64                          143/208 
+  Verifying  : audit-libs-2.4.1-1.fc21.x86_64                           144/208 
+  Verifying  : elfutils-libelf-0.160-1.fc21.x86_64                      145/208 
+  Verifying  : file-libs-5.19-7.fc21.x86_64                             146/208 
+  Verifying  : python-libs-2.7.8-7.fc21.x86_64                          147/208 
+  Verifying  : 1:openssl-libs-1.0.1j-1.fc21.x86_64                      148/208 
+  Verifying  : python-six-1.7.3-2.fc21.noarch                           149/208 
+  Verifying  : systemd-216-12.fc21.x86_64                               150/208 
+  Verifying  : glib2-2.42.1-1.fc21.x86_64                               151/208 
+  Verifying  : ca-certificates-2014.2.1-1.5.fc21.noarch                 152/208 
+  Verifying  : kmod-libs-18-4.fc21.x86_64                               153/208 
+  Verifying  : file-5.19-7.fc21.x86_64                                  154/208 
+  Verifying  : e2fsprogs-1.42.11-4.fc21.x86_64                          155/208 
+  Verifying  : device-mapper-libs-1.02.90-1.fc21.x86_64                 156/208 
+  Verifying  : cpio-2.11-30.fc21.x86_64                                 157/208 
+  Verifying  : libxml2-2.9.1-6.fc21.x86_64                              158/208 
+  Verifying  : nss-softokn-3.17.2-1.fc21.x86_64                         159/208 
+  Verifying  : os-prober-1.58-11.fc21.x86_64                            160/208 
+  Verifying  : libpwquality-1.2.4-2.fc21.x86_64                         161/208 
+  Verifying  : systemd-libs-216-12.fc21.x86_64                          162/208 
+  Verifying  : 1:dbus-1.8.6-3.fc21.x86_64                               163/208 
+  Verifying  : libarchive-3.1.2-10.fc21.x86_64                          164/208 
+  Verifying  : nspr-4.10.7-1.fc21.x86_64                                165/208 
+  Verifying  : openldap-2.4.40-2.fc21.x86_64                            166/208 
+  Verifying  : pcre-8.35-7.fc21.x86_64                                  167/208 
+  Verifying  : libgomp-4.9.2-1.fc21.x86_64                              168/208 
+  Verifying  : libselinux-2.3-5.fc21.x86_64                             169/208 
+  Verifying  : libgcrypt-1.6.1-7.fc21.x86_64                            170/208 
+  Verifying  : util-linux-2.25.2-1.fc21.x86_64                          171/208 
+  Verifying  : rpm-libs-4.12.0.1-3.fc21.x86_64                          172/208 
+  Verifying  : kmod-18-4.fc21.x86_64                                    173/208 
+  Verifying  : filesystem-3.2-27.fc21.x86_64                            174/208 
+  Verifying  : gawk-4.1.1-5.fc21.x86_64                                 175/208 
+  Verifying  : libuuid-2.25.2-1.fc21.x86_64                             176/208 
+  Verifying  : 1:pkgconfig-0.28-6.fc21.x86_64                           177/208 
+  Verifying  : freetype-2.5.3-11.fc21.x86_64                            178/208 
+  Verifying  : libidn-1.28-5.fc21.x86_64                                179/208 
+  Verifying  : kpartx-0.4.9-68.fc21.1.x86_64                            180/208 
+  Verifying  : gnupg2-2.0.25-2.fc21.x86_64                              181/208 
+  Verifying  : python-2.7.8-7.fc21.x86_64                               182/208 
+  Verifying  : 1:grub2-tools-2.02-0.11.fc21.x86_64                      183/208 
+  Verifying  : 1:dbus-libs-1.8.6-3.fc21.x86_64                          184/208 
+  Verifying  : procps-ng-3.3.10-4.fc21.x86_64                           185/208 
+  Verifying  : gettext-libs-0.19.2-6.fc21.x86_64                        186/208 
+  Verifying  : dracut-038-30.git20140903.fc21.x86_64                    187/208 
+  Verifying  : libss-1.42.11-4.fc21.x86_64                              188/208 
+  Verifying  : nss-softokn-freebl-3.17.2-1.fc21.x86_64                  189/208 
+  Verifying  : libassuan-2.1.0-5.fc21.x86_64                            190/208 
+  Verifying  : libgcc-4.9.2-1.fc21.x86_64                               191/208 
+  Verifying  : 1:grub2-2.02-0.11.fc21.x86_64                            192/208 
+  Verifying  : grep-2.20-6.fc21.x86_64                                  193/208 
+  Verifying  : nss-util-3.17.2-1.fc21.x86_64                            194/208 
+  Verifying  : rpm-4.12.0.1-3.fc21.x86_64                               195/208 
+  Verifying  : nss-tools-3.17.2-1.fc21.x86_64                           196/208 
+  Verifying  : device-mapper-1.02.90-1.fc21.x86_64                      197/208 
+  Verifying  : libdb-5.3.28-9.fc21.x86_64                               198/208 
+  Verifying  : libcap-ng-0.7.4-7.fc21.x86_64                            199/208 
+  Verifying  : 1:gmp-6.0.0-7.fc21.x86_64                                200/208 
+  Verifying  : nss-sysinit-3.17.2-1.fc21.x86_64                         201/208 
+  Verifying  : libuser-0.60-6.fc21.x86_64                               202/208 
+  Verifying  : libblkid-2.25.2-1.fc21.x86_64                            203/208 
+  Verifying  : libcom_err-1.42.11-4.fc21.x86_64                         204/208 
+  Verifying  : libattr-2.4.47-9.fc21.x86_64                             205/208 
+  Verifying  : bash-4.3.30-2.fc21.x86_64                                206/208 
+  Verifying  : 2:vim-minimal-7.4.475-2.fc21.x86_64                      207/208 
+  Verifying  : gpgme-1.4.3-4.fc21.x86_64                                208/208 
+
+Dependency Installed:
+  firewalld-filesystem.noarch 0:0.3.14.2-2.fc21                                 
+  python-firewall.noarch 0:0.3.14.2-2.fc21                                      
+
+Updated:
+  audit-libs.x86_64 0:2.4.4-1.fc21                                              
+  bash.x86_64 0:4.3.42-1.fc21                                                   
+  ca-certificates.noarch 0:2015.2.5-1.0.fc21                                    
+  coreutils.x86_64 0:8.22-22.fc21                                               
+  cpio.x86_64 0:2.11-33.fc21                                                    
+  crypto-policies.noarch 0:20150305-1.gitf618101.fc21                           
+  cryptsetup-libs.x86_64 0:1.6.8-2.fc21                                         
+  curl.x86_64 0:7.37.0-14.fc21                                                  
+  dbus.x86_64 1:1.8.20-1.fc21                                                   
+  dbus-glib.x86_64 0:0.104-1.fc21                                               
+  dbus-libs.x86_64 1:1.8.20-1.fc21                                              
+  device-mapper.x86_64 0:1.02.93-3.fc21                                         
+  device-mapper-libs.x86_64 0:1.02.93-3.fc21                                    
+  dracut.x86_64 0:038-39.git20150518.fc21                                       
+  e2fsprogs.x86_64 0:1.42.12-4.fc21                                             
+  e2fsprogs-libs.x86_64 0:1.42.12-4.fc21                                        
+  elfutils-libelf.x86_64 0:0.163-4.fc21                                         
+  elfutils-libs.x86_64 0:0.163-4.fc21                                           
+  fedora-repos.noarch 0:21-3                                                    
+  file.x86_64 0:5.22-4.fc21                                                     
+  file-libs.x86_64 0:5.22-4.fc21                                                
+  filesystem.x86_64 0:3.2-28.fc21                                               
+  findutils.x86_64 1:4.5.12-8.fc21                                              
+  firewalld.noarch 0:0.3.14.2-2.fc21                                            
+  firewalld-config-standard.noarch 0:0.3.14.2-2.fc21                            
+  freetype.x86_64 0:2.5.3-16.fc21                                               
+  gawk.x86_64 0:4.1.1-6.fc21                                                    
+  gettext.x86_64 0:0.19.4-2.fc21                                                
+  gettext-libs.x86_64 0:0.19.4-2.fc21                                           
+  glib2.x86_64 0:2.42.2-1.fc21                                                  
+  glibc.x86_64 0:2.20-8.fc21                                                    
+  glibc-common.x86_64 0:2.20-8.fc21                                             
+  gmp.x86_64 1:6.0.0-9.fc21                                                     
+  gnupg2.x86_64 0:2.0.29-1.fc21                                                 
+  gpgme.x86_64 0:1.4.3-5.fc21                                                   
+  grep.x86_64 0:2.21-3.fc21                                                     
+  grub2.x86_64 1:2.02-0.13.fc21                                                 
+  grub2-tools.x86_64 1:2.02-0.13.fc21                                           
+  gzip.x86_64 0:1.6-8.fc21                                                      
+  kmod.x86_64 0:19-1.fc21                                                       
+  kmod-libs.x86_64 0:19-1.fc21                                                  
+  kpartx.x86_64 0:0.4.9-68.fc21.3                                               
+  krb5-libs.x86_64 0:1.12.2-19.fc21                                             
+  libarchive.x86_64 0:3.1.2-11.fc21                                             
+  libassuan.x86_64 0:2.3.0-1.fc21                                               
+  libattr.x86_64 0:2.4.47-10.fc21                                               
+  libblkid.x86_64 0:2.25.2-3.fc21                                               
+  libcap-ng.x86_64 0:0.7.5-2.fc21                                               
+  libcom_err.x86_64 0:1.42.12-4.fc21                                            
+  libcurl.x86_64 0:7.37.0-14.fc21                                               
+  libdb.x86_64 0:5.3.28-12.fc21                                                 
+  libdb-utils.x86_64 0:5.3.28-12.fc21                                           
+  libffi.x86_64 0:3.1-7.fc21                                                    
+  libgcc.x86_64 0:4.9.2-6.fc21                                                  
+  libgcrypt.x86_64 0:1.6.3-4.fc21                                               
+  libgomp.x86_64 0:4.9.2-6.fc21                                                 
+  libgpg-error.x86_64 0:1.17-2.fc21                                             
+  libidn.x86_64 0:1.32-1.fc21                                                   
+  libmount.x86_64 0:2.25.2-3.fc21                                               
+  libpwquality.x86_64 0:1.2.4-3.fc21                                            
+  libseccomp.x86_64 0:2.2.3-0.fc21                                              
+  libselinux.x86_64 0:2.3-10.fc21                                               
+  libselinux-python.x86_64 0:2.3-10.fc21                                        
+  libsmartcols.x86_64 0:2.25.2-3.fc21                                           
+  libss.x86_64 0:1.42.12-4.fc21                                                 
+  libssh2.x86_64 0:1.5.0-1.fc21                                                 
+  libstdc++.x86_64 0:4.9.2-6.fc21                                               
+  libtasn1.x86_64 0:4.5-1.fc21                                                  
+  libuser.x86_64 0:0.62-1.fc21                                                  
+  libuuid.x86_64 0:2.25.2-3.fc21                                                
+  libxml2.x86_64 0:2.9.1-7.fc21                                                 
+  nspr.x86_64 0:4.10.10-1.fc21                                                  
+  nss.x86_64 0:3.20.1-1.0.fc21                                                  
+  nss-softokn.x86_64 0:3.20.1-1.0.fc21                                          
+  nss-softokn-freebl.x86_64 0:3.20.1-1.0.fc21                                   
+  nss-sysinit.x86_64 0:3.20.1-1.0.fc21                                          
+  nss-tools.x86_64 0:3.20.1-1.0.fc21                                            
+  nss-util.x86_64 0:3.20.1-1.0.fc21                                             
+  openldap.x86_64 0:2.4.40-3.fc21                                               
+  openssl-libs.x86_64 1:1.0.1k-12.fc21                                          
+  os-prober.x86_64 0:1.68-1.fc21                                                
+  pam.x86_64 0:1.1.8-19.fc21                                                    
+  pcre.x86_64 0:8.35-14.fc21                                                    
+  pkgconfig.x86_64 1:0.28-8.fc21                                                
+  procps-ng.x86_64 0:3.3.10-8.fc21                                              
+  python.x86_64 0:2.7.8-15.fc21                                                 
+  python-libs.x86_64 0:2.7.8-15.fc21                                            
+  python-pycurl.x86_64 0:7.19.3.1-6.fc21                                        
+  python-six.noarch 0:1.9.0-1.fc21                                              
+  python-slip.noarch 0:0.6.4-1.fc21                                             
+  python-slip-dbus.noarch 0:0.6.4-1.fc21                                        
+  rpm.x86_64 0:4.12.0.1-7.fc21                                                  
+  rpm-build-libs.x86_64 0:4.12.0.1-7.fc21                                       
+  rpm-libs.x86_64 0:4.12.0.1-7.fc21                                             
+  rpm-plugin-selinux.x86_64 0:4.12.0.1-7.fc21                                   
+  rpm-python.x86_64 0:4.12.0.1-7.fc21                                           
+  setup.noarch 0:2.9.0-4.fc21                                                   
+  sqlite.x86_64 0:3.8.11.1-1.fc21                                               
+  systemd.x86_64 0:216-25.fc21                                                  
+  systemd-libs.x86_64 0:216-25.fc21                                             
+  tzdata.noarch 0:2015g-1.fc21                                                  
+  util-linux.x86_64 0:2.25.2-3.fc21                                             
+  vim-minimal.x86_64 2:7.4.827-1.fc21                                           
+
+Complete!
+Package curl-7.37.0-14.fc21.x86_64 already installed and latest version
+Resolving Dependencies
+--> Running transaction check
+---> Package crontabs.noarch 0:1.11-9.20130830git.fc21 will be installed
+--> Processing Dependency: /etc/cron.d for package: crontabs-1.11-9.20130830git.fc21.noarch
+---> Package openssl.x86_64 1:1.0.1k-12.fc21 will be installed
+--> Processing Dependency: make for package: 1:openssl-1.0.1k-12.fc21.x86_64
+---> Package socat.x86_64 0:1.7.2.4-1.fc21 will be installed
+---> Package tar.x86_64 2:1.27.1-8.fc21 will be installed
+--> Running transaction check
+---> Package cronie.x86_64 0:1.4.12-1.fc21 will be installed
+--> Processing Dependency: dailyjobs for package: cronie-1.4.12-1.fc21.x86_64
+---> Package make.x86_64 1:4.0-3.fc21 will be installed
+--> Running transaction check
+---> Package cronie-anacron.x86_64 0:1.4.12-1.fc21 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package            Arch       Version                        Repository   Size
+================================================================================
+Installing:
+ crontabs           noarch     1.11-9.20130830git.fc21        fedora       24 k
+ openssl            x86_64     1:1.0.1k-12.fc21               updates     497 k
+ socat              x86_64     1.7.2.4-1.fc21                 fedora      272 k
+ tar                x86_64     2:1.27.1-8.fc21                updates     894 k
+Installing for dependencies:
+ cronie             x86_64     1.4.12-1.fc21                  fedora      101 k
+ cronie-anacron     x86_64     1.4.12-1.fc21                  fedora       38 k
+ make               x86_64     1:4.0-3.fc21                   fedora      446 k
+
+Transaction Summary
+================================================================================
+Install  4 Packages (+3 Dependent packages)
+
+Total download size: 2.2 M
+Installed size: 6.1 M
+Downloading packages:
+--------------------------------------------------------------------------------
+Total                                              2.8 MB/s | 2.2 MB  00:00     
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : crontabs-1.11-9.20130830git.fc21.noarch                      1/7 
+  Installing : cronie-1.4.12-1.fc21.x86_64                                  2/7 
+  Installing : cronie-anacron-1.4.12-1.fc21.x86_64                          3/7 
+  Installing : 1:make-4.0-3.fc21.x86_64                                     4/7 
+  Installing : 1:openssl-1.0.1k-12.fc21.x86_64                              5/7 
+  Installing : socat-1.7.2.4-1.fc21.x86_64                                  6/7 
+  Installing : 2:tar-1.27.1-8.fc21.x86_64                                   7/7 
+  Verifying  : 1:make-4.0-3.fc21.x86_64                                     1/7 
+  Verifying  : cronie-anacron-1.4.12-1.fc21.x86_64                          2/7 
+  Verifying  : 2:tar-1.27.1-8.fc21.x86_64                                   3/7 
+  Verifying  : crontabs-1.11-9.20130830git.fc21.noarch                      4/7 
+  Verifying  : 1:openssl-1.0.1k-12.fc21.x86_64                              5/7 
+  Verifying  : cronie-1.4.12-1.fc21.x86_64                                  6/7 
+  Verifying  : socat-1.7.2.4-1.fc21.x86_64                                  7/7 
+
+Installed:
+  crontabs.noarch 0:1.11-9.20130830git.fc21   openssl.x86_64 1:1.0.1k-12.fc21  
+  socat.x86_64 0:1.7.2.4-1.fc21               tar.x86_64 2:1.27.1-8.fc21       
+
+Dependency Installed:
+  cronie.x86_64 0:1.4.12-1.fc21      cronie-anacron.x86_64 0:1.4.12-1.fc21     
+  make.x86_64 1:4.0-3.fc21          
+
+Complete!
+ ---> a56a3740351d
+Removing intermediate container 5885007e2709
+Successfully built a56a3740351d
 Successfully tagged myfedora:21
-Fri, 11 May 2018 05:50:16 UTC
+Tue, 20 Nov 2018 17:03:30 UTC
 Testing branch: master
-Progress: 0/1/21
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/1/21[0m
 ==Running le_test_dependencies please wait
 no crontab for root
 no crontab for root
-curl installed. [PASS]
-crontab installed. [PASS]
-openssl installed. [PASS]
-socat installed. [PASS]
+curl installed.[1;31;32m [PASS][0m
+crontab installed.[1;31;32m [PASS][0m
+openssl installed.[1;31;32m [PASS][0m
+socat installed.[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/2/21
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/2/21[0m
 ==Running le_test_install please wait
-./acme.sh install [PASS]
-/root/.acme.sh/acme.sh exists. [PASS]
-_contains '21 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
-/root/.acme.sh/acme.sh uninstall  > /dev/null [PASS]
+./acme.sh install[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh exists.[1;31;32m [PASS][0m
+_contains '33 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh uninstall  > /dev/null[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/3/21
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/3/21[0m
 ==Running le_test_uninstall please wait
-./acme.sh install [PASS]
-/root/.acme.sh/acme.sh uninstall [PASS]
-/root/.acme.sh/acme.sh no exists. [PASS]
-equals  [PASS]
+./acme.sh install[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh uninstall[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh no exists.[1;31;32m [PASS][0m
+equals [1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/4/21
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/4/21[0m
 ==Running le_test_installtodir please wait
-./acme.sh install [PASS]
-/root/myle/acme.sh exists. [PASS]
-_contains '23 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
-/root/myle/acme.sh uninstall [PASS]
+./acme.sh install[1;31;32m [PASS][0m
+/root/myle/acme.sh exists.[1;31;32m [PASS][0m
+_contains '34 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null'[1;31;32m [PASS][0m
+/root/myle/acme.sh uninstall[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/5/21
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/5/21[0m
 ==Running le_test_uninstalltodir please wait
-./acme.sh install [PASS]
-/root/myle/acme.sh uninstall [PASS]
-/root/myle/acme.sh no exists. [PASS]
-equals  [PASS]
+./acme.sh install[1;31;32m [PASS][0m
+/root/myle/acme.sh uninstall[1;31;32m [PASS][0m
+/root/myle/acme.sh no exists.[1;31;32m [PASS][0m
+equals [1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/6/21
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/6/21[0m
 ==Running le_test_install_config_home please wait
-./acme.sh --install --config-home /root/etc/acme [PASS]
-/root/.acme.sh/acme.sh exists. [PASS]
-_contains '24 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
-/root/etc/acme/account.conf exists. [PASS]
-/root/.acme.sh/account.conf no exists. [PASS]
-/root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null [PASS]
-/root/.acme.sh/acme.sh --uninstall --config-home /root/etc/acme > /dev/null [PASS]
-/root/etc/acme/account.conf exists. [PASS]
-/root/.acme.sh/account.conf no exists. [PASS]
+./acme.sh --install --config-home /root/etc/acme[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh exists.[1;31;32m [PASS][0m
+_contains '35 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null'[1;31;32m [PASS][0m
+/root/etc/acme/account.conf exists.[1;31;32m [PASS][0m
+/root/.acme.sh/account.conf no exists.[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --uninstall --config-home /root/etc/acme > /dev/null[1;31;32m [PASS][0m
+/root/etc/acme/account.conf exists.[1;31;32m [PASS][0m
+/root/.acme.sh/account.conf no exists.[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/7/21
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/7/21[0m
 ==Running le_test_standandalone_renew please wait
-/root/.acme.sh/acme.sh issue no testdocker.acme.sh [PASS]
-FORCE=1 /root/.acme.sh/acme.sh renew testdocker.acme.sh [PASS]
+/root/.acme.sh/acme.sh issue no testdocker.acme.sh[1;31;32m [PASS][0m
+FORCE=1 /root/.acme.sh/acme.sh renew testdocker.acme.sh[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/8/21
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/8/21[0m
 ==Running le_test_standandalone_renew_v2 please wait
-/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
-/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force [PASS]
-/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
+/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/9/21
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/9/21[0m
 ==Running le_test_standandalone_renew_localaddress_v2 please wait
-/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --local-address 0.0.0.0 --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
-/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force [PASS]
-/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
+/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --local-address 0.0.0.0 --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/10/21
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/10/21[0m
 ==Running le_test_standandalone_listen_v4_v2 please wait
-/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --listen-v4 --cert-file '/acmetest/certs/domain.cer' --key-file '/acmetest/certs/domain.key'  --ca-file '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchain-file  '/acmetest/certs/full.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
-/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force [PASS]
-/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
+/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --listen-v4 --cert-file '/acmetest/certs/domain.cer' --key-file '/acmetest/certs/domain.key'  --ca-file '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchain-file  '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/11/21
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/11/21[0m
 ==Running le_test_standandalone_listen_v6_v2 please wait
 Skipped by TEST_IPV6
 ------------------------------------------
-Progress: 0/12/21
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/12/21[0m
 ==Running le_test_standandalone_deactivate_v2 please wait
-/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
-/root/.acme.sh/acme.sh --deactivate -d testdocker.acme.sh [PASS]
+/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --deactivate -d testdocker.acme.sh[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/13/21
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/13/21[0m
 ==Running le_test_standandalone please wait
-/root/.acme.sh/acme.sh issue no testdocker.acme.sh [PASS]
-/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/acme.sh issue no testdocker.acme.sh[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/14/21
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/14/21[0m
 ==Running le_test_standandalone_SAN please wait
-/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh" [PASS]
-/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh"[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/15/21
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/15/21[0m
 ==Running le_test_standandalone_ECDSA_256 please wait
-/root/.acme.sh/acme.sh issue no testdocker.acme.sh no ec-256 [PASS]
-/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/acme.sh issue no testdocker.acme.sh no ec-256[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/16/21
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/16/21[0m
 ==Running le_test_standandalone_ECDSA_256_renew please wait
-/root/.acme.sh/acme.sh issue no testdocker.acme.sh no ec-256 [PASS]
-FORCE=1 /root/.acme.sh/acme.sh renew testdocker.acme.sh [PASS]
+/root/.acme.sh/acme.sh issue no testdocker.acme.sh no ec-256[1;31;32m [PASS][0m
+FORCE=1 /root/.acme.sh/acme.sh renew testdocker.acme.sh[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/17/21
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/17/21[0m
 ==Running le_test_standandalone_ECDSA_256_SAN_renew please wait
-/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh" ec-256 [PASS]
-FORCE=1 /root/.acme.sh/acme.sh renew "testdocker.acme.sh" [PASS]
+/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh" ec-256[1;31;32m [PASS][0m
+FORCE=1 /root/.acme.sh/acme.sh renew "testdocker.acme.sh"[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/18/21
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/18/21[0m
 ==Running le_test_standandalone_ECDSA_256_SAN_renew_v2 please wait
-/root/.acme.sh/acme.sh --issue -d "testdocker.acme.sh" -d "testdocker2.acme.sh" --standalone --keylength ec-256 --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh_ecc/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
-/root/.acme.sh/acme.sh --renew --ecc -d "testdocker.acme.sh" --force [PASS]
-/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh_ecc/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
+/root/.acme.sh/acme.sh --issue -d "testdocker.acme.sh" -d "testdocker2.acme.sh" --standalone --keylength ec-256 --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh_ecc/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --renew --ecc -d "testdocker.acme.sh" --force[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh_ecc/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/19/21
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/19/21[0m
 ==Running le_test_standandalone_ECDSA_384 please wait
-/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" no ec-384 [PASS]
-/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" no ec-384[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/20/21
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/20/21[0m
 ==Running le_test_standandalone_renew_idn_v2 please wait
 Skipped by TEST_IDN
 ------------------------------------------
-Progress: 0/21/21
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/21/21[0m
 ==Running le_test_dnsapi please wait
-The test domain Test_CF_Domain is not defined, skip:ClourFlare_api
-The test domain Test_CX_Domain is not defined, skip:CloudXNS.com_api
-The test domain Test_DP_Domain is not defined, skip:Dnspod.cn_api
-Testing dns_gd Godaddy_api
-TestingDomain='testgdapi.xyz'
-/root/.acme.sh/acme.sh --issue -d "testgdapi.xyz" --dns dns_gd --dnssleep ""  [PASS]
-/root/.acme.sh/testgdapi.xyz/testgdapi.xyz.cer is cert ? 'testgdapi.xyz' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testgdapi.xyz/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/acme.sh --deactivate -d "testgdapi.xyz" >/dev/null 2>&1 [PASS]
-The test domain Test_AWS_Domain is not defined, skip:Amazon_Route53_api
-The test domain Test_LUA_Domain is not defined, skip:luadns.com_api
-ME_Key is not defined, skip:dnsmadeeasy.com_api
-NSUPDATE_KEY is not defined, skip:nsupdate_api
-OVH_AK is not defined, skip:OVH.com_api
-PDNS_Token is not defined, skip:powerdns.com_api
-The test domain Test_ALI_Domain is not defined, skip:aliyun_api
-Testing dns_gandi_livedns gandi_livedns
-TestingDomain='acmetest.pw'
-/root/.acme.sh/acme.sh --issue -d "acmetest.pw" --dns dns_gandi_livedns --dnssleep "60"  [PASS]
-/root/.acme.sh/acmetest.pw/acmetest.pw.cer is cert ? 'acmetest.pw' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/acmetest.pw/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/acme.sh --deactivate -d "acmetest.pw" >/dev/null 2>&1 [PASS]
-The test domain Test_DYNU_Domain is not defined, skip:dynu_api
-Testing dns_he dns_he_net
-TestingDomain='he.acme.sh'
-/root/.acme.sh/acme.sh --issue -d "he.acme.sh" --dns dns_he --dnssleep "60"  [PASS]
-/root/.acme.sh/he.acme.sh/he.acme.sh.cer is cert ? 'he.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/he.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/acme.sh --deactivate -d "he.acme.sh" >/dev/null 2>&1 [PASS]
-Testing dns_zonomi dns_zonomi
-TestingDomain='zonomi.acme.sh'
-/root/.acme.sh/acme.sh --issue -d "zonomi.acme.sh" --dns dns_zonomi --dnssleep "30"  [PASS]
-/root/.acme.sh/zonomi.acme.sh/zonomi.acme.sh.cer is cert ? 'zonomi.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/zonomi.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/acme.sh --deactivate -d "zonomi.acme.sh" >/dev/null 2>&1 [PASS]
+Skipped by TEST_DNS
 ------------------------------------------
