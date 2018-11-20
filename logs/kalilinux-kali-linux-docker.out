@@ -1,213 +1,118 @@
 Sending build context to Docker daemon  2.048kB
 Step 1/2 : FROM kalilinux/kali-linux-docker
- ---> 8ececeaf404d
+ ---> 468e6235b128
 Step 2/2 : RUN apt-get -y update 2>&1 && apt-get -y install openssl cron socat curl idn  2>&1
- ---> Using cache
- ---> 88be49568863
-Successfully built 88be49568863
-Successfully tagged mykalilinux-kali-linux-docker:latest
-Fri, 11 May 2018 07:56:07 UTC
-Testing branch: master
-Progress: 0/1/21
-==Running le_test_dependencies please wait
-no crontab for root
-no crontab for root
-curl installed. [PASS]
-crontab installed. [PASS]
-openssl installed. [PASS]
-socat installed. [PASS]
-------------------------------------------
-Progress: 0/2/21
-==Running le_test_install please wait
-./acme.sh install [PASS]
-/root/.acme.sh/acme.sh exists. [PASS]
-_contains '13 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
-/root/.acme.sh/acme.sh uninstall  > /dev/null [PASS]
-------------------------------------------
-Progress: 0/3/21
-==Running le_test_uninstall please wait
-./acme.sh install [PASS]
-/root/.acme.sh/acme.sh uninstall [PASS]
-/root/.acme.sh/acme.sh no exists. [PASS]
-equals  [PASS]
-------------------------------------------
-Progress: 0/4/21
-==Running le_test_installtodir please wait
-./acme.sh install [PASS]
-/root/myle/acme.sh exists. [PASS]
-_contains '14 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
-/root/myle/acme.sh uninstall [PASS]
-------------------------------------------
-Progress: 0/5/21
-==Running le_test_uninstalltodir please wait
-./acme.sh install [PASS]
-/root/myle/acme.sh uninstall [PASS]
-/root/myle/acme.sh no exists. [PASS]
-equals  [PASS]
-------------------------------------------
-Progress: 0/6/21
-==Running le_test_install_config_home please wait
-./acme.sh --install --config-home /root/etc/acme [PASS]
-/root/.acme.sh/acme.sh exists. [PASS]
-_contains '15 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
-/root/etc/acme/account.conf exists. [PASS]
-/root/.acme.sh/account.conf no exists. [PASS]
-/root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null [PASS]
-/root/.acme.sh/acme.sh --uninstall --config-home /root/etc/acme > /dev/null [PASS]
-/root/etc/acme/account.conf exists. [PASS]
-/root/.acme.sh/account.conf no exists. [PASS]
-------------------------------------------
-Progress: 0/7/21
-==Running le_test_standandalone_renew please wait
-/root/.acme.sh/acme.sh issue no testdocker.acme.sh [PASS]
-FORCE=1 /root/.acme.sh/acme.sh renew testdocker.acme.sh [PASS]
-------------------------------------------
-Progress: 0/8/21
-==Running le_test_standandalone_renew_v2 please wait
-/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
-/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force [PASS]
-/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
-------------------------------------------
-Progress: 0/9/21
-==Running le_test_standandalone_renew_localaddress_v2 please wait
-/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --local-address 0.0.0.0 --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
-/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force [PASS]
-/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
-------------------------------------------
-Progress: 0/10/21
-==Running le_test_standandalone_listen_v4_v2 please wait
-/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --listen-v4 --cert-file '/acmetest/certs/domain.cer' --key-file '/acmetest/certs/domain.key'  --ca-file '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchain-file  '/acmetest/certs/full.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
-/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force [PASS]
-/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
-------------------------------------------
-Progress: 0/11/21
-==Running le_test_standandalone_listen_v6_v2 please wait
-Skipped by TEST_IPV6
-------------------------------------------
-Progress: 0/12/21
-==Running le_test_standandalone_deactivate_v2 please wait
-/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
-/root/.acme.sh/acme.sh --deactivate -d testdocker.acme.sh [PASS]
-------------------------------------------
-Progress: 0/13/21
-==Running le_test_standandalone please wait
-/root/.acme.sh/acme.sh issue no testdocker.acme.sh [PASS]
-/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-------------------------------------------
-Progress: 0/14/21
-==Running le_test_standandalone_SAN please wait
-/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh" [PASS]
-/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-------------------------------------------
-Progress: 0/15/21
-==Running le_test_standandalone_ECDSA_256 please wait
-/root/.acme.sh/acme.sh issue no testdocker.acme.sh no ec-256 [PASS]
-/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-------------------------------------------
-Progress: 0/16/21
-==Running le_test_standandalone_ECDSA_256_renew please wait
-/root/.acme.sh/acme.sh issue no testdocker.acme.sh no ec-256 [PASS]
-FORCE=1 /root/.acme.sh/acme.sh renew testdocker.acme.sh [PASS]
-------------------------------------------
-Progress: 0/17/21
-==Running le_test_standandalone_ECDSA_256_SAN_renew please wait
-/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh" ec-256 [PASS]
-FORCE=1 /root/.acme.sh/acme.sh renew "testdocker.acme.sh" [PASS]
-------------------------------------------
-Progress: 0/18/21
-==Running le_test_standandalone_ECDSA_256_SAN_renew_v2 please wait
-/root/.acme.sh/acme.sh --issue -d "testdocker.acme.sh" -d "testdocker2.acme.sh" --standalone --keylength ec-256 --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh_ecc/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
-/root/.acme.sh/acme.sh --renew --ecc -d "testdocker.acme.sh" --force [PASS]
-/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh_ecc/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
-------------------------------------------
-Progress: 0/19/21
-==Running le_test_standandalone_ECDSA_384 please wait
-/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" no ec-384 [PASS]
-/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-------------------------------------------
-Progress: 0/20/21
-==Running le_test_standandalone_renew_idn_v2 please wait
-Skipped by TEST_IDN
-------------------------------------------
-Progress: 0/21/21
-==Running le_test_dnsapi please wait
-The test domain Test_CF_Domain is not defined, skip:ClourFlare_api
-The test domain Test_CX_Domain is not defined, skip:CloudXNS.com_api
-The test domain Test_DP_Domain is not defined, skip:Dnspod.cn_api
-Testing dns_gd Godaddy_api
-TestingDomain='testgdapi.xyz'
-/root/.acme.sh/acme.sh --issue -d "testgdapi.xyz" --dns dns_gd --dnssleep ""  [PASS]
-/root/.acme.sh/testgdapi.xyz/testgdapi.xyz.cer is cert ? 'testgdapi.xyz' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testgdapi.xyz/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/acme.sh --deactivate -d "testgdapi.xyz" >/dev/null 2>&1 [PASS]
-The test domain Test_AWS_Domain is not defined, skip:Amazon_Route53_api
-The test domain Test_LUA_Domain is not defined, skip:luadns.com_api
-ME_Key is not defined, skip:dnsmadeeasy.com_api
-NSUPDATE_KEY is not defined, skip:nsupdate_api
-OVH_AK is not defined, skip:OVH.com_api
-PDNS_Token is not defined, skip:powerdns.com_api
-The test domain Test_ALI_Domain is not defined, skip:aliyun_api
-Testing dns_gandi_livedns gandi_livedns
-TestingDomain='acmetest.pw'
-/root/.acme.sh/acme.sh --issue -d "acmetest.pw" --dns dns_gandi_livedns --dnssleep "60"  [PASS]
-/root/.acme.sh/acmetest.pw/acmetest.pw.cer is cert ? 'acmetest.pw' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/acmetest.pw/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/acme.sh --deactivate -d "acmetest.pw" >/dev/null 2>&1 [PASS]
-The test domain Test_DYNU_Domain is not defined, skip:dynu_api
-Testing dns_he dns_he_net
-TestingDomain='he.acme.sh'
-/root/.acme.sh/acme.sh --issue -d "he.acme.sh" --dns dns_he --dnssleep "60"  [PASS]
-/root/.acme.sh/he.acme.sh/he.acme.sh.cer is cert ? 'he.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/he.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/acme.sh --deactivate -d "he.acme.sh" >/dev/null 2>&1 [PASS]
-Testing dns_zonomi dns_zonomi
-TestingDomain='zonomi.acme.sh'
-/root/.acme.sh/acme.sh --issue -d "zonomi.acme.sh" --dns dns_zonomi --dnssleep "30"  [PASS]
-/root/.acme.sh/zonomi.acme.sh/zonomi.acme.sh.cer is cert ? 'zonomi.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/zonomi.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/acme.sh --deactivate -d "zonomi.acme.sh" >/dev/null 2>&1 [PASS]
-------------------------------------------
+ ---> Running in 10b6d40d7dc8
+Get:1 http://ftp.free.fr/pub/kali kali-rolling InRelease [30.5 kB]
+Err:1 http://ftp.free.fr/pub/kali kali-rolling InRelease
+  The following signatures were invalid: KEYEXPIRED 1517583136  KEYEXPIRED 1517583136  KEYEXPIRED 1517583136  KEYEXPIRED 1517583136  KEYEXPIRED 1517583136
+Fetched 30.5 kB in 0s (61.4 kB/s)
+Reading package lists...
+W: An error occurred during the signature verification. The repository is not updated and the previous index files will be used. GPG error: http://ftp.free.fr/pub/kali kali-rolling InRelease: The following signatures were invalid: KEYEXPIRED 1517583136  KEYEXPIRED 1517583136  KEYEXPIRED 1517583136  KEYEXPIRED 1517583136  KEYEXPIRED 1517583136
+W: Failed to fetch http://http.kali.org/kali/dists/kali-rolling/InRelease  The following signatures were invalid: KEYEXPIRED 1517583136  KEYEXPIRED 1517583136  KEYEXPIRED 1517583136  KEYEXPIRED 1517583136  KEYEXPIRED 1517583136
+W: Some index files failed to download. They have been ignored, or old ones used instead.
+Reading package lists...
+Building dependency tree...
+cron is already the newest version (3.0pl1-128).
+The following additional packages will be installed:
+  ca-certificates krb5-locales libcurl3-gnutls libgssapi-krb5-2 libk5crypto3
+  libkeyutils1 libkrb5-3 libkrb5support0 libldap-2.4-2 libnghttp2-14 librtmp1
+  libsasl2-2 libsasl2-modules libsasl2-modules-db libssh2-1 libwrap0 tcpd
+Suggested packages:
+  krb5-doc krb5-user libsasl2-modules-otp libsasl2-modules-ldap
+  libsasl2-modules-sql libsasl2-modules-gssapi-mit
+  | libsasl2-modules-gssapi-heimdal
+The following NEW packages will be installed:
+  ca-certificates curl idn krb5-locales libcurl3-gnutls libgssapi-krb5-2
+  libk5crypto3 libkeyutils1 libkrb5-3 libkrb5support0 libldap-2.4-2
+  libnghttp2-14 librtmp1 libsasl2-2 libsasl2-modules libsasl2-modules-db
+  libssh2-1 libwrap0 openssl socat tcpd
+0 upgraded, 21 newly installed, 0 to remove and 0 not upgraded.
+Need to get 6098 kB of archives.
+After this operation, 10.4 MB of additional disk space will be used.
+Err:1 http://http.kali.org/kali kali-rolling/main amd64 libwrap0 amd64 7.6.q-25
+  404  Not Found
+Err:2 http://http.kali.org/kali kali-rolling/main amd64 krb5-locales all 1.13.2+dfsg-5
+  404  Not Found
+Err:3 http://http.kali.org/kali kali-rolling/main amd64 libkeyutils1 amd64 1.5.9-8
+  404  Not Found
+Err:4 http://http.kali.org/kali kali-rolling/main amd64 libkrb5support0 amd64 1.13.2+dfsg-5
+  404  Not Found
+Err:5 http://http.kali.org/kali kali-rolling/main amd64 libk5crypto3 amd64 1.13.2+dfsg-5
+  404  Not Found
+Err:6 http://http.kali.org/kali kali-rolling/main amd64 libkrb5-3 amd64 1.13.2+dfsg-5
+  404  Not Found
+Err:7 http://http.kali.org/kali kali-rolling/main amd64 libgssapi-krb5-2 amd64 1.13.2+dfsg-5
+  404  Not Found
+Err:8 http://http.kali.org/kali kali-rolling/main amd64 libsasl2-modules-db amd64 2.1.26.dfsg1-14+b1
+  404  Not Found
+Err:9 http://http.kali.org/kali kali-rolling/main amd64 libsasl2-2 amd64 2.1.26.dfsg1-14+b1
+  404  Not Found
+Err:10 http://http.kali.org/kali kali-rolling/main amd64 libldap-2.4-2 amd64 2.4.42+dfsg-2+b2
+  404  Not Found
+Err:11 http://http.kali.org/kali kali-rolling/main amd64 openssl amd64 1.0.2g-1
+  404  Not Found
+Err:12 http://http.kali.org/kali kali-rolling/main amd64 ca-certificates all 20160104
+  404  Not Found
+Err:13 http://http.kali.org/kali kali-rolling/main amd64 libnghttp2-14 amd64 1.8.0-1
+  404  Not Found
+Err:14 http://http.kali.org/kali kali-rolling/main amd64 librtmp1 amd64 2.4+20151223.gitfa8646d-1+b1
+  404  Not Found
+Err:15 http://http.kali.org/kali kali-rolling/main amd64 libssh2-1 amd64 1.5.0-2.1
+  404  Not Found
+Err:16 http://http.kali.org/kali kali-rolling/main amd64 libcurl3-gnutls amd64 7.47.0-1
+  404  Not Found
+Err:17 http://http.kali.org/kali kali-rolling/main amd64 curl amd64 7.47.0-1
+  404  Not Found
+Err:18 http://http.kali.org/kali kali-rolling/main amd64 idn amd64 1.32-3
+  404  Not Found
+Err:19 http://http.kali.org/kali kali-rolling/main amd64 libsasl2-modules amd64 2.1.26.dfsg1-14+b1
+  404  Not Found
+Err:20 http://http.kali.org/kali kali-rolling/main amd64 tcpd amd64 7.6.q-25
+  404  Not Found
+Err:21 http://http.kali.org/kali kali-rolling/main amd64 socat amd64 1.7.3.1-1
+  404  Not Found
+E: Failed to fetch http://http.kali.org/kali/pool/main/t/tcp-wrappers/libwrap0_7.6.q-25_amd64.deb  404  Not Found
+
+E: Failed to fetch http://http.kali.org/kali/pool/main/k/krb5/krb5-locales_1.13.2+dfsg-5_all.deb  404  Not Found
+
+E: Failed to fetch http://http.kali.org/kali/pool/main/k/keyutils/libkeyutils1_1.5.9-8_amd64.deb  404  Not Found
+
+E: Failed to fetch http://http.kali.org/kali/pool/main/k/krb5/libkrb5support0_1.13.2+dfsg-5_amd64.deb  404  Not Found
+
+E: Failed to fetch http://http.kali.org/kali/pool/main/k/krb5/libk5crypto3_1.13.2+dfsg-5_amd64.deb  404  Not Found
+
+E: Failed to fetch http://http.kali.org/kali/pool/main/k/krb5/libkrb5-3_1.13.2+dfsg-5_amd64.deb  404  Not Found
+
+E: Failed to fetch http://http.kali.org/kali/pool/main/k/krb5/libgssapi-krb5-2_1.13.2+dfsg-5_amd64.deb  404  Not Found
+
+E: Failed to fetch http://http.kali.org/kali/pool/main/c/cyrus-sasl2/libsasl2-modules-db_2.1.26.dfsg1-14+b1_amd64.deb  404  Not Found
+
+E: Failed to fetch http://http.kali.org/kali/pool/main/c/cyrus-sasl2/libsasl2-2_2.1.26.dfsg1-14+b1_amd64.deb  404  Not Found
+
+E: Failed to fetch http://http.kali.org/kali/pool/main/o/openldap/libldap-2.4-2_2.4.42+dfsg-2+b2_amd64.deb  404  Not Found
+
+E: Failed to fetch http://http.kali.org/kali/pool/main/o/openssl/openssl_1.0.2g-1_amd64.deb  404  Not Found
+
+E: Failed to fetch http://http.kali.org/kali/pool/main/c/ca-certificates/ca-certificates_20160104_all.deb  404  Not Found
+
+E: Failed to fetch http://http.kali.org/kali/pool/main/n/nghttp2/libnghttp2-14_1.8.0-1_amd64.deb  404  Not Found
+
+E: Failed to fetch http://http.kali.org/kali/pool/main/r/rtmpdump/librtmp1_2.4+20151223.gitfa8646d-1+b1_amd64.deb  404  Not Found
+
+E: Failed to fetch http://http.kali.org/kali/pool/main/libs/libssh2/libssh2-1_1.5.0-2.1_amd64.deb  404  Not Found
+
+E: Failed to fetch http://http.kali.org/kali/pool/main/c/curl/libcurl3-gnutls_7.47.0-1_amd64.deb  404  Not Found
+
+E: Failed to fetch http://http.kali.org/kali/pool/main/c/curl/curl_7.47.0-1_amd64.deb  404  Not Found
+
+E: Failed to fetch http://http.kali.org/kali/pool/main/libi/libidn/idn_1.32-3_amd64.deb  404  Not Found
+
+E: Failed to fetch http://http.kali.org/kali/pool/main/c/cyrus-sasl2/libsasl2-modules_2.1.26.dfsg1-14+b1_amd64.deb  404  Not Found
+
+E: Failed to fetch http://http.kali.org/kali/pool/main/t/tcp-wrappers/tcpd_7.6.q-25_amd64.deb  404  Not Found
+
+E: Failed to fetch http://http.kali.org/kali/pool/main/s/socat/socat_1.7.3.1-1_amd64.deb  404  Not Found
+
+E: Unable to fetch some archives, maybe run apt-get update or try with --fix-missing?
+The command '/bin/sh -c apt-get -y update 2>&1 && apt-get -y install openssl cron socat curl idn  2>&1' returned a non-zero code: 100
