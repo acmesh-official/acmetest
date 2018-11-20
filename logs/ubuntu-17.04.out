@@ -1,213 +1,262 @@
 Sending build context to Docker daemon  2.048kB
 Step 1/2 : FROM ubuntu:17.04
- ---> bde41be8de8c
+17.04: Pulling from library/ubuntu
+c2ca09a1934b: Pulling fs layer
+d6c3619d2153: Pulling fs layer
+0efe07335a04: Pulling fs layer
+6b1bb01b3a3b: Pulling fs layer
+43a98c187399: Pulling fs layer
+6b1bb01b3a3b: Waiting
+43a98c187399: Waiting
+d6c3619d2153: Verifying Checksum
+d6c3619d2153: Download complete
+0efe07335a04: Verifying Checksum
+0efe07335a04: Download complete
+6b1bb01b3a3b: Verifying Checksum
+6b1bb01b3a3b: Download complete
+43a98c187399: Download complete
+c2ca09a1934b: Verifying Checksum
+c2ca09a1934b: Download complete
+c2ca09a1934b: Pull complete
+d6c3619d2153: Pull complete
+0efe07335a04: Pull complete
+6b1bb01b3a3b: Pull complete
+43a98c187399: Pull complete
+Digest: sha256:5d41c289942008211c2964bca72800f5c9d5ea5aa4057528da617fb36463d4ab
+Status: Downloaded newer image for ubuntu:17.04
+ ---> fe1cc5b91830
 Step 2/2 : RUN apt-get -y update  2>&1 && apt-get -y install unzip openssl cron socat curl idn  2>&1
- ---> Using cache
- ---> 42d9af9fcd16
-Successfully built 42d9af9fcd16
-Successfully tagged myubuntu:17.04
-Fri, 11 May 2018 03:10:58 UTC
-Testing branch: master
-Progress: 0/1/21
-==Running le_test_dependencies please wait
-no crontab for root
-no crontab for root
-curl installed. [PASS]
-crontab installed. [PASS]
-openssl installed. [PASS]
-socat installed. [PASS]
-------------------------------------------
-Progress: 0/2/21
-==Running le_test_install please wait
-./acme.sh install [PASS]
-/root/.acme.sh/acme.sh exists. [PASS]
-_contains '3 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
-/root/.acme.sh/acme.sh uninstall  > /dev/null [PASS]
-------------------------------------------
-Progress: 0/3/21
-==Running le_test_uninstall please wait
-./acme.sh install [PASS]
-/root/.acme.sh/acme.sh uninstall [PASS]
-/root/.acme.sh/acme.sh no exists. [PASS]
-equals  [PASS]
-------------------------------------------
-Progress: 0/4/21
-==Running le_test_installtodir please wait
-./acme.sh install [PASS]
-/root/myle/acme.sh exists. [PASS]
-_contains '4 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
-/root/myle/acme.sh uninstall [PASS]
-------------------------------------------
-Progress: 0/5/21
-==Running le_test_uninstalltodir please wait
-./acme.sh install [PASS]
-/root/myle/acme.sh uninstall [PASS]
-/root/myle/acme.sh no exists. [PASS]
-equals  [PASS]
-------------------------------------------
-Progress: 0/6/21
-==Running le_test_install_config_home please wait
-./acme.sh --install --config-home /root/etc/acme [PASS]
-/root/.acme.sh/acme.sh exists. [PASS]
-_contains '5 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
-/root/etc/acme/account.conf exists. [PASS]
-/root/.acme.sh/account.conf no exists. [PASS]
-/root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null [PASS]
-/root/.acme.sh/acme.sh --uninstall --config-home /root/etc/acme > /dev/null [PASS]
-/root/etc/acme/account.conf exists. [PASS]
-/root/.acme.sh/account.conf no exists. [PASS]
-------------------------------------------
-Progress: 0/7/21
-==Running le_test_standandalone_renew please wait
-/root/.acme.sh/acme.sh issue no testdocker.acme.sh [PASS]
-FORCE=1 /root/.acme.sh/acme.sh renew testdocker.acme.sh [PASS]
-------------------------------------------
-Progress: 0/8/21
-==Running le_test_standandalone_renew_v2 please wait
-/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
-/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force [PASS]
-/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
-------------------------------------------
-Progress: 0/9/21
-==Running le_test_standandalone_renew_localaddress_v2 please wait
-/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --local-address 0.0.0.0 --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
-/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force [PASS]
-/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
-------------------------------------------
-Progress: 0/10/21
-==Running le_test_standandalone_listen_v4_v2 please wait
-/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --listen-v4 --cert-file '/acmetest/certs/domain.cer' --key-file '/acmetest/certs/domain.key'  --ca-file '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchain-file  '/acmetest/certs/full.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
-/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force [PASS]
-/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
-------------------------------------------
-Progress: 0/11/21
-==Running le_test_standandalone_listen_v6_v2 please wait
-Skipped by TEST_IPV6
-------------------------------------------
-Progress: 0/12/21
-==Running le_test_standandalone_deactivate_v2 please wait
-/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
-/root/.acme.sh/acme.sh --deactivate -d testdocker.acme.sh [PASS]
-------------------------------------------
-Progress: 0/13/21
-==Running le_test_standandalone please wait
-/root/.acme.sh/acme.sh issue no testdocker.acme.sh [PASS]
-/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-------------------------------------------
-Progress: 0/14/21
-==Running le_test_standandalone_SAN please wait
-/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh" [PASS]
-/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-------------------------------------------
-Progress: 0/15/21
-==Running le_test_standandalone_ECDSA_256 please wait
-/root/.acme.sh/acme.sh issue no testdocker.acme.sh no ec-256 [PASS]
-/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-------------------------------------------
-Progress: 0/16/21
-==Running le_test_standandalone_ECDSA_256_renew please wait
-/root/.acme.sh/acme.sh issue no testdocker.acme.sh no ec-256 [PASS]
-FORCE=1 /root/.acme.sh/acme.sh renew testdocker.acme.sh [PASS]
-------------------------------------------
-Progress: 0/17/21
-==Running le_test_standandalone_ECDSA_256_SAN_renew please wait
-/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh" ec-256 [PASS]
-FORCE=1 /root/.acme.sh/acme.sh renew "testdocker.acme.sh" [PASS]
-------------------------------------------
-Progress: 0/18/21
-==Running le_test_standandalone_ECDSA_256_SAN_renew_v2 please wait
-/root/.acme.sh/acme.sh --issue -d "testdocker.acme.sh" -d "testdocker2.acme.sh" --standalone --keylength ec-256 --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh_ecc/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
-/root/.acme.sh/acme.sh --renew --ecc -d "testdocker.acme.sh" --force [PASS]
-/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh_ecc/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
-------------------------------------------
-Progress: 0/19/21
-==Running le_test_standandalone_ECDSA_384 please wait
-/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" no ec-384 [PASS]
-/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-------------------------------------------
-Progress: 0/20/21
-==Running le_test_standandalone_renew_idn_v2 please wait
-Skipped by TEST_IDN
-------------------------------------------
-Progress: 0/21/21
-==Running le_test_dnsapi please wait
-The test domain Test_CF_Domain is not defined, skip:ClourFlare_api
-The test domain Test_CX_Domain is not defined, skip:CloudXNS.com_api
-The test domain Test_DP_Domain is not defined, skip:Dnspod.cn_api
-Testing dns_gd Godaddy_api
-TestingDomain='testgdapi.xyz'
-/root/.acme.sh/acme.sh --issue -d "testgdapi.xyz" --dns dns_gd --dnssleep ""  [PASS]
-/root/.acme.sh/testgdapi.xyz/testgdapi.xyz.cer is cert ? 'testgdapi.xyz' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testgdapi.xyz/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/acme.sh --deactivate -d "testgdapi.xyz" >/dev/null 2>&1 [PASS]
-The test domain Test_AWS_Domain is not defined, skip:Amazon_Route53_api
-The test domain Test_LUA_Domain is not defined, skip:luadns.com_api
-ME_Key is not defined, skip:dnsmadeeasy.com_api
-NSUPDATE_KEY is not defined, skip:nsupdate_api
-OVH_AK is not defined, skip:OVH.com_api
-PDNS_Token is not defined, skip:powerdns.com_api
-The test domain Test_ALI_Domain is not defined, skip:aliyun_api
-Testing dns_gandi_livedns gandi_livedns
-TestingDomain='acmetest.pw'
-/root/.acme.sh/acme.sh --issue -d "acmetest.pw" --dns dns_gandi_livedns --dnssleep "60"  [PASS]
-/root/.acme.sh/acmetest.pw/acmetest.pw.cer is cert ? 'acmetest.pw' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/acmetest.pw/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/acme.sh --deactivate -d "acmetest.pw" >/dev/null 2>&1 [PASS]
-The test domain Test_DYNU_Domain is not defined, skip:dynu_api
-Testing dns_he dns_he_net
-TestingDomain='he.acme.sh'
-/root/.acme.sh/acme.sh --issue -d "he.acme.sh" --dns dns_he --dnssleep "60"  [PASS]
-/root/.acme.sh/he.acme.sh/he.acme.sh.cer is cert ? 'he.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/he.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/acme.sh --deactivate -d "he.acme.sh" >/dev/null 2>&1 [PASS]
-Testing dns_zonomi dns_zonomi
-TestingDomain='zonomi.acme.sh'
-/root/.acme.sh/acme.sh --issue -d "zonomi.acme.sh" --dns dns_zonomi --dnssleep "30"  [PASS]
-/root/.acme.sh/zonomi.acme.sh/zonomi.acme.sh.cer is cert ? 'zonomi.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/zonomi.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/acme.sh --deactivate -d "zonomi.acme.sh" >/dev/null 2>&1 [PASS]
-------------------------------------------
+ ---> Running in 139577c2bac4
+Ign:1 http://archive.ubuntu.com/ubuntu zesty InRelease
+Ign:2 http://archive.ubuntu.com/ubuntu zesty-updates InRelease
+Ign:3 http://archive.ubuntu.com/ubuntu zesty-backports InRelease
+Ign:4 http://archive.ubuntu.com/ubuntu zesty Release
+Ign:5 http://archive.ubuntu.com/ubuntu zesty-updates Release
+Ign:6 http://archive.ubuntu.com/ubuntu zesty-backports Release
+Ign:7 http://archive.ubuntu.com/ubuntu zesty/universe Sources
+Ign:8 http://archive.ubuntu.com/ubuntu zesty/multiverse all Packages
+Ign:9 http://archive.ubuntu.com/ubuntu zesty/universe all Packages
+Ign:10 http://archive.ubuntu.com/ubuntu zesty/universe amd64 Packages
+Ign:11 http://archive.ubuntu.com/ubuntu zesty/restricted amd64 Packages
+Ign:12 http://archive.ubuntu.com/ubuntu zesty/multiverse amd64 Packages
+Ign:13 http://archive.ubuntu.com/ubuntu zesty/main amd64 Packages
+Ign:14 http://archive.ubuntu.com/ubuntu zesty/main all Packages
+Ign:15 http://security.ubuntu.com/ubuntu zesty-security InRelease
+Ign:16 http://archive.ubuntu.com/ubuntu zesty/restricted all Packages
+Ign:17 http://archive.ubuntu.com/ubuntu zesty-updates/universe Sources
+Ign:18 http://archive.ubuntu.com/ubuntu zesty-updates/main all Packages
+Ign:19 http://archive.ubuntu.com/ubuntu zesty-updates/multiverse all Packages
+Ign:20 http://archive.ubuntu.com/ubuntu zesty-updates/universe amd64 Packages
+Ign:21 http://archive.ubuntu.com/ubuntu zesty-updates/universe all Packages
+Ign:22 http://archive.ubuntu.com/ubuntu zesty-updates/multiverse amd64 Packages
+Ign:23 http://security.ubuntu.com/ubuntu zesty-security Release
+Ign:24 http://archive.ubuntu.com/ubuntu zesty-updates/restricted all Packages
+Ign:25 http://archive.ubuntu.com/ubuntu zesty-updates/main amd64 Packages
+Ign:26 http://archive.ubuntu.com/ubuntu zesty-updates/restricted amd64 Packages
+Ign:27 http://security.ubuntu.com/ubuntu zesty-security/universe Sources
+Ign:28 http://archive.ubuntu.com/ubuntu zesty-backports/universe all Packages
+Ign:29 http://archive.ubuntu.com/ubuntu zesty-backports/main amd64 Packages
+Ign:30 http://archive.ubuntu.com/ubuntu zesty-backports/universe amd64 Packages
+Ign:31 http://archive.ubuntu.com/ubuntu zesty-backports/multiverse all Packages
+Ign:32 http://archive.ubuntu.com/ubuntu zesty-backports/multiverse amd64 Packages
+Ign:33 http://archive.ubuntu.com/ubuntu zesty-backports/restricted all Packages
+Ign:34 http://archive.ubuntu.com/ubuntu zesty-backports/restricted amd64 Packages
+Ign:35 http://archive.ubuntu.com/ubuntu zesty-backports/main all Packages
+Ign:36 http://security.ubuntu.com/ubuntu zesty-security/universe amd64 Packages
+Ign:7 http://archive.ubuntu.com/ubuntu zesty/universe Sources
+Ign:8 http://archive.ubuntu.com/ubuntu zesty/multiverse all Packages
+Ign:9 http://archive.ubuntu.com/ubuntu zesty/universe all Packages
+Ign:10 http://archive.ubuntu.com/ubuntu zesty/universe amd64 Packages
+Ign:11 http://archive.ubuntu.com/ubuntu zesty/restricted amd64 Packages
+Ign:12 http://archive.ubuntu.com/ubuntu zesty/multiverse amd64 Packages
+Ign:13 http://archive.ubuntu.com/ubuntu zesty/main amd64 Packages
+Ign:37 http://security.ubuntu.com/ubuntu zesty-security/multiverse amd64 Packages
+Ign:14 http://archive.ubuntu.com/ubuntu zesty/main all Packages
+Ign:16 http://archive.ubuntu.com/ubuntu zesty/restricted all Packages
+Ign:17 http://archive.ubuntu.com/ubuntu zesty-updates/universe Sources
+Ign:18 http://archive.ubuntu.com/ubuntu zesty-updates/main all Packages
+Ign:19 http://archive.ubuntu.com/ubuntu zesty-updates/multiverse all Packages
+Ign:20 http://archive.ubuntu.com/ubuntu zesty-updates/universe amd64 Packages
+Ign:21 http://archive.ubuntu.com/ubuntu zesty-updates/universe all Packages
+Ign:22 http://archive.ubuntu.com/ubuntu zesty-updates/multiverse amd64 Packages
+Ign:38 http://security.ubuntu.com/ubuntu zesty-security/multiverse all Packages
+Ign:24 http://archive.ubuntu.com/ubuntu zesty-updates/restricted all Packages
+Ign:25 http://archive.ubuntu.com/ubuntu zesty-updates/main amd64 Packages
+Ign:39 http://security.ubuntu.com/ubuntu zesty-security/main amd64 Packages
+Ign:26 http://archive.ubuntu.com/ubuntu zesty-updates/restricted amd64 Packages
+Ign:28 http://archive.ubuntu.com/ubuntu zesty-backports/universe all Packages
+Ign:29 http://archive.ubuntu.com/ubuntu zesty-backports/main amd64 Packages
+Ign:30 http://archive.ubuntu.com/ubuntu zesty-backports/universe amd64 Packages
+Ign:31 http://archive.ubuntu.com/ubuntu zesty-backports/multiverse all Packages
+Ign:32 http://archive.ubuntu.com/ubuntu zesty-backports/multiverse amd64 Packages
+Ign:33 http://archive.ubuntu.com/ubuntu zesty-backports/restricted all Packages
+Ign:34 http://archive.ubuntu.com/ubuntu zesty-backports/restricted amd64 Packages
+Ign:40 http://security.ubuntu.com/ubuntu zesty-security/restricted all Packages
+Ign:35 http://archive.ubuntu.com/ubuntu zesty-backports/main all Packages
+Ign:7 http://archive.ubuntu.com/ubuntu zesty/universe Sources
+Ign:8 http://archive.ubuntu.com/ubuntu zesty/multiverse all Packages
+Ign:9 http://archive.ubuntu.com/ubuntu zesty/universe all Packages
+Ign:10 http://archive.ubuntu.com/ubuntu zesty/universe amd64 Packages
+Ign:11 http://archive.ubuntu.com/ubuntu zesty/restricted amd64 Packages
+Ign:12 http://archive.ubuntu.com/ubuntu zesty/multiverse amd64 Packages
+Ign:41 http://security.ubuntu.com/ubuntu zesty-security/universe all Packages
+Ign:13 http://archive.ubuntu.com/ubuntu zesty/main amd64 Packages
+Ign:14 http://archive.ubuntu.com/ubuntu zesty/main all Packages
+Ign:16 http://archive.ubuntu.com/ubuntu zesty/restricted all Packages
+Ign:17 http://archive.ubuntu.com/ubuntu zesty-updates/universe Sources
+Ign:18 http://archive.ubuntu.com/ubuntu zesty-updates/main all Packages
+Ign:19 http://archive.ubuntu.com/ubuntu zesty-updates/multiverse all Packages
+Ign:20 http://archive.ubuntu.com/ubuntu zesty-updates/universe amd64 Packages
+Ign:21 http://archive.ubuntu.com/ubuntu zesty-updates/universe all Packages
+Ign:42 http://security.ubuntu.com/ubuntu zesty-security/restricted amd64 Packages
+Ign:22 http://archive.ubuntu.com/ubuntu zesty-updates/multiverse amd64 Packages
+Ign:24 http://archive.ubuntu.com/ubuntu zesty-updates/restricted all Packages
+Ign:43 http://security.ubuntu.com/ubuntu zesty-security/main all Packages
+Ign:25 http://archive.ubuntu.com/ubuntu zesty-updates/main amd64 Packages
+Ign:26 http://archive.ubuntu.com/ubuntu zesty-updates/restricted amd64 Packages
+Ign:28 http://archive.ubuntu.com/ubuntu zesty-backports/universe all Packages
+Ign:29 http://archive.ubuntu.com/ubuntu zesty-backports/main amd64 Packages
+Ign:30 http://archive.ubuntu.com/ubuntu zesty-backports/universe amd64 Packages
+Ign:31 http://archive.ubuntu.com/ubuntu zesty-backports/multiverse all Packages
+Ign:32 http://archive.ubuntu.com/ubuntu zesty-backports/multiverse amd64 Packages
+Ign:33 http://archive.ubuntu.com/ubuntu zesty-backports/restricted all Packages
+Ign:27 http://security.ubuntu.com/ubuntu zesty-security/universe Sources
+Ign:34 http://archive.ubuntu.com/ubuntu zesty-backports/restricted amd64 Packages
+Ign:35 http://archive.ubuntu.com/ubuntu zesty-backports/main all Packages
+Ign:7 http://archive.ubuntu.com/ubuntu zesty/universe Sources
+Ign:8 http://archive.ubuntu.com/ubuntu zesty/multiverse all Packages
+Ign:9 http://archive.ubuntu.com/ubuntu zesty/universe all Packages
+Ign:10 http://archive.ubuntu.com/ubuntu zesty/universe amd64 Packages
+Ign:11 http://archive.ubuntu.com/ubuntu zesty/restricted amd64 Packages
+Ign:36 http://security.ubuntu.com/ubuntu zesty-security/universe amd64 Packages
+Ign:12 http://archive.ubuntu.com/ubuntu zesty/multiverse amd64 Packages
+Ign:13 http://archive.ubuntu.com/ubuntu zesty/main amd64 Packages
+Ign:14 http://archive.ubuntu.com/ubuntu zesty/main all Packages
+Ign:16 http://archive.ubuntu.com/ubuntu zesty/restricted all Packages
+Ign:17 http://archive.ubuntu.com/ubuntu zesty-updates/universe Sources
+Ign:18 http://archive.ubuntu.com/ubuntu zesty-updates/main all Packages
+Ign:19 http://archive.ubuntu.com/ubuntu zesty-updates/multiverse all Packages
+Ign:20 http://archive.ubuntu.com/ubuntu zesty-updates/universe amd64 Packages
+Ign:37 http://security.ubuntu.com/ubuntu zesty-security/multiverse amd64 Packages
+Ign:21 http://archive.ubuntu.com/ubuntu zesty-updates/universe all Packages
+Ign:22 http://archive.ubuntu.com/ubuntu zesty-updates/multiverse amd64 Packages
+Ign:38 http://security.ubuntu.com/ubuntu zesty-security/multiverse all Packages
+Ign:24 http://archive.ubuntu.com/ubuntu zesty-updates/restricted all Packages
+Ign:25 http://archive.ubuntu.com/ubuntu zesty-updates/main amd64 Packages
+Ign:26 http://archive.ubuntu.com/ubuntu zesty-updates/restricted amd64 Packages
+Ign:28 http://archive.ubuntu.com/ubuntu zesty-backports/universe all Packages
+Ign:29 http://archive.ubuntu.com/ubuntu zesty-backports/main amd64 Packages
+Ign:30 http://archive.ubuntu.com/ubuntu zesty-backports/universe amd64 Packages
+Ign:31 http://archive.ubuntu.com/ubuntu zesty-backports/multiverse all Packages
+Ign:39 http://security.ubuntu.com/ubuntu zesty-security/main amd64 Packages
+Ign:32 http://archive.ubuntu.com/ubuntu zesty-backports/multiverse amd64 Packages
+Ign:33 http://archive.ubuntu.com/ubuntu zesty-backports/restricted all Packages
+Ign:34 http://archive.ubuntu.com/ubuntu zesty-backports/restricted amd64 Packages
+Ign:35 http://archive.ubuntu.com/ubuntu zesty-backports/main all Packages
+Ign:7 http://archive.ubuntu.com/ubuntu zesty/universe Sources
+Ign:8 http://archive.ubuntu.com/ubuntu zesty/multiverse all Packages
+Ign:9 http://archive.ubuntu.com/ubuntu zesty/universe all Packages
+Ign:40 http://security.ubuntu.com/ubuntu zesty-security/restricted all Packages
+Ign:10 http://archive.ubuntu.com/ubuntu zesty/universe amd64 Packages
+Ign:11 http://archive.ubuntu.com/ubuntu zesty/restricted amd64 Packages
+Ign:12 http://archive.ubuntu.com/ubuntu zesty/multiverse amd64 Packages
+Ign:13 http://archive.ubuntu.com/ubuntu zesty/main amd64 Packages
+Ign:14 http://archive.ubuntu.com/ubuntu zesty/main all Packages
+Ign:16 http://archive.ubuntu.com/ubuntu zesty/restricted all Packages
+Ign:17 http://archive.ubuntu.com/ubuntu zesty-updates/universe Sources
+Ign:18 http://archive.ubuntu.com/ubuntu zesty-updates/main all Packages
+Ign:41 http://security.ubuntu.com/ubuntu zesty-security/universe all Packages
+Ign:19 http://archive.ubuntu.com/ubuntu zesty-updates/multiverse all Packages
+Ign:20 http://archive.ubuntu.com/ubuntu zesty-updates/universe amd64 Packages
+Ign:21 http://archive.ubuntu.com/ubuntu zesty-updates/universe all Packages
+Ign:22 http://archive.ubuntu.com/ubuntu zesty-updates/multiverse amd64 Packages
+Ign:42 http://security.ubuntu.com/ubuntu zesty-security/restricted amd64 Packages
+Ign:24 http://archive.ubuntu.com/ubuntu zesty-updates/restricted all Packages
+Ign:25 http://archive.ubuntu.com/ubuntu zesty-updates/main amd64 Packages
+Ign:26 http://archive.ubuntu.com/ubuntu zesty-updates/restricted amd64 Packages
+Ign:28 http://archive.ubuntu.com/ubuntu zesty-backports/universe all Packages
+Ign:29 http://archive.ubuntu.com/ubuntu zesty-backports/main amd64 Packages
+Ign:30 http://archive.ubuntu.com/ubuntu zesty-backports/universe amd64 Packages
+Ign:43 http://security.ubuntu.com/ubuntu zesty-security/main all Packages
+Ign:31 http://archive.ubuntu.com/ubuntu zesty-backports/multiverse all Packages
+Ign:32 http://archive.ubuntu.com/ubuntu zesty-backports/multiverse amd64 Packages
+Ign:33 http://archive.ubuntu.com/ubuntu zesty-backports/restricted all Packages
+Ign:34 http://archive.ubuntu.com/ubuntu zesty-backports/restricted amd64 Packages
+Ign:35 http://archive.ubuntu.com/ubuntu zesty-backports/main all Packages
+Err:7 http://archive.ubuntu.com/ubuntu zesty/universe Sources
+  404  Not Found [IP: 91.189.88.149 80]
+Ign:8 http://archive.ubuntu.com/ubuntu zesty/multiverse all Packages
+Ign:9 http://archive.ubuntu.com/ubuntu zesty/universe all Packages
+Ign:27 http://security.ubuntu.com/ubuntu zesty-security/universe Sources
+Ign:10 http://archive.ubuntu.com/ubuntu zesty/universe amd64 Packages
+Ign:11 http://archive.ubuntu.com/ubuntu zesty/restricted amd64 Packages
+Ign:12 http://archive.ubuntu.com/ubuntu zesty/multiverse amd64 Packages
+Ign:13 http://archive.ubuntu.com/ubuntu zesty/main amd64 Packages
+Ign:14 http://archive.ubuntu.com/ubuntu zesty/main all Packages
+Ign:16 http://archive.ubuntu.com/ubuntu zesty/restricted all Packages
+Err:17 http://archive.ubuntu.com/ubuntu zesty-updates/universe Sources
+  404  Not Found [IP: 91.189.88.149 80]
+Ign:36 http://security.ubuntu.com/ubuntu zesty-security/universe amd64 Packages
+Ign:18 http://archive.ubuntu.com/ubuntu zesty-updates/main all Packages
+Ign:19 http://archive.ubuntu.com/ubuntu zesty-updates/multiverse all Packages
+Ign:37 http://security.ubuntu.com/ubuntu zesty-security/multiverse amd64 Packages
+Ign:20 http://archive.ubuntu.com/ubuntu zesty-updates/universe amd64 Packages
+Ign:21 http://archive.ubuntu.com/ubuntu zesty-updates/universe all Packages
+Ign:22 http://archive.ubuntu.com/ubuntu zesty-updates/multiverse amd64 Packages
+Ign:24 http://archive.ubuntu.com/ubuntu zesty-updates/restricted all Packages
+Ign:25 http://archive.ubuntu.com/ubuntu zesty-updates/main amd64 Packages
+Ign:26 http://archive.ubuntu.com/ubuntu zesty-updates/restricted amd64 Packages
+Ign:28 http://archive.ubuntu.com/ubuntu zesty-backports/universe all Packages
+Err:29 http://archive.ubuntu.com/ubuntu zesty-backports/main amd64 Packages
+  404  Not Found [IP: 91.189.88.149 80]
+Ign:30 http://archive.ubuntu.com/ubuntu zesty-backports/universe amd64 Packages
+Ign:31 http://archive.ubuntu.com/ubuntu zesty-backports/multiverse all Packages
+Ign:32 http://archive.ubuntu.com/ubuntu zesty-backports/multiverse amd64 Packages
+Ign:33 http://archive.ubuntu.com/ubuntu zesty-backports/restricted all Packages
+Ign:34 http://archive.ubuntu.com/ubuntu zesty-backports/restricted amd64 Packages
+Ign:35 http://archive.ubuntu.com/ubuntu zesty-backports/main all Packages
+Ign:38 http://security.ubuntu.com/ubuntu zesty-security/multiverse all Packages
+Ign:39 http://security.ubuntu.com/ubuntu zesty-security/main amd64 Packages
+Ign:40 http://security.ubuntu.com/ubuntu zesty-security/restricted all Packages
+Ign:41 http://security.ubuntu.com/ubuntu zesty-security/universe all Packages
+Ign:42 http://security.ubuntu.com/ubuntu zesty-security/restricted amd64 Packages
+Ign:43 http://security.ubuntu.com/ubuntu zesty-security/main all Packages
+Ign:27 http://security.ubuntu.com/ubuntu zesty-security/universe Sources
+Ign:36 http://security.ubuntu.com/ubuntu zesty-security/universe amd64 Packages
+Ign:37 http://security.ubuntu.com/ubuntu zesty-security/multiverse amd64 Packages
+Ign:38 http://security.ubuntu.com/ubuntu zesty-security/multiverse all Packages
+Ign:39 http://security.ubuntu.com/ubuntu zesty-security/main amd64 Packages
+Ign:40 http://security.ubuntu.com/ubuntu zesty-security/restricted all Packages
+Ign:41 http://security.ubuntu.com/ubuntu zesty-security/universe all Packages
+Ign:42 http://security.ubuntu.com/ubuntu zesty-security/restricted amd64 Packages
+Ign:43 http://security.ubuntu.com/ubuntu zesty-security/main all Packages
+Ign:27 http://security.ubuntu.com/ubuntu zesty-security/universe Sources
+Ign:36 http://security.ubuntu.com/ubuntu zesty-security/universe amd64 Packages
+Ign:37 http://security.ubuntu.com/ubuntu zesty-security/multiverse amd64 Packages
+Ign:38 http://security.ubuntu.com/ubuntu zesty-security/multiverse all Packages
+Ign:39 http://security.ubuntu.com/ubuntu zesty-security/main amd64 Packages
+Ign:40 http://security.ubuntu.com/ubuntu zesty-security/restricted all Packages
+Ign:41 http://security.ubuntu.com/ubuntu zesty-security/universe all Packages
+Ign:42 http://security.ubuntu.com/ubuntu zesty-security/restricted amd64 Packages
+Ign:43 http://security.ubuntu.com/ubuntu zesty-security/main all Packages
+Err:27 http://security.ubuntu.com/ubuntu zesty-security/universe Sources
+  404  Not Found [IP: 91.189.91.26 80]
+Ign:36 http://security.ubuntu.com/ubuntu zesty-security/universe amd64 Packages
+Ign:37 http://security.ubuntu.com/ubuntu zesty-security/multiverse amd64 Packages
+Ign:38 http://security.ubuntu.com/ubuntu zesty-security/multiverse all Packages
+Ign:39 http://security.ubuntu.com/ubuntu zesty-security/main amd64 Packages
+Ign:40 http://security.ubuntu.com/ubuntu zesty-security/restricted all Packages
+Ign:41 http://security.ubuntu.com/ubuntu zesty-security/universe all Packages
+Ign:42 http://security.ubuntu.com/ubuntu zesty-security/restricted amd64 Packages
+Ign:43 http://security.ubuntu.com/ubuntu zesty-security/main all Packages
+Reading package lists...
+W: The repository 'http://archive.ubuntu.com/ubuntu zesty Release' does not have a Release file.
+W: The repository 'http://archive.ubuntu.com/ubuntu zesty-updates Release' does not have a Release file.
+W: The repository 'http://archive.ubuntu.com/ubuntu zesty-backports Release' does not have a Release file.
+W: The repository 'http://security.ubuntu.com/ubuntu zesty-security Release' does not have a Release file.
+E: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/zesty/universe/source/Sources  404  Not Found [IP: 91.189.88.149 80]
+E: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/zesty-updates/universe/source/Sources  404  Not Found [IP: 91.189.88.149 80]
+E: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/zesty-backports/main/binary-amd64/Packages  404  Not Found [IP: 91.189.88.149 80]
+E: Failed to fetch http://security.ubuntu.com/ubuntu/dists/zesty-security/universe/source/Sources  404  Not Found [IP: 91.189.91.26 80]
+E: Some index files failed to download. They have been ignored, or old ones used instead.
+The command '/bin/sh -c apt-get -y update  2>&1 && apt-get -y install unzip openssl cron socat curl idn  2>&1' returned a non-zero code: 100
