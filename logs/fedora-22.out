@@ -1,213 +1,521 @@
 Sending build context to Docker daemon  2.048kB
 Step 1/2 : FROM fedora:22
- ---> 01a9fe974dba
+ ---> 8b5cf972e254
 Step 2/2 : RUN yum  -y update     2>&1 && yum  -y install    tar openssl crontabs socat curl  2>&1
- ---> Using cache
- ---> 85bb199faf8d
-Successfully built 85bb199faf8d
+ ---> Running in 6c2cb1eef428
+Yum command has been deprecated, redirecting to '/usr/bin/dnf -y update'.
+See 'man dnf' and 'man yum2dnf' for more information.
+To transfer transaction metadata from yum to DNF, run:
+'dnf install python-dnf-plugins-extras-migrate && dnf-2 migrate'
+
+Last metadata expiration check performed 0:00:09 ago on Tue Nov 20 16:54:43 2018.
+Dependencies resolved.
+================================================================================
+ Package                        Arch      Version              Repository  Size
+================================================================================
+Installing:
+ python-pip                     noarch    6.0.8-1.fc22         fedora     1.7 M
+ python-setuptools              noarch    17.1.1-3.fc22        updates    425 k
+ sqlite-libs                    x86_64    3.11.0-3.fc22        updates    449 k
+     replacing  sqlite.x86_64 3.10.2-1.fc22
+Upgrading:
+ ca-certificates                noarch    2016.2.7-1.0.fc22    updates    424 k
+ elfutils-default-yama-scope    noarch    0.166-1.fc22         updates     38 k
+ elfutils-libelf                x86_64    0.166-1.fc22         updates    215 k
+ elfutils-libs                  x86_64    0.166-1.fc22         updates    273 k
+ expat                          x86_64    2.1.1-2.fc22         updates     86 k
+ glibc                          x86_64    2.21-13.fc22         updates    3.5 M
+ glibc-common                   x86_64    2.21-13.fc22         updates     12 M
+ gnupg2                         x86_64    2.1.11-1.fc22        updates    1.9 M
+ krb5-libs                      x86_64    1.13.2-15.fc22       updates    840 k
+ libarchive                     x86_64    3.1.2-14.fc22        updates    322 k
+ libgcc                         x86_64    5.3.1-6.fc22         updates     92 k
+ libksba                        x86_64    1.3.4-1.fc22         updates    128 k
+ libssh2                        x86_64    1.5.0-2.fc22         updates    145 k
+ libstdc++                      x86_64    5.3.1-6.fc22         updates    429 k
+ libtasn1                       x86_64    4.8-1.fc22           updates    325 k
+ lua                            x86_64    5.3.3-1.fc22         updates    310 k
+ nspr                           x86_64    4.12.0-1.fc22        updates    135 k
+ nss                            x86_64    3.23.0-1.0.fc22      updates    871 k
+ nss-softokn                    x86_64    3.23.0-1.0.fc22      updates    317 k
+ nss-softokn-freebl             x86_64    3.23.0-1.0.fc22      updates    214 k
+ nss-sysinit                    x86_64    3.23.0-1.0.fc22      updates     57 k
+ nss-tools                      x86_64    3.23.0-1.0.fc22      updates    493 k
+ nss-util                       x86_64    3.23.0-1.0.fc22      updates     82 k
+ openssl-libs                   x86_64    1:1.0.1k-15.fc22     updates    943 k
+ pcre                           x86_64    8.39-2.fc22          updates    506 k
+ python                         x86_64    2.7.10-10.fc22       updates     94 k
+ python-libs                    x86_64    2.7.10-10.fc22       updates    5.8 M
+ rpm                            x86_64    4.12.0.1-17.fc22     updates    502 k
+ rpm-build-libs                 x86_64    4.12.0.1-17.fc22     updates    112 k
+ rpm-libs                       x86_64    4.12.0.1-17.fc22     updates    277 k
+ rpm-plugin-selinux             x86_64    4.12.0.1-17.fc22     updates     50 k
+ rpm-plugin-systemd-inhibit     x86_64    4.12.0.1-17.fc22     updates     49 k
+ rpm-python                     x86_64    4.12.0.1-17.fc22     updates     91 k
+ sqlite                         x86_64    3.11.0-3.fc22        updates    473 k
+ tzdata                         noarch    2016d-1.fc22         updates    427 k
+ vim-minimal                    x86_64    2:7.4.1868-1.fc22    updates    489 k
+
+Transaction Summary
+================================================================================
+Install   3 Packages
+Upgrade  36 Packages
+
+Total download size: 35 M
+Downloading Packages:
+/usr/share/man/man8/ca-legacy.8.gz: No such file or directory
+cannot reconstruct rpm from disk files
+/usr/share/doc/libarchive/NEWS: No such file or directory
+cannot reconstruct rpm from disk files
+/usr/share/locale/de/LC_MESSAGES/elfutils.mo: No such file or directory
+cannot reconstruct rpm from disk files
+/usr/share/doc/lua/README: No such file or directory
+cannot reconstruct rpm from disk files
+/usr/share/doc/libssh2/AUTHORS: No such file or directory
+cannot reconstruct rpm from disk files
+/usr/share/doc/libtasn1/AUTHORS: No such file or directory
+cannot reconstruct rpm from disk files
+/usr/share/doc/python-libs/README: No such file or directory
+cannot reconstruct rpm from disk files
+libtasn1-4.8-1.fc22.x86_64: Delta RPM rebuild failed
+ca-certificates-2016.2.7-1.0.fc22.noarch: Delta RPM rebuild failed
+lua-5.3.3-1.fc22.x86_64: Delta RPM rebuild failed
+python-libs-2.7.10-10.fc22.x86_64: Delta RPM rebuild failed
+libarchive-3.1.2-14.fc22.x86_64: Delta RPM rebuild failed
+elfutils-libelf-0.166-1.fc22.x86_64: Delta RPM rebuild failed
+libssh2-1.5.0-2.fc22.x86_64: Delta RPM rebuild failed
+--------------------------------------------------------------------------------
+Total                                           4.2 MB/s |  35 MB     00:08     
+Delta RPMs reduced 34.7 MB of updates to 35.2 MB (-1.1% saved)
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Upgrading   : libgcc-5.3.1-6.fc22.x86_64                                 1/75 
+warning: Unable to get systemd shutdown inhibition lock
+  Upgrading   : tzdata-2016d-1.fc22.noarch                                 2/75 
+  Upgrading   : glibc-common-2.21-13.fc22.x86_64                           3/75 
+  Upgrading   : nss-softokn-freebl-3.23.0-1.0.fc22.x86_64                  4/75 
+  Upgrading   : glibc-2.21-13.fc22.x86_64                                  5/75 
+  Upgrading   : elfutils-libelf-0.166-1.fc22.x86_64                        6/75 
+  Upgrading   : lua-5.3.3-1.fc22.x86_64                                    7/75 
+  Upgrading   : nspr-4.12.0-1.fc22.x86_64                                  8/75 
+  Upgrading   : nss-util-3.23.0-1.0.fc22.x86_64                            9/75 
+  Installing  : sqlite-libs-3.11.0-3.fc22.x86_64                          10/75 
+  Upgrading   : nss-softokn-3.23.0-1.0.fc22.x86_64                        11/75 
+  Upgrading   : nss-sysinit-3.23.0-1.0.fc22.x86_64                        12/75 
+  Upgrading   : nss-3.23.0-1.0.fc22.x86_64                                13/75 
+  Upgrading   : expat-2.1.1-2.fc22.x86_64                                 14/75 
+  Upgrading   : libksba-1.3.4-1.fc22.x86_64                               15/75 
+  Upgrading   : gnupg2-2.1.11-1.fc22.x86_64                               16/75 
+  Upgrading   : libstdc++-5.3.1-6.fc22.x86_64                             17/75 
+  Upgrading   : elfutils-default-yama-scope-0.166-1.fc22.noarch           18/75 
+  Upgrading   : ca-certificates-2016.2.7-1.0.fc22.noarch                  19/75 
+  Upgrading   : krb5-libs-1.13.2-15.fc22.x86_64                           20/75 
+  Upgrading   : openssl-libs-1:1.0.1k-15.fc22.x86_64                      21/75 
+  Upgrading   : python-libs-2.7.10-10.fc22.x86_64                         22/75 
+  Installing  : python-setuptools-17.1.1-3.fc22.noarch                    23/75 
+  Upgrading   : python-2.7.10-10.fc22.x86_64                              24/75 
+  Installing  : python-pip-6.0.8-1.fc22.noarch                            25/75 
+  Upgrading   : libarchive-3.1.2-14.fc22.x86_64                           26/75 
+  Upgrading   : rpm-4.12.0.1-17.fc22.x86_64                               27/75 
+  Upgrading   : rpm-libs-4.12.0.1-17.fc22.x86_64                          28/75 
+  Upgrading   : rpm-plugin-selinux-4.12.0.1-17.fc22.x86_64                29/75 
+  Upgrading   : rpm-build-libs-4.12.0.1-17.fc22.x86_64                    30/75 
+  Upgrading   : rpm-python-4.12.0.1-17.fc22.x86_64                        31/75 
+  Upgrading   : rpm-plugin-systemd-inhibit-4.12.0.1-17.fc22.x86_64        32/75 
+  Upgrading   : libssh2-1.5.0-2.fc22.x86_64                               33/75 
+  Upgrading   : elfutils-libs-0.166-1.fc22.x86_64                         34/75 
+  Upgrading   : pcre-8.39-2.fc22.x86_64                                   35/75 
+  Upgrading   : nss-tools-3.23.0-1.0.fc22.x86_64                          36/75 
+  Upgrading   : sqlite-3.11.0-3.fc22.x86_64                               37/75 
+  Upgrading   : libtasn1-4.8-1.fc22.x86_64                                38/75 
+  Upgrading   : vim-minimal-2:7.4.1868-1.fc22.x86_64                      39/75 
+  Cleanup     : nss-tools-3.21.0-1.1.fc22.x86_64                          40/75 
+  Cleanup     : rpm-python-4.12.0.1-14.fc22.x86_64                        41/75 
+  Cleanup     : rpm-build-libs-4.12.0.1-14.fc22.x86_64                    42/75 
+  Cleanup     : rpm-plugin-systemd-inhibit-4.12.0.1-14.fc22.x86_64        43/75 
+  Cleanup     : rpm-plugin-selinux-4.12.0.1-14.fc22.x86_64                44/75 
+  Cleanup     : rpm-libs-4.12.0.1-14.fc22.x86_64                          45/75 
+  Cleanup     : rpm-4.12.0.1-14.fc22.x86_64                               46/75 
+  Cleanup     : nss-sysinit-3.21.0-1.1.fc22.x86_64                        47/75 
+  Cleanup     : nss-3.21.0-1.1.fc22.x86_64                                48/75 
+  Cleanup     : nss-softokn-3.21.0-1.1.fc22.x86_64                        49/75 
+  Cleanup     : elfutils-libs-0.165-2.fc22.x86_64                         50/75 
+  Cleanup     : nss-util-3.21.0-1.0.fc22.x86_64                           51/75 
+  Cleanup     : python-2.7.9-6.fc22.x86_64                                52/75 
+  Cleanup     : python-libs-2.7.9-6.fc22.x86_64                           53/75 
+  Cleanup     : pcre-8.38-1.fc22.x86_64                                   54/75 
+  Cleanup     : libstdc++-5.3.1-2.fc22.x86_64                             55/75 
+  Cleanup     : libarchive-3.1.2-12.fc22.x86_64                           56/75 
+  Cleanup     : gnupg2-2.1.9-1.fc22.x86_64                                57/75 
+  Cleanup     : libssh2-1.5.0-1.fc22.x86_64                               58/75 
+  Cleanup     : openssl-libs-1:1.0.1k-13.fc22.x86_64                      59/75 
+  Cleanup     : krb5-libs-1.13.2-13.fc22.x86_64                           60/75 
+  Cleanup     : libksba-1.3.2-1.fc22.x86_64                               61/75 
+  Cleanup     : expat-2.1.0-10.fc22.x86_64                                62/75 
+  Cleanup     : sqlite-3.10.2-1.fc22.x86_64                               63/75 
+  Cleanup     : nspr-4.10.10-2.fc22.x86_64                                64/75 
+  Cleanup     : elfutils-libelf-0.165-2.fc22.x86_64                       65/75 
+  Cleanup     : lua-5.3.2-2.fc22.x86_64                                   66/75 
+  Cleanup     : vim-minimal-2:7.4.827-1.fc22.x86_64                       67/75 
+  Cleanup     : libtasn1-4.5-1.fc22.x86_64                                68/75 
+  Cleanup     : ca-certificates-2015.2.6-1.0.fc22.noarch                  69/75 
+  Cleanup     : elfutils-default-yama-scope-0.165-2.fc22.noarch           70/75 
+  Cleanup     : glibc-common-2.21-11.fc22.x86_64                          71/75 
+  Cleanup     : nss-softokn-freebl-3.21.0-1.1.fc22.x86_64                 72/75 
+  Cleanup     : glibc-2.21-11.fc22.x86_64                                 73/75 
+  Cleanup     : tzdata-2016a-1.fc22.noarch                                74/75 
+  Cleanup     : libgcc-5.3.1-2.fc22.x86_64                                75/75 
+  Verifying   : python-pip-6.0.8-1.fc22.noarch                             1/75 
+  Verifying   : sqlite-libs-3.11.0-3.fc22.x86_64                           2/75 
+  Verifying   : python-setuptools-17.1.1-3.fc22.noarch                     3/75 
+  Verifying   : ca-certificates-2016.2.7-1.0.fc22.noarch                   4/75 
+  Verifying   : elfutils-default-yama-scope-0.166-1.fc22.noarch            5/75 
+  Verifying   : elfutils-libelf-0.166-1.fc22.x86_64                        6/75 
+  Verifying   : elfutils-libs-0.166-1.fc22.x86_64                          7/75 
+  Verifying   : expat-2.1.1-2.fc22.x86_64                                  8/75 
+  Verifying   : glibc-2.21-13.fc22.x86_64                                  9/75 
+  Verifying   : glibc-common-2.21-13.fc22.x86_64                          10/75 
+  Verifying   : gnupg2-2.1.11-1.fc22.x86_64                               11/75 
+  Verifying   : krb5-libs-1.13.2-15.fc22.x86_64                           12/75 
+  Verifying   : libarchive-3.1.2-14.fc22.x86_64                           13/75 
+  Verifying   : libgcc-5.3.1-6.fc22.x86_64                                14/75 
+  Verifying   : libksba-1.3.4-1.fc22.x86_64                               15/75 
+  Verifying   : libssh2-1.5.0-2.fc22.x86_64                               16/75 
+  Verifying   : libstdc++-5.3.1-6.fc22.x86_64                             17/75 
+  Verifying   : libtasn1-4.8-1.fc22.x86_64                                18/75 
+  Verifying   : lua-5.3.3-1.fc22.x86_64                                   19/75 
+  Verifying   : nspr-4.12.0-1.fc22.x86_64                                 20/75 
+  Verifying   : nss-3.23.0-1.0.fc22.x86_64                                21/75 
+  Verifying   : nss-softokn-3.23.0-1.0.fc22.x86_64                        22/75 
+  Verifying   : nss-util-3.23.0-1.0.fc22.x86_64                           23/75 
+  Verifying   : nss-softokn-freebl-3.23.0-1.0.fc22.x86_64                 24/75 
+  Verifying   : nss-tools-3.23.0-1.0.fc22.x86_64                          25/75 
+  Verifying   : nss-sysinit-3.23.0-1.0.fc22.x86_64                        26/75 
+  Verifying   : openssl-libs-1:1.0.1k-15.fc22.x86_64                      27/75 
+  Verifying   : pcre-8.39-2.fc22.x86_64                                   28/75 
+  Verifying   : python-2.7.10-10.fc22.x86_64                              29/75 
+  Verifying   : python-libs-2.7.10-10.fc22.x86_64                         30/75 
+  Verifying   : rpm-4.12.0.1-17.fc22.x86_64                               31/75 
+  Verifying   : rpm-python-4.12.0.1-17.fc22.x86_64                        32/75 
+  Verifying   : rpm-libs-4.12.0.1-17.fc22.x86_64                          33/75 
+  Verifying   : rpm-plugin-selinux-4.12.0.1-17.fc22.x86_64                34/75 
+  Verifying   : rpm-plugin-systemd-inhibit-4.12.0.1-17.fc22.x86_64        35/75 
+  Verifying   : rpm-build-libs-4.12.0.1-17.fc22.x86_64                    36/75 
+  Verifying   : sqlite-3.11.0-3.fc22.x86_64                               37/75 
+  Verifying   : tzdata-2016d-1.fc22.noarch                                38/75 
+  Verifying   : vim-minimal-2:7.4.1868-1.fc22.x86_64                      39/75 
+  Verifying   : rpm-4.12.0.1-14.fc22.x86_64                               40/75 
+  Verifying   : rpm-build-libs-4.12.0.1-14.fc22.x86_64                    41/75 
+  Verifying   : rpm-libs-4.12.0.1-14.fc22.x86_64                          42/75 
+  Verifying   : rpm-plugin-selinux-4.12.0.1-14.fc22.x86_64                43/75 
+  Verifying   : rpm-plugin-systemd-inhibit-4.12.0.1-14.fc22.x86_64        44/75 
+  Verifying   : ca-certificates-2015.2.6-1.0.fc22.noarch                  45/75 
+  Verifying   : sqlite-3.10.2-1.fc22.x86_64                               46/75 
+  Verifying   : tzdata-2016a-1.fc22.noarch                                47/75 
+  Verifying   : vim-minimal-2:7.4.827-1.fc22.x86_64                       48/75 
+  Verifying   : elfutils-default-yama-scope-0.165-2.fc22.noarch           49/75 
+  Verifying   : elfutils-libelf-0.165-2.fc22.x86_64                       50/75 
+  Verifying   : elfutils-libs-0.165-2.fc22.x86_64                         51/75 
+  Verifying   : expat-2.1.0-10.fc22.x86_64                                52/75 
+  Verifying   : glibc-2.21-11.fc22.x86_64                                 53/75 
+  Verifying   : glibc-common-2.21-11.fc22.x86_64                          54/75 
+  Verifying   : gnupg2-2.1.9-1.fc22.x86_64                                55/75 
+  Verifying   : rpm-python-4.12.0.1-14.fc22.x86_64                        56/75 
+  Verifying   : krb5-libs-1.13.2-13.fc22.x86_64                           57/75 
+  Verifying   : libarchive-3.1.2-12.fc22.x86_64                           58/75 
+  Verifying   : libgcc-5.3.1-2.fc22.x86_64                                59/75 
+  Verifying   : libksba-1.3.2-1.fc22.x86_64                               60/75 
+  Verifying   : libssh2-1.5.0-1.fc22.x86_64                               61/75 
+  Verifying   : libstdc++-5.3.1-2.fc22.x86_64                             62/75 
+  Verifying   : libtasn1-4.5-1.fc22.x86_64                                63/75 
+  Verifying   : lua-5.3.2-2.fc22.x86_64                                   64/75 
+  Verifying   : nspr-4.10.10-2.fc22.x86_64                                65/75 
+  Verifying   : nss-3.21.0-1.1.fc22.x86_64                                66/75 
+  Verifying   : nss-softokn-3.21.0-1.1.fc22.x86_64                        67/75 
+  Verifying   : nss-softokn-freebl-3.21.0-1.1.fc22.x86_64                 68/75 
+  Verifying   : nss-sysinit-3.21.0-1.1.fc22.x86_64                        69/75 
+  Verifying   : nss-tools-3.21.0-1.1.fc22.x86_64                          70/75 
+  Verifying   : nss-util-3.21.0-1.0.fc22.x86_64                           71/75 
+  Verifying   : openssl-libs-1:1.0.1k-13.fc22.x86_64                      72/75 
+  Verifying   : pcre-8.38-1.fc22.x86_64                                   73/75 
+  Verifying   : python-2.7.9-6.fc22.x86_64                                74/75 
+  Verifying   : python-libs-2.7.9-6.fc22.x86_64                           75/75 
+
+Installed:
+  python-pip.noarch 6.0.8-1.fc22      python-setuptools.noarch 17.1.1-3.fc22   
+  sqlite-libs.x86_64 3.11.0-3.fc22   
+
+Upgraded:
+  ca-certificates.noarch 2016.2.7-1.0.fc22                                      
+  elfutils-default-yama-scope.noarch 0.166-1.fc22                               
+  elfutils-libelf.x86_64 0.166-1.fc22                                           
+  elfutils-libs.x86_64 0.166-1.fc22                                             
+  expat.x86_64 2.1.1-2.fc22                                                     
+  glibc.x86_64 2.21-13.fc22                                                     
+  glibc-common.x86_64 2.21-13.fc22                                              
+  gnupg2.x86_64 2.1.11-1.fc22                                                   
+  krb5-libs.x86_64 1.13.2-15.fc22                                               
+  libarchive.x86_64 3.1.2-14.fc22                                               
+  libgcc.x86_64 5.3.1-6.fc22                                                    
+  libksba.x86_64 1.3.4-1.fc22                                                   
+  libssh2.x86_64 1.5.0-2.fc22                                                   
+  libstdc++.x86_64 5.3.1-6.fc22                                                 
+  libtasn1.x86_64 4.8-1.fc22                                                    
+  lua.x86_64 5.3.3-1.fc22                                                       
+  nspr.x86_64 4.12.0-1.fc22                                                     
+  nss.x86_64 3.23.0-1.0.fc22                                                    
+  nss-softokn.x86_64 3.23.0-1.0.fc22                                            
+  nss-softokn-freebl.x86_64 3.23.0-1.0.fc22                                     
+  nss-sysinit.x86_64 3.23.0-1.0.fc22                                            
+  nss-tools.x86_64 3.23.0-1.0.fc22                                              
+  nss-util.x86_64 3.23.0-1.0.fc22                                               
+  openssl-libs.x86_64 1:1.0.1k-15.fc22                                          
+  pcre.x86_64 8.39-2.fc22                                                       
+  python.x86_64 2.7.10-10.fc22                                                  
+  python-libs.x86_64 2.7.10-10.fc22                                             
+  rpm.x86_64 4.12.0.1-17.fc22                                                   
+  rpm-build-libs.x86_64 4.12.0.1-17.fc22                                        
+  rpm-libs.x86_64 4.12.0.1-17.fc22                                              
+  rpm-plugin-selinux.x86_64 4.12.0.1-17.fc22                                    
+  rpm-plugin-systemd-inhibit.x86_64 4.12.0.1-17.fc22                            
+  rpm-python.x86_64 4.12.0.1-17.fc22                                            
+  sqlite.x86_64 3.11.0-3.fc22                                                   
+  tzdata.noarch 2016d-1.fc22                                                    
+  vim-minimal.x86_64 2:7.4.1868-1.fc22                                          
+
+Complete!
+Yum command has been deprecated, redirecting to '/usr/bin/dnf -y install tar openssl crontabs socat curl'.
+See 'man dnf' and 'man yum2dnf' for more information.
+To transfer transaction metadata from yum to DNF, run:
+'dnf install python-dnf-plugins-extras-migrate && dnf-2 migrate'
+
+Last metadata expiration check performed 0:01:05 ago on Tue Nov 20 16:54:43 2018.
+Package curl-7.40.0-8.fc22.x86_64 is already installed, skipping.
+Dependencies resolved.
+================================================================================
+ Package            Arch       Version                        Repository   Size
+================================================================================
+Installing:
+ cronie             x86_64     1.4.12-5.fc22                  fedora      102 k
+ cronie-anacron     x86_64     1.4.12-5.fc22                  fedora       38 k
+ crontabs           noarch     1.11-9.20130830git.fc22        fedora       24 k
+ make               x86_64     1:4.0-3.1.fc22                 fedora      446 k
+ openssl            x86_64     1:1.0.1k-15.fc22               updates     497 k
+ socat              x86_64     1.7.2.4-4.fc22                 fedora      276 k
+ tar                x86_64     2:1.28-6.fc22                  updates     939 k
+
+Transaction Summary
+================================================================================
+Install  7 Packages
+
+Total download size: 2.3 M
+Installed size: 6.3 M
+Downloading Packages:
+--------------------------------------------------------------------------------
+Total                                           1.4 MB/s | 2.3 MB     00:01     
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Installing  : cronie-1.4.12-5.fc22.x86_64                                 1/7 
+warning: Unable to get systemd shutdown inhibition lock
+  Installing  : crontabs-1.11-9.20130830git.fc22.noarch                     2/7 
+  Installing  : cronie-anacron-1.4.12-5.fc22.x86_64                         3/7 
+  Installing  : make-1:4.0-3.1.fc22.x86_64                                  4/7 
+  Installing  : openssl-1:1.0.1k-15.fc22.x86_64                             5/7 
+  Installing  : tar-2:1.28-6.fc22.x86_64                                    6/7 
+  Installing  : socat-1.7.2.4-4.fc22.x86_64                                 7/7 
+  Verifying   : crontabs-1.11-9.20130830git.fc22.noarch                     1/7 
+  Verifying   : socat-1.7.2.4-4.fc22.x86_64                                 2/7 
+  Verifying   : cronie-1.4.12-5.fc22.x86_64                                 3/7 
+  Verifying   : tar-2:1.28-6.fc22.x86_64                                    4/7 
+  Verifying   : openssl-1:1.0.1k-15.fc22.x86_64                             5/7 
+  Verifying   : make-1:4.0-3.1.fc22.x86_64                                  6/7 
+  Verifying   : cronie-anacron-1.4.12-5.fc22.x86_64                         7/7 
+
+Installed:
+  cronie.x86_64 1.4.12-5.fc22              cronie-anacron.x86_64 1.4.12-5.fc22 
+  crontabs.noarch 1.11-9.20130830git.fc22  make.x86_64 1:4.0-3.1.fc22          
+  openssl.x86_64 1:1.0.1k-15.fc22          socat.x86_64 1.7.2.4-4.fc22         
+  tar.x86_64 2:1.28-6.fc22                
+
+Complete!
+ ---> 132332f8b257
+Removing intermediate container 6c2cb1eef428
+Successfully built 132332f8b257
 Successfully tagged myfedora:22
-Fri, 11 May 2018 05:40:46 UTC
+Tue, 20 Nov 2018 16:56:10 UTC
 Testing branch: master
-Progress: 0/1/21
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/1/21[0m
 ==Running le_test_dependencies please wait
 no crontab for root
 no crontab for root
-curl installed. [PASS]
-crontab installed. [PASS]
-openssl installed. [PASS]
-socat installed. [PASS]
+curl installed.[1;31;32m [PASS][0m
+crontab installed.[1;31;32m [PASS][0m
+openssl installed.[1;31;32m [PASS][0m
+socat installed.[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/2/21
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/2/21[0m
 ==Running le_test_install please wait
-./acme.sh install [PASS]
-/root/.acme.sh/acme.sh exists. [PASS]
-_contains '51 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
-/root/.acme.sh/acme.sh uninstall  > /dev/null [PASS]
+./acme.sh install[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh exists.[1;31;32m [PASS][0m
+_contains '12 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh uninstall  > /dev/null[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/3/21
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/3/21[0m
 ==Running le_test_uninstall please wait
-./acme.sh install [PASS]
-/root/.acme.sh/acme.sh uninstall [PASS]
-/root/.acme.sh/acme.sh no exists. [PASS]
-equals  [PASS]
+./acme.sh install[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh uninstall[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh no exists.[1;31;32m [PASS][0m
+equals [1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/4/21
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/4/21[0m
 ==Running le_test_installtodir please wait
-./acme.sh install [PASS]
-/root/myle/acme.sh exists. [PASS]
-_contains '53 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
-/root/myle/acme.sh uninstall [PASS]
+./acme.sh install[1;31;32m [PASS][0m
+/root/myle/acme.sh exists.[1;31;32m [PASS][0m
+_contains '14 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null'[1;31;32m [PASS][0m
+/root/myle/acme.sh uninstall[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/5/21
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/5/21[0m
 ==Running le_test_uninstalltodir please wait
-./acme.sh install [PASS]
-/root/myle/acme.sh uninstall [PASS]
-/root/myle/acme.sh no exists. [PASS]
-equals  [PASS]
+./acme.sh install[1;31;32m [PASS][0m
+/root/myle/acme.sh uninstall[1;31;32m [PASS][0m
+/root/myle/acme.sh no exists.[1;31;32m [PASS][0m
+equals [1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/6/21
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/6/21[0m
 ==Running le_test_install_config_home please wait
-./acme.sh --install --config-home /root/etc/acme [PASS]
-/root/.acme.sh/acme.sh exists. [PASS]
-_contains '54 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
-/root/etc/acme/account.conf exists. [PASS]
-/root/.acme.sh/account.conf no exists. [PASS]
-/root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null [PASS]
-/root/.acme.sh/acme.sh --uninstall --config-home /root/etc/acme > /dev/null [PASS]
-/root/etc/acme/account.conf exists. [PASS]
-/root/.acme.sh/account.conf no exists. [PASS]
+./acme.sh --install --config-home /root/etc/acme[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh exists.[1;31;32m [PASS][0m
+_contains '15 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null'[1;31;32m [PASS][0m
+/root/etc/acme/account.conf exists.[1;31;32m [PASS][0m
+/root/.acme.sh/account.conf no exists.[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --uninstall --config-home /root/etc/acme > /dev/null[1;31;32m [PASS][0m
+/root/etc/acme/account.conf exists.[1;31;32m [PASS][0m
+/root/.acme.sh/account.conf no exists.[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/7/21
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/7/21[0m
 ==Running le_test_standandalone_renew please wait
-/root/.acme.sh/acme.sh issue no testdocker.acme.sh [PASS]
-FORCE=1 /root/.acme.sh/acme.sh renew testdocker.acme.sh [PASS]
+/root/.acme.sh/acme.sh issue no testdocker.acme.sh[1;31;32m [PASS][0m
+FORCE=1 /root/.acme.sh/acme.sh renew testdocker.acme.sh[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/8/21
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/8/21[0m
 ==Running le_test_standandalone_renew_v2 please wait
-/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
-/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force [PASS]
-/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
+/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/9/21
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/9/21[0m
 ==Running le_test_standandalone_renew_localaddress_v2 please wait
-/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --local-address 0.0.0.0 --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
-/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force [PASS]
-/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
+/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --local-address 0.0.0.0 --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/10/21
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/10/21[0m
 ==Running le_test_standandalone_listen_v4_v2 please wait
-/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --listen-v4 --cert-file '/acmetest/certs/domain.cer' --key-file '/acmetest/certs/domain.key'  --ca-file '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchain-file  '/acmetest/certs/full.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
-/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force [PASS]
-/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
+/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --listen-v4 --cert-file '/acmetest/certs/domain.cer' --key-file '/acmetest/certs/domain.key'  --ca-file '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchain-file  '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/11/21
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/11/21[0m
 ==Running le_test_standandalone_listen_v6_v2 please wait
 Skipped by TEST_IPV6
 ------------------------------------------
-Progress: 0/12/21
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/12/21[0m
 ==Running le_test_standandalone_deactivate_v2 please wait
-/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
-/root/.acme.sh/acme.sh --deactivate -d testdocker.acme.sh [PASS]
+/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --deactivate -d testdocker.acme.sh[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/13/21
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/13/21[0m
 ==Running le_test_standandalone please wait
-/root/.acme.sh/acme.sh issue no testdocker.acme.sh [PASS]
-/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/acme.sh issue no testdocker.acme.sh[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/14/21
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/14/21[0m
 ==Running le_test_standandalone_SAN please wait
-/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh" [PASS]
-/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh"[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/15/21
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/15/21[0m
 ==Running le_test_standandalone_ECDSA_256 please wait
-/root/.acme.sh/acme.sh issue no testdocker.acme.sh no ec-256 [PASS]
-/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/acme.sh issue no testdocker.acme.sh no ec-256[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/16/21
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/16/21[0m
 ==Running le_test_standandalone_ECDSA_256_renew please wait
-/root/.acme.sh/acme.sh issue no testdocker.acme.sh no ec-256 [PASS]
-FORCE=1 /root/.acme.sh/acme.sh renew testdocker.acme.sh [PASS]
+/root/.acme.sh/acme.sh issue no testdocker.acme.sh no ec-256[1;31;32m [PASS][0m
+FORCE=1 /root/.acme.sh/acme.sh renew testdocker.acme.sh[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/17/21
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/17/21[0m
 ==Running le_test_standandalone_ECDSA_256_SAN_renew please wait
-/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh" ec-256 [PASS]
-FORCE=1 /root/.acme.sh/acme.sh renew "testdocker.acme.sh" [PASS]
+/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh" ec-256[1;31;32m [PASS][0m
+FORCE=1 /root/.acme.sh/acme.sh renew "testdocker.acme.sh"[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/18/21
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/18/21[0m
 ==Running le_test_standandalone_ECDSA_256_SAN_renew_v2 please wait
-/root/.acme.sh/acme.sh --issue -d "testdocker.acme.sh" -d "testdocker2.acme.sh" --standalone --keylength ec-256 --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh_ecc/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
-/root/.acme.sh/acme.sh --renew --ecc -d "testdocker.acme.sh" --force [PASS]
-/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh_ecc/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
+/root/.acme.sh/acme.sh --issue -d "testdocker.acme.sh" -d "testdocker2.acme.sh" --standalone --keylength ec-256 --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh_ecc/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --renew --ecc -d "testdocker.acme.sh" --force[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh_ecc/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/19/21
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/19/21[0m
 ==Running le_test_standandalone_ECDSA_384 please wait
-/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" no ec-384 [PASS]
-/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" no ec-384[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
 ------------------------------------------
-Progress: 0/20/21
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/20/21[0m
 ==Running le_test_standandalone_renew_idn_v2 please wait
 Skipped by TEST_IDN
 ------------------------------------------
-Progress: 0/21/21
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/21/21[0m
 ==Running le_test_dnsapi please wait
-The test domain Test_CF_Domain is not defined, skip:ClourFlare_api
-The test domain Test_CX_Domain is not defined, skip:CloudXNS.com_api
-The test domain Test_DP_Domain is not defined, skip:Dnspod.cn_api
-Testing dns_gd Godaddy_api
-TestingDomain='testgdapi.xyz'
-/root/.acme.sh/acme.sh --issue -d "testgdapi.xyz" --dns dns_gd --dnssleep ""  [PASS]
-/root/.acme.sh/testgdapi.xyz/testgdapi.xyz.cer is cert ? 'testgdapi.xyz' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testgdapi.xyz/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/acme.sh --deactivate -d "testgdapi.xyz" >/dev/null 2>&1 [PASS]
-The test domain Test_AWS_Domain is not defined, skip:Amazon_Route53_api
-The test domain Test_LUA_Domain is not defined, skip:luadns.com_api
-ME_Key is not defined, skip:dnsmadeeasy.com_api
-NSUPDATE_KEY is not defined, skip:nsupdate_api
-OVH_AK is not defined, skip:OVH.com_api
-PDNS_Token is not defined, skip:powerdns.com_api
-The test domain Test_ALI_Domain is not defined, skip:aliyun_api
-Testing dns_gandi_livedns gandi_livedns
-TestingDomain='acmetest.pw'
-/root/.acme.sh/acme.sh --issue -d "acmetest.pw" --dns dns_gandi_livedns --dnssleep "60"  [PASS]
-/root/.acme.sh/acmetest.pw/acmetest.pw.cer is cert ? 'acmetest.pw' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/acmetest.pw/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/acme.sh --deactivate -d "acmetest.pw" >/dev/null 2>&1 [PASS]
-The test domain Test_DYNU_Domain is not defined, skip:dynu_api
-Testing dns_he dns_he_net
-TestingDomain='he.acme.sh'
-/root/.acme.sh/acme.sh --issue -d "he.acme.sh" --dns dns_he --dnssleep "60"  [PASS]
-/root/.acme.sh/he.acme.sh/he.acme.sh.cer is cert ? 'he.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/he.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/acme.sh --deactivate -d "he.acme.sh" >/dev/null 2>&1 [PASS]
-Testing dns_zonomi dns_zonomi
-TestingDomain='zonomi.acme.sh'
-/root/.acme.sh/acme.sh --issue -d "zonomi.acme.sh" --dns dns_zonomi --dnssleep "30"  [PASS]
-/root/.acme.sh/zonomi.acme.sh/zonomi.acme.sh.cer is cert ? 'zonomi.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/zonomi.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/acme.sh --deactivate -d "zonomi.acme.sh" >/dev/null 2>&1 [PASS]
+Skipped by TEST_DNS
 ------------------------------------------
