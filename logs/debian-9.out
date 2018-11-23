@@ -6,7 +6,7 @@ Step 2/2 : RUN apt-get -y update  2>&1 && apt-get -y install openssl cron socat 
  ---> 1ae3657bdeff
 Successfully built 1ae3657bdeff
 Successfully tagged mydebian:9
-Fri, 23 Nov 2018 01:50:30 UTC
+Fri, 23 Nov 2018 16:12:53 UTC
 Testing branch: master
 [1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/1/21[0m
 ==Running le_test_dependencies please wait
@@ -21,7 +21,7 @@ socat installed.[1;31;32m [PASS][0m
 ==Running le_test_install please wait
 ./acme.sh install[1;31;32m [PASS][0m
 /root/.acme.sh/acme.sh exists.[1;31;32m [PASS][0m
-_contains '32 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null'[1;31;32m [PASS][0m
+_contains '55 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null'[1;31;32m [PASS][0m
 /root/.acme.sh/acme.sh uninstall  > /dev/null[1;31;32m [PASS][0m
 ------------------------------------------
 [1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/3/21[0m
@@ -35,7 +35,7 @@ equals [1;31;32m [PASS][0m
 ==Running le_test_installtodir please wait
 ./acme.sh install[1;31;32m [PASS][0m
 /root/myle/acme.sh exists.[1;31;32m [PASS][0m
-_contains '34 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null'[1;31;32m [PASS][0m
+_contains '56 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null'[1;31;32m [PASS][0m
 /root/myle/acme.sh uninstall[1;31;32m [PASS][0m
 ------------------------------------------
 [1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/5/21[0m
@@ -49,7 +49,7 @@ equals [1;31;32m [PASS][0m
 ==Running le_test_install_config_home please wait
 ./acme.sh --install --config-home /root/etc/acme[1;31;32m [PASS][0m
 /root/.acme.sh/acme.sh exists.[1;31;32m [PASS][0m
-_contains '35 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null'[1;31;32m [PASS][0m
+_contains '57 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null'[1;31;32m [PASS][0m
 /root/etc/acme/account.conf exists.[1;31;32m [PASS][0m
 /root/.acme.sh/account.conf no exists.[1;31;32m [PASS][0m
 /root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null[1;31;32m [PASS][0m
@@ -113,42 +113,38 @@ Skipped by TEST_IPV6
 ------------------------------------------
 [1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/12/21[0m
 ==Running le_test_standandalone_deactivate_v2 please wait
-/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
-/root/.acme.sh/acme.sh --deactivate -d testdocker.acme.sh[1;31;32m [PASS][0m
-------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/13/21[0m
+/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer'[1;31;40m [FAIL] [0m
+[1;31;40mRun Failed
+[0m------------------------------------------
+[1;31;32mProgress: [0m[1;31;40m1[0m[1;31;32m/13/21[0m
 ==Running le_test_standandalone please wait
 /root/.acme.sh/acme.sh issue no testdocker.acme.sh[1;31;32m [PASS][0m
 /root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
 /root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/14/21[0m
+[1;31;32mProgress: [0m[1;31;40m1[0m[1;31;32m/14/21[0m
 ==Running le_test_standandalone_SAN please wait
 /root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh"[1;31;32m [PASS][0m
 /root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
 /root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/15/21[0m
+[1;31;32mProgress: [0m[1;31;40m1[0m[1;31;32m/15/21[0m
 ==Running le_test_standandalone_ECDSA_256 please wait
 /root/.acme.sh/acme.sh issue no testdocker.acme.sh no ec-256[1;31;32m [PASS][0m
 /root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
 /root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/16/21[0m
+[1;31;32mProgress: [0m[1;31;40m1[0m[1;31;32m/16/21[0m
 ==Running le_test_standandalone_ECDSA_256_renew please wait
 /root/.acme.sh/acme.sh issue no testdocker.acme.sh no ec-256[1;31;32m [PASS][0m
 FORCE=1 /root/.acme.sh/acme.sh renew testdocker.acme.sh[1;31;32m [PASS][0m
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/17/21[0m
+[1;31;32mProgress: [0m[1;31;40m1[0m[1;31;32m/17/21[0m
 ==Running le_test_standandalone_ECDSA_256_SAN_renew please wait
 /root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh" ec-256[1;31;32m [PASS][0m
 FORCE=1 /root/.acme.sh/acme.sh renew "testdocker.acme.sh"[1;31;32m [PASS][0m
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/18/21[0m
+[1;31;32mProgress: [0m[1;31;40m1[0m[1;31;32m/18/21[0m
 ==Running le_test_standandalone_ECDSA_256_SAN_renew_v2 please wait
 /root/.acme.sh/acme.sh --issue -d "testdocker.acme.sh" -d "testdocker2.acme.sh" --standalone --keylength ec-256 --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
 '/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
@@ -163,17 +159,17 @@ FORCE=1 /root/.acme.sh/acme.sh renew "testdocker.acme.sh"[1;31;32m [PASS][0m
 '/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
 '/root/.acme.sh/testdocker.acme.sh_ecc/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/19/21[0m
+[1;31;32mProgress: [0m[1;31;40m1[0m[1;31;32m/19/21[0m
 ==Running le_test_standandalone_ECDSA_384 please wait
 /root/.acme.sh/acme.sh issue no "testdocker.acme.sh" no ec-384[1;31;32m [PASS][0m
 /root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
 /root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/20/21[0m
+[1;31;32mProgress: [0m[1;31;40m1[0m[1;31;32m/20/21[0m
 ==Running le_test_standandalone_renew_idn_v2 please wait
 Skipped by TEST_IDN
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/21/21[0m
+[1;31;32mProgress: [0m[1;31;40m1[0m[1;31;32m/21/21[0m
 ==Running le_test_dnsapi please wait
 Skipped by TEST_DNS
 ------------------------------------------
