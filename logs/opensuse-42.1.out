@@ -2,14 +2,14 @@ Sending build context to Docker daemon  2.048kB
 Step 1/2 : FROM opensuse:42.1
  ---> 7617deda9fe6
 Step 2/2 : RUN zypper rr OSS NON-OSS && zypper update -y  2>&1 && zypper install  -y   tar openssl cron socat curl libidn  2>&1
- ---> Running in bc05acac5c0e
+ ---> Running in b6ed3943a5ea
 Removing repository 'NON-OSS' [...done]
 Repository 'NON-OSS' has been removed.
 Removing repository 'OSS' [...done]
 Repository 'OSS' has been removed.
 Retrieving repository 'OSS Update' metadata [....done]
 Building repository 'OSS Update' cache [....done]
-Retrieving repository 'Update Non-Oss' metadata [..done]
+Retrieving repository 'Update Non-Oss' metadata [.done]
 Building repository 'Update Non-Oss' cache [....done]
 Loading repository data...
 Warning: Repository 'OSS Update' appears to be outdated. Consider using a different mirror or server.
@@ -35,7 +35,7 @@ Retrieving: glibc-2.19-22.1.x86_64.rpm [done]
 Retrieving package insserv-compat-0.1-15.1.noarch (3/59),   9.1 KiB (  8.2 KiB unpacked)
 Retrieving: insserv-compat-0.1-15.1.noarch.rpm [done]
 Retrieving package update-alternatives-1.16.10-14.1.x86_64 (4/59),  35.5 KiB ( 65.8 KiB unpacked)
-Retrieving: update-alternatives-1.16.10-14.1.x86_64.rpm [.done]
+Retrieving: update-alternatives-1.16.10-14.1.x86_64.rpm [done]
 Retrieving package perl-base-5.18.2-5.1.x86_64 (5/59),   1.1 MiB (  3.4 MiB unpacked)
 Retrieving: perl-base-5.18.2-5.1.x86_64.rpm [done]
 Retrieving package libz1-1.2.8-8.1.x86_64 (6/59),  51.4 KiB ( 86.1 KiB unpacked)
@@ -43,7 +43,7 @@ Retrieving: libz1-1.2.8-8.1.x86_64.rpm [done]
 Retrieving package libuuid1-2.25-21.1.x86_64 (7/59),  62.2 KiB ( 18.7 KiB unpacked)
 Retrieving: libuuid1-2.25-21.1.x86_64.rpm [done]
 Retrieving package libudev1-210-104.1.x86_64 (8/59), 264.9 KiB ( 70.1 KiB unpacked)
-Retrieving: libudev1-210-104.1.x86_64.rpm [done]
+Retrieving: libudev1-210-104.1.x86_64.rpm [.done]
 Retrieving package libsmartcols1-2.25-21.1.x86_64 (9/59), 107.4 KiB (136.0 KiB unpacked)
 Retrieving: libsmartcols1-2.25-21.1.x86_64.rpm [done]
 Retrieving package libsgutils2-2-1.42-11.1.x86_64 (10/59),  69.2 KiB (176.9 KiB unpacked)
@@ -57,7 +57,7 @@ Retrieving: libpcre1-8.39-5.1.x86_64.rpm [done]
 Retrieving package libksba8-1.3.0-7.1.x86_64 (14/59),  91.9 KiB (243.4 KiB unpacked)
 Retrieving: libksba8-1.3.0-7.1.x86_64.rpm [done]
 Retrieving package libkmod2-17-8.1.x86_64 (15/59),  44.5 KiB ( 82.9 KiB unpacked)
-Retrieving: libkmod2-17-8.1.x86_64.rpm [.done]
+Retrieving: libkmod2-17-8.1.x86_64.rpm [done]
 Retrieving package libidn11-1.28-6.1.x86_64 (16/59),  45.8 KiB (206.6 KiB unpacked)
 Retrieving: libidn11-1.28-6.1.x86_64.rpm [done]
 Retrieving package libgcrypt20-1.6.1-32.1.x86_64 (17/59), 330.3 KiB (944.7 KiB unpacked)
@@ -69,7 +69,7 @@ Retrieving: libffi4-5.3.1+r233831-6.1.x86_64.rpm [done]
 Retrieving package libexpat1-2.1.0-20.1.x86_64 (20/59),  57.9 KiB (166.2 KiB unpacked)
 Retrieving: libexpat1-2.1.0-20.1.x86_64.rpm [done]
 Retrieving package libdbus-1-3-1.8.22-13.1.x86_64 (21/59), 162.1 KiB (284.0 KiB unpacked)
-Retrieving: libdbus-1-3-1.8.22-13.1.x86_64.rpm [done]
+Retrieving: libdbus-1-3-1.8.22-13.1.x86_64.rpm [.done]
 Retrieving package libcap2-2.22-16.1.x86_64 (22/59),  11.6 KiB ( 18.5 KiB unpacked)
 Retrieving: libcap2-2.22-16.1.x86_64.rpm [done]
 Retrieving package libbz2-1-1.0.6-32.1.x86_64 (23/59),  33.4 KiB ( 61.4 KiB unpacked)
@@ -83,13 +83,13 @@ Retrieving: libopenssl1_0_0-1.0.1i-21.1.x86_64.rpm [done]
 Retrieving package libblkid1-2.25-21.1.x86_64 (27/59), 151.3 KiB (253.0 KiB unpacked)
 Retrieving: libblkid1-2.25-21.1.x86_64.rpm [done]
 Retrieving package bash-4.2-81.1.x86_64 (28/59), 344.3 KiB (703.9 KiB unpacked)
-Retrieving: bash-4.2-81.1.x86_64.rpm [.done]
+Retrieving: bash-4.2-81.1.x86_64.rpm [done]
 Retrieving package libstdc++6-5.3.1+r233831-6.1.x86_64 (29/59), 361.7 KiB (  1.5 MiB unpacked)
 Retrieving: libstdc++6-5.3.1+r233831-6.1.x86_64.rpm [done]
 Retrieving package libp11-kit0-0.20.3-10.1.x86_64 (30/59), 146.6 KiB (565.9 KiB unpacked)
 Retrieving: libp11-kit0-0.20.3-10.1.x86_64.rpm [done]
 Retrieving package expat-2.1.0-20.1.x86_64 (31/59),  54.0 KiB (152.4 KiB unpacked)
-Retrieving: expat-2.1.0-20.1.x86_64.rpm [done]
+Retrieving: expat-2.1.0-20.1.x86_64.rpm [.done]
 Retrieving package libaugeas0-1.2.0-8.1.x86_64 (32/59), 182.6 KiB (369.8 KiB unpacked)
 Retrieving: libaugeas0-1.2.0-8.1.x86_64.rpm [done]
 Retrieving package libssh2-1-1.4.3-15.1.x86_64 (33/59),  71.6 KiB (175.5 KiB unpacked)
@@ -107,13 +107,13 @@ Retrieving: libtasn1-6-3.7-12.1.x86_64.rpm [done]
 Retrieving package kmod-17-8.1.x86_64 (39/59),  67.8 KiB (142.2 KiB unpacked)
 Retrieving: kmod-17-8.1.x86_64.rpm [done]
 Retrieving package findutils-4.5.12-10.1.x86_64 (40/59), 280.0 KiB (658.4 KiB unpacked)
-Retrieving: findutils-4.5.12-10.1.x86_64.rpm [.done]
+Retrieving: findutils-4.5.12-10.1.x86_64.rpm [done]
 Retrieving package cracklib-2.9.0-7.1.x86_64 (41/59),  56.9 KiB (187.3 KiB unpacked)
 Retrieving: cracklib-2.9.0-7.1.x86_64.rpm [done]
 Retrieving package cpio-2.11-35.1.x86_64 (42/59),  83.7 KiB (220.5 KiB unpacked)
 Retrieving: cpio-2.11-35.1.x86_64.rpm [done]
 Retrieving package coreutils-8.22-6.1.x86_64 (43/59),   1.2 MiB (  5.5 MiB unpacked)
-Retrieving: coreutils-8.22-6.1.x86_64.rpm [done]
+Retrieving: coreutils-8.22-6.1.x86_64.rpm [.done]
 Retrieving package ca-certificates-mozilla-2.7-7.1.noarch (44/59), 217.5 KiB (377.4 KiB unpacked)
 Retrieving: ca-certificates-mozilla-2.7-7.1.noarch.rpm [done]
 Retrieving package bzip2-1.0.6-32.1.x86_64 (45/59),  36.1 KiB ( 64.8 KiB unpacked)
@@ -129,11 +129,11 @@ Retrieving: procps-3.3.9-10.1.x86_64.rpm [done]
 Retrieving package permissions-2015.09.28.1626-11.2.x86_64 (50/59),  31.8 KiB ( 92.5 KiB unpacked)
 Retrieving: permissions-2015.09.28.1626-11.2.x86_64.rpm [done]
 Retrieving package krb5-mini-1.12.1-36.1.x86_64 (51/59), 1017.5 KiB (  3.2 MiB unpacked)
-Retrieving: krb5-mini-1.12.1-36.1.x86_64.rpm [.done]
+Retrieving: krb5-mini-1.12.1-36.1.x86_64.rpm [done]
 Retrieving package device-mapper-1.02.97-76.1.x86_64 (52/59), 518.8 KiB (  2.0 MiB unpacked)
 Retrieving: device-mapper-1.02.97-76.1.x86_64.rpm [done]
 Retrieving package p11-kit-tools-0.20.3-10.1.x86_64 (53/59),  75.0 KiB (182.2 KiB unpacked)
-Retrieving: p11-kit-tools-0.20.3-10.1.x86_64.rpm [done]
+Retrieving: p11-kit-tools-0.20.3-10.1.x86_64.rpm [.done]
 Retrieving package p11-kit-0.20.3-10.1.x86_64 (54/59),  85.2 KiB (224.4 KiB unpacked)
 Retrieving: p11-kit-0.20.3-10.1.x86_64.rpm [done]
 Retrieving package util-linux-2.25-21.1.x86_64 (55/59), 963.3 KiB (  3.4 MiB unpacked)
