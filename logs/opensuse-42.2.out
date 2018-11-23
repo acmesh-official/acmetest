@@ -1,87 +1,12 @@
 Sending build context to Docker daemon  2.048kB
 Step 1/2 : FROM opensuse:42.2
-42.2: Pulling from library/opensuse
-21ccd2c31ba5: Pulling fs layer
-21ccd2c31ba5: Verifying Checksum
-21ccd2c31ba5: Download complete
-21ccd2c31ba5: Pull complete
-Digest: sha256:ae726971f52a64efc2265dde30b4eea17d00e0bf1cf45d41aa337920844229e9
-Status: Downloaded newer image for opensuse:42.2
  ---> 377239f1cc44
 Step 2/2 : RUN zypper update -y  2>&1 && zypper install  -y   tar openssl cron socat curl libidn  2>&1
- ---> Running in f0a744494f00
-Retrieving repository 'NON OSS' metadata [.done]
-Building repository 'NON OSS' cache [....done]
-Retrieving repository 'NON OSS Update' metadata [.done]
-Building repository 'NON OSS Update' cache [....done]
-Retrieving repository 'OSS' metadata [..done]
-Building repository 'OSS' cache [....done]
-Retrieving repository 'OSS Update' metadata [....done]
-Building repository 'OSS Update' cache [....done]
-Loading repository data...
-Warning: Repository 'NON OSS Update' appears to be outdated. Consider using a different mirror or server.
-Warning: Repository 'OSS Update' appears to be outdated. Consider using a different mirror or server.
-Reading installed packages...
-
-The following package is going to be upgraded:
-  libcurl4
-
-1 package to upgrade.
-Overall download size: 201.3 KiB. Already cached: 0 B. No additional space will be used or freed after the operation.
-Continue? [y/n/...? shows all options] (y): y
-Retrieving package libcurl4-7.37.0-16.15.1.x86_64 (1/1), 201.3 KiB (445.4 KiB unpacked)
-Retrieving: libcurl4-7.37.0-16.15.1.x86_64.rpm [.done (329.2 KiB/s)]
-Checking for file conflicts: [...done]
-(1/1) Installing: libcurl4-7.37.0-16.15.1.x86_64 [..........done]
-Loading repository data...
-Warning: Repository 'NON OSS Update' appears to be outdated. Consider using a different mirror or server.
-Warning: Repository 'OSS Update' appears to be outdated. Consider using a different mirror or server.
-Reading installed packages...
-'openssl' is already installed.
-No update candidate for 'openssl-1.0.2j-6.9.1.x86_64'. The highest available version is already installed.
-'libidn' not found in package names. Trying capabilities.
-Resolving package dependencies...
-
-The following 7 NEW packages are going to be installed:
-  cron cronie curl libidn-tools libwrap0 socat tar
-
-7 new packages to install.
-Overall download size: 1.2 MiB. Already cached: 0 B. After the operation, additional 3.2 MiB will be used.
-Continue? [y/n/...? shows all options] (y): y
-Retrieving package cron-4.2-58.25.x86_64 (1/7),  12.0 KiB (  181   B unpacked)
-Retrieving: cron-4.2-58.25.x86_64.rpm [done]
-Retrieving package libidn-tools-1.28-6.2.x86_64 (2/7), 206.4 KiB (849.2 KiB unpacked)
-Retrieving: libidn-tools-1.28-6.2.x86_64.rpm [done]
-Retrieving package libwrap0-7.6-886.55.x86_64 (3/7),  19.9 KiB ( 40.8 KiB unpacked)
-Retrieving: libwrap0-7.6-886.55.x86_64.rpm [done]
-Retrieving package cronie-1.4.11-58.25.x86_64 (4/7),  89.8 KiB (219.9 KiB unpacked)
-Retrieving: cronie-1.4.11-58.25.x86_64.rpm [done]
-Retrieving package socat-1.7.3.1-7.1.x86_64 (5/7), 208.3 KiB (633.4 KiB unpacked)
-Retrieving: socat-1.7.3.1-7.1.x86_64.rpm [done]
-Retrieving package tar-1.27.1-11.1.x86_64 (6/7), 492.9 KiB (  1.2 MiB unpacked)
-Retrieving: tar-1.27.1-11.1.x86_64.rpm [.done (3.3 MiB/s)]
-Retrieving package curl-7.37.0-16.15.1.x86_64 (7/7), 151.9 KiB (312.9 KiB unpacked)
-Retrieving: curl-7.37.0-16.15.1.x86_64.rpm [done]
-Checking for file conflicts: [.......done]
-(1/7) Installing: cron-4.2-58.25.x86_64 [.....done]
-(2/7) Installing: libidn-tools-1.28-6.2.x86_64 [...........done]
-(3/7) Installing: libwrap0-7.6-886.55.x86_64 [....done]
-(4/7) Installing: cronie-1.4.11-58.25.x86_64 [........done]
-Additional rpm output:
-setting /usr/bin/crontab to root:trusted 4755. (wrong permissions 4750)
-Updating /etc/sysconfig/cron...
-Failed to connect to bus: No such file or directory
-Created symlink from /etc/systemd/system/multi-user.target.wants/cron.service to /usr/lib/systemd/system/cron.service.
-
-
-(5/7) Installing: socat-1.7.3.1-7.1.x86_64 [..........done]
-(6/7) Installing: tar-1.27.1-11.1.x86_64 [............done]
-(7/7) Installing: curl-7.37.0-16.15.1.x86_64 [.........done]
+ ---> Using cache
  ---> 2d8a3ce2e5c2
-Removing intermediate container f0a744494f00
 Successfully built 2d8a3ce2e5c2
 Successfully tagged myopensuse:42.2
-Tue, 20 Nov 2018 17:13:48 UTC
+Fri, 23 Nov 2018 02:53:47 UTC
 Testing branch: master
 [1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/1/21[0m
 ==Running le_test_dependencies please wait
@@ -110,7 +35,7 @@ equals [1;31;32m [PASS][0m
 ==Running le_test_installtodir please wait
 ./acme.sh install[1;31;32m [PASS][0m
 /root/myle/acme.sh exists.[1;31;32m [PASS][0m
-_contains '51 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null'[1;31;32m [PASS][0m
+_contains '50 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null'[1;31;32m [PASS][0m
 /root/myle/acme.sh uninstall[1;31;32m [PASS][0m
 ------------------------------------------
 [1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/5/21[0m
@@ -124,7 +49,7 @@ equals [1;31;32m [PASS][0m
 ==Running le_test_install_config_home please wait
 ./acme.sh --install --config-home /root/etc/acme[1;31;32m [PASS][0m
 /root/.acme.sh/acme.sh exists.[1;31;32m [PASS][0m
-_contains '52 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null'[1;31;32m [PASS][0m
+_contains '51 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null'[1;31;32m [PASS][0m
 /root/etc/acme/account.conf exists.[1;31;32m [PASS][0m
 /root/.acme.sh/account.conf no exists.[1;31;32m [PASS][0m
 /root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null[1;31;32m [PASS][0m
