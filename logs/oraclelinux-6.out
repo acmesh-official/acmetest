@@ -2,13 +2,13 @@ Sending build context to Docker daemon  2.048kB
 Step 1/2 : FROM oraclelinux:6
  ---> 0f6021efa08e
 Step 2/2 : RUN curl http://www.convirture.com/repos/definitions/rhel/6.x/convirt.repo > /etc/yum.repos.d/convirt.repo && yum  -y update     2>&1 && yum -y install    tar openssl crontabs socat curl  2>&1
- ---> Running in 25d613db7529
+ ---> Running in ea2e7a409cea
 [91m  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0[0m[91m111   335  111   335    0     0   6894      0 --:--:-- --:--:-- --:--:-- 22333[0m[91m
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0[0m[91m111   335  111   335    0     0   4282      0 --:--:-- --:--:-- --:--:--  8589
 [0mLoaded plugins: security, ulninfo
 Setting up Update Process
 Error: File contains no section headers.
 file: file:///etc/yum.repos.d/convirt.repo, line: 1
-"<html><head><title>Loading...</title></head><body><script type='text/javascript'>window.location.replace('http://www.convirture.com/repos/definitions/rhel/6.x/convirt.repo?js=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqcyI6MX0.fADWc9hUOlh58R9UzufQBROmie3I7c7vE835oE6YmU4&uuid=bd929f40-eed3-11e8-a50b-dbbd4d912af8');</script></body></html>"
+"<html><head><title>Loading...</title></head><body><script type='text/javascript'>window.location.replace('http://www.convirture.com/repos/definitions/rhel/6.x/convirt.repo?js=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqcyI6MX0.fADWc9hUOlh58R9UzufQBROmie3I7c7vE835oE6YmU4&uuid=c1e6666c-eed3-11e8-965e-9ae6f95f2791');</script></body></html>"
 The command '/bin/sh -c curl http://www.convirture.com/repos/definitions/rhel/6.x/convirt.repo > /etc/yum.repos.d/convirt.repo && yum  -y update     2>&1 && yum -y install    tar openssl crontabs socat curl  2>&1' returned a non-zero code: 1
