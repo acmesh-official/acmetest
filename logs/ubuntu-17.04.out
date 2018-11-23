@@ -2,237 +2,237 @@ Sending build context to Docker daemon  2.048kB
 Step 1/2 : FROM ubuntu:17.04
  ---> fe1cc5b91830
 Step 2/2 : RUN apt-get -y update  2>&1 && apt-get -y install unzip openssl cron socat curl idn  2>&1
- ---> Running in fd9aedda9c20
-Ign:1 http://archive.ubuntu.com/ubuntu zesty InRelease
-Ign:2 http://security.ubuntu.com/ubuntu zesty-security InRelease
-Ign:3 http://archive.ubuntu.com/ubuntu zesty-updates InRelease
-Ign:4 http://security.ubuntu.com/ubuntu zesty-security Release
-Ign:5 http://archive.ubuntu.com/ubuntu zesty-backports InRelease
-Ign:6 http://security.ubuntu.com/ubuntu zesty-security/universe Sources
-Ign:7 http://archive.ubuntu.com/ubuntu zesty Release
-Ign:8 http://security.ubuntu.com/ubuntu zesty-security/universe amd64 Packages
-Ign:9 http://archive.ubuntu.com/ubuntu zesty-updates Release
-Ign:10 http://security.ubuntu.com/ubuntu zesty-security/multiverse all Packages
-Ign:11 http://security.ubuntu.com/ubuntu zesty-security/main all Packages
+ ---> Running in a9eaab58893a
+Ign:1 http://security.ubuntu.com/ubuntu zesty-security InRelease
+Ign:2 http://archive.ubuntu.com/ubuntu zesty InRelease
+Ign:3 http://security.ubuntu.com/ubuntu zesty-security Release
+Ign:4 http://archive.ubuntu.com/ubuntu zesty-updates InRelease
+Ign:5 http://security.ubuntu.com/ubuntu zesty-security/universe Sources
+Ign:6 http://archive.ubuntu.com/ubuntu zesty-backports InRelease
+Ign:7 http://security.ubuntu.com/ubuntu zesty-security/main all Packages
+Ign:8 http://archive.ubuntu.com/ubuntu zesty Release
+Ign:9 http://security.ubuntu.com/ubuntu zesty-security/restricted amd64 Packages
+Ign:10 http://archive.ubuntu.com/ubuntu zesty-updates Release
+Ign:11 http://security.ubuntu.com/ubuntu zesty-security/multiverse all Packages
 Ign:12 http://archive.ubuntu.com/ubuntu zesty-backports Release
-Ign:13 http://security.ubuntu.com/ubuntu zesty-security/universe all Packages
+Ign:13 http://security.ubuntu.com/ubuntu zesty-security/restricted all Packages
 Ign:14 http://archive.ubuntu.com/ubuntu zesty/universe Sources
-Ign:15 http://security.ubuntu.com/ubuntu zesty-security/restricted all Packages
-Ign:16 http://archive.ubuntu.com/ubuntu zesty/multiverse all Packages
-Ign:17 http://security.ubuntu.com/ubuntu zesty-security/restricted amd64 Packages
-Ign:18 http://archive.ubuntu.com/ubuntu zesty/main all Packages
-Ign:19 http://security.ubuntu.com/ubuntu zesty-security/main amd64 Packages
-Ign:20 http://archive.ubuntu.com/ubuntu zesty/multiverse amd64 Packages
-Ign:21 http://security.ubuntu.com/ubuntu zesty-security/multiverse amd64 Packages
-Ign:22 http://archive.ubuntu.com/ubuntu zesty/universe amd64 Packages
-Ign:6 http://security.ubuntu.com/ubuntu zesty-security/universe Sources
-Ign:23 http://archive.ubuntu.com/ubuntu zesty/universe all Packages
-Ign:8 http://security.ubuntu.com/ubuntu zesty-security/universe amd64 Packages
-Ign:24 http://archive.ubuntu.com/ubuntu zesty/restricted all Packages
-Ign:10 http://security.ubuntu.com/ubuntu zesty-security/multiverse all Packages
-Ign:25 http://archive.ubuntu.com/ubuntu zesty/main amd64 Packages
-Ign:11 http://security.ubuntu.com/ubuntu zesty-security/main all Packages
-Ign:26 http://archive.ubuntu.com/ubuntu zesty/restricted amd64 Packages
-Ign:13 http://security.ubuntu.com/ubuntu zesty-security/universe all Packages
+Ign:15 http://security.ubuntu.com/ubuntu zesty-security/main amd64 Packages
+Ign:16 http://archive.ubuntu.com/ubuntu zesty/restricted all Packages
+Ign:17 http://security.ubuntu.com/ubuntu zesty-security/universe amd64 Packages
+Ign:18 http://security.ubuntu.com/ubuntu zesty-security/universe all Packages
+Ign:19 http://archive.ubuntu.com/ubuntu zesty/multiverse all Packages
+Ign:20 http://security.ubuntu.com/ubuntu zesty-security/multiverse amd64 Packages
+Ign:21 http://archive.ubuntu.com/ubuntu zesty/main amd64 Packages
+Ign:5 http://security.ubuntu.com/ubuntu zesty-security/universe Sources
+Ign:22 http://archive.ubuntu.com/ubuntu zesty/multiverse amd64 Packages
+Ign:7 http://security.ubuntu.com/ubuntu zesty-security/main all Packages
+Ign:23 http://archive.ubuntu.com/ubuntu zesty/restricted amd64 Packages
+Ign:9 http://security.ubuntu.com/ubuntu zesty-security/restricted amd64 Packages
+Ign:24 http://archive.ubuntu.com/ubuntu zesty/universe amd64 Packages
+Ign:11 http://security.ubuntu.com/ubuntu zesty-security/multiverse all Packages
+Ign:25 http://archive.ubuntu.com/ubuntu zesty/universe all Packages
+Ign:13 http://security.ubuntu.com/ubuntu zesty-security/restricted all Packages
+Ign:26 http://archive.ubuntu.com/ubuntu zesty/main all Packages
+Ign:15 http://security.ubuntu.com/ubuntu zesty-security/main amd64 Packages
 Ign:27 http://archive.ubuntu.com/ubuntu zesty-updates/universe Sources
-Ign:15 http://security.ubuntu.com/ubuntu zesty-security/restricted all Packages
-Ign:28 http://archive.ubuntu.com/ubuntu zesty-updates/restricted amd64 Packages
-Ign:17 http://security.ubuntu.com/ubuntu zesty-security/restricted amd64 Packages
-Ign:29 http://archive.ubuntu.com/ubuntu zesty-updates/restricted all Packages
-Ign:19 http://security.ubuntu.com/ubuntu zesty-security/main amd64 Packages
-Ign:30 http://archive.ubuntu.com/ubuntu zesty-updates/main amd64 Packages
-Ign:21 http://security.ubuntu.com/ubuntu zesty-security/multiverse amd64 Packages
-Ign:31 http://archive.ubuntu.com/ubuntu zesty-updates/main all Packages
-Ign:6 http://security.ubuntu.com/ubuntu zesty-security/universe Sources
-Ign:32 http://archive.ubuntu.com/ubuntu zesty-updates/multiverse all Packages
-Ign:8 http://security.ubuntu.com/ubuntu zesty-security/universe amd64 Packages
-Ign:33 http://archive.ubuntu.com/ubuntu zesty-updates/universe amd64 Packages
-Ign:10 http://security.ubuntu.com/ubuntu zesty-security/multiverse all Packages
+Ign:17 http://security.ubuntu.com/ubuntu zesty-security/universe amd64 Packages
+Ign:28 http://archive.ubuntu.com/ubuntu zesty-updates/main all Packages
+Ign:18 http://security.ubuntu.com/ubuntu zesty-security/universe all Packages
+Ign:29 http://archive.ubuntu.com/ubuntu zesty-updates/universe amd64 Packages
+Ign:20 http://security.ubuntu.com/ubuntu zesty-security/multiverse amd64 Packages
+Ign:30 http://archive.ubuntu.com/ubuntu zesty-updates/restricted all Packages
+Ign:5 http://security.ubuntu.com/ubuntu zesty-security/universe Sources
+Ign:31 http://archive.ubuntu.com/ubuntu zesty-updates/multiverse all Packages
+Ign:7 http://security.ubuntu.com/ubuntu zesty-security/main all Packages
+Ign:32 http://archive.ubuntu.com/ubuntu zesty-updates/universe all Packages
+Ign:9 http://security.ubuntu.com/ubuntu zesty-security/restricted amd64 Packages
+Ign:33 http://archive.ubuntu.com/ubuntu zesty-updates/restricted amd64 Packages
 Ign:34 http://archive.ubuntu.com/ubuntu zesty-updates/multiverse amd64 Packages
-Ign:11 http://security.ubuntu.com/ubuntu zesty-security/main all Packages
-Ign:35 http://archive.ubuntu.com/ubuntu zesty-updates/universe all Packages
-Ign:13 http://security.ubuntu.com/ubuntu zesty-security/universe all Packages
+Ign:35 http://archive.ubuntu.com/ubuntu zesty-updates/main amd64 Packages
+Ign:11 http://security.ubuntu.com/ubuntu zesty-security/multiverse all Packages
+Ign:13 http://security.ubuntu.com/ubuntu zesty-security/restricted all Packages
+Ign:15 http://security.ubuntu.com/ubuntu zesty-security/main amd64 Packages
+Ign:17 http://security.ubuntu.com/ubuntu zesty-security/universe amd64 Packages
 Ign:36 http://archive.ubuntu.com/ubuntu zesty-backports/multiverse amd64 Packages
-Ign:15 http://security.ubuntu.com/ubuntu zesty-security/restricted all Packages
-Ign:37 http://archive.ubuntu.com/ubuntu zesty-backports/universe all Packages
-Ign:17 http://security.ubuntu.com/ubuntu zesty-security/restricted amd64 Packages
-Ign:38 http://archive.ubuntu.com/ubuntu zesty-backports/main amd64 Packages
-Ign:19 http://security.ubuntu.com/ubuntu zesty-security/main amd64 Packages
+Ign:37 http://archive.ubuntu.com/ubuntu zesty-backports/main all Packages
+Ign:18 http://security.ubuntu.com/ubuntu zesty-security/universe all Packages
+Ign:20 http://security.ubuntu.com/ubuntu zesty-security/multiverse amd64 Packages
+Ign:38 http://archive.ubuntu.com/ubuntu zesty-backports/restricted all Packages
 Ign:39 http://archive.ubuntu.com/ubuntu zesty-backports/restricted amd64 Packages
-Ign:21 http://security.ubuntu.com/ubuntu zesty-security/multiverse amd64 Packages
-Ign:40 http://archive.ubuntu.com/ubuntu zesty-backports/main all Packages
-Ign:6 http://security.ubuntu.com/ubuntu zesty-security/universe Sources
-Ign:41 http://archive.ubuntu.com/ubuntu zesty-backports/multiverse all Packages
-Ign:8 http://security.ubuntu.com/ubuntu zesty-security/universe amd64 Packages
-Ign:42 http://archive.ubuntu.com/ubuntu zesty-backports/universe amd64 Packages
-Ign:10 http://security.ubuntu.com/ubuntu zesty-security/multiverse all Packages
-Ign:43 http://archive.ubuntu.com/ubuntu zesty-backports/restricted all Packages
-Ign:11 http://security.ubuntu.com/ubuntu zesty-security/main all Packages
+Ign:5 http://security.ubuntu.com/ubuntu zesty-security/universe Sources
+Ign:40 http://archive.ubuntu.com/ubuntu zesty-backports/universe amd64 Packages
+Ign:7 http://security.ubuntu.com/ubuntu zesty-security/main all Packages
+Ign:41 http://archive.ubuntu.com/ubuntu zesty-backports/main amd64 Packages
+Ign:9 http://security.ubuntu.com/ubuntu zesty-security/restricted amd64 Packages
+Ign:11 http://security.ubuntu.com/ubuntu zesty-security/multiverse all Packages
+Ign:42 http://archive.ubuntu.com/ubuntu zesty-backports/multiverse all Packages
+Ign:13 http://security.ubuntu.com/ubuntu zesty-security/restricted all Packages
+Ign:43 http://archive.ubuntu.com/ubuntu zesty-backports/universe all Packages
+Ign:15 http://security.ubuntu.com/ubuntu zesty-security/main amd64 Packages
 Ign:14 http://archive.ubuntu.com/ubuntu zesty/universe Sources
-Ign:13 http://security.ubuntu.com/ubuntu zesty-security/universe all Packages
-Ign:16 http://archive.ubuntu.com/ubuntu zesty/multiverse all Packages
-Ign:15 http://security.ubuntu.com/ubuntu zesty-security/restricted all Packages
-Ign:18 http://archive.ubuntu.com/ubuntu zesty/main all Packages
-Ign:17 http://security.ubuntu.com/ubuntu zesty-security/restricted amd64 Packages
-Ign:20 http://archive.ubuntu.com/ubuntu zesty/multiverse amd64 Packages
-Ign:19 http://security.ubuntu.com/ubuntu zesty-security/main amd64 Packages
-Ign:22 http://archive.ubuntu.com/ubuntu zesty/universe amd64 Packages
-Ign:21 http://security.ubuntu.com/ubuntu zesty-security/multiverse amd64 Packages
-Ign:23 http://archive.ubuntu.com/ubuntu zesty/universe all Packages
-Ign:6 http://security.ubuntu.com/ubuntu zesty-security/universe Sources
-Ign:24 http://archive.ubuntu.com/ubuntu zesty/restricted all Packages
-Ign:8 http://security.ubuntu.com/ubuntu zesty-security/universe amd64 Packages
-Ign:25 http://archive.ubuntu.com/ubuntu zesty/main amd64 Packages
-Ign:10 http://security.ubuntu.com/ubuntu zesty-security/multiverse all Packages
-Ign:26 http://archive.ubuntu.com/ubuntu zesty/restricted amd64 Packages
-Ign:11 http://security.ubuntu.com/ubuntu zesty-security/main all Packages
+Ign:17 http://security.ubuntu.com/ubuntu zesty-security/universe amd64 Packages
+Ign:16 http://archive.ubuntu.com/ubuntu zesty/restricted all Packages
+Ign:18 http://security.ubuntu.com/ubuntu zesty-security/universe all Packages
+Ign:19 http://archive.ubuntu.com/ubuntu zesty/multiverse all Packages
+Ign:20 http://security.ubuntu.com/ubuntu zesty-security/multiverse amd64 Packages
+Ign:21 http://archive.ubuntu.com/ubuntu zesty/main amd64 Packages
+Ign:5 http://security.ubuntu.com/ubuntu zesty-security/universe Sources
+Ign:22 http://archive.ubuntu.com/ubuntu zesty/multiverse amd64 Packages
+Ign:7 http://security.ubuntu.com/ubuntu zesty-security/main all Packages
+Ign:23 http://archive.ubuntu.com/ubuntu zesty/restricted amd64 Packages
+Ign:9 http://security.ubuntu.com/ubuntu zesty-security/restricted amd64 Packages
+Ign:24 http://archive.ubuntu.com/ubuntu zesty/universe amd64 Packages
+Ign:11 http://security.ubuntu.com/ubuntu zesty-security/multiverse all Packages
+Ign:25 http://archive.ubuntu.com/ubuntu zesty/universe all Packages
+Ign:13 http://security.ubuntu.com/ubuntu zesty-security/restricted all Packages
+Ign:26 http://archive.ubuntu.com/ubuntu zesty/main all Packages
+Ign:15 http://security.ubuntu.com/ubuntu zesty-security/main amd64 Packages
 Ign:27 http://archive.ubuntu.com/ubuntu zesty-updates/universe Sources
-Ign:13 http://security.ubuntu.com/ubuntu zesty-security/universe all Packages
-Ign:28 http://archive.ubuntu.com/ubuntu zesty-updates/restricted amd64 Packages
-Ign:15 http://security.ubuntu.com/ubuntu zesty-security/restricted all Packages
-Ign:29 http://archive.ubuntu.com/ubuntu zesty-updates/restricted all Packages
-Ign:17 http://security.ubuntu.com/ubuntu zesty-security/restricted amd64 Packages
-Ign:30 http://archive.ubuntu.com/ubuntu zesty-updates/main amd64 Packages
-Ign:19 http://security.ubuntu.com/ubuntu zesty-security/main amd64 Packages
-Ign:31 http://archive.ubuntu.com/ubuntu zesty-updates/main all Packages
-Ign:21 http://security.ubuntu.com/ubuntu zesty-security/multiverse amd64 Packages
-Ign:32 http://archive.ubuntu.com/ubuntu zesty-updates/multiverse all Packages
-Ign:33 http://archive.ubuntu.com/ubuntu zesty-updates/universe amd64 Packages
+Ign:17 http://security.ubuntu.com/ubuntu zesty-security/universe amd64 Packages
+Ign:28 http://archive.ubuntu.com/ubuntu zesty-updates/main all Packages
+Ign:18 http://security.ubuntu.com/ubuntu zesty-security/universe all Packages
+Ign:20 http://security.ubuntu.com/ubuntu zesty-security/multiverse amd64 Packages
+Ign:29 http://archive.ubuntu.com/ubuntu zesty-updates/universe amd64 Packages
+Ign:30 http://archive.ubuntu.com/ubuntu zesty-updates/restricted all Packages
+Ign:31 http://archive.ubuntu.com/ubuntu zesty-updates/multiverse all Packages
+Ign:32 http://archive.ubuntu.com/ubuntu zesty-updates/universe all Packages
+Ign:33 http://archive.ubuntu.com/ubuntu zesty-updates/restricted amd64 Packages
 Ign:34 http://archive.ubuntu.com/ubuntu zesty-updates/multiverse amd64 Packages
-Err:6 http://security.ubuntu.com/ubuntu zesty-security/universe Sources
-  404  Not Found [IP: 91.189.88.161 80]
-Ign:8 http://security.ubuntu.com/ubuntu zesty-security/universe amd64 Packages
-Ign:10 http://security.ubuntu.com/ubuntu zesty-security/multiverse all Packages
-Ign:35 http://archive.ubuntu.com/ubuntu zesty-updates/universe all Packages
-Ign:11 http://security.ubuntu.com/ubuntu zesty-security/main all Packages
+Err:5 http://security.ubuntu.com/ubuntu zesty-security/universe Sources
+  404  Not Found [IP: 91.189.88.162 80]
+Ign:7 http://security.ubuntu.com/ubuntu zesty-security/main all Packages
+Ign:9 http://security.ubuntu.com/ubuntu zesty-security/restricted amd64 Packages
+Ign:11 http://security.ubuntu.com/ubuntu zesty-security/multiverse all Packages
+Ign:13 http://security.ubuntu.com/ubuntu zesty-security/restricted all Packages
+Ign:15 http://security.ubuntu.com/ubuntu zesty-security/main amd64 Packages
+Ign:35 http://archive.ubuntu.com/ubuntu zesty-updates/main amd64 Packages
+Ign:17 http://security.ubuntu.com/ubuntu zesty-security/universe amd64 Packages
+Ign:18 http://security.ubuntu.com/ubuntu zesty-security/universe all Packages
 Ign:36 http://archive.ubuntu.com/ubuntu zesty-backports/multiverse amd64 Packages
-Ign:13 http://security.ubuntu.com/ubuntu zesty-security/universe all Packages
-Ign:37 http://archive.ubuntu.com/ubuntu zesty-backports/universe all Packages
-Ign:15 http://security.ubuntu.com/ubuntu zesty-security/restricted all Packages
-Ign:38 http://archive.ubuntu.com/ubuntu zesty-backports/main amd64 Packages
-Ign:17 http://security.ubuntu.com/ubuntu zesty-security/restricted amd64 Packages
+Ign:20 http://security.ubuntu.com/ubuntu zesty-security/multiverse amd64 Packages
+Ign:37 http://archive.ubuntu.com/ubuntu zesty-backports/main all Packages
+Ign:38 http://archive.ubuntu.com/ubuntu zesty-backports/restricted all Packages
 Ign:39 http://archive.ubuntu.com/ubuntu zesty-backports/restricted amd64 Packages
-Ign:19 http://security.ubuntu.com/ubuntu zesty-security/main amd64 Packages
-Ign:40 http://archive.ubuntu.com/ubuntu zesty-backports/main all Packages
-Ign:21 http://security.ubuntu.com/ubuntu zesty-security/multiverse amd64 Packages
-Ign:41 http://archive.ubuntu.com/ubuntu zesty-backports/multiverse all Packages
-Ign:42 http://archive.ubuntu.com/ubuntu zesty-backports/universe amd64 Packages
-Ign:43 http://archive.ubuntu.com/ubuntu zesty-backports/restricted all Packages
+Ign:40 http://archive.ubuntu.com/ubuntu zesty-backports/universe amd64 Packages
+Ign:41 http://archive.ubuntu.com/ubuntu zesty-backports/main amd64 Packages
+Ign:42 http://archive.ubuntu.com/ubuntu zesty-backports/multiverse all Packages
+Ign:43 http://archive.ubuntu.com/ubuntu zesty-backports/universe all Packages
 Ign:14 http://archive.ubuntu.com/ubuntu zesty/universe Sources
-Ign:16 http://archive.ubuntu.com/ubuntu zesty/multiverse all Packages
-Ign:18 http://archive.ubuntu.com/ubuntu zesty/main all Packages
-Ign:20 http://archive.ubuntu.com/ubuntu zesty/multiverse amd64 Packages
-Ign:22 http://archive.ubuntu.com/ubuntu zesty/universe amd64 Packages
-Ign:23 http://archive.ubuntu.com/ubuntu zesty/universe all Packages
-Ign:24 http://archive.ubuntu.com/ubuntu zesty/restricted all Packages
-Ign:25 http://archive.ubuntu.com/ubuntu zesty/main amd64 Packages
-Ign:26 http://archive.ubuntu.com/ubuntu zesty/restricted amd64 Packages
+Ign:16 http://archive.ubuntu.com/ubuntu zesty/restricted all Packages
+Ign:19 http://archive.ubuntu.com/ubuntu zesty/multiverse all Packages
+Ign:21 http://archive.ubuntu.com/ubuntu zesty/main amd64 Packages
+Ign:22 http://archive.ubuntu.com/ubuntu zesty/multiverse amd64 Packages
+Ign:23 http://archive.ubuntu.com/ubuntu zesty/restricted amd64 Packages
+Ign:24 http://archive.ubuntu.com/ubuntu zesty/universe amd64 Packages
+Ign:25 http://archive.ubuntu.com/ubuntu zesty/universe all Packages
+Ign:26 http://archive.ubuntu.com/ubuntu zesty/main all Packages
 Ign:27 http://archive.ubuntu.com/ubuntu zesty-updates/universe Sources
-Ign:28 http://archive.ubuntu.com/ubuntu zesty-updates/restricted amd64 Packages
-Ign:29 http://archive.ubuntu.com/ubuntu zesty-updates/restricted all Packages
-Ign:30 http://archive.ubuntu.com/ubuntu zesty-updates/main amd64 Packages
-Ign:31 http://archive.ubuntu.com/ubuntu zesty-updates/main all Packages
-Ign:32 http://archive.ubuntu.com/ubuntu zesty-updates/multiverse all Packages
-Ign:33 http://archive.ubuntu.com/ubuntu zesty-updates/universe amd64 Packages
+Ign:28 http://archive.ubuntu.com/ubuntu zesty-updates/main all Packages
+Ign:29 http://archive.ubuntu.com/ubuntu zesty-updates/universe amd64 Packages
+Ign:30 http://archive.ubuntu.com/ubuntu zesty-updates/restricted all Packages
+Ign:31 http://archive.ubuntu.com/ubuntu zesty-updates/multiverse all Packages
+Ign:32 http://archive.ubuntu.com/ubuntu zesty-updates/universe all Packages
+Ign:33 http://archive.ubuntu.com/ubuntu zesty-updates/restricted amd64 Packages
 Ign:34 http://archive.ubuntu.com/ubuntu zesty-updates/multiverse amd64 Packages
-Ign:35 http://archive.ubuntu.com/ubuntu zesty-updates/universe all Packages
+Ign:35 http://archive.ubuntu.com/ubuntu zesty-updates/main amd64 Packages
 Ign:36 http://archive.ubuntu.com/ubuntu zesty-backports/multiverse amd64 Packages
-Ign:37 http://archive.ubuntu.com/ubuntu zesty-backports/universe all Packages
-Ign:38 http://archive.ubuntu.com/ubuntu zesty-backports/main amd64 Packages
+Ign:37 http://archive.ubuntu.com/ubuntu zesty-backports/main all Packages
+Ign:38 http://archive.ubuntu.com/ubuntu zesty-backports/restricted all Packages
 Ign:39 http://archive.ubuntu.com/ubuntu zesty-backports/restricted amd64 Packages
-Ign:40 http://archive.ubuntu.com/ubuntu zesty-backports/main all Packages
-Ign:41 http://archive.ubuntu.com/ubuntu zesty-backports/multiverse all Packages
-Ign:42 http://archive.ubuntu.com/ubuntu zesty-backports/universe amd64 Packages
-Ign:43 http://archive.ubuntu.com/ubuntu zesty-backports/restricted all Packages
+Ign:40 http://archive.ubuntu.com/ubuntu zesty-backports/universe amd64 Packages
+Ign:41 http://archive.ubuntu.com/ubuntu zesty-backports/main amd64 Packages
+Ign:42 http://archive.ubuntu.com/ubuntu zesty-backports/multiverse all Packages
+Ign:43 http://archive.ubuntu.com/ubuntu zesty-backports/universe all Packages
 Ign:14 http://archive.ubuntu.com/ubuntu zesty/universe Sources
-Ign:16 http://archive.ubuntu.com/ubuntu zesty/multiverse all Packages
-Ign:18 http://archive.ubuntu.com/ubuntu zesty/main all Packages
-Ign:20 http://archive.ubuntu.com/ubuntu zesty/multiverse amd64 Packages
-Ign:22 http://archive.ubuntu.com/ubuntu zesty/universe amd64 Packages
-Ign:23 http://archive.ubuntu.com/ubuntu zesty/universe all Packages
-Ign:24 http://archive.ubuntu.com/ubuntu zesty/restricted all Packages
-Ign:25 http://archive.ubuntu.com/ubuntu zesty/main amd64 Packages
-Ign:26 http://archive.ubuntu.com/ubuntu zesty/restricted amd64 Packages
+Ign:16 http://archive.ubuntu.com/ubuntu zesty/restricted all Packages
+Ign:19 http://archive.ubuntu.com/ubuntu zesty/multiverse all Packages
+Ign:21 http://archive.ubuntu.com/ubuntu zesty/main amd64 Packages
+Ign:22 http://archive.ubuntu.com/ubuntu zesty/multiverse amd64 Packages
+Ign:23 http://archive.ubuntu.com/ubuntu zesty/restricted amd64 Packages
+Ign:24 http://archive.ubuntu.com/ubuntu zesty/universe amd64 Packages
+Ign:25 http://archive.ubuntu.com/ubuntu zesty/universe all Packages
+Ign:26 http://archive.ubuntu.com/ubuntu zesty/main all Packages
 Ign:27 http://archive.ubuntu.com/ubuntu zesty-updates/universe Sources
-Ign:28 http://archive.ubuntu.com/ubuntu zesty-updates/restricted amd64 Packages
-Ign:29 http://archive.ubuntu.com/ubuntu zesty-updates/restricted all Packages
-Ign:30 http://archive.ubuntu.com/ubuntu zesty-updates/main amd64 Packages
-Ign:31 http://archive.ubuntu.com/ubuntu zesty-updates/main all Packages
-Ign:32 http://archive.ubuntu.com/ubuntu zesty-updates/multiverse all Packages
-Ign:33 http://archive.ubuntu.com/ubuntu zesty-updates/universe amd64 Packages
+Ign:28 http://archive.ubuntu.com/ubuntu zesty-updates/main all Packages
+Ign:29 http://archive.ubuntu.com/ubuntu zesty-updates/universe amd64 Packages
+Ign:30 http://archive.ubuntu.com/ubuntu zesty-updates/restricted all Packages
+Ign:31 http://archive.ubuntu.com/ubuntu zesty-updates/multiverse all Packages
+Ign:32 http://archive.ubuntu.com/ubuntu zesty-updates/universe all Packages
+Ign:33 http://archive.ubuntu.com/ubuntu zesty-updates/restricted amd64 Packages
 Ign:34 http://archive.ubuntu.com/ubuntu zesty-updates/multiverse amd64 Packages
-Ign:35 http://archive.ubuntu.com/ubuntu zesty-updates/universe all Packages
+Ign:35 http://archive.ubuntu.com/ubuntu zesty-updates/main amd64 Packages
 Ign:36 http://archive.ubuntu.com/ubuntu zesty-backports/multiverse amd64 Packages
-Ign:37 http://archive.ubuntu.com/ubuntu zesty-backports/universe all Packages
-Ign:38 http://archive.ubuntu.com/ubuntu zesty-backports/main amd64 Packages
+Ign:37 http://archive.ubuntu.com/ubuntu zesty-backports/main all Packages
+Ign:38 http://archive.ubuntu.com/ubuntu zesty-backports/restricted all Packages
 Ign:39 http://archive.ubuntu.com/ubuntu zesty-backports/restricted amd64 Packages
-Ign:40 http://archive.ubuntu.com/ubuntu zesty-backports/main all Packages
-Ign:41 http://archive.ubuntu.com/ubuntu zesty-backports/multiverse all Packages
-Ign:42 http://archive.ubuntu.com/ubuntu zesty-backports/universe amd64 Packages
-Ign:43 http://archive.ubuntu.com/ubuntu zesty-backports/restricted all Packages
+Ign:40 http://archive.ubuntu.com/ubuntu zesty-backports/universe amd64 Packages
+Ign:41 http://archive.ubuntu.com/ubuntu zesty-backports/main amd64 Packages
+Ign:42 http://archive.ubuntu.com/ubuntu zesty-backports/multiverse all Packages
+Ign:43 http://archive.ubuntu.com/ubuntu zesty-backports/universe all Packages
 Ign:14 http://archive.ubuntu.com/ubuntu zesty/universe Sources
-Ign:16 http://archive.ubuntu.com/ubuntu zesty/multiverse all Packages
-Ign:18 http://archive.ubuntu.com/ubuntu zesty/main all Packages
-Ign:20 http://archive.ubuntu.com/ubuntu zesty/multiverse amd64 Packages
-Ign:22 http://archive.ubuntu.com/ubuntu zesty/universe amd64 Packages
-Ign:23 http://archive.ubuntu.com/ubuntu zesty/universe all Packages
-Ign:24 http://archive.ubuntu.com/ubuntu zesty/restricted all Packages
-Ign:25 http://archive.ubuntu.com/ubuntu zesty/main amd64 Packages
-Ign:26 http://archive.ubuntu.com/ubuntu zesty/restricted amd64 Packages
+Ign:16 http://archive.ubuntu.com/ubuntu zesty/restricted all Packages
+Ign:19 http://archive.ubuntu.com/ubuntu zesty/multiverse all Packages
+Ign:21 http://archive.ubuntu.com/ubuntu zesty/main amd64 Packages
+Ign:22 http://archive.ubuntu.com/ubuntu zesty/multiverse amd64 Packages
+Ign:23 http://archive.ubuntu.com/ubuntu zesty/restricted amd64 Packages
+Ign:24 http://archive.ubuntu.com/ubuntu zesty/universe amd64 Packages
+Ign:25 http://archive.ubuntu.com/ubuntu zesty/universe all Packages
+Ign:26 http://archive.ubuntu.com/ubuntu zesty/main all Packages
 Ign:27 http://archive.ubuntu.com/ubuntu zesty-updates/universe Sources
-Ign:28 http://archive.ubuntu.com/ubuntu zesty-updates/restricted amd64 Packages
-Ign:29 http://archive.ubuntu.com/ubuntu zesty-updates/restricted all Packages
-Ign:30 http://archive.ubuntu.com/ubuntu zesty-updates/main amd64 Packages
-Ign:31 http://archive.ubuntu.com/ubuntu zesty-updates/main all Packages
-Ign:32 http://archive.ubuntu.com/ubuntu zesty-updates/multiverse all Packages
-Ign:33 http://archive.ubuntu.com/ubuntu zesty-updates/universe amd64 Packages
+Ign:28 http://archive.ubuntu.com/ubuntu zesty-updates/main all Packages
+Ign:29 http://archive.ubuntu.com/ubuntu zesty-updates/universe amd64 Packages
+Ign:30 http://archive.ubuntu.com/ubuntu zesty-updates/restricted all Packages
+Ign:31 http://archive.ubuntu.com/ubuntu zesty-updates/multiverse all Packages
+Ign:32 http://archive.ubuntu.com/ubuntu zesty-updates/universe all Packages
+Ign:33 http://archive.ubuntu.com/ubuntu zesty-updates/restricted amd64 Packages
 Ign:34 http://archive.ubuntu.com/ubuntu zesty-updates/multiverse amd64 Packages
-Ign:35 http://archive.ubuntu.com/ubuntu zesty-updates/universe all Packages
+Ign:35 http://archive.ubuntu.com/ubuntu zesty-updates/main amd64 Packages
 Ign:36 http://archive.ubuntu.com/ubuntu zesty-backports/multiverse amd64 Packages
-Ign:37 http://archive.ubuntu.com/ubuntu zesty-backports/universe all Packages
-Ign:38 http://archive.ubuntu.com/ubuntu zesty-backports/main amd64 Packages
+Ign:37 http://archive.ubuntu.com/ubuntu zesty-backports/main all Packages
+Ign:38 http://archive.ubuntu.com/ubuntu zesty-backports/restricted all Packages
 Ign:39 http://archive.ubuntu.com/ubuntu zesty-backports/restricted amd64 Packages
-Ign:40 http://archive.ubuntu.com/ubuntu zesty-backports/main all Packages
-Ign:41 http://archive.ubuntu.com/ubuntu zesty-backports/multiverse all Packages
-Ign:42 http://archive.ubuntu.com/ubuntu zesty-backports/universe amd64 Packages
-Ign:43 http://archive.ubuntu.com/ubuntu zesty-backports/restricted all Packages
+Ign:40 http://archive.ubuntu.com/ubuntu zesty-backports/universe amd64 Packages
+Ign:41 http://archive.ubuntu.com/ubuntu zesty-backports/main amd64 Packages
+Ign:42 http://archive.ubuntu.com/ubuntu zesty-backports/multiverse all Packages
+Ign:43 http://archive.ubuntu.com/ubuntu zesty-backports/universe all Packages
 Err:14 http://archive.ubuntu.com/ubuntu zesty/universe Sources
-  404  Not Found [IP: 91.189.88.161 80]
-Ign:16 http://archive.ubuntu.com/ubuntu zesty/multiverse all Packages
-Ign:18 http://archive.ubuntu.com/ubuntu zesty/main all Packages
-Ign:20 http://archive.ubuntu.com/ubuntu zesty/multiverse amd64 Packages
-Ign:22 http://archive.ubuntu.com/ubuntu zesty/universe amd64 Packages
-Ign:23 http://archive.ubuntu.com/ubuntu zesty/universe all Packages
-Ign:24 http://archive.ubuntu.com/ubuntu zesty/restricted all Packages
-Ign:25 http://archive.ubuntu.com/ubuntu zesty/main amd64 Packages
-Ign:26 http://archive.ubuntu.com/ubuntu zesty/restricted amd64 Packages
+  404  Not Found [IP: 91.189.88.152 80]
+Ign:16 http://archive.ubuntu.com/ubuntu zesty/restricted all Packages
+Ign:19 http://archive.ubuntu.com/ubuntu zesty/multiverse all Packages
+Ign:21 http://archive.ubuntu.com/ubuntu zesty/main amd64 Packages
+Ign:22 http://archive.ubuntu.com/ubuntu zesty/multiverse amd64 Packages
+Ign:23 http://archive.ubuntu.com/ubuntu zesty/restricted amd64 Packages
+Ign:24 http://archive.ubuntu.com/ubuntu zesty/universe amd64 Packages
+Ign:25 http://archive.ubuntu.com/ubuntu zesty/universe all Packages
+Ign:26 http://archive.ubuntu.com/ubuntu zesty/main all Packages
 Err:27 http://archive.ubuntu.com/ubuntu zesty-updates/universe Sources
-  404  Not Found [IP: 91.189.88.161 80]
-Ign:28 http://archive.ubuntu.com/ubuntu zesty-updates/restricted amd64 Packages
-Ign:29 http://archive.ubuntu.com/ubuntu zesty-updates/restricted all Packages
-Ign:30 http://archive.ubuntu.com/ubuntu zesty-updates/main amd64 Packages
-Ign:31 http://archive.ubuntu.com/ubuntu zesty-updates/main all Packages
-Ign:32 http://archive.ubuntu.com/ubuntu zesty-updates/multiverse all Packages
-Ign:33 http://archive.ubuntu.com/ubuntu zesty-updates/universe amd64 Packages
+  404  Not Found [IP: 91.189.88.152 80]
+Ign:28 http://archive.ubuntu.com/ubuntu zesty-updates/main all Packages
+Ign:29 http://archive.ubuntu.com/ubuntu zesty-updates/universe amd64 Packages
+Ign:30 http://archive.ubuntu.com/ubuntu zesty-updates/restricted all Packages
+Ign:31 http://archive.ubuntu.com/ubuntu zesty-updates/multiverse all Packages
+Ign:32 http://archive.ubuntu.com/ubuntu zesty-updates/universe all Packages
+Ign:33 http://archive.ubuntu.com/ubuntu zesty-updates/restricted amd64 Packages
 Ign:34 http://archive.ubuntu.com/ubuntu zesty-updates/multiverse amd64 Packages
-Ign:35 http://archive.ubuntu.com/ubuntu zesty-updates/universe all Packages
+Ign:35 http://archive.ubuntu.com/ubuntu zesty-updates/main amd64 Packages
 Err:36 http://archive.ubuntu.com/ubuntu zesty-backports/multiverse amd64 Packages
-  404  Not Found [IP: 91.189.88.161 80]
-Ign:37 http://archive.ubuntu.com/ubuntu zesty-backports/universe all Packages
-Ign:38 http://archive.ubuntu.com/ubuntu zesty-backports/main amd64 Packages
+  404  Not Found [IP: 91.189.88.152 80]
+Ign:37 http://archive.ubuntu.com/ubuntu zesty-backports/main all Packages
+Ign:38 http://archive.ubuntu.com/ubuntu zesty-backports/restricted all Packages
 Ign:39 http://archive.ubuntu.com/ubuntu zesty-backports/restricted amd64 Packages
-Ign:40 http://archive.ubuntu.com/ubuntu zesty-backports/main all Packages
-Ign:41 http://archive.ubuntu.com/ubuntu zesty-backports/multiverse all Packages
-Ign:42 http://archive.ubuntu.com/ubuntu zesty-backports/universe amd64 Packages
-Ign:43 http://archive.ubuntu.com/ubuntu zesty-backports/restricted all Packages
+Ign:40 http://archive.ubuntu.com/ubuntu zesty-backports/universe amd64 Packages
+Ign:41 http://archive.ubuntu.com/ubuntu zesty-backports/main amd64 Packages
+Ign:42 http://archive.ubuntu.com/ubuntu zesty-backports/multiverse all Packages
+Ign:43 http://archive.ubuntu.com/ubuntu zesty-backports/universe all Packages
 Reading package lists...
 W: The repository 'http://security.ubuntu.com/ubuntu zesty-security Release' does not have a Release file.
 W: The repository 'http://archive.ubuntu.com/ubuntu zesty Release' does not have a Release file.
 W: The repository 'http://archive.ubuntu.com/ubuntu zesty-updates Release' does not have a Release file.
 W: The repository 'http://archive.ubuntu.com/ubuntu zesty-backports Release' does not have a Release file.
-E: Failed to fetch http://security.ubuntu.com/ubuntu/dists/zesty-security/universe/source/Sources  404  Not Found [IP: 91.189.88.161 80]
-E: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/zesty/universe/source/Sources  404  Not Found [IP: 91.189.88.161 80]
-E: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/zesty-updates/universe/source/Sources  404  Not Found [IP: 91.189.88.161 80]
-E: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/zesty-backports/multiverse/binary-amd64/Packages  404  Not Found [IP: 91.189.88.161 80]
+E: Failed to fetch http://security.ubuntu.com/ubuntu/dists/zesty-security/universe/source/Sources  404  Not Found [IP: 91.189.88.162 80]
+E: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/zesty/universe/source/Sources  404  Not Found [IP: 91.189.88.152 80]
+E: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/zesty-updates/universe/source/Sources  404  Not Found [IP: 91.189.88.152 80]
+E: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/zesty-backports/multiverse/binary-amd64/Packages  404  Not Found [IP: 91.189.88.152 80]
 E: Some index files failed to download. They have been ignored, or old ones used instead.
 The command '/bin/sh -c apt-get -y update  2>&1 && apt-get -y install unzip openssl cron socat curl idn  2>&1' returned a non-zero code: 100
