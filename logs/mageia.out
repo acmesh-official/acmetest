@@ -2,6 +2,6 @@ Sending build context to Docker daemon  2.048kB
 Step 1/2 : FROM mageia
  ---> 9171f919fb09
 Step 2/2 : RUN dnf update -y  2>&1 && dnf install -y  openssl socat idn curl  2>&1
- ---> Running in 84c837ce3742
+ ---> Running in 884b0212be9b
 /bin/sh: dnf: command not found
 The command '/bin/sh -c dnf update -y  2>&1 && dnf install -y  openssl socat idn curl  2>&1' returned a non-zero code: 127
