@@ -2,14 +2,14 @@ Sending build context to Docker daemon  2.048kB
 Step 1/2 : FROM centos:6
  ---> ae6154bcd445
 Step 2/2 : RUN curl http://www.convirture.com/repos/definitions/rhel/6.x/convirt.repo > /etc/yum.repos.d/convirt.repo && yum  -y update     2>&1 && yum  -y install    openssl crontabs socat curl  2>&1
- ---> Running in 92408175bf37
-[91m  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0[0m[91m  0    11    0    11    0     0     51      0 --:--:-- --:--:-- --:--:--    60
+ ---> Running in d36a2ba6a24e
+[91m  % Total    % Received % Xferd  Av[0m[91merage Speed   Time    Time     Time  Current[0m[91m
+               [0m[91m                  [0m[91mDload  Upload   [0m[91mTotal   Spent    [0m[91mLeft  Speed
+  [0m[91m0     0    0[0m[91m     0    0     0  [0m[91m    0      0 --:-[0m[91m-:-- --:--:-- -[0m[91m-:--:--     0[0m[91m111   335  111   335    0 [0m[91m    0   2537    [0m[91m  0 --:--:-- --:[0m[91m--:-- --:--:-[0m[91m- 22333[0m[91m
 [0mLoaded plugins: fastestmirror
 
 
 File contains no section headers.
 file: file:///etc/yum.repos.d/convirt.repo, line: 1
-'Redirecting'
+"<html><head><title>Loading...</title></head><body><script type='text/javascript'>window.location.replace('http://www.convirture.com/repos/definitions/rhel/6.x/convirt.repo?js=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqcyI6MX0.fADWc9hUOlh58R9UzufQBROmie3I7c7vE835oE6YmU4&uuid=08b8ca4a-ef4b-11e8-a010-11f92f17ba84');</script></body></html>"
 The command '/bin/sh -c curl http://www.convirture.com/repos/definitions/rhel/6.x/convirt.repo > /etc/yum.repos.d/convirt.repo && yum  -y update     2>&1 && yum  -y install    openssl crontabs socat curl  2>&1' returned a non-zero code: 1
