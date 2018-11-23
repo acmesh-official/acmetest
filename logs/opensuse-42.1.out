@@ -2,12 +2,12 @@ Sending build context to Docker daemon  2.048kB
 Step 1/2 : FROM opensuse:42.1
  ---> 7617deda9fe6
 Step 2/2 : RUN zypper rr OSS NON-OSS && zypper update -y  2>&1 && zypper install  -y   tar openssl cron socat curl libidn  2>&1
- ---> Running in b0b2d7932c38
+ ---> Running in 61c7fa567400
 Removing repository 'NON-OSS' [...done]
 Repository 'NON-OSS' has been removed.
 Removing repository 'OSS' [...done]
 Repository 'OSS' has been removed.
-Retrieving repository 'OSS Update' metadata [.....done]
+Retrieving repository 'OSS Update' metadata [......done]
 Building repository 'OSS Update' cache [....done]
 Retrieving repository 'Update Non-Oss' metadata [..done]
 Building repository 'Update Non-Oss' cache [....done]
@@ -29,7 +29,7 @@ The following 58 packages are going to be upgraded:
 Overall download size: 17.0 MiB. Already cached: 0 B. After the operation, 1.5 MiB will be freed.
 Continue? [y/n/? shows all options] (y): y
 Retrieving package cracklib-dict-small-2.9.0-7.1.x86_64 (1/59),  96.5 KiB (243.0 KiB unpacked)
-Retrieving: cracklib-dict-small-2.9.0-7.1.x86_64.rpm [.done]
+Retrieving: cracklib-dict-small-2.9.0-7.1.x86_64.rpm [done]
 Retrieving package glibc-2.19-22.1.x86_64 (2/59),   1.6 MiB (  6.3 MiB unpacked)
 Retrieving: glibc-2.19-22.1.x86_64.rpm [done]
 Retrieving package insserv-compat-0.1-15.1.noarch (3/59),   9.1 KiB (  8.2 KiB unpacked)
@@ -137,9 +137,9 @@ Retrieving: p11-kit-tools-0.20.3-10.1.x86_64.rpm [done]
 Retrieving package p11-kit-0.20.3-10.1.x86_64 (54/59),  85.2 KiB (224.4 KiB unpacked)
 Retrieving: p11-kit-0.20.3-10.1.x86_64.rpm [done]
 Retrieving package util-linux-2.25-21.1.x86_64 (55/59), 963.3 KiB (  3.4 MiB unpacked)
-Retrieving: util-linux-2.25-21.1.x86_64.rpm [done]
+Retrieving: util-linux-2.25-21.1.x86_64.rpm [.done]
 Retrieving package libcurl4-7.37.0-19.1.x86_64 (56/59), 199.8 KiB (449.4 KiB unpacked)
-Retrieving: libcurl4-7.37.0-19.1.x86_64.rpm [.done]
+Retrieving: libcurl4-7.37.0-19.1.x86_64.rpm [done]
 Retrieving package libsolv-tools-0.6.26-19.1.x86_64 (57/59), 527.9 KiB (  4.3 MiB unpacked)
 Retrieving: libsolv-tools-0.6.26-19.1.x86_64.rpm [done]
 Retrieving package libzypp-15.24.2-19.2.x86_64 (58/59),   2.0 MiB (  7.2 MiB unpacked)
