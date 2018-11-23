@@ -1,40 +1,12 @@
 Sending build context to Docker daemon  2.048kB
 Step 1/2 : FROM alpine:3.4
-3.4: Pulling from library/alpine
-d6a5679aa3cf: Pulling fs layer
-d6a5679aa3cf: Verifying Checksum
-d6a5679aa3cf: Download complete
-d6a5679aa3cf: Pull complete
-Digest: sha256:e0826ea5cc99bf3ff9a9d9781e3ad97f73ac7eb2d4319a8f3b712ab5b369cb7c
-Status: Downloaded newer image for alpine:3.4
  ---> 174b26fe09c7
 Step 2/2 : RUN apk update -f 2>&1 && apk --no-cache add -f openssl curl socat  2>&1
- ---> Running in 32a20fd06974
-fetch http://dl-cdn.alpinelinux.org/alpine/v3.4/main/x86_64/APKINDEX.tar.gz
-fetch http://dl-cdn.alpinelinux.org/alpine/v3.4/community/x86_64/APKINDEX.tar.gz
-v3.4.6-316-g63ea6d0 [http://dl-cdn.alpinelinux.org/alpine/v3.4/main]
-v3.4.6-160-g14ad2a3 [http://dl-cdn.alpinelinux.org/alpine/v3.4/community]
-OK: 5973 distinct packages available
-fetch http://dl-cdn.alpinelinux.org/alpine/v3.4/main/x86_64/APKINDEX.tar.gz
-fetch http://dl-cdn.alpinelinux.org/alpine/v3.4/community/x86_64/APKINDEX.tar.gz
-(1/10) Installing ca-certificates (20161130-r0)
-(2/10) Installing libssh2 (1.7.0-r0)
-(3/10) Installing libcurl (7.60.0-r1)
-(4/10) Installing curl (7.60.0-r1)
-(5/10) Installing openssl (1.0.2n-r0)
-(6/10) Installing ncurses-terminfo-base (6.0_p20171125-r0)
-(7/10) Installing ncurses-terminfo (6.0_p20171125-r0)
-(8/10) Installing ncurses-libs (6.0_p20171125-r0)
-(9/10) Installing readline (6.3.008-r4)
-(10/10) Installing socat (1.7.3.1-r0)
-Executing busybox-1.24.2-r14.trigger
-Executing ca-certificates-20161130-r0.trigger
-OK: 15 MiB in 21 packages
+ ---> Using cache
  ---> a2e56ded2bd5
-Removing intermediate container 32a20fd06974
 Successfully built a2e56ded2bd5
 Successfully tagged myalpine:3.4
-Tue, 20 Nov 2018 17:34:44 UTC
+Fri, 23 Nov 2018 03:13:59 UTC
 Testing branch: master
 [1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/1/21[0m
 ==Running le_test_dependencies please wait
@@ -47,7 +19,7 @@ socat installed.[1;31;32m [PASS][0m
 ==Running le_test_install please wait
 ./acme.sh install[1;31;32m [PASS][0m
 /root/.acme.sh/acme.sh exists.[1;31;32m [PASS][0m
-_contains '45 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null'[1;31;32m [PASS][0m
+_contains '0 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null'[1;31;32m [PASS][0m
 /root/.acme.sh/acme.sh uninstall  > /dev/null[1;31;32m [PASS][0m
 ------------------------------------------
 [1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/3/21[0m
@@ -61,7 +33,7 @@ equals [1;31;32m [PASS][0m
 ==Running le_test_installtodir please wait
 ./acme.sh install[1;31;32m [PASS][0m
 /root/myle/acme.sh exists.[1;31;32m [PASS][0m
-_contains '46 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null'[1;31;32m [PASS][0m
+_contains '0 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null'[1;31;32m [PASS][0m
 /root/myle/acme.sh uninstall[1;31;32m [PASS][0m
 ------------------------------------------
 [1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/5/21[0m
@@ -75,7 +47,7 @@ equals [1;31;32m [PASS][0m
 ==Running le_test_install_config_home please wait
 ./acme.sh --install --config-home /root/etc/acme[1;31;32m [PASS][0m
 /root/.acme.sh/acme.sh exists.[1;31;32m [PASS][0m
-_contains '46 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null'[1;31;32m [PASS][0m
+_contains '0 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null'[1;31;32m [PASS][0m
 /root/etc/acme/account.conf exists.[1;31;32m [PASS][0m
 /root/.acme.sh/account.conf no exists.[1;31;32m [PASS][0m
 /root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null[1;31;32m [PASS][0m
