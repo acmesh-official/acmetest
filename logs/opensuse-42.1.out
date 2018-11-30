@@ -2,14 +2,14 @@ Sending build context to Docker daemon  2.048kB
 Step 1/2 : FROM opensuse:42.1
  ---> 7617deda9fe6
 Step 2/2 : RUN zypper rr OSS NON-OSS && zypper update -y  2>&1 && zypper install  -y   tar openssl cron socat curl libidn  2>&1
- ---> Running in 15f5511fb00b
+ ---> Running in d3517166ce41
 Removing repository 'NON-OSS' [...done]
 Repository 'NON-OSS' has been removed.
 Removing repository 'OSS' [...done]
 Repository 'OSS' has been removed.
-Retrieving repository 'OSS Update' metadata [....done]
+Retrieving repository 'OSS Update' metadata [.....done]
 Building repository 'OSS Update' cache [....done]
-Retrieving repository 'Update Non-Oss' metadata [.done]
+Retrieving repository 'Update Non-Oss' metadata [...done]
 Building repository 'Update Non-Oss' cache [....done]
 Loading repository data...
 Warning: Repository 'OSS Update' appears to be outdated. Consider using a different mirror or server.
@@ -37,9 +37,9 @@ Retrieving: insserv-compat-0.1-15.1.noarch.rpm [done]
 Retrieving package update-alternatives-1.16.10-14.1.x86_64 (4/59),  35.5 KiB ( 65.8 KiB unpacked)
 Retrieving: update-alternatives-1.16.10-14.1.x86_64.rpm [done]
 Retrieving package perl-base-5.18.2-5.1.x86_64 (5/59),   1.1 MiB (  3.4 MiB unpacked)
-Retrieving: perl-base-5.18.2-5.1.x86_64.rpm [done]
+Retrieving: perl-base-5.18.2-5.1.x86_64.rpm [.done]
 Retrieving package libz1-1.2.8-8.1.x86_64 (6/59),  51.4 KiB ( 86.1 KiB unpacked)
-Retrieving: libz1-1.2.8-8.1.x86_64.rpm [.done]
+Retrieving: libz1-1.2.8-8.1.x86_64.rpm [done]
 Retrieving package libuuid1-2.25-21.1.x86_64 (7/59),  62.2 KiB ( 18.7 KiB unpacked)
 Retrieving: libuuid1-2.25-21.1.x86_64.rpm [done]
 Retrieving package libudev1-210-104.1.x86_64 (8/59), 264.9 KiB ( 70.1 KiB unpacked)
@@ -65,7 +65,7 @@ Retrieving: libgcrypt20-1.6.1-32.1.x86_64.rpm [done]
 Retrieving package libgcc_s1-5.3.1+r233831-6.1.x86_64 (18/59),  47.7 KiB ( 90.4 KiB unpacked)
 Retrieving: libgcc_s1-5.3.1+r233831-6.1.x86_64.rpm [done]
 Retrieving package libffi4-5.3.1+r233831-6.1.x86_64 (19/59),  25.4 KiB ( 34.4 KiB unpacked)
-Retrieving: libffi4-5.3.1+r233831-6.1.x86_64.rpm [.done]
+Retrieving: libffi4-5.3.1+r233831-6.1.x86_64.rpm [done]
 Retrieving package libexpat1-2.1.0-20.1.x86_64 (20/59),  57.9 KiB (166.2 KiB unpacked)
 Retrieving: libexpat1-2.1.0-20.1.x86_64.rpm [done]
 Retrieving package libdbus-1-3-1.8.22-13.1.x86_64 (21/59), 162.1 KiB (284.0 KiB unpacked)
@@ -89,7 +89,7 @@ Retrieving: libstdc++6-5.3.1+r233831-6.1.x86_64.rpm [done]
 Retrieving package libp11-kit0-0.20.3-10.1.x86_64 (30/59), 146.6 KiB (565.9 KiB unpacked)
 Retrieving: libp11-kit0-0.20.3-10.1.x86_64.rpm [done]
 Retrieving package expat-2.1.0-20.1.x86_64 (31/59),  54.0 KiB (152.4 KiB unpacked)
-Retrieving: expat-2.1.0-20.1.x86_64.rpm [.done]
+Retrieving: expat-2.1.0-20.1.x86_64.rpm [done]
 Retrieving package libaugeas0-1.2.0-8.1.x86_64 (32/59), 182.6 KiB (369.8 KiB unpacked)
 Retrieving: libaugeas0-1.2.0-8.1.x86_64.rpm [done]
 Retrieving package libssh2-1-1.4.3-15.1.x86_64 (33/59),  71.6 KiB (175.5 KiB unpacked)
@@ -105,7 +105,7 @@ Retrieving: openssl-1.0.1i-21.1.x86_64.rpm [done]
 Retrieving package libtasn1-6-3.7-12.1.x86_64 (38/59),  43.4 KiB ( 78.5 KiB unpacked)
 Retrieving: libtasn1-6-3.7-12.1.x86_64.rpm [done]
 Retrieving package kmod-17-8.1.x86_64 (39/59),  67.8 KiB (142.2 KiB unpacked)
-Retrieving: kmod-17-8.1.x86_64.rpm [done]
+Retrieving: kmod-17-8.1.x86_64.rpm [.done]
 Retrieving package findutils-4.5.12-10.1.x86_64 (40/59), 280.0 KiB (658.4 KiB unpacked)
 Retrieving: findutils-4.5.12-10.1.x86_64.rpm [done]
 Retrieving package cracklib-2.9.0-7.1.x86_64 (41/59),  56.9 KiB (187.3 KiB unpacked)
@@ -129,7 +129,7 @@ Retrieving: procps-3.3.9-10.1.x86_64.rpm [done]
 Retrieving package permissions-2015.09.28.1626-11.2.x86_64 (50/59),  31.8 KiB ( 92.5 KiB unpacked)
 Retrieving: permissions-2015.09.28.1626-11.2.x86_64.rpm [done]
 Retrieving package krb5-mini-1.12.1-36.1.x86_64 (51/59), 1017.5 KiB (  3.2 MiB unpacked)
-Retrieving: krb5-mini-1.12.1-36.1.x86_64.rpm [done]
+Retrieving: krb5-mini-1.12.1-36.1.x86_64.rpm [.done]
 Retrieving package device-mapper-1.02.97-76.1.x86_64 (52/59), 518.8 KiB (  2.0 MiB unpacked)
 Retrieving: device-mapper-1.02.97-76.1.x86_64.rpm [done]
 Retrieving package p11-kit-tools-0.20.3-10.1.x86_64 (53/59),  75.0 KiB (182.2 KiB unpacked)
@@ -137,13 +137,13 @@ Retrieving: p11-kit-tools-0.20.3-10.1.x86_64.rpm [done]
 Retrieving package p11-kit-0.20.3-10.1.x86_64 (54/59),  85.2 KiB (224.4 KiB unpacked)
 Retrieving: p11-kit-0.20.3-10.1.x86_64.rpm [done]
 Retrieving package util-linux-2.25-21.1.x86_64 (55/59), 963.3 KiB (  3.4 MiB unpacked)
-Retrieving: util-linux-2.25-21.1.x86_64.rpm [.done]
+Retrieving: util-linux-2.25-21.1.x86_64.rpm [done]
 Retrieving package libcurl4-7.37.0-19.1.x86_64 (56/59), 199.8 KiB (449.4 KiB unpacked)
 Retrieving: libcurl4-7.37.0-19.1.x86_64.rpm [done]
 Retrieving package libsolv-tools-0.6.26-19.1.x86_64 (57/59), 527.9 KiB (  4.3 MiB unpacked)
 Retrieving: libsolv-tools-0.6.26-19.1.x86_64.rpm [done]
 Retrieving package libzypp-15.24.2-19.2.x86_64 (58/59),   2.0 MiB (  7.2 MiB unpacked)
-Retrieving: libzypp-15.24.2-19.2.x86_64.rpm [done]
+Retrieving: libzypp-15.24.2-19.2.x86_64.rpm [.done]
 Retrieving package zypper-1.12.50-19.1.x86_64 (59/59),   1.1 MiB (  5.8 MiB unpacked)
 Retrieving: zypper-1.12.50-19.1.x86_64.rpm [done]
 Checking for file conflicts: [..........done]
