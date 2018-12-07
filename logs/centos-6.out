@@ -2,14 +2,14 @@ Sending build context to Docker daemon  2.048kB
 Step 1/2 : FROM centos:6
  ---> ae6154bcd445
 Step 2/2 : RUN curl http://www.convirture.com/repos/definitions/rhel/6.x/convirt.repo > /etc/yum.repos.d/convirt.repo && yum  -y update     2>&1 && yum  -y install    openssl crontabs socat curl  2>&1
- ---> Running in dcc27426e832
-[91m  % Total    % Rece[0m[91mived % Xferd  Average Speed   Time    Time  [0m[91m   Time  Current
-                           [0m[91m      Dload  Uplo[0m[91mad   Total   Spe[0m[91mn[0m[91mt    Left  Speed
-[0m[91m  0     0    0    [0m[91m 0    0     0    [0m[91m [0m[91m 0      0 --:--:--[0m[91m --:--:-- --:--:[0m[91m--     0[0m[91m  0    11    0    11    0  [0m[91m   0     35      0 --:--:-- [0m[91m--:--:-- --:--:[0m[91m--    70[0m[91m
+ ---> Running in 03c00b277200
+[91m  % Total    [0m[91m% Received % Xferd  Average Sp[0m[91meed   Time    Ti[0m[91mme     T[0m[91mime [0m[91m Curre[0m[91mnt
+ [0m[91m      [0m[91m    [0m[91m      [0m[91m    [0m[91m      [0m[91m    [0m[91m  Dloa[0m[91md  U[0m[91mploa[0m[91md   To[0m[91mtal [0m[91m  Spen[0m[91mt   [0m[91m Left  [0m[91mSpee[0m[91md
+[0m[91m[0m[91m  0     0    0[0m[91m [0m[91m    0    0   [0m[91m  0    [0m[91m  0   [0m[91m   0 [0m[91m--:--[0m[91m:-- [0m[91m--:--:[0m[91m-- -[0m[91m-:--:-[0m[91m-   [0m[91m  0[0m[91m111   335  111   335   [0m[91m 0     0   6565  [0m[91m    0 -[0m[91m-:--:--[0m[91m --:--:[0m[91m-- --:-[0m[91m-:-- [0m[91m25769[0m[91m
 [0mLoaded plugins: fastestmirror
 
 
 File contains no section headers.
 file: file:///etc/yum.repos.d/convirt.repo, line: 1
-'Redirecting'
+"<html><head><title>Loading...</title></head><body><script type='text/javascript'>window.location.replace('http://www.convirture.com/repos/definitions/rhel/6.x/convirt.repo?js=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqcyI6MX0.fADWc9hUOlh58R9UzufQBROmie3I7c7vE835oE6YmU4&uuid=06bd70b8-f9c5-11e8-9636-11f96c0ef81c');</script></body></html>"
 The command '/bin/sh -c curl http://www.convirture.com/repos/definitions/rhel/6.x/convirt.repo > /etc/yum.repos.d/convirt.repo && yum  -y update     2>&1 && yum  -y install    openssl crontabs socat curl  2>&1' returned a non-zero code: 1
