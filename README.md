@@ -18,6 +18,7 @@ Unit test project for **acme.sh** project https://github.com/Neilpang/acme.sh
 |debian:latest| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/debian-latest.svg?1544147390)| Fri, 07 Dec 2018 01:49:50 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-latest.out) |
 |debian:9| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/debian-9.svg?1544147607)| Fri, 07 Dec 2018 01:53:27 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-9.out) |
 |debian:8| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/debian-8.svg?1544147825)| Fri, 07 Dec 2018 01:57:05 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-8.out) |
+|debian:7| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/debian-7.svg?1544148035)| Fri, 07 Dec 2018 02:00:35 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-7.out) |
 
 # How to run tests
 
