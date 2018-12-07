@@ -2,7 +2,7 @@ Sending build context to Docker daemon  2.048kB
 Step 1/2 : FROM opensuse:42.1
  ---> 7617deda9fe6
 Step 2/2 : RUN zypper rr OSS NON-OSS && zypper update -y  2>&1 && zypper install  -y   tar openssl cron socat curl libidn  2>&1
- ---> Running in 554b70451cde
+ ---> Running in 5e12cfeba0a3
 Removing repository 'NON-OSS' [...done]
 Repository 'NON-OSS' has been removed.
 Removing repository 'OSS' [...done]
@@ -31,7 +31,7 @@ Continue? [y/n/? shows all options] (y): y
 Retrieving package cracklib-dict-small-2.9.0-7.1.x86_64 (1/59),  96.5 KiB (243.0 KiB unpacked)
 Retrieving: cracklib-dict-small-2.9.0-7.1.x86_64.rpm [done]
 Retrieving package glibc-2.19-22.1.x86_64 (2/59),   1.6 MiB (  6.3 MiB unpacked)
-Retrieving: glibc-2.19-22.1.x86_64.rpm [.done]
+Retrieving: glibc-2.19-22.1.x86_64.rpm [done]
 Retrieving package insserv-compat-0.1-15.1.noarch (3/59),   9.1 KiB (  8.2 KiB unpacked)
 Retrieving: insserv-compat-0.1-15.1.noarch.rpm [done]
 Retrieving package update-alternatives-1.16.10-14.1.x86_64 (4/59),  35.5 KiB ( 65.8 KiB unpacked)
@@ -39,7 +39,7 @@ Retrieving: update-alternatives-1.16.10-14.1.x86_64.rpm [done]
 Retrieving package perl-base-5.18.2-5.1.x86_64 (5/59),   1.1 MiB (  3.4 MiB unpacked)
 Retrieving: perl-base-5.18.2-5.1.x86_64.rpm [done]
 Retrieving package libz1-1.2.8-8.1.x86_64 (6/59),  51.4 KiB ( 86.1 KiB unpacked)
-Retrieving: libz1-1.2.8-8.1.x86_64.rpm [done]
+Retrieving: libz1-1.2.8-8.1.x86_64.rpm [.done]
 Retrieving package libuuid1-2.25-21.1.x86_64 (7/59),  62.2 KiB ( 18.7 KiB unpacked)
 Retrieving: libuuid1-2.25-21.1.x86_64.rpm [done]
 Retrieving package libudev1-210-104.1.x86_64 (8/59), 264.9 KiB ( 70.1 KiB unpacked)
@@ -53,7 +53,7 @@ Retrieving: libreadline6-6.2-81.1.x86_64.rpm [done]
 Retrieving package libprocps3-3.3.9-10.1.x86_64 (12/59),  52.2 KiB ( 71.1 KiB unpacked)
 Retrieving: libprocps3-3.3.9-10.1.x86_64.rpm [done]
 Retrieving package libpcre1-8.39-5.1.x86_64 (13/59), 256.9 KiB (801.8 KiB unpacked)
-Retrieving: libpcre1-8.39-5.1.x86_64.rpm [.done]
+Retrieving: libpcre1-8.39-5.1.x86_64.rpm [done]
 Retrieving package libksba8-1.3.0-7.1.x86_64 (14/59),  91.9 KiB (243.4 KiB unpacked)
 Retrieving: libksba8-1.3.0-7.1.x86_64.rpm [done]
 Retrieving package libkmod2-17-8.1.x86_64 (15/59),  44.5 KiB ( 82.9 KiB unpacked)
@@ -65,7 +65,7 @@ Retrieving: libgcrypt20-1.6.1-32.1.x86_64.rpm [done]
 Retrieving package libgcc_s1-5.3.1+r233831-6.1.x86_64 (18/59),  47.7 KiB ( 90.4 KiB unpacked)
 Retrieving: libgcc_s1-5.3.1+r233831-6.1.x86_64.rpm [done]
 Retrieving package libffi4-5.3.1+r233831-6.1.x86_64 (19/59),  25.4 KiB ( 34.4 KiB unpacked)
-Retrieving: libffi4-5.3.1+r233831-6.1.x86_64.rpm [done]
+Retrieving: libffi4-5.3.1+r233831-6.1.x86_64.rpm [.done]
 Retrieving package libexpat1-2.1.0-20.1.x86_64 (20/59),  57.9 KiB (166.2 KiB unpacked)
 Retrieving: libexpat1-2.1.0-20.1.x86_64.rpm [done]
 Retrieving package libdbus-1-3-1.8.22-13.1.x86_64 (21/59), 162.1 KiB (284.0 KiB unpacked)
@@ -77,7 +77,7 @@ Retrieving: libbz2-1-1.0.6-32.1.x86_64.rpm [done]
 Retrieving package libapparmor1-2.10.2-12.1.x86_64 (24/59),  62.7 KiB ( 67.5 KiB unpacked)
 Retrieving: libapparmor1-2.10.2-12.1.x86_64.rpm [done]
 Retrieving package libxml2-2-2.9.1-22.1.x86_64 (25/59), 559.8 KiB (  1.5 MiB unpacked)
-Retrieving: libxml2-2-2.9.1-22.1.x86_64.rpm [.done]
+Retrieving: libxml2-2-2.9.1-22.1.x86_64.rpm [done]
 Retrieving package libopenssl1_0_0-1.0.1i-21.1.x86_64 (26/59), 838.6 KiB (  2.5 MiB unpacked)
 Retrieving: libopenssl1_0_0-1.0.1i-21.1.x86_64.rpm [done]
 Retrieving package libblkid1-2.25-21.1.x86_64 (27/59), 151.3 KiB (253.0 KiB unpacked)
@@ -87,7 +87,7 @@ Retrieving: bash-4.2-81.1.x86_64.rpm [done]
 Retrieving package libstdc++6-5.3.1+r233831-6.1.x86_64 (29/59), 361.7 KiB (  1.5 MiB unpacked)
 Retrieving: libstdc++6-5.3.1+r233831-6.1.x86_64.rpm [done]
 Retrieving package libp11-kit0-0.20.3-10.1.x86_64 (30/59), 146.6 KiB (565.9 KiB unpacked)
-Retrieving: libp11-kit0-0.20.3-10.1.x86_64.rpm [done]
+Retrieving: libp11-kit0-0.20.3-10.1.x86_64.rpm [.done]
 Retrieving package expat-2.1.0-20.1.x86_64 (31/59),  54.0 KiB (152.4 KiB unpacked)
 Retrieving: expat-2.1.0-20.1.x86_64.rpm [done]
 Retrieving package libaugeas0-1.2.0-8.1.x86_64 (32/59), 182.6 KiB (369.8 KiB unpacked)
@@ -101,7 +101,7 @@ Retrieving: libmount1-2.25-21.1.x86_64.rpm [done]
 Retrieving package systemd-presets-branding-openSUSE-0.3.0-28.1.noarch (36/59),   7.4 KiB (  839   B unpacked)
 Retrieving: systemd-presets-branding-openSUSE-0.3.0-28.1.noarch.rpm [done]
 Retrieving package openssl-1.0.1i-21.1.x86_64 (37/59), 562.7 KiB (  1.3 MiB unpacked)
-Retrieving: openssl-1.0.1i-21.1.x86_64.rpm [.done]
+Retrieving: openssl-1.0.1i-21.1.x86_64.rpm [done]
 Retrieving package libtasn1-6-3.7-12.1.x86_64 (38/59),  43.4 KiB ( 78.5 KiB unpacked)
 Retrieving: libtasn1-6-3.7-12.1.x86_64.rpm [done]
 Retrieving package kmod-17-8.1.x86_64 (39/59),  67.8 KiB (142.2 KiB unpacked)
@@ -113,7 +113,7 @@ Retrieving: cracklib-2.9.0-7.1.x86_64.rpm [done]
 Retrieving package cpio-2.11-35.1.x86_64 (42/59),  83.7 KiB (220.5 KiB unpacked)
 Retrieving: cpio-2.11-35.1.x86_64.rpm [done]
 Retrieving package coreutils-8.22-6.1.x86_64 (43/59),   1.2 MiB (  5.5 MiB unpacked)
-Retrieving: coreutils-8.22-6.1.x86_64.rpm [done]
+Retrieving: coreutils-8.22-6.1.x86_64.rpm [.done]
 Retrieving package ca-certificates-mozilla-2.7-7.1.noarch (44/59), 217.5 KiB (377.4 KiB unpacked)
 Retrieving: ca-certificates-mozilla-2.7-7.1.noarch.rpm [done]
 Retrieving package bzip2-1.0.6-32.1.x86_64 (45/59),  36.1 KiB ( 64.8 KiB unpacked)
@@ -145,7 +145,7 @@ Retrieving: libsolv-tools-0.6.26-19.1.x86_64.rpm [done]
 Retrieving package libzypp-15.24.2-19.2.x86_64 (58/59),   2.0 MiB (  7.2 MiB unpacked)
 Retrieving: libzypp-15.24.2-19.2.x86_64.rpm [done]
 Retrieving package zypper-1.12.50-19.1.x86_64 (59/59),   1.1 MiB (  5.8 MiB unpacked)
-Retrieving: zypper-1.12.50-19.1.x86_64.rpm [done]
+Retrieving: zypper-1.12.50-19.1.x86_64.rpm [.done]
 Checking for file conflicts: [..........done]
 ( 1/59) Installing: cracklib-dict-small-2.9.0-7.1 [..........done]
 ( 2/59) Installing: glibc-2.19-22.1 [...................done]
