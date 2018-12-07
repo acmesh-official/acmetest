@@ -2,11 +2,11 @@ Sending build context to Docker daemon  2.048kB
 Step 1/2 : FROM kalilinux/kali-linux-docker
  ---> 468e6235b128
 Step 2/2 : RUN apt-get -y update 2>&1 && apt-get -y install openssl cron socat curl idn  2>&1
- ---> Running in 2d665c9c5a08
+ ---> Running in 914f0445df3e
 Get:1 http://ftp.free.fr/pub/kali kali-rolling InRelease [30.5 kB]
 Err:1 http://ftp.free.fr/pub/kali kali-rolling InRelease
   The following signatures were invalid: KEYEXPIRED 1517583136  KEYEXPIRED 1517583136  KEYEXPIRED 1517583136  KEYEXPIRED 1517583136  KEYEXPIRED 1517583136
-Fetched 30.5 kB in 0s (54.1 kB/s)
+Fetched 30.5 kB in 0s (59.7 kB/s)
 Reading package lists...
 W: An error occurred during the signature verification. The repository is not updated and the previous index files will be used. GPG error: http://ftp.free.fr/pub/kali kali-rolling InRelease: The following signatures were invalid: KEYEXPIRED 1517583136  KEYEXPIRED 1517583136  KEYEXPIRED 1517583136  KEYEXPIRED 1517583136  KEYEXPIRED 1517583136
 W: Failed to fetch http://http.kali.org/kali/dists/kali-rolling/InRelease  The following signatures were invalid: KEYEXPIRED 1517583136  KEYEXPIRED 1517583136  KEYEXPIRED 1517583136  KEYEXPIRED 1517583136  KEYEXPIRED 1517583136
