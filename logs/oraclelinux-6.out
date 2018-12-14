@@ -2,13 +2,13 @@ Sending build context to Docker daemon  2.048kB
 Step 1/2 : FROM oraclelinux:6
  ---> 1e9be0c8e243
 Step 2/2 : RUN curl http://www.convirture.com/repos/definitions/rhel/6.x/convirt.repo > /etc/yum.repos.d/convirt.repo && yum  -y update     2>&1 && yum -y install    tar openssl crontabs socat curl  2>&1
- ---> Running in cd576644e7ba
-[91m  % Total    [0m[91m% Received % [0m[91mXferd [0m[91m Ave[0m[91mrage[0m[91m Spe[0m[91med  [0m[91m Tim[0m[91me   [0m[91m Time[0m[91m    [0m[91m Ti[0m[91mme  C[0m[91murr[0m[91ment
-[0m[91m  [0m[91m    [0m[91m   [0m[91m   [0m[91m    [0m[91m  [0m[91m    [0m[91m  [0m[91m    [0m[91m    [0m[91m D[0m[91mload[0m[91m  [0m[91mUploa[0m[91md  [0m[91m To[0m[91mtal [0m[91m  [0m[91mSpen[0m[91mt [0m[91m   L[0m[91mef[0m[91mt  S[0m[91mpee[0m[91md
-[0m[91m  0[0m[91m  [0m[91m   0[0m[91m  [0m[91m  0 [0m[91m    [0m[91m0[0m[91m    [0m[91m0 [0m[91m    [0m[91m0   [0m[91m  [0m[91m 0  [0m[91m  [0m[91m  0[0m[91m --:[0m[91m--[0m[91m:-- -[0m[91m-:[0m[91m--:-[0m[91m- [0m[91m--:[0m[91m--:-[0m[91m- [0m[91m    [0m[91m0[0m[91m111   335 [0m[91m 111  [0m[91m 335[0m[91m    0[0m[91m  [0m[91m   0 [0m[91m  6[0m[91m920  [0m[91m    0[0m[91m --:[0m[91m--:[0m[91m-- -[0m[91m-:--[0m[91m:-- [0m[91m--:-[0m[91m-:-- 17631[0m[91m
+ ---> Running in 5f9efdd12977
+[91m  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0[0m[91m111   335  111   335    0     0    317      0  0:00:01  0:00:01 --:--:-- 16750
 [0mLoaded plugins: ovl, security, ulninfo
 Setting up Update Process
 Error: File contains no section headers.
 file: file:///etc/yum.repos.d/convirt.repo, line: 1
-"<html><head><title>Loading...</title></head><body><script type='text/javascript'>window.location.replace('http://www.convirture.com/repos/definitions/rhel/6.x/convirt.repo?js=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqcyI6MX0.fADWc9hUOlh58R9UzufQBROmie3I7c7vE835oE6YmU4&uuid=d5e02cf0-ff83-11e8-98d1-5c9b99ec21e8');</script></body></html>"
+"<html><head><title>Loading...</title></head><body><script type='text/javascript'>window.location.replace('http://www.convirture.com/repos/definitions/rhel/6.x/convirt.repo?js=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqcyI6MX0.fADWc9hUOlh58R9UzufQBROmie3I7c7vE835oE6YmU4&uuid=65d57f72-ff89-11e8-96cd-5c9bd0fbc637');</script></body></html>"
 The command '/bin/sh -c curl http://www.convirture.com/repos/definitions/rhel/6.x/convirt.repo > /etc/yum.repos.d/convirt.repo && yum  -y update     2>&1 && yum -y install    tar openssl crontabs socat curl  2>&1' returned a non-zero code: 1
