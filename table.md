@@ -1,1 +1,2 @@
 |ubuntu:latest| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/ubuntu-latest.svg?1544751508)| Fri, 14 Dec 2018 01:38:28 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/ubuntu-latest.out) |
+|ubuntu:16.04| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/ubuntu-16.04.svg?1544751728)| Fri, 14 Dec 2018 01:42:08 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/ubuntu-16.04.out) |
