@@ -39,7 +39,7 @@ Unit test project for **acme.sh** project https://github.com/Neilpang/acme.sh
 |alpine:3.5| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/alpine-3.5.svg?1544778610)| Fri, 14 Dec 2018 09:10:10 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-3.5.out) |
 |alpine:3.4| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/alpine-3.4.svg?1544778774)| Fri, 14 Dec 2018 09:12:54 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-3.4.out) |
 |alpine:3.3| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/alpine-3.3.svg?1544779091)| Fri, 14 Dec 2018 09:18:11 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-3.3.out) |
-|alpine:3.2| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/alpine-3.2.svg?1544779252)| Fri, 14 Dec 2018 09:20:52 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-3.2.out) |
+|alpine:3.2| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/alpine-3.2.svg?1544779404)| Fri, 14 Dec 2018 09:23:24 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-3.2.out) |
 
 # How to run tests
 
