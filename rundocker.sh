@@ -390,6 +390,7 @@ _runplat() {
         -e CASE="$CASE" \
         -e ACME_NO_COLOR="$ACME_NO_COLOR" \
         -e NGROK_TOKEN=$NGROK_TOKEN \
+        -e CI=$CI \
         -v $(pwd):/acmetest \
         $myplat /bin/sh -c "cd /acmetest && ./$RUN_SCRIPT" >> "$Log_Out" 2>&1
       fi

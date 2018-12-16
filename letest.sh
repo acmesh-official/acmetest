@@ -59,29 +59,36 @@ fi
 
 export LOG_LEVEL
 
-#__INTERACTIVE=""
-#if [ -t 1 ]; then
+
+#we need color in travis
+if [ "$TRAVIS" = "true" ]; then
+  export ACME_FORCE_COLOR=1
+elif [ "$CI" = "1" ]; then
+  #In our cron testing server
+  export ACME_NO_COLOR=1  
+fi
+
+
+__INTERACTIVE=""
+if [ -t 1 ]; then
   __INTERACTIVE="1"
-#fi
+fi
+
 
 __green() {
-  if [ "$__INTERACTIVE${ACME_NO_COLOR}" = "1" ]; then
-    printf '\033[1;31;32m'
+  if [ "${__INTERACTIVE}${ACME_NO_COLOR:-0}" = "10" -o "${ACME_FORCE_COLOR}" = "1" ]; then
+    printf '\033[1;31;32m%b\033[0m' "$1"
+    return
   fi
-  printf -- "$1"
-  if [ "$__INTERACTIVE${ACME_NO_COLOR}" = "1" ]; then
-    printf '\033[0m'
-  fi
+  printf -- "%b" "$1"
 }
 
 __red() {
-  if [ "$__INTERACTIVE${ACME_NO_COLOR}" = "1" ]; then
-    printf '\033[1;31;40m'
+  if [ "${__INTERACTIVE}${ACME_NO_COLOR:-0}" = "10" -o "${ACME_FORCE_COLOR}" = "1" ]; then
+    printf '\033[1;31;40m%b\033[0m' "$1"
+    return
   fi
   printf -- "%b" "$1"
-  if [ "$__INTERACTIVE${ACME_NO_COLOR}" = "1" ]; then
-    printf '\033[0m'
-  fi
 }
 
 __ok() {
