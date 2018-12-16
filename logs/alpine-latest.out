@@ -1,12 +1,36 @@
 Sending build context to Docker daemon  2.048kB
 Step 1/2 : FROM alpine:latest
- ---> 13e1761bf172
+ ---> 196d12cf6ab1
 Step 2/2 : RUN apk update -f 2>&1 && apk --no-cache add -f openssl curl socat  2>&1
- ---> Using cache
- ---> 9e085fc6efba
-Successfully built 9e085fc6efba
+ ---> Running in cdfad855c827
+fetch http://dl-cdn.alpinelinux.org/alpine/v3.8/main/x86_64/APKINDEX.tar.gz
+fetch http://dl-cdn.alpinelinux.org/alpine/v3.8/community/x86_64/APKINDEX.tar.gz
+v3.8.1-149-gc858bf2b3f [http://dl-cdn.alpinelinux.org/alpine/v3.8/main]
+v3.8.1-149-gc858bf2b3f [http://dl-cdn.alpinelinux.org/alpine/v3.8/community]
+OK: 9544 distinct packages available
+fetch http://dl-cdn.alpinelinux.org/alpine/v3.8/main/x86_64/APKINDEX.tar.gz
+fetch http://dl-cdn.alpinelinux.org/alpine/v3.8/community/x86_64/APKINDEX.tar.gz
+(1/13) Installing ca-certificates (20171114-r3)
+(2/13) Installing nghttp2-libs (1.32.0-r0)
+(3/13) Installing libssh2 (1.8.0-r3)
+(4/13) Installing libcurl (7.61.1-r1)
+(5/13) Installing curl (7.61.1-r1)
+(6/13) Installing libcrypto1.0 (1.0.2q-r0)
+(7/13) Installing libssl1.0 (1.0.2q-r0)
+(8/13) Installing openssl (1.0.2q-r0)
+(9/13) Installing ncurses-terminfo-base (6.1_p20180818-r1)
+(10/13) Installing ncurses-terminfo (6.1_p20180818-r1)
+(11/13) Installing ncurses-libs (6.1_p20180818-r1)
+(12/13) Installing readline (7.0.003-r0)
+(13/13) Installing socat (1.7.3.2-r4)
+Executing busybox-1.28.4-r1.trigger
+Executing ca-certificates-20171114-r3.trigger
+OK: 18 MiB in 26 packages
+ ---> ac17b202f109
+Removing intermediate container cdfad855c827
+Successfully built ac17b202f109
 Successfully tagged myalpine:latest
-Fri, 14 Dec 2018 03:50:18 UTC
+Fri, 14 Dec 2018 08:58:42 UTC
 Testing branch: master
 [1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/1/21[0m
 ==Running le_test_dependencies please wait
@@ -19,7 +43,7 @@ socat installed.[1;31;32m [PASS][0m
 ==Running le_test_install please wait
 ./acme.sh install[1;31;32m [PASS][0m
 /root/.acme.sh/acme.sh exists.[1;31;32m [PASS][0m
-_contains '19 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null'[1;31;32m [PASS][0m
+_contains '43 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null'[1;31;32m [PASS][0m
 /root/.acme.sh/acme.sh uninstall  > /dev/null[1;31;32m [PASS][0m
 ------------------------------------------
 [1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/3/21[0m
@@ -33,7 +57,7 @@ equals [1;31;32m [PASS][0m
 ==Running le_test_installtodir please wait
 ./acme.sh install[1;31;32m [PASS][0m
 /root/myle/acme.sh exists.[1;31;32m [PASS][0m
-_contains '19 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null'[1;31;32m [PASS][0m
+_contains '43 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null'[1;31;32m [PASS][0m
 /root/myle/acme.sh uninstall[1;31;32m [PASS][0m
 ------------------------------------------
 [1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/5/21[0m
@@ -47,7 +71,7 @@ equals [1;31;32m [PASS][0m
 ==Running le_test_install_config_home please wait
 ./acme.sh --install --config-home /root/etc/acme[1;31;32m [PASS][0m
 /root/.acme.sh/acme.sh exists.[1;31;32m [PASS][0m
-_contains '20 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null'[1;31;32m [PASS][0m
+_contains '44 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null'[1;31;32m [PASS][0m
 /root/etc/acme/account.conf exists.[1;31;32m [PASS][0m
 /root/.acme.sh/account.conf no exists.[1;31;32m [PASS][0m
 /root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null[1;31;32m [PASS][0m
@@ -57,133 +81,121 @@ _contains '20 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --
 ------------------------------------------
 [1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/7/21[0m
 ==Running le_test_standandalone_renew please wait
-/root/.acme.sh/acme.sh issue no testdocker.acme.sh[1;31;40m [FAIL] [0m
-[1;31;40mRun Failed
-[0m[1;31;40mdeactivate failed
-[0m[Fri Dec 14 03:50:21 UTC 2018] Using stage ACME_DIRECTORY: https://acme-staging-v02.api.letsencrypt.org/directory
-[Fri Dec 14 03:50:22 UTC 2018] Only RSA or EC key is supported.
-[Fri Dec 14 03:50:22 UTC 2018] Can not get domain new order.
+/root/.acme.sh/acme.sh issue no testdocker.acme.sh[1;31;32m [PASS][0m
+FORCE=1 /root/.acme.sh/acme.sh renew testdocker.acme.sh[1;31;32m [PASS][0m
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;40m1[0m[1;31;32m/8/21[0m
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/8/21[0m
 ==Running le_test_standandalone_renew_v2 please wait
-/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer'[1;31;40m [FAIL] [0m
-[1;31;40mRun Failed
-[0m[1;31;40mdeactivate failed
-[0m[Fri Dec 14 03:50:23 UTC 2018] Using stage ACME_DIRECTORY: https://acme-staging-v02.api.letsencrypt.org/directory
-[Fri Dec 14 03:50:24 UTC 2018] _authorizations_seg not found.
-[Fri Dec 14 03:50:24 UTC 2018] Please check log file for more details: le_test_standandalone_renew_v2.log
+/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;40m2[0m[1;31;32m/9/21[0m
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/9/21[0m
 ==Running le_test_standandalone_renew_localaddress_v2 please wait
-/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --local-address 0.0.0.0 --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer'[1;31;40m [FAIL] [0m
-[1;31;40mRun Failed
-[0m[1;31;40mdeactivate failed
-[0m[Fri Dec 14 03:50:26 UTC 2018] Using stage ACME_DIRECTORY: https://acme-staging-v02.api.letsencrypt.org/directory
-[Fri Dec 14 03:50:27 UTC 2018] _authorizations_seg not found.
-[Fri Dec 14 03:50:27 UTC 2018] Please check log file for more details: le_test_standandalone_renew_localaddress_v2.log
+/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --local-address 0.0.0.0 --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;40m3[0m[1;31;32m/10/21[0m
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/10/21[0m
 ==Running le_test_standandalone_listen_v4_v2 please wait
-/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --listen-v4 --cert-file '/acmetest/certs/domain.cer' --key-file '/acmetest/certs/domain.key'  --ca-file '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchain-file  '/acmetest/certs/full.cer'[1;31;40m [FAIL] [0m
-[1;31;40mRun Failed
-[0m[1;31;40mdeactivate failed
-[0m[Fri Dec 14 03:50:29 UTC 2018] Using stage ACME_DIRECTORY: https://acme-staging-v02.api.letsencrypt.org/directory
-[Fri Dec 14 03:50:29 UTC 2018] _authorizations_seg not found.
-[Fri Dec 14 03:50:29 UTC 2018] Please check log file for more details: le_test_standandalone_listen_v4_v2.log
+/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --listen-v4 --cert-file '/acmetest/certs/domain.cer' --key-file '/acmetest/certs/domain.key'  --ca-file '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchain-file  '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;40m4[0m[1;31;32m/11/21[0m
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/11/21[0m
 ==Running le_test_standandalone_listen_v6_v2 please wait
 Skipped by TEST_IPV6
-[1;31;40mdeactivate failed
-[0m[Fri Dec 14 03:50:30 UTC 2018] Using stage ACME_DIRECTORY: https://acme-staging-v02.api.letsencrypt.org/directory
-[Fri Dec 14 03:50:30 UTC 2018] _authorizations_seg not found.
-[Fri Dec 14 03:50:30 UTC 2018] Please check log file for more details: le_test_standandalone_listen_v6_v2.log
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;40m5[0m[1;31;32m/12/21[0m
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/12/21[0m
 ==Running le_test_standandalone_deactivate_v2 please wait
-/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer'[1;31;40m [FAIL] [0m
-[1;31;40mRun Failed
-[0m[1;31;40mdeactivate failed
-[0m[Fri Dec 14 03:50:32 UTC 2018] Using stage ACME_DIRECTORY: https://acme-staging-v02.api.letsencrypt.org/directory
-[Fri Dec 14 03:50:33 UTC 2018] _authorizations_seg not found.
-[Fri Dec 14 03:50:33 UTC 2018] Please check log file for more details: le_test_standandalone_deactivate_v2.log
+/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --deactivate -d testdocker.acme.sh[1;31;32m [PASS][0m
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;40m6[0m[1;31;32m/13/21[0m
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/13/21[0m
 ==Running le_test_standandalone please wait
-/root/.acme.sh/acme.sh issue no testdocker.acme.sh[1;31;40m [FAIL] [0m
-[1;31;40mRun Failed
-[0m[1;31;40mdeactivate failed
-[0m[Fri Dec 14 03:50:34 UTC 2018] Using stage ACME_DIRECTORY: https://acme-staging-v02.api.letsencrypt.org/directory
-[Fri Dec 14 03:50:35 UTC 2018] _authorizations_seg not found.
-[Fri Dec 14 03:50:35 UTC 2018] Please check log file for more details: le_test_standandalone.log
+/root/.acme.sh/acme.sh issue no testdocker.acme.sh[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;40m7[0m[1;31;32m/14/21[0m
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/14/21[0m
 ==Running le_test_standandalone_SAN please wait
-/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh"[1;31;40m [FAIL] [0m
-[1;31;40mRun Failed
-[0m[1;31;40mdeactivate failed
-[0m[Fri Dec 14 03:50:37 UTC 2018] Using stage ACME_DIRECTORY: https://acme-staging-v02.api.letsencrypt.org/directory
-[Fri Dec 14 03:50:38 UTC 2018] _authorizations_seg not found.
-[Fri Dec 14 03:50:38 UTC 2018] Please check log file for more details: le_test_standandalone_SAN.log
+/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh"[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;40m8[0m[1;31;32m/15/21[0m
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/15/21[0m
 ==Running le_test_standandalone_ECDSA_256 please wait
-/root/.acme.sh/acme.sh issue no testdocker.acme.sh no ec-256[1;31;40m [FAIL] [0m
-[1;31;40mRun Failed
-[0m[1;31;40mdeactivate failed
-[0m[Fri Dec 14 03:50:39 UTC 2018] Using stage ACME_DIRECTORY: https://acme-staging-v02.api.letsencrypt.org/directory
-[Fri Dec 14 03:50:40 UTC 2018] _authorizations_seg not found.
-[Fri Dec 14 03:50:40 UTC 2018] Please check log file for more details: le_test_standandalone_ECDSA_256.log
+/root/.acme.sh/acme.sh issue no testdocker.acme.sh no ec-256[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;40m9[0m[1;31;32m/16/21[0m
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/16/21[0m
 ==Running le_test_standandalone_ECDSA_256_renew please wait
-/root/.acme.sh/acme.sh issue no testdocker.acme.sh no ec-256[1;31;40m [FAIL] [0m
-[1;31;40mRun Failed
-[0m[1;31;40mdeactivate failed
-[0m[Fri Dec 14 03:50:42 UTC 2018] Using stage ACME_DIRECTORY: https://acme-staging-v02.api.letsencrypt.org/directory
-[Fri Dec 14 03:50:43 UTC 2018] _authorizations_seg not found.
-[Fri Dec 14 03:50:43 UTC 2018] Please check log file for more details: le_test_standandalone_ECDSA_256_renew.log
+/root/.acme.sh/acme.sh issue no testdocker.acme.sh no ec-256[1;31;32m [PASS][0m
+FORCE=1 /root/.acme.sh/acme.sh renew testdocker.acme.sh[1;31;32m [PASS][0m
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;40m10[0m[1;31;32m/17/21[0m
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/17/21[0m
 ==Running le_test_standandalone_ECDSA_256_SAN_renew please wait
-/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh" ec-256[1;31;40m [FAIL] [0m
-[1;31;40mRun Failed
-[0m[1;31;40mdeactivate failed
-[0m[Fri Dec 14 03:50:44 UTC 2018] Using stage ACME_DIRECTORY: https://acme-staging-v02.api.letsencrypt.org/directory
-[Fri Dec 14 03:50:45 UTC 2018] _authorizations_seg not found.
-[Fri Dec 14 03:50:45 UTC 2018] Please check log file for more details: le_test_standandalone_ECDSA_256_SAN_renew.log
+/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh" ec-256[1;31;32m [PASS][0m
+FORCE=1 /root/.acme.sh/acme.sh renew "testdocker.acme.sh"[1;31;32m [PASS][0m
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;40m11[0m[1;31;32m/18/21[0m
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/18/21[0m
 ==Running le_test_standandalone_ECDSA_256_SAN_renew_v2 please wait
-/root/.acme.sh/acme.sh --issue -d "testdocker.acme.sh" -d "testdocker2.acme.sh" --standalone --keylength ec-256 --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer'[1;31;40m [FAIL] [0m
-[1;31;40mRun Failed
-[0m[1;31;40mdeactivate failed
-[0m[Fri Dec 14 03:50:47 UTC 2018] Using stage ACME_DIRECTORY: https://acme-staging-v02.api.letsencrypt.org/directory
-[Fri Dec 14 03:50:48 UTC 2018] _authorizations_seg not found.
-[Fri Dec 14 03:50:48 UTC 2018] Please check log file for more details: le_test_standandalone_ECDSA_256_SAN_renew_v2.log
+/root/.acme.sh/acme.sh --issue -d "testdocker.acme.sh" -d "testdocker2.acme.sh" --standalone --keylength ec-256 --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh_ecc/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --renew --ecc -d "testdocker.acme.sh" --force[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
+'/root/.acme.sh/testdocker.acme.sh_ecc/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;40m12[0m[1;31;32m/19/21[0m
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/19/21[0m
 ==Running le_test_standandalone_ECDSA_384 please wait
-/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" no ec-384[1;31;40m [FAIL] [0m
-[1;31;40mRun Failed
-[0m[1;31;40mdeactivate failed
-[0m[Fri Dec 14 03:50:49 UTC 2018] Using stage ACME_DIRECTORY: https://acme-staging-v02.api.letsencrypt.org/directory
-[Fri Dec 14 03:50:50 UTC 2018] _authorizations_seg not found.
-[Fri Dec 14 03:50:50 UTC 2018] Please check log file for more details: le_test_standandalone_ECDSA_384.log
+/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" no ec-384[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;40m13[0m[1;31;32m/20/21[0m
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/20/21[0m
 ==Running le_test_standandalone_renew_idn_v2 please wait
 Skipped by TEST_IDN
-[1;31;40mdeactivate failed
-[0m[Fri Dec 14 03:50:50 UTC 2018] Using stage ACME_DIRECTORY: https://acme-staging-v02.api.letsencrypt.org/directory
-[Fri Dec 14 03:50:51 UTC 2018] _authorizations_seg not found.
-[Fri Dec 14 03:50:51 UTC 2018] Please check log file for more details: le_test_standandalone_renew_idn_v2.log
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;40m14[0m[1;31;32m/21/21[0m
+[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/21/21[0m
 ==Running le_test_dnsapi please wait
 Skipped by TEST_DNS
-[1;31;40mdeactivate failed
-[0m[Fri Dec 14 03:50:51 UTC 2018] Using stage ACME_DIRECTORY: https://acme-staging-v02.api.letsencrypt.org/directory
-[Fri Dec 14 03:50:52 UTC 2018] _authorizations_seg not found.
-[Fri Dec 14 03:50:52 UTC 2018] Please check log file for more details: le_test_dnsapi.log
 ------------------------------------------
