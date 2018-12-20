@@ -1,170 +1,287 @@
 
-Thu, 13 Dec 2018 22:58:08 UTC
+Thu, 20 Dec 2018 22:58:09 UTC
 Testing branch: master
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/1/21[0m
+Progress: 0/1/21
 ==Running le_test_dependencies please wait
-curl installed.[1;31;32m [PASS][0m
-crontab installed.[1;31;32m [PASS][0m
-openssl installed.[1;31;32m [PASS][0m
-socat installed.[1;31;32m [PASS][0m
+curl installed. [PASS]
+crontab installed. [PASS]
+openssl installed. [PASS]
+socat installed. [PASS]
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/2/21[0m
+Progress: 0/2/21
 ==Running le_test_install please wait
-./acme.sh install[1;31;32m [PASS][0m
-/root/.acme.sh/acme.sh exists.[1;31;32m [PASS][0m
-_contains '11 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null'[1;31;32m [PASS][0m
-/root/.acme.sh/acme.sh uninstall  > /dev/null[1;31;32m [PASS][0m
+./acme.sh install [PASS]
+/root/.acme.sh/acme.sh exists. [PASS]
+_contains '12 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
+/root/.acme.sh/acme.sh uninstall  > /dev/null [PASS]
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/3/21[0m
+Progress: 0/3/21
 ==Running le_test_uninstall please wait
-./acme.sh install[1;31;32m [PASS][0m
-/root/.acme.sh/acme.sh uninstall[1;31;32m [PASS][0m
-/root/.acme.sh/acme.sh no exists.[1;31;32m [PASS][0m
-equals [1;31;32m [PASS][0m
+./acme.sh install [PASS]
+/root/.acme.sh/acme.sh uninstall [PASS]
+/root/.acme.sh/acme.sh no exists. [PASS]
+equals  [PASS]
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/4/21[0m
+Progress: 0/4/21
 ==Running le_test_installtodir please wait
-./acme.sh install[1;31;32m [PASS][0m
-/root/myle/acme.sh exists.[1;31;32m [PASS][0m
-_contains '16 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null'[1;31;32m [PASS][0m
-/root/myle/acme.sh uninstall[1;31;32m [PASS][0m
+./acme.sh install [PASS]
+/root/myle/acme.sh exists. [PASS]
+_contains '17 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
+/root/myle/acme.sh uninstall [PASS]
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/5/21[0m
+Progress: 0/5/21
 ==Running le_test_uninstalltodir please wait
-./acme.sh install[1;31;32m [PASS][0m
-/root/myle/acme.sh uninstall[1;31;32m [PASS][0m
-/root/myle/acme.sh no exists.[1;31;32m [PASS][0m
-equals [1;31;32m [PASS][0m
+./acme.sh install [PASS]
+/root/myle/acme.sh uninstall [PASS]
+/root/myle/acme.sh no exists. [PASS]
+equals  [PASS]
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/6/21[0m
+Progress: 0/6/21
 ==Running le_test_install_config_home please wait
-./acme.sh --install --config-home /root/etc/acme[1;31;32m [PASS][0m
-/root/.acme.sh/acme.sh exists.[1;31;32m [PASS][0m
-_contains '21 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null'[1;31;32m [PASS][0m
-/root/etc/acme/account.conf exists.[1;31;32m [PASS][0m
-/root/.acme.sh/account.conf no exists.[1;31;32m [PASS][0m
-/root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null[1;31;32m [PASS][0m
-/root/.acme.sh/acme.sh --uninstall --config-home /root/etc/acme > /dev/null[1;31;32m [PASS][0m
-/root/etc/acme/account.conf exists.[1;31;32m [PASS][0m
-/root/.acme.sh/account.conf no exists.[1;31;32m [PASS][0m
+./acme.sh --install --config-home /root/etc/acme [PASS]
+/root/.acme.sh/acme.sh exists. [PASS]
+_contains '22 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
+/root/etc/acme/account.conf exists. [PASS]
+/root/.acme.sh/account.conf no exists. [PASS]
+/root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null [PASS]
+/root/.acme.sh/acme.sh --uninstall --config-home /root/etc/acme > /dev/null [PASS]
+/root/etc/acme/account.conf exists. [PASS]
+/root/.acme.sh/account.conf no exists. [PASS]
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/7/21[0m
+Progress: 0/7/21
 ==Running le_test_standandalone_renew please wait
-/root/.acme.sh/acme.sh issue no testfreebsd.acme.sh[1;31;32m [PASS][0m
-FORCE=1 /root/.acme.sh/acme.sh renew testfreebsd.acme.sh[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh issue no testfreebsd.acme.sh [FAIL] 
+Run Failed
+deactivate failed
+[Fri Dec 21 06:58:30 CST 2018] Using stage ACME_DIRECTORY: https://acme-staging.api.letsencrypt.org/directory
+[Fri Dec 21 06:58:30 CST 2018] Please refer to https://curl.haxx.se/libcurl/c/libcurl-errors.html for error code: 60
+[Fri Dec 21 06:58:30 CST 2018] Can not init api.
+[Fri Dec 21 06:58:30 CST 2018] Getting new-authz for domain='testfreebsd.acme.sh'
+[Fri Dec 21 06:58:30 CST 2018] Please refer to https://curl.haxx.se/libcurl/c/libcurl-errors.html for error code: 60
+[Fri Dec 21 06:58:30 CST 2018] Can not init api.
+[Fri Dec 21 06:58:31 CST 2018] Please refer to https://curl.haxx.se/libcurl/c/libcurl-errors.html for error code: 60
+[Fri Dec 21 06:58:31 CST 2018] Can not connect to https://acme-staging.api.letsencrypt.org/directory to get nonce.
+[Fri Dec 21 06:58:31 CST 2018] Can not get domain new authz.
+[Fri Dec 21 06:58:31 CST 2018] Can not get domain new authz token.
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/8/21[0m
+Progress: 1/8/21
 ==Running le_test_standandalone_renew_v2 please wait
-/root/.acme.sh/acme.sh --issue -d testfreebsd.acme.sh --standalone --certpath '/root/acmetest/certs/domain.cer' --keypath '/root/acmetest/certs/domain.key'  --capath '/root/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/root/acmetest/certs/full.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testfreebsd.acme.sh/testfreebsd.acme.sh.cer' equals '/root/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testfreebsd.acme.sh/testfreebsd.acme.sh.key' equals '/root/acmetest/certs/domain.key'[1;31;32m [PASS][0m
-'/root/.acme.sh/testfreebsd.acme.sh/ca.cer' equals '/root/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testfreebsd.acme.sh/fullchain.cer' equals '/root/acmetest/certs/full.cer'[1;31;32m [PASS][0m
-/root/.acme.sh/acme.sh --renew -d testfreebsd.acme.sh --force[1;31;32m [PASS][0m
-/root/.acme.sh/testfreebsd.acme.sh/testfreebsd.acme.sh.cer is cert ? 'testfreebsd.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
-/root/.acme.sh/testfreebsd.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
-'/root/.acme.sh/testfreebsd.acme.sh/testfreebsd.acme.sh.cer' equals '/root/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testfreebsd.acme.sh/testfreebsd.acme.sh.key' equals '/root/acmetest/certs/domain.key'[1;31;32m [PASS][0m
-'/root/.acme.sh/testfreebsd.acme.sh/ca.cer' equals '/root/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testfreebsd.acme.sh/fullchain.cer' equals '/root/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --issue -d testfreebsd.acme.sh --standalone --certpath '/root/acmetest/certs/domain.cer' --keypath '/root/acmetest/certs/domain.key'  --capath '/root/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/root/acmetest/certs/full.cer' [FAIL] 
+Run Failed
+deactivate failed
+[Fri Dec 21 06:58:38 CST 2018] Using stage ACME_DIRECTORY: https://acme-staging.api.letsencrypt.org/directory
+[Fri Dec 21 06:58:38 CST 2018] Please refer to https://curl.haxx.se/libcurl/c/libcurl-errors.html for error code: 60
+[Fri Dec 21 06:58:38 CST 2018] Can not init api.
+[Fri Dec 21 06:58:38 CST 2018] Getting new-authz for domain='testfreebsd.acme.sh'
+[Fri Dec 21 06:58:38 CST 2018] Please refer to https://curl.haxx.se/libcurl/c/libcurl-errors.html for error code: 60
+[Fri Dec 21 06:58:38 CST 2018] Can not init api.
+[Fri Dec 21 06:58:39 CST 2018] Please refer to https://curl.haxx.se/libcurl/c/libcurl-errors.html for error code: 60
+[Fri Dec 21 06:58:39 CST 2018] Can not connect to https://acme-staging.api.letsencrypt.org/directory to get nonce.
+[Fri Dec 21 06:58:39 CST 2018] Can not get domain new authz.
+[Fri Dec 21 06:58:39 CST 2018] Can not get domain new authz token.
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/9/21[0m
+Progress: 2/9/21
 ==Running le_test_standandalone_renew_localaddress_v2 please wait
-/root/.acme.sh/acme.sh --issue -d testfreebsd.acme.sh --standalone --local-address 0.0.0.0 --certpath '/root/acmetest/certs/domain.cer' --keypath '/root/acmetest/certs/domain.key'  --capath '/root/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/root/acmetest/certs/full.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testfreebsd.acme.sh/testfreebsd.acme.sh.cer' equals '/root/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testfreebsd.acme.sh/testfreebsd.acme.sh.key' equals '/root/acmetest/certs/domain.key'[1;31;32m [PASS][0m
-'/root/.acme.sh/testfreebsd.acme.sh/ca.cer' equals '/root/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testfreebsd.acme.sh/fullchain.cer' equals '/root/acmetest/certs/full.cer'[1;31;32m [PASS][0m
-/root/.acme.sh/acme.sh --renew -d testfreebsd.acme.sh --force[1;31;32m [PASS][0m
-/root/.acme.sh/testfreebsd.acme.sh/testfreebsd.acme.sh.cer is cert ? 'testfreebsd.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
-/root/.acme.sh/testfreebsd.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
-'/root/.acme.sh/testfreebsd.acme.sh/testfreebsd.acme.sh.cer' equals '/root/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testfreebsd.acme.sh/testfreebsd.acme.sh.key' equals '/root/acmetest/certs/domain.key'[1;31;32m [PASS][0m
-'/root/.acme.sh/testfreebsd.acme.sh/ca.cer' equals '/root/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testfreebsd.acme.sh/fullchain.cer' equals '/root/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --issue -d testfreebsd.acme.sh --standalone --local-address 0.0.0.0 --certpath '/root/acmetest/certs/domain.cer' --keypath '/root/acmetest/certs/domain.key'  --capath '/root/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/root/acmetest/certs/full.cer' [FAIL] 
+Run Failed
+deactivate failed
+[Fri Dec 21 06:58:46 CST 2018] Using stage ACME_DIRECTORY: https://acme-staging.api.letsencrypt.org/directory
+[Fri Dec 21 06:58:46 CST 2018] Please refer to https://curl.haxx.se/libcurl/c/libcurl-errors.html for error code: 60
+[Fri Dec 21 06:58:46 CST 2018] Can not init api.
+[Fri Dec 21 06:58:46 CST 2018] Getting new-authz for domain='testfreebsd.acme.sh'
+[Fri Dec 21 06:58:46 CST 2018] Please refer to https://curl.haxx.se/libcurl/c/libcurl-errors.html for error code: 60
+[Fri Dec 21 06:58:46 CST 2018] Can not init api.
+[Fri Dec 21 06:58:47 CST 2018] Please refer to https://curl.haxx.se/libcurl/c/libcurl-errors.html for error code: 60
+[Fri Dec 21 06:58:47 CST 2018] Can not connect to https://acme-staging.api.letsencrypt.org/directory to get nonce.
+[Fri Dec 21 06:58:47 CST 2018] Can not get domain new authz.
+[Fri Dec 21 06:58:47 CST 2018] Can not get domain new authz token.
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/10/21[0m
+Progress: 3/10/21
 ==Running le_test_standandalone_listen_v4_v2 please wait
-/root/.acme.sh/acme.sh --issue -d testfreebsd.acme.sh --standalone --listen-v4 --cert-file '/root/acmetest/certs/domain.cer' --key-file '/root/acmetest/certs/domain.key'  --ca-file '/root/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchain-file  '/root/acmetest/certs/full.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testfreebsd.acme.sh/testfreebsd.acme.sh.cer' equals '/root/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testfreebsd.acme.sh/testfreebsd.acme.sh.key' equals '/root/acmetest/certs/domain.key'[1;31;32m [PASS][0m
-'/root/.acme.sh/testfreebsd.acme.sh/ca.cer' equals '/root/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testfreebsd.acme.sh/fullchain.cer' equals '/root/acmetest/certs/full.cer'[1;31;32m [PASS][0m
-/root/.acme.sh/acme.sh --renew -d testfreebsd.acme.sh --force[1;31;32m [PASS][0m
-/root/.acme.sh/testfreebsd.acme.sh/testfreebsd.acme.sh.cer is cert ? 'testfreebsd.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
-/root/.acme.sh/testfreebsd.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
-'/root/.acme.sh/testfreebsd.acme.sh/testfreebsd.acme.sh.cer' equals '/root/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testfreebsd.acme.sh/testfreebsd.acme.sh.key' equals '/root/acmetest/certs/domain.key'[1;31;32m [PASS][0m
-'/root/.acme.sh/testfreebsd.acme.sh/ca.cer' equals '/root/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testfreebsd.acme.sh/fullchain.cer' equals '/root/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --issue -d testfreebsd.acme.sh --standalone --listen-v4 --cert-file '/root/acmetest/certs/domain.cer' --key-file '/root/acmetest/certs/domain.key'  --ca-file '/root/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchain-file  '/root/acmetest/certs/full.cer' [FAIL] 
+Run Failed
+deactivate failed
+[Fri Dec 21 06:58:54 CST 2018] Using stage ACME_DIRECTORY: https://acme-staging.api.letsencrypt.org/directory
+[Fri Dec 21 06:58:54 CST 2018] Please refer to https://curl.haxx.se/libcurl/c/libcurl-errors.html for error code: 60
+[Fri Dec 21 06:58:54 CST 2018] Can not init api.
+[Fri Dec 21 06:58:54 CST 2018] Getting new-authz for domain='testfreebsd.acme.sh'
+[Fri Dec 21 06:58:54 CST 2018] Please refer to https://curl.haxx.se/libcurl/c/libcurl-errors.html for error code: 60
+[Fri Dec 21 06:58:54 CST 2018] Can not init api.
+[Fri Dec 21 06:58:55 CST 2018] Please refer to https://curl.haxx.se/libcurl/c/libcurl-errors.html for error code: 60
+[Fri Dec 21 06:58:55 CST 2018] Can not connect to https://acme-staging.api.letsencrypt.org/directory to get nonce.
+[Fri Dec 21 06:58:55 CST 2018] Can not get domain new authz.
+[Fri Dec 21 06:58:55 CST 2018] Can not get domain new authz token.
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/11/21[0m
+Progress: 4/11/21
 ==Running le_test_standandalone_listen_v6_v2 please wait
 Skipped by TEST_IPV6
+deactivate failed
+[Fri Dec 21 06:58:57 CST 2018] Using stage ACME_DIRECTORY: https://acme-staging.api.letsencrypt.org/directory
+[Fri Dec 21 06:58:57 CST 2018] Please refer to https://curl.haxx.se/libcurl/c/libcurl-errors.html for error code: 60
+[Fri Dec 21 06:58:57 CST 2018] Can not init api.
+[Fri Dec 21 06:58:57 CST 2018] Getting new-authz for domain='testfreebsd.acme.sh'
+[Fri Dec 21 06:58:58 CST 2018] Please refer to https://curl.haxx.se/libcurl/c/libcurl-errors.html for error code: 60
+[Fri Dec 21 06:58:58 CST 2018] Can not init api.
+[Fri Dec 21 06:58:58 CST 2018] Please refer to https://curl.haxx.se/libcurl/c/libcurl-errors.html for error code: 60
+[Fri Dec 21 06:58:58 CST 2018] Can not connect to https://acme-staging.api.letsencrypt.org/directory to get nonce.
+[Fri Dec 21 06:58:58 CST 2018] Can not get domain new authz.
+[Fri Dec 21 06:58:58 CST 2018] Can not get domain new authz token.
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/12/21[0m
+Progress: 5/12/21
 ==Running le_test_standandalone_deactivate_v2 please wait
-/root/.acme.sh/acme.sh --issue -d testfreebsd.acme.sh --standalone --certpath '/root/acmetest/certs/domain.cer' --keypath '/root/acmetest/certs/domain.key'  --capath '/root/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/root/acmetest/certs/full.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testfreebsd.acme.sh/testfreebsd.acme.sh.cer' equals '/root/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testfreebsd.acme.sh/testfreebsd.acme.sh.key' equals '/root/acmetest/certs/domain.key'[1;31;32m [PASS][0m
-'/root/.acme.sh/testfreebsd.acme.sh/ca.cer' equals '/root/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testfreebsd.acme.sh/fullchain.cer' equals '/root/acmetest/certs/full.cer'[1;31;32m [PASS][0m
-/root/.acme.sh/acme.sh --deactivate -d testfreebsd.acme.sh[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --issue -d testfreebsd.acme.sh --standalone --certpath '/root/acmetest/certs/domain.cer' --keypath '/root/acmetest/certs/domain.key'  --capath '/root/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/root/acmetest/certs/full.cer' [FAIL] 
+Run Failed
+deactivate failed
+[Fri Dec 21 06:59:05 CST 2018] Using stage ACME_DIRECTORY: https://acme-staging.api.letsencrypt.org/directory
+[Fri Dec 21 06:59:05 CST 2018] Please refer to https://curl.haxx.se/libcurl/c/libcurl-errors.html for error code: 60
+[Fri Dec 21 06:59:05 CST 2018] Can not init api.
+[Fri Dec 21 06:59:05 CST 2018] Getting new-authz for domain='testfreebsd.acme.sh'
+[Fri Dec 21 06:59:05 CST 2018] Please refer to https://curl.haxx.se/libcurl/c/libcurl-errors.html for error code: 60
+[Fri Dec 21 06:59:05 CST 2018] Can not init api.
+[Fri Dec 21 06:59:06 CST 2018] Please refer to https://curl.haxx.se/libcurl/c/libcurl-errors.html for error code: 60
+[Fri Dec 21 06:59:06 CST 2018] Can not connect to https://acme-staging.api.letsencrypt.org/directory to get nonce.
+[Fri Dec 21 06:59:06 CST 2018] Can not get domain new authz.
+[Fri Dec 21 06:59:06 CST 2018] Can not get domain new authz token.
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/13/21[0m
+Progress: 6/13/21
 ==Running le_test_standandalone please wait
-/root/.acme.sh/acme.sh issue no testfreebsd.acme.sh[1;31;32m [PASS][0m
-/root/.acme.sh/testfreebsd.acme.sh/testfreebsd.acme.sh.cer is cert ? 'testfreebsd.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
-/root/.acme.sh/testfreebsd.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh issue no testfreebsd.acme.sh [FAIL] 
+Run Failed
+deactivate failed
+[Fri Dec 21 06:59:12 CST 2018] Using stage ACME_DIRECTORY: https://acme-staging.api.letsencrypt.org/directory
+[Fri Dec 21 06:59:12 CST 2018] Please refer to https://curl.haxx.se/libcurl/c/libcurl-errors.html for error code: 60
+[Fri Dec 21 06:59:12 CST 2018] Can not init api.
+[Fri Dec 21 06:59:12 CST 2018] Getting new-authz for domain='testfreebsd.acme.sh'
+[Fri Dec 21 06:59:12 CST 2018] Please refer to https://curl.haxx.se/libcurl/c/libcurl-errors.html for error code: 60
+[Fri Dec 21 06:59:12 CST 2018] Can not init api.
+[Fri Dec 21 06:59:13 CST 2018] Please refer to https://curl.haxx.se/libcurl/c/libcurl-errors.html for error code: 60
+[Fri Dec 21 06:59:13 CST 2018] Can not connect to https://acme-staging.api.letsencrypt.org/directory to get nonce.
+[Fri Dec 21 06:59:13 CST 2018] Can not get domain new authz.
+[Fri Dec 21 06:59:13 CST 2018] Can not get domain new authz token.
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/14/21[0m
+Progress: 7/14/21
 ==Running le_test_standandalone_SAN please wait
-/root/.acme.sh/acme.sh issue no "testfreebsd.acme.sh" "testfreebsd2.acme.sh"[1;31;32m [PASS][0m
-/root/.acme.sh/testfreebsd.acme.sh/testfreebsd.acme.sh.cer is cert ? 'testfreebsd.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
-/root/.acme.sh/testfreebsd.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh issue no "testfreebsd.acme.sh" "testfreebsd2.acme.sh" [FAIL] 
+Run Failed
+deactivate failed
+[Fri Dec 21 06:59:17 CST 2018] Using stage ACME_DIRECTORY: https://acme-staging.api.letsencrypt.org/directory
+[Fri Dec 21 06:59:17 CST 2018] Please refer to https://curl.haxx.se/libcurl/c/libcurl-errors.html for error code: 60
+[Fri Dec 21 06:59:17 CST 2018] Can not init api.
+[Fri Dec 21 06:59:17 CST 2018] Getting new-authz for domain='testfreebsd.acme.shtestfreebsd2.acme.sh'
+[Fri Dec 21 06:59:18 CST 2018] Please refer to https://curl.haxx.se/libcurl/c/libcurl-errors.html for error code: 60
+[Fri Dec 21 06:59:18 CST 2018] Can not init api.
+[Fri Dec 21 06:59:18 CST 2018] Please refer to https://curl.haxx.se/libcurl/c/libcurl-errors.html for error code: 60
+[Fri Dec 21 06:59:18 CST 2018] Can not connect to https://acme-staging.api.letsencrypt.org/directory to get nonce.
+[Fri Dec 21 06:59:18 CST 2018] Can not get domain new authz.
+[Fri Dec 21 06:59:18 CST 2018] Can not get domain new authz token.
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/15/21[0m
+Progress: 8/15/21
 ==Running le_test_standandalone_ECDSA_256 please wait
-/root/.acme.sh/acme.sh issue no testfreebsd.acme.sh no ec-256[1;31;32m [PASS][0m
-/root/.acme.sh/testfreebsd.acme.sh_ecc/testfreebsd.acme.sh.cer is cert ? 'testfreebsd.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
-/root/.acme.sh/testfreebsd.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh issue no testfreebsd.acme.sh no ec-256 [FAIL] 
+Run Failed
+deactivate failed
+[Fri Dec 21 06:59:22 CST 2018] Using stage ACME_DIRECTORY: https://acme-staging.api.letsencrypt.org/directory
+[Fri Dec 21 06:59:22 CST 2018] Please refer to https://curl.haxx.se/libcurl/c/libcurl-errors.html for error code: 60
+[Fri Dec 21 06:59:22 CST 2018] Can not init api.
+[Fri Dec 21 06:59:22 CST 2018] Getting new-authz for domain='testfreebsd.acme.sh'
+[Fri Dec 21 06:59:23 CST 2018] Please refer to https://curl.haxx.se/libcurl/c/libcurl-errors.html for error code: 60
+[Fri Dec 21 06:59:23 CST 2018] Can not init api.
+[Fri Dec 21 06:59:23 CST 2018] Please refer to https://curl.haxx.se/libcurl/c/libcurl-errors.html for error code: 60
+[Fri Dec 21 06:59:23 CST 2018] Can not connect to https://acme-staging.api.letsencrypt.org/directory to get nonce.
+[Fri Dec 21 06:59:23 CST 2018] Can not get domain new authz.
+[Fri Dec 21 06:59:23 CST 2018] Can not get domain new authz token.
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/16/21[0m
+Progress: 9/16/21
 ==Running le_test_standandalone_ECDSA_256_renew please wait
-/root/.acme.sh/acme.sh issue no testfreebsd.acme.sh no ec-256[1;31;32m [PASS][0m
-FORCE=1 /root/.acme.sh/acme.sh renew testfreebsd.acme.sh[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh issue no testfreebsd.acme.sh no ec-256 [FAIL] 
+Run Failed
+deactivate failed
+[Fri Dec 21 06:59:27 CST 2018] Using stage ACME_DIRECTORY: https://acme-staging.api.letsencrypt.org/directory
+[Fri Dec 21 06:59:27 CST 2018] Please refer to https://curl.haxx.se/libcurl/c/libcurl-errors.html for error code: 60
+[Fri Dec 21 06:59:27 CST 2018] Can not init api.
+[Fri Dec 21 06:59:27 CST 2018] Getting new-authz for domain='testfreebsd.acme.sh'
+[Fri Dec 21 06:59:27 CST 2018] Please refer to https://curl.haxx.se/libcurl/c/libcurl-errors.html for error code: 60
+[Fri Dec 21 06:59:27 CST 2018] Can not init api.
+[Fri Dec 21 06:59:28 CST 2018] Please refer to https://curl.haxx.se/libcurl/c/libcurl-errors.html for error code: 60
+[Fri Dec 21 06:59:28 CST 2018] Can not connect to https://acme-staging.api.letsencrypt.org/directory to get nonce.
+[Fri Dec 21 06:59:28 CST 2018] Can not get domain new authz.
+[Fri Dec 21 06:59:28 CST 2018] Can not get domain new authz token.
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/17/21[0m
+Progress: 10/17/21
 ==Running le_test_standandalone_ECDSA_256_SAN_renew please wait
-/root/.acme.sh/acme.sh issue no "testfreebsd.acme.sh" "testfreebsd2.acme.sh" ec-256[1;31;32m [PASS][0m
-FORCE=1 /root/.acme.sh/acme.sh renew "testfreebsd.acme.sh"[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh issue no "testfreebsd.acme.sh" "testfreebsd2.acme.sh" ec-256 [FAIL] 
+Run Failed
+deactivate failed
+[Fri Dec 21 06:59:33 CST 2018] Using stage ACME_DIRECTORY: https://acme-staging.api.letsencrypt.org/directory
+[Fri Dec 21 06:59:33 CST 2018] Please refer to https://curl.haxx.se/libcurl/c/libcurl-errors.html for error code: 60
+[Fri Dec 21 06:59:33 CST 2018] Can not init api.
+[Fri Dec 21 06:59:33 CST 2018] Getting new-authz for domain='testfreebsd.acme.shtestfreebsd2.acme.sh'
+[Fri Dec 21 06:59:33 CST 2018] Please refer to https://curl.haxx.se/libcurl/c/libcurl-errors.html for error code: 60
+[Fri Dec 21 06:59:33 CST 2018] Can not init api.
+[Fri Dec 21 06:59:34 CST 2018] Please refer to https://curl.haxx.se/libcurl/c/libcurl-errors.html for error code: 60
+[Fri Dec 21 06:59:34 CST 2018] Can not connect to https://acme-staging.api.letsencrypt.org/directory to get nonce.
+[Fri Dec 21 06:59:34 CST 2018] Can not get domain new authz.
+[Fri Dec 21 06:59:34 CST 2018] Can not get domain new authz token.
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/18/21[0m
+Progress: 11/18/21
 ==Running le_test_standandalone_ECDSA_256_SAN_renew_v2 please wait
-/root/.acme.sh/acme.sh --issue -d "testfreebsd.acme.sh" -d "testfreebsd2.acme.sh" --standalone --keylength ec-256 --certpath '/root/acmetest/certs/domain.cer' --keypath '/root/acmetest/certs/domain.key'  --capath '/root/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/root/acmetest/certs/full.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testfreebsd.acme.sh_ecc/testfreebsd.acme.sh.cer' equals '/root/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testfreebsd.acme.sh_ecc/testfreebsd.acme.sh.key' equals '/root/acmetest/certs/domain.key'[1;31;32m [PASS][0m
-'/root/.acme.sh/testfreebsd.acme.sh_ecc/ca.cer' equals '/root/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testfreebsd.acme.sh_ecc/fullchain.cer' equals '/root/acmetest/certs/full.cer'[1;31;32m [PASS][0m
-/root/.acme.sh/acme.sh --renew --ecc -d "testfreebsd.acme.sh" --force[1;31;32m [PASS][0m
-/root/.acme.sh/testfreebsd.acme.sh_ecc/testfreebsd.acme.sh.cer is cert ? 'testfreebsd.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
-/root/.acme.sh/testfreebsd.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
-'/root/.acme.sh/testfreebsd.acme.sh_ecc/testfreebsd.acme.sh.cer' equals '/root/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testfreebsd.acme.sh_ecc/testfreebsd.acme.sh.key' equals '/root/acmetest/certs/domain.key'[1;31;32m [PASS][0m
-'/root/.acme.sh/testfreebsd.acme.sh_ecc/ca.cer' equals '/root/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testfreebsd.acme.sh_ecc/fullchain.cer' equals '/root/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --issue -d "testfreebsd.acme.sh" -d "testfreebsd2.acme.sh" --standalone --keylength ec-256 --certpath '/root/acmetest/certs/domain.cer' --keypath '/root/acmetest/certs/domain.key'  --capath '/root/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/root/acmetest/certs/full.cer' [FAIL] 
+Run Failed
+deactivate failed
+[Fri Dec 21 06:59:39 CST 2018] Using stage ACME_DIRECTORY: https://acme-staging.api.letsencrypt.org/directory
+[Fri Dec 21 06:59:39 CST 2018] Please refer to https://curl.haxx.se/libcurl/c/libcurl-errors.html for error code: 60
+[Fri Dec 21 06:59:39 CST 2018] Can not init api.
+[Fri Dec 21 06:59:39 CST 2018] Getting new-authz for domain='testfreebsd.acme.shtestfreebsd2.acme.sh'
+[Fri Dec 21 06:59:39 CST 2018] Please refer to https://curl.haxx.se/libcurl/c/libcurl-errors.html for error code: 60
+[Fri Dec 21 06:59:39 CST 2018] Can not init api.
+[Fri Dec 21 06:59:39 CST 2018] Please refer to https://curl.haxx.se/libcurl/c/libcurl-errors.html for error code: 60
+[Fri Dec 21 06:59:39 CST 2018] Can not connect to https://acme-staging.api.letsencrypt.org/directory to get nonce.
+[Fri Dec 21 06:59:39 CST 2018] Can not get domain new authz.
+[Fri Dec 21 06:59:39 CST 2018] Can not get domain new authz token.
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/19/21[0m
+Progress: 12/19/21
 ==Running le_test_standandalone_ECDSA_384 please wait
-/root/.acme.sh/acme.sh issue no "testfreebsd.acme.sh" no ec-384[1;31;32m [PASS][0m
-/root/.acme.sh/testfreebsd.acme.sh_ecc/testfreebsd.acme.sh.cer is cert ? 'testfreebsd.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
-/root/.acme.sh/testfreebsd.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh issue no "testfreebsd.acme.sh" no ec-384 [FAIL] 
+Run Failed
+deactivate failed
+[Fri Dec 21 06:59:44 CST 2018] Using stage ACME_DIRECTORY: https://acme-staging.api.letsencrypt.org/directory
+[Fri Dec 21 06:59:44 CST 2018] Please refer to https://curl.haxx.se/libcurl/c/libcurl-errors.html for error code: 60
+[Fri Dec 21 06:59:44 CST 2018] Can not init api.
+[Fri Dec 21 06:59:44 CST 2018] Getting new-authz for domain='testfreebsd.acme.sh'
+[Fri Dec 21 06:59:44 CST 2018] Please refer to https://curl.haxx.se/libcurl/c/libcurl-errors.html for error code: 60
+[Fri Dec 21 06:59:44 CST 2018] Can not init api.
+[Fri Dec 21 06:59:44 CST 2018] Please refer to https://curl.haxx.se/libcurl/c/libcurl-errors.html for error code: 60
+[Fri Dec 21 06:59:44 CST 2018] Can not connect to https://acme-staging.api.letsencrypt.org/directory to get nonce.
+[Fri Dec 21 06:59:44 CST 2018] Can not get domain new authz.
+[Fri Dec 21 06:59:44 CST 2018] Can not get domain new authz token.
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/20/21[0m
+Progress: 13/20/21
 ==Running le_test_standandalone_renew_idn_v2 please wait
 Skipped by TEST_IDN
+deactivate failed
+[Fri Dec 21 06:59:47 CST 2018] Using stage ACME_DIRECTORY: https://acme-staging.api.letsencrypt.org/directory
+[Fri Dec 21 06:59:47 CST 2018] Please refer to https://curl.haxx.se/libcurl/c/libcurl-errors.html for error code: 60
+[Fri Dec 21 06:59:47 CST 2018] Can not init api.
+[Fri Dec 21 06:59:47 CST 2018] Getting new-authz for domain='testfreebsd.acme.sh'
+[Fri Dec 21 06:59:47 CST 2018] Please refer to https://curl.haxx.se/libcurl/c/libcurl-errors.html for error code: 60
+[Fri Dec 21 06:59:47 CST 2018] Can not init api.
+[Fri Dec 21 06:59:47 CST 2018] Please refer to https://curl.haxx.se/libcurl/c/libcurl-errors.html for error code: 60
+[Fri Dec 21 06:59:47 CST 2018] Can not connect to https://acme-staging.api.letsencrypt.org/directory to get nonce.
+[Fri Dec 21 06:59:47 CST 2018] Can not get domain new authz.
+[Fri Dec 21 06:59:47 CST 2018] Can not get domain new authz token.
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/21/21[0m
+Progress: 14/21/21
 ==Running le_test_dnsapi please wait
 Skipped by TEST_DNS
+deactivate failed
+[Fri Dec 21 06:59:50 CST 2018] Using stage ACME_DIRECTORY: https://acme-staging.api.letsencrypt.org/directory
+[Fri Dec 21 06:59:50 CST 2018] Please refer to https://curl.haxx.se/libcurl/c/libcurl-errors.html for error code: 60
+[Fri Dec 21 06:59:50 CST 2018] Can not init api.
+[Fri Dec 21 06:59:50 CST 2018] Getting new-authz for domain='testfreebsd.acme.sh'
+[Fri Dec 21 06:59:50 CST 2018] Please refer to https://curl.haxx.se/libcurl/c/libcurl-errors.html for error code: 60
+[Fri Dec 21 06:59:50 CST 2018] Can not init api.
+[Fri Dec 21 06:59:50 CST 2018] Please refer to https://curl.haxx.se/libcurl/c/libcurl-errors.html for error code: 60
+[Fri Dec 21 06:59:50 CST 2018] Can not connect to https://acme-staging.api.letsencrypt.org/directory to get nonce.
+[Fri Dec 21 06:59:50 CST 2018] Can not get domain new authz.
+[Fri Dec 21 06:59:50 CST 2018] Can not get domain new authz token.
 ------------------------------------------
