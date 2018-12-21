@@ -6,7 +6,7 @@ Step 2/2 : RUN apk update -f 2>&1 && apk --no-cache add -f openssl curl socat  2
  ---> d44f0b1abc53
 Successfully built d44f0b1abc53
 Successfully tagged myalpine:3.3
-Fri, 21 Dec 2018 09:56:57 UTC
+Fri, 21 Dec 2018 09:57:39 UTC
 Testing branch: master
 Progress: 0/1/21
 ==Running le_test_dependencies please wait
@@ -19,7 +19,7 @@ Progress: 0/2/21
 ==Running le_test_install please wait
 ./acme.sh install [PASS]
 /root/.acme.sh/acme.sh exists. [PASS]
-_contains '59 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
+_contains '40 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
 /root/.acme.sh/acme.sh uninstall  > /dev/null [PASS]
 ------------------------------------------
 Progress: 0/3/21
@@ -33,7 +33,7 @@ Progress: 0/4/21
 ==Running le_test_installtodir please wait
 ./acme.sh install [PASS]
 /root/myle/acme.sh exists. [PASS]
-_contains '59 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
+_contains '41 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
 /root/myle/acme.sh uninstall [PASS]
 ------------------------------------------
 Progress: 0/5/21
@@ -47,7 +47,7 @@ Progress: 0/6/21
 ==Running le_test_install_config_home please wait
 ./acme.sh --install --config-home /root/etc/acme [PASS]
 /root/.acme.sh/acme.sh exists. [PASS]
-_contains '59 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
+_contains '41 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
 /root/etc/acme/account.conf exists. [PASS]
 /root/.acme.sh/account.conf no exists. [PASS]
 /root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null [PASS]
@@ -60,131 +60,131 @@ Progress: 0/7/21
 /root/.acme.sh/acme.sh issue no testdocker.acme.sh [FAIL] 
 Run Failed
 deactivate failed
-[Fri Dec 21 09:57:01 UTC 2018] Using stage ACME_DIRECTORY: https://acme-staging-v02.api.letsencrypt.org/directory
-[Fri Dec 21 09:57:01 UTC 2018] Only RSA or EC key is supported. keyfile=/root/.acme.sh/ca/acme-staging-v02.api.letsencrypt.org/account.key
+[Fri Dec 21 09:57:43 UTC 2018] Using stage ACME_DIRECTORY: https://acme-staging-v02.api.letsencrypt.org/directory
+[Fri Dec 21 09:57:43 UTC 2018] Only RSA or EC key is supported. keyfile=/root/.acme.sh/ca/acme-staging-v02.api.letsencrypt.org/account.key
 cat: can't open '/root/.acme.sh/ca/acme-staging-v02.api.letsencrypt.org/account.key': No such file or directory
-[Fri Dec 21 09:57:01 UTC 2018] Can not get domain new order.
+[Fri Dec 21 09:57:43 UTC 2018] Can not get domain new order.
 ------------------------------------------
 Progress: 1/8/21
 ==Running le_test_standandalone_renew_v2 please wait
 /root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [FAIL] 
 Run Failed
 deactivate failed
-[Fri Dec 21 09:57:03 UTC 2018] Using stage ACME_DIRECTORY: https://acme-staging-v02.api.letsencrypt.org/directory
-[Fri Dec 21 09:57:04 UTC 2018] _authorizations_seg not found.
-[Fri Dec 21 09:57:04 UTC 2018] Please check log file for more details: le_test_standandalone_renew_v2.log
+[Fri Dec 21 09:57:45 UTC 2018] Using stage ACME_DIRECTORY: https://acme-staging-v02.api.letsencrypt.org/directory
+[Fri Dec 21 09:57:46 UTC 2018] _authorizations_seg not found.
+[Fri Dec 21 09:57:46 UTC 2018] Please check log file for more details: le_test_standandalone_renew_v2.log
 ------------------------------------------
 Progress: 2/9/21
 ==Running le_test_standandalone_renew_localaddress_v2 please wait
 /root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --local-address 0.0.0.0 --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [FAIL] 
 Run Failed
 deactivate failed
-[Fri Dec 21 09:57:06 UTC 2018] Using stage ACME_DIRECTORY: https://acme-staging-v02.api.letsencrypt.org/directory
-[Fri Dec 21 09:57:07 UTC 2018] _authorizations_seg not found.
-[Fri Dec 21 09:57:07 UTC 2018] Please check log file for more details: le_test_standandalone_renew_localaddress_v2.log
+[Fri Dec 21 09:57:48 UTC 2018] Using stage ACME_DIRECTORY: https://acme-staging-v02.api.letsencrypt.org/directory
+[Fri Dec 21 09:57:48 UTC 2018] _authorizations_seg not found.
+[Fri Dec 21 09:57:48 UTC 2018] Please check log file for more details: le_test_standandalone_renew_localaddress_v2.log
 ------------------------------------------
 Progress: 3/10/21
 ==Running le_test_standandalone_listen_v4_v2 please wait
 /root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --listen-v4 --cert-file '/acmetest/certs/domain.cer' --key-file '/acmetest/certs/domain.key'  --ca-file '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchain-file  '/acmetest/certs/full.cer' [FAIL] 
 Run Failed
 deactivate failed
-[Fri Dec 21 09:57:08 UTC 2018] Using stage ACME_DIRECTORY: https://acme-staging-v02.api.letsencrypt.org/directory
-[Fri Dec 21 09:57:09 UTC 2018] _authorizations_seg not found.
-[Fri Dec 21 09:57:09 UTC 2018] Please check log file for more details: le_test_standandalone_listen_v4_v2.log
+[Fri Dec 21 09:57:50 UTC 2018] Using stage ACME_DIRECTORY: https://acme-staging-v02.api.letsencrypt.org/directory
+[Fri Dec 21 09:57:51 UTC 2018] _authorizations_seg not found.
+[Fri Dec 21 09:57:51 UTC 2018] Please check log file for more details: le_test_standandalone_listen_v4_v2.log
 ------------------------------------------
 Progress: 4/11/21
 ==Running le_test_standandalone_listen_v6_v2 please wait
 Skipped by TEST_IPV6
 deactivate failed
-[Fri Dec 21 09:57:09 UTC 2018] Using stage ACME_DIRECTORY: https://acme-staging-v02.api.letsencrypt.org/directory
-[Fri Dec 21 09:57:10 UTC 2018] _authorizations_seg not found.
-[Fri Dec 21 09:57:10 UTC 2018] Please check log file for more details: le_test_standandalone_listen_v6_v2.log
+[Fri Dec 21 09:57:51 UTC 2018] Using stage ACME_DIRECTORY: https://acme-staging-v02.api.letsencrypt.org/directory
+[Fri Dec 21 09:57:52 UTC 2018] _authorizations_seg not found.
+[Fri Dec 21 09:57:52 UTC 2018] Please check log file for more details: le_test_standandalone_listen_v6_v2.log
 ------------------------------------------
 Progress: 5/12/21
 ==Running le_test_standandalone_deactivate_v2 please wait
 /root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [FAIL] 
 Run Failed
 deactivate failed
-[Fri Dec 21 09:57:12 UTC 2018] Using stage ACME_DIRECTORY: https://acme-staging-v02.api.letsencrypt.org/directory
-[Fri Dec 21 09:57:13 UTC 2018] _authorizations_seg not found.
-[Fri Dec 21 09:57:13 UTC 2018] Please check log file for more details: le_test_standandalone_deactivate_v2.log
+[Fri Dec 21 09:57:54 UTC 2018] Using stage ACME_DIRECTORY: https://acme-staging-v02.api.letsencrypt.org/directory
+[Fri Dec 21 09:57:54 UTC 2018] _authorizations_seg not found.
+[Fri Dec 21 09:57:54 UTC 2018] Please check log file for more details: le_test_standandalone_deactivate_v2.log
 ------------------------------------------
 Progress: 6/13/21
 ==Running le_test_standandalone please wait
 /root/.acme.sh/acme.sh issue no testdocker.acme.sh [FAIL] 
 Run Failed
 deactivate failed
-[Fri Dec 21 09:57:14 UTC 2018] Using stage ACME_DIRECTORY: https://acme-staging-v02.api.letsencrypt.org/directory
-[Fri Dec 21 09:57:15 UTC 2018] _authorizations_seg not found.
-[Fri Dec 21 09:57:15 UTC 2018] Please check log file for more details: le_test_standandalone.log
+[Fri Dec 21 09:57:56 UTC 2018] Using stage ACME_DIRECTORY: https://acme-staging-v02.api.letsencrypt.org/directory
+[Fri Dec 21 09:57:57 UTC 2018] _authorizations_seg not found.
+[Fri Dec 21 09:57:57 UTC 2018] Please check log file for more details: le_test_standandalone.log
 ------------------------------------------
 Progress: 7/14/21
 ==Running le_test_standandalone_SAN please wait
 /root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh" [FAIL] 
 Run Failed
 deactivate failed
-[Fri Dec 21 09:57:17 UTC 2018] Using stage ACME_DIRECTORY: https://acme-staging-v02.api.letsencrypt.org/directory
-[Fri Dec 21 09:57:18 UTC 2018] _authorizations_seg not found.
-[Fri Dec 21 09:57:18 UTC 2018] Please check log file for more details: le_test_standandalone_SAN.log
+[Fri Dec 21 09:57:59 UTC 2018] Using stage ACME_DIRECTORY: https://acme-staging-v02.api.letsencrypt.org/directory
+[Fri Dec 21 09:58:00 UTC 2018] _authorizations_seg not found.
+[Fri Dec 21 09:58:00 UTC 2018] Please check log file for more details: le_test_standandalone_SAN.log
 ------------------------------------------
 Progress: 8/15/21
 ==Running le_test_standandalone_ECDSA_256 please wait
 /root/.acme.sh/acme.sh issue no testdocker.acme.sh no ec-256 [FAIL] 
 Run Failed
 deactivate failed
-[Fri Dec 21 09:57:19 UTC 2018] Using stage ACME_DIRECTORY: https://acme-staging-v02.api.letsencrypt.org/directory
-[Fri Dec 21 09:57:20 UTC 2018] _authorizations_seg not found.
-[Fri Dec 21 09:57:20 UTC 2018] Please check log file for more details: le_test_standandalone_ECDSA_256.log
+[Fri Dec 21 09:58:01 UTC 2018] Using stage ACME_DIRECTORY: https://acme-staging-v02.api.letsencrypt.org/directory
+[Fri Dec 21 09:58:02 UTC 2018] _authorizations_seg not found.
+[Fri Dec 21 09:58:02 UTC 2018] Please check log file for more details: le_test_standandalone_ECDSA_256.log
 ------------------------------------------
 Progress: 9/16/21
 ==Running le_test_standandalone_ECDSA_256_renew please wait
 /root/.acme.sh/acme.sh issue no testdocker.acme.sh no ec-256 [FAIL] 
 Run Failed
 deactivate failed
-[Fri Dec 21 09:57:22 UTC 2018] Using stage ACME_DIRECTORY: https://acme-staging-v02.api.letsencrypt.org/directory
-[Fri Dec 21 09:57:23 UTC 2018] _authorizations_seg not found.
-[Fri Dec 21 09:57:23 UTC 2018] Please check log file for more details: le_test_standandalone_ECDSA_256_renew.log
+[Fri Dec 21 09:58:04 UTC 2018] Using stage ACME_DIRECTORY: https://acme-staging-v02.api.letsencrypt.org/directory
+[Fri Dec 21 09:58:05 UTC 2018] _authorizations_seg not found.
+[Fri Dec 21 09:58:05 UTC 2018] Please check log file for more details: le_test_standandalone_ECDSA_256_renew.log
 ------------------------------------------
 Progress: 10/17/21
 ==Running le_test_standandalone_ECDSA_256_SAN_renew please wait
 /root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh" ec-256 [FAIL] 
 Run Failed
 deactivate failed
-[Fri Dec 21 09:57:24 UTC 2018] Using stage ACME_DIRECTORY: https://acme-staging-v02.api.letsencrypt.org/directory
-[Fri Dec 21 09:57:25 UTC 2018] _authorizations_seg not found.
-[Fri Dec 21 09:57:25 UTC 2018] Please check log file for more details: le_test_standandalone_ECDSA_256_SAN_renew.log
+[Fri Dec 21 09:58:07 UTC 2018] Using stage ACME_DIRECTORY: https://acme-staging-v02.api.letsencrypt.org/directory
+[Fri Dec 21 09:58:07 UTC 2018] _authorizations_seg not found.
+[Fri Dec 21 09:58:07 UTC 2018] Please check log file for more details: le_test_standandalone_ECDSA_256_SAN_renew.log
 ------------------------------------------
 Progress: 11/18/21
 ==Running le_test_standandalone_ECDSA_256_SAN_renew_v2 please wait
 /root/.acme.sh/acme.sh --issue -d "testdocker.acme.sh" -d "testdocker2.acme.sh" --standalone --keylength ec-256 --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [FAIL] 
 Run Failed
 deactivate failed
-[Fri Dec 21 09:57:27 UTC 2018] Using stage ACME_DIRECTORY: https://acme-staging-v02.api.letsencrypt.org/directory
-[Fri Dec 21 09:57:28 UTC 2018] _authorizations_seg not found.
-[Fri Dec 21 09:57:28 UTC 2018] Please check log file for more details: le_test_standandalone_ECDSA_256_SAN_renew_v2.log
+[Fri Dec 21 09:58:09 UTC 2018] Using stage ACME_DIRECTORY: https://acme-staging-v02.api.letsencrypt.org/directory
+[Fri Dec 21 09:58:10 UTC 2018] _authorizations_seg not found.
+[Fri Dec 21 09:58:10 UTC 2018] Please check log file for more details: le_test_standandalone_ECDSA_256_SAN_renew_v2.log
 ------------------------------------------
 Progress: 12/19/21
 ==Running le_test_standandalone_ECDSA_384 please wait
 /root/.acme.sh/acme.sh issue no "testdocker.acme.sh" no ec-384 [FAIL] 
 Run Failed
 deactivate failed
-[Fri Dec 21 09:57:30 UTC 2018] Using stage ACME_DIRECTORY: https://acme-staging-v02.api.letsencrypt.org/directory
-[Fri Dec 21 09:57:30 UTC 2018] _authorizations_seg not found.
-[Fri Dec 21 09:57:30 UTC 2018] Please check log file for more details: le_test_standandalone_ECDSA_384.log
+[Fri Dec 21 09:58:12 UTC 2018] Using stage ACME_DIRECTORY: https://acme-staging-v02.api.letsencrypt.org/directory
+[Fri Dec 21 09:58:13 UTC 2018] _authorizations_seg not found.
+[Fri Dec 21 09:58:13 UTC 2018] Please check log file for more details: le_test_standandalone_ECDSA_384.log
 ------------------------------------------
 Progress: 13/20/21
 ==Running le_test_standandalone_renew_idn_v2 please wait
 Skipped by TEST_IDN
 deactivate failed
-[Fri Dec 21 09:57:31 UTC 2018] Using stage ACME_DIRECTORY: https://acme-staging-v02.api.letsencrypt.org/directory
-[Fri Dec 21 09:57:32 UTC 2018] _authorizations_seg not found.
-[Fri Dec 21 09:57:32 UTC 2018] Please check log file for more details: le_test_standandalone_renew_idn_v2.log
+[Fri Dec 21 09:58:13 UTC 2018] Using stage ACME_DIRECTORY: https://acme-staging-v02.api.letsencrypt.org/directory
+[Fri Dec 21 09:58:14 UTC 2018] _authorizations_seg not found.
+[Fri Dec 21 09:58:14 UTC 2018] Please check log file for more details: le_test_standandalone_renew_idn_v2.log
 ------------------------------------------
 Progress: 14/21/21
 ==Running le_test_dnsapi please wait
 Skipped by TEST_DNS
 deactivate failed
-[Fri Dec 21 09:57:32 UTC 2018] Using stage ACME_DIRECTORY: https://acme-staging-v02.api.letsencrypt.org/directory
-[Fri Dec 21 09:57:33 UTC 2018] _authorizations_seg not found.
-[Fri Dec 21 09:57:33 UTC 2018] Please check log file for more details: le_test_dnsapi.log
+[Fri Dec 21 09:58:14 UTC 2018] Using stage ACME_DIRECTORY: https://acme-staging-v02.api.letsencrypt.org/directory
+[Fri Dec 21 09:58:15 UTC 2018] _authorizations_seg not found.
+[Fri Dec 21 09:58:15 UTC 2018] Please check log file for more details: le_test_dnsapi.log
 ------------------------------------------
