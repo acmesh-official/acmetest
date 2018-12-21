@@ -2,568 +2,178 @@ Sending build context to Docker daemon  2.048kB
 Step 1/2 : FROM mageia
  ---> f21ba7e55805
 Step 2/2 : RUN dnf update -y  2>&1 && dnf install -y  openssl socat idn curl  2>&1
- ---> Running in 35033b0aa9d0
-Mageia 6 - x86_64 - Updates                      10 MB/s |  36 MB     00:03    
-Mageia 6 - x86_64                                10 MB/s |  33 MB     00:03    
-Last metadata expiration check: 0:00:12 ago on Fri Dec 14 09:46:59 2018.
-Dependencies resolved.
-================================================================================
- Package                     Arch   Version                Repository      Size
-================================================================================
-Upgrading:
- file                        x86_64 5.25-5.1.mga6          updates-x86_64 358 k
- gettext-base                x86_64 0.19.8.1-1.1.mga6      updates-x86_64 457 k
- glibc                       x86_64 6:2.22-29.mga6         updates-x86_64 5.3 M
- gnupg2                      x86_64 2.1.21-3.1.mga6        updates-x86_64 2.4 M
- lib64archive13              x86_64 3.3.1-1.2.mga6         updates-x86_64 302 k
- lib64blkid1                 x86_64 2.28.2-2.1.mga6        updates-x86_64 107 k
- lib64curl4                  x86_64 1:7.54.1-2.7.mga6      updates-x86_64 217 k
- lib64fdisk1                 x86_64 2.28.2-2.1.mga6        updates-x86_64 131 k
- lib64gcrypt20               x86_64 1.7.10-1.mga6          updates-x86_64 412 k
- lib64gio2.0_0               x86_64 2.54.3-1.2.mga6        updates-x86_64 536 k
- lib64glib2.0_0              x86_64 2.54.3-1.2.mga6        updates-x86_64 499 k
- lib64gnutls30               x86_64 3.5.13-1.1.mga6        updates-x86_64 519 k
- lib64intl8                  x86_64 0.19.8.1-1.1.mga6      updates-x86_64  77 k
- lib64magic1                 x86_64 5.25-5.1.mga6          updates-x86_64  63 k
- lib64mount1                 x86_64 2.28.2-2.1.mga6        updates-x86_64 116 k
- lib64ncurses6               x86_64 6.0-8.3.mga6           updates-x86_64 222 k
- lib64ncursesw6              x86_64 6.0-8.3.mga6           updates-x86_64 171 k
- lib64nspr4                  x86_64 2:4.20-1.mga6          updates-x86_64 117 k
- lib64nss3                   x86_64 2:3.36.5-1.2.mga6      updates-x86_64 1.1 M
- lib64openssl-engines1.0.0   x86_64 1.0.2q-1.mga6          updates-x86_64  88 k
- lib64openssl1.0.0           x86_64 1.0.2q-1.mga6          updates-x86_64 1.1 M
- lib64python2.7              x86_64 2.7.15-1.mga6          updates-x86_64 590 k
- lib64python2.7-stdlib       x86_64 2.7.15-1.mga6          updates-x86_64 3.9 M
- lib64python3.5              x86_64 3.5.3-1.4.mga6         updates-x86_64 842 k
- lib64python3.5-stdlib       x86_64 3.5.3-1.4.mga6         updates-x86_64 5.5 M
- lib64smartcols1             x86_64 2.28.2-2.1.mga6        updates-x86_64  65 k
- lib64sqlite3_0              x86_64 3.22.0-2.1.mga6        updates-x86_64 479 k
- lib64uuid1                  x86_64 2.28.2-2.1.mga6        updates-x86_64  17 k
- meta-task                   noarch 1:6-3.2.mga6           updates-x86_64  32 k
- ncurses                     x86_64 6.0-8.3.mga6           updates-x86_64 205 k
- nss                         x86_64 2:3.36.5-1.2.mga6      updates-x86_64 2.9 M
- perl                        x86_64 2:5.22.3-3.2.mga6      updates-x86_64  10 M
- perl-URPM                   x86_64 5.12.2-1.mga6          updates-x86_64 108 k
- perl-base                   x86_64 2:5.22.3-3.2.mga6      updates-x86_64 1.6 M
- python                      x86_64 2.7.15-1.mga6          updates-x86_64  21 k
- python3                     x86_64 3.5.3-1.4.mga6         updates-x86_64  21 k
- rootcerts                   noarch 1:20181001.00-1.mga6   updates-x86_64 545 k
- util-linux                  x86_64 2.28.2-2.1.mga6        updates-x86_64 2.0 M
-Installing dependencies:
- lib64usb-compat0.1_4        x86_64 0.1.5-8.mga6           mageia-x86_64   27 k
- pkgconfig                   x86_64 0.29.1-3.mga6          mageia-x86_64   67 k
- shared-mime-info            x86_64 1.8-1.mga6             mageia-x86_64  294 k
-Installing weak dependencies:
- gnupg                       x86_64 1.4.23-1.mga6          updates-x86_64 1.2 M
- lib64glib-networking-gnutls x86_64 2.50.0-1.mga6          mageia-x86_64   47 k
-
-Transaction Summary
-================================================================================
-Install   5 Packages
-Upgrade  38 Packages
-
-Total download size: 45 M
-Downloading Packages:
-(1/43): pkgconfig-0.29.1-3.mga6.x86_64.rpm      532 kB/s |  67 kB     00:00    
-(2/43): gnupg-1.4.23-1.mga6.x86_64.rpm          7.4 MB/s | 1.2 MB     00:00    
-(3/43): lib64usb-compat0.1_4-0.1.5-8.mga6.x86_6 609 kB/s |  27 kB     00:00    
-(4/43): shared-mime-info-1.8-1.mga6.x86_64.rpm  1.6 MB/s | 294 kB     00:00    
-(5/43): file-5.25-5.1.mga6.x86_64.rpm           7.8 MB/s | 358 kB     00:00    
-(6/43): gettext-base-0.19.8.1-1.1.mga6.x86_64.r 3.6 MB/s | 457 kB     00:00    
-(7/43): lib64glib-networking-gnutls-2.50.0-1.mg 338 kB/s |  47 kB     00:00    
-(8/43): lib64archive13-3.3.1-1.2.mga6.x86_64.rp 1.0 MB/s | 302 kB     00:00    
-(9/43): lib64blkid1-2.28.2-2.1.mga6.x86_64.rpm  1.7 MB/s | 107 kB     00:00    
-(10/43): gnupg2-2.1.21-3.1.mga6.x86_64.rpm      3.8 MB/s | 2.4 MB     00:00    
-(11/43): glibc-2.22-29.mga6.x86_64.rpm          5.9 MB/s | 5.3 MB     00:00    
-(12/43): lib64mount1-2.28.2-2.1.mga6.x86_64.rpm 619 kB/s | 116 kB     00:00    
-(13/43): lib64smartcols1-2.28.2-2.1.mga6.x86_64 4.0 MB/s |  65 kB     00:00    
-(14/43): lib64uuid1-2.28.2-2.1.mga6.x86_64.rpm  1.3 MB/s |  17 kB     00:00    
-(15/43): lib64curl4-7.54.1-2.7.mga6.x86_64.rpm  4.9 MB/s | 217 kB     00:00    
-(16/43): lib64fdisk1-2.28.2-2.1.mga6.x86_64.rpm 2.9 MB/s | 131 kB     00:00    
-(17/43): lib64gcrypt20-1.7.10-1.mga6.x86_64.rpm 5.7 MB/s | 412 kB     00:00    
-(18/43): lib64glib2.0_0-2.54.3-1.2.mga6.x86_64. 4.9 MB/s | 499 kB     00:00    
-(19/43): lib64gio2.0_0-2.54.3-1.2.mga6.x86_64.r 2.9 MB/s | 536 kB     00:00    
-(20/43): util-linux-2.28.2-2.1.mga6.x86_64.rpm  2.6 MB/s | 2.0 MB     00:00    
-(21/43): lib64intl8-0.19.8.1-1.1.mga6.x86_64.rp 1.5 MB/s |  77 kB     00:00    
-(22/43): lib64gnutls30-3.5.13-1.1.mga6.x86_64.r 6.5 MB/s | 519 kB     00:00    
-(23/43): lib64magic1-5.25-5.1.mga6.x86_64.rpm   3.1 MB/s |  63 kB     00:00    
-(24/43): lib64ncursesw6-6.0-8.3.mga6.x86_64.rpm 6.1 MB/s | 171 kB     00:00    
-(25/43): lib64ncurses6-6.0-8.3.mga6.x86_64.rpm  4.0 MB/s | 222 kB     00:00    
-(26/43): lib64nspr4-4.20-1.mga6.x86_64.rpm      2.0 MB/s | 117 kB     00:00    
-(27/43): lib64openssl-engines1.0.0-1.0.2q-1.mga 1.5 MB/s |  88 kB     00:00    
-(28/43): lib64sqlite3_0-3.22.0-2.1.mga6.x86_64. 2.9 MB/s | 479 kB     00:00    
-(29/43): lib64nss3-3.36.5-1.2.mga6.x86_64.rpm   5.7 MB/s | 1.1 MB     00:00    
-(30/43): lib64python2.7-2.7.15-1.mga6.x86_64.rp 3.5 MB/s | 590 kB     00:00    
-(31/43): python-2.7.15-1.mga6.x86_64.rpm        895 kB/s |  21 kB     00:00    
-(32/43): lib64openssl1.0.0-1.0.2q-1.mga6.x86_64 3.1 MB/s | 1.1 MB     00:00    
-(33/43): lib64python3.5-3.5.3-1.4.mga6.x86_64.r 3.4 MB/s | 842 kB     00:00    
-(34/43): python3-3.5.3-1.4.mga6.x86_64.rpm      992 kB/s |  21 kB     00:00    
-(35/43): meta-task-6-3.2.mga6.noarch.rpm        1.2 MB/s |  32 kB     00:00    
-(36/43): ncurses-6.0-8.3.mga6.x86_64.rpm        3.1 MB/s | 205 kB     00:00    
-(37/43): lib64python2.7-stdlib-2.7.15-1.mga6.x8 4.7 MB/s | 3.9 MB     00:00    
-(38/43): nss-3.36.5-1.2.mga6.x86_64.rpm         3.9 MB/s | 2.9 MB     00:00    
-(39/43): perl-base-5.22.3-3.2.mga6.x86_64.rpm   3.3 MB/s | 1.6 MB     00:00    
-(40/43): perl-URPM-5.12.2-1.mga6.x86_64.rpm     2.1 MB/s | 108 kB     00:00    
-(41/43): lib64python3.5-stdlib-3.5.3-1.4.mga6.x 3.1 MB/s | 5.5 MB     00:01    
-(42/43): rootcerts-20181001.00-1.mga6.noarch.rp 2.6 MB/s | 545 kB     00:00    
-(43/43): perl-5.22.3-3.2.mga6.x86_64.rpm        6.0 MB/s |  10 MB     00:01    
---------------------------------------------------------------------------------
-Total                                           9.9 MB/s |  45 MB     00:04     
-Running transaction check
-Transaction check succeeded.
-Running transaction test
-Transaction test succeeded.
-Running transaction
-  Preparing        :                                                        1/1 
-  Running scriptlet: glibc-6:2.22-29.mga6.x86_64                           1/81 
-  Upgrading        : glibc-6:2.22-29.mga6.x86_64                           1/81 
-  Running scriptlet: glibc-6:2.22-29.mga6.x86_64                           1/81 
-Failed to connect to bus: No such file or directory
-  Upgrading        : lib64ncurses6-6.0-8.3.mga6.x86_64                     2/81 
-  Upgrading        : lib64sqlite3_0-3.22.0-2.1.mga6.x86_64                 3/81 
-  Upgrading        : lib64glib2.0_0-2.54.3-1.2.mga6.x86_64                 4/81 
-  Upgrading        : lib64ncursesw6-6.0-8.3.mga6.x86_64                    5/81 
-  Upgrading        : lib64uuid1-2.28.2-2.1.mga6.x86_64                     6/81 
-  Upgrading        : lib64blkid1-2.28.2-2.1.mga6.x86_64                    7/81 
-  Running scriptlet: lib64blkid1-2.28.2-2.1.mga6.x86_64                    7/81 
-  Upgrading        : perl-base-2:5.22.3-3.2.mga6.x86_64                    8/81 
-  Upgrading        : lib64mount1-2.28.2-2.1.mga6.x86_64                    9/81 
-  Upgrading        : lib64intl8-0.19.8.1-1.1.mga6.x86_64                  10/81 
-  Upgrading        : lib64gnutls30-3.5.13-1.1.mga6.x86_64                 11/81 
-  Upgrading        : lib64nspr4-2:4.20-1.mga6.x86_64                      12/81 
-  Upgrading        : nss-2:3.36.5-1.2.mga6.x86_64                         13/81 
-  Upgrading        : lib64nss3-2:3.36.5-1.2.mga6.x86_64                   14/81 
-  Running scriptlet: lib64nss3-2:3.36.5-1.2.mga6.x86_64                   14/81 
-  Upgrading        : perl-2:5.22.3-3.2.mga6.x86_64                        15/81 
-  Upgrading        : lib64fdisk1-2.28.2-2.1.mga6.x86_64                   16/81 
-  Installing       : pkgconfig-0.29.1-3.mga6.x86_64                       17/81 
-  Installing       : shared-mime-info-1.8-1.mga6.x86_64                   18/81 
-  Running scriptlet: shared-mime-info-1.8-1.mga6.x86_64                   18/81 
-  Upgrading        : lib64gio2.0_0-2.54.3-1.2.mga6.x86_64                 19/81 
-  Running scriptlet: lib64gio2.0_0-2.54.3-1.2.mga6.x86_64                 19/81 
-  Installing       : lib64usb-compat0.1_4-0.1.5-8.mga6.x86_64             20/81 
-  Upgrading        : lib64smartcols1-2.28.2-2.1.mga6.x86_64               21/81 
-  Upgrading        : lib64gcrypt20-1.7.10-1.mga6.x86_64                   22/81 
-  Upgrading        : lib64magic1-5.25-5.1.mga6.x86_64                     23/81 
-  Upgrading        : lib64openssl-engines1.0.0-1.0.2q-1.mga6.x86_64       24/81 
-  Upgrading        : lib64openssl1.0.0-1.0.2q-1.mga6.x86_64               25/81 
-  Upgrading        : lib64python2.7-2.7.15-1.mga6.x86_64                  26/81 
-  Upgrading        : python-2.7.15-1.mga6.x86_64                          27/81 
-  Upgrading        : lib64python2.7-stdlib-2.7.15-1.mga6.x86_64           28/81 
-  Upgrading        : lib64python3.5-3.5.3-1.4.mga6.x86_64                 29/81 
-  Upgrading        : python3-3.5.3-1.4.mga6.x86_64                        30/81 
-  Upgrading        : lib64python3.5-stdlib-3.5.3-1.4.mga6.x86_64          31/81 
-  Upgrading        : rootcerts-1:20181001.00-1.mga6.noarch                32/81 
-  Upgrading        : lib64curl4-1:7.54.1-2.7.mga6.x86_64                  33/81 
-  Installing       : gnupg-1.4.23-1.mga6.x86_64                           34/81 
-  Running scriptlet: gnupg-1.4.23-1.mga6.x86_64                           34/81 
-  Upgrading        : lib64archive13-3.3.1-1.2.mga6.x86_64                 35/81 
-  Upgrading        : file-5.25-5.1.mga6.x86_64                            36/81 
-  Upgrading        : gnupg2-2.1.21-3.1.mga6.x86_64                        37/81 
-  Running scriptlet: gnupg2-2.1.21-3.1.mga6.x86_64                        37/81 
-  Upgrading        : util-linux-2.28.2-2.1.mga6.x86_64                    38/81 
-  Running scriptlet: util-linux-2.28.2-2.1.mga6.x86_64                    38/81 
-  Installing       : lib64glib-networking-gnutls-2.50.0-1.mga6.x86_64     39/81 
-  Upgrading        : perl-URPM-5.12.2-1.mga6.x86_64                       40/81 
-  Upgrading        : gettext-base-0.19.8.1-1.1.mga6.x86_64                41/81 
-  Upgrading        : ncurses-6.0-8.3.mga6.x86_64                          42/81 
-  Upgrading        : meta-task-1:6-3.2.mga6.noarch                        43/81 
-  Cleanup          : util-linux-2.28.2-2.mga6.x86_64                      44/81 
-  Cleanup          : nss-2:3.28.6-1.3.mga6.x86_64                         45/81 
-  Cleanup          : lib64nss3-2:3.28.6-1.3.mga6.x86_64                   46/81 
-  Cleanup          : perl-URPM-5.12-1.mga6.x86_64                         47/81 
-  Running scriptlet: gnupg2-2.1.21-2.mga6.x86_64                          48/81 
-  Cleanup          : gnupg2-2.1.21-2.mga6.x86_64                          48/81 
-  Running scriptlet: gnupg2-2.1.21-2.mga6.x86_64                          48/81 
-  Cleanup          : lib64gio2.0_0-2.52.2-2.mga6.x86_64                   49/81 
-  Cleanup          : lib64fdisk1-2.28.2-2.mga6.x86_64                     50/81 
-  Cleanup          : lib64mount1-2.28.2-2.mga6.x86_64                     51/81 
-  Cleanup          : lib64curl4-1:7.54.1-2.5.mga6.x86_64                  52/81 
-  Cleanup          : gettext-base-0.19.8.1-1.mga6.x86_64                  53/81 
-  Cleanup          : file-5.25-5.mga6.x86_64                              54/81 
-  Cleanup          : lib64blkid1-2.28.2-2.mga6.x86_64                     55/81 
-  Cleanup          : lib64gnutls30-3.5.13-1.mga6.x86_64                   56/81 
-  Cleanup          : perl-2:5.22.3-3.1.mga6.x86_64                        57/81 
-  Cleanup          : python3-3.5.3-1.2.mga6.x86_64                        58/81 
-  Cleanup          : lib64python3.5-stdlib-3.5.3-1.2.mga6.x86_64          59/81 
-  Cleanup          : lib64python3.5-3.5.3-1.2.mga6.x86_64                 60/81 
-  Cleanup          : python-2.7.13-1.1.mga6.x86_64                        61/81 
-  Cleanup          : lib64python2.7-stdlib-2.7.13-1.1.mga6.x86_64         62/81 
-  Cleanup          : lib64python2.7-2.7.13-1.1.mga6.x86_64                63/81 
-  Cleanup          : lib64ncursesw6-6.0-8.1.mga6.x86_64                   64/81 
-  Cleanup          : ncurses-6.0-8.1.mga6.x86_64                          65/81 
-  Cleanup          : lib64archive13-3.3.1-1.1.mga6.x86_64                 66/81 
-  Cleanup          : rootcerts-1:20180104.00-1.mga6.noarch                67/81 
-  Cleanup          : meta-task-1:6-1.1.mga6.noarch                        68/81 
-  Cleanup          : lib64openssl-engines1.0.0-1.0.2o-1.mga6.x86_64       69/81 
-  Cleanup          : lib64openssl1.0.0-1.0.2o-1.mga6.x86_64               70/81 
-  Cleanup          : lib64ncurses6-6.0-8.1.mga6.x86_64                    71/81 
-  Cleanup          : lib64sqlite3_0-3.17.0-2.2.mga6.x86_64                72/81 
-  Cleanup          : perl-base-2:5.22.3-3.1.mga6.x86_64                   73/81 
-  Cleanup          : lib64intl8-0.19.8.1-1.mga6.x86_64                    74/81 
-  Cleanup          : lib64uuid1-2.28.2-2.mga6.x86_64                      75/81 
-  Cleanup          : lib64magic1-5.25-5.mga6.x86_64                       76/81 
-  Cleanup          : lib64glib2.0_0-2.52.2-2.mga6.x86_64                  77/81 
-  Cleanup          : lib64gcrypt20-1.7.8-1.1.mga6.x86_64                  78/81 
-  Cleanup          : lib64nspr4-2:4.19-1.mga6.x86_64                      79/81 
-  Cleanup          : lib64smartcols1-2.28.2-2.mga6.x86_64                 80/81 
-  Cleanup          : glibc-6:2.22-28.mga6.x86_64                          81/81 
-  Running scriptlet: glibc-6:2.22-28.mga6.x86_64                          81/81 
-  Running scriptlet: glibc-6:2.22-29.mga6.x86_64                          81/81 
-  Running scriptlet: shared-mime-info-1.8-1.mga6.x86_64                   81/81 
-  Verifying        : shared-mime-info-1.8-1.mga6.x86_64                    1/81 
-  Verifying        : pkgconfig-0.29.1-3.mga6.x86_64                        2/81 
-  Verifying        : gnupg-1.4.23-1.mga6.x86_64                            3/81 
-  Verifying        : lib64usb-compat0.1_4-0.1.5-8.mga6.x86_64              4/81 
-  Verifying        : lib64glib-networking-gnutls-2.50.0-1.mga6.x86_64      5/81 
-  Verifying        : file-5.25-5.1.mga6.x86_64                             6/81 
-  Verifying        : gettext-base-0.19.8.1-1.1.mga6.x86_64                 7/81 
-  Verifying        : glibc-6:2.22-29.mga6.x86_64                           8/81 
-  Verifying        : gnupg2-2.1.21-3.1.mga6.x86_64                         9/81 
-  Verifying        : lib64archive13-3.3.1-1.2.mga6.x86_64                 10/81 
-  Verifying        : lib64blkid1-2.28.2-2.1.mga6.x86_64                   11/81 
-  Verifying        : util-linux-2.28.2-2.1.mga6.x86_64                    12/81 
-  Verifying        : lib64mount1-2.28.2-2.1.mga6.x86_64                   13/81 
-  Verifying        : lib64smartcols1-2.28.2-2.1.mga6.x86_64               14/81 
-  Verifying        : lib64uuid1-2.28.2-2.1.mga6.x86_64                    15/81 
-  Verifying        : lib64curl4-1:7.54.1-2.7.mga6.x86_64                  16/81 
-  Verifying        : lib64fdisk1-2.28.2-2.1.mga6.x86_64                   17/81 
-  Verifying        : lib64gcrypt20-1.7.10-1.mga6.x86_64                   18/81 
-  Verifying        : lib64gio2.0_0-2.54.3-1.2.mga6.x86_64                 19/81 
-  Verifying        : lib64glib2.0_0-2.54.3-1.2.mga6.x86_64                20/81 
-  Verifying        : lib64gnutls30-3.5.13-1.1.mga6.x86_64                 21/81 
-  Verifying        : lib64intl8-0.19.8.1-1.1.mga6.x86_64                  22/81 
-  Verifying        : lib64magic1-5.25-5.1.mga6.x86_64                     23/81 
-  Verifying        : lib64ncurses6-6.0-8.3.mga6.x86_64                    24/81 
-  Verifying        : lib64ncursesw6-6.0-8.3.mga6.x86_64                   25/81 
-  Verifying        : lib64nspr4-2:4.20-1.mga6.x86_64                      26/81 
-  Verifying        : lib64nss3-2:3.36.5-1.2.mga6.x86_64                   27/81 
-  Verifying        : lib64sqlite3_0-3.22.0-2.1.mga6.x86_64                28/81 
-  Verifying        : lib64openssl-engines1.0.0-1.0.2q-1.mga6.x86_64       29/81 
-  Verifying        : lib64openssl1.0.0-1.0.2q-1.mga6.x86_64               30/81 
-  Verifying        : lib64python2.7-2.7.15-1.mga6.x86_64                  31/81 
-  Verifying        : lib64python2.7-stdlib-2.7.15-1.mga6.x86_64           32/81 
-  Verifying        : python-2.7.15-1.mga6.x86_64                          33/81 
-  Verifying        : lib64python3.5-3.5.3-1.4.mga6.x86_64                 34/81 
-  Verifying        : lib64python3.5-stdlib-3.5.3-1.4.mga6.x86_64          35/81 
-  Verifying        : python3-3.5.3-1.4.mga6.x86_64                        36/81 
-  Verifying        : meta-task-1:6-3.2.mga6.noarch                        37/81 
-  Verifying        : ncurses-6.0-8.3.mga6.x86_64                          38/81 
-  Verifying        : nss-2:3.36.5-1.2.mga6.x86_64                         39/81 
-  Verifying        : perl-2:5.22.3-3.2.mga6.x86_64                        40/81 
-  Verifying        : perl-base-2:5.22.3-3.2.mga6.x86_64                   41/81 
-  Verifying        : perl-URPM-5.12.2-1.mga6.x86_64                       42/81 
-  Verifying        : rootcerts-1:20181001.00-1.mga6.noarch                43/81 
-  Verifying        : lib64uuid1-2.28.2-2.mga6.x86_64                      44/81 
-  Verifying        : file-5.25-5.mga6.x86_64                              45/81 
-  Verifying        : gettext-base-0.19.8.1-1.mga6.x86_64                  46/81 
-  Verifying        : glibc-6:2.22-28.mga6.x86_64                          47/81 
-  Verifying        : gnupg2-2.1.21-2.mga6.x86_64                          48/81 
-  Verifying        : meta-task-1:6-1.1.mga6.noarch                        49/81 
-  Verifying        : ncurses-6.0-8.1.mga6.x86_64                          50/81 
-  Verifying        : nss-2:3.28.6-1.3.mga6.x86_64                         51/81 
-  Verifying        : perl-2:5.22.3-3.1.mga6.x86_64                        52/81 
-  Verifying        : lib64archive13-3.3.1-1.1.mga6.x86_64                 53/81 
-  Verifying        : lib64blkid1-2.28.2-2.mga6.x86_64                     54/81 
-  Verifying        : perl-URPM-5.12-1.mga6.x86_64                         55/81 
-  Verifying        : perl-base-2:5.22.3-3.1.mga6.x86_64                   56/81 
-  Verifying        : lib64curl4-1:7.54.1-2.5.mga6.x86_64                  57/81 
-  Verifying        : python-2.7.13-1.1.mga6.x86_64                        58/81 
-  Verifying        : python3-3.5.3-1.2.mga6.x86_64                        59/81 
-  Verifying        : lib64fdisk1-2.28.2-2.mga6.x86_64                     60/81 
-  Verifying        : lib64gcrypt20-1.7.8-1.1.mga6.x86_64                  61/81 
-  Verifying        : lib64gio2.0_0-2.52.2-2.mga6.x86_64                   62/81 
-  Verifying        : lib64glib2.0_0-2.52.2-2.mga6.x86_64                  63/81 
-  Verifying        : lib64gnutls30-3.5.13-1.mga6.x86_64                   64/81 
-  Verifying        : rootcerts-1:20180104.00-1.mga6.noarch                65/81 
-  Verifying        : lib64intl8-0.19.8.1-1.mga6.x86_64                    66/81 
-  Verifying        : lib64magic1-5.25-5.mga6.x86_64                       67/81 
-  Verifying        : lib64mount1-2.28.2-2.mga6.x86_64                     68/81 
-  Verifying        : lib64ncurses6-6.0-8.1.mga6.x86_64                    69/81 
-  Verifying        : lib64ncursesw6-6.0-8.1.mga6.x86_64                   70/81 
-  Verifying        : util-linux-2.28.2-2.mga6.x86_64                      71/81 
-  Verifying        : lib64nspr4-2:4.19-1.mga6.x86_64                      72/81 
-  Verifying        : lib64nss3-2:3.28.6-1.3.mga6.x86_64                   73/81 
-  Verifying        : lib64openssl-engines1.0.0-1.0.2o-1.mga6.x86_64       74/81 
-  Verifying        : lib64openssl1.0.0-1.0.2o-1.mga6.x86_64               75/81 
-  Verifying        : lib64python2.7-2.7.13-1.1.mga6.x86_64                76/81 
-  Verifying        : lib64python2.7-stdlib-2.7.13-1.1.mga6.x86_64         77/81 
-  Verifying        : lib64python3.5-3.5.3-1.2.mga6.x86_64                 78/81 
-  Verifying        : lib64python3.5-stdlib-3.5.3-1.2.mga6.x86_64          79/81 
-  Verifying        : lib64smartcols1-2.28.2-2.mga6.x86_64                 80/81 
-  Verifying        : lib64sqlite3_0-3.17.0-2.2.mga6.x86_64                81/81 
-
-Installed:
-  gnupg.x86_64 1.4.23-1.mga6                                                    
-  lib64glib-networking-gnutls.x86_64 2.50.0-1.mga6                              
-  lib64usb-compat0.1_4.x86_64 0.1.5-8.mga6                                      
-  pkgconfig.x86_64 0.29.1-3.mga6                                                
-  shared-mime-info.x86_64 1.8-1.mga6                                            
-
-Upgraded:
-  file.x86_64 5.25-5.1.mga6                                                     
-  gettext-base.x86_64 0.19.8.1-1.1.mga6                                         
-  glibc.x86_64 6:2.22-29.mga6                                                   
-  gnupg2.x86_64 2.1.21-3.1.mga6                                                 
-  lib64archive13.x86_64 3.3.1-1.2.mga6                                          
-  lib64blkid1.x86_64 2.28.2-2.1.mga6                                            
-  lib64curl4.x86_64 1:7.54.1-2.7.mga6                                           
-  lib64fdisk1.x86_64 2.28.2-2.1.mga6                                            
-  lib64gcrypt20.x86_64 1.7.10-1.mga6                                            
-  lib64gio2.0_0.x86_64 2.54.3-1.2.mga6                                          
-  lib64glib2.0_0.x86_64 2.54.3-1.2.mga6                                         
-  lib64gnutls30.x86_64 3.5.13-1.1.mga6                                          
-  lib64intl8.x86_64 0.19.8.1-1.1.mga6                                           
-  lib64magic1.x86_64 5.25-5.1.mga6                                              
-  lib64mount1.x86_64 2.28.2-2.1.mga6                                            
-  lib64ncurses6.x86_64 6.0-8.3.mga6                                             
-  lib64ncursesw6.x86_64 6.0-8.3.mga6                                            
-  lib64nspr4.x86_64 2:4.20-1.mga6                                               
-  lib64nss3.x86_64 2:3.36.5-1.2.mga6                                            
-  lib64openssl-engines1.0.0.x86_64 1.0.2q-1.mga6                                
-  lib64openssl1.0.0.x86_64 1.0.2q-1.mga6                                        
-  lib64python2.7.x86_64 2.7.15-1.mga6                                           
-  lib64python2.7-stdlib.x86_64 2.7.15-1.mga6                                    
-  lib64python3.5.x86_64 3.5.3-1.4.mga6                                          
-  lib64python3.5-stdlib.x86_64 3.5.3-1.4.mga6                                   
-  lib64smartcols1.x86_64 2.28.2-2.1.mga6                                        
-  lib64sqlite3_0.x86_64 3.22.0-2.1.mga6                                         
-  lib64uuid1.x86_64 2.28.2-2.1.mga6                                             
-  meta-task.noarch 1:6-3.2.mga6                                                 
-  ncurses.x86_64 6.0-8.3.mga6                                                   
-  nss.x86_64 2:3.36.5-1.2.mga6                                                  
-  perl.x86_64 2:5.22.3-3.2.mga6                                                 
-  perl-URPM.x86_64 5.12.2-1.mga6                                                
-  perl-base.x86_64 2:5.22.3-3.2.mga6                                            
-  python.x86_64 2.7.15-1.mga6                                                   
-  python3.x86_64 3.5.3-1.4.mga6                                                 
-  rootcerts.noarch 1:20181001.00-1.mga6                                         
-  util-linux.x86_64 2.28.2-2.1.mga6                                             
-
-Complete!
-Last metadata expiration check: 0:01:46 ago on Fri Dec 14 09:46:59 2018.
-Dependencies resolved.
-================================================================================
- Package         Arch        Version                  Repository           Size
-================================================================================
-Installing:
- curl            x86_64      1:7.54.1-2.7.mga6        updates-x86_64      147 k
- idn             x86_64      1.33-1.1.mga6            updates-x86_64      130 k
- openssl         x86_64      1.0.2q-1.mga6            updates-x86_64      396 k
- socat           x86_64      2.0.0-0.b9.3.mga6        mageia-x86_64       193 k
-Installing dependencies:
- lib64wrap0      x86_64      7.6-47.mga6              mageia-x86_64        38 k
-
-Transaction Summary
-================================================================================
-Install  5 Packages
-
-Total download size: 903 k
-Installed size: 2.6 M
-Downloading Packages:
-(1/5): lib64wrap0-7.6-47.mga6.x86_64.rpm        649 kB/s |  38 kB     00:00    
-(2/5): socat-2.0.0-0.b9.3.mga6.x86_64.rpm       2.4 MB/s | 193 kB     00:00    
-(3/5): idn-1.33-1.1.mga6.x86_64.rpm             1.1 MB/s | 130 kB     00:00    
-(4/5): openssl-1.0.2q-1.mga6.x86_64.rpm         2.1 MB/s | 396 kB     00:00    
-(5/5): curl-7.54.1-2.7.mga6.x86_64.rpm          1.2 MB/s | 147 kB     00:00    
---------------------------------------------------------------------------------
-Total                                           2.2 MB/s | 903 kB     00:00     
-Running transaction check
-Transaction check succeeded.
-Running transaction test
-Transaction test succeeded.
-Running transaction
-  Preparing        :                                                        1/1 
-  Installing       : lib64wrap0-7.6-47.mga6.x86_64                          1/5 
-  Installing       : socat-2.0.0-0.b9.3.mga6.x86_64                         2/5 
-  Installing       : curl-1:7.54.1-2.7.mga6.x86_64                          3/5 
-  Installing       : idn-1.33-1.1.mga6.x86_64                               4/5 
-  Installing       : openssl-1.0.2q-1.mga6.x86_64                           5/5 
-  Running scriptlet: openssl-1.0.2q-1.mga6.x86_64                           5/5 
-  Verifying        : socat-2.0.0-0.b9.3.mga6.x86_64                         1/5 
-  Verifying        : lib64wrap0-7.6-47.mga6.x86_64                          2/5 
-  Verifying        : openssl-1.0.2q-1.mga6.x86_64                           3/5 
-  Verifying        : idn-1.33-1.1.mga6.x86_64                               4/5 
-  Verifying        : curl-1:7.54.1-2.7.mga6.x86_64                          5/5 
-
-Installed:
-  curl.x86_64 1:7.54.1-2.7.mga6          idn.x86_64 1.33-1.1.mga6               
-  openssl.x86_64 1.0.2q-1.mga6           socat.x86_64 2.0.0-0.b9.3.mga6         
-  lib64wrap0.x86_64 7.6-47.mga6         
-
-Complete!
+ ---> Using cache
  ---> 1e865a1faabb
-Removing intermediate container 35033b0aa9d0
 Successfully built 1e865a1faabb
 Successfully tagged mymageia:latest
-Fri, 14 Dec 2018 09:49:06 UTC
+Fri, 21 Dec 2018 09:51:21 UTC
 Testing branch: master
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/1/21[0m
+Progress: 0/1/21
 ==Running le_test_dependencies please wait
 no crontab for root
 no crontab for root
-curl installed.[1;31;32m [PASS][0m
-crontab installed.[1;31;32m [PASS][0m
-openssl installed.[1;31;32m [PASS][0m
-socat installed.[1;31;32m [PASS][0m
+curl installed. [PASS]
+crontab installed. [PASS]
+openssl installed. [PASS]
+socat installed. [PASS]
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/2/21[0m
+Progress: 0/2/21
 ==Running le_test_install please wait
-./acme.sh install[1;31;32m [PASS][0m
-/root/.acme.sh/acme.sh exists.[1;31;32m [PASS][0m
-_contains '9 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null'[1;31;32m [PASS][0m
-/root/.acme.sh/acme.sh uninstall  > /dev/null[1;31;32m [PASS][0m
+./acme.sh install [PASS]
+/root/.acme.sh/acme.sh exists. [PASS]
+_contains '23 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
+/root/.acme.sh/acme.sh uninstall  > /dev/null [PASS]
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/3/21[0m
+Progress: 0/3/21
 ==Running le_test_uninstall please wait
-./acme.sh install[1;31;32m [PASS][0m
-/root/.acme.sh/acme.sh uninstall[1;31;32m [PASS][0m
-/root/.acme.sh/acme.sh no exists.[1;31;32m [PASS][0m
-equals [1;31;32m [PASS][0m
+./acme.sh install [PASS]
+/root/.acme.sh/acme.sh uninstall [PASS]
+/root/.acme.sh/acme.sh no exists. [PASS]
+equals  [PASS]
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/4/21[0m
+Progress: 0/4/21
 ==Running le_test_installtodir please wait
-./acme.sh install[1;31;32m [PASS][0m
-/root/myle/acme.sh exists.[1;31;32m [PASS][0m
-_contains '10 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null'[1;31;32m [PASS][0m
-/root/myle/acme.sh uninstall[1;31;32m [PASS][0m
+./acme.sh install [PASS]
+/root/myle/acme.sh exists. [PASS]
+_contains '25 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
+/root/myle/acme.sh uninstall [PASS]
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/5/21[0m
+Progress: 0/5/21
 ==Running le_test_uninstalltodir please wait
-./acme.sh install[1;31;32m [PASS][0m
-/root/myle/acme.sh uninstall[1;31;32m [PASS][0m
-/root/myle/acme.sh no exists.[1;31;32m [PASS][0m
-equals [1;31;32m [PASS][0m
+./acme.sh install [PASS]
+/root/myle/acme.sh uninstall [PASS]
+/root/myle/acme.sh no exists. [PASS]
+equals  [PASS]
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/6/21[0m
+Progress: 0/6/21
 ==Running le_test_install_config_home please wait
-./acme.sh --install --config-home /root/etc/acme[1;31;32m [PASS][0m
-/root/.acme.sh/acme.sh exists.[1;31;32m [PASS][0m
-_contains '11 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null'[1;31;32m [PASS][0m
-/root/etc/acme/account.conf exists.[1;31;32m [PASS][0m
-/root/.acme.sh/account.conf no exists.[1;31;32m [PASS][0m
-/root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null[1;31;32m [PASS][0m
-/root/.acme.sh/acme.sh --uninstall --config-home /root/etc/acme > /dev/null[1;31;32m [PASS][0m
-/root/etc/acme/account.conf exists.[1;31;32m [PASS][0m
-/root/.acme.sh/account.conf no exists.[1;31;32m [PASS][0m
+./acme.sh --install --config-home /root/etc/acme [PASS]
+/root/.acme.sh/acme.sh exists. [PASS]
+_contains '26 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
+/root/etc/acme/account.conf exists. [PASS]
+/root/.acme.sh/account.conf no exists. [PASS]
+/root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null [PASS]
+/root/.acme.sh/acme.sh --uninstall --config-home /root/etc/acme > /dev/null [PASS]
+/root/etc/acme/account.conf exists. [PASS]
+/root/.acme.sh/account.conf no exists. [PASS]
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/7/21[0m
+Progress: 0/7/21
 ==Running le_test_standandalone_renew please wait
-/root/.acme.sh/acme.sh issue no testdocker.acme.sh[1;31;32m [PASS][0m
-FORCE=1 /root/.acme.sh/acme.sh renew testdocker.acme.sh[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh issue no testdocker.acme.sh [PASS]
+FORCE=1 /root/.acme.sh/acme.sh renew testdocker.acme.sh [PASS]
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/8/21[0m
+Progress: 0/8/21
 ==Running le_test_standandalone_renew_v2 please wait
-/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
-/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force[1;31;32m [PASS][0m
-/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
-/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
+/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force [PASS]
+/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/9/21[0m
+Progress: 0/9/21
 ==Running le_test_standandalone_renew_localaddress_v2 please wait
-/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --local-address 0.0.0.0 --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
-/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force[1;31;32m [PASS][0m
-/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
-/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --local-address 0.0.0.0 --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
+/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force [PASS]
+/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/10/21[0m
+Progress: 0/10/21
 ==Running le_test_standandalone_listen_v4_v2 please wait
-/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --listen-v4 --cert-file '/acmetest/certs/domain.cer' --key-file '/acmetest/certs/domain.key'  --ca-file '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchain-file  '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
-/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force[1;31;32m [PASS][0m
-/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
-/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --listen-v4 --cert-file '/acmetest/certs/domain.cer' --key-file '/acmetest/certs/domain.key'  --ca-file '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchain-file  '/acmetest/certs/full.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
+/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force [PASS]
+/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/11/21[0m
+Progress: 0/11/21
 ==Running le_test_standandalone_listen_v6_v2 please wait
 Skipped by TEST_IPV6
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/12/21[0m
+Progress: 0/12/21
 ==Running le_test_standandalone_deactivate_v2 please wait
-/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
-/root/.acme.sh/acme.sh --deactivate -d testdocker.acme.sh[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
+/root/.acme.sh/acme.sh --deactivate -d testdocker.acme.sh [PASS]
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/13/21[0m
+Progress: 0/13/21
 ==Running le_test_standandalone please wait
-/root/.acme.sh/acme.sh issue no testdocker.acme.sh[1;31;32m [PASS][0m
-/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
-/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh issue no testdocker.acme.sh [PASS]
+/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/14/21[0m
+Progress: 0/14/21
 ==Running le_test_standandalone_SAN please wait
-/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh"[1;31;32m [PASS][0m
-/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
-/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh" [PASS]
+/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/15/21[0m
+Progress: 0/15/21
 ==Running le_test_standandalone_ECDSA_256 please wait
-/root/.acme.sh/acme.sh issue no testdocker.acme.sh no ec-256[1;31;32m [PASS][0m
-/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
-/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh issue no testdocker.acme.sh no ec-256 [PASS]
+/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/16/21[0m
+Progress: 0/16/21
 ==Running le_test_standandalone_ECDSA_256_renew please wait
-/root/.acme.sh/acme.sh issue no testdocker.acme.sh no ec-256[1;31;32m [PASS][0m
-FORCE=1 /root/.acme.sh/acme.sh renew testdocker.acme.sh[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh issue no testdocker.acme.sh no ec-256 [PASS]
+FORCE=1 /root/.acme.sh/acme.sh renew testdocker.acme.sh [PASS]
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/17/21[0m
+Progress: 0/17/21
 ==Running le_test_standandalone_ECDSA_256_SAN_renew please wait
-/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh" ec-256[1;31;32m [PASS][0m
-FORCE=1 /root/.acme.sh/acme.sh renew "testdocker.acme.sh"[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh" ec-256 [PASS]
+FORCE=1 /root/.acme.sh/acme.sh renew "testdocker.acme.sh" [PASS]
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/18/21[0m
+Progress: 0/18/21
 ==Running le_test_standandalone_ECDSA_256_SAN_renew_v2 please wait
-/root/.acme.sh/acme.sh --issue -d "testdocker.acme.sh" -d "testdocker2.acme.sh" --standalone --keylength ec-256 --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh_ecc/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
-/root/.acme.sh/acme.sh --renew --ecc -d "testdocker.acme.sh" --force[1;31;32m [PASS][0m
-/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
-/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh_ecc/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --issue -d "testdocker.acme.sh" -d "testdocker2.acme.sh" --standalone --keylength ec-256 --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
+'/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh_ecc/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
+/root/.acme.sh/acme.sh --renew --ecc -d "testdocker.acme.sh" --force [PASS]
+/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
+'/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh_ecc/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/19/21[0m
+Progress: 0/19/21
 ==Running le_test_standandalone_ECDSA_384 please wait
-/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" no ec-384[1;31;32m [PASS][0m
-/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
-/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" no ec-384 [PASS]
+/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/20/21[0m
+Progress: 0/20/21
 ==Running le_test_standandalone_renew_idn_v2 please wait
 Skipped by TEST_IDN
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/21/21[0m
+Progress: 0/21/21
 ==Running le_test_dnsapi please wait
 Skipped by TEST_DNS
 ------------------------------------------
