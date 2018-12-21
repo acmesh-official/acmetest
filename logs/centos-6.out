@@ -2,10 +2,10 @@ Sending build context to Docker daemon  2.048kB
 Step 1/2 : FROM centos:6
  ---> 0cbf37812bff
 Step 2/2 : RUN curl http://www.convirture.com/repos/definitions/rhel/6.x/convirt.repo > /etc/yum.repos.d/convirt.repo && yum  -y update     2>&1 && yum  -y install    openssl crontabs socat curl  2>&1
- ---> Running in 1f066db6680d
-[91m  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0[0m[91m  0    11    0    11    0     0     16      0 --:--:-- --:--:-- --:--:--    17[0m[91m
+ ---> Running in 51f5727d1930
+[91m  % Total    % [0m[91mReceived % Xferd  Average Speed[0m[91m   Time[0m[91m    Time     Time  [0m[91mCurrent
+        [0m[91m       [0m[91m       [0m[91m      [0m[91m     Dl[0m[91moad  U[0m[91mpload [0m[91m  Tot[0m[91mal   Sp[0m[91ment   [0m[91m Left  [0m[91mSpeed
+[0m[91m [0m[91m 0     [0m[91m0   [0m[91m 0     [0m[91m0    0[0m[91m     [0m[91m0      0      0 --:--:-- --:--:--[0m[91m --:--:--     0[0m[91m  0    11    0    11    0   [0m[91m  0     50     [0m[91m 0 -[0m[91m-:--:-- [0m[91m--:--[0m[91m:--[0m[91m --:--[0m[91m:-- [0m[91m   69[0m[91m
 [0mLoaded plugins: fastestmirror, ovl
 
 
