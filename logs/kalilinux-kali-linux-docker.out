@@ -2,329 +2,178 @@ Sending build context to Docker daemon  2.048kB
 Step 1/2 : FROM kalilinux/kali-linux-docker
  ---> f26f3ae90aee
 Step 2/2 : RUN apt-get -y update 2>&1 && apt-get -y install openssl cron socat curl idn  2>&1
- ---> Running in ec7af022bf19
-Get:1 http://ftp.free.fr/pub/kali kali-rolling InRelease [30.5 kB]
-Get:2 http://ftp.free.fr/pub/kali kali-rolling/main Sources [12.4 MB]
-Get:3 http://ftp.free.fr/pub/kali kali-rolling/contrib Sources [60.9 kB]
-Get:4 http://ftp.free.fr/pub/kali kali-rolling/non-free Sources [132 kB]
-Get:5 http://ftp.free.fr/pub/kali kali-rolling/main amd64 Packages [16.7 MB]
-Get:6 http://ftp.free.fr/pub/kali kali-rolling/contrib amd64 Packages [102 kB]
-Get:7 http://ftp.free.fr/pub/kali kali-rolling/non-free amd64 Packages [184 kB]
-Fetched 29.7 MB in 5s (5485 kB/s)
-Reading package lists...
-Reading package lists...
-Building dependency tree...
-Reading state information...
-cron is already the newest version (3.0pl1-130).
-The following packages were automatically installed and are no longer required:
-  libargon2-0 libdns-export1100
-Use 'apt autoremove' to remove them.
-The following additional packages will be installed:
-  ca-certificates krb5-locales libcurl4 libgssapi-krb5-2 libk5crypto3
-  libkeyutils1 libkrb5-3 libkrb5support0 libldap-2.4-2 libldap-common
-  libnghttp2-14 librtmp1 libsasl2-2 libsasl2-modules libsasl2-modules-db
-  libssh2-1 libwrap0
-Suggested packages:
-  krb5-doc krb5-user libsasl2-modules-gssapi-mit
-  | libsasl2-modules-gssapi-heimdal libsasl2-modules-ldap libsasl2-modules-otp
-  libsasl2-modules-sql
-The following NEW packages will be installed:
-  ca-certificates curl idn krb5-locales libcurl4 libgssapi-krb5-2 libk5crypto3
-  libkeyutils1 libkrb5-3 libkrb5support0 libldap-2.4-2 libldap-common
-  libnghttp2-14 librtmp1 libsasl2-2 libsasl2-modules libsasl2-modules-db
-  libssh2-1 libwrap0 openssl socat
-0 upgraded, 21 newly installed, 0 to remove and 53 not upgraded.
-Need to get 3799 kB of archives.
-After this operation, 8549 kB of additional disk space will be used.
-Get:1 http://ftp.free.fr/pub/kali kali-rolling/main amd64 krb5-locales all 1.16.1-1 [95.1 kB]
-Get:2 http://ftp.free.fr/pub/kali kali-rolling/main amd64 libwrap0 amd64 7.6.q-27 [58.6 kB]
-Get:3 http://ftp.free.fr/pub/kali kali-rolling/main amd64 openssl amd64 1.1.1a-1 [836 kB]
-Get:4 http://ftp.free.fr/pub/kali kali-rolling/main amd64 ca-certificates all 20170717 [178 kB]
-Get:5 http://ftp.free.fr/pub/kali kali-rolling/main amd64 libkeyutils1 amd64 1.5.9-9.3 [13.0 kB]
-Get:6 http://ftp.free.fr/pub/kali kali-rolling/main amd64 libkrb5support0 amd64 1.16.1-1 [63.2 kB]
-Get:7 http://ftp.free.fr/pub/kali kali-rolling/main amd64 libk5crypto3 amd64 1.16.1-1 [121 kB]
-Get:8 http://ftp.free.fr/pub/kali kali-rolling/main amd64 libkrb5-3 amd64 1.16.1-1 [319 kB]
-Get:9 http://ftp.free.fr/pub/kali kali-rolling/main amd64 libgssapi-krb5-2 amd64 1.16.1-1 [158 kB]
-Get:10 http://ftp.free.fr/pub/kali kali-rolling/main amd64 libsasl2-modules-db amd64 2.1.27~rc8-1 [68.4 kB]
-Get:11 http://ftp.free.fr/pub/kali kali-rolling/main amd64 libsasl2-2 amd64 2.1.27~rc8-1 [105 kB]
-Get:12 http://ftp.free.fr/pub/kali kali-rolling/main amd64 libldap-common all 2.4.46+dfsg-5 [88.3 kB]
-Get:13 http://ftp.free.fr/pub/kali kali-rolling/main amd64 libldap-2.4-2 amd64 2.4.46+dfsg-5+b1 [224 kB]
-Get:14 http://ftp.free.fr/pub/kali kali-rolling/main amd64 libnghttp2-14 amd64 1.34.0-1 [84.9 kB]
-Get:15 http://ftp.free.fr/pub/kali kali-rolling/main amd64 librtmp1 amd64 2.4+20151223.gitfa8646d.1-2 [60.5 kB]
-Get:16 http://ftp.free.fr/pub/kali kali-rolling/main amd64 libssh2-1 amd64 1.8.0-2 [138 kB]
-Get:17 http://ftp.free.fr/pub/kali kali-rolling/main amd64 libcurl4 amd64 7.62.0-1 [324 kB]
-Get:18 http://ftp.free.fr/pub/kali kali-rolling/main amd64 curl amd64 7.62.0-1 [257 kB]
-Get:19 http://ftp.free.fr/pub/kali kali-rolling/main amd64 idn amd64 1.33-2.2 [147 kB]
-Get:20 http://ftp.free.fr/pub/kali kali-rolling/main amd64 libsasl2-modules amd64 2.1.27~rc8-1 [103 kB]
-Get:21 http://ftp.free.fr/pub/kali kali-rolling/main amd64 socat amd64 1.7.3.2-2 [358 kB]
-Preconfiguring packages ...
-Fetched 3799 kB in 3s (1495 kB/s)
-Selecting previously unselected package krb5-locales.
-(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 9221 files and directories currently installed.)
-Preparing to unpack .../00-krb5-locales_1.16.1-1_all.deb ...
-Unpacking krb5-locales (1.16.1-1) ...
-Selecting previously unselected package libwrap0:amd64.
-Preparing to unpack .../01-libwrap0_7.6.q-27_amd64.deb ...
-Unpacking libwrap0:amd64 (7.6.q-27) ...
-Selecting previously unselected package openssl.
-Preparing to unpack .../02-openssl_1.1.1a-1_amd64.deb ...
-Unpacking openssl (1.1.1a-1) ...
-Selecting previously unselected package ca-certificates.
-Preparing to unpack .../03-ca-certificates_20170717_all.deb ...
-Unpacking ca-certificates (20170717) ...
-Selecting previously unselected package libkeyutils1:amd64.
-Preparing to unpack .../04-libkeyutils1_1.5.9-9.3_amd64.deb ...
-Unpacking libkeyutils1:amd64 (1.5.9-9.3) ...
-Selecting previously unselected package libkrb5support0:amd64.
-Preparing to unpack .../05-libkrb5support0_1.16.1-1_amd64.deb ...
-Unpacking libkrb5support0:amd64 (1.16.1-1) ...
-Selecting previously unselected package libk5crypto3:amd64.
-Preparing to unpack .../06-libk5crypto3_1.16.1-1_amd64.deb ...
-Unpacking libk5crypto3:amd64 (1.16.1-1) ...
-Selecting previously unselected package libkrb5-3:amd64.
-Preparing to unpack .../07-libkrb5-3_1.16.1-1_amd64.deb ...
-Unpacking libkrb5-3:amd64 (1.16.1-1) ...
-Selecting previously unselected package libgssapi-krb5-2:amd64.
-Preparing to unpack .../08-libgssapi-krb5-2_1.16.1-1_amd64.deb ...
-Unpacking libgssapi-krb5-2:amd64 (1.16.1-1) ...
-Selecting previously unselected package libsasl2-modules-db:amd64.
-Preparing to unpack .../09-libsasl2-modules-db_2.1.27~rc8-1_amd64.deb ...
-Unpacking libsasl2-modules-db:amd64 (2.1.27~rc8-1) ...
-Selecting previously unselected package libsasl2-2:amd64.
-Preparing to unpack .../10-libsasl2-2_2.1.27~rc8-1_amd64.deb ...
-Unpacking libsasl2-2:amd64 (2.1.27~rc8-1) ...
-Selecting previously unselected package libldap-common.
-Preparing to unpack .../11-libldap-common_2.4.46+dfsg-5_all.deb ...
-Unpacking libldap-common (2.4.46+dfsg-5) ...
-Selecting previously unselected package libldap-2.4-2:amd64.
-Preparing to unpack .../12-libldap-2.4-2_2.4.46+dfsg-5+b1_amd64.deb ...
-Unpacking libldap-2.4-2:amd64 (2.4.46+dfsg-5+b1) ...
-Selecting previously unselected package libnghttp2-14:amd64.
-Preparing to unpack .../13-libnghttp2-14_1.34.0-1_amd64.deb ...
-Unpacking libnghttp2-14:amd64 (1.34.0-1) ...
-Selecting previously unselected package librtmp1:amd64.
-Preparing to unpack .../14-librtmp1_2.4+20151223.gitfa8646d.1-2_amd64.deb ...
-Unpacking librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2) ...
-Selecting previously unselected package libssh2-1:amd64.
-Preparing to unpack .../15-libssh2-1_1.8.0-2_amd64.deb ...
-Unpacking libssh2-1:amd64 (1.8.0-2) ...
-Selecting previously unselected package libcurl4:amd64.
-Preparing to unpack .../16-libcurl4_7.62.0-1_amd64.deb ...
-Unpacking libcurl4:amd64 (7.62.0-1) ...
-Selecting previously unselected package curl.
-Preparing to unpack .../17-curl_7.62.0-1_amd64.deb ...
-Unpacking curl (7.62.0-1) ...
-Selecting previously unselected package idn.
-Preparing to unpack .../18-idn_1.33-2.2_amd64.deb ...
-Unpacking idn (1.33-2.2) ...
-Selecting previously unselected package libsasl2-modules:amd64.
-Preparing to unpack .../19-libsasl2-modules_2.1.27~rc8-1_amd64.deb ...
-Unpacking libsasl2-modules:amd64 (2.1.27~rc8-1) ...
-Selecting previously unselected package socat.
-Preparing to unpack .../20-socat_1.7.3.2-2_amd64.deb ...
-Unpacking socat (1.7.3.2-2) ...
-Setting up libnghttp2-14:amd64 (1.34.0-1) ...
-Setting up libldap-common (2.4.46+dfsg-5) ...
-Setting up librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2) ...
-Setting up libssh2-1:amd64 (1.8.0-2) ...
-Setting up krb5-locales (1.16.1-1) ...
-Processing triggers for libc-bin (2.27-6) ...
-Setting up openssl (1.1.1a-1) ...
-Setting up libkeyutils1:amd64 (1.5.9-9.3) ...
-Setting up ca-certificates (20170717) ...
-Updating certificates in /etc/ssl/certs...
-148 added, 0 removed; done.
-Setting up idn (1.33-2.2) ...
-Setting up libwrap0:amd64 (7.6.q-27) ...
-Setting up socat (1.7.3.2-2) ...
-Setting up libkrb5support0:amd64 (1.16.1-1) ...
-Setting up libk5crypto3:amd64 (1.16.1-1) ...
-Setting up libkrb5-3:amd64 (1.16.1-1) ...
-Setting up libgssapi-krb5-2:amd64 (1.16.1-1) ...
-Setting up libsasl2-modules:amd64 (2.1.27~rc8-1) ...
-Setting up libsasl2-modules-db:amd64 (2.1.27~rc8-1) ...
-Setting up libsasl2-2:amd64 (2.1.27~rc8-1) ...
-Setting up libldap-2.4-2:amd64 (2.4.46+dfsg-5+b1) ...
-Setting up libcurl4:amd64 (7.62.0-1) ...
-Setting up curl (7.62.0-1) ...
-Processing triggers for libc-bin (2.27-6) ...
-Processing triggers for ca-certificates (20170717) ...
-Updating certificates in /etc/ssl/certs...
-0 added, 0 removed; done.
-Running hooks in /etc/ca-certificates/update.d...
-done.
+ ---> Using cache
  ---> 5a4c38495045
-Removing intermediate container ec7af022bf19
 Successfully built 5a4c38495045
 Successfully tagged mykalilinux-kali-linux-docker:latest
-Fri, 14 Dec 2018 09:38:10 UTC
+Fri, 21 Dec 2018 09:43:57 UTC
 Testing branch: master
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/1/21[0m
+Progress: 0/1/21
 ==Running le_test_dependencies please wait
 no crontab for root
 no crontab for root
-curl installed.[1;31;32m [PASS][0m
-crontab installed.[1;31;32m [PASS][0m
-openssl installed.[1;31;32m [PASS][0m
-socat installed.[1;31;32m [PASS][0m
+curl installed. [PASS]
+crontab installed. [PASS]
+openssl installed. [PASS]
+socat installed. [PASS]
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/2/21[0m
+Progress: 0/2/21
 ==Running le_test_install please wait
-./acme.sh install[1;31;32m [PASS][0m
-/root/.acme.sh/acme.sh exists.[1;31;32m [PASS][0m
-_contains '12 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null'[1;31;32m [PASS][0m
-/root/.acme.sh/acme.sh uninstall  > /dev/null[1;31;32m [PASS][0m
+./acme.sh install [PASS]
+/root/.acme.sh/acme.sh exists. [PASS]
+_contains '0 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
+/root/.acme.sh/acme.sh uninstall  > /dev/null [PASS]
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/3/21[0m
+Progress: 0/3/21
 ==Running le_test_uninstall please wait
-./acme.sh install[1;31;32m [PASS][0m
-/root/.acme.sh/acme.sh uninstall[1;31;32m [PASS][0m
-/root/.acme.sh/acme.sh no exists.[1;31;32m [PASS][0m
-equals [1;31;32m [PASS][0m
+./acme.sh install [PASS]
+/root/.acme.sh/acme.sh uninstall [PASS]
+/root/.acme.sh/acme.sh no exists. [PASS]
+equals  [PASS]
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/4/21[0m
+Progress: 0/4/21
 ==Running le_test_installtodir please wait
-./acme.sh install[1;31;32m [PASS][0m
-/root/myle/acme.sh exists.[1;31;32m [PASS][0m
-_contains '14 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null'[1;31;32m [PASS][0m
-/root/myle/acme.sh uninstall[1;31;32m [PASS][0m
+./acme.sh install [PASS]
+/root/myle/acme.sh exists. [PASS]
+_contains '2 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
+/root/myle/acme.sh uninstall [PASS]
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/5/21[0m
+Progress: 0/5/21
 ==Running le_test_uninstalltodir please wait
-./acme.sh install[1;31;32m [PASS][0m
-/root/myle/acme.sh uninstall[1;31;32m [PASS][0m
-/root/myle/acme.sh no exists.[1;31;32m [PASS][0m
-equals [1;31;32m [PASS][0m
+./acme.sh install [PASS]
+/root/myle/acme.sh uninstall [PASS]
+/root/myle/acme.sh no exists. [PASS]
+equals  [PASS]
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/6/21[0m
+Progress: 0/6/21
 ==Running le_test_install_config_home please wait
-./acme.sh --install --config-home /root/etc/acme[1;31;32m [PASS][0m
-/root/.acme.sh/acme.sh exists.[1;31;32m [PASS][0m
-_contains '15 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null'[1;31;32m [PASS][0m
-/root/etc/acme/account.conf exists.[1;31;32m [PASS][0m
-/root/.acme.sh/account.conf no exists.[1;31;32m [PASS][0m
-/root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null[1;31;32m [PASS][0m
-/root/.acme.sh/acme.sh --uninstall --config-home /root/etc/acme > /dev/null[1;31;32m [PASS][0m
-/root/etc/acme/account.conf exists.[1;31;32m [PASS][0m
-/root/.acme.sh/account.conf no exists.[1;31;32m [PASS][0m
+./acme.sh --install --config-home /root/etc/acme [PASS]
+/root/.acme.sh/acme.sh exists. [PASS]
+_contains '3 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
+/root/etc/acme/account.conf exists. [PASS]
+/root/.acme.sh/account.conf no exists. [PASS]
+/root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null [PASS]
+/root/.acme.sh/acme.sh --uninstall --config-home /root/etc/acme > /dev/null [PASS]
+/root/etc/acme/account.conf exists. [PASS]
+/root/.acme.sh/account.conf no exists. [PASS]
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/7/21[0m
+Progress: 0/7/21
 ==Running le_test_standandalone_renew please wait
-/root/.acme.sh/acme.sh issue no testdocker.acme.sh[1;31;32m [PASS][0m
-FORCE=1 /root/.acme.sh/acme.sh renew testdocker.acme.sh[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh issue no testdocker.acme.sh [PASS]
+FORCE=1 /root/.acme.sh/acme.sh renew testdocker.acme.sh [PASS]
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/8/21[0m
+Progress: 0/8/21
 ==Running le_test_standandalone_renew_v2 please wait
-/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
-/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force[1;31;32m [PASS][0m
-/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
-/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
+/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force [PASS]
+/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/9/21[0m
+Progress: 0/9/21
 ==Running le_test_standandalone_renew_localaddress_v2 please wait
-/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --local-address 0.0.0.0 --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
-/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force[1;31;32m [PASS][0m
-/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
-/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --local-address 0.0.0.0 --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
+/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force [PASS]
+/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/10/21[0m
+Progress: 0/10/21
 ==Running le_test_standandalone_listen_v4_v2 please wait
-/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --listen-v4 --cert-file '/acmetest/certs/domain.cer' --key-file '/acmetest/certs/domain.key'  --ca-file '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchain-file  '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
-/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force[1;31;32m [PASS][0m
-/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
-/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --listen-v4 --cert-file '/acmetest/certs/domain.cer' --key-file '/acmetest/certs/domain.key'  --ca-file '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchain-file  '/acmetest/certs/full.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
+/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force [PASS]
+/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/11/21[0m
+Progress: 0/11/21
 ==Running le_test_standandalone_listen_v6_v2 please wait
 Skipped by TEST_IPV6
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/12/21[0m
+Progress: 0/12/21
 ==Running le_test_standandalone_deactivate_v2 please wait
-/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
-/root/.acme.sh/acme.sh --deactivate -d testdocker.acme.sh[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
+/root/.acme.sh/acme.sh --deactivate -d testdocker.acme.sh [PASS]
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/13/21[0m
+Progress: 0/13/21
 ==Running le_test_standandalone please wait
-/root/.acme.sh/acme.sh issue no testdocker.acme.sh[1;31;32m [PASS][0m
-/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
-/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh issue no testdocker.acme.sh [PASS]
+/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/14/21[0m
+Progress: 0/14/21
 ==Running le_test_standandalone_SAN please wait
-/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh"[1;31;32m [PASS][0m
-/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
-/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh" [PASS]
+/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/15/21[0m
+Progress: 0/15/21
 ==Running le_test_standandalone_ECDSA_256 please wait
-/root/.acme.sh/acme.sh issue no testdocker.acme.sh no ec-256[1;31;32m [PASS][0m
-/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
-/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh issue no testdocker.acme.sh no ec-256 [PASS]
+/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/16/21[0m
+Progress: 0/16/21
 ==Running le_test_standandalone_ECDSA_256_renew please wait
-/root/.acme.sh/acme.sh issue no testdocker.acme.sh no ec-256[1;31;32m [PASS][0m
-FORCE=1 /root/.acme.sh/acme.sh renew testdocker.acme.sh[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh issue no testdocker.acme.sh no ec-256 [PASS]
+FORCE=1 /root/.acme.sh/acme.sh renew testdocker.acme.sh [PASS]
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/17/21[0m
+Progress: 0/17/21
 ==Running le_test_standandalone_ECDSA_256_SAN_renew please wait
-/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh" ec-256[1;31;32m [PASS][0m
-FORCE=1 /root/.acme.sh/acme.sh renew "testdocker.acme.sh"[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh" ec-256 [PASS]
+FORCE=1 /root/.acme.sh/acme.sh renew "testdocker.acme.sh" [PASS]
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/18/21[0m
+Progress: 0/18/21
 ==Running le_test_standandalone_ECDSA_256_SAN_renew_v2 please wait
-/root/.acme.sh/acme.sh --issue -d "testdocker.acme.sh" -d "testdocker2.acme.sh" --standalone --keylength ec-256 --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh_ecc/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
-/root/.acme.sh/acme.sh --renew --ecc -d "testdocker.acme.sh" --force[1;31;32m [PASS][0m
-/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
-/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer' equals '/acmetest/certs/ca.cer'[1;31;32m [PASS][0m
-'/root/.acme.sh/testdocker.acme.sh_ecc/fullchain.cer' equals '/acmetest/certs/full.cer'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh --issue -d "testdocker.acme.sh" -d "testdocker2.acme.sh" --standalone --keylength ec-256 --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
+'/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh_ecc/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
+/root/.acme.sh/acme.sh --renew --ecc -d "testdocker.acme.sh" --force [PASS]
+/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
+'/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh_ecc/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/19/21[0m
+Progress: 0/19/21
 ==Running le_test_standandalone_ECDSA_384 please wait
-/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" no ec-384[1;31;32m [PASS][0m
-/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
-/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1'[1;31;32m [PASS][0m
+/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" no ec-384 [PASS]
+/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/20/21[0m
+Progress: 0/20/21
 ==Running le_test_standandalone_renew_idn_v2 please wait
 Skipped by TEST_IDN
 ------------------------------------------
-[1;31;32mProgress: [0m[1;31;32m0[0m[1;31;32m/21/21[0m
+Progress: 0/21/21
 ==Running le_test_dnsapi please wait
 Skipped by TEST_DNS
 ------------------------------------------
