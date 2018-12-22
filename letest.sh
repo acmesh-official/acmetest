@@ -539,6 +539,7 @@ _run() {
   fi
   
   _r="0"
+  __CASE_SKIPPED=""
   if ! ( $_test ) ; then
     _r="1"
   fi
@@ -565,7 +566,7 @@ _run() {
     rm -rf "$lehome/$TestingDomain"
     rm -rf "$lehome/$TestingDomain$ECC_SUFFIX"
     if [ -f "$lehome/$PROJECT_ENTRY" ] ; then
-      if [ -f "$CA_DIR/account.key" ] ; then
+      if [ -z "$__CASE_SKIPPED" ] && [ -f "$CA_DIR/account.key" ] ; then
         $lehome/$PROJECT_ENTRY --deactivate -d "$_deactivateDomains" >deactivate.log 2>&1
       fi
       __dr="$?"
@@ -742,6 +743,7 @@ le_test_install_config_home() {
 le_test_standandalone_renew() {
   if [ "$QUICK_TEST" ] ; then
     _info "Skipped by QUICK_TEST"
+    __CASE_SKIPPED="1"
     return 0
   fi
   
@@ -954,6 +956,7 @@ le_test_standandalone_listen_v4_v2() {
 le_test_standandalone_listen_v6_v2() {
   if [ -z "$TEST_IPV6" ] ; then
     _info "Skipped by TEST_IPV6"
+    __CASE_SKIPPED="1"
     return 0
   fi
 
@@ -1064,6 +1067,7 @@ le_test_standandalone_deactivate_v2() {
 le_test_standandalone() {
   if [ "$QUICK_TEST" ] ; then
     _info "Skipped by QUICK_TEST"
+    __CASE_SKIPPED="1"
     return 0
   fi
   
@@ -1096,6 +1100,7 @@ le_test_standandalone() {
 le_test_standandalone_SAN() {
   if [ "$QUICK_TEST" ] ; then
     _info "Skipped by QUICK_TEST"
+    __CASE_SKIPPED="1"
     return 0
   fi
   lehome="$DEFAULT_HOME"
@@ -1128,11 +1133,13 @@ le_test_standandalone_SAN() {
 le_test_standandalone_ECDSA_256() {
   if [ "$QUICK_TEST" ] ; then
     _info "Skipped by QUICK_TEST"
+    __CASE_SKIPPED="1"
     return 0
   fi
   
   if [ "$NO_ECC_CASES" ] ; then
     _info "Skipped by NO_ECC_CASES"
+    __CASE_SKIPPED="1"
     return 0
   fi
     
@@ -1168,10 +1175,12 @@ le_test_standandalone_ECDSA_256() {
 le_test_standandalone_ECDSA_256_renew() {
   if [ "$QUICK_TEST" ] ; then
     _info "Skipped by QUICK_TEST"
+    __CASE_SKIPPED="1"
     return 0
   fi
   if [ "$NO_ECC_CASES" ] ; then
     _info "Skipped by NO_ECC_CASES"
+    __CASE_SKIPPED="1"
     return 0
   fi  
   
@@ -1207,10 +1216,12 @@ le_test_standandalone_ECDSA_256_renew() {
 le_test_standandalone_ECDSA_256_SAN_renew() {
   if [ "$QUICK_TEST" ] ; then
     _info "Skipped by QUICK_TEST"
+    __CASE_SKIPPED="1"
     return 0
   fi
   if [ "$NO_ECC_CASES" ] ; then
     _info "Skipped by NO_ECC_CASES"
+    __CASE_SKIPPED="1"
     return 0
   fi  
   lehome="$DEFAULT_HOME"
@@ -1243,6 +1254,7 @@ le_test_standandalone_ECDSA_256_SAN_renew() {
 le_test_standandalone_ECDSA_256_SAN_renew_v2() {
   if [ "$NO_ECC_CASES" ] ; then
     _info "Skipped by NO_ECC_CASES"
+    __CASE_SKIPPED="1"
     return 0
   fi 
   
@@ -1302,11 +1314,13 @@ le_test_standandalone_ECDSA_256_SAN_renew_v2() {
 le_test_standandalone_ECDSA_384() {
   if [ "$QUICK_TEST" ] ; then
     _info "Skipped by QUICK_TEST"
+    __CASE_SKIPPED="1"
     return 0
   fi
   
   if [ "$NO_ECC_CASES" ] ; then
     _info "Skipped by NO_ECC_CASES"
+    __CASE_SKIPPED="1"
     return 0
   fi
   
@@ -1342,6 +1356,7 @@ le_test_standandalone_ECDSA_384() {
 le_test_standandalone_renew_idn_v2() {
   if [ -z "$TEST_IDN" ] ; then
     _info "Skipped by TEST_IDN"
+    __CASE_SKIPPED="1"
     return 0
   fi
   
@@ -1403,6 +1418,7 @@ le_test_dnsapi() {
 
   if [ -z "$TEST_DNS" ]; then
     _info "Skipped by TEST_DNS"
+    __CASE_SKIPPED="1"
     return 0
   fi  
 
