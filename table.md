@@ -28,3 +28,4 @@
 |alpine:3.2| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/alpine-3.2.svg?1545989781)| Fri, 28 Dec 2018 09:36:21 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-3.2.out) |
 |alpine:3.1| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/alpine-3.1.svg?1545990115)| Fri, 28 Dec 2018 09:41:55 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-3.1.out) |
 |oraclelinux:latest| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/oraclelinux-latest.svg?1545990380)| Fri, 28 Dec 2018 09:46:20 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/oraclelinux-latest.out) |
+|oraclelinux:7| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/oraclelinux-7.svg?1545990634)| Fri, 28 Dec 2018 09:50:34 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/oraclelinux-7.out) |
