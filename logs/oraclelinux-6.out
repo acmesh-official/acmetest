@@ -2,13 +2,13 @@ Sending build context to Docker daemon  2.048kB
 Step 1/2 : FROM oraclelinux:6
  ---> 1e9be0c8e243
 Step 2/2 : RUN curl http://www.convirture.com/repos/definitions/rhel/6.x/convirt.repo > /etc/yum.repos.d/convirt.repo && yum  -y update     2>&1 && yum -y install    tar openssl crontabs socat curl  2>&1
- ---> Running in 716f06b2be90
-[91m  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0[0m[91m  0    11    0    11    0     0     51      0 --:--:-- --:--:-- --:--:--    64
+ ---> Running in 6c7c9fcc7258
+[91m  % Total   [0m[91m % Received % Xferd[0m[91m  [0m[91mA[0m[91mvera[0m[91mge Speed   Time[0m[91m    [0m[91mTime     Time  [0m[91mCur[0m[91mrent
+         [0m[91m   [0m[91m            [0m[91m   [0m[91m      Dload  Up[0m[91ml[0m[91moad   Total [0m[91m  Spen[0m[91mt [0m[91m   Left  Speed
+[0m[91m  0     0    0 [0m[91m    0    0     0    [0m[91m  0      0 --:--:-[0m[91m- --:--:-- --:-[0m[91m-:--     0[0m[91m111   335  [0m[91m111   335    0     0  [0m[91m 6990 [0m[91m     0 --:[0m[91m--:--[0m[91m -[0m[91m-[0m[91m:--:-- --:--:[0m[91m-- 2[0m[91m0937[0m[91m
 [0mLoaded plugins: ovl, security, ulninfo
 Setting up Update Process
 Error: File contains no section headers.
 file: file:///etc/yum.repos.d/convirt.repo, line: 1
-'Redirecting'
+"<html><head><title>Loading...</title></head><body><script type='text/javascript'>window.location.replace('http://www.convirture.com/repos/definitions/rhel/6.x/convirt.repo?js=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqcyI6MX0.fADWc9hUOlh58R9UzufQBROmie3I7c7vE835oE6YmU4&uuid=b175ee82-0a86-11e9-b10f-9ae634d58498');</script></body></html>"
 The command '/bin/sh -c curl http://www.convirture.com/repos/definitions/rhel/6.x/convirt.repo > /etc/yum.repos.d/convirt.repo && yum  -y update     2>&1 && yum -y install    tar openssl crontabs socat curl  2>&1' returned a non-zero code: 1
