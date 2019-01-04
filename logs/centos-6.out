@@ -2,14 +2,14 @@ Sending build context to Docker daemon  2.048kB
 Step 1/2 : FROM centos:6
  ---> 0cbf37812bff
 Step 2/2 : RUN curl http://www.convirture.com/repos/definitions/rhel/6.x/convirt.repo > /etc/yum.repos.d/convirt.repo && yum  -y update     2>&1 && yum  -y install    openssl crontabs socat curl  2>&1
- ---> Running in d00b73b6bf43
+ ---> Running in cb47e18dae6b
 [91m  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0[0m[91m  0    11    0    11    0     0     62      0 --:--:-- --:--:-- --:--:--    71  0    11    0    11    0     0     62      0 --:--:-- --:--:-- --:--:--    71[0m[91m
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0[0m[91m111   335  111   335    0     0    814      0 --:--:-- --:--:-- --:--:--   965
 [0mLoaded plugins: fastestmirror, ovl
 
 
 File contains no section headers.
 file: file:///etc/yum.repos.d/convirt.repo, line: 1
-'Redirecting'
+"<html><head><title>Loading...</title></head><body><script type='text/javascript'>window.location.replace('http://www.convirture.com/repos/definitions/rhel/6.x/convirt.repo?js=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqcyI6MX0.fADWc9hUOlh58R9UzufQBROmie3I7c7vE835oE6YmU4&uuid=de37490c-0fdb-11e9-81bc-71c07002aa7c');</script></body></html>"
 The command '/bin/sh -c curl http://www.convirture.com/repos/definitions/rhel/6.x/convirt.repo > /etc/yum.repos.d/convirt.repo && yum  -y update     2>&1 && yum  -y install    openssl crontabs socat curl  2>&1' returned a non-zero code: 1
