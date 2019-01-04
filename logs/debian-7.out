@@ -6,7 +6,7 @@ Step 2/2 : RUN apt-get -y update  2>&1 && apt-get -y install openssl cron socat 
  ---> 9675e3ed73d5
 Successfully built 9675e3ed73d5
 Successfully tagged mydebian:7
-Fri, 28 Dec 2018 08:03:49 UTC
+Fri, 04 Jan 2019 02:55:49 UTC
 Testing branch: master
 Progress: 0/1/21
 ==Running le_test_dependencies please wait
