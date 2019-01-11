@@ -6,7 +6,7 @@ Step 2/2 : RUN emerge --sync  2>&1 &&  ACCEPT_KEYWORDS="~amd64" emerge   net-mis
  ---> a22d6744c9d3
 Successfully built a22d6744c9d3
 Successfully tagged mygentoo-stage3-amd64:latest
-Fri, 04 Jan 2019 04:44:58 UTC
+Fri, 11 Jan 2019 04:54:59 UTC
 Testing branch: master
 Progress: 0/1/21
 ==Running le_test_dependencies please wait
@@ -35,7 +35,7 @@ Progress: 0/4/21
 ==Running le_test_installtodir please wait
 ./acme.sh install [PASS]
 /root/myle/acme.sh exists. [PASS]
-_contains '1 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
+_contains '2 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
 /root/myle/acme.sh uninstall [PASS]
 ------------------------------------------
 Progress: 0/5/21
@@ -49,7 +49,7 @@ Progress: 0/6/21
 ==Running le_test_install_config_home please wait
 ./acme.sh --install --config-home /root/etc/acme [PASS]
 /root/.acme.sh/acme.sh exists. [PASS]
-_contains '2 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
+_contains '3 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
 /root/etc/acme/account.conf exists. [PASS]
 /root/.acme.sh/account.conf no exists. [PASS]
 /root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null [PASS]
@@ -59,104 +59,174 @@ _contains '2 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --c
 ------------------------------------------
 Progress: 0/7/21
 ==Running le_test_standandalone_renew please wait
-/root/.acme.sh/acme.sh issue no testdocker.acme.sh [PASS]
-FORCE=1 /root/.acme.sh/acme.sh renew testdocker.acme.sh [PASS]
+/root/.acme.sh/acme.sh issue no testdocker.acme.sh [FAIL] 
+Run Failed
+deactivate failed
+[Fri Jan 11 04:55:05 -00 2019] Using stage ACME_DIRECTORY: https://acme-staging.api.letsencrypt.org/directory
+[Fri Jan 11 04:55:06 -00 2019] Getting new-authz for domain='testdocker.acme.sh'
+[Fri Jan 11 04:55:07 -00 2019] It seems there is an error, but it's recovered now, please try again.
+[Fri Jan 11 04:55:07 -00 2019] If you see this message for a second time, please report bug: https://github.com/Neilpang/acme.sh
+cat: /root/.acme.sh/ca/acme-staging.api.letsencrypt.org/ca.conf: No such file or directory
+[Fri Jan 11 04:55:07 -00 2019] new-authz error: {"type":"urn:acme:error:unauthorized","detail":"No registration exists matching provided key","status": 403}
+[Fri Jan 11 04:55:07 -00 2019] Can not get domain new authz token.
 ------------------------------------------
-Progress: 0/8/21
+Progress: 1/8/21
 ==Running le_test_standandalone_renew_v2 please wait
-/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
-/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force [PASS]
-/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
+/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [FAIL] 
+Run Failed
+deactivate failed
+[Fri Jan 11 04:55:09 -00 2019] Using stage ACME_DIRECTORY: https://acme-staging.api.letsencrypt.org/directory
+[Fri Jan 11 04:55:09 -00 2019] Getting new-authz for domain='testdocker.acme.sh'
+[Fri Jan 11 04:55:10 -00 2019] It seems there is an error, but it's recovered now, please try again.
+[Fri Jan 11 04:55:10 -00 2019] If you see this message for a second time, please report bug: https://github.com/Neilpang/acme.sh
+[Fri Jan 11 04:55:10 -00 2019] new-authz error: {"type":"urn:acme:error:unauthorized","detail":"No registration exists matching provided key","status": 403}
+[Fri Jan 11 04:55:10 -00 2019] Can not get domain new authz token.
 ------------------------------------------
-Progress: 0/9/21
+Progress: 2/9/21
 ==Running le_test_standandalone_renew_localaddress_v2 please wait
-/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --local-address 0.0.0.0 --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
-/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force [PASS]
-/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
+/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --local-address 0.0.0.0 --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [FAIL] 
+Run Failed
+deactivate failed
+[Fri Jan 11 04:55:12 -00 2019] Using stage ACME_DIRECTORY: https://acme-staging.api.letsencrypt.org/directory
+[Fri Jan 11 04:55:13 -00 2019] Getting new-authz for domain='testdocker.acme.sh'
+[Fri Jan 11 04:55:14 -00 2019] It seems there is an error, but it's recovered now, please try again.
+[Fri Jan 11 04:55:14 -00 2019] If you see this message for a second time, please report bug: https://github.com/Neilpang/acme.sh
+[Fri Jan 11 04:55:14 -00 2019] new-authz error: {"type":"urn:acme:error:unauthorized","detail":"No registration exists matching provided key","status": 403}
+[Fri Jan 11 04:55:14 -00 2019] Can not get domain new authz token.
 ------------------------------------------
-Progress: 0/10/21
+Progress: 3/10/21
 ==Running le_test_standandalone_listen_v4_v2 please wait
-/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --listen-v4 --cert-file '/acmetest/certs/domain.cer' --key-file '/acmetest/certs/domain.key'  --ca-file '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchain-file  '/acmetest/certs/full.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
-/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force [PASS]
-/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
+/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --listen-v4 --cert-file '/acmetest/certs/domain.cer' --key-file '/acmetest/certs/domain.key'  --ca-file '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchain-file  '/acmetest/certs/full.cer' [FAIL] 
+Run Failed
+deactivate failed
+[Fri Jan 11 04:55:16 -00 2019] Using stage ACME_DIRECTORY: https://acme-staging.api.letsencrypt.org/directory
+[Fri Jan 11 04:55:16 -00 2019] Getting new-authz for domain='testdocker.acme.sh'
+[Fri Jan 11 04:55:17 -00 2019] It seems there is an error, but it's recovered now, please try again.
+[Fri Jan 11 04:55:17 -00 2019] If you see this message for a second time, please report bug: https://github.com/Neilpang/acme.sh
+[Fri Jan 11 04:55:17 -00 2019] new-authz error: {"type":"urn:acme:error:unauthorized","detail":"No registration exists matching provided key","status": 403}
+[Fri Jan 11 04:55:17 -00 2019] Can not get domain new authz token.
 ------------------------------------------
-Progress: 0/11/21
+Progress: 4/11/21
 ==Running le_test_standandalone_listen_v6_v2 please wait
 Skipped by TEST_IPV6
+deactivate failed
+[Fri Jan 11 04:55:18 -00 2019] Using stage ACME_DIRECTORY: https://acme-staging.api.letsencrypt.org/directory
+[Fri Jan 11 04:55:18 -00 2019] Getting new-authz for domain='testdocker.acme.sh'
+[Fri Jan 11 04:55:19 -00 2019] It seems there is an error, but it's recovered now, please try again.
+[Fri Jan 11 04:55:19 -00 2019] If you see this message for a second time, please report bug: https://github.com/Neilpang/acme.sh
+[Fri Jan 11 04:55:19 -00 2019] new-authz error: {"type":"urn:acme:error:unauthorized","detail":"No registration exists matching provided key","status": 403}
+[Fri Jan 11 04:55:19 -00 2019] Can not get domain new authz token.
 ------------------------------------------
-Progress: 0/12/21
+Progress: 5/12/21
 ==Running le_test_standandalone_deactivate_v2 please wait
-/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
-'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
-/root/.acme.sh/acme.sh --deactivate -d testdocker.acme.sh [PASS]
+/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [FAIL] 
+Run Failed
+deactivate failed
+[Fri Jan 11 04:55:22 -00 2019] Using stage ACME_DIRECTORY: https://acme-staging.api.letsencrypt.org/directory
+[Fri Jan 11 04:55:22 -00 2019] Getting new-authz for domain='testdocker.acme.sh'
+[Fri Jan 11 04:55:23 -00 2019] It seems there is an error, but it's recovered now, please try again.
+[Fri Jan 11 04:55:23 -00 2019] If you see this message for a second time, please report bug: https://github.com/Neilpang/acme.sh
+[Fri Jan 11 04:55:23 -00 2019] new-authz error: {"type":"urn:acme:error:unauthorized","detail":"No registration exists matching provided key","status": 403}
+[Fri Jan 11 04:55:23 -00 2019] Can not get domain new authz token.
 ------------------------------------------
-Progress: 0/13/21
+Progress: 6/13/21
 ==Running le_test_standandalone please wait
-/root/.acme.sh/acme.sh issue no testdocker.acme.sh [PASS]
-/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/acme.sh issue no testdocker.acme.sh [FAIL] 
+Run Failed
+deactivate failed
+[Fri Jan 11 04:55:25 -00 2019] Using stage ACME_DIRECTORY: https://acme-staging.api.letsencrypt.org/directory
+[Fri Jan 11 04:55:25 -00 2019] Getting new-authz for domain='testdocker.acme.sh'
+[Fri Jan 11 04:55:26 -00 2019] It seems there is an error, but it's recovered now, please try again.
+[Fri Jan 11 04:55:26 -00 2019] If you see this message for a second time, please report bug: https://github.com/Neilpang/acme.sh
+[Fri Jan 11 04:55:26 -00 2019] new-authz error: {"type":"urn:acme:error:unauthorized","detail":"No registration exists matching provided key","status": 403}
+[Fri Jan 11 04:55:26 -00 2019] Can not get domain new authz token.
 ------------------------------------------
-Progress: 0/14/21
+Progress: 7/14/21
 ==Running le_test_standandalone_SAN please wait
-/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh" [PASS]
-/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh" [FAIL] 
+Run Failed
+deactivate failed
+[Fri Jan 11 04:55:29 -00 2019] Using stage ACME_DIRECTORY: https://acme-staging.api.letsencrypt.org/directory
+[Fri Jan 11 04:55:29 -00 2019] Getting new-authz for domain='testdocker.acme.shtestdocker2.acme.sh'
+[Fri Jan 11 04:55:30 -00 2019] It seems there is an error, but it's recovered now, please try again.
+[Fri Jan 11 04:55:30 -00 2019] If you see this message for a second time, please report bug: https://github.com/Neilpang/acme.sh
+[Fri Jan 11 04:55:30 -00 2019] new-authz error: {"type":"urn:acme:error:unauthorized","detail":"No registration exists matching provided key","status": 403}
+[Fri Jan 11 04:55:30 -00 2019] Can not get domain new authz token.
 ------------------------------------------
-Progress: 0/15/21
+Progress: 8/15/21
 ==Running le_test_standandalone_ECDSA_256 please wait
 Skipped by NO_ECC_CASES
+deactivate failed
+[Fri Jan 11 04:55:30 -00 2019] Using stage ACME_DIRECTORY: https://acme-staging.api.letsencrypt.org/directory
+[Fri Jan 11 04:55:31 -00 2019] Getting new-authz for domain='testdocker.acme.sh'
+[Fri Jan 11 04:55:32 -00 2019] It seems there is an error, but it's recovered now, please try again.
+[Fri Jan 11 04:55:32 -00 2019] If you see this message for a second time, please report bug: https://github.com/Neilpang/acme.sh
+[Fri Jan 11 04:55:32 -00 2019] new-authz error: {"type":"urn:acme:error:unauthorized","detail":"No registration exists matching provided key","status": 403}
+[Fri Jan 11 04:55:32 -00 2019] Can not get domain new authz token.
 ------------------------------------------
-Progress: 0/16/21
+Progress: 9/16/21
 ==Running le_test_standandalone_ECDSA_256_renew please wait
 Skipped by NO_ECC_CASES
+deactivate failed
+[Fri Jan 11 04:55:32 -00 2019] Using stage ACME_DIRECTORY: https://acme-staging.api.letsencrypt.org/directory
+[Fri Jan 11 04:55:33 -00 2019] Getting new-authz for domain='testdocker.acme.sh'
+[Fri Jan 11 04:55:34 -00 2019] It seems there is an error, but it's recovered now, please try again.
+[Fri Jan 11 04:55:34 -00 2019] If you see this message for a second time, please report bug: https://github.com/Neilpang/acme.sh
+[Fri Jan 11 04:55:34 -00 2019] new-authz error: {"type":"urn:acme:error:unauthorized","detail":"No registration exists matching provided key","status": 403}
+[Fri Jan 11 04:55:34 -00 2019] Can not get domain new authz token.
 ------------------------------------------
-Progress: 0/17/21
+Progress: 10/17/21
 ==Running le_test_standandalone_ECDSA_256_SAN_renew please wait
 Skipped by NO_ECC_CASES
+deactivate failed
+[Fri Jan 11 04:55:34 -00 2019] Using stage ACME_DIRECTORY: https://acme-staging.api.letsencrypt.org/directory
+[Fri Jan 11 04:55:35 -00 2019] Getting new-authz for domain='testdocker.acme.shtestdocker2.acme.sh'
+[Fri Jan 11 04:55:36 -00 2019] It seems there is an error, but it's recovered now, please try again.
+[Fri Jan 11 04:55:36 -00 2019] If you see this message for a second time, please report bug: https://github.com/Neilpang/acme.sh
+[Fri Jan 11 04:55:36 -00 2019] new-authz error: {"type":"urn:acme:error:unauthorized","detail":"No registration exists matching provided key","status": 403}
+[Fri Jan 11 04:55:36 -00 2019] Can not get domain new authz token.
 ------------------------------------------
-Progress: 0/18/21
+Progress: 11/18/21
 ==Running le_test_standandalone_ECDSA_256_SAN_renew_v2 please wait
 Skipped by NO_ECC_CASES
+deactivate failed
+[Fri Jan 11 04:55:36 -00 2019] Using stage ACME_DIRECTORY: https://acme-staging.api.letsencrypt.org/directory
+[Fri Jan 11 04:55:37 -00 2019] Getting new-authz for domain='testdocker.acme.shtestdocker2.acme.sh'
+[Fri Jan 11 04:55:38 -00 2019] It seems there is an error, but it's recovered now, please try again.
+[Fri Jan 11 04:55:38 -00 2019] If you see this message for a second time, please report bug: https://github.com/Neilpang/acme.sh
+[Fri Jan 11 04:55:38 -00 2019] new-authz error: {"type":"urn:acme:error:unauthorized","detail":"No registration exists matching provided key","status": 403}
+[Fri Jan 11 04:55:38 -00 2019] Can not get domain new authz token.
 ------------------------------------------
-Progress: 0/19/21
+Progress: 12/19/21
 ==Running le_test_standandalone_ECDSA_384 please wait
 Skipped by NO_ECC_CASES
+deactivate failed
+[Fri Jan 11 04:55:38 -00 2019] Using stage ACME_DIRECTORY: https://acme-staging.api.letsencrypt.org/directory
+[Fri Jan 11 04:55:39 -00 2019] Getting new-authz for domain='testdocker.acme.sh'
+[Fri Jan 11 04:55:40 -00 2019] It seems there is an error, but it's recovered now, please try again.
+[Fri Jan 11 04:55:40 -00 2019] If you see this message for a second time, please report bug: https://github.com/Neilpang/acme.sh
+[Fri Jan 11 04:55:40 -00 2019] new-authz error: {"type":"urn:acme:error:unauthorized","detail":"No registration exists matching provided key","status": 403}
+[Fri Jan 11 04:55:40 -00 2019] Can not get domain new authz token.
 ------------------------------------------
-Progress: 0/20/21
+Progress: 13/20/21
 ==Running le_test_standandalone_renew_idn_v2 please wait
 Skipped by TEST_IDN
+deactivate failed
+[Fri Jan 11 04:55:40 -00 2019] Using stage ACME_DIRECTORY: https://acme-staging.api.letsencrypt.org/directory
+[Fri Jan 11 04:55:41 -00 2019] Getting new-authz for domain='testdocker.acme.sh'
+[Fri Jan 11 04:55:42 -00 2019] It seems there is an error, but it's recovered now, please try again.
+[Fri Jan 11 04:55:42 -00 2019] If you see this message for a second time, please report bug: https://github.com/Neilpang/acme.sh
+[Fri Jan 11 04:55:42 -00 2019] new-authz error: {"type":"urn:acme:error:unauthorized","detail":"No registration exists matching provided key","status": 403}
+[Fri Jan 11 04:55:42 -00 2019] Can not get domain new authz token.
 ------------------------------------------
-Progress: 0/21/21
+Progress: 14/21/21
 ==Running le_test_dnsapi please wait
 Skipped by TEST_DNS
+deactivate failed
+[Fri Jan 11 04:55:42 -00 2019] Using stage ACME_DIRECTORY: https://acme-staging.api.letsencrypt.org/directory
+[Fri Jan 11 04:55:42 -00 2019] Getting new-authz for domain='testdocker.acme.sh'
+[Fri Jan 11 04:55:44 -00 2019] It seems there is an error, but it's recovered now, please try again.
+[Fri Jan 11 04:55:44 -00 2019] If you see this message for a second time, please report bug: https://github.com/Neilpang/acme.sh
+[Fri Jan 11 04:55:44 -00 2019] new-authz error: {"type":"urn:acme:error:unauthorized","detail":"No registration exists matching provided key","status": 403}
+[Fri Jan 11 04:55:44 -00 2019] Can not get domain new authz token.
 ------------------------------------------
