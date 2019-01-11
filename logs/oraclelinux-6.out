@@ -2,10 +2,10 @@ Sending build context to Docker daemon  2.048kB
 Step 1/2 : FROM oraclelinux:6
  ---> 1e9be0c8e243
 Step 2/2 : RUN curl http://www.convirture.com/repos/definitions/rhel/6.x/convirt.repo > /etc/yum.repos.d/convirt.repo && yum  -y update     2>&1 && yum -y install    tar openssl crontabs socat curl  2>&1
- ---> Running in e730acc1d6ad
-[91m  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0[0m[91m  0    11    0    11    0     0     54      0 --:--:-- --:--:-- --:--:--    64
+ ---> Running in 59c7ec934319
+[91m  % Total    % R[0m[91meceived % Xferd  A[0m[91mverage[0m[91m Speed[0m[91m   [0m[91mTime  [0m[91m  Ti[0m[91mme    [0m[91m Time  [0m[91mCurr[0m[91ment
+ [0m[91m     [0m[91m   [0m[91m      [0m[91m    [0m[91m    [0m[91m    [0m[91m     [0m[91m Dlo[0m[91mad  [0m[91mUploa[0m[91md  [0m[91m Total[0m[91m   S[0m[91mpent[0m[91m    [0m[91mLeft  Speed
+[0m[91m  0   [0m[91m  0 [0m[91m   0  [0m[91m   0[0m[91m    [0m[91m0    [0m[91m 0  [0m[91m    [0m[91m0   [0m[91m   0 -[0m[91m-:-[0m[91m-:-- -[0m[91m-:-[0m[91m-:--[0m[91m --:-[0m[91m-:-[0m[91m-    [0m[91m 0[0m[91m  0    11[0m[91m    0    1[0m[91m1   [0m[91m 0 [0m[91m    0[0m[91m   [0m[91m  4[0m[91m7    [0m[91m  0[0m[91m --:-[0m[91m-:-[0m[91m- --:[0m[91m--:[0m[91m-- --[0m[91m:--[0m[91m:--  [0m[91m  58[0m[91m
 [0mLoaded plugins: ovl, security, ulninfo
 Setting up Update Process
 Error: File contains no section headers.
