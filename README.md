@@ -21,7 +21,7 @@ Unit test project for **acme.sh** project https://github.com/Neilpang/acme.sh
 |debian:7| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/debian-7.svg?1547780304)| Fri, 18 Jan 2019 02:58:24 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-7.out) |
 |centos:latest| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/centos-latest.svg?1547780537)| Fri, 18 Jan 2019 03:02:17 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/centos-latest.out) |
 |centos:7| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/centos-7.svg?1547780779)| Fri, 18 Jan 2019 03:06:19 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/centos-7.out) |
-|centos:6| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/centos-6.svg?1547780794)| Fri, 18 Jan 2019 03:06:34 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/centos-6.out) |
+|centos:6| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/centos-6.svg?1547786858)| Fri, 18 Jan 2019 04:47:38 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/centos-6.out) |
 |fedora:latest| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/fedora-latest.svg?1547781034)| Fri, 18 Jan 2019 03:10:34 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/fedora-latest.out) |
 |fedora:27| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/fedora-27.svg?1547781467)| Fri, 18 Jan 2019 03:17:47 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/fedora-27.out) |
 |fedora:26| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/fedora-26.svg?1547781700)| Fri, 18 Jan 2019 03:21:40 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/fedora-26.out) |
