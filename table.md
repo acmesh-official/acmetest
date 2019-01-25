@@ -3,7 +3,7 @@
 |ubuntu:14.04| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/ubuntu-14.04.svg?1548385178)| Fri, 25 Jan 2019 02:59:38 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/ubuntu-14.04.out) |
 |debian:latest| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/debian-latest.svg?1548385462)| Fri, 25 Jan 2019 03:04:22 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-latest.out) |
 |debian:9| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/debian-9.svg?1548385723)| Fri, 25 Jan 2019 03:08:43 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-9.out) |
-|debian:8| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/debian-8.svg?1548386241)| Fri, 25 Jan 2019 03:17:21 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-8.out) |
+|debian:8| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/debian-8.svg?1548396137)| Fri, 25 Jan 2019 06:02:17 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-8.out) |
 |debian:7| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/debian-7.svg?1548386502)| Fri, 25 Jan 2019 03:21:42 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-7.out) |
 |centos:latest| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/centos-latest.svg?1548387074)| Fri, 25 Jan 2019 03:31:14 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/centos-latest.out) |
 |centos:7| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/centos-7.svg?1548387654)| Fri, 25 Jan 2019 03:40:54 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/centos-7.out) |
