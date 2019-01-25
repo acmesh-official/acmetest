@@ -6,7 +6,7 @@ Step 2/2 : RUN zypper update -y  2>&1 && zypper install  -y   tar openssl cron s
  ---> 2d8a3ce2e5c2
 Successfully built 2d8a3ce2e5c2
 Successfully tagged myopensuse:42.2
-Fri, 18 Jan 2019 03:44:54 UTC
+Fri, 25 Jan 2019 04:33:54 UTC
 Testing branch: master
 Progress: 0/1/21
 ==Running le_test_dependencies please wait
