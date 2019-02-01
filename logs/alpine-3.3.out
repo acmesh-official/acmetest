@@ -6,7 +6,7 @@ Step 2/2 : RUN apk update -f 2>&1 && apk --no-cache add -f openssl curl socat  2
  ---> d44f0b1abc53
 Successfully built d44f0b1abc53
 Successfully tagged myalpine:3.3
-Fri, 01 Feb 2019 06:24:15 UTC
+Fri, 01 Feb 2019 06:28:00 UTC
 Testing branch: master
 Progress: 0/1/21
 ==Running le_test_dependencies please wait
@@ -19,7 +19,7 @@ Progress: 0/2/21
 ==Running le_test_install please wait
 ./acme.sh install [PASS]
 /root/.acme.sh/acme.sh exists. [PASS]
-_contains '16 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
+_contains '1 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
 /root/.acme.sh/acme.sh uninstall  > /dev/null [PASS]
 ------------------------------------------
 Progress: 0/3/21
@@ -33,7 +33,7 @@ Progress: 0/4/21
 ==Running le_test_installtodir please wait
 ./acme.sh install [PASS]
 /root/myle/acme.sh exists. [PASS]
-_contains '16 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
+_contains '1 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
 /root/myle/acme.sh uninstall [PASS]
 ------------------------------------------
 Progress: 0/5/21
@@ -47,7 +47,7 @@ Progress: 0/6/21
 ==Running le_test_install_config_home please wait
 ./acme.sh --install --config-home /root/etc/acme [PASS]
 /root/.acme.sh/acme.sh exists. [PASS]
-_contains '17 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
+_contains '2 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
 /root/etc/acme/account.conf exists. [PASS]
 /root/.acme.sh/account.conf no exists. [PASS]
 /root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null [PASS]
@@ -60,10 +60,10 @@ Progress: 0/7/21
 /root/.acme.sh/acme.sh issue no testdocker.acme.sh [PASS]
 FORCE=1 /root/.acme.sh/acme.sh renew testdocker.acme.sh [PASS]
 deactivate failed
-[Fri Feb  1 06:24:41 UTC 2019] Using stage ACME_DIRECTORY: https://acme-staging-v02.api.letsencrypt.org/directory
-[Fri Feb  1 06:24:42 UTC 2019] Only RSA or EC key is supported. keyfile=/root/.acme.sh/ca/acme-staging-v02.api.letsencrypt.org/account.key
+[Fri Feb  1 06:28:25 UTC 2019] Using stage ACME_DIRECTORY: https://acme-staging-v02.api.letsencrypt.org/directory
+[Fri Feb  1 06:28:25 UTC 2019] Only RSA or EC key is supported. keyfile=/root/.acme.sh/ca/acme-staging-v02.api.letsencrypt.org/account.key
 cat: can't open '/root/.acme.sh/ca/acme-staging-v02.api.letsencrypt.org/account.key': No such file or directory
-[Fri Feb  1 06:24:42 UTC 2019] Can not get domain new order.
+[Fri Feb  1 06:28:25 UTC 2019] Can not get domain new order.
 ------------------------------------------
 Progress: 1/8/21
 ==Running le_test_standandalone_renew_v2 please wait
