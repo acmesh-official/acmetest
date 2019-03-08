@@ -45,7 +45,7 @@ Unit test project for **acme.sh** project https://github.com/Neilpang/acme.sh
 |oraclelinux:7| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/oraclelinux-7.svg?1552043109)| Fri, 08 Mar 2019 11:05:09 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/oraclelinux-7.out) |
 |oraclelinux:6| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/oraclelinux-6.svg?1552044087)| Fri, 08 Mar 2019 11:21:27 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/oraclelinux-6.out) |
 |kalilinux/kali-linux-docker| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/kalilinux-kali-linux-docker.svg?1552044962)| Fri, 08 Mar 2019 11:36:02 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/kalilinux-kali-linux-docker.out) |
-|base/archlinux| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/base-archlinux.svg?1552045455)| Fri, 08 Mar 2019 11:44:15 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/base-archlinux.out) |
+|base/archlinux| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/base-archlinux.svg?1552045937)| Fri, 08 Mar 2019 11:52:17 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/base-archlinux.out) |
 
 # How to run tests
 
