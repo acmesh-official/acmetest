@@ -3,4 +3,4 @@
 |ubuntu:14.04| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/ubuntu-14.04.svg?1552016999)| Fri, 08 Mar 2019 03:49:59 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/ubuntu-14.04.out) |
 |debian:latest| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/debian-latest.svg?1552017972)| Fri, 08 Mar 2019 04:06:12 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-latest.out) |
 |debian:9| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/debian-9.svg?1552018830)| Fri, 08 Mar 2019 04:20:31 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-9.out) |
-|debian:8| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/debian-8.svg?1552019344)| Fri, 08 Mar 2019 04:29:04 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-8.out) |
+|debian:8| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/debian-8.svg?1552019764)| Fri, 08 Mar 2019 04:36:04 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-8.out) |
