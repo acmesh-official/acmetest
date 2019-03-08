@@ -10,7 +10,7 @@
 |centos:6| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/centos-6.svg?1552056586)| Fri, 08 Mar 2019 14:49:46 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/centos-6.out) |
 |fedora:latest| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/fedora-latest.svg?1552057557)| Fri, 08 Mar 2019 15:05:57 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/fedora-latest.out) |
 |fedora:27| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/fedora-27.svg?1552058484)| Fri, 08 Mar 2019 15:21:24 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/fedora-27.out) |
-|fedora:26| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/fedora-26.svg?1552059017)| Fri, 08 Mar 2019 15:30:17 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/fedora-26.out) |
+|fedora:26| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/fedora-26.svg?1552059533)| Fri, 08 Mar 2019 15:38:53 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/fedora-26.out) |
 |fedora:25| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/fedora-25.svg?1552027831)| Fri, 08 Mar 2019 06:50:31 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/fedora-25.out) |
 |fedora:24| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/fedora-24.svg?1552028886)| Fri, 08 Mar 2019 07:08:06 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/fedora-24.out) |
 |fedora:23| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/fedora-23.svg?1552029770)| Fri, 08 Mar 2019 07:22:50 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/fedora-23.out) |
