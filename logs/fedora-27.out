@@ -6,7 +6,7 @@ Step 2/2 : RUN yum  -y update     2>&1 && yum  -y install    tar openssl crontab
  ---> 512464447d2c
 Successfully built 512464447d2c
 Successfully tagged myfedora:27
-Fri, 01 Mar 2019 05:38:39 UTC
+Fri, 08 Mar 2019 06:02:14 UTC
 Testing branch: master
 Progress: 0/1/21
 ==Running le_test_dependencies please wait
@@ -21,7 +21,7 @@ Progress: 0/2/21
 ==Running le_test_install please wait
 ./acme.sh install [PASS]
 /root/.acme.sh/acme.sh exists. [PASS]
-_contains '41 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
+_contains '17 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
 /root/.acme.sh/acme.sh uninstall  > /dev/null [PASS]
 ------------------------------------------
 Progress: 0/3/21
@@ -35,7 +35,7 @@ Progress: 0/4/21
 ==Running le_test_installtodir please wait
 ./acme.sh install [PASS]
 /root/myle/acme.sh exists. [PASS]
-_contains '43 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
+_contains '19 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
 /root/myle/acme.sh uninstall [PASS]
 ------------------------------------------
 Progress: 0/5/21
@@ -49,7 +49,7 @@ Progress: 0/6/21
 ==Running le_test_install_config_home please wait
 ./acme.sh --install --config-home /root/etc/acme [PASS]
 /root/.acme.sh/acme.sh exists. [PASS]
-_contains '45 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
+_contains '20 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
 /root/etc/acme/account.conf exists. [PASS]
 /root/.acme.sh/account.conf no exists. [PASS]
 /root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null [PASS]
@@ -214,20 +214,6 @@ TestingDomain='testgandiapi.pw'
 /root/.acme.sh/acme.sh --deactivate -d "testgandiapi.pw" >/dev/null 2>&1 [PASS]
 Testing dns_dynu dynu_api
 TestingDomain='dynu.acme.sh'
-/root/.acme.sh/acme.sh --issue -d "dynu.acme.sh" --dns dns_dynu --dnssleep ""  [PASS]
-/root/.acme.sh/dynu.acme.sh/dynu.acme.sh.cer is cert ? 'dynu.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/dynu.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/acme.sh --deactivate -d "dynu.acme.sh" >/dev/null 2>&1 [PASS]
-Testing dns_he dns_he_net
-TestingDomain='he.acme.sh'
-/root/.acme.sh/acme.sh --issue -d "he.acme.sh" --dns dns_he --dnssleep ""  [PASS]
-/root/.acme.sh/he.acme.sh/he.acme.sh.cer is cert ? 'he.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/he.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/acme.sh --deactivate -d "he.acme.sh" >/dev/null 2>&1 [PASS]
-Testing dns_zonomi dns_zonomi
-TestingDomain='zonomi.acme.sh'
-/root/.acme.sh/acme.sh --issue -d "zonomi.acme.sh" --dns dns_zonomi --dnssleep ""  [PASS]
-/root/.acme.sh/zonomi.acme.sh/zonomi.acme.sh.cer is cert ? 'zonomi.acme.sh' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/zonomi.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/acme.sh --deactivate -d "zonomi.acme.sh" >/dev/null 2>&1 [PASS]
+/root/.acme.sh/acme.sh --issue -d "dynu.acme.sh" --dns dns_dynu --dnssleep ""  [FAIL] 
+Run Failed
 ------------------------------------------
