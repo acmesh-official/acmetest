@@ -4,3 +4,4 @@
 |debian:latest| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/debian-latest.svg?1552621080)| Fri, 15 Mar 2019 03:38:00 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-latest.out) |
 |debian:9| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/debian-9.svg?1552621880)| Fri, 15 Mar 2019 03:51:20 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-9.out) |
 |debian:8| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/debian-8.svg?1552622701)| Fri, 15 Mar 2019 04:05:01 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-8.out) |
+|debian:7| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/debian-7.svg?1552623103)| Fri, 15 Mar 2019 04:11:43 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-7.out) |
