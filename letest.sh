@@ -158,7 +158,7 @@ _debug() {
   if [ -z "$DEBUG" ] ; then
     return
   fi
-  _err "$@"
+  _info "$@" >&2
   return 0
 }
 
