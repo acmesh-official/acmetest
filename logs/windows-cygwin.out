@@ -1,5 +1,5 @@
 
-Fri, 22 Mar 2019 02:39:25 UTC
+Fri, 29 Mar 2019 02:38:46 UTC
 Testing branch: master
 Progress: 0/1/21
 ==Running le_test_dependencies please wait
@@ -12,7 +12,7 @@ Progress: 0/2/21
 ==Running le_test_install please wait
 ./acme.sh install [PASS]
 /home/root/.acme.sh/acme.sh exists. [PASS]
-_contains '38 0 * * * "/home/root/.acme.sh"/acme.sh --cron --home "/home/root/.acme.sh" > /dev/null' '0 \* \* \* "/home/root/.acme.sh"/acme.sh --cron --home "/home/root/.acme.sh" > /dev/null' [PASS]
+_contains '59 0 * * * "/home/root/.acme.sh"/acme.sh --cron --home "/home/root/.acme.sh" > /dev/null' '0 \* \* \* "/home/root/.acme.sh"/acme.sh --cron --home "/home/root/.acme.sh" > /dev/null' [PASS]
 /home/root/.acme.sh/acme.sh uninstall  > /dev/null [PASS]
 ------------------------------------------
 Progress: 0/3/21
@@ -26,7 +26,7 @@ Progress: 0/4/21
 ==Running le_test_installtodir please wait
 ./acme.sh install [PASS]
 /home/root/myle/acme.sh exists. [PASS]
-_contains '9 0 * * * "/home/root/myle"/acme.sh --cron --home "/home/root/myle" > /dev/null' '0 \* \* \* "/home/root/myle"/acme.sh --cron --home "/home/root/myle" > /dev/null' [PASS]
+_contains '31 0 * * * "/home/root/myle"/acme.sh --cron --home "/home/root/myle" > /dev/null' '0 \* \* \* "/home/root/myle"/acme.sh --cron --home "/home/root/myle" > /dev/null' [PASS]
 /home/root/myle/acme.sh uninstall [PASS]
 ------------------------------------------
 Progress: 0/5/21
@@ -40,7 +40,7 @@ Progress: 0/6/21
 ==Running le_test_install_config_home please wait
 ./acme.sh --install --config-home /home/root/etc/acme [PASS]
 /home/root/.acme.sh/acme.sh exists. [PASS]
-_contains '28 0 * * * "/home/root/.acme.sh"/acme.sh --cron --home "/home/root/.acme.sh" --config-home "/home/root/etc/acme" > /dev/null' '0 \* \* \* "/home/root/.acme.sh"/acme.sh --cron --home "/home/root/.acme.sh" --config-home "/home/root/etc/acme" > /dev/null' [PASS]
+_contains '50 0 * * * "/home/root/.acme.sh"/acme.sh --cron --home "/home/root/.acme.sh" --config-home "/home/root/etc/acme" > /dev/null' '0 \* \* \* "/home/root/.acme.sh"/acme.sh --cron --home "/home/root/.acme.sh" --config-home "/home/root/etc/acme" > /dev/null' [PASS]
 /home/root/etc/acme/account.conf exists. [PASS]
 /home/root/.acme.sh/account.conf no exists. [PASS]
 /home/root/.acme.sh/acme.sh --cron --config-home /home/root/etc/acme > /dev/null [PASS]
@@ -175,11 +175,11 @@ TestingDomain='typeof.cc'
 /home/root/.acme.sh/typeof.cc/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
 /home/root/.acme.sh/acme.sh --deactivate -d "typeof.cc" >/dev/null 2>&1 [PASS]
 Testing dns_gd Godaddy_api
-TestingDomain='testgdapi.xyz'
-/home/root/.acme.sh/acme.sh --issue -d "testgdapi.xyz" --dns dns_gd --dnssleep ""  [PASS]
-/home/root/.acme.sh/testgdapi.xyz/testgdapi.xyz.cer is cert ? 'testgdapi.xyz' 'Fake LE Intermediate X1' [PASS]
-/home/root/.acme.sh/testgdapi.xyz/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-/home/root/.acme.sh/acme.sh --deactivate -d "testgdapi.xyz" >/dev/null 2>&1 [PASS]
+TestingDomain='testgd.club'
+/home/root/.acme.sh/acme.sh --issue -d "testgd.club" --dns dns_gd --dnssleep ""  [PASS]
+/home/root/.acme.sh/testgd.club/testgd.club.cer is cert ? 'testgd.club' 'Fake LE Intermediate X1' [PASS]
+/home/root/.acme.sh/testgd.club/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+/home/root/.acme.sh/acme.sh --deactivate -d "testgd.club" >/dev/null 2>&1 [PASS]
 The test domain Test_AWS_Domain is not defined, skip:Amazon_Route53_api
 Testing dns_lua luadns.com_api
 TestingDomain='luadns.acme.sh'
