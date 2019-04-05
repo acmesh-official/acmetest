@@ -6,7 +6,7 @@ Step 2/2 : RUN yum -y update     2>&1 && yum -y install    tar openssl crontabs 
  ---> 13299ba988c3
 Successfully built 13299ba988c3
 Successfully tagged myoraclelinux:7
-Fri, 29 Mar 2019 07:43:46 UTC
+Fri, 05 Apr 2019 07:08:46 UTC
 Testing branch: master
 Progress: 0/1/21
 ==Running le_test_dependencies please wait
@@ -222,8 +222,6 @@ TestingDomain='zonomi.acme.sh'
 /root/.acme.sh/acme.sh --deactivate -d "zonomi.acme.sh" >/dev/null 2>&1 [PASS]
 Testing dns_namecom name.com
 TestingDomain='952700.xyz'
-/root/.acme.sh/acme.sh --issue -d "952700.xyz" --dns dns_namecom --dnssleep ""  [PASS]
-/root/.acme.sh/952700.xyz/952700.xyz.cer is cert ? '952700.xyz' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/952700.xyz/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/acme.sh --deactivate -d "952700.xyz" >/dev/null 2>&1 [PASS]
+/root/.acme.sh/acme.sh --issue -d "952700.xyz" --dns dns_namecom --dnssleep ""  [FAIL] 
+Run Failed
 ------------------------------------------
