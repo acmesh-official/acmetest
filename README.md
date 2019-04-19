@@ -12,7 +12,7 @@ Unit test project for **acme.sh** project https://github.com/Neilpang/acme.sh
 |pfsense| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/pfsense.svg?1555639866)| Fri, 19 Apr 2019 02:11:06 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/pfsense.out) |
 |solaris| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/solaris.svg?1555641367)| Fri, 19 Apr 2019 02:36:07 GMT| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/solaris.out) |
 |windows-cygwin| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/windows-cygwin.svg?1555643407)| Fri, 19 Apr 2019 03:10:07 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/windows-cygwin.out) |
-|ubuntu:latest| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/ubuntu-latest.svg?1555644840)| Fri, 19 Apr 2019 03:34:00 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/ubuntu-latest.out) |
+|ubuntu:latest| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/ubuntu-latest.svg?1555646257)| Fri, 19 Apr 2019 03:57:37 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/ubuntu-latest.out) |
 
 # How to run tests
 
