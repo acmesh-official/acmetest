@@ -25,7 +25,7 @@ Unit test project for **acme.sh** project https://github.com/Neilpang/acme.sh
 |fedora:latest| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/fedora-latest.svg?1555767760)| Sat, 20 Apr 2019 13:42:40 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/fedora-latest.out) |
 |fedora:27| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/fedora-27.svg?1555769701)| Sat, 20 Apr 2019 14:15:01 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/fedora-27.out) |
 |fedora:26| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/fedora-26.svg?1555772529)| Sat, 20 Apr 2019 15:02:09 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/fedora-26.out) |
-|fedora:25| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/fedora-25.svg?1555773942)| Sat, 20 Apr 2019 15:25:42 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/fedora-25.out) |
+|fedora:25| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/fedora-25.svg?1555775335)| Sat, 20 Apr 2019 15:48:55 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/fedora-25.out) |
 |fedora:24| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/fedora-24.svg?1555685724)| Fri, 19 Apr 2019 14:55:25 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/fedora-24.out) |
 |fedora:23| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/fedora-23.svg?1555688602)| Fri, 19 Apr 2019 15:43:22 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/fedora-23.out) |
 |fedora:22| ![](https://cdn.rawgit.com/Neilpang/acmetest/master/status/fedora-22.svg?1555691441)| Fri, 19 Apr 2019 16:30:41 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/fedora-22.out) |
