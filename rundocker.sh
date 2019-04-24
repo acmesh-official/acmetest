@@ -1,5 +1,5 @@
 
-Img="https://cdn.rawgit.com/Neilpang/acmetest/master/status"
+Img="https://neilpang.github.io/acmetest/status"
 
 LogLink="https://github.com/Neilpang/acmetest/blob/master"
 
