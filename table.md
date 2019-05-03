@@ -16,7 +16,7 @@
 |fedora:23| ![](https://neilpang.github.io/acmetest/status/fedora-23.svg?1556855630)| Fri, 03 May 2019 03:53:50 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/fedora-23.out) |
 |fedora:22| ![](https://neilpang.github.io/acmetest/status/fedora-22.svg?1556856097)| Fri, 03 May 2019 04:01:37 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/fedora-22.out) |
 |fedora:21| ![](https://neilpang.github.io/acmetest/status/fedora-21.svg?1556856572)| Fri, 03 May 2019 04:09:32 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/fedora-21.out) |
-|opensuse:latest| ![](https://neilpang.github.io/acmetest/status/opensuse-latest.svg?1556856887)| Fri, 03 May 2019 04:14:47 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/opensuse-latest.out) |
+|opensuse:latest| ![](https://neilpang.github.io/acmetest/status/opensuse-latest.svg?1556865460)| Fri, 03 May 2019 06:37:40 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/opensuse-latest.out) |
 |opensuse:42.2| ![](https://neilpang.github.io/acmetest/status/opensuse-42.2.svg?1556857296)| Fri, 03 May 2019 04:21:36 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/opensuse-42.2.out) |
 |opensuse:42.1| ![](https://neilpang.github.io/acmetest/status/opensuse-42.1.svg?1556857592)| Fri, 03 May 2019 04:26:32 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/opensuse-42.1.out) |
 |alpine:latest| ![](https://neilpang.github.io/acmetest/status/alpine-latest.svg?1556857979)| Fri, 03 May 2019 04:32:59 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-latest.out) |
