@@ -6,7 +6,7 @@ Step 2/2 : RUN pacman  -Sy  --force --noconfirm --noprogressbar openssl cron soc
  ---> 2cb3319dd011
 Successfully built 2cb3319dd011
 Successfully tagged mybase-archlinux:latest
-Fri, 03 May 2019 06:11:24 UTC
+Fri, 03 May 2019 06:18:25 UTC
 Testing branch: master
 Progress: 0/1/21
 ==Running le_test_dependencies please wait
@@ -222,6 +222,8 @@ TestingDomain='zonomi.acme.sh'
 /root/.acme.sh/acme.sh --deactivate -d "zonomi.acme.sh" >/dev/null 2>&1 [PASS]
 Testing dns_namecom name.com
 TestingDomain='952700.xyz'
-/root/.acme.sh/acme.sh --issue -d "952700.xyz" --dns dns_namecom --dnssleep ""  [FAIL] 
-Run Failed
+/root/.acme.sh/acme.sh --issue -d "952700.xyz" --dns dns_namecom --dnssleep ""  [PASS]
+/root/.acme.sh/952700.xyz/952700.xyz.cer is cert ? '952700.xyz' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/952700.xyz/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/acme.sh --deactivate -d "952700.xyz" >/dev/null 2>&1 [PASS]
 ------------------------------------------
