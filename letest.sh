@@ -1199,9 +1199,9 @@ le_test_standandalone_ECDSA_256_renew() {
 
   rm -rf "$lehome/$TestingDomain$ECC_SUFFIX"
   
-  _assertcmd "$lehome/$PROJECT_ENTRY issue no $TestingDomain no ec-256" ||  return
+  _assertcmd "$lehome/$PROJECT_ENTRY --issue --standalone -d $TestingDomain  -k ec-256" ||  return
   sleep 5
-  _assertcmd "FORCE=1 $lehome/$PROJECT_ENTRY renew $TestingDomain" ||  return
+  _assertcmd "$lehome/$PROJECT_ENTRY --renew -d $TestingDomain --force --ecc" ||  return
 
   lp=`_ss | grep ':80 '`
   if [ "$lp" ] ; then
@@ -1241,7 +1241,7 @@ le_test_standandalone_ECDSA_256_SAN_renew() {
   
   _assertcmd "$lehome/$PROJECT_ENTRY issue no \"$TestingDomain\" \"$TestingAltDomains\" ec-256" ||  return
   sleep 5
-  _assertcmd "FORCE=1 $lehome/$PROJECT_ENTRY renew \"$TestingDomain\"" ||  return
+  _assertcmd "$lehome/$PROJECT_ENTRY --renew -d \"$TestingDomain\" --force --ecc" ||  return
 
   lp=`_ss | grep ':80 '`
   if [ "$lp" ] ; then
