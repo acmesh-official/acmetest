@@ -1,5 +1,5 @@
 
-Fri, 03 May 2019 00:58:10 UTC
+Fri, 10 May 2019 00:58:10 UTC
 Testing branch: master
 Progress: 0/1/21
 ==Running le_test_dependencies please wait
@@ -131,13 +131,13 @@ Progress: 0/15/21
 ------------------------------------------
 Progress: 0/16/21
 ==Running le_test_standandalone_ECDSA_256_renew please wait
-/root/.acme.sh/acme.sh issue no testfreebsd.acme.sh no ec-256 [PASS]
-FORCE=1 /root/.acme.sh/acme.sh renew testfreebsd.acme.sh [PASS]
+/root/.acme.sh/acme.sh --issue --standalone -d testfreebsd.acme.sh  -k ec-256 [PASS]
+/root/.acme.sh/acme.sh --renew -d testfreebsd.acme.sh --force --ecc [PASS]
 ------------------------------------------
 Progress: 0/17/21
 ==Running le_test_standandalone_ECDSA_256_SAN_renew please wait
 /root/.acme.sh/acme.sh issue no "testfreebsd.acme.sh" "testfreebsd2.acme.sh" ec-256 [PASS]
-FORCE=1 /root/.acme.sh/acme.sh renew "testfreebsd.acme.sh" [PASS]
+/root/.acme.sh/acme.sh --renew -d "testfreebsd.acme.sh" --force --ecc [PASS]
 ------------------------------------------
 Progress: 0/18/21
 ==Running le_test_standandalone_ECDSA_256_SAN_renew_v2 please wait
