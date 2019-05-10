@@ -30,7 +30,7 @@
 |oraclelinux:latest| ![](https://neilpang.github.io/acmetest/status/oraclelinux-latest.svg?1557470026)| Fri, 10 May 2019 06:33:46 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/oraclelinux-latest.out) |
 |oraclelinux:7| ![](https://neilpang.github.io/acmetest/status/oraclelinux-7.svg?1557470822)| Fri, 10 May 2019 06:47:02 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/oraclelinux-7.out) |
 |oraclelinux:6| ![](https://neilpang.github.io/acmetest/status/oraclelinux-6.svg?1557471332)| Fri, 10 May 2019 06:55:32 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/oraclelinux-6.out) |
-|kalilinux/kali-linux-docker| ![](https://neilpang.github.io/acmetest/status/kalilinux-kali-linux-docker.svg?1557472174)| Fri, 10 May 2019 07:09:34 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/kalilinux-kali-linux-docker.out) |
+|kalilinux/kali-linux-docker| ![](https://neilpang.github.io/acmetest/status/kalilinux-kali-linux-docker.svg?1557475335)| Fri, 10 May 2019 08:02:15 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/kalilinux-kali-linux-docker.out) |
 |base/archlinux| ![](https://neilpang.github.io/acmetest/status/base-archlinux.svg?1557472657)| Fri, 10 May 2019 07:17:37 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/base-archlinux.out) |
 |mageia| ![](https://neilpang.github.io/acmetest/status/mageia.svg?1557473115)| Fri, 10 May 2019 07:25:15 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/mageia.out) |
 |gentoo/stage3-amd64| ![](https://neilpang.github.io/acmetest/status/gentoo-stage3-amd64.svg?1557473219)| Fri, 10 May 2019 07:26:59 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/gentoo-stage3-amd64.out) |
