@@ -45,6 +45,7 @@ Unit test project for **acme.sh** project https://github.com/Neilpang/acme.sh
 |oraclelinux:7| ![](https://neilpang.github.io/acmetest/status/oraclelinux-7.svg?1558078061)| Fri, 17 May 2019 07:27:41 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/oraclelinux-7.out) |
 |oraclelinux:6| ![](https://neilpang.github.io/acmetest/status/oraclelinux-6.svg?1558078976)| Fri, 17 May 2019 07:42:56 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/oraclelinux-6.out) |
 |kalilinux/kali-linux-docker| ![](https://neilpang.github.io/acmetest/status/kalilinux-kali-linux-docker.svg?1558079699)| Fri, 17 May 2019 07:54:59 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/kalilinux-kali-linux-docker.out) |
+|base/archlinux| ![](https://neilpang.github.io/acmetest/status/base-archlinux.svg?1558079932)| Fri, 17 May 2019 07:58:52 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/base-archlinux.out) |
 
 # How to run tests
 
