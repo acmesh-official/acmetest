@@ -8,4 +8,4 @@
 |centos:latest| ![](https://neilpang.github.io/acmetest/status/centos-latest.svg?1558062937)| Fri, 17 May 2019 03:15:37 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/centos-latest.out) |
 |centos:7| ![](https://neilpang.github.io/acmetest/status/centos-7.svg?1558063437)| Fri, 17 May 2019 03:23:57 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/centos-7.out) |
 |centos:6| ![](https://neilpang.github.io/acmetest/status/centos-6.svg?1558064410)| Fri, 17 May 2019 03:40:10 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/centos-6.out) |
-|fedora:latest| ![](https://neilpang.github.io/acmetest/status/fedora-latest.svg?1558064662)| Fri, 17 May 2019 03:44:22 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/fedora-latest.out) |
+|fedora:latest| ![](https://neilpang.github.io/acmetest/status/fedora-latest.svg?1558065273)| Fri, 17 May 2019 03:54:33 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/fedora-latest.out) |
