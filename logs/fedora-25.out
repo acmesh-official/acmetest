@@ -6,7 +6,7 @@ Step 2/2 : RUN yum  -y update     2>&1 && yum  -y install    tar openssl crontab
  ---> 65ebfabaef68
 Successfully built 65ebfabaef68
 Successfully tagged myfedora:25
-Fri, 17 May 2019 04:10:50 UTC
+Fri, 17 May 2019 04:15:15 UTC
 Testing branch: master
 Progress: 0/1/21
 ==Running le_test_dependencies please wait
@@ -21,7 +21,7 @@ Progress: 0/2/21
 ==Running le_test_install please wait
 ./acme.sh install [PASS]
 /root/.acme.sh/acme.sh exists. [PASS]
-_contains '53 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
+_contains '17 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
 /root/.acme.sh/acme.sh uninstall  > /dev/null [PASS]
 ------------------------------------------
 Progress: 0/3/21
@@ -35,7 +35,7 @@ Progress: 0/4/21
 ==Running le_test_installtodir please wait
 ./acme.sh install [PASS]
 /root/myle/acme.sh exists. [PASS]
-_contains '55 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
+_contains '19 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
 /root/myle/acme.sh uninstall [PASS]
 ------------------------------------------
 Progress: 0/5/21
@@ -49,7 +49,7 @@ Progress: 0/6/21
 ==Running le_test_install_config_home please wait
 ./acme.sh --install --config-home /root/etc/acme [PASS]
 /root/.acme.sh/acme.sh exists. [PASS]
-_contains '56 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
+_contains '20 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
 /root/etc/acme/account.conf exists. [PASS]
 /root/.acme.sh/account.conf no exists. [PASS]
 /root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null [PASS]
@@ -179,6 +179,51 @@ The test domain Test_CF_Domain is not defined, skip:ClourFlare_api
 The test domain Test_CX_Domain is not defined, skip:CloudXNS.com_api
 Testing dns_dp Dnspod.cn_api
 TestingDomain='952701.xyz'
-/root/.acme.sh/acme.sh --issue -d "952701.xyz" --dns dns_dp --dnssleep ""  [FAIL] 
-Run Failed
+/root/.acme.sh/acme.sh --issue -d "952701.xyz" --dns dns_dp --dnssleep ""  [PASS]
+/root/.acme.sh/952701.xyz/952701.xyz.cer is cert ? '952701.xyz' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/952701.xyz/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/acme.sh --deactivate -d "952701.xyz" >/dev/null 2>&1 [PASS]
+Testing dns_gd Godaddy_api
+TestingDomain='testgd.club'
+/root/.acme.sh/acme.sh --issue -d "testgd.club" --dns dns_gd --dnssleep ""  [PASS]
+/root/.acme.sh/testgd.club/testgd.club.cer is cert ? 'testgd.club' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/testgd.club/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/acme.sh --deactivate -d "testgd.club" >/dev/null 2>&1 [PASS]
+The test domain Test_AWS_Domain is not defined, skip:Amazon_Route53_api
+Testing dns_lua luadns.com_api
+TestingDomain='luadns.acme.sh'
+/root/.acme.sh/acme.sh --issue -d "luadns.acme.sh" --dns dns_lua --dnssleep ""  [PASS]
+/root/.acme.sh/luadns.acme.sh/luadns.acme.sh.cer is cert ? 'luadns.acme.sh' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/luadns.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/acme.sh --deactivate -d "luadns.acme.sh" >/dev/null 2>&1 [PASS]
+ME_Key is not defined, skip:dnsmadeeasy.com_api
+NSUPDATE_KEY is not defined, skip:nsupdate_api
+OVH_AK is not defined, skip:OVH.com_api
+PDNS_Token is not defined, skip:powerdns.com_api
+The test domain Test_ALI_Domain is not defined, skip:aliyun_api
+Testing dns_gandi_livedns gandi_livedns
+TestingDomain='testgandiapi.pw'
+/root/.acme.sh/acme.sh --issue -d "testgandiapi.pw" --dns dns_gandi_livedns --dnssleep ""  [PASS]
+/root/.acme.sh/testgandiapi.pw/testgandiapi.pw.cer is cert ? 'testgandiapi.pw' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/testgandiapi.pw/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/acme.sh --deactivate -d "testgandiapi.pw" >/dev/null 2>&1 [PASS]
+The test domain Test_DYNU_Domain is not defined, skip:dynu_api
+Testing dns_he dns_he_net
+TestingDomain='he.acme.sh'
+/root/.acme.sh/acme.sh --issue -d "he.acme.sh" --dns dns_he --dnssleep ""  [PASS]
+/root/.acme.sh/he.acme.sh/he.acme.sh.cer is cert ? 'he.acme.sh' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/he.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/acme.sh --deactivate -d "he.acme.sh" >/dev/null 2>&1 [PASS]
+Testing dns_zonomi dns_zonomi
+TestingDomain='zonomi.acme.sh'
+/root/.acme.sh/acme.sh --issue -d "zonomi.acme.sh" --dns dns_zonomi --dnssleep ""  [PASS]
+/root/.acme.sh/zonomi.acme.sh/zonomi.acme.sh.cer is cert ? 'zonomi.acme.sh' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/zonomi.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/acme.sh --deactivate -d "zonomi.acme.sh" >/dev/null 2>&1 [PASS]
+Testing dns_namecom name.com
+TestingDomain='952700.xyz'
+/root/.acme.sh/acme.sh --issue -d "952700.xyz" --dns dns_namecom --dnssleep ""  [PASS]
+/root/.acme.sh/952700.xyz/952700.xyz.cer is cert ? '952700.xyz' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/952700.xyz/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/acme.sh --deactivate -d "952700.xyz" >/dev/null 2>&1 [PASS]
 ------------------------------------------
