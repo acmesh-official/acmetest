@@ -46,7 +46,7 @@ Unit test project for **acme.sh** project https://github.com/Neilpang/acme.sh
 |oraclelinux:6| ![](https://neilpang.github.io/acmetest/status/oraclelinux-6.svg?1558675412)| Fri, 24 May 2019 05:23:32 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/oraclelinux-6.out) |
 |kalilinux/kali-linux-docker| ![](https://neilpang.github.io/acmetest/status/kalilinux-kali-linux-docker.svg?1558675745)| Fri, 24 May 2019 05:29:05 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/kalilinux-kali-linux-docker.out) |
 |base/archlinux| ![](https://neilpang.github.io/acmetest/status/base-archlinux.svg?1558676004)| Fri, 24 May 2019 05:33:24 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/base-archlinux.out) |
-|mageia| ![](https://neilpang.github.io/acmetest/status/mageia.svg?1558676052)| Fri, 24 May 2019 05:34:12 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/mageia.out) |
+|mageia| ![](https://neilpang.github.io/acmetest/status/mageia.svg?1558676096)| Fri, 24 May 2019 05:34:56 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/mageia.out) |
 |gentoo/stage3-amd64| ![](https://neilpang.github.io/acmetest/status/gentoo-stage3-amd64.svg?1558670661)| Fri, 24 May 2019 04:04:21 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/gentoo-stage3-amd64.out) |
 
 # How to run tests
