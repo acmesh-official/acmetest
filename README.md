@@ -43,6 +43,7 @@ Unit test project for **acme.sh** project https://github.com/Neilpang/acme.sh
 |alpine:3.1| ![](https://neilpang.github.io/acmetest/status/alpine-3.1.svg?1559037052)| Tue, 28 May 2019 09:50:52 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-3.1.out) |
 |oraclelinux:latest| ![](https://neilpang.github.io/acmetest/status/oraclelinux-latest.svg?1559037464)| Tue, 28 May 2019 09:57:44 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/oraclelinux-latest.out) |
 |oraclelinux:7| ![](https://neilpang.github.io/acmetest/status/oraclelinux-7.svg?1559037917)| Tue, 28 May 2019 10:05:17 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/oraclelinux-7.out) |
+|oraclelinux:6| ![](https://neilpang.github.io/acmetest/status/oraclelinux-6.svg?1559038347)| Tue, 28 May 2019 10:12:27 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/oraclelinux-6.out) |
 
 # How to run tests
 
