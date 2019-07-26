@@ -12,42 +12,7 @@ Unit test project for **acme.sh** project https://github.com/Neilpang/acme.sh
 |pfsense| ![](https://neilpang.github.io/acmetest/status/pfsense.svg?1564104049)| Fri, 26 Jul 2019 01:20:49 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/pfsense.out) |
 |solaris| ![](https://neilpang.github.io/acmetest/status/solaris.svg?1564104561)| Fri, 26 Jul 2019 01:29:21 GMT| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/solaris.out) |
 |windows-cygwin| ![](https://neilpang.github.io/acmetest/status/windows-cygwin.svg?1564105815)| Fri, 26 Jul 2019 01:50:15 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/windows-cygwin.out) |
-|ubuntu:latest| ![](https://neilpang.github.io/acmetest/status/ubuntu-latest.svg?1563501448)| Fri, 19 Jul 2019 01:57:28 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/ubuntu-latest.out) |
-|ubuntu:16.04| ![](https://neilpang.github.io/acmetest/status/ubuntu-16.04.svg?1563501846)| Fri, 19 Jul 2019 02:04:06 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/ubuntu-16.04.out) |
-|ubuntu:14.04| ![](https://neilpang.github.io/acmetest/status/ubuntu-14.04.svg?1563502213)| Fri, 19 Jul 2019 02:10:13 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/ubuntu-14.04.out) |
-|debian:latest| ![](https://neilpang.github.io/acmetest/status/debian-latest.svg?1563502600)| Fri, 19 Jul 2019 02:16:40 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-latest.out) |
-|debian:9| ![](https://neilpang.github.io/acmetest/status/debian-9.svg?1563502969)| Fri, 19 Jul 2019 02:22:49 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-9.out) |
-|debian:8| ![](https://neilpang.github.io/acmetest/status/debian-8.svg?1563503357)| Fri, 19 Jul 2019 02:29:17 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-8.out) |
-|debian:7| ![](https://neilpang.github.io/acmetest/status/debian-7.svg?1563503717)| Fri, 19 Jul 2019 02:35:17 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-7.out) |
-|centos:latest| ![](https://neilpang.github.io/acmetest/status/centos-latest.svg?1563504148)| Fri, 19 Jul 2019 02:42:28 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/centos-latest.out) |
-|centos:7| ![](https://neilpang.github.io/acmetest/status/centos-7.svg?1563504576)| Fri, 19 Jul 2019 02:49:36 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/centos-7.out) |
-|centos:6| ![](https://neilpang.github.io/acmetest/status/centos-6.svg?1563505010)| Fri, 19 Jul 2019 02:56:50 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/centos-6.out) |
-|fedora:latest| ![](https://neilpang.github.io/acmetest/status/fedora-latest.svg?1563505443)| Fri, 19 Jul 2019 03:04:03 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/fedora-latest.out) |
-|fedora:27| ![](https://neilpang.github.io/acmetest/status/fedora-27.svg?1563505840)| Fri, 19 Jul 2019 03:10:40 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/fedora-27.out) |
-|fedora:26| ![](https://neilpang.github.io/acmetest/status/fedora-26.svg?1563506252)| Fri, 19 Jul 2019 03:17:32 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/fedora-26.out) |
-|fedora:25| ![](https://neilpang.github.io/acmetest/status/fedora-25.svg?1563506623)| Fri, 19 Jul 2019 03:23:43 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/fedora-25.out) |
-|fedora:24| ![](https://neilpang.github.io/acmetest/status/fedora-24.svg?1563507018)| Fri, 19 Jul 2019 03:30:18 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/fedora-24.out) |
-|fedora:23| ![](https://neilpang.github.io/acmetest/status/fedora-23.svg?1563507416)| Fri, 19 Jul 2019 03:36:56 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/fedora-23.out) |
-|fedora:22| ![](https://neilpang.github.io/acmetest/status/fedora-22.svg?1563508215)| Fri, 19 Jul 2019 03:50:15 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/fedora-22.out) |
-|fedora:21| ![](https://neilpang.github.io/acmetest/status/fedora-21.svg?1563508646)| Fri, 19 Jul 2019 03:57:26 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/fedora-21.out) |
-|opensuse:latest| ![](https://neilpang.github.io/acmetest/status/opensuse-latest.svg?1563516253)| Fri, 19 Jul 2019 06:04:13 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/opensuse-latest.out) |
-|opensuse:42.2| ![](https://neilpang.github.io/acmetest/status/opensuse-42.2.svg?1563516612)| Fri, 19 Jul 2019 06:10:12 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/opensuse-42.2.out) |
-|opensuse:42.1| ![](https://neilpang.github.io/acmetest/status/opensuse-42.1.svg?1563524209)| Fri, 19 Jul 2019 08:16:49 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/opensuse-42.1.out) |
-|alpine:latest| ![](https://neilpang.github.io/acmetest/status/alpine-latest.svg?1563524530)| Fri, 19 Jul 2019 08:22:10 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-latest.out) |
-|alpine:3.7| ![](https://neilpang.github.io/acmetest/status/alpine-3.7.svg?1563525228)| Fri, 19 Jul 2019 08:33:48 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-3.7.out) |
-|alpine:3.6| ![](https://neilpang.github.io/acmetest/status/alpine-3.6.svg?1563525568)| Fri, 19 Jul 2019 08:39:28 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-3.6.out) |
-|alpine:3.5| ![](https://neilpang.github.io/acmetest/status/alpine-3.5.svg?1563525938)| Fri, 19 Jul 2019 08:45:38 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-3.5.out) |
-|alpine:3.4| ![](https://neilpang.github.io/acmetest/status/alpine-3.4.svg?1563526302)| Fri, 19 Jul 2019 08:51:42 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-3.4.out) |
-|alpine:3.3| ![](https://neilpang.github.io/acmetest/status/alpine-3.3.svg?1563526658)| Fri, 19 Jul 2019 08:57:38 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-3.3.out) |
-|alpine:3.2| ![](https://neilpang.github.io/acmetest/status/alpine-3.2.svg?1563527005)| Fri, 19 Jul 2019 09:03:25 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-3.2.out) |
-|alpine:3.1| ![](https://neilpang.github.io/acmetest/status/alpine-3.1.svg?1563527346)| Fri, 19 Jul 2019 09:09:06 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-3.1.out) |
-|oraclelinux:latest| ![](https://neilpang.github.io/acmetest/status/oraclelinux-latest.svg?1563527775)| Fri, 19 Jul 2019 09:16:15 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/oraclelinux-latest.out) |
-|oraclelinux:7| ![](https://neilpang.github.io/acmetest/status/oraclelinux-7.svg?1563528244)| Fri, 19 Jul 2019 09:24:04 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/oraclelinux-7.out) |
-|oraclelinux:6| ![](https://neilpang.github.io/acmetest/status/oraclelinux-6.svg?1563528651)| Fri, 19 Jul 2019 09:30:51 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/oraclelinux-6.out) |
-|kalilinux/kali-linux-docker| ![](https://neilpang.github.io/acmetest/status/kalilinux-kali-linux-docker.svg?1563530878)| Fri, 19 Jul 2019 10:07:58 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/kalilinux-kali-linux-docker.out) |
-|base/archlinux| ![](https://neilpang.github.io/acmetest/status/base-archlinux.svg?1563529718)| Fri, 19 Jul 2019 09:48:38 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/base-archlinux.out) |
-|mageia| ![](https://neilpang.github.io/acmetest/status/mageia.svg?1563530106)| Fri, 19 Jul 2019 09:55:06 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/mageia.out) |
-|gentoo/stage3-amd64| ![](https://neilpang.github.io/acmetest/status/gentoo-stage3-amd64.svg?1563530205)| Fri, 19 Jul 2019 09:56:45 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/gentoo-stage3-amd64.out) |
+|ubuntu:latest| ![](https://neilpang.github.io/acmetest/status/ubuntu-latest.svg?1564106232)| Fri, 26 Jul 2019 01:57:12 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/ubuntu-latest.out) |
 
 # How to run tests
 
