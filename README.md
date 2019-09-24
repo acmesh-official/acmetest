@@ -32,7 +32,7 @@ Unit test project for **acme.sh** project https://github.com/Neilpang/acme.sh
 |fedora:21| ![](https://neilpang.github.io/acmetest/status/fedora-21.svg?1569271444)| Mon, 23 Sep 2019 20:44:04 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/fedora-21.out) |
 |opensuse:latest| ![](https://neilpang.github.io/acmetest/status/opensuse-latest.svg?1569298001)| Tue, 24 Sep 2019 04:06:41 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/opensuse-latest.out) |
 |opensuse:42.2| ![](https://neilpang.github.io/acmetest/status/opensuse-42.2.svg?1569317990)| Tue, 24 Sep 2019 09:39:50 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/opensuse-42.2.out) |
-|opensuse:42.1| ![](https://neilpang.github.io/acmetest/status/opensuse-42.1.svg?1569329851)| Tue, 24 Sep 2019 12:57:31 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/opensuse-42.1.out) |
+|opensuse:42.1| ![](https://neilpang.github.io/acmetest/status/opensuse-42.1.svg?1569344884)| Tue, 24 Sep 2019 17:08:04 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/opensuse-42.1.out) |
 |alpine:latest| ![](https://neilpang.github.io/acmetest/status/alpine-latest.svg?1569330605)| Tue, 24 Sep 2019 13:10:05 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-latest.out) |
 |alpine:3.7| ![](https://neilpang.github.io/acmetest/status/alpine-3.7.svg?1569331028)| Tue, 24 Sep 2019 13:17:08 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-3.7.out) |
 |alpine:3.6| ![](https://neilpang.github.io/acmetest/status/alpine-3.6.svg?1569331446)| Tue, 24 Sep 2019 13:24:06 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-3.6.out) |
