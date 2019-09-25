@@ -2,484 +2,11 @@ Sending build context to Docker daemon  2.048kB
 Step 1/2 : FROM fedora:latest
  ---> e9ed59d2baf7
 Step 2/2 : RUN yum  -y update     2>&1 && yum  -y install    tar openssl crontabs socat curl  2>&1
- ---> Running in 287993c1977b
-Fedora Modular 30 - x86_64                      1.7 MB/s | 1.9 MB     00:01    
-Fedora Modular 30 - x86_64 - Updates            2.4 MB/s | 2.9 MB     00:01    
-Fedora 30 - x86_64 - Updates                    8.4 MB/s |  24 MB     00:02    
-Fedora 30 - x86_64                              5.8 MB/s |  61 MB     00:10    
-Dependencies resolved.
-================================================================================
- Package                      Arch    Version                    Repo      Size
-================================================================================
-Upgrading:
- cryptsetup-libs              x86_64  2.2.1-1.fc30               updates  419 k
- curl                         x86_64  7.65.3-4.fc30              updates  300 k
- dnf                          noarch  4.2.8-2.fc30               updates  405 k
- dnf-data                     noarch  4.2.8-2.fc30               updates   45 k
- dnf-yum                      noarch  4.2.8-2.fc30               updates   42 k
- elfutils-default-yama-scope  noarch  0.177-1.fc30               updates   16 k
- elfutils-libelf              x86_64  0.177-1.fc30               updates  177 k
- elfutils-libs                x86_64  0.177-1.fc30               updates  264 k
- expat                        x86_64  2.2.8-1.fc30               updates   98 k
- file-libs                    x86_64  5.36-4.fc30                updates  544 k
- glib2                        x86_64  2.60.7-1.fc30              updates  2.6 M
- glibc                        x86_64  2.29-22.fc30               updates  4.0 M
- glibc-common                 x86_64  2.29-22.fc30               updates  838 k
- glibc-minimal-langpack       x86_64  2.29-22.fc30               updates   47 k
- kmod-libs                    x86_64  26-3.fc30                  updates   58 k
- libcurl                      x86_64  7.65.3-4.fc30              updates  262 k
- libdnf                       x86_64  0.35.2-4.fc30              updates  589 k
- libevent                     x86_64  2.1.8-7.fc30               updates  231 k
- libgcc                       x86_64  9.2.1-1.fc30               updates   91 k
- libgcrypt                    x86_64  1.8.5-1.fc30               updates  450 k
- libselinux                   x86_64  2.9-3.1.fc30               updates   78 k
- libsss_idmap                 x86_64  2.2.2-1.fc30               updates   46 k
- libsss_nss_idmap             x86_64  2.2.2-1.fc30               updates   53 k
- libstdc++                    x86_64  9.2.1-1.fc30               updates  578 k
- libtirpc                     x86_64  1.1.4-2.rc3.fc30           updates  102 k
- libxcrypt                    x86_64  4.4.10-1.fc30              updates  122 k
- libxcrypt-compat             x86_64  4.4.10-1.fc30              updates   96 k
- mkpasswd                     x86_64  5.5.1-1.fc30               updates   39 k
- openssl                      x86_64  1:1.1.1d-1.fc30            updates  634 k
- openssl-libs                 x86_64  1:1.1.1d-1.fc30            updates  1.4 M
- pcre2                        x86_64  10.33-14.fc30              updates  252 k
- python3-dnf                  noarch  4.2.8-2.fc30               updates  413 k
- python3-hawkey               x86_64  0.35.2-4.fc30              updates   93 k
- python3-libdnf               x86_64  0.35.2-4.fc30              updates  706 k
- python3-rpm                  x86_64  4.14.2.1-5.fc30            updates   65 k
- rpm                          x86_64  4.14.2.1-5.fc30            updates  479 k
- rpm-build-libs               x86_64  4.14.2.1-5.fc30            updates   86 k
- rpm-libs                     x86_64  4.14.2.1-5.fc30            updates  264 k
- rpm-plugin-systemd-inhibit   x86_64  4.14.2.1-5.fc30            updates   19 k
- rpm-sign-libs                x86_64  4.14.2.1-5.fc30            updates   23 k
- sssd-client                  x86_64  2.2.2-1.fc30               updates  104 k
- systemd                      x86_64  241-12.git1e19bcd.fc30     updates  3.8 M
- systemd-libs                 x86_64  241-12.git1e19bcd.fc30     updates  504 k
- systemd-pam                  x86_64  241-12.git1e19bcd.fc30     updates  157 k
- systemd-rpm-macros           noarch  241-12.git1e19bcd.fc30     updates   22 k
- vim-minimal                  x86_64  2:8.1.1991-2.fc30          updates  619 k
- whois-nls                    noarch  5.5.1-1.fc30               updates   33 k
- zlib                         x86_64  1.2.11-18.fc30             updates   91 k
-Installing dependencies:
- xkeyboard-config             noarch  2.26-2.fc30                updates  837 k
-Installing weak dependencies:
- glibc-langpack-en            x86_64  2.29-22.fc30               updates  818 k
- shared-mime-info             x86_64  1.14-1.fc30                updates  317 k
- libxkbcommon                 x86_64  0.8.3-1.fc30               fedora   108 k
-
-Transaction Summary
-================================================================================
-Install   4 Packages
-Upgrade  48 Packages
-
-Total download size: 24 M
-Downloading Packages:
-(1/52): expat-2.2.7-1.fc30_2.2.8-1.fc30.x86_64. 1.3 MB/s |  34 kB     00:00    
-(2/52): libsss_idmap-2.2.0-3.fc30_2.2.2-1.fc30. 663 kB/s |  20 kB     00:00    
-(3/52): libsss_nss_idmap-2.2.0-3.fc30_2.2.2-1.f 685 kB/s |  23 kB     00:00    
-(4/52): sssd-client-2.2.0-3.fc30_2.2.2-1.fc30.x 4.0 MB/s |  55 kB     00:00    
-(5/52): shared-mime-info-1.14-1.fc30.x86_64.rpm 2.7 MB/s | 317 kB     00:00    
-(6/52): xkeyboard-config-2.26-2.fc30.noarch.rpm 5.6 MB/s | 837 kB     00:00    
-(7/52): libxkbcommon-0.8.3-1.fc30.x86_64.rpm    2.6 MB/s | 108 kB     00:00    
-(8/52): cryptsetup-libs-2.2.1-1.fc30.x86_64.rpm 5.4 MB/s | 419 kB     00:00    
-(9/52): curl-7.65.3-4.fc30.x86_64.rpm           2.7 MB/s | 300 kB     00:00    
-(10/52): glibc-langpack-en-2.29-22.fc30.x86_64. 2.8 MB/s | 818 kB     00:00    
-(11/52): dnf-data-4.2.8-2.fc30.noarch.rpm       1.6 MB/s |  45 kB     00:00    
-(12/52): dnf-4.2.8-2.fc30.noarch.rpm            5.8 MB/s | 405 kB     00:00    
-(13/52): dnf-yum-4.2.8-2.fc30.noarch.rpm        2.8 MB/s |  42 kB     00:00    
-(14/52): elfutils-default-yama-scope-0.177-1.fc 2.1 MB/s |  16 kB     00:00    
-/usr/share/doc/expat/AUTHORS: No such file or directory
-cannot reconstruct rpm from disk files
-(15/52): elfutils-libelf-0.177-1.fc30.x86_64.rp 4.9 MB/s | 177 kB     00:00    
-/usr/share/man/man8/pam_sss.8.gz: No such file or directory
-cannot reconstruct rpm from disk files
-(16/52): file-libs-5.36-4.fc30.x86_64.rpm       3.6 MB/s | 544 kB     00:00    
-(17/52): elfutils-libs-0.177-1.fc30.x86_64.rpm  1.3 MB/s | 264 kB     00:00    
-(18/52): glib2-2.60.7-1.fc30.x86_64.rpm         4.9 MB/s | 2.6 MB     00:00    
-(19/52): glibc-common-2.29-22.fc30.x86_64.rpm   2.2 MB/s | 838 kB     00:00    
-(20/52): kmod-libs-26-3.fc30.x86_64.rpm         3.1 MB/s |  58 kB     00:00    
-(21/52): glibc-minimal-langpack-2.29-22.fc30.x8 1.2 MB/s |  47 kB     00:00    
-(22/52): libcurl-7.65.3-4.fc30.x86_64.rpm       2.6 MB/s | 262 kB     00:00    
-(23/52): libdnf-0.35.2-4.fc30.x86_64.rpm        3.7 MB/s | 589 kB     00:00    
-(24/52): libevent-2.1.8-7.fc30.x86_64.rpm       2.5 MB/s | 231 kB     00:00    
-(25/52): libgcc-9.2.1-1.fc30.x86_64.rpm         1.0 MB/s |  91 kB     00:00    
-(26/52): libselinux-2.9-3.1.fc30.x86_64.rpm     2.8 MB/s |  78 kB     00:00    
-(27/52): libgcrypt-1.8.5-1.fc30.x86_64.rpm      3.1 MB/s | 450 kB     00:00    
-(28/52): glibc-2.29-22.fc30.x86_64.rpm          4.8 MB/s | 4.0 MB     00:00    
-(29/52): libtirpc-1.1.4-2.rc3.fc30.x86_64.rpm   2.0 MB/s | 102 kB     00:00    
-(30/52): libxcrypt-4.4.10-1.fc30.x86_64.rpm     4.1 MB/s | 122 kB     00:00    
-(31/52): libstdc++-9.2.1-1.fc30.x86_64.rpm      4.1 MB/s | 578 kB     00:00    
-(32/52): libxcrypt-compat-4.4.10-1.fc30.x86_64. 2.4 MB/s |  96 kB     00:00    
-(33/52): mkpasswd-5.5.1-1.fc30.x86_64.rpm       1.7 MB/s |  39 kB     00:00    
-(34/52): pcre2-10.33-14.fc30.x86_64.rpm         3.1 MB/s | 252 kB     00:00    
-(35/52): openssl-1.1.1d-1.fc30.x86_64.rpm       4.9 MB/s | 634 kB     00:00    
-(36/52): python3-dnf-4.2.8-2.fc30.noarch.rpm    4.1 MB/s | 413 kB     00:00    
-(37/52): python3-hawkey-0.35.2-4.fc30.x86_64.rp 1.5 MB/s |  93 kB     00:00    
-(38/52): python3-rpm-4.14.2.1-5.fc30.x86_64.rpm 4.1 MB/s |  65 kB     00:00    
-(39/52): rpm-4.14.2.1-5.fc30.x86_64.rpm         3.3 MB/s | 479 kB     00:00    
-(40/52): python3-libdnf-0.35.2-4.fc30.x86_64.rp 3.9 MB/s | 706 kB     00:00    
-(41/52): rpm-build-libs-4.14.2.1-5.fc30.x86_64. 4.4 MB/s |  86 kB     00:00    
-(42/52): openssl-libs-1.1.1d-1.fc30.x86_64.rpm  3.7 MB/s | 1.4 MB     00:00    
-(43/52): rpm-plugin-systemd-inhibit-4.14.2.1-5. 1.1 MB/s |  19 kB     00:00    
-(44/52): rpm-libs-4.14.2.1-5.fc30.x86_64.rpm    5.7 MB/s | 264 kB     00:00    
-(45/52): rpm-sign-libs-4.14.2.1-5.fc30.x86_64.r 1.1 MB/s |  23 kB     00:00    
-(46/52): systemd-pam-241-12.git1e19bcd.fc30.x86 2.8 MB/s | 157 kB     00:00    
-(47/52): systemd-rpm-macros-241-12.git1e19bcd.f 966 kB/s |  22 kB     00:00    
-(48/52): systemd-libs-241-12.git1e19bcd.fc30.x8 3.3 MB/s | 504 kB     00:00    
-(49/52): whois-nls-5.5.1-1.fc30.noarch.rpm      1.1 MB/s |  33 kB     00:00    
-(50/52): zlib-1.2.11-18.fc30.x86_64.rpm         2.5 MB/s |  91 kB     00:00    
-(51/52): vim-minimal-8.1.1991-2.fc30.x86_64.rpm 4.1 MB/s | 619 kB     00:00    
-(52/52): systemd-241-12.git1e19bcd.fc30.x86_64. 7.5 MB/s | 3.8 MB     00:00    
-[DRPM 1/4] libsss_idmap-2.2.0-3.fc30_2.2.2-1.fc30.x86_64.drpm: done            
-[DRPM 2/4] libsss_nss_idmap-2.2.0-3.fc30_2.2.2-1.fc30.x86_64.drpm: done        
-Some packages were not downloaded. Retrying.
-(1/2): expat-2.2.8-1.fc30.x86_64.rpm            2.1 MB/s |  98 kB     00:00    
-(2/2): sssd-client-2.2.2-1.fc30.x86_64.rpm      2.2 MB/s | 104 kB     00:00    
---------------------------------------------------------------------------------
-Total                                           6.9 MB/s |  24 MB     00:03     
-Failed Delta RPMs increased 24.1 MB of updates to 24.1 MB (0.1% wasted)
-Running transaction check
-Transaction check succeeded.
-Running transaction test
-Transaction test succeeded.
-Running transaction
-  Preparing        :                                                        1/1 
-  Running scriptlet: libgcc-9.2.1-1.fc30.x86_64                             1/1 
-  Upgrading        : libgcc-9.2.1-1.fc30.x86_64                           1/100 
-  Running scriptlet: libgcc-9.2.1-1.fc30.x86_64                           1/100 
-  Upgrading        : glibc-common-2.29-22.fc30.x86_64                     2/100 
-  Upgrading        : libselinux-2.9-3.1.fc30.x86_64                       3/100 
-  Upgrading        : pcre2-10.33-14.fc30.x86_64                           4/100 
-  Running scriptlet: glibc-2.29-22.fc30.x86_64                            5/100 
-  Upgrading        : glibc-2.29-22.fc30.x86_64                            5/100 
-  Running scriptlet: glibc-2.29-22.fc30.x86_64                            5/100 
-  Installing       : glibc-langpack-en-2.29-22.fc30.x86_64                6/100 
-  Upgrading        : zlib-1.2.11-18.fc30.x86_64                           7/100 
-  Upgrading        : openssl-libs-1:1.1.1d-1.fc30.x86_64                  8/100 
-  Upgrading        : elfutils-libelf-0.177-1.fc30.x86_64                  9/100 
-  Installing       : shared-mime-info-1.14-1.fc30.x86_64                 10/100 
-  Running scriptlet: shared-mime-info-1.14-1.fc30.x86_64                 10/100 
-  Upgrading        : glib2-2.60.7-1.fc30.x86_64                          11/100 
-  Upgrading        : libstdc++-9.2.1-1.fc30.x86_64                       12/100 
-  Upgrading        : libgcrypt-1.8.5-1.fc30.x86_64                       13/100 
-  Upgrading        : systemd-libs-241-12.git1e19bcd.fc30.x86_64          14/100 
-  Running scriptlet: systemd-libs-241-12.git1e19bcd.fc30.x86_64          14/100 
-  Upgrading        : cryptsetup-libs-2.2.1-1.fc30.x86_64                 15/100 
-  Upgrading        : kmod-libs-26-3.fc30.x86_64                          16/100 
-  Upgrading        : libcurl-7.65.3-4.fc30.x86_64                        17/100 
-  Upgrading        : curl-7.65.3-4.fc30.x86_64                           18/100 
-  Upgrading        : rpm-4.14.2.1-5.fc30.x86_64                          19/100 
-  Upgrading        : rpm-libs-4.14.2.1-5.fc30.x86_64                     20/100 
-  Upgrading        : libdnf-0.35.2-4.fc30.x86_64                         21/100 
-  Upgrading        : python3-libdnf-0.35.2-4.fc30.x86_64                 22/100 
-  Upgrading        : python3-hawkey-0.35.2-4.fc30.x86_64                 23/100 
-  Upgrading        : rpm-plugin-systemd-inhibit-4.14.2.1-5.fc30.x86_6    24/100 
-  Upgrading        : rpm-sign-libs-4.14.2.1-5.fc30.x86_64                25/100 
-  Upgrading        : file-libs-5.36-4.fc30.x86_64                        26/100 
-  Upgrading        : libsss_idmap-2.2.2-1.fc30.x86_64                    27/100 
-  Upgrading        : libsss_nss_idmap-2.2.2-1.fc30.x86_64                28/100 
-  Upgrading        : whois-nls-5.5.1-1.fc30.noarch                       29/100 
-  Upgrading        : libxcrypt-4.4.10-1.fc30.x86_64                      30/100 
-  Upgrading        : mkpasswd-5.5.1-1.fc30.x86_64                        31/100 
-  Upgrading        : systemd-rpm-macros-241-12.git1e19bcd.fc30.noarch    32/100 
-  Upgrading        : dnf-data-4.2.8-2.fc30.noarch                        33/100 
-  Installing       : xkeyboard-config-2.26-2.fc30.noarch                 34/100 
-  Installing       : libxkbcommon-0.8.3-1.fc30.x86_64                    35/100 
-  Upgrading        : elfutils-libs-0.177-1.fc30.x86_64                   36/100 
-  Upgrading        : elfutils-default-yama-scope-0.177-1.fc30.noarch     37/100 
-  Running scriptlet: elfutils-default-yama-scope-0.177-1.fc30.noarch     37/100 
-  Upgrading        : systemd-pam-241-12.git1e19bcd.fc30.x86_64           38/100 
-  Running scriptlet: systemd-241-12.git1e19bcd.fc30.x86_64               39/100 
-  Upgrading        : systemd-241-12.git1e19bcd.fc30.x86_64               39/100 
-  Running scriptlet: systemd-241-12.git1e19bcd.fc30.x86_64               39/100 
-  Upgrading        : rpm-build-libs-4.14.2.1-5.fc30.x86_64               40/100 
-  Upgrading        : python3-rpm-4.14.2.1-5.fc30.x86_64                  41/100 
-  Upgrading        : python3-dnf-4.2.8-2.fc30.noarch                     42/100 
-  Upgrading        : dnf-4.2.8-2.fc30.noarch                             43/100 
-  Running scriptlet: dnf-4.2.8-2.fc30.noarch                             43/100 
-  Upgrading        : dnf-yum-4.2.8-2.fc30.noarch                         44/100 
-  Upgrading        : libxcrypt-compat-4.4.10-1.fc30.x86_64               45/100 
-  Upgrading        : vim-minimal-2:8.1.1991-2.fc30.x86_64                46/100 
-  Upgrading        : sssd-client-2.2.2-1.fc30.x86_64                     47/100 
-  Running scriptlet: sssd-client-2.2.2-1.fc30.x86_64                     47/100 
-  Upgrading        : libevent-2.1.8-7.fc30.x86_64                        48/100 
-  Upgrading        : openssl-1:1.1.1d-1.fc30.x86_64                      49/100 
-  Upgrading        : expat-2.2.8-1.fc30.x86_64                           50/100 
-  Upgrading        : glibc-minimal-langpack-2.29-22.fc30.x86_64          51/100 
-  Upgrading        : libtirpc-1.1.4-2.rc3.fc30.x86_64                    52/100 
-  Cleanup          : dnf-yum-4.2.7-2.fc30.noarch                         53/100 
-  Cleanup          : libevent-2.1.8-5.fc30.x86_64                        54/100 
-  Cleanup          : openssl-1:1.1.1c-2.fc30.x86_64                      55/100 
-  Running scriptlet: sssd-client-2.2.0-3.fc30.x86_64                     56/100 
-  Cleanup          : sssd-client-2.2.0-3.fc30.x86_64                     56/100 
-  Cleanup          : libtirpc-1.1.4-2.rc2.fc30.1.x86_64                  57/100 
-  Cleanup          : libsss_nss_idmap-2.2.0-3.fc30.x86_64                58/100 
-  Cleanup          : vim-minimal-2:8.1.1890-1.fc30.x86_64                59/100 
-  Cleanup          : libxcrypt-compat-4.4.6-2.fc30.x86_64                60/100 
-  Cleanup          : libsss_idmap-2.2.0-3.fc30.x86_64                    61/100 
-  Cleanup          : expat-2.2.7-1.fc30.x86_64                           62/100 
-  Running scriptlet: dnf-4.2.7-2.fc30.noarch                             63/100 
-  Cleanup          : dnf-4.2.7-2.fc30.noarch                             63/100 
-  Running scriptlet: dnf-4.2.7-2.fc30.noarch                             63/100 
-  Cleanup          : python3-dnf-4.2.7-2.fc30.noarch                     64/100 
-  Cleanup          : python3-hawkey-0.35.1-3.fc30.x86_64                 65/100 
-  Cleanup          : python3-libdnf-0.35.1-3.fc30.x86_64                 66/100 
-  Cleanup          : libdnf-0.35.1-3.fc30.x86_64                         67/100 
-  Cleanup          : glib2-2.60.6-1.fc30.x86_64                          68/100 
-  Cleanup          : libstdc++-9.1.1-1.fc30.x86_64                       69/100 
-  Cleanup          : rpm-plugin-systemd-inhibit-4.14.2.1-4.fc30.1.x86    70/100 
-  Cleanup          : python3-rpm-4.14.2.1-4.fc30.1.x86_64                71/100 
-  Cleanup          : dnf-data-4.2.7-2.fc30.noarch                        72/100 
-  Cleanup          : rpm-build-libs-4.14.2.1-4.fc30.1.x86_64             73/100 
-  Cleanup          : elfutils-default-yama-scope-0.176-3.fc30.noarch     74/100 
-  Running scriptlet: systemd-241-10.git511646b.fc30.x86_64               75/100 
-  Cleanup          : systemd-241-10.git511646b.fc30.x86_64               75/100 
-  Cleanup          : elfutils-libs-0.176-3.fc30.x86_64                   76/100 
-  Cleanup          : systemd-libs-241-10.git511646b.fc30.x86_64          77/100 
-  Cleanup          : systemd-pam-241-10.git511646b.fc30.x86_64           78/100 
-  Cleanup          : cryptsetup-libs-2.2.0-1.fc30.x86_64                 79/100 
-  Cleanup          : rpm-sign-libs-4.14.2.1-4.fc30.1.x86_64              80/100 
-  Cleanup          : rpm-4.14.2.1-4.fc30.1.x86_64                        81/100 
-  Cleanup          : rpm-libs-4.14.2.1-4.fc30.1.x86_64                   82/100 
-  Cleanup          : curl-7.65.3-2.fc30.x86_64                           83/100 
-  Cleanup          : libcurl-7.65.3-2.fc30.x86_64                        84/100 
-  Cleanup          : openssl-libs-1:1.1.1c-2.fc30.x86_64                 85/100 
-  Cleanup          : kmod-libs-25-5.fc30.x86_64                          86/100 
-  Cleanup          : elfutils-libelf-0.176-3.fc30.x86_64                 87/100 
-  Cleanup          : file-libs-5.36-3.fc30.x86_64                        88/100 
-  Cleanup          : systemd-rpm-macros-241-10.git511646b.fc30.noarch    89/100 
-  Cleanup          : libgcrypt-1.8.4-3.fc30.x86_64                       90/100 
-  Cleanup          : libxcrypt-4.4.6-2.fc30.x86_64                       91/100 
-  Cleanup          : zlib-1.2.11-17.fc30.x86_64                          92/100 
-  Cleanup          : mkpasswd-5.5.0-1.fc30.x86_64                        93/100 
-  Cleanup          : whois-nls-5.5.0-1.fc30.noarch                       94/100 
-  Cleanup          : pcre2-10.33-10.fc30.x86_64                          95/100 
-  Cleanup          : libselinux-2.9-1.fc30.x86_64                        96/100 
-  Cleanup          : glibc-2.29-15.fc30.x86_64                           97/100 
-  Cleanup          : glibc-minimal-langpack-2.29-15.fc30.x86_64          98/100 
-  Cleanup          : glibc-common-2.29-15.fc30.x86_64                    99/100 
-  Cleanup          : libgcc-9.1.1-1.fc30.x86_64                         100/100 
-  Running scriptlet: libgcc-9.1.1-1.fc30.x86_64                         100/100 
-  Running scriptlet: glibc-common-2.29-22.fc30.x86_64                   100/100 
-  Running scriptlet: shared-mime-info-1.14-1.fc30.x86_64                100/100 
-  Running scriptlet: glib2-2.60.7-1.fc30.x86_64                         100/100 
-  Running scriptlet: systemd-241-12.git1e19bcd.fc30.x86_64              100/100 
-  Verifying        : glibc-langpack-en-2.29-22.fc30.x86_64                1/100 
-  Verifying        : shared-mime-info-1.14-1.fc30.x86_64                  2/100 
-  Verifying        : xkeyboard-config-2.26-2.fc30.noarch                  3/100 
-  Verifying        : libxkbcommon-0.8.3-1.fc30.x86_64                     4/100 
-  Verifying        : cryptsetup-libs-2.2.1-1.fc30.x86_64                  5/100 
-  Verifying        : cryptsetup-libs-2.2.0-1.fc30.x86_64                  6/100 
-  Verifying        : curl-7.65.3-4.fc30.x86_64                            7/100 
-  Verifying        : curl-7.65.3-2.fc30.x86_64                            8/100 
-  Verifying        : dnf-4.2.8-2.fc30.noarch                              9/100 
-  Verifying        : dnf-4.2.7-2.fc30.noarch                             10/100 
-  Verifying        : dnf-data-4.2.8-2.fc30.noarch                        11/100 
-  Verifying        : dnf-data-4.2.7-2.fc30.noarch                        12/100 
-  Verifying        : dnf-yum-4.2.8-2.fc30.noarch                         13/100 
-  Verifying        : dnf-yum-4.2.7-2.fc30.noarch                         14/100 
-  Verifying        : elfutils-default-yama-scope-0.177-1.fc30.noarch     15/100 
-  Verifying        : elfutils-default-yama-scope-0.176-3.fc30.noarch     16/100 
-  Verifying        : elfutils-libelf-0.177-1.fc30.x86_64                 17/100 
-  Verifying        : elfutils-libelf-0.176-3.fc30.x86_64                 18/100 
-  Verifying        : elfutils-libs-0.177-1.fc30.x86_64                   19/100 
-  Verifying        : elfutils-libs-0.176-3.fc30.x86_64                   20/100 
-  Verifying        : expat-2.2.8-1.fc30.x86_64                           21/100 
-  Verifying        : expat-2.2.7-1.fc30.x86_64                           22/100 
-  Verifying        : file-libs-5.36-4.fc30.x86_64                        23/100 
-  Verifying        : file-libs-5.36-3.fc30.x86_64                        24/100 
-  Verifying        : glib2-2.60.7-1.fc30.x86_64                          25/100 
-  Verifying        : glib2-2.60.6-1.fc30.x86_64                          26/100 
-  Verifying        : glibc-2.29-22.fc30.x86_64                           27/100 
-  Verifying        : glibc-2.29-15.fc30.x86_64                           28/100 
-  Verifying        : glibc-common-2.29-22.fc30.x86_64                    29/100 
-  Verifying        : glibc-common-2.29-15.fc30.x86_64                    30/100 
-  Verifying        : glibc-minimal-langpack-2.29-22.fc30.x86_64          31/100 
-  Verifying        : glibc-minimal-langpack-2.29-15.fc30.x86_64          32/100 
-  Verifying        : kmod-libs-26-3.fc30.x86_64                          33/100 
-  Verifying        : kmod-libs-25-5.fc30.x86_64                          34/100 
-  Verifying        : libcurl-7.65.3-4.fc30.x86_64                        35/100 
-  Verifying        : libcurl-7.65.3-2.fc30.x86_64                        36/100 
-  Verifying        : libdnf-0.35.2-4.fc30.x86_64                         37/100 
-  Verifying        : libdnf-0.35.1-3.fc30.x86_64                         38/100 
-  Verifying        : libevent-2.1.8-7.fc30.x86_64                        39/100 
-  Verifying        : libevent-2.1.8-5.fc30.x86_64                        40/100 
-  Verifying        : libgcc-9.2.1-1.fc30.x86_64                          41/100 
-  Verifying        : libgcc-9.1.1-1.fc30.x86_64                          42/100 
-  Verifying        : libgcrypt-1.8.5-1.fc30.x86_64                       43/100 
-  Verifying        : libgcrypt-1.8.4-3.fc30.x86_64                       44/100 
-  Verifying        : libselinux-2.9-3.1.fc30.x86_64                      45/100 
-  Verifying        : libselinux-2.9-1.fc30.x86_64                        46/100 
-  Verifying        : libsss_idmap-2.2.2-1.fc30.x86_64                    47/100 
-  Verifying        : libsss_idmap-2.2.0-3.fc30.x86_64                    48/100 
-  Verifying        : libsss_nss_idmap-2.2.2-1.fc30.x86_64                49/100 
-  Verifying        : libsss_nss_idmap-2.2.0-3.fc30.x86_64                50/100 
-  Verifying        : libstdc++-9.2.1-1.fc30.x86_64                       51/100 
-  Verifying        : libstdc++-9.1.1-1.fc30.x86_64                       52/100 
-  Verifying        : libtirpc-1.1.4-2.rc3.fc30.x86_64                    53/100 
-  Verifying        : libtirpc-1.1.4-2.rc2.fc30.1.x86_64                  54/100 
-  Verifying        : libxcrypt-4.4.10-1.fc30.x86_64                      55/100 
-  Verifying        : libxcrypt-4.4.6-2.fc30.x86_64                       56/100 
-  Verifying        : libxcrypt-compat-4.4.10-1.fc30.x86_64               57/100 
-  Verifying        : libxcrypt-compat-4.4.6-2.fc30.x86_64                58/100 
-  Verifying        : mkpasswd-5.5.1-1.fc30.x86_64                        59/100 
-  Verifying        : mkpasswd-5.5.0-1.fc30.x86_64                        60/100 
-  Verifying        : openssl-1:1.1.1d-1.fc30.x86_64                      61/100 
-  Verifying        : openssl-1:1.1.1c-2.fc30.x86_64                      62/100 
-  Verifying        : openssl-libs-1:1.1.1d-1.fc30.x86_64                 63/100 
-  Verifying        : openssl-libs-1:1.1.1c-2.fc30.x86_64                 64/100 
-  Verifying        : pcre2-10.33-14.fc30.x86_64                          65/100 
-  Verifying        : pcre2-10.33-10.fc30.x86_64                          66/100 
-  Verifying        : python3-dnf-4.2.8-2.fc30.noarch                     67/100 
-  Verifying        : python3-dnf-4.2.7-2.fc30.noarch                     68/100 
-  Verifying        : python3-hawkey-0.35.2-4.fc30.x86_64                 69/100 
-  Verifying        : python3-hawkey-0.35.1-3.fc30.x86_64                 70/100 
-  Verifying        : python3-libdnf-0.35.2-4.fc30.x86_64                 71/100 
-  Verifying        : python3-libdnf-0.35.1-3.fc30.x86_64                 72/100 
-  Verifying        : python3-rpm-4.14.2.1-5.fc30.x86_64                  73/100 
-  Verifying        : python3-rpm-4.14.2.1-4.fc30.1.x86_64                74/100 
-  Verifying        : rpm-4.14.2.1-5.fc30.x86_64                          75/100 
-  Verifying        : rpm-4.14.2.1-4.fc30.1.x86_64                        76/100 
-  Verifying        : rpm-build-libs-4.14.2.1-5.fc30.x86_64               77/100 
-  Verifying        : rpm-build-libs-4.14.2.1-4.fc30.1.x86_64             78/100 
-  Verifying        : rpm-libs-4.14.2.1-5.fc30.x86_64                     79/100 
-  Verifying        : rpm-libs-4.14.2.1-4.fc30.1.x86_64                   80/100 
-  Verifying        : rpm-plugin-systemd-inhibit-4.14.2.1-5.fc30.x86_6    81/100 
-  Verifying        : rpm-plugin-systemd-inhibit-4.14.2.1-4.fc30.1.x86    82/100 
-  Verifying        : rpm-sign-libs-4.14.2.1-5.fc30.x86_64                83/100 
-  Verifying        : rpm-sign-libs-4.14.2.1-4.fc30.1.x86_64              84/100 
-  Verifying        : sssd-client-2.2.2-1.fc30.x86_64                     85/100 
-  Verifying        : sssd-client-2.2.0-3.fc30.x86_64                     86/100 
-  Verifying        : systemd-241-12.git1e19bcd.fc30.x86_64               87/100 
-  Verifying        : systemd-241-10.git511646b.fc30.x86_64               88/100 
-  Verifying        : systemd-libs-241-12.git1e19bcd.fc30.x86_64          89/100 
-  Verifying        : systemd-libs-241-10.git511646b.fc30.x86_64          90/100 
-  Verifying        : systemd-pam-241-12.git1e19bcd.fc30.x86_64           91/100 
-  Verifying        : systemd-pam-241-10.git511646b.fc30.x86_64           92/100 
-  Verifying        : systemd-rpm-macros-241-12.git1e19bcd.fc30.noarch    93/100 
-  Verifying        : systemd-rpm-macros-241-10.git511646b.fc30.noarch    94/100 
-  Verifying        : vim-minimal-2:8.1.1991-2.fc30.x86_64                95/100 
-  Verifying        : vim-minimal-2:8.1.1890-1.fc30.x86_64                96/100 
-  Verifying        : whois-nls-5.5.1-1.fc30.noarch                       97/100 
-  Verifying        : whois-nls-5.5.0-1.fc30.noarch                       98/100 
-  Verifying        : zlib-1.2.11-18.fc30.x86_64                          99/100 
-  Verifying        : zlib-1.2.11-17.fc30.x86_64                         100/100 
-
-Upgraded:
-  cryptsetup-libs-2.2.1-1.fc30.x86_64                                           
-  curl-7.65.3-4.fc30.x86_64                                                     
-  dnf-4.2.8-2.fc30.noarch                                                       
-  dnf-data-4.2.8-2.fc30.noarch                                                  
-  dnf-yum-4.2.8-2.fc30.noarch                                                   
-  elfutils-default-yama-scope-0.177-1.fc30.noarch                               
-  elfutils-libelf-0.177-1.fc30.x86_64                                           
-  elfutils-libs-0.177-1.fc30.x86_64                                             
-  expat-2.2.8-1.fc30.x86_64                                                     
-  file-libs-5.36-4.fc30.x86_64                                                  
-  glib2-2.60.7-1.fc30.x86_64                                                    
-  glibc-2.29-22.fc30.x86_64                                                     
-  glibc-common-2.29-22.fc30.x86_64                                              
-  glibc-minimal-langpack-2.29-22.fc30.x86_64                                    
-  kmod-libs-26-3.fc30.x86_64                                                    
-  libcurl-7.65.3-4.fc30.x86_64                                                  
-  libdnf-0.35.2-4.fc30.x86_64                                                   
-  libevent-2.1.8-7.fc30.x86_64                                                  
-  libgcc-9.2.1-1.fc30.x86_64                                                    
-  libgcrypt-1.8.5-1.fc30.x86_64                                                 
-  libselinux-2.9-3.1.fc30.x86_64                                                
-  libsss_idmap-2.2.2-1.fc30.x86_64                                              
-  libsss_nss_idmap-2.2.2-1.fc30.x86_64                                          
-  libstdc++-9.2.1-1.fc30.x86_64                                                 
-  libtirpc-1.1.4-2.rc3.fc30.x86_64                                              
-  libxcrypt-4.4.10-1.fc30.x86_64                                                
-  libxcrypt-compat-4.4.10-1.fc30.x86_64                                         
-  mkpasswd-5.5.1-1.fc30.x86_64                                                  
-  openssl-1:1.1.1d-1.fc30.x86_64                                                
-  openssl-libs-1:1.1.1d-1.fc30.x86_64                                           
-  pcre2-10.33-14.fc30.x86_64                                                    
-  python3-dnf-4.2.8-2.fc30.noarch                                               
-  python3-hawkey-0.35.2-4.fc30.x86_64                                           
-  python3-libdnf-0.35.2-4.fc30.x86_64                                           
-  python3-rpm-4.14.2.1-5.fc30.x86_64                                            
-  rpm-4.14.2.1-5.fc30.x86_64                                                    
-  rpm-build-libs-4.14.2.1-5.fc30.x86_64                                         
-  rpm-libs-4.14.2.1-5.fc30.x86_64                                               
-  rpm-plugin-systemd-inhibit-4.14.2.1-5.fc30.x86_64                             
-  rpm-sign-libs-4.14.2.1-5.fc30.x86_64                                          
-  sssd-client-2.2.2-1.fc30.x86_64                                               
-  systemd-241-12.git1e19bcd.fc30.x86_64                                         
-  systemd-libs-241-12.git1e19bcd.fc30.x86_64                                    
-  systemd-pam-241-12.git1e19bcd.fc30.x86_64                                     
-  systemd-rpm-macros-241-12.git1e19bcd.fc30.noarch                              
-  vim-minimal-2:8.1.1991-2.fc30.x86_64                                          
-  whois-nls-5.5.1-1.fc30.noarch                                                 
-  zlib-1.2.11-18.fc30.x86_64                                                    
-
-Installed:
-  glibc-langpack-en-2.29-22.fc30.x86_64   shared-mime-info-1.14-1.fc30.x86_64  
-  libxkbcommon-0.8.3-1.fc30.x86_64        xkeyboard-config-2.26-2.fc30.noarch  
-
-Complete!
-Fedora Modular 30 - x86_64                      2.4 MB/s | 2.7 MB     00:01    
-Fedora Modular 30 - x86_64 - Updates            2.6 MB/s | 3.3 MB     00:01    
-Fedora 30 - x86_64 - Updates                    2.6 MB/s |  21 MB     00:07    
-Fedora 30 - x86_64                              7.2 MB/s |  70 MB     00:09    
-Package tar-2:1.32-1.fc30.x86_64 is already installed.
-Package openssl-1:1.1.1d-1.fc30.x86_64 is already installed.
-Package curl-7.65.3-4.fc30.x86_64 is already installed.
-Dependencies resolved.
-================================================================================
- Package            Arch       Version                        Repository   Size
-================================================================================
-Installing:
- socat              x86_64     1.7.3.3-1.fc30                 updates     287 k
- crontabs           noarch     1.11-18.20150630git.fc30       fedora       18 k
-Installing dependencies:
- cronie-anacron     x86_64     1.5.4-1.fc30                   fedora       30 k
-Installing weak dependencies:
- cronie             x86_64     1.5.4-1.fc30                   fedora      103 k
-
-Transaction Summary
-================================================================================
-Install  4 Packages
-
-Total download size: 437 k
-Installed size: 1.7 M
-Downloading Packages:
-(1/4): cronie-anacron-1.5.4-1.fc30.x86_64.rpm   422 kB/s |  30 kB     00:00    
-(2/4): cronie-1.5.4-1.fc30.x86_64.rpm           1.1 MB/s | 103 kB     00:00    
-(3/4): crontabs-1.11-18.20150630git.fc30.noarch 542 kB/s |  18 kB     00:00    
-(4/4): socat-1.7.3.3-1.fc30.x86_64.rpm          641 kB/s | 287 kB     00:00    
---------------------------------------------------------------------------------
-Total                                            87 kB/s | 437 kB     00:05     
-Running transaction check
-Transaction check succeeded.
-Running transaction test
-Transaction test succeeded.
-Running transaction
-  Preparing        :                                                        1/1 
-  Installing       : cronie-anacron-1.5.4-1.fc30.x86_64                     1/4 
-  Running scriptlet: cronie-anacron-1.5.4-1.fc30.x86_64                     1/4 
-  Installing       : cronie-1.5.4-1.fc30.x86_64                             2/4 
-  Running scriptlet: cronie-1.5.4-1.fc30.x86_64                             2/4 
-  Installing       : crontabs-1.11-18.20150630git.fc30.noarch               3/4 
-  Installing       : socat-1.7.3.3-1.fc30.x86_64                            4/4 
-  Running scriptlet: socat-1.7.3.3-1.fc30.x86_64                            4/4 
-  Verifying        : socat-1.7.3.3-1.fc30.x86_64                            1/4 
-  Verifying        : cronie-1.5.4-1.fc30.x86_64                             2/4 
-  Verifying        : cronie-anacron-1.5.4-1.fc30.x86_64                     3/4 
-  Verifying        : crontabs-1.11-18.20150630git.fc30.noarch               4/4 
-
-Installed:
-  socat-1.7.3.3-1.fc30.x86_64      crontabs-1.11-18.20150630git.fc30.noarch     
-  cronie-1.5.4-1.fc30.x86_64       cronie-anacron-1.5.4-1.fc30.x86_64           
-
-Complete!
+ ---> Using cache
  ---> 574295fe4850
-Removing intermediate container 287993c1977b
 Successfully built 574295fe4850
 Successfully tagged myfedora:latest
-Wed, 25 Sep 2019 17:02:12 UTC
+Wed, 25 Sep 2019 17:09:16 UTC
 Testing branch: master
 Progress: 0/1/21
 ==Running le_test_dependencies please wait
@@ -494,7 +21,7 @@ Progress: 0/2/21
 ==Running le_test_install please wait
 ./acme.sh install [PASS]
 /root/.acme.sh/acme.sh exists. [PASS]
-_contains '13 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
+_contains '18 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
 /root/.acme.sh/acme.sh uninstall  > /dev/null [PASS]
 ------------------------------------------
 Progress: 0/3/21
@@ -508,7 +35,7 @@ Progress: 0/4/21
 ==Running le_test_installtodir please wait
 ./acme.sh install [PASS]
 /root/myle/acme.sh exists. [PASS]
-_contains '16 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
+_contains '20 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
 /root/myle/acme.sh uninstall [PASS]
 ------------------------------------------
 Progress: 0/5/21
@@ -522,7 +49,7 @@ Progress: 0/6/21
 ==Running le_test_install_config_home please wait
 ./acme.sh --install --config-home /root/etc/acme [PASS]
 /root/.acme.sh/acme.sh exists. [PASS]
-_contains '18 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
+_contains '22 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
 /root/etc/acme/account.conf exists. [PASS]
 /root/.acme.sh/account.conf no exists. [PASS]
 /root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null [PASS]
@@ -533,10 +60,9 @@ _contains '18 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --
 Progress: 0/7/21
 ==Running le_test_standandalone_renew please wait
 /root/.acme.sh/acme.sh issue no testdocker.acme.sh [PASS]
-FORCE=1 /root/.acme.sh/acme.sh renew testdocker.acme.sh [FAIL] 
-Run Failed
+FORCE=1 /root/.acme.sh/acme.sh renew testdocker.acme.sh [PASS]
 ------------------------------------------
-Progress: 1/8/21
+Progress: 0/8/21
 ==Running le_test_standandalone_renew_v2 please wait
 /root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [PASS]
 '/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
@@ -551,7 +77,7 @@ Progress: 1/8/21
 '/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
 '/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
 ------------------------------------------
-Progress: 1/9/21
+Progress: 0/9/21
 ==Running le_test_standandalone_renew_localaddress_v2 please wait
 /root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --local-address 0.0.0.0 --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [PASS]
 '/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
@@ -566,7 +92,7 @@ Progress: 1/9/21
 '/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
 '/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
 ------------------------------------------
-Progress: 1/10/21
+Progress: 0/10/21
 ==Running le_test_standandalone_listen_v4_v2 please wait
 /root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --listen-v4 --cert-file '/acmetest/certs/domain.cer' --key-file '/acmetest/certs/domain.key'  --ca-file '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchain-file  '/acmetest/certs/full.cer' [PASS]
 '/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
@@ -581,11 +107,11 @@ Progress: 1/10/21
 '/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
 '/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
 ------------------------------------------
-Progress: 1/11/21
+Progress: 0/11/21
 ==Running le_test_standandalone_listen_v6_v2 please wait
 Skipped by TEST_IPV6
 ------------------------------------------
-Progress: 1/12/21
+Progress: 0/12/21
 ==Running le_test_standandalone_deactivate_v2 please wait
 /root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [PASS]
 '/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
@@ -594,35 +120,35 @@ Progress: 1/12/21
 '/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
 /root/.acme.sh/acme.sh --deactivate -d testdocker.acme.sh [PASS]
 ------------------------------------------
-Progress: 1/13/21
+Progress: 0/13/21
 ==Running le_test_standandalone please wait
 /root/.acme.sh/acme.sh issue no testdocker.acme.sh [PASS]
 /root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
 /root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
 ------------------------------------------
-Progress: 1/14/21
+Progress: 0/14/21
 ==Running le_test_standandalone_SAN please wait
 /root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh" [PASS]
 /root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
 /root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
 ------------------------------------------
-Progress: 1/15/21
+Progress: 0/15/21
 ==Running le_test_standandalone_ECDSA_256 please wait
 /root/.acme.sh/acme.sh issue no testdocker.acme.sh no ec-256 [PASS]
 /root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
 /root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
 ------------------------------------------
-Progress: 1/16/21
+Progress: 0/16/21
 ==Running le_test_standandalone_ECDSA_256_renew please wait
 /root/.acme.sh/acme.sh --issue --standalone -d testdocker.acme.sh  -k ec-256 [PASS]
 /root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force --ecc [PASS]
 ------------------------------------------
-Progress: 1/17/21
+Progress: 0/17/21
 ==Running le_test_standandalone_ECDSA_256_SAN_renew please wait
 /root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh" ec-256 [PASS]
 /root/.acme.sh/acme.sh --renew -d "testdocker.acme.sh" --force --ecc [PASS]
 ------------------------------------------
-Progress: 1/18/21
+Progress: 0/18/21
 ==Running le_test_standandalone_ECDSA_256_SAN_renew_v2 please wait
 /root/.acme.sh/acme.sh --issue -d "testdocker.acme.sh" -d "testdocker2.acme.sh" --standalone --keylength ec-256 --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [PASS]
 '/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
@@ -637,17 +163,17 @@ Progress: 1/18/21
 '/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
 '/root/.acme.sh/testdocker.acme.sh_ecc/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
 ------------------------------------------
-Progress: 1/19/21
+Progress: 0/19/21
 ==Running le_test_standandalone_ECDSA_384 please wait
 /root/.acme.sh/acme.sh issue no "testdocker.acme.sh" no ec-384 [PASS]
 /root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
 /root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
 ------------------------------------------
-Progress: 1/20/21
+Progress: 0/20/21
 ==Running le_test_standandalone_renew_idn_v2 please wait
 Skipped by TEST_IDN
 ------------------------------------------
-Progress: 1/21/21
+Progress: 0/21/21
 ==Running le_test_dnsapi please wait
 The test domain Test_CF_Domain is not defined, skip:ClourFlare_api
 The test domain Test_CX_Domain is not defined, skip:CloudXNS.com_api
@@ -694,5 +220,6 @@ TestingDomain='952700.xyz'
 /root/.acme.sh/acme.sh --issue -d "952700.xyz" --dns dns_namecom --dnssleep ""  [PASS]
 /root/.acme.sh/952700.xyz/952700.xyz.cer is cert ? '952700.xyz' 'Fake LE Intermediate X1' [PASS]
 /root/.acme.sh/952700.xyz/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/acme.sh --deactivate -d "952700.xyz" >/dev/null 2>&1 [PASS]
+/root/.acme.sh/acme.sh --deactivate -d "952700.xyz" >/dev/null 2>&1 [FAIL] 
+Run Failed
 ------------------------------------------
