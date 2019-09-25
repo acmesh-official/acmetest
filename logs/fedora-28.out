@@ -1,0 +1,813 @@
+Sending build context to Docker daemon  2.048kB
+Step 1/2 : FROM fedora:28
+ ---> 4c5b21baa7a0
+Step 2/2 : RUN yum  -y update     2>&1 && yum  -y install    tar openssl crontabs socat curl  2>&1
+ ---> Running in 3ca0ec604c71
+Fedora 28 - x86_64 - Updates                    8.8 MB/s |  30 MB     00:03    
+Fedora 28 - x86_64                              2.0 MB/s |  60 MB     00:30    
+Last metadata expiration check: 0:00:12 ago on Wed Sep 25 17:34:33 2019.
+Dependencies resolved.
+================================================================================
+ Package                   Arch      Version                   Repository  Size
+================================================================================
+Upgrading:
+ audit-libs                x86_64    2.8.5-2.fc28              updates    115 k
+ cryptsetup-libs           x86_64    2.0.6-1.fc28              updates    324 k
+ curl                      x86_64    7.59.0-10.fc28            updates    330 k
+ fedora-gpg-keys           noarch    28-7                      updates    100 k
+ fedora-release            noarch    28-6                      updates     27 k
+ fedora-repos              noarch    28-7                      updates    9.2 k
+ file-libs                 x86_64    5.33-10.fc28              updates    541 k
+ glib2                     x86_64    2.56.4-1.fc28             updates    2.5 M
+ glibc                     x86_64    2.27-38.fc28              updates    3.6 M
+ glibc-common              x86_64    2.27-38.fc28              updates    773 k
+ glibc-langpack-en         x86_64    2.27-38.fc28              updates    811 k
+ glibc-minimal-langpack    x86_64    2.27-38.fc28              updates     40 k
+ gnupg2                    x86_64    2.2.12-1.fc28             updates    2.4 M
+ gnutls                    x86_64    3.6.5-3.fc28              updates    895 k
+ gzip                      x86_64    1.9-4.fc28                updates    164 k
+ krb5-libs                 x86_64    1.16.1-25.fc28            updates    837 k
+ libarchive                x86_64    3.3.3-6.fc28              updates    359 k
+ libassuan                 x86_64    2.5.2-1.fc28              updates     84 k
+ libcurl                   x86_64    7.59.0-10.fc28            updates    289 k
+ libgcc                    x86_64    8.3.1-2.fc28              updates    103 k
+ libgcrypt                 x86_64    1.8.4-1.fc28              updates    458 k
+ libgpg-error              x86_64    1.33-1.fc28               updates    248 k
+ libidn2                   x86_64    2.1.1a-1.fc28             updates     92 k
+ libpcap                   x86_64    14:1.9.0-2.fc28           updates    159 k
+ libreport-filesystem      x86_64    2.9.5-3.fc28              updates     18 k
+ libseccomp                x86_64    2.4.1-0.fc28              updates     66 k
+ libsolv                   x86_64    0.7.2-1.fc28              updates    389 k
+ libssh                    x86_64    0.8.6-2.fc28              updates    225 k
+ libsss_idmap              x86_64    1.16.4-2.fc28             updates     95 k
+ libsss_nss_idmap          x86_64    1.16.4-2.fc28             updates    102 k
+ libxcrypt                 x86_64    4.4.6-1.fc28              updates    122 k
+ libzstd                   x86_64    1.4.0-1.fc28              updates    256 k
+ nettle                    x86_64    3.4.1-1.fc28              updates    300 k
+ nspr                      x86_64    4.21.0-1.fc28             updates    141 k
+ nss                       x86_64    3.43.0-1.fc28             updates    699 k
+ nss-softokn               x86_64    3.43.0-1.fc28             updates    436 k
+ nss-softokn-freebl        x86_64    3.43.0-1.fc28             updates    266 k
+ nss-sysinit               x86_64    3.43.0-1.fc28             updates     67 k
+ nss-tools                 x86_64    3.43.0-1.fc28             updates    546 k
+ nss-util                  x86_64    3.43.0-1.fc28             updates    130 k
+ openldap                  x86_64    2.4.46-5.fc28             updates    364 k
+ p11-kit                   x86_64    0.23.15-2.fc28            updates    270 k
+ p11-kit-trust             x86_64    0.23.15-2.fc28            updates    138 k
+ pam                       x86_64    1.3.1-15.fc28             updates    746 k
+ pcre                      x86_64    8.43-1.fc28               updates    208 k
+ pcre2                     x86_64    10.33-2.fc28              updates    257 k
+ python3                   x86_64    3.6.8-3.fc28              updates     72 k
+ python3-libs              x86_64    3.6.8-3.fc28              updates    7.9 M
+ python3-setuptools        noarch    40.8.0-1.fc28             updates    653 k
+ shadow-utils              x86_64    2:4.6-4.fc28              updates    1.2 M
+ sqlite-libs               x86_64    3.22.0-5.fc28             updates    546 k
+ sssd-client               x86_64    1.16.4-2.fc28             updates    152 k
+ systemd                   x86_64    238-12.git07f8cd5.fc28    updates    3.7 M
+ systemd-libs              x86_64    238-12.git07f8cd5.fc28    updates    511 k
+ systemd-pam               x86_64    238-12.git07f8cd5.fc28    updates    206 k
+ tzdata                    noarch    2019a-1.fc28              updates    464 k
+ vim-minimal               x86_64    2:8.1.1137-1.fc28         updates    604 k
+ zchunk-libs               x86_64    1.1.2-2.fc28              updates     49 k
+Installing dependencies:
+ libmodulemd1              x86_64    1.8.2-3.fc28              updates    178 k
+     replacing  libmodulemd.x86_64 1.7.0-1.fc28
+ libsecret                 x86_64    0.18.6-1.fc28             fedora     162 k
+ trousers-lib              x86_64    0.3.13-10.fc28            fedora     166 k
+ xkeyboard-config          noarch    2.24-2.fc28               updates    827 k
+Installing weak dependencies:
+ gnupg2-smime              x86_64    2.2.12-1.fc28             updates    279 k
+ libxkbcommon              x86_64    0.8.2-1.fc28              updates    115 k
+ pinentry                  x86_64    1.1.0-2.fc28              fedora      99 k
+ shared-mime-info          x86_64    1.10-1.fc28               updates    330 k
+ trousers                  x86_64    0.3.13-10.fc28            fedora     151 k
+
+Transaction Summary
+================================================================================
+Install   9 Packages
+Upgrade  58 Packages
+
+Total download size: 39 M
+Downloading Packages:
+(1/67): libmodulemd1-1.8.2-3.fc28.x86_64.rpm    1.0 MB/s | 178 kB     00:00    
+(2/67): gnupg2-smime-2.2.12-1.fc28.x86_64.rpm   1.3 MB/s | 279 kB     00:00    
+(3/67): shared-mime-info-1.10-1.fc28.x86_64.rpm 1.2 MB/s | 330 kB     00:00    
+(4/67): pinentry-1.1.0-2.fc28.x86_64.rpm        195 kB/s |  99 kB     00:00    
+(5/67): libsecret-0.18.6-1.fc28.x86_64.rpm      306 kB/s | 162 kB     00:00    
+(6/67): trousers-0.3.13-10.fc28.x86_64.rpm      292 kB/s | 151 kB     00:00    
+(7/67): libxkbcommon-0.8.2-1.fc28.x86_64.rpm    879 kB/s | 115 kB     00:00    
+(8/67): audit-libs-2.8.5-2.fc28.x86_64.rpm      2.6 MB/s | 115 kB     00:00    
+(9/67): trousers-lib-0.3.13-10.fc28.x86_64.rpm  496 kB/s | 166 kB     00:00    
+(10/67): cryptsetup-libs-2.0.6-1.fc28.x86_64.rp 2.8 MB/s | 324 kB     00:00    
+(11/67): libcurl-7.59.0-10.fc28.x86_64.rpm      2.9 MB/s | 289 kB     00:00    
+(12/67): curl-7.59.0-10.fc28.x86_64.rpm         2.0 MB/s | 330 kB     00:00    
+(13/67): libssh-0.8.6-2.fc28.x86_64.rpm         2.7 MB/s | 225 kB     00:00    
+(14/67): fedora-gpg-keys-28-7.noarch.rpm        1.6 MB/s | 100 kB     00:00    
+(15/67): fedora-repos-28-7.noarch.rpm           190 kB/s | 9.2 kB     00:00    
+(16/67): xkeyboard-config-2.24-2.fc28.noarch.rp 1.6 MB/s | 827 kB     00:00    
+(17/67): fedora-release-28-6.noarch.rpm         258 kB/s |  27 kB     00:00    
+(18/67): file-libs-5.33-10.fc28.x86_64.rpm      3.0 MB/s | 541 kB     00:00    
+(19/67): glib2-2.56.4-1.fc28.x86_64.rpm         4.5 MB/s | 2.5 MB     00:00    
+(20/67): glibc-common-2.27-38.fc28.x86_64.rpm   1.7 MB/s | 773 kB     00:00    
+(21/67): glibc-minimal-langpack-2.27-38.fc28.x8 602 kB/s |  40 kB     00:00    
+(22/67): glibc-2.27-38.fc28.x86_64.rpm          4.5 MB/s | 3.6 MB     00:00    
+(23/67): glibc-langpack-en-2.27-38.fc28.x86_64. 2.1 MB/s | 811 kB     00:00    
+(24/67): gnupg2-2.2.12-1.fc28.x86_64.rpm        4.8 MB/s | 2.4 MB     00:00    
+(25/67): gnutls-3.6.5-3.fc28.x86_64.rpm         3.2 MB/s | 895 kB     00:00    
+(26/67): nettle-3.4.1-1.fc28.x86_64.rpm         1.2 MB/s | 300 kB     00:00    
+(27/67): gzip-1.9-4.fc28.x86_64.rpm             1.2 MB/s | 164 kB     00:00    
+(28/67): krb5-libs-1.16.1-25.fc28.x86_64.rpm    4.8 MB/s | 837 kB     00:00    
+(29/67): libassuan-2.5.2-1.fc28.x86_64.rpm      1.2 MB/s |  84 kB     00:00    
+(30/67): libgcc-8.3.1-2.fc28.x86_64.rpm         2.6 MB/s | 103 kB     00:00    
+(31/67): libarchive-3.3.3-6.fc28.x86_64.rpm     1.9 MB/s | 359 kB     00:00    
+(32/67): libgpg-error-1.33-1.fc28.x86_64.rpm    2.3 MB/s | 248 kB     00:00    
+(33/67): libgcrypt-1.8.4-1.fc28.x86_64.rpm      3.6 MB/s | 458 kB     00:00    
+(34/67): libidn2-2.1.1a-1.fc28.x86_64.rpm       840 kB/s |  92 kB     00:00    
+(35/67): libreport-filesystem-2.9.5-3.fc28.x86_ 277 kB/s |  18 kB     00:00    
+(36/67): libpcap-1.9.0-2.fc28.x86_64.rpm        1.8 MB/s | 159 kB     00:00    
+(37/67): libseccomp-2.4.1-0.fc28.x86_64.rpm     731 kB/s |  66 kB     00:00    
+(38/67): libsss_idmap-1.16.4-2.fc28.x86_64.rpm  1.5 MB/s |  95 kB     00:00    
+(39/67): libsolv-0.7.2-1.fc28.x86_64.rpm        3.0 MB/s | 389 kB     00:00    
+(40/67): libxcrypt-4.4.6-1.fc28.x86_64.rpm      1.8 MB/s | 122 kB     00:00    
+(41/67): libsss_nss_idmap-1.16.4-2.fc28.x86_64. 1.2 MB/s | 102 kB     00:00    
+(42/67): libzstd-1.4.0-1.fc28.x86_64.rpm        4.1 MB/s | 256 kB     00:00    
+(43/67): nspr-4.21.0-1.fc28.x86_64.rpm          1.6 MB/s | 141 kB     00:00    
+(44/67): nss-3.43.0-1.fc28.x86_64.rpm           5.0 MB/s | 699 kB     00:00    
+(45/67): nss-softokn-3.43.0-1.fc28.x86_64.rpm   3.6 MB/s | 436 kB     00:00    
+(46/67): nss-util-3.43.0-1.fc28.x86_64.rpm      1.3 MB/s | 130 kB     00:00    
+(47/67): nss-softokn-freebl-3.43.0-1.fc28.x86_6 3.1 MB/s | 266 kB     00:00    
+(48/67): nss-tools-3.43.0-1.fc28.x86_64.rpm     5.3 MB/s | 546 kB     00:00    
+(49/67): nss-sysinit-3.43.0-1.fc28.x86_64.rpm   801 kB/s |  67 kB     00:00    
+(50/67): openldap-2.4.46-5.fc28.x86_64.rpm      2.3 MB/s | 364 kB     00:00    
+(51/67): p11-kit-trust-0.23.15-2.fc28.x86_64.rp 823 kB/s | 138 kB     00:00    
+(52/67): p11-kit-0.23.15-2.fc28.x86_64.rpm      1.4 MB/s | 270 kB     00:00    
+(53/67): pcre-8.43-1.fc28.x86_64.rpm            2.0 MB/s | 208 kB     00:00    
+(54/67): pam-1.3.1-15.fc28.x86_64.rpm           3.4 MB/s | 746 kB     00:00    
+(55/67): python3-3.6.8-3.fc28.x86_64.rpm        708 kB/s |  72 kB     00:00    
+(56/67): pcre2-10.33-2.fc28.x86_64.rpm          1.0 MB/s | 257 kB     00:00    
+(57/67): python3-setuptools-40.8.0-1.fc28.noarc 1.4 MB/s | 653 kB     00:00    
+(58/67): shadow-utils-4.6-4.fc28.x86_64.rpm     2.7 MB/s | 1.2 MB     00:00    
+(59/67): sqlite-libs-3.22.0-5.fc28.x86_64.rpm   2.3 MB/s | 546 kB     00:00    
+(60/67): sssd-client-1.16.4-2.fc28.x86_64.rpm   897 kB/s | 152 kB     00:00    
+(61/67): systemd-pam-238-12.git07f8cd5.fc28.x86 780 kB/s | 206 kB     00:00    
+(62/67): python3-libs-3.6.8-3.fc28.x86_64.rpm   5.9 MB/s | 7.9 MB     00:01    
+(63/67): systemd-libs-238-12.git07f8cd5.fc28.x8 716 kB/s | 511 kB     00:00    
+(64/67): tzdata-2019a-1.fc28.noarch.rpm         871 kB/s | 464 kB     00:00    
+(65/67): zchunk-libs-1.1.2-2.fc28.x86_64.rpm    359 kB/s |  49 kB     00:00    
+(66/67): systemd-238-12.git07f8cd5.fc28.x86_64. 2.7 MB/s | 3.7 MB     00:01    
+(67/67): vim-minimal-8.1.1137-1.fc28.x86_64.rpm 1.6 MB/s | 604 kB     00:00    
+--------------------------------------------------------------------------------
+Total                                           5.8 MB/s |  39 MB     00:06     
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                        1/1 
+  Running scriptlet: libgcc-8.3.1-2.fc28.x86_64                             1/1 
+  Upgrading        : libgcc-8.3.1-2.fc28.x86_64                           1/126 
+  Running scriptlet: libgcc-8.3.1-2.fc28.x86_64                           1/126 
+  Upgrading        : tzdata-2019a-1.fc28.noarch                           2/126 
+  Upgrading        : glibc-common-2.27-38.fc28.x86_64                     3/126 
+  Upgrading        : glibc-minimal-langpack-2.27-38.fc28.x86_64           4/126 
+  Upgrading        : glibc-langpack-en-2.27-38.fc28.x86_64                5/126 
+  Running scriptlet: glibc-2.27-38.fc28.x86_64                            6/126 
+  Upgrading        : glibc-2.27-38.fc28.x86_64                            6/126 
+  Running scriptlet: glibc-2.27-38.fc28.x86_64                            6/126 
+  Upgrading        : libgpg-error-1.33-1.fc28.x86_64                      7/126 
+  Upgrading        : nspr-4.21.0-1.fc28.x86_64                            8/126 
+  Running scriptlet: nspr-4.21.0-1.fc28.x86_64                            8/126 
+  Upgrading        : nss-util-3.43.0-1.fc28.x86_64                        9/126 
+  Upgrading        : libgcrypt-1.8.4-1.fc28.x86_64                       10/126 
+  Running scriptlet: libgcrypt-1.8.4-1.fc28.x86_64                       10/126 
+  Upgrading        : libxcrypt-4.4.6-1.fc28.x86_64                       11/126 
+  Upgrading        : libassuan-2.5.2-1.fc28.x86_64                       12/126 
+  Upgrading        : audit-libs-2.8.5-2.fc28.x86_64                      13/126 
+  Running scriptlet: audit-libs-2.8.5-2.fc28.x86_64                      13/126 
+  Upgrading        : pam-1.3.1-15.fc28.x86_64                            14/126 
+  Upgrading        : krb5-libs-1.16.1-25.fc28.x86_64                     15/126 
+  Upgrading        : libidn2-2.1.1a-1.fc28.x86_64                        16/126 
+  Upgrading        : libzstd-1.4.0-1.fc28.x86_64                         17/126 
+  Upgrading        : sqlite-libs-3.22.0-5.fc28.x86_64                    18/126 
+  Upgrading        : shadow-utils-2:4.6-4.fc28.x86_64                    19/126 
+  Upgrading        : p11-kit-0.23.15-2.fc28.x86_64                       20/126 
+  Running scriptlet: p11-kit-0.23.15-2.fc28.x86_64                       20/126 
+  Upgrading        : p11-kit-trust-0.23.15-2.fc28.x86_64                 21/126 
+  Running scriptlet: p11-kit-trust-0.23.15-2.fc28.x86_64                 21/126 
+  Upgrading        : python3-setuptools-40.8.0-1.fc28.noarch             22/126 
+  Upgrading        : python3-3.6.8-3.fc28.x86_64                         23/126 
+  Upgrading        : python3-libs-3.6.8-3.fc28.x86_64                    24/126 
+  Upgrading        : zchunk-libs-1.1.2-2.fc28.x86_64                     25/126 
+  Upgrading        : libssh-0.8.6-2.fc28.x86_64                          26/126 
+  Upgrading        : cryptsetup-libs-2.0.6-1.fc28.x86_64                 27/126 
+  Running scriptlet: cryptsetup-libs-2.0.6-1.fc28.x86_64                 27/126 
+  Upgrading        : systemd-libs-238-12.git07f8cd5.fc28.x86_64          28/126 
+  Running scriptlet: systemd-libs-238-12.git07f8cd5.fc28.x86_64          28/126 
+  Upgrading        : nss-softokn-freebl-3.43.0-1.fc28.x86_64             29/126 
+  Upgrading        : nss-softokn-3.43.0-1.fc28.x86_64                    30/126 
+  Upgrading        : nss-sysinit-3.43.0-1.fc28.x86_64                    31/126 
+  Upgrading        : nss-3.43.0-1.fc28.x86_64                            32/126 
+  Running scriptlet: nss-3.43.0-1.fc28.x86_64                            32/126 
+Setting system policy to DEFAULT
+  Upgrading        : nss-tools-3.43.0-1.fc28.x86_64                      33/126 
+  Upgrading        : openldap-2.4.46-5.fc28.x86_64                       34/126 
+  Upgrading        : libcurl-7.59.0-10.fc28.x86_64                       35/126 
+  Installing       : trousers-lib-0.3.13-10.fc28.x86_64                  36/126 
+  Running scriptlet: trousers-lib-0.3.13-10.fc28.x86_64                  36/126 
+  Upgrading        : nettle-3.4.1-1.fc28.x86_64                          37/126 
+  Upgrading        : libseccomp-2.4.1-0.fc28.x86_64                      38/126 
+  Upgrading        : libsss_idmap-1.16.4-2.fc28.x86_64                   39/126 
+  Running scriptlet: libsss_idmap-1.16.4-2.fc28.x86_64                   39/126 
+  Upgrading        : libsss_nss_idmap-1.16.4-2.fc28.x86_64               40/126 
+  Running scriptlet: libsss_nss_idmap-1.16.4-2.fc28.x86_64               40/126 
+  Upgrading        : pcre-8.43-1.fc28.x86_64                             41/126 
+  Upgrading        : glib2-2.56.4-1.fc28.x86_64                          42/126 
+  Installing       : shared-mime-info-1.10-1.fc28.x86_64                 43/126 
+  Running scriptlet: shared-mime-info-1.10-1.fc28.x86_64                 43/126 
+  Installing       : libsecret-0.18.6-1.fc28.x86_64                      44/126 
+  Installing       : pinentry-1.1.0-2.fc28.x86_64                        45/126 
+  Running scriptlet: pinentry-1.1.0-2.fc28.x86_64                        45/126 
+  Upgrading        : pcre2-10.33-2.fc28.x86_64                           46/126 
+  Upgrading        : fedora-gpg-keys-28-7.noarch                         47/126 
+  Upgrading        : fedora-release-28-6.noarch                          48/126 
+  Running scriptlet: fedora-release-28-6.noarch                          48/126 
+  Upgrading        : fedora-repos-28-7.noarch                            49/126 
+  Installing       : xkeyboard-config-2.24-2.fc28.noarch                 50/126 
+  Installing       : libxkbcommon-0.8.2-1.fc28.x86_64                    51/126 
+  Upgrading        : systemd-pam-238-12.git07f8cd5.fc28.x86_64           52/126 
+  Running scriptlet: systemd-238-12.git07f8cd5.fc28.x86_64               53/126 
+  Upgrading        : systemd-238-12.git07f8cd5.fc28.x86_64               53/126 
+  Running scriptlet: systemd-238-12.git07f8cd5.fc28.x86_64               53/126 
+  Running scriptlet: trousers-0.3.13-10.fc28.x86_64                      54/126 
+  Installing       : trousers-0.3.13-10.fc28.x86_64                      54/126 
+  Running scriptlet: trousers-0.3.13-10.fc28.x86_64                      54/126 
+  Upgrading        : gnutls-3.6.5-3.fc28.x86_64                          55/126 
+  Installing       : gnupg2-smime-2.2.12-1.fc28.x86_64                   56/126 
+  Upgrading        : gnupg2-2.2.12-1.fc28.x86_64                         57/126 
+  Installing       : libmodulemd1-1.8.2-3.fc28.x86_64                    58/126 
+  Upgrading        : sssd-client-1.16.4-2.fc28.x86_64                    59/126 
+  Running scriptlet: sssd-client-1.16.4-2.fc28.x86_64                    59/126 
+  Upgrading        : curl-7.59.0-10.fc28.x86_64                          60/126 
+  Upgrading        : libsolv-0.7.2-1.fc28.x86_64                         61/126 
+  Upgrading        : libarchive-3.3.3-6.fc28.x86_64                      62/126 
+  Upgrading        : file-libs-5.33-10.fc28.x86_64                       63/126 
+  Upgrading        : gzip-1.9-4.fc28.x86_64                              64/126 
+  Running scriptlet: gzip-1.9-4.fc28.x86_64                              64/126 
+  Upgrading        : libpcap-14:1.9.0-2.fc28.x86_64                      65/126 
+  Upgrading        : vim-minimal-2:8.1.1137-1.fc28.x86_64                66/126 
+  Upgrading        : libreport-filesystem-2.9.5-3.fc28.x86_64            67/126 
+  Running scriptlet: systemd-238-10.git438ac26.fc28.x86_64               68/126 
+  Cleanup          : systemd-238-10.git438ac26.fc28.x86_64               68/126 
+  Cleanup          : systemd-libs-238-10.git438ac26.fc28.x86_64          69/126 
+  Running scriptlet: gnupg2-2.2.8-1.fc28.x86_64                          70/126 
+  Cleanup          : gnupg2-2.2.8-1.fc28.x86_64                          70/126 
+  Cleanup          : systemd-pam-238-10.git438ac26.fc28.x86_64           71/126 
+  Cleanup          : gnutls-3.6.4-1.fc28.x86_64                          72/126 
+  Running scriptlet: gnutls-3.6.4-1.fc28.x86_64                          72/126 
+  Running scriptlet: sssd-client-1.16.3-2.fc28.x86_64                    73/126 
+  Cleanup          : sssd-client-1.16.3-2.fc28.x86_64                    73/126 
+  Running scriptlet: sssd-client-1.16.3-2.fc28.x86_64                    73/126 
+  Cleanup          : pam-1.3.1-1.fc28.x86_64                             74/126 
+  Running scriptlet: pam-1.3.1-1.fc28.x86_64                             74/126 
+  Cleanup          : cryptsetup-libs-2.0.5-1.fc28.x86_64                 75/126 
+  Running scriptlet: cryptsetup-libs-2.0.5-1.fc28.x86_64                 75/126 
+  Cleanup          : libsss_nss_idmap-1.16.3-2.fc28.x86_64               76/126 
+  Running scriptlet: libsss_nss_idmap-1.16.3-2.fc28.x86_64               76/126 
+  Cleanup          : libgcrypt-1.8.3-1.fc28.x86_64                       77/126 
+  Running scriptlet: libgcrypt-1.8.3-1.fc28.x86_64                       77/126 
+  Cleanup          : shadow-utils-2:4.6-1.fc28.x86_64                    78/126 
+  Cleanup          : curl-7.59.0-9.fc28.x86_64                           79/126 
+  Cleanup          : libcurl-7.59.0-9.fc28.x86_64                        80/126 
+  Cleanup          : openldap-2.4.46-4.fc28.x86_64                       81/126 
+  Cleanup          : nss-tools-3.39.0-1.0.fc28.x86_64                    82/126 
+  Cleanup          : nss-3.39.0-1.0.fc28.x86_64                          83/126 
+  Running scriptlet: nss-3.39.0-1.0.fc28.x86_64                          83/126 
+  Cleanup          : nss-softokn-3.39.0-1.0.fc28.x86_64                  84/126 
+  Running scriptlet: nss-softokn-3.39.0-1.0.fc28.x86_64                  84/126 
+  Cleanup          : p11-kit-trust-0.23.14-1.fc28.x86_64                 85/126 
+  Running scriptlet: p11-kit-trust-0.23.14-1.fc28.x86_64                 85/126 
+  Cleanup          : p11-kit-0.23.14-1.fc28.x86_64                       86/126 
+  Running scriptlet: p11-kit-0.23.14-1.fc28.x86_64                       86/126 
+  Cleanup          : libssh-0.8.5-1.fc28.x86_64                          87/126 
+  Cleanup          : krb5-libs-1.16.1-21.fc28.x86_64                     88/126 
+  Cleanup          : nss-sysinit-3.39.0-1.0.fc28.x86_64                  89/126 
+  Cleanup          : libarchive-3.3.3-1.fc28.x86_64                      90/126 
+  Cleanup          : nss-softokn-freebl-3.39.0-1.0.fc28.x86_64           91/126 
+  Cleanup          : nss-util-3.39.0-1.0.fc28.x86_64                     92/126 
+  Running scriptlet: nss-util-3.39.0-1.0.fc28.x86_64                     92/126 
+  Cleanup          : nspr-4.20.0-1.fc28.x86_64                           93/126 
+  Running scriptlet: nspr-4.20.0-1.fc28.x86_64                           93/126 
+  Cleanup          : libsss_idmap-1.16.3-2.fc28.x86_64                   94/126 
+  Running scriptlet: libsss_idmap-1.16.3-2.fc28.x86_64                   94/126 
+  Cleanup          : python3-3.6.7-2.fc28.x86_64                         95/126 
+  Cleanup          : python3-libs-3.6.7-2.fc28.x86_64                    96/126 
+  Cleanup          : sqlite-libs-3.22.0-4.fc28.x86_64                    97/126 
+  Cleanup          : libsolv-0.7.1-1.fc28.x86_64                         98/126 
+  Obsoleting       : libmodulemd-1.7.0-1.fc28.x86_64                     99/126 
+  Cleanup          : fedora-repos-28-5.noarch                           100/126 
+  Cleanup          : glib2-2.56.3-2.fc28.x86_64                         101/126 
+  Cleanup          : libidn2-2.0.5-1.fc28.x86_64                        102/126 
+  Running scriptlet: libidn2-2.0.5-1.fc28.x86_64                        102/126 
+  Cleanup          : audit-libs-2.8.4-2.fc28.x86_64                     103/126 
+  Running scriptlet: audit-libs-2.8.4-2.fc28.x86_64                     103/126 
+  Cleanup          : libpcap-14:1.9.0-1.fc28.x86_64                     104/126 
+  Cleanup          : file-libs-5.33-9.fc28.x86_64                       105/126 
+  Cleanup          : pcre-8.42-5.fc28.x86_64                            106/126 
+  Cleanup          : libassuan-2.5.1-3.fc28.x86_64                      107/126 
+  Cleanup          : libgpg-error-1.31-1.fc28.x86_64                    108/126 
+  Cleanup          : pcre2-10.32-4.fc28.x86_64                          109/126 
+  Cleanup          : vim-minimal-2:8.1.513-2.fc28.x86_64                110/126 
+  Running scriptlet: gzip-1.9-3.fc28.x86_64                             111/126 
+  Cleanup          : gzip-1.9-3.fc28.x86_64                             111/126 
+  Cleanup          : fedora-gpg-keys-28-5.noarch                        112/126 
+  Cleanup          : fedora-release-28-3.noarch                         113/126 
+  Cleanup          : python3-setuptools-39.2.0-6.fc28.noarch            114/126 
+  Cleanup          : libreport-filesystem-2.9.5-1.fc28.x86_64           115/126 
+  Cleanup          : zchunk-libs-0.9.15-1.fc28.x86_64                   116/126 
+  Cleanup          : libxcrypt-4.4.0-2.fc28.x86_64                      117/126 
+  Running scriptlet: nettle-3.4-2.fc28.x86_64                           118/126 
+  Cleanup          : nettle-3.4-2.fc28.x86_64                           118/126 
+  Running scriptlet: nettle-3.4-2.fc28.x86_64                           118/126 
+  Cleanup          : libseccomp-2.3.3-2.fc28.x86_64                     119/126 
+  Running scriptlet: libseccomp-2.3.3-2.fc28.x86_64                     119/126 
+  Cleanup          : libzstd-1.3.6-1.fc28.x86_64                        120/126 
+  Cleanup          : glibc-langpack-en-2.27-32.fc28.x86_64              121/126 
+  Cleanup          : glibc-2.27-32.fc28.x86_64                          122/126 
+  Cleanup          : glibc-minimal-langpack-2.27-32.fc28.x86_64         123/126 
+  Cleanup          : glibc-common-2.27-32.fc28.x86_64                   124/126 
+  Cleanup          : tzdata-2018g-1.fc28.noarch                         125/126 
+  Cleanup          : libgcc-8.2.1-5.fc28.x86_64                         126/126 
+  Running scriptlet: libgcc-8.2.1-5.fc28.x86_64                         126/126 
+  Running scriptlet: fedora-release-28-6.noarch                         126/126 
+  Running scriptlet: libgcc-8.2.1-5.fc28.x86_64                         126/126 
+  Running scriptlet: glibc-common-2.27-38.fc28.x86_64                   126/126 
+  Running scriptlet: glib2-2.56.4-1.fc28.x86_64                         126/126 
+  Running scriptlet: shared-mime-info-1.10-1.fc28.x86_64                126/126 
+  Running scriptlet: systemd-238-12.git07f8cd5.fc28.x86_64              126/126 
+  Verifying        : libmodulemd1-1.8.2-3.fc28.x86_64                     1/126 
+  Verifying        : shared-mime-info-1.10-1.fc28.x86_64                  2/126 
+  Verifying        : gnupg2-smime-2.2.12-1.fc28.x86_64                    3/126 
+  Verifying        : pinentry-1.1.0-2.fc28.x86_64                         4/126 
+  Verifying        : libsecret-0.18.6-1.fc28.x86_64                       5/126 
+  Verifying        : trousers-0.3.13-10.fc28.x86_64                       6/126 
+  Verifying        : trousers-lib-0.3.13-10.fc28.x86_64                   7/126 
+  Verifying        : libxkbcommon-0.8.2-1.fc28.x86_64                     8/126 
+  Verifying        : xkeyboard-config-2.24-2.fc28.noarch                  9/126 
+  Verifying        : audit-libs-2.8.5-2.fc28.x86_64                      10/126 
+  Verifying        : cryptsetup-libs-2.0.6-1.fc28.x86_64                 11/126 
+  Verifying        : curl-7.59.0-10.fc28.x86_64                          12/126 
+  Verifying        : libcurl-7.59.0-10.fc28.x86_64                       13/126 
+  Verifying        : libssh-0.8.6-2.fc28.x86_64                          14/126 
+  Verifying        : fedora-gpg-keys-28-7.noarch                         15/126 
+  Verifying        : fedora-repos-28-7.noarch                            16/126 
+  Verifying        : fedora-release-28-6.noarch                          17/126 
+  Verifying        : file-libs-5.33-10.fc28.x86_64                       18/126 
+  Verifying        : glib2-2.56.4-1.fc28.x86_64                          19/126 
+  Verifying        : glibc-2.27-38.fc28.x86_64                           20/126 
+  Verifying        : glibc-common-2.27-38.fc28.x86_64                    21/126 
+  Verifying        : glibc-minimal-langpack-2.27-38.fc28.x86_64          22/126 
+  Verifying        : glibc-langpack-en-2.27-38.fc28.x86_64               23/126 
+  Verifying        : gnupg2-2.2.12-1.fc28.x86_64                         24/126 
+  Verifying        : gnutls-3.6.5-3.fc28.x86_64                          25/126 
+  Verifying        : nettle-3.4.1-1.fc28.x86_64                          26/126 
+  Verifying        : gzip-1.9-4.fc28.x86_64                              27/126 
+  Verifying        : krb5-libs-1.16.1-25.fc28.x86_64                     28/126 
+  Verifying        : libarchive-3.3.3-6.fc28.x86_64                      29/126 
+  Verifying        : libassuan-2.5.2-1.fc28.x86_64                       30/126 
+  Verifying        : libgcc-8.3.1-2.fc28.x86_64                          31/126 
+  Verifying        : libgcrypt-1.8.4-1.fc28.x86_64                       32/126 
+  Verifying        : libgpg-error-1.33-1.fc28.x86_64                     33/126 
+  Verifying        : libidn2-2.1.1a-1.fc28.x86_64                        34/126 
+  Verifying        : libpcap-14:1.9.0-2.fc28.x86_64                      35/126 
+  Verifying        : libreport-filesystem-2.9.5-3.fc28.x86_64            36/126 
+  Verifying        : libseccomp-2.4.1-0.fc28.x86_64                      37/126 
+  Verifying        : libsolv-0.7.2-1.fc28.x86_64                         38/126 
+  Verifying        : libsss_idmap-1.16.4-2.fc28.x86_64                   39/126 
+  Verifying        : libsss_nss_idmap-1.16.4-2.fc28.x86_64               40/126 
+  Verifying        : libxcrypt-4.4.6-1.fc28.x86_64                       41/126 
+  Verifying        : libzstd-1.4.0-1.fc28.x86_64                         42/126 
+  Verifying        : nspr-4.21.0-1.fc28.x86_64                           43/126 
+  Verifying        : nss-3.43.0-1.fc28.x86_64                            44/126 
+  Verifying        : nss-softokn-3.43.0-1.fc28.x86_64                    45/126 
+  Verifying        : nss-util-3.43.0-1.fc28.x86_64                       46/126 
+  Verifying        : nss-softokn-freebl-3.43.0-1.fc28.x86_64             47/126 
+  Verifying        : nss-tools-3.43.0-1.fc28.x86_64                      48/126 
+  Verifying        : nss-sysinit-3.43.0-1.fc28.x86_64                    49/126 
+  Verifying        : openldap-2.4.46-5.fc28.x86_64                       50/126 
+  Verifying        : p11-kit-0.23.15-2.fc28.x86_64                       51/126 
+  Verifying        : p11-kit-trust-0.23.15-2.fc28.x86_64                 52/126 
+  Verifying        : pam-1.3.1-15.fc28.x86_64                            53/126 
+  Verifying        : pcre-8.43-1.fc28.x86_64                             54/126 
+  Verifying        : pcre2-10.33-2.fc28.x86_64                           55/126 
+  Verifying        : python3-3.6.8-3.fc28.x86_64                         56/126 
+  Verifying        : python3-libs-3.6.8-3.fc28.x86_64                    57/126 
+  Verifying        : python3-setuptools-40.8.0-1.fc28.noarch             58/126 
+  Verifying        : shadow-utils-2:4.6-4.fc28.x86_64                    59/126 
+  Verifying        : sqlite-libs-3.22.0-5.fc28.x86_64                    60/126 
+  Verifying        : sssd-client-1.16.4-2.fc28.x86_64                    61/126 
+  Verifying        : systemd-238-12.git07f8cd5.fc28.x86_64               62/126 
+  Verifying        : systemd-pam-238-12.git07f8cd5.fc28.x86_64           63/126 
+  Verifying        : systemd-libs-238-12.git07f8cd5.fc28.x86_64          64/126 
+  Verifying        : tzdata-2019a-1.fc28.noarch                          65/126 
+  Verifying        : vim-minimal-2:8.1.1137-1.fc28.x86_64                66/126 
+  Verifying        : zchunk-libs-1.1.2-2.fc28.x86_64                     67/126 
+  Verifying        : p11-kit-0.23.14-1.fc28.x86_64                       68/126 
+  Verifying        : p11-kit-trust-0.23.14-1.fc28.x86_64                 69/126 
+  Verifying        : audit-libs-2.8.4-2.fc28.x86_64                      70/126 
+  Verifying        : pam-1.3.1-1.fc28.x86_64                             71/126 
+  Verifying        : pcre-8.42-5.fc28.x86_64                             72/126 
+  Verifying        : pcre2-10.32-4.fc28.x86_64                           73/126 
+  Verifying        : python3-3.6.7-2.fc28.x86_64                         74/126 
+  Verifying        : cryptsetup-libs-2.0.5-1.fc28.x86_64                 75/126 
+  Verifying        : curl-7.59.0-9.fc28.x86_64                           76/126 
+  Verifying        : python3-libs-3.6.7-2.fc28.x86_64                    77/126 
+  Verifying        : python3-setuptools-39.2.0-6.fc28.noarch             78/126 
+  Verifying        : fedora-gpg-keys-28-5.noarch                         79/126 
+  Verifying        : fedora-release-28-3.noarch                          80/126 
+  Verifying        : fedora-repos-28-5.noarch                            81/126 
+  Verifying        : file-libs-5.33-9.fc28.x86_64                        82/126 
+  Verifying        : shadow-utils-2:4.6-1.fc28.x86_64                    83/126 
+  Verifying        : glib2-2.56.3-2.fc28.x86_64                          84/126 
+  Verifying        : glibc-2.27-32.fc28.x86_64                           85/126 
+  Verifying        : glibc-common-2.27-32.fc28.x86_64                    86/126 
+  Verifying        : glibc-langpack-en-2.27-32.fc28.x86_64               87/126 
+  Verifying        : glibc-minimal-langpack-2.27-32.fc28.x86_64          88/126 
+  Verifying        : sqlite-libs-3.22.0-4.fc28.x86_64                    89/126 
+  Verifying        : gnupg2-2.2.8-1.fc28.x86_64                          90/126 
+  Verifying        : gnutls-3.6.4-1.fc28.x86_64                          91/126 
+  Verifying        : sssd-client-1.16.3-2.fc28.x86_64                    92/126 
+  Verifying        : systemd-238-10.git438ac26.fc28.x86_64               93/126 
+  Verifying        : systemd-pam-238-10.git438ac26.fc28.x86_64           94/126 
+  Verifying        : gzip-1.9-3.fc28.x86_64                              95/126 
+  Verifying        : systemd-libs-238-10.git438ac26.fc28.x86_64          96/126 
+  Verifying        : tzdata-2018g-1.fc28.noarch                          97/126 
+  Verifying        : vim-minimal-2:8.1.513-2.fc28.x86_64                 98/126 
+  Verifying        : zchunk-libs-0.9.15-1.fc28.x86_64                    99/126 
+  Verifying        : krb5-libs-1.16.1-21.fc28.x86_64                    100/126 
+  Verifying        : libarchive-3.3.3-1.fc28.x86_64                     101/126 
+  Verifying        : libassuan-2.5.1-3.fc28.x86_64                      102/126 
+  Verifying        : libcurl-7.59.0-9.fc28.x86_64                       103/126 
+  Verifying        : libgcc-8.2.1-5.fc28.x86_64                         104/126 
+  Verifying        : libgcrypt-1.8.3-1.fc28.x86_64                      105/126 
+  Verifying        : libgpg-error-1.31-1.fc28.x86_64                    106/126 
+  Verifying        : libidn2-2.0.5-1.fc28.x86_64                        107/126 
+  Verifying        : libmodulemd-1.7.0-1.fc28.x86_64                    108/126 
+  Verifying        : libpcap-14:1.9.0-1.fc28.x86_64                     109/126 
+  Verifying        : libreport-filesystem-2.9.5-1.fc28.x86_64           110/126 
+  Verifying        : libseccomp-2.3.3-2.fc28.x86_64                     111/126 
+  Verifying        : libsolv-0.7.1-1.fc28.x86_64                        112/126 
+  Verifying        : libssh-0.8.5-1.fc28.x86_64                         113/126 
+  Verifying        : libsss_idmap-1.16.3-2.fc28.x86_64                  114/126 
+  Verifying        : libsss_nss_idmap-1.16.3-2.fc28.x86_64              115/126 
+  Verifying        : libxcrypt-4.4.0-2.fc28.x86_64                      116/126 
+  Verifying        : libzstd-1.3.6-1.fc28.x86_64                        117/126 
+  Verifying        : nettle-3.4-2.fc28.x86_64                           118/126 
+  Verifying        : nspr-4.20.0-1.fc28.x86_64                          119/126 
+  Verifying        : nss-3.39.0-1.0.fc28.x86_64                         120/126 
+  Verifying        : nss-softokn-3.39.0-1.0.fc28.x86_64                 121/126 
+  Verifying        : nss-softokn-freebl-3.39.0-1.0.fc28.x86_64          122/126 
+  Verifying        : nss-sysinit-3.39.0-1.0.fc28.x86_64                 123/126 
+  Verifying        : nss-tools-3.39.0-1.0.fc28.x86_64                   124/126 
+  Verifying        : nss-util-3.39.0-1.0.fc28.x86_64                    125/126 
+  Verifying        : openldap-2.4.46-4.fc28.x86_64                      126/126 
+
+Installed:
+  gnupg2-smime.x86_64 2.2.12-1.fc28      libxkbcommon.x86_64 0.8.2-1.fc28      
+  pinentry.x86_64 1.1.0-2.fc28           shared-mime-info.x86_64 1.10-1.fc28   
+  trousers.x86_64 0.3.13-10.fc28         libmodulemd1.x86_64 1.8.2-3.fc28      
+  libsecret.x86_64 0.18.6-1.fc28         trousers-lib.x86_64 0.3.13-10.fc28    
+  xkeyboard-config.noarch 2.24-2.fc28   
+
+Upgraded:
+  audit-libs.x86_64 2.8.5-2.fc28                                                
+  cryptsetup-libs.x86_64 2.0.6-1.fc28                                           
+  curl.x86_64 7.59.0-10.fc28                                                    
+  fedora-gpg-keys.noarch 28-7                                                   
+  fedora-release.noarch 28-6                                                    
+  fedora-repos.noarch 28-7                                                      
+  file-libs.x86_64 5.33-10.fc28                                                 
+  glib2.x86_64 2.56.4-1.fc28                                                    
+  glibc.x86_64 2.27-38.fc28                                                     
+  glibc-common.x86_64 2.27-38.fc28                                              
+  glibc-langpack-en.x86_64 2.27-38.fc28                                         
+  glibc-minimal-langpack.x86_64 2.27-38.fc28                                    
+  gnupg2.x86_64 2.2.12-1.fc28                                                   
+  gnutls.x86_64 3.6.5-3.fc28                                                    
+  gzip.x86_64 1.9-4.fc28                                                        
+  krb5-libs.x86_64 1.16.1-25.fc28                                               
+  libarchive.x86_64 3.3.3-6.fc28                                                
+  libassuan.x86_64 2.5.2-1.fc28                                                 
+  libcurl.x86_64 7.59.0-10.fc28                                                 
+  libgcc.x86_64 8.3.1-2.fc28                                                    
+  libgcrypt.x86_64 1.8.4-1.fc28                                                 
+  libgpg-error.x86_64 1.33-1.fc28                                               
+  libidn2.x86_64 2.1.1a-1.fc28                                                  
+  libpcap.x86_64 14:1.9.0-2.fc28                                                
+  libreport-filesystem.x86_64 2.9.5-3.fc28                                      
+  libseccomp.x86_64 2.4.1-0.fc28                                                
+  libsolv.x86_64 0.7.2-1.fc28                                                   
+  libssh.x86_64 0.8.6-2.fc28                                                    
+  libsss_idmap.x86_64 1.16.4-2.fc28                                             
+  libsss_nss_idmap.x86_64 1.16.4-2.fc28                                         
+  libxcrypt.x86_64 4.4.6-1.fc28                                                 
+  libzstd.x86_64 1.4.0-1.fc28                                                   
+  nettle.x86_64 3.4.1-1.fc28                                                    
+  nspr.x86_64 4.21.0-1.fc28                                                     
+  nss.x86_64 3.43.0-1.fc28                                                      
+  nss-softokn.x86_64 3.43.0-1.fc28                                              
+  nss-softokn-freebl.x86_64 3.43.0-1.fc28                                       
+  nss-sysinit.x86_64 3.43.0-1.fc28                                              
+  nss-tools.x86_64 3.43.0-1.fc28                                                
+  nss-util.x86_64 3.43.0-1.fc28                                                 
+  openldap.x86_64 2.4.46-5.fc28                                                 
+  p11-kit.x86_64 0.23.15-2.fc28                                                 
+  p11-kit-trust.x86_64 0.23.15-2.fc28                                           
+  pam.x86_64 1.3.1-15.fc28                                                      
+  pcre.x86_64 8.43-1.fc28                                                       
+  pcre2.x86_64 10.33-2.fc28                                                     
+  python3.x86_64 3.6.8-3.fc28                                                   
+  python3-libs.x86_64 3.6.8-3.fc28                                              
+  python3-setuptools.noarch 40.8.0-1.fc28                                       
+  shadow-utils.x86_64 2:4.6-4.fc28                                              
+  sqlite-libs.x86_64 3.22.0-5.fc28                                              
+  sssd-client.x86_64 1.16.4-2.fc28                                              
+  systemd.x86_64 238-12.git07f8cd5.fc28                                         
+  systemd-libs.x86_64 238-12.git07f8cd5.fc28                                    
+  systemd-pam.x86_64 238-12.git07f8cd5.fc28                                     
+  tzdata.noarch 2019a-1.fc28                                                    
+  vim-minimal.x86_64 2:8.1.1137-1.fc28                                          
+  zchunk-libs.x86_64 1.1.2-2.fc28                                               
+
+Complete!
+Last metadata expiration check: 0:02:16 ago on Wed Sep 25 17:34:33 2019.
+Package tar-2:1.30-3.fc28.x86_64 is already installed, skipping.
+Package openssl-1:1.1.0i-1.fc28.x86_64 is already installed, skipping.
+Package curl-7.59.0-10.fc28.x86_64 is already installed, skipping.
+Dependencies resolved.
+================================================================================
+ Package            Arch       Version                         Repository  Size
+================================================================================
+Installing:
+ crontabs           noarch     1.11-16.20150630git.fc28        fedora      24 k
+ socat              x86_64     1.7.3.2-6.fc28                  fedora     297 k
+Installing dependencies:
+ cronie-anacron     x86_64     1.5.1-9.fc28                    fedora      40 k
+Installing weak dependencies:
+ cronie             x86_64     1.5.1-9.fc28                    fedora     105 k
+
+Transaction Summary
+================================================================================
+Install  4 Packages
+
+Total download size: 466 k
+Installed size: 1.4 M
+Downloading Packages:
+(1/4): crontabs-1.11-16.20150630git.fc28.noarch 270 kB/s |  24 kB     00:00    
+(2/4): cronie-1.5.1-9.fc28.x86_64.rpm           894 kB/s | 105 kB     00:00    
+(3/4): socat-1.7.3.2-6.fc28.x86_64.rpm          2.1 MB/s | 297 kB     00:00    
+(4/4): cronie-anacron-1.5.1-9.fc28.x86_64.rpm   852 kB/s |  40 kB     00:00    
+--------------------------------------------------------------------------------
+Total                                           564 kB/s | 466 kB     00:00     
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                        1/1 
+  Installing       : cronie-1.5.1-9.fc28.x86_64                             1/4 
+  Running scriptlet: cronie-1.5.1-9.fc28.x86_64                             1/4 
+  Installing       : crontabs-1.11-16.20150630git.fc28.noarch               2/4 
+  Installing       : cronie-anacron-1.5.1-9.fc28.x86_64                     3/4 
+  Running scriptlet: cronie-anacron-1.5.1-9.fc28.x86_64                     3/4 
+  Installing       : socat-1.7.3.2-6.fc28.x86_64                            4/4 
+  Running scriptlet: socat-1.7.3.2-6.fc28.x86_64                            4/4 
+  Verifying        : crontabs-1.11-16.20150630git.fc28.noarch               1/4 
+  Verifying        : socat-1.7.3.2-6.fc28.x86_64                            2/4 
+  Verifying        : cronie-1.5.1-9.fc28.x86_64                             3/4 
+  Verifying        : cronie-anacron-1.5.1-9.fc28.x86_64                     4/4 
+
+Installed:
+  crontabs.noarch 1.11-16.20150630git.fc28  socat.x86_64 1.7.3.2-6.fc28        
+  cronie.x86_64 1.5.1-9.fc28                cronie-anacron.x86_64 1.5.1-9.fc28 
+
+Complete!
+ ---> 086676d89086
+Removing intermediate container 3ca0ec604c71
+Successfully built 086676d89086
+Successfully tagged myfedora:28
+Wed, 25 Sep 2019 17:37:10 UTC
+Testing branch: master
+Progress: 0/1/21
+==Running le_test_dependencies please wait
+no crontab for root
+no crontab for root
+curl installed. [PASS]
+crontab installed. [PASS]
+openssl installed. [PASS]
+socat installed. [PASS]
+------------------------------------------
+Progress: 0/2/21
+==Running le_test_install please wait
+./acme.sh install [PASS]
+/root/.acme.sh/acme.sh exists. [PASS]
+_contains '12 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
+/root/.acme.sh/acme.sh uninstall  > /dev/null [PASS]
+------------------------------------------
+Progress: 0/3/21
+==Running le_test_uninstall please wait
+./acme.sh install [PASS]
+/root/.acme.sh/acme.sh uninstall [PASS]
+/root/.acme.sh/acme.sh no exists. [PASS]
+equals  [PASS]
+------------------------------------------
+Progress: 0/4/21
+==Running le_test_installtodir please wait
+./acme.sh install [PASS]
+/root/myle/acme.sh exists. [PASS]
+_contains '15 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
+/root/myle/acme.sh uninstall [PASS]
+------------------------------------------
+Progress: 0/5/21
+==Running le_test_uninstalltodir please wait
+./acme.sh install [PASS]
+/root/myle/acme.sh uninstall [PASS]
+/root/myle/acme.sh no exists. [PASS]
+equals  [PASS]
+------------------------------------------
+Progress: 0/6/21
+==Running le_test_install_config_home please wait
+./acme.sh --install --config-home /root/etc/acme [PASS]
+/root/.acme.sh/acme.sh exists. [PASS]
+_contains '16 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
+/root/etc/acme/account.conf exists. [PASS]
+/root/.acme.sh/account.conf no exists. [PASS]
+/root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null [PASS]
+/root/.acme.sh/acme.sh --uninstall --config-home /root/etc/acme > /dev/null [PASS]
+/root/etc/acme/account.conf exists. [PASS]
+/root/.acme.sh/account.conf no exists. [PASS]
+------------------------------------------
+Progress: 0/7/21
+==Running le_test_standandalone_renew please wait
+/root/.acme.sh/acme.sh issue no testdocker.acme.sh [PASS]
+FORCE=1 /root/.acme.sh/acme.sh renew testdocker.acme.sh [PASS]
+------------------------------------------
+Progress: 0/8/21
+==Running le_test_standandalone_renew_v2 please wait
+/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
+/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force [PASS]
+/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
+------------------------------------------
+Progress: 0/9/21
+==Running le_test_standandalone_renew_localaddress_v2 please wait
+/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --local-address 0.0.0.0 --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
+/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force [PASS]
+/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
+------------------------------------------
+Progress: 0/10/21
+==Running le_test_standandalone_listen_v4_v2 please wait
+/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --listen-v4 --cert-file '/acmetest/certs/domain.cer' --key-file '/acmetest/certs/domain.key'  --ca-file '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchain-file  '/acmetest/certs/full.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
+/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force [PASS]
+/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
+------------------------------------------
+Progress: 0/11/21
+==Running le_test_standandalone_listen_v6_v2 please wait
+Skipped by TEST_IPV6
+------------------------------------------
+Progress: 0/12/21
+==Running le_test_standandalone_deactivate_v2 please wait
+/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
+/root/.acme.sh/acme.sh --deactivate -d testdocker.acme.sh [PASS]
+------------------------------------------
+Progress: 0/13/21
+==Running le_test_standandalone please wait
+/root/.acme.sh/acme.sh issue no testdocker.acme.sh [PASS]
+/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+------------------------------------------
+Progress: 0/14/21
+==Running le_test_standandalone_SAN please wait
+/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh" [PASS]
+/root/.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+------------------------------------------
+Progress: 0/15/21
+==Running le_test_standandalone_ECDSA_256 please wait
+/root/.acme.sh/acme.sh issue no testdocker.acme.sh no ec-256 [PASS]
+/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+------------------------------------------
+Progress: 0/16/21
+==Running le_test_standandalone_ECDSA_256_renew please wait
+/root/.acme.sh/acme.sh --issue --standalone -d testdocker.acme.sh  -k ec-256 [PASS]
+/root/.acme.sh/acme.sh --renew -d testdocker.acme.sh --force --ecc [PASS]
+------------------------------------------
+Progress: 0/17/21
+==Running le_test_standandalone_ECDSA_256_SAN_renew please wait
+/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh" ec-256 [PASS]
+/root/.acme.sh/acme.sh --renew -d "testdocker.acme.sh" --force --ecc [PASS]
+------------------------------------------
+Progress: 0/18/21
+==Running le_test_standandalone_ECDSA_256_SAN_renew_v2 please wait
+/root/.acme.sh/acme.sh --issue -d "testdocker.acme.sh" -d "testdocker2.acme.sh" --standalone --keylength ec-256 --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
+'/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh_ecc/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
+/root/.acme.sh/acme.sh --renew --ecc -d "testdocker.acme.sh" --force [PASS]
+/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.key' equals '/acmetest/certs/domain.key' [PASS]
+'/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
+'/root/.acme.sh/testdocker.acme.sh_ecc/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
+------------------------------------------
+Progress: 0/19/21
+==Running le_test_standandalone_ECDSA_384 please wait
+/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" no ec-384 [PASS]
+/root/.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+------------------------------------------
+Progress: 0/20/21
+==Running le_test_standandalone_renew_idn_v2 please wait
+Skipped by TEST_IDN
+------------------------------------------
+Progress: 0/21/21
+==Running le_test_dnsapi please wait
+The test domain Test_CF_Domain is not defined, skip:ClourFlare_api
+The test domain Test_CX_Domain is not defined, skip:CloudXNS.com_api
+The test domain Test_DP_Domain is not defined, skip:Dnspod.cn_api
+Testing dns_gd Godaddy_api
+TestingDomain='testgd.club'
+/root/.acme.sh/acme.sh --issue -d "testgd.club" --dns dns_gd --dnssleep ""  [PASS]
+/root/.acme.sh/testgd.club/testgd.club.cer is cert ? 'testgd.club' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/testgd.club/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/acme.sh --deactivate -d "testgd.club" >/dev/null 2>&1 [PASS]
+The test domain Test_AWS_Domain is not defined, skip:Amazon_Route53_api
+Testing dns_lua luadns.com_api
+TestingDomain='luadns.acme.sh'
+/root/.acme.sh/acme.sh --issue -d "luadns.acme.sh" --dns dns_lua --dnssleep ""  [PASS]
+/root/.acme.sh/luadns.acme.sh/luadns.acme.sh.cer is cert ? 'luadns.acme.sh' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/luadns.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/acme.sh --deactivate -d "luadns.acme.sh" >/dev/null 2>&1 [PASS]
+ME_Key is not defined, skip:dnsmadeeasy.com_api
+NSUPDATE_KEY is not defined, skip:nsupdate_api
+OVH_AK is not defined, skip:OVH.com_api
+PDNS_Token is not defined, skip:powerdns.com_api
+The test domain Test_ALI_Domain is not defined, skip:aliyun_api
+Testing dns_gandi_livedns gandi_livedns
+TestingDomain='testgandiapi.pw'
+/root/.acme.sh/acme.sh --issue -d "testgandiapi.pw" --dns dns_gandi_livedns --dnssleep ""  [PASS]
+/root/.acme.sh/testgandiapi.pw/testgandiapi.pw.cer is cert ? 'testgandiapi.pw' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/testgandiapi.pw/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/acme.sh --deactivate -d "testgandiapi.pw" >/dev/null 2>&1 [PASS]
+The test domain Test_DYNU_Domain is not defined, skip:dynu_api
+Testing dns_he dns_he_net
+TestingDomain='he.acme.sh'
+/root/.acme.sh/acme.sh --issue -d "he.acme.sh" --dns dns_he --dnssleep ""  [PASS]
+/root/.acme.sh/he.acme.sh/he.acme.sh.cer is cert ? 'he.acme.sh' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/he.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/acme.sh --deactivate -d "he.acme.sh" >/dev/null 2>&1 [PASS]
+Testing dns_zonomi dns_zonomi
+TestingDomain='zonomi.acme.sh'
+/root/.acme.sh/acme.sh --issue -d "zonomi.acme.sh" --dns dns_zonomi --dnssleep ""  [PASS]
+/root/.acme.sh/zonomi.acme.sh/zonomi.acme.sh.cer is cert ? 'zonomi.acme.sh' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/zonomi.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/acme.sh --deactivate -d "zonomi.acme.sh" >/dev/null 2>&1 [PASS]
+Testing dns_namecom name.com
+TestingDomain='952700.xyz'
+/root/.acme.sh/acme.sh --issue -d "952700.xyz" --dns dns_namecom --dnssleep ""  [PASS]
+/root/.acme.sh/952700.xyz/952700.xyz.cer is cert ? '952700.xyz' 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/952700.xyz/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
+/root/.acme.sh/acme.sh --deactivate -d "952700.xyz" >/dev/null 2>&1 [PASS]
+------------------------------------------
