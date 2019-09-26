@@ -2,7 +2,7 @@
 |ubuntu:18.04| ![](https://neilpang.github.io/acmetest/status/ubuntu-18.04.svg?1569425377)| Wed, 25 Sep 2019 15:29:37 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/ubuntu-18.04.out) |
 |ubuntu:16.04| ![](https://neilpang.github.io/acmetest/status/ubuntu-16.04.svg?1569425847)| Wed, 25 Sep 2019 15:37:27 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/ubuntu-16.04.out) |
 |ubuntu:14.04| ![](https://neilpang.github.io/acmetest/status/ubuntu-14.04.svg?1569426256)| Wed, 25 Sep 2019 15:44:16 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/ubuntu-14.04.out) |
-|debian:latest| ![](https://neilpang.github.io/acmetest/status/debian-latest.svg?1569460797)| Thu, 26 Sep 2019 01:19:57 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-latest.out) |
+|debian:latest| ![](https://neilpang.github.io/acmetest/status/debian-latest.svg?1569461210)| Thu, 26 Sep 2019 01:26:50 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-latest.out) |
 |debian:9| ![](https://neilpang.github.io/acmetest/status/debian-9.svg?1569427583)| Wed, 25 Sep 2019 16:06:23 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-9.out) |
 |debian:8| ![](https://neilpang.github.io/acmetest/status/debian-8.svg?1569428451)| Wed, 25 Sep 2019 16:20:51 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-8.out) |
 |debian:7| ![](https://neilpang.github.io/acmetest/status/debian-7.svg?1569429344)| Wed, 25 Sep 2019 16:35:44 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-7.out) |
