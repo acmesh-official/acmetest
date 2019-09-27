@@ -40,4 +40,4 @@
 |oraclelinux:6| ![](https://neilpang.github.io/acmetest/status/oraclelinux-6.svg?1569586775)| Fri, 27 Sep 2019 12:19:35 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/oraclelinux-6.out) |
 |kalilinux/kali-linux-docker| ![](https://neilpang.github.io/acmetest/status/kalilinux-kali-linux-docker.svg?1569587591)| Fri, 27 Sep 2019 12:33:11 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/kalilinux-kali-linux-docker.out) |
 |base/archlinux| ![](https://neilpang.github.io/acmetest/status/base-archlinux.svg?1569588045)| Fri, 27 Sep 2019 12:40:45 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/base-archlinux.out) |
-|mageia| ![](https://neilpang.github.io/acmetest/status/mageia.svg?1569588513)| Fri, 27 Sep 2019 12:48:33 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/mageia.out) |
+|mageia| ![](https://neilpang.github.io/acmetest/status/mageia.svg?1569588961)| Fri, 27 Sep 2019 12:56:01 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/mageia.out) |
