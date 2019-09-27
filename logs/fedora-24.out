@@ -6,7 +6,7 @@ Step 2/2 : RUN yum  -y update     2>&1 && yum  -y install    tar openssl crontab
  ---> 06693640f734
 Successfully built 06693640f734
 Successfully tagged myfedora:24
-Thu, 26 Sep 2019 01:42:45 UTC
+Fri, 27 Sep 2019 04:51:59 UTC
 Testing branch: master
 Progress: 0/1/21
 ==Running le_test_dependencies please wait
@@ -19,29 +19,29 @@ socat installed. [PASS]
 ------------------------------------------
 Progress: 0/2/21
 ==Running le_test_install please wait
-./acme.sh install [PASS]
+./acme.sh --install [PASS]
 /root/.acme.sh/acme.sh exists. [PASS]
-_contains '47 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
-/root/.acme.sh/acme.sh uninstall  > /dev/null [PASS]
+_contains '2 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
+/root/.acme.sh/acme.sh --uninstall  > /dev/null [PASS]
 ------------------------------------------
 Progress: 0/3/21
 ==Running le_test_uninstall please wait
-./acme.sh install [PASS]
-/root/.acme.sh/acme.sh uninstall [PASS]
+./acme.sh --install [PASS]
+/root/.acme.sh/acme.sh --uninstall [PASS]
 /root/.acme.sh/acme.sh no exists. [PASS]
 equals  [PASS]
 ------------------------------------------
 Progress: 0/4/21
 ==Running le_test_installtodir please wait
-./acme.sh install [PASS]
+./acme.sh --install [PASS]
 /root/myle/acme.sh exists. [PASS]
-_contains '49 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
-/root/myle/acme.sh uninstall [PASS]
+_contains '5 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
+/root/myle/acme.sh --uninstall [PASS]
 ------------------------------------------
 Progress: 0/5/21
 ==Running le_test_uninstalltodir please wait
-./acme.sh install [PASS]
-/root/myle/acme.sh uninstall [PASS]
+./acme.sh --install [PASS]
+/root/myle/acme.sh --uninstall [PASS]
 /root/myle/acme.sh no exists. [PASS]
 equals  [PASS]
 ------------------------------------------
@@ -49,7 +49,7 @@ Progress: 0/6/21
 ==Running le_test_install_config_home please wait
 ./acme.sh --install --config-home /root/etc/acme [PASS]
 /root/.acme.sh/acme.sh exists. [PASS]
-_contains '51 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
+_contains '6 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
 /root/etc/acme/account.conf exists. [PASS]
 /root/.acme.sh/account.conf no exists. [PASS]
 /root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null [PASS]
@@ -59,7 +59,7 @@ _contains '51 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --
 ------------------------------------------
 Progress: 0/7/21
 ==Running le_test_standandalone_renew please wait
-/root/.acme.sh/acme.sh issue no testdocker.acme.sh [FAIL] 
+/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone [FAIL] 
 Run Failed
 ------------------------------------------
 Progress: 1/8/21
@@ -88,17 +88,17 @@ Run Failed
 ------------------------------------------
 Progress: 5/13/21
 ==Running le_test_standandalone please wait
-/root/.acme.sh/acme.sh issue no testdocker.acme.sh [FAIL] 
+/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone [FAIL] 
 Run Failed
 ------------------------------------------
 Progress: 6/14/21
 ==Running le_test_standandalone_SAN please wait
-/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh" [FAIL] 
+/root/.acme.sh/acme.sh --issue -d "testdocker.acme.sh" -d "testdocker2.acme.sh" --standalone [FAIL] 
 Run Failed
 ------------------------------------------
 Progress: 7/15/21
 ==Running le_test_standandalone_ECDSA_256 please wait
-/root/.acme.sh/acme.sh issue no testdocker.acme.sh no ec-256 [FAIL] 
+/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone -k ec-256 [FAIL] 
 Run Failed
 ------------------------------------------
 Progress: 8/16/21
@@ -108,7 +108,7 @@ Run Failed
 ------------------------------------------
 Progress: 9/17/21
 ==Running le_test_standandalone_ECDSA_256_SAN_renew please wait
-/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" "testdocker2.acme.sh" ec-256 [FAIL] 
+/root/.acme.sh/acme.sh --issue --standalone -d "testdocker.acme.sh" -d "testdocker2.acme.sh" -k ec-256 [FAIL] 
 Run Failed
 ------------------------------------------
 Progress: 10/18/21
@@ -118,7 +118,7 @@ Run Failed
 ------------------------------------------
 Progress: 11/19/21
 ==Running le_test_standandalone_ECDSA_384 please wait
-/root/.acme.sh/acme.sh issue no "testdocker.acme.sh" no ec-384 [FAIL] 
+/root/.acme.sh/acme.sh --issue --standalone -d "testdocker.acme.sh" -k ec-384 [FAIL] 
 Run Failed
 ------------------------------------------
 Progress: 12/20/21
