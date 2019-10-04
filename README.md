@@ -17,7 +17,7 @@ Unit test project for **acme.sh** project https://github.com/Neilpang/acme.sh
 |ubuntu:16.04| ![](https://neilpang.github.io/acmetest/status/ubuntu-16.04.svg?1570155727)| Fri, 04 Oct 2019 02:22:07 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/ubuntu-16.04.out) |
 |ubuntu:14.04| ![](https://neilpang.github.io/acmetest/status/ubuntu-14.04.svg?1570156580)| Fri, 04 Oct 2019 02:36:20 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/ubuntu-14.04.out) |
 |debian:latest| ![](https://neilpang.github.io/acmetest/status/debian-latest.svg?1570181302)| Fri, 04 Oct 2019 09:28:22 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-latest.out) |
-|debian:10| ![](https://neilpang.github.io/acmetest/status/debian-10.svg?1570158167)| Fri, 04 Oct 2019 03:02:47 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-10.out) |
+|debian:10| ![](https://neilpang.github.io/acmetest/status/debian-10.svg?1570181700)| Fri, 04 Oct 2019 09:35:00 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-10.out) |
 |debian:9| ![](https://neilpang.github.io/acmetest/status/debian-9.svg?1570158615)| Fri, 04 Oct 2019 03:10:15 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-9.out) |
 |debian:8| ![](https://neilpang.github.io/acmetest/status/debian-8.svg?1570159041)| Fri, 04 Oct 2019 03:17:21 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-8.out) |
 |debian:7| ![](https://neilpang.github.io/acmetest/status/debian-7.svg?1570159903)| Fri, 04 Oct 2019 03:31:43 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-7.out) |
