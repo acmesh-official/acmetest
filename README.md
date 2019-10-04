@@ -41,6 +41,7 @@ Unit test project for **acme.sh** project https://github.com/Neilpang/acme.sh
 |alpine:latest| ![](https://neilpang.github.io/acmetest/status/alpine-latest.svg?1570171204)| Fri, 04 Oct 2019 06:40:04 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-latest.out) |
 |alpine:3.10| ![](https://neilpang.github.io/acmetest/status/alpine-3.10.svg?1570171618)| Fri, 04 Oct 2019 06:46:58 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-3.10.out) |
 |alpine:3.9| ![](https://neilpang.github.io/acmetest/status/alpine-3.9.svg?1570172450)| Fri, 04 Oct 2019 07:00:50 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-3.9.out) |
+|alpine:3.8| ![](https://neilpang.github.io/acmetest/status/alpine-3.8.svg?1570172931)| Fri, 04 Oct 2019 07:08:51 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-3.8.out) |
 
 # How to run tests
 

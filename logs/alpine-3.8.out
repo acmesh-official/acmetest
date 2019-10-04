@@ -1,43 +1,12 @@
 Sending build context to Docker daemon  2.048kB
 Step 1/2 : FROM alpine:3.8
-3.8: Pulling from library/alpine
-c87736221ed0: Pulling fs layer
-c87736221ed0: Verifying Checksum
-c87736221ed0: Download complete
-c87736221ed0: Pull complete
-Digest: sha256:04696b491e0cc3c58a75bace8941c14c924b9f313b03ce5029ebbc040ed9dcd9
-Status: Downloaded newer image for alpine:3.8
  ---> dac705114996
 Step 2/2 : RUN apk update -f 2>&1 && apk --no-cache add -f openssl curl socat  2>&1
- ---> Running in 6ac29bbc6b36
-fetch http://dl-cdn.alpinelinux.org/alpine/v3.8/main/x86_64/APKINDEX.tar.gz
-fetch http://dl-cdn.alpinelinux.org/alpine/v3.8/community/x86_64/APKINDEX.tar.gz
-v3.8.4-196-ga88d7a223d [http://dl-cdn.alpinelinux.org/alpine/v3.8/main]
-v3.8.4-180-g6a33a2fb5f [http://dl-cdn.alpinelinux.org/alpine/v3.8/community]
-OK: 9565 distinct packages available
-fetch http://dl-cdn.alpinelinux.org/alpine/v3.8/main/x86_64/APKINDEX.tar.gz
-fetch http://dl-cdn.alpinelinux.org/alpine/v3.8/community/x86_64/APKINDEX.tar.gz
-(1/13) Installing ca-certificates (20190108-r0)
-(2/13) Installing nghttp2-libs (1.39.2-r0)
-(3/13) Installing libssh2 (1.8.2-r0)
-(4/13) Installing libcurl (7.61.1-r3)
-(5/13) Installing curl (7.61.1-r3)
-(6/13) Installing libcrypto1.0 (1.0.2t-r0)
-(7/13) Installing libssl1.0 (1.0.2t-r0)
-(8/13) Installing openssl (1.0.2t-r0)
-(9/13) Installing ncurses-terminfo-base (6.1_p20180818-r1)
-(10/13) Installing ncurses-terminfo (6.1_p20180818-r1)
-(11/13) Installing ncurses-libs (6.1_p20180818-r1)
-(12/13) Installing readline (7.0.003-r0)
-(13/13) Installing socat (1.7.3.2-r4)
-Executing busybox-1.28.4-r3.trigger
-Executing ca-certificates-20190108-r0.trigger
-OK: 18 MiB in 26 packages
+ ---> Using cache
  ---> 38f7ae04ed75
-Removing intermediate container 6ac29bbc6b36
 Successfully built 38f7ae04ed75
 Successfully tagged myalpine:3.8
-Fri, 27 Sep 2019 10:49:36 UTC
+Fri, 04 Oct 2019 07:00:54 UTC
 Testing branch: master
 Progress: 0/1/21
 ==Running le_test_dependencies please wait
@@ -50,7 +19,7 @@ Progress: 0/2/21
 ==Running le_test_install please wait
 ./acme.sh --install [PASS]
 /root/.acme.sh/acme.sh exists. [PASS]
-_contains '37 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
+_contains '56 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
 /root/.acme.sh/acme.sh --uninstall  > /dev/null [PASS]
 ------------------------------------------
 Progress: 0/3/21
@@ -64,7 +33,7 @@ Progress: 0/4/21
 ==Running le_test_installtodir please wait
 ./acme.sh --install [PASS]
 /root/myle/acme.sh exists. [PASS]
-_contains '38 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
+_contains '56 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
 /root/myle/acme.sh --uninstall [PASS]
 ------------------------------------------
 Progress: 0/5/21
@@ -78,7 +47,7 @@ Progress: 0/6/21
 ==Running le_test_install_config_home please wait
 ./acme.sh --install --config-home /root/etc/acme [PASS]
 /root/.acme.sh/acme.sh exists. [PASS]
-_contains '38 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
+_contains '56 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
 /root/etc/acme/account.conf exists. [PASS]
 /root/.acme.sh/account.conf no exists. [PASS]
 /root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null [PASS]
