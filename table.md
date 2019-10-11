@@ -22,3 +22,4 @@
 |fedora:22| ![](https://neilpang.github.io/acmetest/status/fedora-22.svg?1570770969)| Fri, 11 Oct 2019 05:16:09 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/fedora-22.out) |
 |fedora:21| ![](https://neilpang.github.io/acmetest/status/fedora-21.svg?1570771430)| Fri, 11 Oct 2019 05:23:50 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/fedora-21.out) |
 |opensuse:latest| ![](https://neilpang.github.io/acmetest/status/opensuse-latest.svg?1570771838)| Fri, 11 Oct 2019 05:30:38 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/opensuse-latest.out) |
+|opensuse:42.2| ![](https://neilpang.github.io/acmetest/status/opensuse-42.2.svg?1570772250)| Fri, 11 Oct 2019 05:37:30 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/opensuse-42.2.out) |
