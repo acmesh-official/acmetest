@@ -30,6 +30,7 @@ Unit test project for **acme.sh** project https://github.com/Neilpang/acme.sh
 |fedora:28| ![](https://neilpang.github.io/acmetest/status/fedora-28.svg?1571372611)| Fri, 18 Oct 2019 04:23:31 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/fedora-28.out) |
 |fedora:27| ![](https://neilpang.github.io/acmetest/status/fedora-27.svg?1571373076)| Fri, 18 Oct 2019 04:31:16 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/fedora-27.out) |
 |fedora:26| ![](https://neilpang.github.io/acmetest/status/fedora-26.svg?1571373538)| Fri, 18 Oct 2019 04:38:58 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/fedora-26.out) |
+|fedora:25| ![](https://neilpang.github.io/acmetest/status/fedora-25.svg?1571373985)| Fri, 18 Oct 2019 04:46:25 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/fedora-25.out) |
 
 # How to run tests
 
