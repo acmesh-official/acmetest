@@ -11,7 +11,7 @@ Unit test project for **acme.sh** project https://github.com/Neilpang/acme.sh
 |openbsd| ![](https://neilpang.github.io/acmetest/status/openbsd.svg?1571361392)| Fri, 18 Oct 2019 01:16:32 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/openbsd.out) |
 |pfsense| ![](https://neilpang.github.io/acmetest/status/pfsense.svg?1571361885)| Fri, 18 Oct 2019 01:24:45 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/pfsense.out) |
 |solaris| ![](https://neilpang.github.io/acmetest/status/solaris.svg?1571362402)| Fri, 18 Oct 2019 01:33:22 GMT| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/solaris.out) |
-|windows-cygwin| ![](https://neilpang.github.io/acmetest/status/windows-cygwin.svg?1570759134)| Fri, 11 Oct 2019 01:58:54 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/windows-cygwin.out) |
+|windows-cygwin| ![](https://neilpang.github.io/acmetest/status/windows-cygwin.svg?1571363651)| Fri, 18 Oct 2019 01:54:11 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/windows-cygwin.out) |
 |ubuntu:latest| ![](https://neilpang.github.io/acmetest/status/ubuntu-latest.svg?1570759589)| Fri, 11 Oct 2019 02:06:29 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/ubuntu-latest.out) |
 |ubuntu:18.04| ![](https://neilpang.github.io/acmetest/status/ubuntu-18.04.svg?1570760421)| Fri, 11 Oct 2019 02:20:21 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/ubuntu-18.04.out) |
 |ubuntu:16.04| ![](https://neilpang.github.io/acmetest/status/ubuntu-16.04.svg?1570760855)| Fri, 11 Oct 2019 02:27:35 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/ubuntu-16.04.out) |
