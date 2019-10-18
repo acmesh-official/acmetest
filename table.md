@@ -29,4 +29,4 @@
 |alpine:3.9| ![](https://neilpang.github.io/acmetest/status/alpine-3.9.svg?1571379355)| Fri, 18 Oct 2019 06:15:55 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-3.9.out) |
 |alpine:3.8| ![](https://neilpang.github.io/acmetest/status/alpine-3.8.svg?1571379782)| Fri, 18 Oct 2019 06:23:02 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-3.8.out) |
 |alpine:3.7| ![](https://neilpang.github.io/acmetest/status/alpine-3.7.svg?1571380207)| Fri, 18 Oct 2019 06:30:07 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-3.7.out) |
-|alpine:3.6| ![](https://neilpang.github.io/acmetest/status/alpine-3.6.svg?1571380623)| Fri, 18 Oct 2019 06:37:03 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-3.6.out) |
+|alpine:3.6| ![](https://neilpang.github.io/acmetest/status/alpine-3.6.svg?1571381019)| Fri, 18 Oct 2019 06:43:39 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-3.6.out) |
