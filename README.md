@@ -55,6 +55,7 @@ Unit test project for **acme.sh** project https://github.com/Neilpang/acme.sh
 |kalilinux/kali-linux-docker| ![](https://neilpang.github.io/acmetest/status/kalilinux-kali-linux-docker.svg?1572103566)| Sat, 26 Oct 2019 15:26:06 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/kalilinux-kali-linux-docker.out) |
 |base/archlinux| ![](https://neilpang.github.io/acmetest/status/base-archlinux.svg?1572106814)| Sat, 26 Oct 2019 16:20:14 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/base-archlinux.out) |
 |mageia| ![](https://neilpang.github.io/acmetest/status/mageia.svg?1572110048)| Sat, 26 Oct 2019 17:14:08 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/mageia.out) |
+|gentoo/stage3-amd64| ![](https://neilpang.github.io/acmetest/status/gentoo-stage3-amd64.svg?1572110172)| Sat, 26 Oct 2019 17:16:12 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/gentoo-stage3-amd64.out) |
 
 # How to run tests
 
