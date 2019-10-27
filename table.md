@@ -7,7 +7,7 @@
 |debian:9| ![](https://neilpang.github.io/acmetest/status/debian-9.svg?1572132903)| Sat, 26 Oct 2019 23:35:03 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-9.out) |
 |debian:8| ![](https://neilpang.github.io/acmetest/status/debian-8.svg?1572136158)| Sun, 27 Oct 2019 00:29:18 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-8.out) |
 |debian:7| ![](https://neilpang.github.io/acmetest/status/debian-7.svg?1572139389)| Sun, 27 Oct 2019 01:23:09 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-7.out) |
-|centos:latest| ![](https://neilpang.github.io/acmetest/status/centos-latest.svg?1572005830)| Fri, 25 Oct 2019 12:17:10 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/centos-latest.out) |
+|centos:latest| ![](https://neilpang.github.io/acmetest/status/centos-latest.svg?1572141033)| Sun, 27 Oct 2019 01:50:33 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/centos-latest.out) |
 |centos:7| ![](https://neilpang.github.io/acmetest/status/centos-7.svg?1572009112)| Fri, 25 Oct 2019 13:11:52 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/centos-7.out) |
 |centos:6| ![](https://neilpang.github.io/acmetest/status/centos-6.svg?1572012425)| Fri, 25 Oct 2019 14:07:05 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/centos-6.out) |
 |fedora:latest| ![](https://neilpang.github.io/acmetest/status/fedora-latest.svg?1572015688)| Fri, 25 Oct 2019 15:01:28 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/fedora-latest.out) |
