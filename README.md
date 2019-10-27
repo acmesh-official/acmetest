@@ -19,7 +19,7 @@ Unit test project for **acme.sh** project https://github.com/Neilpang/acme.sh
 |debian:latest| ![](https://neilpang.github.io/acmetest/status/debian-latest.svg?1572126387)| Sat, 26 Oct 2019 21:46:27 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-latest.out) |
 |debian:10| ![](https://neilpang.github.io/acmetest/status/debian-10.svg?1572129623)| Sat, 26 Oct 2019 22:40:23 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-10.out) |
 |debian:9| ![](https://neilpang.github.io/acmetest/status/debian-9.svg?1572132903)| Sat, 26 Oct 2019 23:35:03 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-9.out) |
-|debian:8| ![](https://neilpang.github.io/acmetest/status/debian-8.svg?1572134530)| Sun, 27 Oct 2019 00:02:10 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-8.out) |
+|debian:8| ![](https://neilpang.github.io/acmetest/status/debian-8.svg?1572136158)| Sun, 27 Oct 2019 00:29:18 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-8.out) |
 |debian:7| ![](https://neilpang.github.io/acmetest/status/debian-7.svg?1572002493)| Fri, 25 Oct 2019 11:21:33 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-7.out) |
 |centos:latest| ![](https://neilpang.github.io/acmetest/status/centos-latest.svg?1572005830)| Fri, 25 Oct 2019 12:17:10 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/centos-latest.out) |
 |centos:7| ![](https://neilpang.github.io/acmetest/status/centos-7.svg?1572009112)| Fri, 25 Oct 2019 13:11:52 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/centos-7.out) |
