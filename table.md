@@ -18,7 +18,7 @@
 |fedora:26| ![](https://neilpang.github.io/acmetest/status/fedora-26.svg?1572168866)| Sun, 27 Oct 2019 09:34:26 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/fedora-26.out) |
 |fedora:25| ![](https://neilpang.github.io/acmetest/status/fedora-25.svg?1572172117)| Sun, 27 Oct 2019 10:28:37 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/fedora-25.out) |
 |fedora:24| ![](https://neilpang.github.io/acmetest/status/fedora-24.svg?1572172238)| Sun, 27 Oct 2019 10:30:38 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/fedora-24.out) |
-|fedora:23| ![](https://neilpang.github.io/acmetest/status/fedora-23.svg?1572173892)| Sun, 27 Oct 2019 10:58:12 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/fedora-23.out) |
+|fedora:23| ![](https://neilpang.github.io/acmetest/status/fedora-23.svg?1572175545)| Sun, 27 Oct 2019 11:25:45 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/fedora-23.out) |
 |fedora:22| ![](https://neilpang.github.io/acmetest/status/fedora-22.svg?1572041907)| Fri, 25 Oct 2019 22:18:27 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/fedora-22.out) |
 |fedora:21| ![](https://neilpang.github.io/acmetest/status/fedora-21.svg?1572045193)| Fri, 25 Oct 2019 23:13:13 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/fedora-21.out) |
 |opensuse:latest| ![](https://neilpang.github.io/acmetest/status/opensuse-latest.svg?1572048416)| Sat, 26 Oct 2019 00:06:56 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/opensuse-latest.out) |
