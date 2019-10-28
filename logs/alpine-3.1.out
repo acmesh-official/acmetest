@@ -2,6 +2,6 @@ Sending build context to Docker daemon  2.048kB
 Step 1/2 : FROM alpine:3.1
  ---> f36c4228b2c6
 Step 2/2 : RUN alpine:3.1 2>&1 && apk --no-cache add -f openssl curl socat  2>&1
- ---> Running in 9175fd0795b5
+ ---> Running in 9be4378967f5
 /bin/sh: alpine:3.1: not found
 The command '/bin/sh -c alpine:3.1 2>&1 && apk --no-cache add -f openssl curl socat  2>&1' returned a non-zero code: 127
