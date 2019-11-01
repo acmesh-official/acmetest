@@ -41,7 +41,7 @@ Unit test project for **acme.sh** project https://github.com/Neilpang/acme.sh
 |alpine:latest| ![](https://neilpang.github.io/acmetest/status/alpine-latest.svg?1572590874)| Fri, 01 Nov 2019 06:47:54 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-latest.out) |
 |alpine:3.10| ![](https://neilpang.github.io/acmetest/status/alpine-3.10.svg?1572595878)| Fri, 01 Nov 2019 08:11:18 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-3.10.out) |
 |alpine:3.9| ![](https://neilpang.github.io/acmetest/status/alpine-3.9.svg?1572591685)| Fri, 01 Nov 2019 07:01:25 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-3.9.out) |
-|alpine:3.8| ![](https://neilpang.github.io/acmetest/status/alpine-3.8.svg?1572592257)| Fri, 01 Nov 2019 07:10:57 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-3.8.out) |
+|alpine:3.8| ![](https://neilpang.github.io/acmetest/status/alpine-3.8.svg?1572600127)| Fri, 01 Nov 2019 09:22:07 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-3.8.out) |
 |alpine:3.7| ![](https://neilpang.github.io/acmetest/status/alpine-3.7.svg?1572592847)| Fri, 01 Nov 2019 07:20:47 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-3.7.out) |
 |alpine:3.6| ![](https://neilpang.github.io/acmetest/status/alpine-3.6.svg?1572593244)| Fri, 01 Nov 2019 07:27:24 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-3.6.out) |
 |alpine:3.5| ![](https://neilpang.github.io/acmetest/status/alpine-3.5.svg?1572594013)| Fri, 01 Nov 2019 07:40:13 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-3.5.out) |
