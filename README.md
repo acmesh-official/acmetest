@@ -73,7 +73,7 @@ TestingDomain=aa.com   TestingAltDomains=www.aa.com  ./letest.sh
 
 You must have docker installed, and also point 2 of your domains to your machine.
 
-Then test all the platforms :
+Then test all the platforms:
 
 ```
 cd acmetest
@@ -82,7 +82,7 @@ TestingDomain=aa.com   TestingAltDomains=www.aa.com  ./rundocker.sh  testall
 
 The script will download all the supported platforms from the official docker hub, then run the test cases in all the supported platforms.
 
-Then test single docker platform :
+Then test single docker platform:
 
 ```
 cd acmetest
@@ -93,7 +93,7 @@ TestingDomain=aa.com   TestingAltDomains=www.aa.com  ./rundocker.sh  testplat   
 
 If you don't want to use 2 domains to test, we can use ngrok to test with temp domain.
 
-Please register an free account at https://ngrok.com/
+Please register a free account at:  https://ngrok.com/
 
 You will get your ngrok auth token.  Then:
 
