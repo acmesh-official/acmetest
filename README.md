@@ -7,7 +7,7 @@ Unit test project for **acme.sh** project https://github.com/Neilpang/acme.sh
 
 | Platform | Status| Last Run Time| Comments|
 -----------|-------|--------------|---------|
-|freebsd| ![](https://neilpang.github.io/acmetest/status/freebsd.svg?1572573962)| Fri, 01 Nov 2019 02:06:02 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/freebsd.out) |
+|freebsd| ![](https://neilpang.github.io/acmetest/status/freebsd.svg?1573178760)| Fri, 08 Nov 2019 02:06:00 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/freebsd.out) |
 |openbsd| ![](https://neilpang.github.io/acmetest/status/openbsd.svg?1572574575)| Fri, 01 Nov 2019 02:16:15 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/openbsd.out) |
 |pfsense| ![](https://neilpang.github.io/acmetest/status/pfsense.svg?1572575068)| Fri, 01 Nov 2019 02:24:28 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/pfsense.out) |
 |solaris| ![](https://neilpang.github.io/acmetest/status/solaris.svg?1572575597)| Fri, 01 Nov 2019 02:33:17 GMT| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/solaris.out) |
@@ -73,7 +73,7 @@ TestingDomain=aa.com   TestingAltDomains=www.aa.com  ./letest.sh
 
 You must have docker installed, and also point 2 of your domains to your machine.
 
-Then test all the platforms:
+Then test all the platforms :
 
 ```
 cd acmetest
@@ -82,7 +82,7 @@ TestingDomain=aa.com   TestingAltDomains=www.aa.com  ./rundocker.sh  testall
 
 The script will download all the supported platforms from the official docker hub, then run the test cases in all the supported platforms.
 
-Then test single docker platform:
+Then test single docker platform :
 
 ```
 cd acmetest
@@ -93,7 +93,7 @@ TestingDomain=aa.com   TestingAltDomains=www.aa.com  ./rundocker.sh  testplat   
 
 If you don't want to use 2 domains to test, we can use ngrok to test with temp domain.
 
-Please register a free account at:  https://ngrok.com/
+Please register an free account at https://ngrok.com/
 
 You will get your ngrok auth token.  Then:
 
