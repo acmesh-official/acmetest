@@ -6,7 +6,7 @@ Step 2/2 : RUN apk update -f 2>&1 && apk --no-cache add -f openssl curl socat  2
  ---> 5501fb0327a8
 Successfully built 5501fb0327a8
 Successfully tagged myalpine:3.5
-Fri, 08 Nov 2019 08:10:06 UTC
+Fri, 08 Nov 2019 08:10:14 UTC
 Testing branch: master
 Progress: 0/1/21
 ==Running le_test_dependencies please wait
@@ -122,13 +122,13 @@ Run Failed
 ------------------------------------------
 Progress: 17/20/21
 ==Running le_test_standandalone_renew_idn_v2 please wait
+./acme.sh: line 289: syntax error: bad substitution
 Skipped by TEST_IDN
 ------------------------------------------
 Progress: 17/21/21
 ==Running le_test_dnsapi please wait
+./acme.sh: line 289: syntax error: bad substitution
 The test domain Test_CF_Domain is not defined, skip:ClourFlare_api
-./acme.sh: line 289: syntax error: bad substitution
-./acme.sh: line 289: syntax error: bad substitution
 The test domain Test_CX_Domain is not defined, skip:CloudXNS.com_api
 The test domain Test_DP_Domain is not defined, skip:Dnspod.cn_api
 Testing dns_gd Godaddy_api
