@@ -4,3 +4,4 @@
 |ubuntu:14.04| ![](https://neilpang.github.io/acmetest/status/ubuntu-14.04.svg?1573184240)| Fri, 08 Nov 2019 03:37:20 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/ubuntu-14.04.out) |
 |debian:latest| ![](https://neilpang.github.io/acmetest/status/debian-latest.svg?1573184667)| Fri, 08 Nov 2019 03:44:27 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-latest.out) |
 |debian:10| ![](https://neilpang.github.io/acmetest/status/debian-10.svg?1573185091)| Fri, 08 Nov 2019 03:51:31 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-10.out) |
+|debian:9| ![](https://neilpang.github.io/acmetest/status/debian-9.svg?1573185526)| Fri, 08 Nov 2019 03:58:46 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-9.out) |
