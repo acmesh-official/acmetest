@@ -40,6 +40,7 @@ Unit test project for **acme.sh** project https://github.com/Neilpang/acme.sh
 |opensuse:42.1| ![](https://neilpang.github.io/acmetest/status/opensuse-42.1.svg?1573800677)| Fri, 15 Nov 2019 06:51:17 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/opensuse-42.1.out) |
 |alpine:latest| ![](https://neilpang.github.io/acmetest/status/alpine-latest.svg?1573801052)| Fri, 15 Nov 2019 06:57:32 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-latest.out) |
 |alpine:3.10| ![](https://neilpang.github.io/acmetest/status/alpine-3.10.svg?1573801813)| Fri, 15 Nov 2019 07:10:13 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-3.10.out) |
+|alpine:3.9| ![](https://neilpang.github.io/acmetest/status/alpine-3.9.svg?1573802200)| Fri, 15 Nov 2019 07:16:40 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-3.9.out) |
 
 # How to run tests
 
