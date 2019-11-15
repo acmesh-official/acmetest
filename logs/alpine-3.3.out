@@ -6,12 +6,12 @@ Step 2/2 : RUN apk update -f 2>&1 && apk --no-cache add -f openssl curl socat  2
  ---> d44f0b1abc53
 Successfully built d44f0b1abc53
 Successfully tagged myalpine:3.3
-Fri, 15 Nov 2019 09:10:27 UTC
+Fri, 15 Nov 2019 09:10:36 UTC
 Testing branch: master
 Progress: 0/1/21
 ==Running le_test_dependencies please wait
-curl installed. [PASS]./acme.sh: line 289: syntax error: bad substitution
-
+./acme.sh: line 289: syntax error: bad substitution
+curl installed. [PASS]
 crontab installed. [PASS]
 openssl installed. [PASS]
 socat installed. [PASS]
