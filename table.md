@@ -18,3 +18,4 @@
 |fedora:26| ![](https://neilpang.github.io/acmetest/status/fedora-26.svg?1573796664)| Fri, 15 Nov 2019 05:44:24 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/fedora-26.out) |
 |fedora:25| ![](https://neilpang.github.io/acmetest/status/fedora-25.svg?1573797117)| Fri, 15 Nov 2019 05:51:57 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/fedora-25.out) |
 |fedora:24| ![](https://neilpang.github.io/acmetest/status/fedora-24.svg?1573797231)| Fri, 15 Nov 2019 05:53:51 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/fedora-24.out) |
+|fedora:23| ![](https://neilpang.github.io/acmetest/status/fedora-23.svg?1573797646)| Fri, 15 Nov 2019 06:00:46 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/fedora-23.out) |
