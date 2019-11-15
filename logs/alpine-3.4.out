@@ -6,7 +6,7 @@ Step 2/2 : RUN apk update -f 2>&1 && apk --no-cache add -f openssl curl socat  2
  ---> a2e56ded2bd5
 Successfully built a2e56ded2bd5
 Successfully tagged myalpine:3.4
-Fri, 15 Nov 2019 07:37:23 UTC
+Fri, 15 Nov 2019 07:37:31 UTC
 Testing branch: master
 Progress: 0/1/21
 ==Running le_test_dependencies please wait
@@ -90,9 +90,9 @@ Progress: 11/14/21
 /root/.acme.sh/acme.sh --issue -d "testdocker.acme.sh" -d "testdocker2.acme.sh" --standalone [FAIL] 
 Run Failed
 ------------------------------------------
-./acme.sh: line 289: syntax error: bad substitution
 Progress: 12/15/21
 ==Running le_test_standandalone_ECDSA_256 please wait
+./acme.sh: line 289: syntax error: bad substitution
 /root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone -k ec-256 [FAIL] 
 Run Failed
 ------------------------------------------
