@@ -6,7 +6,7 @@ Step 2/2 : RUN yum  -y update     2>&1 && yum  -y install    tar openssl crontab
  ---> 574295fe4850
 Successfully built 574295fe4850
 Successfully tagged myfedora:30
-Fri, 08 Nov 2019 05:22:36 UTC
+Fri, 15 Nov 2019 05:01:37 UTC
 Testing branch: master
 Progress: 0/1/21
 ==Running le_test_dependencies please wait
