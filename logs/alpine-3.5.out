@@ -6,7 +6,7 @@ Step 2/2 : RUN apk update -f 2>&1 && apk --no-cache add -f openssl curl socat  2
  ---> 5501fb0327a8
 Successfully built 5501fb0327a8
 Successfully tagged myalpine:3.5
-Fri, 15 Nov 2019 09:09:53 UTC
+Fri, 15 Nov 2019 09:10:02 UTC
 Testing branch: master
 Progress: 0/1/21
 ==Running le_test_dependencies please wait
@@ -72,9 +72,9 @@ Progress: 9/11/21
 ./acme.sh: line 289: syntax error: bad substitution
 Skipped by TEST_IPV6
 ------------------------------------------
+./acme.sh: line 289: syntax error: bad substitution
 Progress: 9/12/21
 ==Running le_test_standandalone_deactivate_v2 please wait
-./acme.sh: line 289: syntax error: bad substitution
 /root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [FAIL] 
 Run Failed
 ------------------------------------------
