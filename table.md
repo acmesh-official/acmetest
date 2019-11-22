@@ -1,2 +1,2 @@
 |ubuntu:latest| ![](https://neilpang.github.io/acmetest/status/ubuntu-latest.svg?1574391718)| Fri, 22 Nov 2019 03:01:58 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/ubuntu-latest.out) |
-|ubuntu:18.04| ![](https://neilpang.github.io/acmetest/status/ubuntu-18.04.svg?1574392151)| Fri, 22 Nov 2019 03:09:11 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/ubuntu-18.04.out) |
+|ubuntu:18.04| ![](https://neilpang.github.io/acmetest/status/ubuntu-18.04.svg?1574392572)| Fri, 22 Nov 2019 03:16:12 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/ubuntu-18.04.out) |
