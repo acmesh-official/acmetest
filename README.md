@@ -24,6 +24,7 @@ Unit test project for **acme.sh** project https://github.com/Neilpang/acme.sh
 |centos:latest| ![](https://neilpang.github.io/acmetest/status/centos-latest.svg?1574397740)| Fri, 22 Nov 2019 04:42:20 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/centos-latest.out) |
 |centos:7| ![](https://neilpang.github.io/acmetest/status/centos-7.svg?1574398209)| Fri, 22 Nov 2019 04:50:09 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/centos-7.out) |
 |centos:6| ![](https://neilpang.github.io/acmetest/status/centos-6.svg?1574398685)| Fri, 22 Nov 2019 04:58:05 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/centos-6.out) |
+|fedora:latest| ![](https://neilpang.github.io/acmetest/status/fedora-latest.svg?1574399138)| Fri, 22 Nov 2019 05:05:38 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/fedora-latest.out) |
 
 # How to run tests
 
