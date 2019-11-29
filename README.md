@@ -38,7 +38,7 @@ Unit test project for **acme.sh** project https://github.com/Neilpang/acme.sh
 |opensuse:latest| ![](https://neilpang.github.io/acmetest/status/opensuse-latest.svg?1575009634)| Fri, 29 Nov 2019 06:40:34 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/opensuse-latest.out) |
 |opensuse:42.2| ![](https://neilpang.github.io/acmetest/status/opensuse-42.2.svg?1575010041)| Fri, 29 Nov 2019 06:47:21 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/opensuse-42.2.out) |
 |opensuse:42.1| ![](https://neilpang.github.io/acmetest/status/opensuse-42.1.svg?1575010450)| Fri, 29 Nov 2019 06:54:10 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/opensuse-42.1.out) |
-|alpine:latest| ![](https://neilpang.github.io/acmetest/status/alpine-latest.svg?1575023667)| Fri, 29 Nov 2019 10:34:27 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-latest.out) |
+|alpine:latest| ![](https://neilpang.github.io/acmetest/status/alpine-latest.svg?1575024080)| Fri, 29 Nov 2019 10:41:20 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-latest.out) |
 |alpine:3.10| ![](https://neilpang.github.io/acmetest/status/alpine-3.10.svg?1575019721)| Fri, 29 Nov 2019 09:28:41 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-3.10.out) |
 |alpine:3.9| ![](https://neilpang.github.io/acmetest/status/alpine-3.9.svg?1575012850)| Fri, 29 Nov 2019 07:34:10 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-3.9.out) |
 |alpine:3.8| ![](https://neilpang.github.io/acmetest/status/alpine-3.8.svg?1575013610)| Fri, 29 Nov 2019 07:46:50 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-3.8.out) |
