@@ -11,4 +11,4 @@ Unit test project for **acme.sh** project https://github.com/Neilpang/acme.sh
 |openbsd| ![](https://neilpang.github.io/acmetest/status/openbsd.svg?1577412978)| Fri, 27 Dec 2019 02:16:18 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/openbsd.out) |
 |pfsense| ![](https://neilpang.github.io/acmetest/status/pfsense.svg?1577413454)| Fri, 27 Dec 2019 02:24:14 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/pfsense.out) |
 |solaris| ![](https://neilpang.github.io/acmetest/status/solaris.svg?1577414024)| Fri, 27 Dec 2019 02:33:44 GMT| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/solaris.out) |
-|windows-cygwin| ![](https://neilpang.github.io/acmetest/status/windows-cygwin.svg?1576205774)| Fri, 13 Dec 2019 02:56:14 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/windows-cygwin.out) |
+|windows-cygwin| ![](https://neilpang.github.io/acmetest/status/windows-cygwin.svg?1577415314)| Fri, 27 Dec 2019 02:55:14 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/windows-cygwin.out) |
