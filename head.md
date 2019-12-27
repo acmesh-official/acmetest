@@ -7,7 +7,7 @@ Unit test project for **acme.sh** project https://github.com/Neilpang/acme.sh
 
 | Platform | Status| Last Run Time| Comments|
 -----------|-------|--------------|---------|
-|freebsd| ![](https://neilpang.github.io/acmetest/status/freebsd.svg?1576202763)| Fri, 13 Dec 2019 02:06:03 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/freebsd.out) |
+|freebsd| ![](https://neilpang.github.io/acmetest/status/freebsd.svg?1577412361)| Fri, 27 Dec 2019 02:06:01 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/freebsd.out) |
 |openbsd| ![](https://neilpang.github.io/acmetest/status/openbsd.svg?1576203454)| Fri, 13 Dec 2019 02:17:34 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/openbsd.out) |
 |pfsense| ![](https://neilpang.github.io/acmetest/status/pfsense.svg?1576203955)| Fri, 13 Dec 2019 02:25:55 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/pfsense.out) |
 |solaris| ![](https://neilpang.github.io/acmetest/status/solaris.svg?1576204506)| Fri, 13 Dec 2019 02:35:06 GMT| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/solaris.out) |
