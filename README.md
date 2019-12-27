@@ -31,7 +31,7 @@ Unit test project for **acme.sh** project https://github.com/Neilpang/acme.sh
 |fedora:27| ![](https://neilpang.github.io/acmetest/status/fedora-27.svg?1577424110)| Fri, 27 Dec 2019 05:21:50 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/fedora-27.out) |
 |fedora:26| ![](https://neilpang.github.io/acmetest/status/fedora-26.svg?1577424578)| Fri, 27 Dec 2019 05:29:38 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/fedora-26.out) |
 |fedora:25| ![](https://neilpang.github.io/acmetest/status/fedora-25.svg?1577425006)| Fri, 27 Dec 2019 05:36:46 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/fedora-25.out) |
-|fedora:24| ![](https://neilpang.github.io/acmetest/status/fedora-24.svg?1577425117)| Fri, 27 Dec 2019 05:38:37 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/fedora-24.out) |
+|fedora:24| ![](https://neilpang.github.io/acmetest/status/fedora-24.svg?1577444081)| Fri, 27 Dec 2019 10:54:41 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/fedora-24.out) |
 |fedora:23| ![](https://neilpang.github.io/acmetest/status/fedora-23.svg?1577426026)| Fri, 27 Dec 2019 05:53:46 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/fedora-23.out) |
 |fedora:22| ![](https://neilpang.github.io/acmetest/status/fedora-22.svg?1577426533)| Fri, 27 Dec 2019 06:02:13 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/fedora-22.out) |
 |fedora:21| ![](https://neilpang.github.io/acmetest/status/fedora-21.svg?1577427004)| Fri, 27 Dec 2019 06:10:04 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/fedora-21.out) |
