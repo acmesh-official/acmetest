@@ -50,7 +50,7 @@ Unit test project for **acme.sh** project https://github.com/Neilpang/acme.sh
 |alpine:3.2| ![](https://neilpang.github.io/acmetest/status/alpine-3.2.svg?1577437582)| Fri, 27 Dec 2019 09:06:22 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-3.2.out) |
 |alpine:3.1| ![](https://neilpang.github.io/acmetest/status/alpine-3.1.svg?1577438528)| Fri, 27 Dec 2019 09:22:08 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-3.1.out) |
 |oraclelinux:latest| ![](https://neilpang.github.io/acmetest/status/oraclelinux-latest.svg?1577439451)| Fri, 27 Dec 2019 09:37:31 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/oraclelinux-latest.out) |
-|oraclelinux:7| ![](https://neilpang.github.io/acmetest/status/oraclelinux-7.svg?1577439902)| Fri, 27 Dec 2019 09:45:02 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/oraclelinux-7.out) |
+|oraclelinux:7| ![](https://neilpang.github.io/acmetest/status/oraclelinux-7.svg?1577440345)| Fri, 27 Dec 2019 09:52:25 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/oraclelinux-7.out) |
 
 # How to run tests
 
