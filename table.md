@@ -26,7 +26,7 @@
 |opensuse:42.1| ![](https://neilpang.github.io/acmetest/status/opensuse-42.1.svg?1578036347)| Fri, 03 Jan 2020 07:25:47 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/opensuse-42.1.out) |
 |alpine:latest| ![](https://neilpang.github.io/acmetest/status/alpine-latest.svg?1578050650)| Fri, 03 Jan 2020 11:24:10 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-latest.out) |
 |alpine:3.10| ![](https://neilpang.github.io/acmetest/status/alpine-3.10.svg?1578052126)| Fri, 03 Jan 2020 11:48:46 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-3.10.out) |
-|alpine:3.9| ![](https://neilpang.github.io/acmetest/status/alpine-3.9.svg?1578052534)| Fri, 03 Jan 2020 11:55:34 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-3.9.out) |
+|alpine:3.9| ![](https://neilpang.github.io/acmetest/status/alpine-3.9.svg?1578053017)| Fri, 03 Jan 2020 12:03:37 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-3.9.out) |
 |alpine:3.8| ![](https://neilpang.github.io/acmetest/status/alpine-3.8.svg?1578039712)| Fri, 03 Jan 2020 08:21:52 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-3.8.out) |
 |alpine:3.7| ![](https://neilpang.github.io/acmetest/status/alpine-3.7.svg?1578040529)| Fri, 03 Jan 2020 08:35:29 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-3.7.out) |
 |alpine:3.6| ![](https://neilpang.github.io/acmetest/status/alpine-3.6.svg?1578041345)| Fri, 03 Jan 2020 08:49:05 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-3.6.out) |
