@@ -8,3 +8,4 @@
 |debian:8| ![](https://neilpang.github.io/acmetest/status/debian-8.svg?1578025571)| Fri, 03 Jan 2020 04:26:11 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-8.out) |
 |debian:7| ![](https://neilpang.github.io/acmetest/status/debian-7.svg?1578026498)| Fri, 03 Jan 2020 04:41:38 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-7.out) |
 |centos:latest| ![](https://neilpang.github.io/acmetest/status/centos-latest.svg?1578026938)| Fri, 03 Jan 2020 04:48:58 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/centos-latest.out) |
+|centos:7| ![](https://neilpang.github.io/acmetest/status/centos-7.svg?1578027421)| Fri, 03 Jan 2020 04:57:01 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/centos-7.out) |
