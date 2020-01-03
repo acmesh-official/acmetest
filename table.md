@@ -36,3 +36,4 @@
 |alpine:3.2| ![](https://neilpang.github.io/acmetest/status/alpine-3.2.svg?1578045019)| Fri, 03 Jan 2020 09:50:19 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-3.2.out) |
 |alpine:3.1| ![](https://neilpang.github.io/acmetest/status/alpine-3.1.svg?1578045928)| Fri, 03 Jan 2020 10:05:28 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-3.1.out) |
 |oraclelinux:latest| ![](https://neilpang.github.io/acmetest/status/oraclelinux-latest.svg?1578046892)| Fri, 03 Jan 2020 10:21:32 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/oraclelinux-latest.out) |
+|oraclelinux:7| ![](https://neilpang.github.io/acmetest/status/oraclelinux-7.svg?1578047363)| Fri, 03 Jan 2020 10:29:23 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/oraclelinux-7.out) |
