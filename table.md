@@ -39,3 +39,4 @@
 |oraclelinux:7| ![](https://neilpang.github.io/acmetest/status/oraclelinux-7.svg?1578047363)| Fri, 03 Jan 2020 10:29:23 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/oraclelinux-7.out) |
 |oraclelinux:6| ![](https://neilpang.github.io/acmetest/status/oraclelinux-6.svg?1578047821)| Fri, 03 Jan 2020 10:37:01 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/oraclelinux-6.out) |
 |kalilinux/kali-linux-docker| ![](https://neilpang.github.io/acmetest/status/kalilinux-kali-linux-docker.svg?1578048709)| Fri, 03 Jan 2020 10:51:49 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/kalilinux-kali-linux-docker.out) |
+|base/archlinux| ![](https://neilpang.github.io/acmetest/status/base-archlinux.svg?1578049142)| Fri, 03 Jan 2020 10:59:02 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/base-archlinux.out) |
