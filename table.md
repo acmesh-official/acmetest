@@ -6,4 +6,4 @@
 |debian:10| ![](https://neilpang.github.io/acmetest/status/debian-10.svg?1578023771)| Fri, 03 Jan 2020 03:56:11 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-10.out) |
 |debian:9| ![](https://neilpang.github.io/acmetest/status/debian-9.svg?1578024662)| Fri, 03 Jan 2020 04:11:02 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-9.out) |
 |debian:8| ![](https://neilpang.github.io/acmetest/status/debian-8.svg?1578025571)| Fri, 03 Jan 2020 04:26:11 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-8.out) |
-|debian:7| ![](https://neilpang.github.io/acmetest/status/debian-7.svg?1578026024)| Fri, 03 Jan 2020 04:33:44 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-7.out) |
+|debian:7| ![](https://neilpang.github.io/acmetest/status/debian-7.svg?1578026498)| Fri, 03 Jan 2020 04:41:38 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/debian-7.out) |
