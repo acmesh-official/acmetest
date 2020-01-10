@@ -9,7 +9,7 @@ Unit test project for **acme.sh** project https://github.com/Neilpang/acme.sh
 -----------|-------|--------------|---------|
 |freebsd| ![](https://neilpang.github.io/acmetest/status/freebsd.svg?1578621966)| Fri, 10 Jan 2020 02:06:06 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/freebsd.out) |
 |openbsd| ![](https://neilpang.github.io/acmetest/status/openbsd.svg?1578622595)| Fri, 10 Jan 2020 02:16:35 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/openbsd.out) |
-|pfsense| ![](https://neilpang.github.io/acmetest/status/pfsense.svg?1578018327)| Fri, 03 Jan 2020 02:25:28 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/pfsense.out) |
+|pfsense| ![](https://neilpang.github.io/acmetest/status/pfsense.svg?1578623103)| Fri, 10 Jan 2020 02:25:03 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/pfsense.out) |
 |solaris| ![](https://neilpang.github.io/acmetest/status/solaris.svg?1578018874)| Fri, 03 Jan 2020 02:34:34 GMT| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/solaris.out) |
 |windows-cygwin| ![](https://neilpang.github.io/acmetest/status/windows-cygwin.svg?1578020170)| Fri, 03 Jan 2020 02:56:10 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/windows-cygwin.out) |
 |ubuntu:latest| ![](https://neilpang.github.io/acmetest/status/ubuntu-latest.svg?1578020646)| Fri, 03 Jan 2020 03:04:06 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/ubuntu-latest.out) |
