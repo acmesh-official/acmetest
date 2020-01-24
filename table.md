@@ -1,1 +1,1 @@
-|ubuntu:latest| ![](https://neilpang.github.io/acmetest/status/ubuntu-latest.svg?1579835050)| Fri, 24 Jan 2020 03:04:10 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/ubuntu-latest.out) |
+|ubuntu:latest| ![](https://neilpang.github.io/acmetest/status/ubuntu-latest.svg?1579835472)| Fri, 24 Jan 2020 03:11:12 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/ubuntu-latest.out) |
