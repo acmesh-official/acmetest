@@ -48,7 +48,7 @@ Unit test project for **acme.sh** project https://github.com/Neilpang/acme.sh
 |alpine:3.4| ![](https://neilpang.github.io/acmetest/status/alpine-3.4.svg?1579871808)| Fri, 24 Jan 2020 13:16:48 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-3.4.out) |
 |alpine:3.3| ![](https://neilpang.github.io/acmetest/status/alpine-3.3.svg?1579872597)| Fri, 24 Jan 2020 13:29:57 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-3.3.out) |
 |alpine:3.2| ![](https://neilpang.github.io/acmetest/status/alpine-3.2.svg?1579873838)| Fri, 24 Jan 2020 13:50:38 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-3.2.out) |
-|alpine:3.1| ![](https://neilpang.github.io/acmetest/status/alpine-3.1.svg?1579874629)| Fri, 24 Jan 2020 14:03:49 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-3.1.out) |
+|alpine:3.1| ![](https://neilpang.github.io/acmetest/status/alpine-3.1.svg?1579874635)| Fri, 24 Jan 2020 14:03:55 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-3.1.out) |
 |oraclelinux:latest| ![](https://neilpang.github.io/acmetest/status/oraclelinux-latest.svg?1579861568)| Fri, 24 Jan 2020 10:26:08 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/oraclelinux-latest.out) |
 |oraclelinux:7| ![](https://neilpang.github.io/acmetest/status/oraclelinux-7.svg?1579862016)| Fri, 24 Jan 2020 10:33:36 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/oraclelinux-7.out) |
 |oraclelinux:6| ![](https://neilpang.github.io/acmetest/status/oraclelinux-6.svg?1579862469)| Fri, 24 Jan 2020 10:41:09 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/oraclelinux-6.out) |
