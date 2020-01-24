@@ -6,7 +6,7 @@ Step 2/2 : RUN yum  -y update     2>&1 && yum  -y install    tar openssl crontab
  ---> 031796652752
 Successfully built 031796652752
 Successfully tagged myfedora:29
-Fri, 17 Jan 2020 05:16:13 UTC
+Fri, 24 Jan 2020 04:52:12 UTC
 Testing branch: master
 Progress: 0/1/21
 ==Running le_test_dependencies please wait
@@ -49,7 +49,7 @@ Progress: 0/6/21
 ==Running le_test_install_config_home please wait
 ./acme.sh --install --config-home /root/etc/acme [PASS]
 /root/.acme.sh/acme.sh exists. [PASS]
-_contains '19 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
+_contains '20 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
 /root/etc/acme/account.conf exists. [PASS]
 /root/.acme.sh/account.conf no exists. [PASS]
 /root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null [PASS]
@@ -217,8 +217,6 @@ TestingDomain='zonomi.acme.sh'
 /root/.acme.sh/acme.sh --deactivate -d "zonomi.acme.sh" >/dev/null 2>&1 [PASS]
 Testing dns_namecom name.com
 TestingDomain='952700.xyz'
-/root/.acme.sh/acme.sh --issue -d "952700.xyz" --dns dns_namecom --dnssleep ""  [PASS]
-/root/.acme.sh/952700.xyz/952700.xyz.cer is cert ? '952700.xyz' 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/952700.xyz/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
-/root/.acme.sh/acme.sh --deactivate -d "952700.xyz" >/dev/null 2>&1 [PASS]
+/root/.acme.sh/acme.sh --issue -d "952700.xyz" --dns dns_namecom --dnssleep ""  [FAIL] 
+Run Failed
 ------------------------------------------
