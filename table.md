@@ -26,3 +26,4 @@
 |opensuse:42.1| ![](https://neilpang.github.io/acmetest/status/opensuse-42.1.svg?1579851135)| Fri, 24 Jan 2020 07:32:15 UTC| [Passed](https://github.com/Neilpang/acmetest/blob/master/logs/opensuse-42.1.out) |
 |alpine:latest| ![](https://neilpang.github.io/acmetest/status/alpine-latest.svg?1579851985)| Fri, 24 Jan 2020 07:46:25 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-latest.out) |
 |alpine:3.10| ![](https://neilpang.github.io/acmetest/status/alpine-3.10.svg?1579852820)| Fri, 24 Jan 2020 08:00:20 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-3.10.out) |
+|alpine:3.9| ![](https://neilpang.github.io/acmetest/status/alpine-3.9.svg?1579853256)| Fri, 24 Jan 2020 08:07:36 UTC| [Failed](https://github.com/Neilpang/acmetest/blob/master/logs/alpine-3.9.out) |
