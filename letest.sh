@@ -2,12 +2,12 @@
 
 STAGE=1
 
-lezip="https://github.com/Neilpang/acme.sh/archive"
-legit="https://github.com/Neilpang/acme.sh.git"
+lezip="https://github.com/acmesh-official/acme.sh/archive"
+legit="https://github.com/acmesh-official/acme.sh.git"
 
-PROJECT="https://github.com/Neilpang/acmetest"
+PROJECT="https://github.com/acmesh-official/acmetest"
 
-NGROK_WIKI="https://github.com/Neilpang/acmetest"
+NGROK_WIKI="https://github.com/acmesh-official/acmetest"
 
 DEFAULT_HOME="$HOME/.acme.sh"
 
