@@ -1,7 +1,7 @@
 
-Img="https://neilpang.github.io/acmetest/status"
+Img="https://acmesh-official.github.io/acmetest/status"
 
-LogLink="https://github.com/Neilpang/acmetest/blob/master"
+LogLink="https://github.com/acmesh-official/acmetest/blob/master"
 
 Conf="plat.conf"
 
