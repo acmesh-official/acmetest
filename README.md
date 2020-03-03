@@ -22,7 +22,7 @@ Unit test project for **acme.sh** project https://github.com/acmesh-official/acm
 |kalilinux/kali-linux-docker| ![](https://acmesh-official.github.io/acmetest/status/kalilinux-kali-linux-docker.svg?1583241917)| Tue, 03 Mar 2020 13:25:17 UTC| [Failed](https://github.com/acmesh-official/acmetest/blob/master/logs/kalilinux-kali-linux-docker.out) |
 |base/archlinux| ![](https://acmesh-official.github.io/acmetest/status/base-archlinux.svg?1583241929)| Tue, 03 Mar 2020 13:25:29 UTC| [Failed](https://github.com/acmesh-official/acmetest/blob/master/logs/base-archlinux.out) |
 |mageia| ![](https://acmesh-official.github.io/acmetest/status/mageia.svg?1583242118)| Tue, 03 Mar 2020 13:28:38 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/mageia.out) |
-|gentoo/stage3-amd64| ![](https://acmesh-official.github.io/acmetest/status/gentoo-stage3-amd64.svg?1583242480)| Tue, 03 Mar 2020 13:34:40 UTC| [Failed](https://github.com/acmesh-official/acmetest/blob/master/logs/gentoo-stage3-amd64.out) |
+|gentoo/stage3-amd64| ![](https://acmesh-official.github.io/acmetest/status/gentoo-stage3-amd64.svg?1583242907)| Tue, 03 Mar 2020 13:41:47 UTC| [Failed](https://github.com/acmesh-official/acmetest/blob/master/logs/gentoo-stage3-amd64.out) |
 
 # How to run tests
 
