@@ -21,6 +21,7 @@ Unit test project for **acme.sh** project https://github.com/acmesh-official/acm
 |oraclelinux:latest| ![](https://acmesh-official.github.io/acmetest/status/oraclelinux-latest.svg?1583246327)| Tue, 03 Mar 2020 14:38:47 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/oraclelinux-latest.out) |
 |kalilinux/kali| ![](https://acmesh-official.github.io/acmetest/status/kalilinux-kali.svg?1583246622)| Tue, 03 Mar 2020 14:43:42 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/kalilinux-kali.out) |
 |archlinux:latest| ![](https://acmesh-official.github.io/acmetest/status/archlinux-latest.svg?1583246673)| Tue, 03 Mar 2020 14:44:33 UTC| [Failed](https://github.com/acmesh-official/acmetest/blob/master/logs/archlinux-latest.out) |
+|mageia| ![](https://acmesh-official.github.io/acmetest/status/mageia.svg?1583246871)| Tue, 03 Mar 2020 14:47:51 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/mageia.out) |
 
 # How to run tests
 
