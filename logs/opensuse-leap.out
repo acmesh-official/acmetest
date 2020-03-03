@@ -1,21 +1,14 @@
 Sending build context to Docker daemon  2.048kB
 Step 1/1 : FROM opensuse/leap
-latest: Pulling from opensuse/leap
-324521642fd2: Pulling fs layer
-324521642fd2: Verifying Checksum
-324521642fd2: Download complete
-324521642fd2: Pull complete
-Digest: sha256:bebe13236dacba1a18d0858256145fc3d203021664df70137b9e42401902c60e
-Status: Downloaded newer image for opensuse/leap:latest
  ---> 38924343a351
 Successfully built 38924343a351
 Successfully tagged myopensuse-leap:latest
-Tue, 03 Mar 2020 14:30:08 UTC
-Testing branch: master
+Tue, 03 Mar 2020 14:30:16 UTC
 Can not get acme.sh source code. tar or git must be installed
+Testing branch: master
 Progress: 0/1/21
-==Running le_test_dependencies please wait
 ./letest.sh: line 536: cd: acme.sh: No such file or directory
+==Running le_test_dependencies please wait
 ./letest.sh: line 537: ./acme.sh: No such file or directory
 curl not installed [FAIL] 
 Run Failed
@@ -33,9 +26,9 @@ Progress: 2/3/21
 ./letest.sh: line 536: cd: acme.sh: No such file or directory
 ./letest.sh: line 537: ./acme.sh: No such file or directory
 ./letest.sh: line 667: cd: acme.sh: No such file or directory
- [FAIL] 
+./acme.sh --install [FAIL] 
 Run Failed
-./acme.sh --install------------------------------------------
+------------------------------------------
 Progress: 3/4/21
 ==Running le_test_installtodir please wait
 ./letest.sh: line 682: cd: acme.sh: No such file or directory
