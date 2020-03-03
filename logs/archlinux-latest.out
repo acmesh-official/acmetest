@@ -1,32 +1,7 @@
 Sending build context to Docker daemon  2.048kB
 Step 1/2 : FROM archlinux:latest
-latest: Pulling from library/archlinux
-ef42853c0f87: Pulling fs layer
-e5cd2121e98d: Pulling fs layer
-214eaa4433b2: Pulling fs layer
-56470d7667b7: Pulling fs layer
-896334b8e583: Pulling fs layer
-56470d7667b7: Waiting
-896334b8e583: Waiting
-214eaa4433b2: Verifying Checksum
-214eaa4433b2: Download complete
-e5cd2121e98d: Verifying Checksum
-e5cd2121e98d: Download complete
-56470d7667b7: Verifying Checksum
-56470d7667b7: Download complete
-896334b8e583: Verifying Checksum
-896334b8e583: Download complete
-ef42853c0f87: Verifying Checksum
-ef42853c0f87: Download complete
-ef42853c0f87: Pull complete
-e5cd2121e98d: Pull complete
-214eaa4433b2: Pull complete
-56470d7667b7: Pull complete
-896334b8e583: Pull complete
-Digest: sha256:01333c9d0acd59c4566d7e4138384d992cb16079530d4198d33916e4397e0230
-Status: Downloaded newer image for archlinux:latest
  ---> 8635d7bd071c
 Step 2/2 : RUN  pacman  -Sy  --force --noconfirm --noprogressbar openssl cron socat libidn  2>&1
- ---> Running in 0c26029bec44
+ ---> Running in 8f6212bd1f6e
 error: invalid option '--force'
 The command '/bin/sh -c pacman  -Sy  --force --noconfirm --noprogressbar openssl cron socat libidn  2>&1' returned a non-zero code: 1
