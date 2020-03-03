@@ -19,7 +19,7 @@ Unit test project for **acme.sh** project https://github.com/acmesh-official/acm
 |opensuse:latest| ![](https://acmesh-official.github.io/acmetest/status/opensuse-latest.svg?1583241390)| Tue, 03 Mar 2020 13:16:30 UTC| [Failed](https://github.com/acmesh-official/acmetest/blob/master/logs/opensuse-latest.out) |
 |alpine:latest| ![](https://acmesh-official.github.io/acmetest/status/alpine-latest.svg?1583241707)| Tue, 03 Mar 2020 13:21:47 UTC| [Failed](https://github.com/acmesh-official/acmetest/blob/master/logs/alpine-latest.out) |
 |oraclelinux:latest| ![](https://acmesh-official.github.io/acmetest/status/oraclelinux-latest.svg?1583241905)| Tue, 03 Mar 2020 13:25:05 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/oraclelinux-latest.out) |
-|kalilinux/kali-linux-docker| ![](https://acmesh-official.github.io/acmetest/status/kalilinux-kali-linux-docker.svg?1583241911)| Tue, 03 Mar 2020 13:25:11 UTC| [Failed](https://github.com/acmesh-official/acmetest/blob/master/logs/kalilinux-kali-linux-docker.out) |
+|kalilinux/kali-linux-docker| ![](https://acmesh-official.github.io/acmetest/status/kalilinux-kali-linux-docker.svg?1583241917)| Tue, 03 Mar 2020 13:25:17 UTC| [Failed](https://github.com/acmesh-official/acmetest/blob/master/logs/kalilinux-kali-linux-docker.out) |
 
 # How to run tests
 
