@@ -14,6 +14,7 @@ Unit test project for **acme.sh** project https://github.com/acmesh-official/acm
 |windows-cygwin| ![](https://acmesh-official.github.io/acmetest/status/windows-cygwin.svg?1583205823)| Tue, 03 Mar 2020 03:23:43 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/windows-cygwin.out) |
 |ubuntu:latest| ![](https://acmesh-official.github.io/acmetest/status/ubuntu-latest.svg?1583245178)| Tue, 03 Mar 2020 14:19:38 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/ubuntu-latest.out) |
 |debian:latest| ![](https://acmesh-official.github.io/acmetest/status/debian-latest.svg?1583245376)| Tue, 03 Mar 2020 14:22:56 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/debian-latest.out) |
+|centos:latest| ![](https://acmesh-official.github.io/acmetest/status/centos-latest.svg?1583245593)| Tue, 03 Mar 2020 14:26:33 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/centos-latest.out) |
 
 # How to run tests
 
