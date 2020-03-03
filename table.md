@@ -9,3 +9,4 @@
 |base/archlinux| ![](https://acmesh-official.github.io/acmetest/status/base-archlinux.svg?1583241929)| Tue, 03 Mar 2020 13:25:29 UTC| [Failed](https://github.com/acmesh-official/acmetest/blob/master/logs/base-archlinux.out) |
 |mageia| ![](https://acmesh-official.github.io/acmetest/status/mageia.svg?1583242118)| Tue, 03 Mar 2020 13:28:38 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/mageia.out) |
 |gentoo/stage3-amd64| ![](https://acmesh-official.github.io/acmetest/status/gentoo-stage3-amd64.svg?1583242907)| Tue, 03 Mar 2020 13:41:47 UTC| [Failed](https://github.com/acmesh-official/acmetest/blob/master/logs/gentoo-stage3-amd64.out) |
+|clearlinux:latest| ![](https://acmesh-official.github.io/acmetest/status/clearlinux-latest.svg?1583243269)| Tue, 03 Mar 2020 13:47:49 UTC| [Failed](https://github.com/acmesh-official/acmetest/blob/master/logs/clearlinux-latest.out) |
