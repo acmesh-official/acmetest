@@ -6,7 +6,7 @@ Step 2/2 : RUN  swupd bundle-add cronie socat curl devpkg-libidn  2>&1
  ---> bd09a4c29738
 Successfully built bd09a4c29738
 Successfully tagged myclearlinux:latest
-Tue, 03 Mar 2020 15:36:49 UTC
+Wed, 04 Mar 2020 01:30:53 UTC
 Testing branch: master
 Progress: 0/1/21
 ==Running le_test_dependencies please wait
@@ -23,7 +23,7 @@ Progress: 0/2/21
 ==Running le_test_install please wait
 ./acme.sh --install [PASS]
 //.acme.sh/acme.sh exists. [PASS]
-_contains '51 0 * * * "//.acme.sh"/acme.sh --cron --home "//.acme.sh" > /dev/null' '0 \* \* \* "//.acme.sh"/acme.sh --cron --home "//.acme.sh" > /dev/null' [PASS]
+_contains '55 0 * * * "//.acme.sh"/acme.sh --cron --home "//.acme.sh" > /dev/null' '0 \* \* \* "//.acme.sh"/acme.sh --cron --home "//.acme.sh" > /dev/null' [PASS]
 //.acme.sh/acme.sh --uninstall  > /dev/null [PASS]
 ------------------------------------------
 Progress: 0/3/21
@@ -37,7 +37,7 @@ Progress: 0/4/21
 ==Running le_test_installtodir please wait
 ./acme.sh --install [PASS]
 //myle/acme.sh exists. [PASS]
-_contains '54 0 * * * "//myle"/acme.sh --cron --home "//myle" > /dev/null' '0 \* \* \* "//myle"/acme.sh --cron --home "//myle" > /dev/null' [PASS]
+_contains '58 0 * * * "//myle"/acme.sh --cron --home "//myle" > /dev/null' '0 \* \* \* "//myle"/acme.sh --cron --home "//myle" > /dev/null' [PASS]
 //myle/acme.sh --uninstall [PASS]
 ------------------------------------------
 Progress: 0/5/21
@@ -51,24 +51,20 @@ Progress: 0/6/21
 ==Running le_test_install_config_home please wait
 ./acme.sh --install --config-home //etc/acme [PASS]
 //.acme.sh/acme.sh exists. [PASS]
-_contains '56 0 * * * "//.acme.sh"/acme.sh --cron --home "//.acme.sh" --config-home "//etc/acme" > /dev/null' '0 \* \* \* "//.acme.sh"/acme.sh --cron --home "//.acme.sh" --config-home "//etc/acme" > /dev/null' [PASS]
+_contains '0 0 * * * "//.acme.sh"/acme.sh --cron --home "//.acme.sh" --config-home "//etc/acme" > /dev/null' '0 \* \* \* "//.acme.sh"/acme.sh --cron --home "//.acme.sh" --config-home "//etc/acme" > /dev/null' [PASS]
 //etc/acme/account.conf exists. [PASS]
 //.acme.sh/account.conf no exists. [PASS]
 //.acme.sh/acme.sh --cron --config-home //etc/acme > /dev/null [PASS]
 //.acme.sh/acme.sh --uninstall --config-home //etc/acme > /dev/null [PASS]
 //etc/acme/account.conf exists. [PASS]
 //.acme.sh/account.conf no exists. [PASS]
-rm: cannot remove '//etc/hostname': Device or resource busy
-rm: cannot remove '//etc/hosts': Device or resource busy
-rm: cannot remove '//etc/resolv.conf': Device or resource busy
-Run Failed
 ------------------------------------------
-Progress: 1/7/21
+Progress: 0/7/21
 ==Running le_test_standandalone_renew please wait
 //.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone [PASS]
 //.acme.sh/acme.sh --renew -d testdocker.acme.sh -f [PASS]
 ------------------------------------------
-Progress: 1/8/21
+Progress: 0/8/21
 ==Running le_test_standandalone_renew_v2 please wait
 //.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [PASS]
 '//.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
@@ -83,7 +79,7 @@ Progress: 1/8/21
 '//.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
 '//.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
 ------------------------------------------
-Progress: 1/9/21
+Progress: 0/9/21
 ==Running le_test_standandalone_renew_localaddress_v2 please wait
 //.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --local-address 0.0.0.0 --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [PASS]
 '//.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
@@ -98,7 +94,7 @@ Progress: 1/9/21
 '//.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
 '//.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
 ------------------------------------------
-Progress: 1/10/21
+Progress: 0/10/21
 ==Running le_test_standandalone_listen_v4_v2 please wait
 //.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --listen-v4 --cert-file '/acmetest/certs/domain.cer' --key-file '/acmetest/certs/domain.key'  --ca-file '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchain-file  '/acmetest/certs/full.cer' [PASS]
 '//.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
@@ -113,11 +109,11 @@ Progress: 1/10/21
 '//.acme.sh/testdocker.acme.sh/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
 '//.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
 ------------------------------------------
-Progress: 1/11/21
+Progress: 0/11/21
 ==Running le_test_standandalone_listen_v6_v2 please wait
 Skipped by TEST_IPV6
 ------------------------------------------
-Progress: 1/12/21
+Progress: 0/12/21
 ==Running le_test_standandalone_deactivate_v2 please wait
 //.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [PASS]
 '//.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
@@ -126,35 +122,35 @@ Progress: 1/12/21
 '//.acme.sh/testdocker.acme.sh/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
 //.acme.sh/acme.sh --deactivate -d testdocker.acme.sh [PASS]
 ------------------------------------------
-Progress: 1/13/21
+Progress: 0/13/21
 ==Running le_test_standandalone please wait
 //.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone [PASS]
 //.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
 //.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
 ------------------------------------------
-Progress: 1/14/21
+Progress: 0/14/21
 ==Running le_test_standandalone_SAN please wait
 //.acme.sh/acme.sh --issue -d "testdocker.acme.sh" -d "testdocker2.acme.sh" --standalone [PASS]
 //.acme.sh/testdocker.acme.sh/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
 //.acme.sh/testdocker.acme.sh/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
 ------------------------------------------
-Progress: 1/15/21
+Progress: 0/15/21
 ==Running le_test_standandalone_ECDSA_256 please wait
 //.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone -k ec-256 [PASS]
 //.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
 //.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
 ------------------------------------------
-Progress: 1/16/21
+Progress: 0/16/21
 ==Running le_test_standandalone_ECDSA_256_renew please wait
 //.acme.sh/acme.sh --issue --standalone -d testdocker.acme.sh  -k ec-256 [PASS]
 //.acme.sh/acme.sh --renew -d testdocker.acme.sh --force --ecc [PASS]
 ------------------------------------------
-Progress: 1/17/21
+Progress: 0/17/21
 ==Running le_test_standandalone_ECDSA_256_SAN_renew please wait
 //.acme.sh/acme.sh --issue --standalone -d "testdocker.acme.sh" -d "testdocker2.acme.sh" -k ec-256 [PASS]
 //.acme.sh/acme.sh --renew -d "testdocker.acme.sh" --force --ecc [PASS]
 ------------------------------------------
-Progress: 1/18/21
+Progress: 0/18/21
 ==Running le_test_standandalone_ECDSA_256_SAN_renew_v2 please wait
 //.acme.sh/acme.sh --issue -d "testdocker.acme.sh" -d "testdocker2.acme.sh" --standalone --keylength ec-256 --certpath '/acmetest/certs/domain.cer' --keypath '/acmetest/certs/domain.key'  --capath '/acmetest/certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '/acmetest/certs/full.cer' [PASS]
 '//.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer' equals '/acmetest/certs/domain.cer' [PASS]
@@ -169,17 +165,17 @@ Progress: 1/18/21
 '//.acme.sh/testdocker.acme.sh_ecc/ca.cer' equals '/acmetest/certs/ca.cer' [PASS]
 '//.acme.sh/testdocker.acme.sh_ecc/fullchain.cer' equals '/acmetest/certs/full.cer' [PASS]
 ------------------------------------------
-Progress: 1/19/21
+Progress: 0/19/21
 ==Running le_test_standandalone_ECDSA_384 please wait
 //.acme.sh/acme.sh --issue --standalone -d "testdocker.acme.sh" -k ec-384 [PASS]
 //.acme.sh/testdocker.acme.sh_ecc/testdocker.acme.sh.cer is cert ? 'testdocker.acme.sh' 'Fake LE Intermediate X1' [PASS]
 //.acme.sh/testdocker.acme.sh_ecc/ca.cer is cert ? 'Fake LE Intermediate X1' [PASS]
 ------------------------------------------
-Progress: 1/20/21
+Progress: 0/20/21
 ==Running le_test_standandalone_renew_idn_v2 please wait
 Skipped by TEST_IDN
 ------------------------------------------
-Progress: 1/21/21
+Progress: 0/21/21
 ==Running le_test_dnsapi please wait
 Skipped by TEST_DNS
 ------------------------------------------
