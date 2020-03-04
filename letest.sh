@@ -735,7 +735,7 @@ le_test_install_config_home() {
   _assertexists "$confighome/account.conf" || return
   _assertnotexists "$lehome/account.conf" || return
   if [ -z "$DEBUG" ]; then
-    rm -rf "$HOME/etc/"
+    rm -rf "$confighome"
   fi
 }
 
