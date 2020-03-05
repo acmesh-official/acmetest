@@ -7,7 +7,7 @@ Unit test project for **acme.sh** project https://github.com/acmesh-official/acm
 
 | Platform | Status| Last Run Time| Comments|
 -----------|-------|--------------|---------|
-|freebsd| ![](https://acmesh-official.github.io/acmetest/status/freebsd.svg?1583132561)| Mon, 02 Mar 2020 07:02:41 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/freebsd.out) |
+|freebsd| ![](https://acmesh-official.github.io/acmetest/status/freebsd.svg?1583434934)| Thu, 05 Mar 2020 19:02:14 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/freebsd.out) |
 |openbsd| ![](https://acmesh-official.github.io/acmetest/status/openbsd.svg?1583161671)| Mon, 02 Mar 2020 15:07:51 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/openbsd.out) |
 |pfsense| ![](https://acmesh-official.github.io/acmetest/status/pfsense.svg?1583161955)| Mon, 02 Mar 2020 15:12:35 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/pfsense.out) |
 |solaris| ![](https://acmesh-official.github.io/acmetest/status/solaris.svg?1583162264)| Mon, 02 Mar 2020 15:17:44 GMT| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/solaris.out) |
