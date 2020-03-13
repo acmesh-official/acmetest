@@ -3,4 +3,4 @@
 |centos:latest| ![](https://acmesh-official.github.io/acmetest/status/centos-latest.svg?1584070629)| Fri, 13 Mar 2020 03:37:09 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/centos-latest.out) |
 |fedora:latest| ![](https://acmesh-official.github.io/acmetest/status/fedora-latest.svg?1584070831)| Fri, 13 Mar 2020 03:40:31 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/fedora-latest.out) |
 |opensuse/leap| ![](https://acmesh-official.github.io/acmetest/status/opensuse-leap.svg?1584070846)| Fri, 13 Mar 2020 03:40:46 UTC| [Failed](https://github.com/acmesh-official/acmetest/blob/master/logs/opensuse-leap.out) |
-|alpine:latest| ![](https://acmesh-official.github.io/acmetest/status/alpine-latest.svg?1584071001)| Fri, 13 Mar 2020 03:43:21 UTC| [Failed](https://github.com/acmesh-official/acmetest/blob/master/logs/alpine-latest.out) |
+|alpine:latest| ![](https://acmesh-official.github.io/acmetest/status/alpine-latest.svg?1584071162)| Fri, 13 Mar 2020 03:46:02 UTC| [Failed](https://github.com/acmesh-official/acmetest/blob/master/logs/alpine-latest.out) |
