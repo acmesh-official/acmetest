@@ -16,7 +16,7 @@ Unit test project for **acme.sh** project https://github.com/acmesh-official/acm
 |debian:latest| ![](https://acmesh-official.github.io/acmetest/status/debian-latest.svg?1584675172)| Fri, 20 Mar 2020 03:32:52 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/debian-latest.out) |
 |centos:latest| ![](https://acmesh-official.github.io/acmetest/status/centos-latest.svg?1584675386)| Fri, 20 Mar 2020 03:36:26 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/centos-latest.out) |
 |fedora:latest| ![](https://acmesh-official.github.io/acmetest/status/fedora-latest.svg?1584675583)| Fri, 20 Mar 2020 03:39:43 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/fedora-latest.out) |
-|opensuse/leap| ![](https://acmesh-official.github.io/acmetest/status/opensuse-leap.svg?1584675591)| Fri, 20 Mar 2020 03:39:51 UTC| [Failed](https://github.com/acmesh-official/acmetest/blob/master/logs/opensuse-leap.out) |
+|opensuse/leap| ![](https://acmesh-official.github.io/acmetest/status/opensuse-leap.svg?1584675598)| Fri, 20 Mar 2020 03:39:58 UTC| [Failed](https://github.com/acmesh-official/acmetest/blob/master/logs/opensuse-leap.out) |
 
 # How to run tests
 
