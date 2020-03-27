@@ -3,35 +3,35 @@ Step 1/1 : FROM opensuse/leap
  ---> 38924343a351
 Successfully built 38924343a351
 Successfully tagged myopensuse-leap:latest
-Fri, 27 Mar 2020 03:40:13 UTC
-Testing branch: master
 Can not get acme.sh source code. tar or git must be installed
+Fri, 27 Mar 2020 03:40:21 UTC
+Testing branch: master
 Progress: 0/1/21
 ==Running le_test_dependencies please wait
-./letest.sh: line 536: cd: acme.sh: No such file or directory
-./letest.sh: line 537: ./acme.sh: No such file or directory
-curl not installed [FAIL] 
-Run Failed
-------------------------------------------
+curl not installed------------------------------------------
 Progress: 1/2/21
 ==Running le_test_install please wait
+./acme.sh --install------------------------------------------
+./letest.sh: line 536: cd: acme.sh: No such file or directory
+./letest.sh: line 537: ./acme.sh: No such file or directory
+ [FAIL] 
+Run Failed
 ./letest.sh: line 536: cd: acme.sh: No such file or directory
 ./letest.sh: line 537: ./acme.sh: No such file or directory
 ./letest.sh: line 655: cd: acme.sh: No such file or directory
-./acme.sh --install [FAIL] 
+ [FAIL] 
 Run Failed
-------------------------------------------
-Progress: 2/3/21
-==Running le_test_uninstall please wait
 ./letest.sh: line 536: cd: acme.sh: No such file or directory
 ./letest.sh: line 537: ./acme.sh: No such file or directory
 ./letest.sh: line 667: cd: acme.sh: No such file or directory
-./acme.sh --install [FAIL] 
+ [FAIL] 
 Run Failed
-------------------------------------------
+./letest.sh: line 682: cd: acme.sh: No such file or directory
+Progress: 2/3/21
+==Running le_test_uninstall please wait
+./acme.sh --install------------------------------------------
 Progress: 3/4/21
 ==Running le_test_installtodir please wait
-./letest.sh: line 682: cd: acme.sh: No such file or directory
 ./acme.sh --install [FAIL] 
 Run Failed
 ------------------------------------------
@@ -56,13 +56,13 @@ Run Failed
 ------------------------------------------
 Progress: 7/8/21
 ==Running le_test_standandalone_renew_v2 please wait
-./letest.sh: line 536: cd: acme.sh: No such file or directory
-./letest.sh: line 537: ./acme.sh: No such file or directory
-/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '//certs/domain.cer' --keypath '//certs/domain.key'  --capath '//certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '//certs/full.cer' [FAIL] 
-Run Failed
-------------------------------------------
+/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '//certs/domain.cer' --keypath '//certs/domain.key'  --capath '//certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '//certs/full.cer'------------------------------------------
 Progress: 8/9/21
 ==Running le_test_standandalone_renew_localaddress_v2 please wait
+./letest.sh: line 536: cd: acme.sh: No such file or directory
+./letest.sh: line 537: ./acme.sh: No such file or directory
+ [FAIL] 
+Run Failed
 ./letest.sh: line 536: cd: acme.sh: No such file or directory
 ./letest.sh: line 537: ./acme.sh: No such file or directory
 /root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --local-address 0.0.0.0 --certpath '//certs/domain.cer' --keypath '//certs/domain.key'  --capath '//certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '//certs/full.cer' [FAIL] 
