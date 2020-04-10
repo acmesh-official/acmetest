@@ -22,7 +22,7 @@ Unit test project for **acme.sh** project https://github.com/acmesh-official/acm
 |kalilinux/kali| ![](https://acmesh-official.github.io/acmetest/status/kalilinux-kali.svg?1586490898)| Fri, 10 Apr 2020 03:54:58 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/kalilinux-kali.out) |
 |archlinux:latest| ![](https://acmesh-official.github.io/acmetest/status/archlinux-latest.svg?1586492985)| Fri, 10 Apr 2020 04:29:45 UTC| [Failed](https://github.com/acmesh-official/acmetest/blob/master/logs/archlinux-latest.out) |
 |mageia| ![](https://acmesh-official.github.io/acmetest/status/mageia.svg?1586491116)| Fri, 10 Apr 2020 03:58:36 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/mageia.out) |
-|gentoo/stage3-amd64| ![](https://acmesh-official.github.io/acmetest/status/gentoo-stage3-amd64.svg?1586492401)| Fri, 10 Apr 2020 04:20:01 UTC| [Failed](https://github.com/acmesh-official/acmetest/blob/master/logs/gentoo-stage3-amd64.out) |
+|gentoo/stage3-amd64| ![](https://acmesh-official.github.io/acmetest/status/gentoo-stage3-amd64.svg?1586493611)| Fri, 10 Apr 2020 04:40:11 UTC| [Failed](https://github.com/acmesh-official/acmetest/blob/master/logs/gentoo-stage3-amd64.out) |
 |clearlinux:latest| ![](https://acmesh-official.github.io/acmetest/status/clearlinux-latest.svg?1586492619)| Fri, 10 Apr 2020 04:23:39 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/clearlinux-latest.out) |
 
 # How to run tests
