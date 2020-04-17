@@ -3,14 +3,14 @@ Step 1/1 : FROM opensuse/leap
  ---> 38924343a351
 Successfully built 38924343a351
 Successfully tagged myopensuse-leap:latest
-Can not get acme.sh source code. tar or git must be installed
-Fri, 17 Apr 2020 03:40:28 UTC
+Fri, 17 Apr 2020 04:23:36 UTC
 Testing branch: master
+Can not get acme.sh source code. tar or git must be installed
 Progress: 0/1/21
 ==Running le_test_dependencies please wait
-curl not installed./letest.sh: line 536: cd: acme.sh: No such file or directory
+./letest.sh: line 536: cd: acme.sh: No such file or directory
 ./letest.sh: line 537: ./acme.sh: No such file or directory
- [FAIL] 
+curl not installed [FAIL] 
 Run Failed
 ------------------------------------------
 Progress: 1/2/21
@@ -36,21 +36,21 @@ Progress: 3/4/21
 Run Failed
 ------------------------------------------
 Progress: 4/5/21
-==Running le_test_uninstalltodir please wait
 ./letest.sh: line 705: cd: acme.sh: No such file or directory
-./acme.sh --install [FAIL] 
+ [FAIL] 
 Run Failed
-------------------------------------------
+==Running le_test_uninstalltodir please wait
+./acme.sh --install------------------------------------------
 Progress: 5/6/21
 ==Running le_test_install_config_home please wait
 ./letest.sh: line 724: cd: acme.sh: No such file or directory
 ./acme.sh --install --config-home /root/etc/acme [FAIL] 
 Run Failed
 ------------------------------------------
-Progress: 6/7/21
-==Running le_test_standandalone_renew please wait
 ./letest.sh: line 536: cd: acme.sh: No such file or directory
 ./letest.sh: line 537: ./acme.sh: No such file or directory
+Progress: 6/7/21
+==Running le_test_standandalone_renew please wait
 /root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone [FAIL] 
 Run Failed
 ------------------------------------------
@@ -60,29 +60,29 @@ Progress: 7/8/21
 ./letest.sh: line 537: ./acme.sh: No such file or directory
 /root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '//certs/domain.cer' --keypath '//certs/domain.key'  --capath '//certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '//certs/full.cer' [FAIL] 
 Run Failed
-./letest.sh: line 536: cd: acme.sh: No such file or directory
-./letest.sh: line 537: ./acme.sh: No such file or directory
- [FAIL] 
-Run Failed
 ------------------------------------------
 Progress: 8/9/21
 ==Running le_test_standandalone_renew_localaddress_v2 please wait
-/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --local-address 0.0.0.0 --certpath '//certs/domain.cer' --keypath '//certs/domain.key'  --capath '//certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '//certs/full.cer'------------------------------------------
+./letest.sh: line 536: cd: acme.sh: No such file or directory
+./letest.sh: line 537: ./acme.sh: No such file or directory
+/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --local-address 0.0.0.0 --certpath '//certs/domain.cer' --keypath '//certs/domain.key'  --capath '//certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '//certs/full.cer' [FAIL] 
+Run Failed
+------------------------------------------
 Progress: 9/10/21
 ==Running le_test_standandalone_listen_v4_v2 please wait
 ./letest.sh: line 536: cd: acme.sh: No such file or directory
 ./letest.sh: line 537: ./acme.sh: No such file or directory
-/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --listen-v4 --cert-file '//certs/domain.cer' --key-file '//certs/domain.key'  --ca-file '//certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchain-file  '//certs/full.cer'------------------------------------------
+/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --listen-v4 --cert-file '//certs/domain.cer' --key-file '//certs/domain.key'  --ca-file '//certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchain-file  '//certs/full.cer' [FAIL] 
+Run Failed
+------------------------------------------
 Progress: 10/11/21
 ==Running le_test_standandalone_listen_v6_v2 please wait
+./letest.sh: line 536: cd: acme.sh: No such file or directory
+./letest.sh: line 537: ./acme.sh: No such file or directory
 Skipped by TEST_IPV6
 ------------------------------------------
 Progress: 10/12/21
 ==Running le_test_standandalone_deactivate_v2 please wait
- [FAIL] 
-Run Failed
-./letest.sh: line 536: cd: acme.sh: No such file or directory
-./letest.sh: line 537: ./acme.sh: No such file or directory
 ./letest.sh: line 536: cd: acme.sh: No such file or directory
 ./letest.sh: line 537: ./acme.sh: No such file or directory
 /root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --certpath '//certs/domain.cer' --keypath '//certs/domain.key'  --capath '//certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '//certs/full.cer' [FAIL] 
