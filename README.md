@@ -23,6 +23,7 @@ Unit test project for **acme.sh** project https://github.com/acmesh-official/acm
 |archlinux:latest| ![](https://acmesh-official.github.io/acmetest/status/archlinux-latest.svg?1587700367)| Fri, 24 Apr 2020 03:52:47 UTC| [Failed](https://github.com/acmesh-official/acmetest/blob/master/logs/archlinux-latest.out) |
 |mageia| ![](https://acmesh-official.github.io/acmetest/status/mageia.svg?1587700559)| Fri, 24 Apr 2020 03:55:59 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/mageia.out) |
 |gentoo/stage3-amd64| ![](https://acmesh-official.github.io/acmetest/status/gentoo-stage3-amd64.svg?1587702030)| Fri, 24 Apr 2020 04:20:30 UTC| [Failed](https://github.com/acmesh-official/acmetest/blob/master/logs/gentoo-stage3-amd64.out) |
+|clearlinux:latest| ![](https://acmesh-official.github.io/acmetest/status/clearlinux-latest.svg?1587702240)| Fri, 24 Apr 2020 04:24:00 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/clearlinux-latest.out) |
 
 # How to run tests
 
