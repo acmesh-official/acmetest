@@ -7,3 +7,4 @@
 |oraclelinux:latest| ![](https://acmesh-official.github.io/acmetest/status/oraclelinux-latest.svg?1588909691)| Fri, 08 May 2020 03:48:11 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/oraclelinux-latest.out) |
 |kalilinux/kali| ![](https://acmesh-official.github.io/acmetest/status/kalilinux-kali.svg?1588909887)| Fri, 08 May 2020 03:51:27 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/kalilinux-kali.out) |
 |archlinux:latest| ![](https://acmesh-official.github.io/acmetest/status/archlinux-latest.svg?1588909907)| Fri, 08 May 2020 03:51:47 UTC| [Failed](https://github.com/acmesh-official/acmetest/blob/master/logs/archlinux-latest.out) |
+|mageia| ![](https://acmesh-official.github.io/acmetest/status/mageia.svg?1588910103)| Fri, 08 May 2020 03:55:03 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/mageia.out) |
