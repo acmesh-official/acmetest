@@ -1,3 +1,4 @@
 |ubuntu:latest| ![](https://acmesh-official.github.io/acmetest/status/ubuntu-latest.svg?1588908552)| Fri, 08 May 2020 03:29:12 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/ubuntu-latest.out) |
 |debian:latest| ![](https://acmesh-official.github.io/acmetest/status/debian-latest.svg?1588908746)| Fri, 08 May 2020 03:32:26 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/debian-latest.out) |
 |centos:latest| ![](https://acmesh-official.github.io/acmetest/status/centos-latest.svg?1588908964)| Fri, 08 May 2020 03:36:04 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/centos-latest.out) |
+|fedora:latest| ![](https://acmesh-official.github.io/acmetest/status/fedora-latest.svg?1588909158)| Fri, 08 May 2020 03:39:18 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/fedora-latest.out) |
