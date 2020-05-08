@@ -20,6 +20,7 @@ Unit test project for **acme.sh** project https://github.com/acmesh-official/acm
 |alpine:latest| ![](https://acmesh-official.github.io/acmetest/status/alpine-latest.svg?1588909486)| Fri, 08 May 2020 03:44:46 UTC| [Failed](https://github.com/acmesh-official/acmetest/blob/master/logs/alpine-latest.out) |
 |oraclelinux:latest| ![](https://acmesh-official.github.io/acmetest/status/oraclelinux-latest.svg?1588909691)| Fri, 08 May 2020 03:48:11 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/oraclelinux-latest.out) |
 |kalilinux/kali| ![](https://acmesh-official.github.io/acmetest/status/kalilinux-kali.svg?1588909887)| Fri, 08 May 2020 03:51:27 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/kalilinux-kali.out) |
+|archlinux:latest| ![](https://acmesh-official.github.io/acmetest/status/archlinux-latest.svg?1588909898)| Fri, 08 May 2020 03:51:38 UTC| [Failed](https://github.com/acmesh-official/acmetest/blob/master/logs/archlinux-latest.out) |
 
 # How to run tests
 
