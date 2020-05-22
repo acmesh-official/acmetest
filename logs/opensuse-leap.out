@@ -3,14 +3,14 @@ Step 1/1 : FROM opensuse/leap
  ---> 38924343a351
 Successfully built 38924343a351
 Successfully tagged myopensuse-leap:latest
-Can not get acme.sh source code. tar or git must be installed
-Fri, 22 May 2020 03:41:11 UTC
+Fri, 22 May 2020 04:20:10 UTC
 Testing branch: master
+Can not get acme.sh source code. tar or git must be installed
 Progress: 0/1/21
 ==Running le_test_dependencies please wait
-curl not installed./letest.sh: line 536: cd: acme.sh: No such file or directory
+./letest.sh: line 536: cd: acme.sh: No such file or directory
 ./letest.sh: line 537: ./acme.sh: No such file or directory
- [FAIL] 
+curl not installed [FAIL] 
 Run Failed
 ------------------------------------------
 Progress: 1/2/21
