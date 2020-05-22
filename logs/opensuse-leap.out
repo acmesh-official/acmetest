@@ -3,7 +3,7 @@ Step 1/1 : FROM opensuse/leap
  ---> 38924343a351
 Successfully built 38924343a351
 Successfully tagged myopensuse-leap:latest
-Fri, 15 May 2020 04:21:02 UTC
+Fri, 22 May 2020 03:41:03 UTC
 Testing branch: master
 Can not get acme.sh source code. tar or git must be installed
 Progress: 0/1/21
