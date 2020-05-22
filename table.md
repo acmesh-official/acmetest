@@ -6,3 +6,4 @@
 |alpine:latest| ![](https://acmesh-official.github.io/acmetest/status/alpine-latest.svg?1590119191)| Fri, 22 May 2020 03:46:31 UTC| [Failed](https://github.com/acmesh-official/acmetest/blob/master/logs/alpine-latest.out) |
 |oraclelinux:latest| ![](https://acmesh-official.github.io/acmetest/status/oraclelinux-latest.svg?1590119389)| Fri, 22 May 2020 03:49:49 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/oraclelinux-latest.out) |
 |kalilinux/kali| ![](https://acmesh-official.github.io/acmetest/status/kalilinux-kali.svg?1590119583)| Fri, 22 May 2020 03:53:03 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/kalilinux-kali.out) |
+|archlinux:latest| ![](https://acmesh-official.github.io/acmetest/status/archlinux-latest.svg?1590119596)| Fri, 22 May 2020 03:53:16 UTC| [Failed](https://github.com/acmesh-official/acmetest/blob/master/logs/archlinux-latest.out) |
