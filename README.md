@@ -12,18 +12,7 @@ Unit test project for **acme.sh** project https://github.com/acmesh-official/acm
 |pfsense| ![](https://acmesh-official.github.io/acmetest/status/pfsense.svg?1590117132)| Fri, 22 May 2020 03:12:12 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/pfsense.out) |
 |solaris| ![](https://acmesh-official.github.io/acmetest/status/solaris.svg?1583464630)| Fri, 06 Mar 2020 03:17:10 GMT| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/solaris.out) |
 |windows-cygwin| ![](https://acmesh-official.github.io/acmetest/status/windows-cygwin.svg?1590118025)| Fri, 22 May 2020 03:27:05 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/windows-cygwin.out) |
-|ubuntu:latest| ![](https://acmesh-official.github.io/acmetest/status/ubuntu-latest.svg?1589513390)| Fri, 15 May 2020 03:29:50 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/ubuntu-latest.out) |
-|debian:latest| ![](https://acmesh-official.github.io/acmetest/status/debian-latest.svg?1589513590)| Fri, 15 May 2020 03:33:10 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/debian-latest.out) |
-|centos:latest| ![](https://acmesh-official.github.io/acmetest/status/centos-latest.svg?1589513799)| Fri, 15 May 2020 03:36:39 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/centos-latest.out) |
-|fedora:latest| ![](https://acmesh-official.github.io/acmetest/status/fedora-latest.svg?1589514003)| Fri, 15 May 2020 03:40:03 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/fedora-latest.out) |
-|opensuse/leap| ![](https://acmesh-official.github.io/acmetest/status/opensuse-leap.svg?1589516464)| Fri, 15 May 2020 04:21:04 UTC| [Failed](https://github.com/acmesh-official/acmetest/blob/master/logs/opensuse-leap.out) |
-|alpine:latest| ![](https://acmesh-official.github.io/acmetest/status/alpine-latest.svg?1589516787)| Fri, 15 May 2020 04:26:27 UTC| [Failed](https://github.com/acmesh-official/acmetest/blob/master/logs/alpine-latest.out) |
-|oraclelinux:latest| ![](https://acmesh-official.github.io/acmetest/status/oraclelinux-latest.svg?1589514542)| Fri, 15 May 2020 03:49:02 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/oraclelinux-latest.out) |
-|kalilinux/kali| ![](https://acmesh-official.github.io/acmetest/status/kalilinux-kali.svg?1589514737)| Fri, 15 May 2020 03:52:17 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/kalilinux-kali.out) |
-|archlinux:latest| ![](https://acmesh-official.github.io/acmetest/status/archlinux-latest.svg?1589516807)| Fri, 15 May 2020 04:26:47 UTC| [Failed](https://github.com/acmesh-official/acmetest/blob/master/logs/archlinux-latest.out) |
-|mageia| ![](https://acmesh-official.github.io/acmetest/status/mageia.svg?1589514955)| Fri, 15 May 2020 03:55:55 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/mageia.out) |
-|gentoo/stage3-amd64| ![](https://acmesh-official.github.io/acmetest/status/gentoo-stage3-amd64.svg?1589518018)| Fri, 15 May 2020 04:46:58 UTC| [Failed](https://github.com/acmesh-official/acmetest/blob/master/logs/gentoo-stage3-amd64.out) |
-|clearlinux:latest| ![](https://acmesh-official.github.io/acmetest/status/clearlinux-latest.svg?1589516446)| Fri, 15 May 2020 04:20:46 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/clearlinux-latest.out) |
+|ubuntu:latest| ![](https://acmesh-official.github.io/acmetest/status/ubuntu-latest.svg?1590118246)| Fri, 22 May 2020 03:30:46 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/ubuntu-latest.out) |
 
 # How to run tests
 
