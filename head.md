@@ -11,4 +11,4 @@ Unit test project for **acme.sh** project https://github.com/acmesh-official/acm
 |openbsd| ![](https://acmesh-official.github.io/acmetest/status/openbsd.svg?1590721674)| Fri, 29 May 2020 03:07:54 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/openbsd.out) |
 |pfsense| ![](https://acmesh-official.github.io/acmetest/status/pfsense.svg?1590721953)| Fri, 29 May 2020 03:12:33 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/pfsense.out) |
 |solaris| ![](https://acmesh-official.github.io/acmetest/status/solaris.svg?1583464630)| Fri, 06 Mar 2020 03:17:10 GMT| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/solaris.out) |
-|windows-cygwin| ![](https://acmesh-official.github.io/acmetest/status/windows-cygwin.svg?1590118025)| Fri, 22 May 2020 03:27:05 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/windows-cygwin.out) |
+|windows-cygwin| ![](https://acmesh-official.github.io/acmetest/status/windows-cygwin.svg?1590722838)| Fri, 29 May 2020 03:27:18 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/windows-cygwin.out) |
