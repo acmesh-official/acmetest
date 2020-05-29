@@ -1,1 +1,2 @@
 |ubuntu:latest| ![](https://acmesh-official.github.io/acmetest/status/ubuntu-latest.svg?1590723074)| Fri, 29 May 2020 03:31:14 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/ubuntu-latest.out) |
+|debian:latest| ![](https://acmesh-official.github.io/acmetest/status/debian-latest.svg?1590723268)| Fri, 29 May 2020 03:34:28 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/debian-latest.out) |
