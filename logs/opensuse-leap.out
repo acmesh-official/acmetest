@@ -3,7 +3,7 @@ Step 1/1 : FROM opensuse/leap
  ---> 38924343a351
 Successfully built 38924343a351
 Successfully tagged myopensuse-leap:latest
-Fri, 29 May 2020 04:28:34 UTC
+Fri, 05 Jun 2020 03:41:20 UTC
 Testing branch: master
 Can not get acme.sh source code. tar or git must be installed
 Progress: 0/1/21
@@ -135,13 +135,13 @@ Progress: 17/19/21
 ./letest.sh: line 536: cd: acme.sh: No such file or directory
 ./letest.sh: line 537: ./acme.sh: No such file or directory
 /root/.acme.sh/acme.sh --issue --standalone -d "testdocker.acme.sh" -k ec-384 [FAIL] 
-Run Failed
 ------------------------------------------
 Progress: 18/20/21
 ==Running le_test_standandalone_renew_idn_v2 please wait
+Skipped by TEST_IDN
+Run Failed
 ./letest.sh: line 536: cd: acme.sh: No such file or directory
 ./letest.sh: line 537: ./acme.sh: No such file or directory
-Skipped by TEST_IDN
 ------------------------------------------
 Progress: 18/21/21
 ==Running le_test_dnsapi please wait
