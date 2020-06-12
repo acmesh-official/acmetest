@@ -3,7 +3,7 @@ Step 1/1 : FROM opensuse/leap
  ---> 38924343a351
 Successfully built 38924343a351
 Successfully tagged myopensuse-leap:latest
-Fri, 12 Jun 2020 04:21:13 UTC
+Fri, 12 Jun 2020 04:21:21 UTC
 Testing branch: master
 Can not get acme.sh source code. tar or git must be installed
 Progress: 0/1/21
@@ -18,9 +18,9 @@ Progress: 1/2/21
 ./letest.sh: line 536: cd: acme.sh: No such file or directory
 ./letest.sh: line 537: ./acme.sh: No such file or directory
 ./letest.sh: line 655: cd: acme.sh: No such file or directory
- [FAIL] 
+./acme.sh --install [FAIL] 
 Run Failed
-./acme.sh --install------------------------------------------
+------------------------------------------
 Progress: 2/3/21
 ==Running le_test_uninstall please wait
 ./letest.sh: line 536: cd: acme.sh: No such file or directory
@@ -65,9 +65,9 @@ Progress: 8/9/21
 ==Running le_test_standandalone_renew_localaddress_v2 please wait
 ./letest.sh: line 536: cd: acme.sh: No such file or directory
 ./letest.sh: line 537: ./acme.sh: No such file or directory
-/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --local-address 0.0.0.0 --certpath '//certs/domain.cer' --keypath '//certs/domain.key'  --capath '//certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '//certs/full.cer'------------------------------------------
- [FAIL] 
+/root/.acme.sh/acme.sh --issue -d testdocker.acme.sh --standalone --local-address 0.0.0.0 --certpath '//certs/domain.cer' --keypath '//certs/domain.key'  --capath '//certs/ca.cer'  --reloadcmd 'echo this is reload'  --fullchainpath  '//certs/full.cer' [FAIL] 
 Run Failed
+------------------------------------------
 Progress: 9/10/21
 ==Running le_test_standandalone_listen_v4_v2 please wait
 ./letest.sh: line 536: cd: acme.sh: No such file or directory
