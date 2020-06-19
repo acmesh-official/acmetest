@@ -20,7 +20,7 @@ Unit test project for **acme.sh** project https://github.com/acmesh-official/acm
 |alpine:latest| ![](https://acmesh-official.github.io/acmetest/status/alpine-latest.svg?1592538361)| Fri, 19 Jun 2020 03:46:01 UTC| [Failed](https://github.com/acmesh-official/acmetest/blob/master/logs/alpine-latest.out) |
 |oraclelinux:latest| ![](https://acmesh-official.github.io/acmetest/status/oraclelinux-latest.svg?1592538579)| Fri, 19 Jun 2020 03:49:39 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/oraclelinux-latest.out) |
 |kalilinux/kali| ![](https://acmesh-official.github.io/acmetest/status/kalilinux-kali.svg?1592538779)| Fri, 19 Jun 2020 03:52:59 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/kalilinux-kali.out) |
-|archlinux:latest| ![](https://acmesh-official.github.io/acmetest/status/archlinux-latest.svg?1592538794)| Fri, 19 Jun 2020 03:53:14 UTC| [Failed](https://github.com/acmesh-official/acmetest/blob/master/logs/archlinux-latest.out) |
+|archlinux:latest| ![](https://acmesh-official.github.io/acmetest/status/archlinux-latest.svg?1592538805)| Fri, 19 Jun 2020 03:53:25 UTC| [Failed](https://github.com/acmesh-official/acmetest/blob/master/logs/archlinux-latest.out) |
 
 # How to run tests
 
