@@ -2,3 +2,4 @@
 |debian:latest| ![](https://acmesh-official.github.io/acmetest/status/debian-latest.svg?1594352102)| Fri, 10 Jul 2020 03:35:02 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/debian-latest.out) |
 |centos:latest| ![](https://acmesh-official.github.io/acmetest/status/centos-latest.svg?1594352317)| Fri, 10 Jul 2020 03:38:37 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/centos-latest.out) |
 |fedora:latest| ![](https://acmesh-official.github.io/acmetest/status/fedora-latest.svg?1594352527)| Fri, 10 Jul 2020 03:42:07 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/fedora-latest.out) |
+|opensuse/leap:latest| ![](https://acmesh-official.github.io/acmetest/status/opensuse-leap-latest.svg?1594352963)| Fri, 10 Jul 2020 03:49:23 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/opensuse-leap-latest.out) |
