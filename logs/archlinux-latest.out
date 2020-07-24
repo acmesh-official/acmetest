@@ -1,19 +1,12 @@
 Sending build context to Docker daemon  2.048kB
 Step 1/2 : FROM archlinux:latest
  ---> 8635d7bd071c
-Step 2/2 : RUN  pacman  -Sy  --overwrite "*" --noconfirm --noprogressbar openssl cron socat libidn unzip  2>&1
- ---> Running in d3e7e35c7e5a
+Step 2/2 : RUN  pacman  -Sy  --overwrite "*" --noconfirm --noprogressbar openssl cronie socat libidn unzip  2>&1
+ ---> Running in c9ea2168c8c8
 :: Synchronizing package databases...
 downloading core.db...
 downloading extra.db...
 downloading community.db...
-:: There are 2 providers available for cron:
-:: Repository core
-   1) cronie
-:: Repository community
-   2) fcron
-
-Enter a number (default=1): 
 resolving dependencies...
 looking for conflicting packages...
 
@@ -49,11 +42,11 @@ installing unzip...
 (1/2) Reloading system manager configuration...
   Skipped: Current root is not booted.
 (2/2) Arming ConditionNeedsUpdate...
-Removing intermediate container d3e7e35c7e5a
- ---> 7de95a3ed812
-Successfully built 7de95a3ed812
+Removing intermediate container c9ea2168c8c8
+ ---> 150ef9e1349f
+Successfully built 150ef9e1349f
 Successfully tagged myarchlinux:latest
-Fri, 17 Jul 2020 03:57:51 UTC
+Fri, 24 Jul 2020 03:56:57 UTC
 Testing branch: master
 Progress: 0/1/21
 ==Running le_test_dependencies please wait
@@ -68,7 +61,7 @@ Progress: 0/2/21
 ==Running le_test_install please wait
 ./acme.sh --install [PASS]
 /root/.acme.sh/acme.sh exists. [PASS]
-_contains '53 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
+_contains '59 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null' [PASS]
 /root/.acme.sh/acme.sh --uninstall  > /dev/null [PASS]
 ------------------------------------------
 Progress: 0/3/21
@@ -82,7 +75,7 @@ Progress: 0/4/21
 ==Running le_test_installtodir please wait
 ./acme.sh --install [PASS]
 /root/myle/acme.sh exists. [PASS]
-_contains '57 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
+_contains '3 0 * * * "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' '0 \* \* \* "/root/myle"/acme.sh --cron --home "/root/myle" > /dev/null' [PASS]
 /root/myle/acme.sh --uninstall [PASS]
 ------------------------------------------
 Progress: 0/5/21
@@ -96,7 +89,7 @@ Progress: 0/6/21
 ==Running le_test_install_config_home please wait
 ./acme.sh --install --config-home /root/etc/acme [PASS]
 /root/.acme.sh/acme.sh exists. [PASS]
-_contains '0 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
+_contains '6 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' '0 \* \* \* "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --config-home "/root/etc/acme" > /dev/null' [PASS]
 /root/etc/acme/account.conf exists. [PASS]
 /root/.acme.sh/account.conf no exists. [PASS]
 /root/.acme.sh/acme.sh --cron --config-home /root/etc/acme > /dev/null [PASS]
