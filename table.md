@@ -1,2 +1,3 @@
 |ubuntu:latest| ![](https://acmesh-official.github.io/acmetest/status/ubuntu-latest.svg?1596771137)| Fri, 07 Aug 2020 03:32:17 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/ubuntu-latest.out) |
 |debian:latest| ![](https://acmesh-official.github.io/acmetest/status/debian-latest.svg?1596771324)| Fri, 07 Aug 2020 03:35:24 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/debian-latest.out) |
+|centos:latest| ![](https://acmesh-official.github.io/acmetest/status/centos-latest.svg?1596771538)| Fri, 07 Aug 2020 03:38:58 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/centos-latest.out) |
