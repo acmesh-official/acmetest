@@ -18,6 +18,7 @@ Unit test project for **acme.sh** project https://github.com/acmesh-official/acm
 |fedora:latest| ![](https://acmesh-official.github.io/acmetest/status/fedora-latest.svg?1597376518)| Fri, 14 Aug 2020 03:41:58 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/fedora-latest.out) |
 |opensuse/leap:latest| ![](https://acmesh-official.github.io/acmetest/status/opensuse-leap-latest.svg?1597376718)| Fri, 14 Aug 2020 03:45:18 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/opensuse-leap-latest.out) |
 |alpine:latest| ![](https://acmesh-official.github.io/acmetest/status/alpine-latest.svg?1597376879)| Fri, 14 Aug 2020 03:47:59 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/alpine-latest.out) |
+|oraclelinux:latest| ![](https://acmesh-official.github.io/acmetest/status/oraclelinux-latest.svg?1597377083)| Fri, 14 Aug 2020 03:51:23 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/oraclelinux-latest.out) |
 
 # How to run tests
 
