@@ -28,6 +28,11 @@ END_CERT="-----END CERTIFICATE-----"
 
 CA="Fake LE Intermediate X1"
 
+if [ "$TEST_CA" ]; then
+  CA="$TEST_CA"
+fi
+
+
 ECC_SEP="_"
 ECC_SUFFIX="${ECC_SEP}ecc"
 
@@ -39,7 +44,7 @@ _API_HOST="$(echo "$STAGE_CA" | cut -d : -f 2 | tr -d '/')"
 _startswith(){
   _str="$1"
   _sub="$2"
-  echo "$_str" | grep "^$_sub" >/dev/null 2>&1
+  echo "$_str" | grep -- "^$_sub" >/dev/null 2>&1
 }
 
 if [ -z "$LOG_FILE" ] ; then
@@ -430,7 +435,7 @@ fi
 
 
 
-#file subname
+#file subname issuername
 _assertcert() {
   filename="$1"
   subname="$2"
@@ -442,7 +447,7 @@ _assertcert() {
     if [ "$issuername" ] ; then
       issuer="$(echo $(openssl x509 -in $filename -text -noout | grep 'Issuer:' | _egrep_o "CN *=[^,]*" | cut -d = -f 2))"
       printf " '$issuer'"
-      if [ "$issuername" != "$issuer" ] ; then
+      if ! _startswith "$issuer" "$issuername"; then
         __fail "Expected issuer is: '$issuername', but was: '$issuer'"
         return 1
       fi
