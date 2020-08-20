@@ -447,7 +447,7 @@ _assertcert() {
     if [ "$issuername" ] ; then
       issuer="$(echo $(openssl x509 -in $filename -text -noout | grep 'Issuer:' | _egrep_o "CN *=[^,]*" | cut -d = -f 2))"
       printf " '$issuer'"
-      if ! _startswith "$issuer" "$issuername"; then
+      if ! _contains "$issuer" "$issuername"; then
         __fail "Expected issuer is: '$issuername', but was: '$issuer'"
         return 1
       fi
