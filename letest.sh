@@ -443,7 +443,7 @@ _assertcert() {
   printf "$filename is cert ? "
   subj="$(echo  $(openssl x509  -in $filename  -text  -noout | grep 'Subject: CN *=' | cut -d '=' -f 2 | cut -d / -f 1))"
   printf "'$subj'"
-  if [ "$subj" = "$subname" ] ; then
+  if _contains "$subj" "$subname"; then
     if [ "$issuername" ] ; then
       issuer="$(echo $(openssl x509 -in $filename -text -noout | grep 'Issuer:' | _egrep_o "CN *=[^,]*" | cut -d = -f 2))"
       printf " '$issuer'"
