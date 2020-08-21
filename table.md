@@ -8,3 +8,4 @@
 |kalilinux/kali| ![](https://acmesh-official.github.io/acmetest/status/kalilinux-kali.svg?1597982246)| Fri, 21 Aug 2020 03:57:26 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/kalilinux-kali.out) |
 |archlinux:latest| ![](https://acmesh-official.github.io/acmetest/status/archlinux-latest.svg?1597982487)| Fri, 21 Aug 2020 04:01:27 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/archlinux-latest.out) |
 |mageia| ![](https://acmesh-official.github.io/acmetest/status/mageia.svg?1597982682)| Fri, 21 Aug 2020 04:04:42 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/mageia.out) |
+|gentoo/stage3-amd64| ![](https://acmesh-official.github.io/acmetest/status/gentoo-stage3-amd64.svg?1597982827)| Fri, 21 Aug 2020 04:07:07 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/gentoo-stage3-amd64.out) |
