@@ -1536,7 +1536,7 @@ do
   fi
 
   if [ "$_ret" != "0" ] ; then
-    if [ "$TRAVIS" = "true" ] ; then
+    if [ "$TRAVIS" = "true" ] || [ "$CI" = "true" ] ; then
       cat "$_case_log"
       break
     fi
