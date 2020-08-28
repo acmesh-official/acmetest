@@ -391,7 +391,11 @@ if [ -z "$TestingDomain" ]; then
     
     ng_temp_1="ngrok.tmp"
     _info "ng_temp_1" "$ng_temp_1"
-    $NGROK_BIN http 80 --log stdout --log-format logfmt --log-level debug > "$ng_temp_1" &
+    if [ "$Le_HTTPPort" ]; then
+      $NGROK_BIN http $Le_HTTPPort --log stdout --log-format logfmt --log-level debug > "$ng_temp_1" &
+    else
+      $NGROK_BIN http 80 --log stdout --log-format logfmt --log-level debug > "$ng_temp_1" &
+    fi
     NGROK_PID="$!"
     _debug "ngrok pid: $NGROK_PID"
     
