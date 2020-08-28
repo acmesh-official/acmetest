@@ -66,7 +66,7 @@ export LOG_LEVEL
 
 
 #we need color in travis
-if [ "$TRAVIS" = "true" ]; then
+if [ "$TRAVIS" = "true" ] || [ "$GITHUB_REF" ]; then
   export ACME_FORCE_COLOR=1
 elif [ "$CI" = "1" ]; then
   #In our cron testing server
