@@ -2,20 +2,20 @@
 # How to run tests
 
 First point at least 2 of your domains to your machine, 
-for example: `aa.com` and `www.aa.com`
+for example: `example.com` and `www.example.com`
 
 And make sure 80 port is not used by anyone else.
 
 ```
 cd acmetest
-TestingDomain=aa.com   TestingAltDomains=www.aa.com  ./letest.sh
+TestingDomain=example.com   TestingAltDomains=www.example.com  ./letest.sh
 ```
 
 If you are not root,  please use `sudo`, because the script will have to listen at `80` port:
 
 ```
 cd acmetest
-sudo  TestingDomain=aa.com   TestingAltDomains=www.aa.com  ./letest.sh
+sudo  TestingDomain=example.com   TestingAltDomains=www.example.com  ./letest.sh
 
 ```
 
@@ -27,7 +27,7 @@ Then test all the platforms :
 
 ```
 cd acmetest
-TestingDomain=aa.com   TestingAltDomains=www.aa.com  ./rundocker.sh  testall
+TestingDomain=example.com   TestingAltDomains=www.example.com  ./rundocker.sh  testall
 ```
 
 The script will download all the supported platforms from the official docker hub, then run the test cases in all the supported platforms.
@@ -36,7 +36,7 @@ Then test single docker platform :
 
 ```
 cd acmetest
-TestingDomain=aa.com   TestingAltDomains=www.aa.com  ./rundocker.sh  testplat   centos:latest
+TestingDomain=example.com   TestingAltDomains=www.example.com  ./rundocker.sh  testplat   centos:latest
 ```
 
 # Run tests with ngrok automatically
