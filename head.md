@@ -1,5 +1,5 @@
 # acmetest
-Unit test project for **acme.sh** project https://github.com/acmesh-official/acme.sh
+Unit test project for **acme.sh** project https://acme.sh
 
 
 
