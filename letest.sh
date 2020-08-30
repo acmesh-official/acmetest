@@ -1554,7 +1554,7 @@ do
 done
 
 if [ "$NGROK_PID" ] ; then
-  kill "$NGROK_PID"
+  kill -9 "$NGROK_PID"
 fi
 
 exit $_ret
