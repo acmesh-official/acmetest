@@ -41,10 +41,11 @@ jobs:
     if: "contains(needs.CheckToken.outputs.hasToken, 'true')"
     env:
       NGROK_TOKEN : ${{ secrets.NGROK_TOKEN }}
+      DEBUG: 1
     steps:
     - uses: actions/checkout@v2
     - name: Run acmetest
-      run: ./rundocker.sh  testall
+      run: ./rundocker.sh  _cron
 
   MacOS:
     runs-on: macos-latest
