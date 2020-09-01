@@ -48,7 +48,7 @@ jobs:
 
   MacOS:
     runs-on: macos-latest
-    needs: Ubuntu
+    needs: Docker
     env:
       NGROK_TOKEN : ${{ secrets.NGROK_TOKEN }}
     steps:
