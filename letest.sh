@@ -445,7 +445,7 @@ _assertcert() {
   subname="$2"
   issuername="$3"
   printf "$filename is cert ? "
-  subj="$(echo  $(openssl x509  -in $filename  -text  -noout | grep 'Subject: CN *=' | cut -d '=' -f 2 | cut -d / -f 1))"
+  subj="$(echo  $(openssl x509  -in $filename  -text  -noout | grep 'Subject:.*CN *=' | _egrep_o  " CN *=.*" | cut -d '=' -f 2 | cut -d / -f 1))"
   printf "'$subj'"
   if _contains "$subj" "$subname"; then
     if [ "$issuername" ] ; then
