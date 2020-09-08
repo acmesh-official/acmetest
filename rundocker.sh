@@ -316,6 +316,9 @@ _runplat() {
     cat "$myplat/Dockerfile"
   fi
   
+  if [ ! -e "" ]; then
+    touch env.list
+  fi
 
   Log_Out="$(_getOutfile "$plat")"
   _debug "Log_Out" "$Log_Out"
@@ -346,6 +349,7 @@ _runplat() {
       -e CASE="$CASE" \
       -e ACME_NO_COLOR="$ACME_NO_COLOR" \
       -e NGROK_TOKEN=$NGROK_TOKEN \
+      --env-file touch env.list \
       -v $(pwd):/acmetest \
       $myplat /bin/sh -c "cd /acmetest && ./$RUN_SCRIPT"
     else
@@ -368,6 +372,7 @@ _runplat() {
         -e ACME_NO_COLOR="$ACME_NO_COLOR" \
         -e NGROK_TOKEN=$NGROK_TOKEN \
         -e TRAVIS=$TRAVIS \
+        --env-file touch env.list \
         -v $(pwd):/acmetest \
         $myplat /bin/sh -c "cd /acmetest && ./$RUN_SCRIPT"
       else 
@@ -389,6 +394,7 @@ _runplat() {
         -e ACME_NO_COLOR="$ACME_NO_COLOR" \
         -e NGROK_TOKEN=$NGROK_TOKEN \
         -e CI=$CI \
+        --env-file touch env.list \
         -v $(pwd):/acmetest \
         $myplat /bin/sh -c "cd /acmetest && ./$RUN_SCRIPT" >> "$Log_Out" 2>&1
       fi
@@ -418,6 +424,7 @@ _runplat() {
         -e CASE="$CASE" \
         -e ACME_NO_COLOR="$ACME_NO_COLOR" \
         -e NGROK_TOKEN=$NGROK_TOKEN \
+        --env-file touch env.list \
         -v $(pwd):/acmetest \
         $myplat /bin/sh
       fi
