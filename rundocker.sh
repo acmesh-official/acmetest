@@ -316,7 +316,7 @@ _runplat() {
     cat "$myplat/Dockerfile"
   fi
   
-  if [ ! -e "" ]; then
+  if [ ! -e "env.list" ]; then
     touch env.list
   fi
 
