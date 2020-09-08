@@ -1424,79 +1424,49 @@ le_test_standandalone_renew_idn_v2() {
 
 
 le_test_dnsapi() {
-
   if [ -z "$TEST_DNS" ]; then
     _info "Skipped by TEST_DNS"
     __CASE_SKIPPED="1"
     return 0
-  fi  
+  fi
+  _debug "$dnsapi"
+  api=$TEST_DNS
+  _debug api "$api"
+  if [ "$NO_HMAC_CASES" = "1" ] && [ "$api" = "dns_aws" ]; then
+    _info "Skipped for NO_HMAC_CASES"
+    return 0
+  fi
 
-  dnsapis="
-  dns_cf,CF_Key,ClourFlare_api,Test_CF_Domain,CF_Sleep
-  dns_cx,CX_Key,CloudXNS.com_api,Test_CX_Domain,CX_Sleep
-  dns_dp,DP_Id,Dnspod.cn_api,Test_DP_Domain,DP_Sleep
-  dns_gd,GD_Key,Godaddy_api,Test_GD_Domain,GD_Sleep
-  dns_aws,AWS_ACCESS_KEY_ID,Amazon_Route53_api,Test_AWS_Domain,AWS_Sleep
-  dns_lua,LUA_Key,luadns.com_api,Test_LUA_Domain,LUA_Sleep
-  dns_me,ME_Key,dnsmadeeasy.com_api,Test_ME_Domain,ME_Sleep
-  dns_nsupdate,NSUPDATE_KEY,nsupdate_api,Test_NSU_Domain,NSU_Sleep
-  dns_ovh,OVH_AK,OVH.com_api,Test_OVH_Domain,OVH_Sleep
-  dns_pdns,PDNS_Token,powerdns.com_api,Test_PDNS_Domain,PDNS_Sleep
-  dns_ali,Ali_Key,aliyun_api,Test_ALI_Domain,ALI_Sleep
-  dns_gandi_livedns,GANDI_LIVEDNS_KEY,gandi_livedns,Test_GANDI_Domain,GANDI_Sleep
-  dns_dynu,Dynu_ClientId,dynu_api,Test_DYNU_Domain,DYNU_Sleep
-  dns_he,HE_Username,dns_he_net,Test_HE_Domain,HE_Sleep
-  dns_zonomi,ZM_Key,dns_zonomi,Test_ZM_Domain,ZM_Sleep
-  dns_namecom,Namecom_Username,name.com,Test_NMC_Domain,NMC_Sleep
-  "
-  
-  for dnsapi in $dnsapis; do
-    _debug "$dnsapi"
-    api=$(echo $dnsapi | cut -d ',' -f 1)
-    keyname=$(echo $dnsapi | cut -d ',' -f 2)
-    comments=$(echo $dnsapi | cut -d ',' -f 3)
-    dm=$(echo $dnsapi | cut -d ',' -f 4)
-    dnssleep=$(echo $dnsapi | cut -d ',' -f 5)
-    
-    _debug api "$api"
-    _debug keyname "$keyname"
-    _debug comments "$comments"
-    _debug dm "$dm"
-    
-    if [ -z "$(eval "echo \$$keyname")" ]; then
-      _info "$keyname is not defined, skip:$comments"
-      continue
-    fi
+  d_sleep=$TEST_DNS_SLEEP
 
-    d_domain="$(eval "echo \$$dm")"
-    if [ -z "$d_domain" ]; then
-      _info "The test domain $dm is not defined, skip:$comments"
-      continue
-    fi
-
-    if [ "$NO_HMAC_CASES" = "1" ] && [ "$api" = "dns_aws" ]; then
-      _info "Skipped for NO_HMAC_CASES"
-      continue
-    fi
-    
-    d_sleep="$(eval "echo \$$dnssleep")"
-    
+  if [ "$TEST_DNS_NO_WILDCARD" != "1" ]; then
     (
-    _info "Testing $api $comments"
-    TestingDomain="$d_domain"
+    _info "Testing wildcard domain. "
+    _info "TestingDomain" "$TestingDomain"
+    lehome="$DEFAULT_HOME"
+    rm -rf "$lehome/$TestingDomain"
+
+    _assertcmd "$lehome/$PROJECT_ENTRY --issue -d \"$TestingDomain\" -d \"*.$TestingDomain\" --dns $api --dnssleep \"$d_sleep\" " ||  return
+    
+    _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" "$TestingDomain" "$CA" || return
+    _assertcert "$lehome/$TestingDomain/ca.cer" "$CA" || return
+    _assertcmd "$lehome/$PROJECT_ENTRY --deactivate -d \"$TestingDomain\" >/dev/null 2>&1"
+    ) || return
+  else
+    (
+    _info "Testing normal domain. "
     _info "TestingDomain" "$TestingDomain"
     
     lehome="$DEFAULT_HOME"
     rm -rf "$lehome/$TestingDomain"
 
-    _assertcmd "$lehome/$PROJECT_ENTRY --issue -d \"$TestingDomain\" --dns $api --dnssleep \"$d_sleep\" " ||  return
-    
+    _assertcmd "$lehome/$PROJECT_ENTRY --issue -d \"$TestingDomain\" -d \"www.$TestingDomain\" --dns $api --dnssleep \"$d_sleep\" " ||  return
+
     _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" "$TestingDomain" "$CA" || return
     _assertcert "$lehome/$TestingDomain/ca.cer" "$CA" || return
     _assertcmd "$lehome/$PROJECT_ENTRY --deactivate -d \"$TestingDomain\" >/dev/null 2>&1"
-    ) || return  
-    
-  done
+    ) || return 
+  fi
 
 }
 
