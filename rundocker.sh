@@ -353,7 +353,7 @@ _runplat() {
       -v $(pwd):/acmetest \
       $myplat /bin/sh -c "cd /acmetest && ./$RUN_SCRIPT"
     else
-      if [ "$TRAVIS" = "true" ] ; then
+      if [ "$TRAVIS" = "true" ] || [ "$GITHUB_ACTIONS" = "true" ] ; then
         docker run --net=host --rm \
         -e TestingDomain=$TestingDomain \
         -e TestingAltDomains=$TestingAltDomains \
