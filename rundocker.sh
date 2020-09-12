@@ -508,6 +508,10 @@ testall() {
   do
     if [ "$plat" ] ; then
       testplat $plat
+      pret="$?"
+      if [ "$pret" != "0" ] && [ "$GITHUB_ACTIONS" == "true" ]; then
+        return $pret
+      fi
     fi
   done
 }
@@ -527,10 +531,14 @@ _cron() {
   _FAILED_PLATS=""
   testall
   if [ "$_FAILED_PLATS" ] ; then
-    _info "Let's try once more for: $_FAILED_PLATS"
-    _ttft="$_FAILED_PLATS"
-    _FAILED_PLATS=""
-    testplats "$_ttft"
+    if [ "$GITHUB_ACTIONS" != "true" ]; then
+      _info "Let's try once more for: $_FAILED_PLATS"
+      _ttft="$_FAILED_PLATS"
+      _FAILED_PLATS=""
+      testplats "$_ttft"
+    else
+      return 1
+    fi
   fi
 }
 
