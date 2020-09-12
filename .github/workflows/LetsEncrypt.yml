@@ -45,7 +45,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Run acmetest
-      run: ./rundocker.sh  _cron
+      run: ./rundocker.sh  testall
 
   MacOS:
     runs-on: macos-latest
