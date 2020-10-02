@@ -471,7 +471,7 @@ testplat() {
       if [ "$_rret" != "0" ] ; then
         _info "Failed: $plat"
         _FAILED_PLATS="$_FAILED_PLATS$plat "
-        if [ "$TRAVIS" = "true" ] ; then
+        if [ "$TRAVIS" = "true" ] || [ "$GITHUB_ACTIONS" == "true" ]; then
           return "$_rret"
         fi
       fi
