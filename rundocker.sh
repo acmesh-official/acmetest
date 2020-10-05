@@ -460,9 +460,10 @@ testplat() {
   _debug "$platforms"
 
   for plat in $platforms 
-  do 
-    if ! _runplat "$plat" ; then
-      _rret="$?"
+  do
+    _runplat "$plat"
+    _rret="$?"
+    if [ "$_rret" != "0" ]  then
       if [ -z "$DEBUG" ] && [ -z "$DEBUGING" ] ; then
         _info "Let's retry once more:$plat"
         _runplat "$plat"
