@@ -1470,6 +1470,66 @@ le_test_dnsapi() {
 
 }
 
+
+#
+le_test_standandalone_ipcert() {
+  if [ "$QUICK_TEST" ] ; then
+    _info "Skipped by QUICK_TEST"
+    __CASE_SKIPPED="1"
+    return 0
+  fi
+  if [ -z "$TEST_IPCERT" ] ; then
+    _info "Skipped by TEST_IPCERT"
+    __CASE_SKIPPED="1"
+    return 0
+  fi
+
+  lehome="$DEFAULT_HOME"
+
+  if [ -z "$TestingDomain" ] ; then
+    __fail "Please define TestingDomain and try again."
+    return 1
+  fi
+
+  rm -rf "$lehome/$TestingDomain"
+  
+  _assertcmd "$lehome/$PROJECT_ENTRY --issue -d $TestingDomain --standalone" ||  return
+  _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" "$TestingDomain" "$CA" || return
+  _assertcert "$lehome/$TestingDomain/ca.cer" "$CA" || return
+
+
+}
+
+le_test_alpn_ipcert() {
+  if [ "$QUICK_TEST" ] ; then
+    _info "Skipped by QUICK_TEST"
+    __CASE_SKIPPED="1"
+    return 0
+  fi
+  if [ -z "$TEST_IPCERT" ] ; then
+    _info "Skipped by TEST_IPCERT"
+    __CASE_SKIPPED="1"
+    return 0
+  fi
+
+  lehome="$DEFAULT_HOME"
+
+  
+  if [ -z "$TestingDomain" ] ; then
+    __fail "Please define TestingDomain and try again."
+    return 1
+  fi
+
+  rm -rf "$lehome/$TestingDomain"
+  
+  _assertcmd "$lehome/$PROJECT_ENTRY --issue -d $TestingDomain --alpn" ||  return
+  _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" "$TestingDomain" "$CA" || return
+  _assertcert "$lehome/$TestingDomain/ca.cer" "$CA" || return
+
+
+}
+
+
 #####################################
 
 if [ "$1" ] ; then
