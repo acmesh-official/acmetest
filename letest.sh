@@ -26,7 +26,7 @@ fi
 BEGIN_CERT="-----BEGIN CERTIFICATE-----"
 END_CERT="-----END CERTIFICATE-----"
 
-CA="Fake LE Intermediate X1"
+CA="(STAGING) Artificial Apricot R3"
 
 if [ "$TEST_CA" ]; then
   CA="$TEST_CA"
