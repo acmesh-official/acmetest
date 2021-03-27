@@ -27,9 +27,11 @@ BEGIN_CERT="-----BEGIN CERTIFICATE-----"
 END_CERT="-----END CERTIFICATE-----"
 
 CA="(STAGING) Artificial Apricot R3"
+CA_ECDSA="(STAGING) Ersatz Edamame E1"
 
 if [ "$TEST_CA" ]; then
   CA="$TEST_CA"
+  CA_ECDSA="$CA"
 fi
 
 
@@ -1168,8 +1170,8 @@ le_test_standandalone_ECDSA_256() {
   rm -rf "$lehome/$TestingDomain$ECC_SUFFIX"
  
   _assertcmd "$lehome/$PROJECT_ENTRY --issue -d $TestingDomain --standalone -k ec-256" ||  return
-  _assertcert "$lehome/$TestingDomain$ECC_SUFFIX/$TestingDomain.cer" "$TestingDomain" "$CA" || return
-  _assertcert "$lehome/$TestingDomain$ECC_SUFFIX/ca.cer" "$CA" || return
+  _assertcert "$lehome/$TestingDomain$ECC_SUFFIX/$TestingDomain.cer" "$TestingDomain" "$CA_ECDSA" || return
+  _assertcert "$lehome/$TestingDomain$ECC_SUFFIX/ca.cer" "$CA_ECDSA" || return
   
   lp=`_ss | grep ':80 '`
   if [ "$lp" ] ; then
@@ -1303,8 +1305,8 @@ le_test_standandalone_ECDSA_256_SAN_renew_v2() {
   
   _assertcmd "$lehome/$PROJECT_ENTRY --renew --ecc -d \"$TestingDomain\" --force" ||  return
   
-  _assertcert "$lehome/$TestingDomain$ECC_SUFFIX/$TestingDomain.cer" "$TestingDomain" "$CA" || return
-  _assertcert "$lehome/$TestingDomain$ECC_SUFFIX/ca.cer" "$CA" || return
+  _assertcert "$lehome/$TestingDomain$ECC_SUFFIX/$TestingDomain.cer" "$TestingDomain" "$CA_ECDSA" || return
+  _assertcert "$lehome/$TestingDomain$ECC_SUFFIX/ca.cer" "$CA_ECDSA" || return
   
   _assertfileequals "$lehome/$TestingDomain$ECC_SUFFIX/$TestingDomain.cer" "$cert" ||  return
   _assertfileequals "$lehome/$TestingDomain$ECC_SUFFIX/$TestingDomain.key" "$key" ||  return
@@ -1349,8 +1351,8 @@ le_test_standandalone_ECDSA_384() {
   rm -rf "$lehome/$TestingDomain$ECC_SUFFIX"
   
   _assertcmd "$lehome/$PROJECT_ENTRY --issue --standalone -d \"$TestingDomain\" -k ec-384" ||  return
-  _assertcert "$lehome/$TestingDomain$ECC_SUFFIX/$TestingDomain.cer" "$TestingDomain" "$CA" || return
-  _assertcert "$lehome/$TestingDomain$ECC_SUFFIX/ca.cer" "$CA" || return
+  _assertcert "$lehome/$TestingDomain$ECC_SUFFIX/$TestingDomain.cer" "$TestingDomain" "$CA_ECDSA" || return
+  _assertcert "$lehome/$TestingDomain$ECC_SUFFIX/ca.cer" "$CA_ECDSA" || return
   
   lp=`_ss | grep ':80 '`
   if [ "$lp" ] ; then
