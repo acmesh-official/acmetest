@@ -298,12 +298,6 @@ _hasfield() {
   return 1 #not contains
 }
 
-#if _exists export ; then
-#  export LC_ALL=en_US.UTF-8
-#elif _exists setenv ; then
-#  setenv LC_ALL en_US.UTF-8
-#fi
-
 
 NGROK_MAC="https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-darwin-amd64.zip"
 NGROK_Linux="https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip"
@@ -311,53 +305,36 @@ NGROK_Win="https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip"
 NGROK_BSD="https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-freebsd-amd64.zip"
 
 
-TEST_NGROK=""
-if [ -z "$TestingDomain" ]; then
-  if [ -z "$NGROK_TOKEN" ]; then
-    if [ -f "$USERPROFILE/.ngrok2/ngrok.yml" ]; then
-      #cygwin
-      NGROK_TOKEN=$(grep "authtoken:" "$USERPROFILE/.ngrok2/ngrok.yml" | cut -d : -f 2| tr -d " '")
-    fi
-    if [ -z "$NGROK_TOKEN" ] && [ -f "$HOME/.ngrok2/ngrok.yml" ]; then
-      #linux
-      NGROK_TOKEN=$(grep "authtoken:" "$HOME/.ngrok2/ngrok.yml" | cut -d : -f 2 | tr -d " '")
-    fi
-  fi
-  
-  if [ -z "$NGROK_TOKEN" ]; then
-    _err "The TestingDomain or TestingAltDomains is not specified, see: $PROJECT"
-    _err "You can also specify NGROK_TOKEN to test automatically, see: $NGROK_WIKI"
-    exit 1
-  fi
+CF_Linux="https://bin.equinox.io/c/VdrWdbjqyF/cloudflared-stable-linux-amd64.tgz"
+CF_MAC="https://bin.equinox.io/c/VdrWdbjqyF/cloudflared-stable-darwin-amd64.zip"
+CF_Win="https://bin.equinox.io/c/VdrWdbjqyF/cloudflared-stable-windows-amd64.zip"
 
-  if [ "$NGROK_TOKEN" ]; then   
-    if [ -z "$NGROK_BIN" ] || [ ! -x "$NGROK_BIN" ]; then
-      if _exists "ngrok" ; then
-        _info "Command ngrok is found, so, use it."
-        NGROK_BIN="ngrok"
+
+
+
+if [ -z "$TestingDomain" ]; then
+    if [ -z "$CF_BIN" ] || [ ! -x "$CF_BIN" ]; then
+      if _exists "cloudflared" ; then
+        _info "Command cloudflared is found, so, use it."
+        CF_BIN="cloudflared"
       else
         _os_name="$(uname)"
         _info _os_name "$_os_name"
         case "$_os_name" in
-          FreeBSD | OpenBSD)
-            _debug "BSD"
-            export NGROK_BIN="$(pwd)/ngrok"
-            NGROK_LINK="$NGROK_BSD"
-            ;;
           CYGWIN_NT* | MINGW*)
             _debug "cygwin"
-            export NGROK_BIN="$(pwd)/ngrok.exe"
-            NGROK_LINK="$NGROK_Win"
+            export CF_BIN="$(pwd)/cloudflared.exe"
+            CF_LINK="$CF_Win"
             ;;
           Linux)
             _debug "Linux"
-            export NGROK_BIN="$(pwd)/ngrok"
-            NGROK_LINK="$NGROK_Linux"
+            export CF_BIN="$(pwd)/cloudflared"
+            CF_LINK="$CF_Linux"
             ;;
           Darwin)
             _debug "Darwin"
-            export NGROK_BIN="$(pwd)/ngrok"
-            NGROK_LINK="$NGROK_MAC"
+            export CF_BIN="$(pwd)/cloudflared"
+            CF_LINK="$CF_MAC"
             ;;            
           *)
             _err "Not supported: $_os_name"
@@ -365,55 +342,152 @@ if [ -z "$TestingDomain" ]; then
             ;;
         esac
 
-        if [ ! -f "$NGROK_BIN" ]; then
-          _info "Download from $NGROK_LINK"
-          if ! curl "$NGROK_LINK" >ngrok.zip; then
+        if [ ! -f "$CF_BIN" ]; then
+          _info "Download from $CF_LINK"
+          if ! curl "$CF_LINK" >cf.tgz; then
             _err "Download error."
             exit 1
           fi
-          if ! unzip ngrok.zip; then
+          if ! tar -xzf cf.tgz; then
             _err "unzip error."
             exit 1
           fi
         fi
 
-        if [ ! -f "$NGROK_BIN" ]; then
-          _err "The NGROK_TOKEN is specified, it seems that you want to use ngrok to test, but the executable ngrok is not found."
-          _err "Please install ngrok command, or specify NGROK_BIN=$NGROK_BIN pointing to the ngrok binary. see: $NGROK_WIKI"
+        if [ ! -f "$CF_BIN" ]; then
+          _err "Please install cloudflared command, or specify CF_BIN=$CF_BIN pointing to the ngrok binary. see: $NGROK_WIKI"
           exit 1
         fi
       fi
     fi
-    
-    _info "Using ngrok, register auth token first."
-    if ! $NGROK_BIN authtoken "$NGROK_TOKEN" ; then
-      _err "Register ngrok auth token failed."
-      exit 1
-    fi
-    
-    ng_temp_1="ngrok.tmp"
+
+    ng_temp_1="cf.tmp"
     _info "ng_temp_1" "$ng_temp_1"
     if [ "$Le_HTTPPort" ]; then
-      $NGROK_BIN http $Le_HTTPPort --log stdout --log-format logfmt --log-level debug > "$ng_temp_1" &
+      $CF_BIN tunnel --url http://localhost:$Le_HTTPPort >$ng_temp_1 2>&1 &
     else
-      $NGROK_BIN http 80 --log stdout --log-format logfmt --log-level debug > "$ng_temp_1" &
+      $CF_BIN tunnel --url http://localhost >$ng_temp_1 2>&1 &
     fi
-    NGROK_PID="$!"
-    _debug "ngrok pid: $NGROK_PID"
+    CF_PID="$!"
+    _debug "cf pid: $CF_PID"
     
-    sleep 20
+    sleep 5
     
-    ng_domain_1="$(_egrep_o 'Hostname:.+.ngrok.io' <"$ng_temp_1" | _head_n 1 | cut -d':' -f2)"
+    ng_domain_1="$(cat "$ng_temp_1" | grep https:// | grep trycloudflare.com | head -1 | cut -d '|' -f 2 | tr -d ' ')"
     _info "ng_domain_1" "$ng_domain_1"
     
     if [ -z "$ng_domain_1" ] ; then
       cat "$ng_temp_1"
-      _err "Can not get ngrok domain."
+      _err "Can not get cf domain."
       exit 1
     fi
     TestingDomain="$ng_domain_1"
-    TEST_NGROK=1
-  fi
+    #TEST_NGROK=1
+
+
+
+
+#  if [ -z "$NGROK_TOKEN" ]; then
+#    if [ -f "$USERPROFILE/.ngrok2/ngrok.yml" ]; then
+#      #cygwin
+#      NGROK_TOKEN=$(grep "authtoken:" "$USERPROFILE/.ngrok2/ngrok.yml" | cut -d : -f 2| tr -d " '")
+#    fi
+#    if [ -z "$NGROK_TOKEN" ] && [ -f "$HOME/.ngrok2/ngrok.yml" ]; then
+#      #linux
+#      NGROK_TOKEN=$(grep "authtoken:" "$HOME/.ngrok2/ngrok.yml" | cut -d : -f 2 | tr -d " '")
+#    fi
+#  fi
+#  
+#  if [ -z "$NGROK_TOKEN" ]; then
+#    _err "The TestingDomain or TestingAltDomains is not specified, see: $PROJECT"
+#    _err "You can also specify NGROK_TOKEN to test automatically, see: $NGROK_WIKI"
+#    exit 1
+#  fi
+#
+#  if [ "$NGROK_TOKEN" ]; then   
+#    if [ -z "$NGROK_BIN" ] || [ ! -x "$NGROK_BIN" ]; then
+#      if _exists "ngrok" ; then
+#        _info "Command ngrok is found, so, use it."
+#        NGROK_BIN="ngrok"
+#      else
+#        _os_name="$(uname)"
+#        _info _os_name "$_os_name"
+#        case "$_os_name" in
+#          FreeBSD | OpenBSD)
+#            _debug "BSD"
+#            export NGROK_BIN="$(pwd)/ngrok"
+#            NGROK_LINK="$NGROK_BSD"
+#            ;;
+#          CYGWIN_NT* | MINGW*)
+#            _debug "cygwin"
+#            export NGROK_BIN="$(pwd)/ngrok.exe"
+#            NGROK_LINK="$NGROK_Win"
+#            ;;
+#          Linux)
+#            _debug "Linux"
+#            export NGROK_BIN="$(pwd)/ngrok"
+#            NGROK_LINK="$NGROK_Linux"
+#            ;;
+#          Darwin)
+#            _debug "Darwin"
+#            export NGROK_BIN="$(pwd)/ngrok"
+#            NGROK_LINK="$NGROK_MAC"
+#            ;;            
+#          *)
+#            _err "Not supported: $_os_name"
+#            exit 1
+#            ;;
+#        esac
+#
+#        if [ ! -f "$NGROK_BIN" ]; then
+#          _info "Download from $NGROK_LINK"
+#          if ! curl "$NGROK_LINK" >ngrok.zip; then
+#            _err "Download error."
+#            exit 1
+#          fi
+#          if ! unzip ngrok.zip; then
+#            _err "unzip error."
+#            exit 1
+#          fi
+#        fi
+#
+#        if [ ! -f "$NGROK_BIN" ]; then
+#          _err "The NGROK_TOKEN is specified, it seems that you want to use ngrok to test, but the executable ngrok is not found."
+#          _err "Please install ngrok command, or specify NGROK_BIN=$NGROK_BIN pointing to the ngrok binary. see: $NGROK_WIKI"
+#          exit 1
+#        fi
+#      fi
+#    fi
+#    
+#    _info "Using ngrok, register auth token first."
+#    if ! $NGROK_BIN authtoken "$NGROK_TOKEN" ; then
+#      _err "Register ngrok auth token failed."
+#      exit 1
+#    fi
+#    
+#    ng_temp_1="ngrok.tmp"
+#    _info "ng_temp_1" "$ng_temp_1"
+#    if [ "$Le_HTTPPort" ]; then
+#      $NGROK_BIN http $Le_HTTPPort --log stdout --log-format logfmt --log-level debug > "$ng_temp_1" &
+#    else
+#      $NGROK_BIN http 80 --log stdout --log-format logfmt --log-level debug > "$ng_temp_1" &
+#    fi
+#    NGROK_PID="$!"
+#    _debug "ngrok pid: $NGROK_PID"
+#    
+#    sleep 20
+#    
+#    ng_domain_1="$(_egrep_o 'Hostname:.+.ngrok.io' <"$ng_temp_1" | _head_n 1 | cut -d':' -f2)"
+#    _info "ng_domain_1" "$ng_domain_1"
+#    
+#    if [ -z "$ng_domain_1" ] ; then
+#      cat "$ng_temp_1"
+#      _err "Can not get ngrok domain."
+#      exit 1
+#    fi
+#    TestingDomain="$ng_domain_1"
+#    TEST_NGROK=1
+#  fi
 fi
 
 if [ -z "$TestingDomain" ] && [ -z "$TEST_DNS" ]; then
@@ -1585,6 +1659,10 @@ do
     break;
   fi
 done
+
+if [ "$CF_PID" ] ; then
+  kill -9 "$CF_PID"
+fi
 
 if [ "$NGROK_PID" ] ; then
   kill -9 "$NGROK_PID"
