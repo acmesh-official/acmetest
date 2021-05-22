@@ -373,7 +373,7 @@ if [ -z "$TestingDomain" ]; then
     
     sleep 5
     
-    ng_domain_1="$(cat "$ng_temp_1" | grep https:// | grep trycloudflare.com | head -1 | cut -d '|' -f 2 | tr -d ' ')"
+    ng_domain_1="$(cat "$ng_temp_1" | grep https:// | grep trycloudflare.com | head -1 | cut -d '|' -f 2 | tr -d ' ' | cut -d '/' -f 3)"
     _info "ng_domain_1" "$ng_domain_1"
     
     if [ -z "$ng_domain_1" ] ; then
