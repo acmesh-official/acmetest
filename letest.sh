@@ -344,13 +344,31 @@ if [ -z "$TestingDomain" ]; then
 
         if [ ! -f "$CF_BIN" ]; then
           _info "Download from $CF_LINK"
-          if ! curl "$CF_LINK" >cf.tgz; then
-            _err "Download error."
-            exit 1
-          fi
-          if ! tar -xzf cf.tgz; then
-            _err "unzip error."
-            exit 1
+          if [ "$CF_LINK" = "$CF_Linux" ]; then
+            if ! curl "$CF_LINK" >cf.tgz; then
+              _err "Download error."
+              exit 1
+            fi
+            if ! tar -xzf cf.tgz; then
+              _err "unzip error."
+              exit 1
+            fi
+          else
+            if ! curl "$CF_LINK" >cf.zip; then
+              _err "Download error."
+              exit 1
+            fi
+            if [ "$CF_LINK" = "$CF_MAC" ]; then
+              if ! 7za e -y cf.zip; then
+                _err "unzip error."
+                exit 1
+              fi
+            else
+              if ! unzip cf.zip; then
+                _err "unzip error."
+                exit 1
+              fi
+            fi
           fi
         fi
 
