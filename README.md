@@ -25,16 +25,35 @@ Unit test project for **acme.sh** project https://github.com/acmesh-official/acm
 |gentoo/stage3-amd64| ![](https://acmesh-official.github.io/acmetest/status/gentoo-stage3-amd64.svg?1598587126)| Fri, 28 Aug 2020 03:58:46 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/gentoo-stage3-amd64.out) |
 |clearlinux:latest| ![](https://acmesh-official.github.io/acmetest/status/clearlinux-latest.svg?1598587331)| Fri, 28 Aug 2020 04:02:11 UTC| [Passed](https://github.com/acmesh-official/acmetest/blob/master/logs/clearlinux-latest.out) |
 
+
+
 # How to run tests
 
-First point at least 2 of your domains to your machine, 
-for example: `aa.com` and `www.aa.com`
+As simple as just run a script:
+
+```
+./letest.sh
+```
+
+It will use cloudflare tunnel to test on your local machine.
+
+
+You can also test with your own domain, first point at least 2 of your domains to your machine, 
+for example: `example.com` and `www.example.com`
 
 And make sure 80 port is not used by anyone else.
 
 ```
 cd acmetest
-TestingDomain=aa.com   TestingAltDomains=www.aa.com  ./letest.sh
+TestingDomain=example.com   TestingAltDomains=www.example.com  ./letest.sh
+```
+
+If you are not root,  please use `sudo`, because the script will have to listen at `80` port:
+
+```
+cd acmetest
+sudo  TestingDomain=example.com   TestingAltDomains=www.example.com  ./letest.sh
+
 ```
 
 # How to run tests in all the platforms through docker.
@@ -45,7 +64,16 @@ Then test all the platforms :
 
 ```
 cd acmetest
-TestingDomain=aa.com   TestingAltDomains=www.aa.com  ./rundocker.sh  testall
+./rundocker.sh  testall
+```
+
+It will use cloudflare tunnel test.
+
+Or use your own domain:
+
+```
+cd acmetest
+TestingDomain=example.com   TestingAltDomains=www.example.com  ./rundocker.sh  testall
 ```
 
 The script will download all the supported platforms from the official docker hub, then run the test cases in all the supported platforms.
@@ -54,23 +82,17 @@ Then test single docker platform :
 
 ```
 cd acmetest
-TestingDomain=aa.com   TestingAltDomains=www.aa.com  ./rundocker.sh  testplat   centos:latest
+./rundocker.sh  testall
 ```
 
-# Run tests with ngrok automatically
-
-If you don't want to use 2 domains to test, we can use ngrok to test with temp domain.
-
-Please register an free account at https://ngrok.com/
-
-You will get your ngrok auth token.  Then:
+Or:
 
 ```
-export NGROK_TOKEN="xxxxxxxxxx"
-
-./letest.sh
-
+cd acmetest
+TestingDomain=example.com   TestingAltDomains=www.example.com  ./rundocker.sh  testplat   ubuntu:latest
 ```
+
+
 
 
 
