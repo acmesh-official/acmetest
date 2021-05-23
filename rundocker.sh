@@ -9,13 +9,13 @@ Table="table.md"
 
 DEFAULT_SCRIPT="letest.sh"
 
-if [ -z "$TestingDomain" ] && [ -z "$NGROK_TOKEN" ]; then
-  TestingDomain=testdocker.acme.sh
-fi
-
-if [ -z "$TestingAltDomains" ] && [ -z "$NGROK_TOKEN" ]; then
-  TestingAltDomains=testdocker2.acme.sh
-fi
+#if [ -z "$TestingDomain" ] && [ -z "$NGROK_TOKEN" ]; then
+#  TestingDomain=testdocker.acme.sh
+#fi
+#
+#if [ -z "$TestingAltDomains" ] && [ -z "$NGROK_TOKEN" ]; then
+#  TestingAltDomains=testdocker2.acme.sh
+#fi
 
 if [ -z "$RUN_SCRIPT" ] ; then
   RUN_SCRIPT="$DEFAULT_SCRIPT"
