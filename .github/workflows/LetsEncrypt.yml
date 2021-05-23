@@ -67,3 +67,42 @@ jobs:
       run: bash.exe -c ./letest.sh
 
 
+  FreeBSD:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: vmactions/cf-tunnel@v0.0.1
+      id: tunnel
+      with:
+        protocol: http
+        port: 8080
+    - name: Set envs
+      run: echo "TestingDomain=${{steps.tunnel.outputs.server}}" >> $GITHUB_ENV
+    - uses: vmactions/freebsd-vm@v0.1.4
+      with:
+        envs: 'TestingDomain'
+        nat: |
+          "8080": "80"
+        prepare: pkg install -y socat curl
+        usesh: true
+        run: ./letest.sh
+
+  Solaris:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: vmactions/cf-tunnel@v0.0.1
+      id: tunnel
+      with:
+        protocol: http
+        port: 8080
+    - name: Set envs
+      run: echo "TestingDomain=${{steps.tunnel.outputs.server}}" >> $GITHUB_ENV
+    - uses: vmactions/solaris-vm@v0.0.3
+      with:
+        envs: 'TestingDomain'
+        nat: |
+          "8080": "80"
+        prepare: pkgutil -y -i socat curl
+        run: ./letest.sh
+
