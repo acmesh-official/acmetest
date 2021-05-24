@@ -346,6 +346,7 @@ _runplat() {
       -e TEST_IPV6="$TEST_IPV6" \
       -e TEST_IDN="$TEST_IDN" \
       -e TEST_DNS="$TEST_DNS" \
+      -e Le_HTTPPort="$Le_HTTPPort" \
       -e CASE="$CASE" \
       -e ACME_NO_COLOR="$ACME_NO_COLOR" \
       -e NGROK_TOKEN=$NGROK_TOKEN \
@@ -368,6 +369,7 @@ _runplat() {
         -e TEST_IPV6="$TEST_IPV6" \
         -e TEST_IDN="$TEST_IDN" \
         -e TEST_DNS="$TEST_DNS" \
+        -e Le_HTTPPort="$Le_HTTPPort" \
         -e CASE="$CASE" \
         -e ACME_NO_COLOR="$ACME_NO_COLOR" \
         -e NGROK_TOKEN=$NGROK_TOKEN \
@@ -390,6 +392,7 @@ _runplat() {
         -e TEST_IPV6="$TEST_IPV6" \
         -e TEST_IDN="$TEST_IDN" \
         -e TEST_DNS="$TEST_DNS" \
+        -e Le_HTTPPort="$Le_HTTPPort" \
         -e CASE="$CASE" \
         -e ACME_NO_COLOR="$ACME_NO_COLOR" \
         -e NGROK_TOKEN=$NGROK_TOKEN \
@@ -421,6 +424,7 @@ _runplat() {
         -e TEST_LOCAL="$TEST_LOCAL" \
         -e TEST_IPV6="$TEST_IPV6" \
         -e TEST_IDN="$TEST_IDN" \
+        -e Le_HTTPPort="$Le_HTTPPort" \
         -e CASE="$CASE" \
         -e ACME_NO_COLOR="$ACME_NO_COLOR" \
         -e NGROK_TOKEN=$NGROK_TOKEN \
