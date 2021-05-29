@@ -379,6 +379,8 @@ if [ -z "$TestingDomain" ]; then
       fi
     fi
 
+    rm -rf ~/.cloudflared* ~/cloudflare-warp /etc/cloudflared /usr/local/etc/cloudflared
+
     ng_temp_1="cf.tmp"
     _info "ng_temp_1" "$ng_temp_1"
     if [ "$Le_HTTPPort" ]; then
