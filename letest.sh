@@ -404,6 +404,7 @@ if [ -z "$TestingDomain" ]; then
         continue
       fi
       TestingDomain="$ng_domain_1"
+      break
     done;
     if [ -z "$TestingDomain" ] ; then
       cat "$ng_temp_1"
