@@ -379,10 +379,9 @@ if [ -z "$TestingDomain" ]; then
       fi
     fi
 
-    rm -rf ~/.cloudflared* ~/cloudflare-warp /etc/cloudflared /usr/local/etc/cloudflared
-
     ng_temp_1="cf.tmp"
     _info "ng_temp_1" "$ng_temp_1"
+    $CF_BIN update
     if [ "$Le_HTTPPort" ]; then
       $CF_BIN tunnel --url http://localhost:$Le_HTTPPort >$ng_temp_1 2>&1 &
     else
@@ -398,7 +397,7 @@ if [ -z "$TestingDomain" ]; then
       _wait=$((_wait + 10))
       ng_domain_1="$(cat "$ng_temp_1" | grep https:// | grep trycloudflare.com | head -1 | cut -d '|' -f 2 | tr -d ' ' | cut -d '/' -f 3)"
       _info "ng_domain_1" "$ng_domain_1"
-      
+
       if [ -z "$ng_domain_1" ] ; then
         cat "$ng_temp_1"
         _err "Can not get cf domain."
