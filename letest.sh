@@ -389,17 +389,26 @@ if [ -z "$TestingDomain" ]; then
     CF_PID="$!"
     _debug "cf pid: $CF_PID"
     
-    sleep 5
-    
-    ng_domain_1="$(cat "$ng_temp_1" | grep https:// | grep trycloudflare.com | head -1 | cut -d '|' -f 2 | tr -d ' ' | cut -d '/' -f 3)"
-    _info "ng_domain_1" "$ng_domain_1"
-    
-    if [ -z "$ng_domain_1" ] ; then
+    MaxWait=60;#seconds
+    _wait=0;
+    while [ $_wait -le $MaxWait ]; do
+      sleep 10
+      _wait=$((_wait + 10))
+      ng_domain_1="$(cat "$ng_temp_1" | grep https:// | grep trycloudflare.com | head -1 | cut -d '|' -f 2 | tr -d ' ' | cut -d '/' -f 3)"
+      _info "ng_domain_1" "$ng_domain_1"
+      
+      if [ -z "$ng_domain_1" ] ; then
+        cat "$ng_temp_1"
+        _err "Can not get cf domain."
+        continue
+      fi
+      TestingDomain="$ng_domain_1"
+    done;
+    if [ -z "$TestingDomain" ] ; then
       cat "$ng_temp_1"
       _err "Can not get cf domain."
       exit 1
     fi
-    TestingDomain="$ng_domain_1"
     #TEST_NGROK=1
 
 
