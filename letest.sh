@@ -9,6 +9,9 @@ PROJECT="https://github.com/acmesh-official/acmetest"
 
 NGROK_WIKI="https://github.com/acmesh-official/acmetest"
 
+CA_ZEROSSL="https://acme.zerossl.com/v2/DV90"
+
+
 DEFAULT_HOME="$HOME/.acme.sh"
 
 
@@ -29,10 +32,14 @@ END_CERT="-----END CERTIFICATE-----"
 CA="(STAGING) Artificial Apricot R3"
 CA_ECDSA="(STAGING) Ersatz Edamame E1"
 
+
+
 if [ "$TEST_CA" ]; then
   CA="$TEST_CA"
   CA_ECDSA="$CA"
 fi
+
+
 
 
 ECC_SEP="_"
@@ -41,6 +48,15 @@ ECC_SUFFIX="${ECC_SEP}ecc"
 STAGE_CA="https://acme-staging.api.letsencrypt.org"
 
 _API_HOST="$(echo "$STAGE_CA" | cut -d : -f 2 | tr -d '/')"
+
+
+
+if [ "$ACME_DIRECTORY" == "$CA_ZEROSSL" ]; then
+  if [ -z "$CA_EMAIL" ]; then
+    export CA_EMAIL="letest@acme.sh"
+  fi
+fi
+
 
 
 _startswith(){
