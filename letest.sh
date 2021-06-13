@@ -29,17 +29,22 @@ fi
 BEGIN_CERT="-----BEGIN CERTIFICATE-----"
 END_CERT="-----END CERTIFICATE-----"
 
-CA="(STAGING) Artificial Apricot R3"
-CA_ECDSA="(STAGING) Ersatz Edamame E1"
-
-
-if [ "$ACME_DIRECTORY" = "$CA_ZEROSSL" ]; then
-  export TEST_CA="ZeroSSL RSA Domain Secure Site CA"
-  export CA_ECDSA="ZeroSSL ECC Domain Secure Site CA"
-  if [ -z "$ACCOUNT_EMAIL" ]; then
-    export ACCOUNT_EMAIL="letest@acme.sh"
-  fi
+if [ -z "$CA" ]; then
+  CA="(STAGING) Artificial Apricot R3"
 fi
+
+if [ -z "$CA_ECDSA" ]; then
+  CA_ECDSA="(STAGING) Ersatz Edamame E1"
+fi
+
+# if [ "$ACME_DIRECTORY" = "$CA_ZEROSSL" ]; then
+#   export TEST_CA="ZeroSSL RSA Domain Secure Site CA"
+#   export CA_ECDSA="ZeroSSL ECC Domain Secure Site CA"
+#   if [ -z "$ACCOUNT_EMAIL" ]; then
+#     export ACCOUNT_EMAIL="letest@acme.sh"
+#   fi
+# fi
+
 
 if [ "$TEST_CA" ]; then
   CA="$TEST_CA"
