@@ -33,6 +33,12 @@ CA="(STAGING) Artificial Apricot R3"
 CA_ECDSA="(STAGING) Ersatz Edamame E1"
 
 
+if [ "$ACME_DIRECTORY" = "$CA_ZEROSSL" ]; then
+  export TEST_CA="ZeroSSL RSA Domain Secure Site CA"
+  if [ -z "$ACCOUNT_EMAIL" ]; then
+    export ACCOUNT_EMAIL="letest@acme.sh"
+  fi
+fi
 
 if [ "$TEST_CA" ]; then
   CA="$TEST_CA"
@@ -51,11 +57,7 @@ _API_HOST="$(echo "$STAGE_CA" | cut -d : -f 2 | tr -d '/')"
 
 
 
-if [ "$ACME_DIRECTORY" = "$CA_ZEROSSL" ]; then
-  if [ -z "$ACCOUNT_EMAIL" ]; then
-    export ACCOUNT_EMAIL="letest@acme.sh"
-  fi
-fi
+
 
 
 
