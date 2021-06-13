@@ -51,7 +51,7 @@ _API_HOST="$(echo "$STAGE_CA" | cut -d : -f 2 | tr -d '/')"
 
 
 
-if [ "$ACME_DIRECTORY" == "$CA_ZEROSSL" ]; then
+if [ "$ACME_DIRECTORY" = "$CA_ZEROSSL" ]; then
   if [ -z "$ACCOUNT_EMAIL" ]; then
     export ACCOUNT_EMAIL="letest@acme.sh"
   fi
