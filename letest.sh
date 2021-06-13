@@ -35,6 +35,7 @@ CA_ECDSA="(STAGING) Ersatz Edamame E1"
 
 if [ "$ACME_DIRECTORY" = "$CA_ZEROSSL" ]; then
   export TEST_CA="ZeroSSL RSA Domain Secure Site CA"
+  export CA_ECDSA="ZeroSSL ECC Domain Secure Site CA"
   if [ -z "$ACCOUNT_EMAIL" ]; then
     export ACCOUNT_EMAIL="letest@acme.sh"
   fi
