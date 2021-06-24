@@ -333,71 +333,21 @@ _runplat() {
     
     if [ "$DEBUGING" ] ; then
       docker run --net=host --rm \
-      -e TestingDomain=$TestingDomain \
-      -e TestingAltDomains=$TestingAltDomains \
-      -e DEBUG="$DEBUG" \
-      -e LOG_FILE="$LOG_FILE" \
-      -e LOG_LEVEL="$LOG_LEVEL" \
-      -e BRANCH=$BRANCH \
-      -e RUN_IN_DOCKER=1 \
       -e DOCKER_OS="$plat" \
-      -e QUICK_TEST="$QUICK_TEST" \
-      -e TEST_LOCAL="$TEST_LOCAL" \
-      -e TEST_IPV6="$TEST_IPV6" \
-      -e TEST_IDN="$TEST_IDN" \
-      -e TEST_DNS="$TEST_DNS" \
-      -e Le_HTTPPort="$Le_HTTPPort" \
-      -e CASE="$CASE" \
-      -e ACME_NO_COLOR="$ACME_NO_COLOR" \
-      -e NGROK_TOKEN=$NGROK_TOKEN \
-      --env-file env.list \
+      --env-file docker.env \
       -v $(pwd):/acmetest \
       $myplat /bin/sh -c "cd /acmetest && ./$RUN_SCRIPT"
     else
       if [ "$TRAVIS" = "true" ] || [ "$GITHUB_ACTIONS" = "true" ] ; then
         docker run --net=host --rm \
-        -e TestingDomain=$TestingDomain \
-        -e TestingAltDomains=$TestingAltDomains \
-        -e DEBUG="$DEBUG" \
-        -e LOG_FILE="$LOG_FILE" \
-        -e LOG_LEVEL="$LOG_LEVEL" \
-        -e BRANCH=$BRANCH \
-        -e RUN_IN_DOCKER=1 \
         -e DOCKER_OS="$plat" \
-        -e QUICK_TEST="$QUICK_TEST" \
-        -e TEST_LOCAL="$TEST_LOCAL" \
-        -e TEST_IPV6="$TEST_IPV6" \
-        -e TEST_IDN="$TEST_IDN" \
-        -e TEST_DNS="$TEST_DNS" \
-        -e Le_HTTPPort="$Le_HTTPPort" \
-        -e CASE="$CASE" \
-        -e ACME_NO_COLOR="$ACME_NO_COLOR" \
-        -e NGROK_TOKEN=$NGROK_TOKEN \
-        -e TRAVIS=$TRAVIS \
-        --env-file env.list \
+        --env-file docker.env  \
         -v $(pwd):/acmetest \
         $myplat /bin/sh -c "cd /acmetest && ./$RUN_SCRIPT"
       else 
         docker run --net=host --rm \
-        -e TestingDomain=$TestingDomain \
-        -e TestingAltDomains=$TestingAltDomains \
-        -e DEBUG="$DEBUG" \
-        -e LOG_FILE="$LOG_FILE" \
-        -e LOG_LEVEL="$LOG_LEVEL" \
-        -e BRANCH=$BRANCH \
-        -e RUN_IN_DOCKER=1 \
+        --env-file docker.env \
         -e DOCKER_OS="$plat" \
-        -e QUICK_TEST="$QUICK_TEST" \
-        -e TEST_LOCAL="$TEST_LOCAL" \
-        -e TEST_IPV6="$TEST_IPV6" \
-        -e TEST_IDN="$TEST_IDN" \
-        -e TEST_DNS="$TEST_DNS" \
-        -e Le_HTTPPort="$Le_HTTPPort" \
-        -e CASE="$CASE" \
-        -e ACME_NO_COLOR="$ACME_NO_COLOR" \
-        -e NGROK_TOKEN=$NGROK_TOKEN \
-        -e CI=$CI \
-        --env-file env.list \
         -v $(pwd):/acmetest \
         $myplat /bin/sh -c "cd /acmetest && ./$RUN_SCRIPT" >> "$Log_Out" 2>&1
       fi
@@ -412,23 +362,8 @@ _runplat() {
         _info "Please debuging:"
         docker run --net=host --rm \
         -i -t \
-        -e TestingDomain=$TestingDomain \
-        -e TestingAltDomains=$TestingAltDomains \
-        -e DEBUG="$DEBUG" \
-        -e LOG_FILE="$LOG_FILE" \
-        -e LOG_LEVEL="$LOG_LEVEL" \
-        -e BRANCH=$BRANCH \
-        -e RUN_IN_DOCKER=1 \
         -e DOCKER_OS="$plat" \
-        -e QUICK_TEST="$QUICK_TEST" \
-        -e TEST_LOCAL="$TEST_LOCAL" \
-        -e TEST_IPV6="$TEST_IPV6" \
-        -e TEST_IDN="$TEST_IDN" \
-        -e Le_HTTPPort="$Le_HTTPPort" \
-        -e CASE="$CASE" \
-        -e ACME_NO_COLOR="$ACME_NO_COLOR" \
-        -e NGROK_TOKEN=$NGROK_TOKEN \
-        --env-file env.list \
+        --env-file docker.env \
         -v $(pwd):/acmetest \
         $myplat /bin/sh
       fi

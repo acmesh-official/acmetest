@@ -39,7 +39,7 @@ fi
 
 if [ "$TEST_CA" ]; then
   CA="$TEST_CA"
-  CA_ECDSA="$CA"
+  CA_ECDSA="$TEST_CA"
 fi
 
 
@@ -1452,7 +1452,13 @@ le_test_standandalone_ECDSA_384() {
     __CASE_SKIPPED="1"
     return 0
   fi
-  
+
+  if [ "$NO_ECC_384" ] ; then
+    _info "Skipped by NO_ECC_384"
+    __CASE_SKIPPED="1"
+    return 0
+  fi
+
   lehome="$DEFAULT_HOME"
 
   lp=`_ss | grep ':80 '`
