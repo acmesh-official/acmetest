@@ -868,41 +868,6 @@ le_test_install_config_home() {
   fi
 }
 
-#
-le_test_standandalone_renew() {
-  if [ "$QUICK_TEST" ] ; then
-    _info "Skipped by QUICK_TEST"
-    __CASE_SKIPPED="1"
-    return 0
-  fi
-  
-  lehome="$DEFAULT_HOME"
-
-  lp=`_ss | grep ':80 '`
-  if [ "$lp" ] ; then
-    __fail "80 port is already used."
-    return 1
-  fi
-  
-  if [ -z "$TestingDomain" ] ; then
-    __fail "Please define TestingDomain and try again."
-    return 1
-  fi
-  
-  rm -rf "$lehome/$TestingDomain"
-  _assertcmd "$lehome/$PROJECT_ENTRY --server \"$TEST_ACME_Server\" --issue -d $TestingDomain --standalone" ||  return
-  sleep 5
-  _assertcmd "$lehome/$PROJECT_ENTRY --renew -d $TestingDomain -f" ||  return
-
-  lp=`_ss | grep ':80 '`
-  if [ "$lp" ] ; then
-    __fail "80 port is not released: $lp"
-    return 1
-  fi  
-  
-
-}
-
 
 #
 le_test_standandalone_renew_v2() {
@@ -933,7 +898,10 @@ le_test_standandalone_renew_v2() {
   _assertfileequals "$lehome/$TestingDomain/$TestingDomain.key" "$key" ||  return
   _assertfileequals "$lehome/$TestingDomain/ca.cer" "$ca" ||  return
   _assertfileequals "$lehome/$TestingDomain/fullchain.cer" "$full" ||  return
-  
+
+  sleep 5
+  _assertcmd "$lehome/$PROJECT_ENTRY --revoke -d $TestingDomain" ||  return
+
   rm -rf "$certdir"
   mkdir -p "$certdir"
   
@@ -948,6 +916,9 @@ le_test_standandalone_renew_v2() {
   _assertfileequals "$lehome/$TestingDomain/ca.cer" "$ca" ||  return
   _assertfileequals "$lehome/$TestingDomain/fullchain.cer" "$full" ||  return
   
+  sleep 5
+  _assertcmd "$lehome/$PROJECT_ENTRY --revoke -d $TestingDomain" ||  return
+
   rm -rf "$certdir"
   
   lp=`_ss | grep ':80 '`
@@ -989,7 +960,8 @@ le_test_standandalone_renew_localaddress_v2() {
   _assertfileequals "$lehome/$TestingDomain/$TestingDomain.key" "$key" ||  return
   _assertfileequals "$lehome/$TestingDomain/ca.cer" "$ca" ||  return
   _assertfileequals "$lehome/$TestingDomain/fullchain.cer" "$full" ||  return
-  
+  sleep 5
+  _assertcmd "$lehome/$PROJECT_ENTRY --revoke -d $TestingDomain" ||  return
   rm -rf "$certdir"
   mkdir -p "$certdir"
   
@@ -1008,7 +980,8 @@ le_test_standandalone_renew_localaddress_v2() {
   _assertfileequals "$lehome/$TestingDomain/$TestingDomain.key" "$key" ||  return
   _assertfileequals "$lehome/$TestingDomain/ca.cer" "$ca" ||  return
   _assertfileequals "$lehome/$TestingDomain/fullchain.cer" "$full" ||  return
-  
+  sleep 5
+  _assertcmd "$lehome/$PROJECT_ENTRY --revoke -d $TestingDomain" ||  return
   rm -rf "$certdir"
   
   lp=`_ss | grep ':80 '`
@@ -1050,7 +1023,8 @@ le_test_standandalone_listen_v4_v2() {
   _assertfileequals "$lehome/$TestingDomain/$TestingDomain.key" "$key" ||  return
   _assertfileequals "$lehome/$TestingDomain/ca.cer" "$ca" ||  return
   _assertfileequals "$lehome/$TestingDomain/fullchain.cer" "$full" ||  return
-  
+  sleep 5
+  _assertcmd "$lehome/$PROJECT_ENTRY --revoke -d $TestingDomain" ||  return
   rm -rf "$certdir"
   mkdir -p "$certdir"
   
@@ -1070,6 +1044,8 @@ le_test_standandalone_listen_v4_v2() {
   _assertfileequals "$lehome/$TestingDomain/ca.cer" "$ca" ||  return
   _assertfileequals "$lehome/$TestingDomain/fullchain.cer" "$full" ||  return
   
+  sleep 5
+  _assertcmd "$lehome/$PROJECT_ENTRY --revoke -d $TestingDomain" ||  return
   rm -rf "$certdir"
   
   lp=`_ss | grep ':80 '`
@@ -1116,7 +1092,8 @@ le_test_standandalone_listen_v6_v2() {
   _assertfileequals "$lehome/$TestingDomain/$TestingDomain.key" "$key" ||  return
   _assertfileequals "$lehome/$TestingDomain/ca.cer" "$ca" ||  return
   _assertfileequals "$lehome/$TestingDomain/fullchain.cer" "$full" ||  return
-  
+  sleep 5
+  _assertcmd "$lehome/$PROJECT_ENTRY --revoke -d $TestingDomain" ||  return
   rm -rf "$certdir"
   mkdir -p "$certdir"
   
@@ -1135,7 +1112,8 @@ le_test_standandalone_listen_v6_v2() {
   _assertfileequals "$lehome/$TestingDomain/$TestingDomain.key" "$key" ||  return
   _assertfileequals "$lehome/$TestingDomain/ca.cer" "$ca" ||  return
   _assertfileequals "$lehome/$TestingDomain/fullchain.cer" "$full" ||  return
-  
+  sleep 5
+  _assertcmd "$lehome/$PROJECT_ENTRY --revoke -d $TestingDomain" ||  return
   rm -rf "$certdir"
   
   lp=`_ss | grep ':80 '`
@@ -1176,7 +1154,8 @@ le_test_standandalone_deactivate_v2() {
   _assertfileequals "$lehome/$TestingDomain/$TestingDomain.key" "$key" ||  return
   _assertfileequals "$lehome/$TestingDomain/ca.cer" "$ca" ||  return
   _assertfileequals "$lehome/$TestingDomain/fullchain.cer" "$full" ||  return
-  
+  sleep 5
+  _assertcmd "$lehome/$PROJECT_ENTRY --revoke -d $TestingDomain" ||  return
   rm -rf "$certdir"
   mkdir -p "$certdir"
   
@@ -1191,40 +1170,6 @@ le_test_standandalone_deactivate_v2() {
 
 }
 
-
-#
-le_test_standandalone() {
-  if [ "$QUICK_TEST" ] ; then
-    _info "Skipped by QUICK_TEST"
-    __CASE_SKIPPED="1"
-    return 0
-  fi
-  
-  lehome="$DEFAULT_HOME"
-
-  lp=`_ss | grep ':80 '`
-  if [ "$lp" ] ; then
-    __fail "80 port is already used."
-    return 1
-  fi
-  
-  if [ -z "$TestingDomain" ] ; then
-    __fail "Please define TestingDomain and try again."
-    return 1
-  fi
-
-  rm -rf "$lehome/$TestingDomain"
-  
-  _assertcmd "$lehome/$PROJECT_ENTRY  --server \"$TEST_ACME_Server\"  --issue -d $TestingDomain --standalone" ||  return
-  _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" "$TestingDomain" "$CA" || return
-  _assertcert "$lehome/$TestingDomain/ca.cer" "$CA" || return
-  lp=`_ss | grep ':80 '`
-  if [ "$lp" ] ; then
-    __fail "80 port is not released: $lp"
-    return 1
-  fi
-
-}
 
 le_test_standandalone_SAN() {
   if [ "$QUICK_TEST" ] ; then
@@ -1250,6 +1195,8 @@ le_test_standandalone_SAN() {
   _assertcmd "$lehome/$PROJECT_ENTRY  --server \"$TEST_ACME_Server\"  --issue -d \"$TestingDomain\" -d \"$TestingAltDomains\" --standalone" ||  return
   _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" "$TestingDomain" "$CA" || return
   _assertcert "$lehome/$TestingDomain/ca.cer" "$CA" || return
+  sleep 5
+  _assertcmd "$lehome/$PROJECT_ENTRY --revoke -d $TestingDomain" ||  return
   lp=`_ss | grep ':80 '`
   if [ "$lp" ] ; then
     __fail "80 port is not released: $lp"
@@ -1259,7 +1206,7 @@ le_test_standandalone_SAN() {
   
 }
 
-le_test_standandalone_ECDSA_256() {
+le_test_standandalone_ECDSA_256_renew() {
   if [ "$QUICK_TEST" ] ; then
     _info "Skipped by QUICK_TEST"
     __CASE_SKIPPED="1"
@@ -1290,45 +1237,9 @@ le_test_standandalone_ECDSA_256() {
   _assertcmd "$lehome/$PROJECT_ENTRY  --server \"$TEST_ACME_Server\"  --issue -d $TestingDomain --standalone -k ec-256" ||  return
   _assertcert "$lehome/$TestingDomain$ECC_SUFFIX/$TestingDomain.cer" "$TestingDomain" "$CA_ECDSA" || return
   _assertcert "$lehome/$TestingDomain$ECC_SUFFIX/ca.cer" "$CA_ECDSA" || return
-  
-  lp=`_ss | grep ':80 '`
-  if [ "$lp" ] ; then
-    __fail "80 port is not released: $lp"
-    return 1
-  fi
-  
-  
+  sleep 5
+  _assertcmd "$lehome/$PROJECT_ENTRY --revoke -d $TestingDomain" ||  return
 
-}
-
-le_test_standandalone_ECDSA_256_renew() {
-  if [ "$QUICK_TEST" ] ; then
-    _info "Skipped by QUICK_TEST"
-    __CASE_SKIPPED="1"
-    return 0
-  fi
-  if [ "$NO_ECC_CASES" ] ; then
-    _info "Skipped by NO_ECC_CASES"
-    __CASE_SKIPPED="1"
-    return 0
-  fi  
-  
-  lehome="$DEFAULT_HOME"
-
-  lp=`_ss | grep ':80 '`
-  if [ "$lp" ] ; then
-    __fail "80 port is already used."
-    return 1
-  fi
-  
-  if [ -z "$TestingDomain" ] ; then
-    __fail "Please define TestingDomain and try again."
-    return 1
-  fi
-
-  rm -rf "$lehome/$TestingDomain$ECC_SUFFIX"
-  
-  _assertcmd "$lehome/$PROJECT_ENTRY  --server \"$TEST_ACME_Server\"  --issue --standalone -d $TestingDomain  -k ec-256" ||  return
   sleep 5
   _assertcmd "$lehome/$PROJECT_ENTRY --renew -d $TestingDomain --force --ecc" ||  return
 
@@ -1338,45 +1249,7 @@ le_test_standandalone_ECDSA_256_renew() {
     return 1
   fi
   
-
-}
-
-
-le_test_standandalone_ECDSA_256_SAN_renew() {
-  if [ "$QUICK_TEST" ] ; then
-    _info "Skipped by QUICK_TEST"
-    __CASE_SKIPPED="1"
-    return 0
-  fi
-  if [ "$NO_ECC_CASES" ] ; then
-    _info "Skipped by NO_ECC_CASES"
-    __CASE_SKIPPED="1"
-    return 0
-  fi  
-  lehome="$DEFAULT_HOME"
-
-  lp=`_ss | grep ':80 '`
-  if [ "$lp" ] ; then
-    __fail "80 port is already used."
-    return 1
-  fi
   
-  if [ -z "$TestingDomain" ] ; then
-    __fail "Please define TestingDomain and try again."
-    return 1
-  fi
-
-  rm -rf "$lehome/$TestingDomain$ECC_SUFFIX"
-  
-  _assertcmd "$lehome/$PROJECT_ENTRY  --server \"$TEST_ACME_Server\"  --issue --standalone -d \"$TestingDomain\" -d \"$TestingAltDomains\" -k ec-256" ||  return
-  sleep 5
-  _assertcmd "$lehome/$PROJECT_ENTRY --renew -d \"$TestingDomain\" --force --ecc" ||  return
-
-  lp=`_ss | grep ':80 '`
-  if [ "$lp" ] ; then
-    __fail "80 port is not released: $lp"
-    return 1
-  fi
 
 }
 
@@ -1417,6 +1290,7 @@ le_test_standandalone_ECDSA_256_SAN_renew_v2() {
   _assertfileequals "$lehome/$TestingDomain$ECC_SUFFIX/fullchain.cer" "$full" ||  return
   
   sleep 5
+  _assertcmd "$lehome/$PROJECT_ENTRY --revoke -d $TestingDomain" ||  return
   
   rm -rf "$certdir"
   mkdir -p "$certdir"
@@ -1430,7 +1304,8 @@ le_test_standandalone_ECDSA_256_SAN_renew_v2() {
   _assertfileequals "$lehome/$TestingDomain$ECC_SUFFIX/$TestingDomain.key" "$key" ||  return
   _assertfileequals "$lehome/$TestingDomain$ECC_SUFFIX/ca.cer" "$ca" ||  return
   _assertfileequals "$lehome/$TestingDomain$ECC_SUFFIX/fullchain.cer" "$full" ||  return
-  
+  sleep 5
+  _assertcmd "$lehome/$PROJECT_ENTRY --revoke -d $TestingDomain" ||  return
   
   lp=`_ss | grep ':80 '`
   if [ "$lp" ] ; then
@@ -1477,7 +1352,9 @@ le_test_standandalone_ECDSA_384() {
   _assertcmd "$lehome/$PROJECT_ENTRY --server \"$TEST_ACME_Server\"  --issue --standalone -d \"$TestingDomain\" -k ec-384" ||  return
   _assertcert "$lehome/$TestingDomain$ECC_SUFFIX/$TestingDomain.cer" "$TestingDomain" "$CA_ECDSA" || return
   _assertcert "$lehome/$TestingDomain$ECC_SUFFIX/ca.cer" "$CA_ECDSA" || return
-  
+  sleep 5
+  _assertcmd "$lehome/$PROJECT_ENTRY --revoke -d $TestingDomain" ||  return
+
   lp=`_ss | grep ':80 '`
   if [ "$lp" ] ; then
     __fail "80 port is not released: $lp"
@@ -1523,7 +1400,8 @@ le_test_standandalone_renew_idn_v2() {
   _assertfileequals "$lehome/$_test_idn/$_test_idn.key" "$key" ||  return
   _assertfileequals "$lehome/$_test_idn/ca.cer" "$ca" ||  return
   _assertfileequals "$lehome/$_test_idn/fullchain.cer" "$full" ||  return
-  
+  sleep 5
+  _assertcmd "$lehome/$PROJECT_ENTRY --revoke -d $_test_idn" ||  return
   rm -rf "$certdir"
   mkdir -p "$certdir"
   
@@ -1537,7 +1415,8 @@ le_test_standandalone_renew_idn_v2() {
   _assertfileequals "$lehome/$_test_idn/$_test_idn.key" "$key" ||  return
   _assertfileequals "$lehome/$_test_idn/ca.cer" "$ca" ||  return
   _assertfileequals "$lehome/$_test_idn/fullchain.cer" "$full" ||  return
-  
+  sleep 5
+  _assertcmd "$lehome/$PROJECT_ENTRY --revoke -d $_test_idn" ||  return
   rm -rf "$certdir"
   
   lp=`_ss | grep ':80 '`
@@ -1577,6 +1456,8 @@ le_test_dnsapi() {
     _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" "$TestingDomain" "$CA" || return
     _assertcert "$lehome/$TestingDomain/ca.cer" "$CA" || return
     _assertcmd "$lehome/$PROJECT_ENTRY --deactivate -d \"$TestingDomain\" >/dev/null 2>&1"
+    sleep 5
+    _assertcmd "$lehome/$PROJECT_ENTRY --revoke -d $TestingDomain" ||  return
     ) || return
   else
     (
@@ -1591,6 +1472,8 @@ le_test_dnsapi() {
     _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" "$TestingDomain" "$CA" || return
     _assertcert "$lehome/$TestingDomain/ca.cer" "$CA" || return
     _assertcmd "$lehome/$PROJECT_ENTRY --deactivate -d \"$TestingDomain\" >/dev/null 2>&1"
+    sleep 5
+    _assertcmd "$lehome/$PROJECT_ENTRY --revoke -d $TestingDomain" ||  return
     ) || return 
   fi
 
@@ -1622,6 +1505,8 @@ le_test_standandalone_ipcert() {
   _assertcmd "$lehome/$PROJECT_ENTRY --server \"$TEST_ACME_Server\"  --issue -d $TestingDomain --standalone" ||  return
   _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" "$TestingDomain" "$CA" || return
   _assertcert "$lehome/$TestingDomain/ca.cer" "$CA" || return
+  sleep 5
+  _assertcmd "$lehome/$PROJECT_ENTRY --revoke -d $TestingDomain" ||  return
 
 
 }
@@ -1652,6 +1537,8 @@ le_test_alpn_ipcert() {
   _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" "$TestingDomain" "$CA" || return
   _assertcert "$lehome/$TestingDomain/ca.cer" "$CA" || return
 
+  sleep 5
+  _assertcmd "$lehome/$PROJECT_ENTRY --revoke -d $TestingDomain" ||  return
 
 }
 
