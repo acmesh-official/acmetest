@@ -890,7 +890,7 @@ le_test_standandalone_renew() {
   fi
   
   rm -rf "$lehome/$TestingDomain"
-  _assertcmd "$lehome/$PROJECT_ENTRY --server "$TEST_ACME_Server" --issue -d $TestingDomain --standalone" ||  return
+  _assertcmd "$lehome/$PROJECT_ENTRY --server \"$TEST_ACME_Server\" --issue -d $TestingDomain --standalone" ||  return
   sleep 5
   _assertcmd "$lehome/$PROJECT_ENTRY --renew -d $TestingDomain -f" ||  return
 
@@ -927,7 +927,7 @@ le_test_standandalone_renew_v2() {
   key="$certdir/domain.key"
   ca="$certdir/ca.cer"
   full="$certdir/full.cer"
-  _assertcmd "$lehome/$PROJECT_ENTRY  --server "$TEST_ACME_Server" --issue -d $TestingDomain --standalone --certpath '$cert' --keypath '$key'  --capath '$ca'  --reloadcmd 'echo this is reload'  --fullchainpath  '$full'" ||  return
+  _assertcmd "$lehome/$PROJECT_ENTRY  --server \"$TEST_ACME_Server\"  --issue -d $TestingDomain --standalone --certpath '$cert' --keypath '$key'  --capath '$ca'  --reloadcmd 'echo this is reload'  --fullchainpath  '$full'" ||  return
   
   _assertfileequals "$lehome/$TestingDomain/$TestingDomain.cer" "$cert" ||  return
   _assertfileequals "$lehome/$TestingDomain/$TestingDomain.key" "$key" ||  return
@@ -983,7 +983,7 @@ le_test_standandalone_renew_localaddress_v2() {
   key="$certdir/domain.key"
   ca="$certdir/ca.cer"
   full="$certdir/full.cer"
-  _assertcmd "$lehome/$PROJECT_ENTRY  --server "$TEST_ACME_Server" --issue -d $TestingDomain --standalone --local-address 0.0.0.0 --certpath '$cert' --keypath '$key'  --capath '$ca'  --reloadcmd 'echo this is reload'  --fullchainpath  '$full'" ||  return
+  _assertcmd "$lehome/$PROJECT_ENTRY  --server \"$TEST_ACME_Server\"  --issue -d $TestingDomain --standalone --local-address 0.0.0.0 --certpath '$cert' --keypath '$key'  --capath '$ca'  --reloadcmd 'echo this is reload'  --fullchainpath  '$full'" ||  return
   
   _assertfileequals "$lehome/$TestingDomain/$TestingDomain.cer" "$cert" ||  return
   _assertfileequals "$lehome/$TestingDomain/$TestingDomain.key" "$key" ||  return
@@ -1044,7 +1044,7 @@ le_test_standandalone_listen_v4_v2() {
   key="$certdir/domain.key"
   ca="$certdir/ca.cer"
   full="$certdir/full.cer"
-  _assertcmd "$lehome/$PROJECT_ENTRY  --server "$TEST_ACME_Server" --issue -d $TestingDomain --standalone --listen-v4 --cert-file '$cert' --key-file '$key'  --ca-file '$ca'  --reloadcmd 'echo this is reload'  --fullchain-file  '$full'" ||  return
+  _assertcmd "$lehome/$PROJECT_ENTRY  --server \"$TEST_ACME_Server\"  --issue -d $TestingDomain --standalone --listen-v4 --cert-file '$cert' --key-file '$key'  --ca-file '$ca'  --reloadcmd 'echo this is reload'  --fullchain-file  '$full'" ||  return
   
   _assertfileequals "$lehome/$TestingDomain/$TestingDomain.cer" "$cert" ||  return
   _assertfileequals "$lehome/$TestingDomain/$TestingDomain.key" "$key" ||  return
@@ -1110,7 +1110,7 @@ le_test_standandalone_listen_v6_v2() {
   key="$certdir/domain.key"
   ca="$certdir/ca.cer"
   full="$certdir/full.cer"
-  _assertcmd "$lehome/$PROJECT_ENTRY  --server "$TEST_ACME_Server" --issue -d $TestingDomain --standalone --listen-v6 --certpath '$cert' --keypath '$key'  --capath '$ca'  --reloadcmd 'echo this is reload'  --fullchainpath  '$full'" ||  return
+  _assertcmd "$lehome/$PROJECT_ENTRY  --server \"$TEST_ACME_Server\"  --issue -d $TestingDomain --standalone --listen-v6 --certpath '$cert' --keypath '$key'  --capath '$ca'  --reloadcmd 'echo this is reload'  --fullchainpath  '$full'" ||  return
   
   _assertfileequals "$lehome/$TestingDomain/$TestingDomain.cer" "$cert" ||  return
   _assertfileequals "$lehome/$TestingDomain/$TestingDomain.key" "$key" ||  return
@@ -1170,7 +1170,7 @@ le_test_standandalone_deactivate_v2() {
   key="$certdir/domain.key"
   ca="$certdir/ca.cer"
   full="$certdir/full.cer"
-  _assertcmd "$lehome/$PROJECT_ENTRY  --server "$TEST_ACME_Server" --issue -d $TestingDomain --standalone --certpath '$cert' --keypath '$key'  --capath '$ca'  --reloadcmd 'echo this is reload'  --fullchainpath  '$full'" ||  return
+  _assertcmd "$lehome/$PROJECT_ENTRY  --server \"$TEST_ACME_Server\"  --issue -d $TestingDomain --standalone --certpath '$cert' --keypath '$key'  --capath '$ca'  --reloadcmd 'echo this is reload'  --fullchainpath  '$full'" ||  return
   
   _assertfileequals "$lehome/$TestingDomain/$TestingDomain.cer" "$cert" ||  return
   _assertfileequals "$lehome/$TestingDomain/$TestingDomain.key" "$key" ||  return
@@ -1215,7 +1215,7 @@ le_test_standandalone() {
 
   rm -rf "$lehome/$TestingDomain"
   
-  _assertcmd "$lehome/$PROJECT_ENTRY  --server "$TEST_ACME_Server" --issue -d $TestingDomain --standalone" ||  return
+  _assertcmd "$lehome/$PROJECT_ENTRY  --server \"$TEST_ACME_Server\"  --issue -d $TestingDomain --standalone" ||  return
   _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" "$TestingDomain" "$CA" || return
   _assertcert "$lehome/$TestingDomain/ca.cer" "$CA" || return
   lp=`_ss | grep ':80 '`
@@ -1247,7 +1247,7 @@ le_test_standandalone_SAN() {
 
   rm -rf "$lehome/$TestingDomain"
   
-  _assertcmd "$lehome/$PROJECT_ENTRY  --server "$TEST_ACME_Server" --issue -d \"$TestingDomain\" -d \"$TestingAltDomains\" --standalone" ||  return
+  _assertcmd "$lehome/$PROJECT_ENTRY  --server \"$TEST_ACME_Server\"  --issue -d \"$TestingDomain\" -d \"$TestingAltDomains\" --standalone" ||  return
   _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" "$TestingDomain" "$CA" || return
   _assertcert "$lehome/$TestingDomain/ca.cer" "$CA" || return
   lp=`_ss | grep ':80 '`
@@ -1287,7 +1287,7 @@ le_test_standandalone_ECDSA_256() {
 
   rm -rf "$lehome/$TestingDomain$ECC_SUFFIX"
  
-  _assertcmd "$lehome/$PROJECT_ENTRY  --server "$TEST_ACME_Server" --issue -d $TestingDomain --standalone -k ec-256" ||  return
+  _assertcmd "$lehome/$PROJECT_ENTRY  --server \"$TEST_ACME_Server\"  --issue -d $TestingDomain --standalone -k ec-256" ||  return
   _assertcert "$lehome/$TestingDomain$ECC_SUFFIX/$TestingDomain.cer" "$TestingDomain" "$CA_ECDSA" || return
   _assertcert "$lehome/$TestingDomain$ECC_SUFFIX/ca.cer" "$CA_ECDSA" || return
   
@@ -1328,7 +1328,7 @@ le_test_standandalone_ECDSA_256_renew() {
 
   rm -rf "$lehome/$TestingDomain$ECC_SUFFIX"
   
-  _assertcmd "$lehome/$PROJECT_ENTRY  --server "$TEST_ACME_Server" --issue --standalone -d $TestingDomain  -k ec-256" ||  return
+  _assertcmd "$lehome/$PROJECT_ENTRY  --server \"$TEST_ACME_Server\"  --issue --standalone -d $TestingDomain  -k ec-256" ||  return
   sleep 5
   _assertcmd "$lehome/$PROJECT_ENTRY --renew -d $TestingDomain --force --ecc" ||  return
 
@@ -1368,7 +1368,7 @@ le_test_standandalone_ECDSA_256_SAN_renew() {
 
   rm -rf "$lehome/$TestingDomain$ECC_SUFFIX"
   
-  _assertcmd "$lehome/$PROJECT_ENTRY  --server "$TEST_ACME_Server" --issue --standalone -d \"$TestingDomain\" -d \"$TestingAltDomains\" -k ec-256" ||  return
+  _assertcmd "$lehome/$PROJECT_ENTRY  --server \"$TEST_ACME_Server\"  --issue --standalone -d \"$TestingDomain\" -d \"$TestingAltDomains\" -k ec-256" ||  return
   sleep 5
   _assertcmd "$lehome/$PROJECT_ENTRY --renew -d \"$TestingDomain\" --force --ecc" ||  return
 
@@ -1409,7 +1409,7 @@ le_test_standandalone_ECDSA_256_SAN_renew_v2() {
   ca="$certdir/ca.cer"
   full="$certdir/full.cer"
   
-  _assertcmd "$lehome/$PROJECT_ENTRY --server "$TEST_ACME_Server" --issue -d \"$TestingDomain\" -d \"$TestingAltDomains\" --standalone --keylength ec-256 --certpath '$cert' --keypath '$key'  --capath '$ca'  --reloadcmd 'echo this is reload'  --fullchainpath  '$full'" ||  return
+  _assertcmd "$lehome/$PROJECT_ENTRY --server \"$TEST_ACME_Server\"  --issue -d \"$TestingDomain\" -d \"$TestingAltDomains\" --standalone --keylength ec-256 --certpath '$cert' --keypath '$key'  --capath '$ca'  --reloadcmd 'echo this is reload'  --fullchainpath  '$full'" ||  return
   
   _assertfileequals "$lehome/$TestingDomain$ECC_SUFFIX/$TestingDomain.cer" "$cert" ||  return
   _assertfileequals "$lehome/$TestingDomain$ECC_SUFFIX/$TestingDomain.key" "$key" ||  return
@@ -1474,7 +1474,7 @@ le_test_standandalone_ECDSA_384() {
 
   rm -rf "$lehome/$TestingDomain$ECC_SUFFIX"
   
-  _assertcmd "$lehome/$PROJECT_ENTRY --server "$TEST_ACME_Server" --issue --standalone -d \"$TestingDomain\" -k ec-384" ||  return
+  _assertcmd "$lehome/$PROJECT_ENTRY --server \"$TEST_ACME_Server\"  --issue --standalone -d \"$TestingDomain\" -k ec-384" ||  return
   _assertcert "$lehome/$TestingDomain$ECC_SUFFIX/$TestingDomain.cer" "$TestingDomain" "$CA_ECDSA" || return
   _assertcert "$lehome/$TestingDomain$ECC_SUFFIX/ca.cer" "$CA_ECDSA" || return
   
@@ -1517,7 +1517,7 @@ le_test_standandalone_renew_idn_v2() {
   key="$certdir/domain.key"
   ca="$certdir/ca.cer"
   full="$certdir/full.cer"
-  _assertcmd "$lehome/$PROJECT_ENTRY --server "$TEST_ACME_Server" --issue -d $_test_idn --standalone --certpath '$cert' --keypath '$key'  --capath '$ca'  --reloadcmd 'echo this is reload'  --fullchainpath  '$full'" ||  return
+  _assertcmd "$lehome/$PROJECT_ENTRY --server \"$TEST_ACME_Server\"  --issue -d $_test_idn --standalone --certpath '$cert' --keypath '$key'  --capath '$ca'  --reloadcmd 'echo this is reload'  --fullchainpath  '$full'" ||  return
   
   _assertfileequals "$lehome/$_test_idn/$_test_idn.cer" "$cert" ||  return
   _assertfileequals "$lehome/$_test_idn/$_test_idn.key" "$key" ||  return
@@ -1572,7 +1572,7 @@ le_test_dnsapi() {
     lehome="$DEFAULT_HOME"
     rm -rf "$lehome/$TestingDomain"
 
-    _assertcmd "$lehome/$PROJECT_ENTRY --server "$TEST_ACME_Server" --issue -d \"$TestingDomain\" -d \"*.$TestingDomain\" --dns $api --dnssleep \"$d_sleep\" " ||  return
+    _assertcmd "$lehome/$PROJECT_ENTRY --server \"$TEST_ACME_Server\"  --issue -d \"$TestingDomain\" -d \"*.$TestingDomain\" --dns $api --dnssleep \"$d_sleep\" " ||  return
     
     _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" "$TestingDomain" "$CA" || return
     _assertcert "$lehome/$TestingDomain/ca.cer" "$CA" || return
@@ -1586,7 +1586,7 @@ le_test_dnsapi() {
     lehome="$DEFAULT_HOME"
     rm -rf "$lehome/$TestingDomain"
 
-    _assertcmd "$lehome/$PROJECT_ENTRY --server "$TEST_ACME_Server" --issue -d \"$TestingDomain\" -d \"www.$TestingDomain\" --dns $api --dnssleep \"$d_sleep\" " ||  return
+    _assertcmd "$lehome/$PROJECT_ENTRY --server \"$TEST_ACME_Server\"  --issue -d \"$TestingDomain\" -d \"www.$TestingDomain\" --dns $api --dnssleep \"$d_sleep\" " ||  return
 
     _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" "$TestingDomain" "$CA" || return
     _assertcert "$lehome/$TestingDomain/ca.cer" "$CA" || return
@@ -1619,7 +1619,7 @@ le_test_standandalone_ipcert() {
 
   rm -rf "$lehome/$TestingDomain"
   
-  _assertcmd "$lehome/$PROJECT_ENTRY --server "$TEST_ACME_Server" --issue -d $TestingDomain --standalone" ||  return
+  _assertcmd "$lehome/$PROJECT_ENTRY --server \"$TEST_ACME_Server\"  --issue -d $TestingDomain --standalone" ||  return
   _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" "$TestingDomain" "$CA" || return
   _assertcert "$lehome/$TestingDomain/ca.cer" "$CA" || return
 
@@ -1648,7 +1648,7 @@ le_test_alpn_ipcert() {
 
   rm -rf "$lehome/$TestingDomain"
   
-  _assertcmd "$lehome/$PROJECT_ENTRY --server "$TEST_ACME_Server" --issue -d $TestingDomain --alpn" ||  return
+  _assertcmd "$lehome/$PROJECT_ENTRY --server \"$TEST_ACME_Server\"  --issue -d $TestingDomain --alpn" ||  return
   _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" "$TestingDomain" "$CA" || return
   _assertcert "$lehome/$TestingDomain/ca.cer" "$CA" || return
 
