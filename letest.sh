@@ -1238,7 +1238,7 @@ le_test_standandalone_ECDSA_256_renew() {
   _assertcert "$lehome/$TestingDomain$ECC_SUFFIX/$TestingDomain.cer" "$TestingDomain" "$CA_ECDSA" || return
   _assertcert "$lehome/$TestingDomain$ECC_SUFFIX/ca.cer" "$CA_ECDSA" || return
   sleep 5
-  _assertcmd "$lehome/$PROJECT_ENTRY --revoke -d $TestingDomain" ||  return
+  _assertcmd "$lehome/$PROJECT_ENTRY --revoke -d $TestingDomain" --ecc ||  return
 
   sleep 5
   _assertcmd "$lehome/$PROJECT_ENTRY --renew -d $TestingDomain --force --ecc" ||  return
@@ -1290,7 +1290,7 @@ le_test_standandalone_ECDSA_256_SAN_renew_v2() {
   _assertfileequals "$lehome/$TestingDomain$ECC_SUFFIX/fullchain.cer" "$full" ||  return
   
   sleep 5
-  _assertcmd "$lehome/$PROJECT_ENTRY --revoke -d $TestingDomain" ||  return
+  _assertcmd "$lehome/$PROJECT_ENTRY --revoke -d $TestingDomain" --ecc ||  return
   
   rm -rf "$certdir"
   mkdir -p "$certdir"
@@ -1305,7 +1305,7 @@ le_test_standandalone_ECDSA_256_SAN_renew_v2() {
   _assertfileequals "$lehome/$TestingDomain$ECC_SUFFIX/ca.cer" "$ca" ||  return
   _assertfileequals "$lehome/$TestingDomain$ECC_SUFFIX/fullchain.cer" "$full" ||  return
   sleep 5
-  _assertcmd "$lehome/$PROJECT_ENTRY --revoke -d $TestingDomain" ||  return
+  _assertcmd "$lehome/$PROJECT_ENTRY --revoke -d $TestingDomain" --ecc ||  return
   
   lp=`_ss | grep ':80 '`
   if [ "$lp" ] ; then
@@ -1353,7 +1353,7 @@ le_test_standandalone_ECDSA_384() {
   _assertcert "$lehome/$TestingDomain$ECC_SUFFIX/$TestingDomain.cer" "$TestingDomain" "$CA_ECDSA" || return
   _assertcert "$lehome/$TestingDomain$ECC_SUFFIX/ca.cer" "$CA_ECDSA" || return
   sleep 5
-  _assertcmd "$lehome/$PROJECT_ENTRY --revoke -d $TestingDomain" ||  return
+  _assertcmd "$lehome/$PROJECT_ENTRY --revoke -d $TestingDomain" --ecc ||  return
 
   lp=`_ss | grep ':80 '`
   if [ "$lp" ] ; then
