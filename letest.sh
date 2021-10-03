@@ -379,10 +379,17 @@ if [ -z "$TestingDomain" ]; then
                 exit 1
               fi
             else
-              if ! unzip cf.zip; then
-                _err "unzip error."
+              #Windows
+              latest_url=$(curl --silent "https://api.github.com/repos/cloudflare/cloudflared/releases/latest" | grep windows-amd64.exe | grep browser_download_url |cut  -d : -f 2- | tr -d '" ')
+              _info "latest_url" "$latest_url"
+              if ! curl -L "$latest_url" > cloudflared.exe; then
+                _err "can not download: $latest_url"
                 exit 1
               fi
+              #if ! unzip cf.zip; then
+              #  _err "unzip error."
+              #  exit 1
+              #fi
             fi
           fi
         fi
