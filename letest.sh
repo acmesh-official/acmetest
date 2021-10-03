@@ -386,6 +386,7 @@ if [ -z "$TestingDomain" ]; then
                 _err "can not download: $latest_url"
                 exit 1
               fi
+              chmod +x "$CF_BIN"
               #if ! unzip cf.zip; then
               #  _err "unzip error."
               #  exit 1
