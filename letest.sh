@@ -360,13 +360,13 @@ if [ -z "$TestingDomain" ]; then
         if [ ! -f "$CF_BIN" ]; then
           _info "Download from $CF_LINK"
           if [ "$CF_LINK" = "$CF_Linux" ]; then
-            if ! curl "$CF_LINK" >"$CF_BIN"; then
+            if ! curl -L "$CF_LINK" >"$CF_BIN"; then
               _err "Download error."
               exit 1
             fi
             chmod +x "$CF_BIN"
           elif [ "$CF_LINK" = "$CF_MAC" ]; then
-            if ! curl "$CF_LINK" >cf.tgz; then
+            if ! curl -L "$CF_LINK" >cf.tgz; then
               _err "Download error."
               exit 1
             fi
