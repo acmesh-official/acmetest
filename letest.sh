@@ -1457,6 +1457,35 @@ le_test_alpn_ipcert() {
 }
 
 
+
+le_test_preferred_chain() {
+  if [ -z "$TEST_PREFERRED_CHAIN" ] ; then
+    _info "Skipped by TEST_PREFERRED_CHAIN"
+    __CASE_SKIPPED="1"
+    return 0
+  fi
+  lehome="$DEFAULT_HOME"
+
+
+  if [ -z "$TestingDomain" ] ; then
+    __fail "Please define TestingDomain and TestingAltDomains, and try again."
+    return 1
+  fi
+
+  rm -rf "$lehome/$TestingDomain"
+  
+  _assertcmd "$lehome/$PROJECT_ENTRY  --server \"$TEST_ACME_Server\"  --issue -d \"$TestingDomain\" -d \"$TestingAltDomains\" --standalone --preferred-chain \"$TEST_PREFERRED_CHAIN\" " ||  return
+  _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" "$TestingDomain" "$CA" || return
+  _assertcert "$lehome/$TestingDomain/ca.cer" "$CA" "$TEST_PREFERRED_CHAIN" || return
+  sleep 5
+  _assertcmd "$lehome/$PROJECT_ENTRY --revoke -d $TestingDomain" ||  return
+
+
+}
+
+
+
+
 #####################################
 
 if [ "$1" ] ; then
