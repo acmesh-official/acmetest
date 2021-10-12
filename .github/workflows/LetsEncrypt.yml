@@ -21,6 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       DEBUG: 1
+      TEST_PREFERRED_CHAIN: Fake LE Root X2
     steps:
     - uses: actions/checkout@v2
     - name: Run acmetest
@@ -28,6 +29,8 @@ jobs:
 
   MacOS:
     runs-on: macos-latest
+    env:
+      TEST_PREFERRED_CHAIN: Fake LE Root X2
     steps:
     - uses: actions/checkout@v2
     - name: Install tools
@@ -40,6 +43,7 @@ jobs:
     env:
       #The 80 port is used by Windows server, we have to use a custom port, ngrok will also use this port.
       Le_HTTPPort: 8888
+      TEST_PREFERRED_CHAIN: Fake LE Root X2
     steps:
     - name: Set git to use LF
       run: |
@@ -69,6 +73,8 @@ jobs:
 
   FreeBSD:
     runs-on: macos-10.15
+    env:
+      TEST_PREFERRED_CHAIN: Fake LE Root X2
     steps:
     - uses: actions/checkout@v2
     - uses: vmactions/cf-tunnel@v0.0.3
@@ -80,7 +86,7 @@ jobs:
       run: echo "TestingDomain=${{steps.tunnel.outputs.server}}" >> $GITHUB_ENV
     - uses: vmactions/freebsd-vm@v0.1.4
       with:
-        envs: 'TestingDomain'
+        envs: 'TestingDomain TEST_PREFERRED_CHAIN'
         nat: |
           "8080": "80"
         prepare: pkg install -y socat curl
@@ -89,6 +95,8 @@ jobs:
 
   Solaris:
     runs-on: macos-10.15
+    env:
+      TEST_PREFERRED_CHAIN: Fake LE Root X2
     steps:
     - uses: actions/checkout@v2
     - uses: vmactions/cf-tunnel@v0.0.2
@@ -100,7 +108,7 @@ jobs:
       run: echo "TestingDomain=${{steps.tunnel.outputs.server}}" >> $GITHUB_ENV
     - uses: vmactions/solaris-vm@v0.0.3
       with:
-        envs: 'TestingDomain'
+        envs: 'TestingDomain TEST_PREFERRED_CHAIN'
         nat: |
           "8080": "80"
         prepare: pkgutil -y -i socat curl
