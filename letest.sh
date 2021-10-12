@@ -320,9 +320,9 @@ NGROK_Win="https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip"
 NGROK_BSD="https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-freebsd-amd64.zip"
 
 
-CF_Linux="https://bin.equinox.io/c/VdrWdbjqyF/cloudflared-stable-linux-amd64.tgz"
-CF_MAC="https://bin.equinox.io/c/VdrWdbjqyF/cloudflared-stable-darwin-amd64.zip"
-CF_Win="https://bin.equinox.io/c/VdrWdbjqyF/cloudflared-stable-windows-amd64.zip"
+CF_Linux="https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64"
+CF_MAC="https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-darwin-amd64.tgz"
+CF_Win="https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-windows-amd64.exe"
 
 
 
@@ -360,38 +360,28 @@ if [ -z "$TestingDomain" ]; then
         if [ ! -f "$CF_BIN" ]; then
           _info "Download from $CF_LINK"
           if [ "$CF_LINK" = "$CF_Linux" ]; then
+            if ! curl "$CF_LINK" >"$CF_BIN"; then
+              _err "Download error."
+              exit 1
+            fi
+            chmod +x "$CF_BIN"
+          elif [ "$CF_LINK" = "$CF_MAC" ]; then
             if ! curl "$CF_LINK" >cf.tgz; then
               _err "Download error."
               exit 1
             fi
+ 
             if ! tar -xzf cf.tgz; then
               _err "unzip error."
               exit 1
             fi
+
           else
-            if ! curl "$CF_LINK" >cf.zip; then
-              _err "Download error."
+            if ! curl -L "$CF_LINK" > cloudflared.exe; then
+              _err "can not download: $latest_url"
               exit 1
             fi
-            if [ "$CF_LINK" = "$CF_MAC" ]; then
-              if ! 7za e -y cf.zip; then
-                _err "unzip error."
-                exit 1
-              fi
-            else
-              #Windows
-              latest_url=$(curl --silent "https://api.github.com/repos/cloudflare/cloudflared/releases/latest" | grep windows-amd64.exe | grep browser_download_url |cut  -d : -f 2- | tr -d '" ')
-              _info "latest_url" "$latest_url"
-              if ! curl -L "$latest_url" > cloudflared.exe; then
-                _err "can not download: $latest_url"
-                exit 1
-              fi
-              chmod +x "$CF_BIN"
-              #if ! unzip cf.zip; then
-              #  _err "unzip error."
-              #  exit 1
-              #fi
-            fi
+            chmod +x "$CF_BIN"
           fi
         fi
 
