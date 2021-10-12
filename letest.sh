@@ -871,11 +871,7 @@ le_test_install_config_home() {
 le_test_standandalone_renew_v2() {
   lehome="$DEFAULT_HOME"
 
-  lp=`_ss | grep ':80 '`
-  if [ "$lp" ] ; then
-    __fail "80 port is already used."
-    return 1
-  fi
+
   
   if [ -z "$TestingDomain" ] ; then
     __fail "Please define TestingDomain and try again."
@@ -919,11 +915,7 @@ le_test_standandalone_renew_v2() {
 
   rm -rf "$certdir"
   
-  lp=`_ss | grep ':80 '`
-  if [ "$lp" ] ; then
-    __fail "80 port is not released: $lp"
-    return 1
-  fi
+
 
 }
 
@@ -933,12 +925,7 @@ le_test_standandalone_renew_localaddress_v2() {
 
   lehome="$DEFAULT_HOME"
 
-  lp=`_ss | grep ':80 '`
-  if [ "$lp" ] ; then
-    __fail "80 port is already used."
-    return 1
-  fi
-  
+
   if [ -z "$TestingDomain" ] ; then
     __fail "Please define TestingDomain and try again."
     return 1
@@ -982,11 +969,6 @@ le_test_standandalone_renew_localaddress_v2() {
   _assertcmd "$lehome/$PROJECT_ENTRY --revoke -d $TestingDomain" ||  return
   rm -rf "$certdir"
   
-  lp=`_ss | grep ':80 '`
-  if [ "$lp" ] ; then
-    __fail "80 port is not released: $lp"
-    return 1
-  fi
 
 }
 
@@ -995,11 +977,7 @@ le_test_standandalone_renew_localaddress_v2() {
 le_test_standandalone_listen_v4_v2() {
   lehome="$DEFAULT_HOME"
 
-  lp=`_ss | grep ':80 '`
-  if [ "$lp" ] ; then
-    __fail "80 port is already used."
-    return 1
-  fi
+
   
   if [ -z "$TestingDomain" ] ; then
     __fail "Please define TestingDomain and try again."
@@ -1046,11 +1024,7 @@ le_test_standandalone_listen_v4_v2() {
   _assertcmd "$lehome/$PROJECT_ENTRY --revoke -d $TestingDomain" ||  return
   rm -rf "$certdir"
   
-  lp=`_ss | grep ':80 '`
-  if [ "$lp" ] ; then
-    __fail "80 port is not released: $lp"
-    return 1
-  fi
+
 
 }
 
@@ -1065,11 +1039,7 @@ le_test_standandalone_listen_v6_v2() {
 
   lehome="$DEFAULT_HOME"
 
-  lp=`_ss | grep ':80 '`
-  if [ "$lp" ] ; then
-    __fail "80 port is already used."
-    return 1
-  fi
+
   
   if [ -z "$TestingDomain" ] ; then
     __fail "Please define TestingDomain and try again."
@@ -1114,11 +1084,7 @@ le_test_standandalone_listen_v6_v2() {
   _assertcmd "$lehome/$PROJECT_ENTRY --revoke -d $TestingDomain" ||  return
   rm -rf "$certdir"
   
-  lp=`_ss | grep ':80 '`
-  if [ "$lp" ] ; then
-    __fail "80 port is not released: $lp"
-    return 1
-  fi
+
 
 }
 
@@ -1126,11 +1092,7 @@ le_test_standandalone_listen_v6_v2() {
 le_test_standandalone_deactivate_v2() {
   lehome="$DEFAULT_HOME"
 
-  lp=`_ss | grep ':80 '`
-  if [ "$lp" ] ; then
-    __fail "80 port is already used."
-    return 1
-  fi
+
   
   if [ -z "$TestingDomain" ] ; then
     __fail "Please define TestingDomain and try again."
@@ -1160,11 +1122,7 @@ le_test_standandalone_deactivate_v2() {
   sleep 5
   _assertcmd "$lehome/$PROJECT_ENTRY --deactivate -d $TestingDomain" ||  return
   
-  lp=`_ss | grep ':80 '`
-  if [ "$lp" ] ; then
-    __fail "80 port is not released: $lp"
-    return 1
-  fi
+
 
 }
 
@@ -1177,12 +1135,7 @@ le_test_standandalone_SAN() {
   fi
   lehome="$DEFAULT_HOME"
 
-  lp=`_ss| grep ':80 '`
-  if [ "$lp" ] ; then
-    __fail "80 port is already used."
-    return 1
-  fi
-  
+
   if [ -z "$TestingDomain" ] ; then
     __fail "Please define TestingDomain and TestingAltDomains, and try again."
     return 1
@@ -1195,11 +1148,7 @@ le_test_standandalone_SAN() {
   _assertcert "$lehome/$TestingDomain/ca.cer" "$CA" || return
   sleep 5
   _assertcmd "$lehome/$PROJECT_ENTRY --revoke -d $TestingDomain" ||  return
-  lp=`_ss | grep ':80 '`
-  if [ "$lp" ] ; then
-    __fail "80 port is not released: $lp"
-    return 1
-  fi
+
   
   
 }
@@ -1219,11 +1168,7 @@ le_test_standandalone_ECDSA_256_renew() {
     
   lehome="$DEFAULT_HOME"
 
-  lp=`_ss | grep ':80 '`
-  if [ "$lp" ] ; then
-    __fail "80 port is already used."
-    return 1
-  fi
+
   
   if [ -z "$TestingDomain" ] ; then
     __fail "Please define TestingDomain and try again."
@@ -1241,11 +1186,7 @@ le_test_standandalone_ECDSA_256_renew() {
   sleep 5
   _assertcmd "$lehome/$PROJECT_ENTRY --renew -d $TestingDomain --force --ecc" ||  return
 
-  lp=`_ss | grep ':80 '`
-  if [ "$lp" ] ; then
-    __fail "80 port is not released: $lp"
-    return 1
-  fi
+
   
   
 
@@ -1260,11 +1201,7 @@ le_test_standandalone_ECDSA_256_SAN_renew_v2() {
   
   lehome="$DEFAULT_HOME"
 
-  lp=`_ss | grep ':80 '`
-  if [ "$lp" ] ; then
-    __fail "80 port is already used."
-    return 1
-  fi
+
   
   if [ -z "$TestingDomain" ] ; then
     __fail "Please define TestingDomain and try again."
@@ -1305,11 +1242,7 @@ le_test_standandalone_ECDSA_256_SAN_renew_v2() {
   sleep 5
   _assertcmd "$lehome/$PROJECT_ENTRY --revoke -d $TestingDomain --ecc"||  return
   
-  lp=`_ss | grep ':80 '`
-  if [ "$lp" ] ; then
-    __fail "80 port is not released: $lp"
-    return 1
-  fi
+
 
 }
 
@@ -1334,11 +1267,7 @@ le_test_standandalone_ECDSA_384() {
 
   lehome="$DEFAULT_HOME"
 
-  lp=`_ss | grep ':80 '`
-  if [ "$lp" ] ; then
-    __fail "80 port is already used."
-    return 1
-  fi
+
   
   if [ -z "$TestingDomain" ] ; then
     __fail "Please define TestingDomain and try again."
@@ -1353,11 +1282,6 @@ le_test_standandalone_ECDSA_384() {
   sleep 5
   _assertcmd "$lehome/$PROJECT_ENTRY --revoke -d $TestingDomain --ecc" ||  return
 
-  lp=`_ss | grep ':80 '`
-  if [ "$lp" ] ; then
-    __fail "80 port is not released: $lp"
-    return 1
-  fi
 
 
 }
@@ -1372,11 +1296,7 @@ le_test_standandalone_renew_idn_v2() {
   
   lehome="$DEFAULT_HOME"
 
-  lp=`_ss | grep ':80 '`
-  if [ "$lp" ] ; then
-    __fail "80 port is already used."
-    return 1
-  fi
+
   
   if [ -z "$TestingDomain" ] ; then
     __fail "Please define TestingDomain and try again."
@@ -1417,11 +1337,7 @@ le_test_standandalone_renew_idn_v2() {
   _assertcmd "$lehome/$PROJECT_ENTRY --revoke -d $_test_idn" ||  return
   rm -rf "$certdir"
   
-  lp=`_ss | grep ':80 '`
-  if [ "$lp" ] ; then
-    __fail "80 port is not released: $lp"
-    return 1
-  fi
+
 
 }
 
