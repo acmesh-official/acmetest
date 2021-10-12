@@ -99,7 +99,7 @@ jobs:
       TEST_PREFERRED_CHAIN: Fake LE Root X2
     steps:
     - uses: actions/checkout@v2
-    - uses: vmactions/cf-tunnel@v0.0.2
+    - uses: vmactions/cf-tunnel@v0.0.3
       id: tunnel
       with:
         protocol: http
