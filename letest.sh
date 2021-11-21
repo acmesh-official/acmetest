@@ -1373,6 +1373,21 @@ le_test_dnsapi() {
     sleep 5
     _assertcmd "$lehome/$PROJECT_ENTRY --revoke -d $TestingDomain" ||  return
     ) || return
+  elif [ "$TEST_DNS_NO_WWW" != "1" ]; then
+    (
+    _info "Testing domain only. "
+    _info "TestingDomain" "$TestingDomain"
+    lehome="$DEFAULT_HOME"
+    rm -rf "$lehome/$TestingDomain"
+
+    _assertcmd "$lehome/$PROJECT_ENTRY --server \"$TEST_ACME_Server\"  --issue -d \"$TestingDomain\" --dns $api --dnssleep \"$d_sleep\" " ||  return
+
+    _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" "$TestingDomain" "$CA" || return
+    _assertcert "$lehome/$TestingDomain/ca.cer" "$CA" || return
+    _assertcmd "$lehome/$PROJECT_ENTRY --deactivate -d \"$TestingDomain\" >/dev/null 2>&1"
+    sleep 5
+    _assertcmd "$lehome/$PROJECT_ENTRY --revoke -d $TestingDomain" ||  return
+    ) || return
   else
     (
     _info "Testing normal domain. "
