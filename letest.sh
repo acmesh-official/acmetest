@@ -1381,8 +1381,11 @@ le_test_dnsapi() {
     lehome="$DEFAULT_HOME"
     rm -rf "$lehome/$TestingDomain"
 
-    _assertcmd "$lehome/$PROJECT_ENTRY --server \"$TEST_ACME_Server\"  --issue -d \"$TestingDomain\" -d \"www.$TestingDomain\" --dns $api --dnssleep \"$d_sleep\" " ||  return
-
+    if [ -z "$TEST_DNS_NO_SUBDOMAIN" ]; then
+      _assertcmd "$lehome/$PROJECT_ENTRY --server \"$TEST_ACME_Server\"  --issue -d \"$TestingDomain\" -d \"www.$TestingDomain\" --dns $api --dnssleep \"$d_sleep\" " ||  return
+    else
+      _assertcmd "$lehome/$PROJECT_ENTRY --server \"$TEST_ACME_Server\"  --issue -d \"$TestingDomain\" --dns $api --dnssleep \"$d_sleep\" " ||  return
+    fi
     _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" "$TestingDomain" "$CA" || return
     _assertcert "$lehome/$TestingDomain/ca.cer" "$CA" || return
     _assertcmd "$lehome/$PROJECT_ENTRY --deactivate -d \"$TestingDomain\" >/dev/null 2>&1"
