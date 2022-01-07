@@ -55,6 +55,29 @@ _API_HOST="$(echo "$STAGE_CA" | cut -d : -f 2 | tr -d '/')"
 
 
 
+_isIPv4() {
+  for seg in $(echo "$1" | tr '.' ' '); do
+    if [ "$(echo "$seg" | tr -d [0-9])" ]; then
+      #not all number
+      return 1
+    fi
+    if [ $seg -ge 0 ] && [ $seg -lt 256 ]; then
+      continue
+    fi
+    return 1
+  done
+  return 0
+}
+
+#ip6
+_isIPv6() {
+  _contains "$1" ":"
+}
+
+#ip
+_isIP() {
+  _isIPv4 "$1" || _isIPv6 "$1"
+}
 
 
 
@@ -565,7 +588,7 @@ _assertcert() {
   printf "$filename is cert ? "
   subj="$(echo  $(openssl x509  -in $filename  -text  -noout | grep 'Subject:.*CN *=' | _egrep_o  " CN *=.*" | cut -d '=' -f 2 | cut -d / -f 1))"
   printf "'$subj'"
-  if _contains "$subj" "$subname"; then
+  if _contains "$subj" "$subname" || _isIP "$subname"; then
     if [ "$issuername" ] ; then
       issuer="$(echo $(openssl x509 -in $filename -text -noout | grep 'Issuer:' | _egrep_o "CN *=[^,]*" | cut -d = -f 2))"
       printf " '$issuer'"
