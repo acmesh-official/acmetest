@@ -1566,6 +1566,22 @@ le_test_preferred_chain() {
 }
 
 
+le_test_shell() {
+
+  _assertText "1648800633" "$($lehome/$PROJECT_ENTRY _date2time "2022-04-01T08:10:33Z")"  && \
+  _assertText "1648800633" "$($lehome/$PROJECT_ENTRY _date2time "2022-04-01 08:10:33")"   && \
+  _assertText "2022-04-01T08:10:33Z" "$($lehome/$PROJECT_ENTRY _time2str "1648800633")"
+}
+
+
+#expected,  actual
+_assertText() {
+  if [ "$1" != "$2" ]; then
+    __fail "Expected: $1 , but was: $2"
+    return 1
+  fi
+  return 0
+}
 
 
 #####################################
