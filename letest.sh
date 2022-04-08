@@ -924,7 +924,7 @@ le_test_standandalone_renew_v2() {
   mkdir -p "$certdir"
   
   sleep 5
-  _assertcmd "$lehome/$PROJECT_ENTRY --renew -d $TestingDomain --force" ||  return
+  _assertcmd "$lehome/$PROJECT_ENTRY --renew --server \"$TEST_ACME_Server\" -d $TestingDomain --force" ||  return
   
   _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" "$TestingDomain" "$CA" || return
   _assertcert "$lehome/$TestingDomain/ca.cer" "$CA" || return
@@ -984,7 +984,7 @@ le_test_standandalone_renew_localaddress_v2() {
   fi
   
   sleep 5
-  _assertcmd "$lehome/$PROJECT_ENTRY --renew -d $TestingDomain --force" ||  return
+  _assertcmd "$lehome/$PROJECT_ENTRY --renew --server \"$TEST_ACME_Server\" -d $TestingDomain --force" ||  return
   
   _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" "$TestingDomain" "$CA" || return
   _assertcert "$lehome/$TestingDomain/ca.cer" "$CA" || return
@@ -1044,7 +1044,7 @@ le_test_standandalone_listen_v4_v2() {
   fi
   
   sleep 5
-  _assertcmd "$lehome/$PROJECT_ENTRY --renew -d $TestingDomain --force" ||  return
+  _assertcmd "$lehome/$PROJECT_ENTRY --renew --server \"$TEST_ACME_Server\" -d $TestingDomain --force" ||  return
   
   _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" "$TestingDomain" "$CA" || return
   _assertcert "$lehome/$TestingDomain/ca.cer" "$CA" || return
@@ -1110,7 +1110,7 @@ le_test_standandalone_listen_v6_v2() {
   fi
   
   sleep 5
-  _assertcmd "$lehome/$PROJECT_ENTRY --renew -d $TestingDomain --force" ||  return
+  _assertcmd "$lehome/$PROJECT_ENTRY --renew --server \"$TEST_ACME_Server\" -d $TestingDomain --force" ||  return
   
   _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" "$TestingDomain" "$CA" || return
   _assertcert "$lehome/$TestingDomain/ca.cer" "$CA" || return
@@ -1235,7 +1235,7 @@ le_test_standandalone_ECDSA_256_renew() {
   fi
 
   sleep 5
-  _assertcmd "$lehome/$PROJECT_ENTRY --renew -d $TestingDomain --force --ecc" ||  return
+  _assertcmd "$lehome/$PROJECT_ENTRY --renew --server \"$TEST_ACME_Server\" -d $TestingDomain --force --ecc" ||  return
 
 
   
@@ -1283,7 +1283,7 @@ le_test_standandalone_ECDSA_256_SAN_renew_v2() {
   rm -rf "$certdir"
   mkdir -p "$certdir"
   
-  _assertcmd "$lehome/$PROJECT_ENTRY --renew --ecc -d \"$TestingDomain\" --force" ||  return
+  _assertcmd "$lehome/$PROJECT_ENTRY --renew --server \"$TEST_ACME_Server\" --ecc -d \"$TestingDomain\" --force" ||  return
   
   _assertcert "$lehome/$TestingDomain$ECC_SUFFIX/$TestingDomain.cer" "$TestingDomain" "$CA_ECDSA" || return
   _assertcert "$lehome/$TestingDomain$ECC_SUFFIX/ca.cer" "$CA_ECDSA" || return
@@ -1385,7 +1385,7 @@ le_test_standandalone_renew_idn_v2() {
   mkdir -p "$certdir"
   
   sleep 5
-  _assertcmd "$lehome/$PROJECT_ENTRY --renew -d $_test_idn --force" ||  return
+  _assertcmd "$lehome/$PROJECT_ENTRY --renew --server \"$TEST_ACME_Server\" -d $_test_idn --force" ||  return
   
   _assertcert "$lehome/$_test_idn/$_test_idn.cer" "$(idn $_test_idn)" "$CA" || return
   _assertcert "$lehome/$_test_idn/ca.cer" "$CA" || return
