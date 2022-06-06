@@ -12,7 +12,6 @@ NGROK_WIKI="https://github.com/acmesh-official/acmetest"
 
 DEFAULT_HOME="$HOME/.acme.sh"
 
-
 PROJECT_ENTRY="acme.sh"
 FILE_NAME="letest.sh"
 
