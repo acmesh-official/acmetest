@@ -90,7 +90,7 @@ jobs:
       run: echo "TestingDomain=${{steps.tunnel.outputs.server}}" >> $GITHUB_ENV
     - uses: vmactions/freebsd-vm@v0.1.4
       with:
-        envs: 'TestingDomain TEST_PREFERRED_CHAIN'
+        envs: 'TestingDomain TEST_PREFERRED_CHAIN TEST_ACME_Server'
         nat: |
           "8080": "80"
         prepare: pkg install -y socat curl
@@ -113,7 +113,7 @@ jobs:
       run: echo "TestingDomain=${{steps.tunnel.outputs.server}}" >> $GITHUB_ENV
     - uses: vmactions/solaris-vm@v0.0.3
       with:
-        envs: 'TestingDomain TEST_PREFERRED_CHAIN'
+        envs: 'TestingDomain TEST_PREFERRED_CHAIN TEST_ACME_Server'
         nat: |
           "8080": "80"
         prepare: pkgutil -y -i socat curl
