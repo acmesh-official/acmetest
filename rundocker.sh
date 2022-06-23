@@ -449,7 +449,7 @@ testall() {
     if [ "$plat" ] ; then
       testplat $plat
       pret="$?"
-      if [ "$pret" != "0" ] && [ "$GITHUB_ACTIONS" == "true" ]; then
+      if [ "$pret" != "0" ] && [ "$GITHUB_ACTIONS" = "true" ]; then
         return $pret
       fi
     fi
