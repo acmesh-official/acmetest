@@ -1,0 +1,30 @@
+name: MacOS
+on:
+  push:
+    branches:
+      - '*'
+    paths:
+      - '**.sh'
+      - '**.yml'
+      - 'plat.conf'
+  pull_request:
+    branches:
+      - '*'
+    paths:
+      - '**.sh'
+      - '.github/workflows/MacOS.yml'
+
+
+
+jobs:
+  MacOS:
+    runs-on: macos-latest
+    env:
+      TEST_PREFERRED_CHAIN: (STAGING) Pretend Pear X1
+      TEST_ACME_Server: "LetsEncrypt.org_test"
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install tools
+      run:  brew update && brew install socat;
+    - name: Run acmetest
+      run: sudo --preserve-env ./letest.sh

@@ -1,0 +1,30 @@
+name: Linux
+on:
+  push:
+    branches:
+      - '*'
+    paths:
+      - '**.sh'
+      - '**.yml'
+      - 'plat.conf'
+  pull_request:
+    branches:
+      - '*'
+    paths:
+      - '**.sh'
+      - '.github/workflows/Linux.yml'
+      - 'plat.conf'
+
+
+jobs:
+  Docker:
+    runs-on: ubuntu-latest
+    env:
+      DEBUG: 1
+      TEST_PREFERRED_CHAIN: (STAGING) Pretend Pear X1
+      TEST_ACME_Server: "LetsEncrypt.org_test"
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run acmetest
+      run: ./rundocker.sh  testall
+

@@ -7,24 +7,24 @@ Unit test project for **acme.sh** project https://github.com/acmesh-official/acm
 
 | Platform | Status|
 -----------|-------|
-|freebsd| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/LetsEncrypt.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/LetsEncrypt.yml) |
+|freebsd| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/FreeBSD.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/FreeBSD.yml) |
 |openbsd| NA |
 |pfsense| NA |
-|solaris| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/LetsEncrypt.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/LetsEncrypt.yml)|
-|windows-cygwin| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/LetsEncrypt.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/LetsEncrypt.yml)|
-|ubuntu:latest| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/LetsEncrypt.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/LetsEncrypt.yml)|
-|debian:latest| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/LetsEncrypt.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/LetsEncrypt.yml)|
-|centos:latest| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/LetsEncrypt.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/LetsEncrypt.yml)|
-|fedora:latest| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/LetsEncrypt.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/LetsEncrypt.yml)|
-|opensuse/leap:latest| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/LetsEncrypt.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/LetsEncrypt.yml) |
-|alpine:latest| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/LetsEncrypt.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/LetsEncrypt.yml)|
-|oraclelinux:latest| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/LetsEncrypt.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/LetsEncrypt.yml)|
-|kalilinux/kali| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/LetsEncrypt.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/LetsEncrypt.yml) |
-|archlinux:latest| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/LetsEncrypt.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/LetsEncrypt.yml)|
-|mageia| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/LetsEncrypt.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/LetsEncrypt.yml) |
-|gentoo/stage3-amd64| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/LetsEncrypt.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/LetsEncrypt.yml)|
-|clearlinux:latest| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/LetsEncrypt.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/LetsEncrypt.yml)|
-|almalinux:latest| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/LetsEncrypt.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/LetsEncrypt.yml)|
+|solaris| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/Solaris.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/Solaris.yml)|
+|windows-cygwin| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/Windows.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/Windows.yml)|
+|ubuntu:latest| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/Linux.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/Linux.yml)|
+|debian:latest| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/Linux.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/Linux.yml)|
+|centos:latest| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/Linux.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/Linux.yml)|
+|fedora:latest| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/Linux.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/Linux.yml)|
+|opensuse/leap:latest| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/Linux.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/Linux.yml) |
+|alpine:latest| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/Linux.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/Linux.yml)|
+|oraclelinux:latest| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/Linux.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/Linux.yml)|
+|kalilinux/kali| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/Linux.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/Linux.yml) |
+|archlinux:latest| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/Linux.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/Linux.yml)|
+|mageia| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/Linux.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/Linux.yml) |
+|gentoo/stage3-amd64| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/Linux.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/Linux.yml)|
+|clearlinux:latest| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/Linux.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/Linux.yml)|
+|almalinux:latest| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/Linux.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/Linux.yml)|
 
 
 # How to run tests

@@ -1,0 +1,42 @@
+name: FreeBSD
+on:
+  push:
+    branches:
+      - '*'
+    paths:
+      - '**.sh'
+      - '**.yml'
+      - 'plat.conf'
+  pull_request:
+    branches:
+      - '*'
+    paths:
+      - '**.sh'
+      - '.github/workflows/FreeBSD.yml'
+
+
+
+jobs:
+  FreeBSD:
+    runs-on: macos-12
+    env:
+      TEST_PREFERRED_CHAIN: (STAGING) Pretend Pear X1
+      TEST_ACME_Server: "LetsEncrypt.org_test"
+    steps:
+    - uses: actions/checkout@v2
+    - uses: vmactions/cf-tunnel@v0.0.3
+      id: tunnel
+      with:
+        protocol: http
+        port: 8080
+    - name: Set envs
+      run: echo "TestingDomain=${{steps.tunnel.outputs.server}}" >> $GITHUB_ENV
+    - uses: vmactions/freebsd-vm@v0.1.4
+      with:
+        envs: 'TestingDomain TEST_PREFERRED_CHAIN TEST_ACME_Server'
+        nat: |
+          "8080": "80"
+        prepare: pkg install -y socat curl
+        usesh: true
+        run: ./letest.sh
+
