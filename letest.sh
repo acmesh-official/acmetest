@@ -1464,6 +1464,15 @@ le_test_dnsapi() {
     ) || return 
   fi
 
+  #add a txt record to a subdomain not "_acme-challenge"
+  (
+     . $lehome/$PROJECT_ENTRY
+     addcommand="${api}_add"
+     rmcommand="${api}_rm"
+     _assertcmd "$addcommand acmetestXyzRandomName.$TestingDomain acmeTestTxtRecord"  ||  return
+     _assertcmd "$rmcommand  acmetestXyzRandomName.$TestingDomain acmeTestTxtRecord"  ||  return
+  ) || return
+
 }
 
 
