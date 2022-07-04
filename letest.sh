@@ -430,7 +430,7 @@ if [ -z "$TestingDomain" ]; then
     while [ $_wait -le $MaxWait ]; do
       sleep 10
       _wait=$((_wait + 10))
-      ng_domain_1="$(cat "$ng_temp_1" | grep https:// | grep trycloudflare.com | head -1 | cut -d '|' -f 2 | tr -d ' ' | cut -d '/' -f 3)"
+      ng_domain_1="$(cat "$ng_temp_1" | grep https:// | grep trycloudflare.com | grep -v api.trycloudflare.com | head -1 | cut -d '|' -f 2 | tr -d ' ' | cut -d '/' -f 3)"
       _info "ng_domain_1" "$ng_domain_1"
 
       if [ -z "$ng_domain_1" ] ; then
