@@ -18,6 +18,9 @@ on:
 
 jobs:
   Docker:
+    strategy:
+      matrix:
+        os: ["ubuntu:latest", "debian:latest", "almalinux:latest", "fedora:latest", "centos:7", "opensuse/leap:latest", "alpine:latest", "oraclelinux:8", "kalilinux/kali", "archlinux:latest", "mageia", "gentoo/stage3"]
     runs-on: ubuntu-latest
     env:
       DEBUG: 1
@@ -26,5 +29,5 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Run acmetest
-      run: ./rundocker.sh  testall
+      run: ./rundocker.sh  testplat ${{ matrix.os }}
 
