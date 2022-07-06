@@ -1648,6 +1648,9 @@ done
 
 if [ "$CF_PID" ] ; then
   kill -9 "$CF_PID"
+  if [ "$_ret" != "0" ]; then
+    cat "$ng_temp_1"
+  fi
 fi
 
 if [ "$NGROK_PID" ] ; then
