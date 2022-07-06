@@ -439,6 +439,12 @@ if [ -z "$TestingDomain" ]; then
         continue
       fi
       TestingDomain="$ng_domain_1"
+      while !grep "connIndex=3" "$ng_temp_1"; do
+        _info "wait for connection to establish..."
+        sleep 3
+      done
+      sleep 3
+      cat "$ng_temp_1"
       break
     done;
     if [ -z "$TestingDomain" ] ; then
