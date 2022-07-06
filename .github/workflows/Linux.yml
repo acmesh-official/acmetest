@@ -29,5 +29,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Run acmetest
-      run: ./rundocker.sh  testplat ${{ matrix.os }}
+      run: |
+        sysctl -w net.core.rmem_max=2500000
+        ./rundocker.sh  testplat ${{ matrix.os }}
 
