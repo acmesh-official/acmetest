@@ -5,8 +5,7 @@ on:
       - '*'
     paths:
       - '**.sh'
-      - '**.yml'
-      - 'plat.conf'
+      - '.github/workflows/Solaris.yml'
   pull_request:
     branches:
       - '*'
