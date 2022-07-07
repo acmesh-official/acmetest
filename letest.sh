@@ -1472,7 +1472,7 @@ le_test_dnsapi() {
 
   #add a txt record to a subdomain not "_acme-challenge"
   (
-     . $lehome/$PROJECT_ENTRY
+     . $lehome/$PROJECT_ENTRY >/dev/null
      . $lehome/$_SUB_FOLDER_DNSAPI/${api}.sh
      addcommand="${api}_add"
      rmcommand="${api}_rm"
