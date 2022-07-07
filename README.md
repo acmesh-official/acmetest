@@ -8,7 +8,7 @@ Unit test project for **acme.sh** project https://github.com/acmesh-official/acm
 | Platform | Status|
 -----------|-------|
 |freebsd| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/FreeBSD.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/FreeBSD.yml) |
-|openbsd| NA |
+|openbsd| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/OpenBSD.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/OpenBSD.yml) |
 |pfsense| NA |
 |solaris| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/Solaris.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/Solaris.yml)|
 |windows-cygwin| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/Windows.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/Windows.yml)|
