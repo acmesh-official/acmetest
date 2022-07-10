@@ -7,8 +7,9 @@ Unit test project for **acme.sh** project https://github.com/acmesh-official/acm
 
 | Platform | Status|
 -----------|-------|
-|freebsd| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/FreeBSD.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/FreeBSD.yml) |
-|openbsd| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/OpenBSD.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/OpenBSD.yml) |
+|FreeBSD| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/FreeBSD.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/FreeBSD.yml) |
+|OpenBSD| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/OpenBSD.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/OpenBSD.yml) |
+|NetBSD| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/NetBSD.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/NetBSD.yml) |
 |pfsense| NA |
 |solaris| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/Solaris.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/Solaris.yml)|
 |windows-cygwin| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/Windows.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/Windows.yml)|

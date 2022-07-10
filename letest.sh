@@ -613,7 +613,7 @@ _assertcert() {
 #cmd
 _assertcmd() {
   __cmd="$1"
-  printf "%b" "$__cmd"
+  printf "%s" "$__cmd"
   
   eval "$__cmd > \"cmd.log\" 2>&1"
   
