@@ -30,7 +30,7 @@ jobs:
         port: 8080
     - name: Set envs
       run: echo "TestingDomain=${{steps.tunnel.outputs.server}}" >> $GITHUB_ENV
-    - uses: vmactions/netbsd-vm@v0.0.1
+    - uses: vmactions/netbsd-vm@v0.0.2
       with:
         envs: 'TestingDomain TEST_PREFERRED_CHAIN TEST_ACME_Server'
         nat: |
