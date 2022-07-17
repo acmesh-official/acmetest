@@ -322,6 +322,7 @@ _runplat() {
 
   Log_Out="$(_getOutfile "$plat")"
   _debug "Log_Out" "$Log_Out"
+  mkdir -p logs
   #docker pull $plat > "$Log_Out" 2>&1
   if docker build -t "$myplat"  "$myplat" > "$Log_Out" 2>&1 ; then
 
