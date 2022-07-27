@@ -33,6 +33,7 @@ jobs:
     - uses: vmactions/dragonFlybsd-vm@v0.0.3
       with:
         envs: 'TestingDomain TEST_PREFERRED_CHAIN TEST_ACME_Server'
+        copyback: false
         nat: |
           "8080": "80"
         prepare: pkg install -y  socat curl
