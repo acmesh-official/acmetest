@@ -1,0 +1,41 @@
+name: DragonFlyBSD
+on:
+  push:
+    branches:
+      - '*'
+    paths:
+      - '**.sh'
+      - '.github/workflows/DragonFlyBSD.yml'
+  pull_request:
+    branches:
+      - '*'
+    paths:
+      - '**.sh'
+      - '.github/workflows/DragonFlyBSD.yml'
+
+
+
+jobs:
+  DragonFlyBSD:
+    runs-on: macos-12
+    env:
+      TEST_PREFERRED_CHAIN: (STAGING) Pretend Pear X1
+      TEST_ACME_Server: "LetsEncrypt.org_test"
+    steps:
+    - uses: actions/checkout@v2
+    - uses: vmactions/cf-tunnel@v0.0.3
+      id: tunnel
+      with:
+        protocol: http
+        port: 8080
+    - name: Set envs
+      run: echo "TestingDomain=${{steps.tunnel.outputs.server}}" >> $GITHUB_ENV
+    - uses: vmactions/dragonFlybsd-vm@v0.0.2
+      with:
+        envs: 'TestingDomain TEST_PREFERRED_CHAIN TEST_ACME_Server'
+        nat: |
+          "8080": "80"
+        prepare: pkg_add socat curl
+        usesh: true
+        run: ./letest.sh
+
