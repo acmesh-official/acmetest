@@ -30,9 +30,10 @@ jobs:
         port: 8080
     - name: Set envs
       run: echo "TestingDomain=${{steps.tunnel.outputs.server}}" >> $GITHUB_ENV
-    - uses: vmactions/openbsd-vm@v0.0.6
+    - uses: vmactions/openbsd-vm@v0.0.7
       with:
         envs: 'TestingDomain TEST_PREFERRED_CHAIN TEST_ACME_Server'
+        copyback: false
         nat: |
           "8080": "80"
         prepare: pkg_add socat curl
