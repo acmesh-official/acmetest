@@ -35,7 +35,7 @@ jobs:
         envs: 'TestingDomain TEST_PREFERRED_CHAIN TEST_ACME_Server'
         nat: |
           "8080": "80"
-        prepare: pkg_add socat curl
+        prepare: pkg install -y  socat curl
         usesh: true
         run: ./letest.sh
 
