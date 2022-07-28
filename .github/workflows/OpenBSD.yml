@@ -1,4 +1,4 @@
-name: OpenBSD 7.1
+name: OpenBSD
 on:
   push:
     branches:
