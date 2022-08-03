@@ -17,6 +17,9 @@ on:
 
 jobs:
   FreeBSD:
+    strategy:
+      matrix:
+        release: [ "12.3", "13.0", "13.1", ""]
     runs-on: macos-12
     env:
       TEST_PREFERRED_CHAIN: (STAGING) Pretend Pear X1
@@ -37,5 +40,7 @@ jobs:
           "8080": "80"
         prepare: pkg install -y socat curl
         usesh: true
+        copyback: false
+        release: ${{ matrix.release }}
         run: ./letest.sh
 

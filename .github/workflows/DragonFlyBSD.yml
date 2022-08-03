@@ -17,6 +17,9 @@ on:
 
 jobs:
   DragonFlyBSD:
+    strategy:
+      matrix:
+        release: [ "6.2.2", ""]
     runs-on: macos-12
     env:
       TEST_PREFERRED_CHAIN: (STAGING) Pretend Pear X1
@@ -38,5 +41,6 @@ jobs:
           "8080": "80"
         prepare: pkg install -y  socat curl
         usesh: true
+        release: ${{ matrix.release }}
         run: ./letest.sh
 

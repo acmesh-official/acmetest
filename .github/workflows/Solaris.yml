@@ -17,6 +17,9 @@ on:
 
 jobs:
   Solaris:
+    strategy:
+      matrix:
+        release: [ "11.4" ]
     runs-on: macos-12
     env:
       TEST_PREFERRED_CHAIN: (STAGING) Pretend Pear X1
@@ -37,5 +40,6 @@ jobs:
         nat: |
           "8080": "80"
         prepare: pkgutil -y -i socat curl
+        release: ${{ matrix.release }}
         run: ./letest.sh
 
