@@ -1583,9 +1583,10 @@ le_test_preferred_chain() {
 
 le_test_shell() {
 
-  _assertText "1648800633" "$($lehome/$PROJECT_ENTRY _date2time "2022-04-01T08:10:33Z")"  && \
-  _assertText "1648800633" "$($lehome/$PROJECT_ENTRY _date2time "2022-04-01 08:10:33")"   && \
-  _assertText "2022-04-01T08:10:33Z" "$($lehome/$PROJECT_ENTRY _time2str "1648800633")"
+  _assertText "1648800633" "$($lehome/$PROJECT_ENTRY _date2time "2022-04-01T08:10:33Z")"  ||  return
+  _assertText "1648800633" "$($lehome/$PROJECT_ENTRY _date2time "2022-04-01 08:10:33")"   ||  return
+  _assertText "2022-04-01T08:10:33Z" "$($lehome/$PROJECT_ENTRY _time2str "1648800633")"   ||  return
+  _assertText "ABC" "$(echo abc | tr [a-z] [A-Z])"   ||  return
 }
 
 
