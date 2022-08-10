@@ -34,6 +34,9 @@ if [ -z "$CA_ECDSA" ]; then
   CA_ECDSA="(STAGING) Ersatz Edamame E1"
 fi
 
+if [ -z "$TEST_ACME_Server" ]; then
+  export TEST_ACME_Server="letsencrypt_test"
+fi
 
 
 if [ "$TEST_CA" ]; then
