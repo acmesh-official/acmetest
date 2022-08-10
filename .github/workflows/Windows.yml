@@ -47,3 +47,8 @@ jobs:
     - name: Run acmetest
       shell: cmd
       run: bash.exe -c ./letest.sh
+    - uses: actions/upload-artifact@v1
+        if: failure()
+        with:
+          name: logs
+          path: logs

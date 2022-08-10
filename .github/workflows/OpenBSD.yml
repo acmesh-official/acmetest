@@ -36,11 +36,14 @@ jobs:
     - uses: vmactions/openbsd-vm@v0
       with:
         envs: 'TestingDomain TEST_PREFERRED_CHAIN TEST_ACME_Server'
-        copyback: false
         nat: |
           "8080": "80"
         prepare: pkg_add socat curl
         usesh: true
         release: ${{ matrix.release }}
         run: ./letest.sh
-
+    - uses: actions/upload-artifact@v1
+        if: failure()
+        with:
+          name: logs
+          path: logs
