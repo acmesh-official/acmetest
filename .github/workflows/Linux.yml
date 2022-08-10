@@ -32,7 +32,7 @@ jobs:
       run: |
         ./rundocker.sh  testplat ${{ matrix.os }}
     - uses: actions/upload-artifact@v1
-        if: failure()
-        with:
-          name: ${{ matrix.os }}-logs
-          path: logs
+      if: failure()
+      with:
+        name: ${{ matrix.os }}-logs
+        path: logs
