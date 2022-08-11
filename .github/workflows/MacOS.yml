@@ -31,4 +31,5 @@ jobs:
       if: failure()
       with:
         name: logs
-        path: *.log
+        path: |
+          *.log
