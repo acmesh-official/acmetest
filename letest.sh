@@ -1643,6 +1643,9 @@ do
     _ret=$(_math $_ret + $_rr)
     _debug _ret "$_ret"
   fi
+  if [ -e "$_case_log" ]; then
+    chmod o+r "$_case_log"
+  fi
 
   if [ "$_ret" != "0" ] ; then
     if [ "$TRAVIS" = "true" ] || [ "$CI" = "true" ] ; then
@@ -1667,6 +1670,10 @@ fi
 
 if [ "$NGROK_PID" ] ; then
   kill -9 "$NGROK_PID"
+fi
+
+if [ -e "$LOG_FILE" ]; then
+  chmod o+r "$LOG_FILE"
 fi
 
 exit $_ret
