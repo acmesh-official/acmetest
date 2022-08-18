@@ -13,6 +13,10 @@ on:
       - '**.sh'
       - '.github/workflows/Windows.yml'
 
+concurrency: 
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
+
 
 jobs:
   Windows:
@@ -47,9 +51,3 @@ jobs:
     - name: Run acmetest
       shell: cmd
       run: bash.exe -c ./letest.sh
-    - uses: actions/upload-artifact@v1
-      if: failure()
-      with:
-        name: logs
-        path: |
-          *.log

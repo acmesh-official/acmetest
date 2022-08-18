@@ -15,6 +15,9 @@ on:
       - '.github/workflows/Linux.yml'
       - 'plat.conf'
 
+concurrency: 
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
 
 jobs:
   Docker:

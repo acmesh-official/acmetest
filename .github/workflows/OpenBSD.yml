@@ -13,7 +13,9 @@ on:
       - '**.sh'
       - '.github/workflows/OpenBSD.yml'
 
-
+concurrency: 
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
 
 jobs:
   OpenBSD:
@@ -42,9 +44,4 @@ jobs:
         usesh: true
         release: ${{ matrix.release }}
         run: ./letest.sh
-    - uses: actions/upload-artifact@v1
-      if: failure()
-      with:
-        name: logs
-        path: |
-          *.log
+

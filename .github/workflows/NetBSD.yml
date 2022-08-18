@@ -13,7 +13,9 @@ on:
       - '**.sh'
       - '.github/workflows/NetBSD.yml'
 
-
+concurrency: 
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
 
 jobs:
   NetBSD:
@@ -43,9 +45,3 @@ jobs:
         usesh: true
         release: ${{ matrix.release }}
         run: ./letest.sh
-    - uses: actions/upload-artifact@v1
-      if: failure()
-      with:
-        name: logs
-        path: |
-          *.log

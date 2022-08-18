@@ -14,6 +14,10 @@ on:
       - '.github/workflows/Solaris.yml'
 
 
+concurrency: 
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
+
 
 jobs:
   Solaris:
@@ -41,9 +45,4 @@ jobs:
         prepare: pkgutil -y -i socat curl
         release: ${{ matrix.release }}
         run: ./letest.sh
-    - uses: actions/upload-artifact@v1
-      if: failure()
-      with:
-        name: logs
-        path: |
-          *.log
+

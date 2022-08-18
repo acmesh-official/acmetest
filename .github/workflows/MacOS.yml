@@ -13,7 +13,9 @@ on:
       - '**.sh'
       - '.github/workflows/MacOS.yml'
 
-
+concurrency: 
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
 
 jobs:
   MacOS:
@@ -27,9 +29,3 @@ jobs:
       run:  brew update && brew install socat;
     - name: Run acmetest
       run: sudo --preserve-env ./letest.sh
-    - uses: actions/upload-artifact@v1
-      if: failure()
-      with:
-        name: logs
-        path: |
-          *.log
