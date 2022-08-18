@@ -1,5 +1,7 @@
 name: FreeBSD
 on:
+  schedule:
+    - cron: '10 9 * * *'
   push:
     branches:
       - '*'

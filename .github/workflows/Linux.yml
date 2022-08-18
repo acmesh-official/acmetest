@@ -1,5 +1,7 @@
 name: Linux
 on:
+  schedule:
+    - cron: '10 9 * * *'
   push:
     branches:
       - '*'
