@@ -1252,8 +1252,8 @@ le_test_standandalone_ECDSA_256_renew() {
   if [ -z "$NO_REVOKE" ]; then
     sleep 5
     _assertcmd "$lehome/$PROJECT_ENTRY --revoke -d $TestingDomain --ecc" ||  return
-    rm -f "$lehome/$TestingDomain/$TestingDomain.key"
-    rm -f "$lehome/$TestingDomain/$TestingDomain.csr"
+    rm -f "$lehome/$TestingDomain$ECC_SUFFIX/$TestingDomain.key"
+    rm -f "$lehome/$TestingDomain$ECC_SUFFIX/$TestingDomain.csr"
   fi
 
   sleep 5
