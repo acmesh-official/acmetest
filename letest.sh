@@ -1498,6 +1498,7 @@ le_test_dnsapi() {
   (
      . $lehome/$PROJECT_ENTRY >/dev/null
      . $lehome/$_SUB_FOLDER_DNSAPI/${api}.sh
+     _initpath $TestingDomain
      addcommand="${api}_add"
      rmcommand="${api}_rm"
      _assertcmd "$addcommand acmetestXyzRandomName.$TestingDomain acmeTestTxtRecord"  ||  return
