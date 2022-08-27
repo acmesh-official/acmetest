@@ -44,6 +44,7 @@ jobs:
           "8080": "80"
         prepare: pkg_add socat curl
         usesh: true
+        copyback: false
         release: ${{ matrix.release }}
         run: ./letest.sh
 

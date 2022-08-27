@@ -46,4 +46,5 @@ jobs:
         prepare: pkg install -y socat curl
         usesh: true
         release: ${{ matrix.release }}
+        copyback: false
         run: ./letest.sh
