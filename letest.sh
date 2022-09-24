@@ -1496,6 +1496,23 @@ le_test_dnsapi() {
 
   #add a txt record to a subdomain not "_acme-challenge"
   (
+    #clear the env and try to use the api again
+    if [ "$TokenName1" ]; then
+      unset $TokenName1
+    fi
+    if [ "$TokenName2" ]; then
+      unset $TokenName2
+    fi
+    if [ "$TokenName3" ]; then
+      unset $TokenName3
+    fi
+    if [ "$TokenName4" ]; then
+      unset $TokenName4
+    fi
+    if [ "$TokenName5" ]; then
+      unset $TokenName5
+    fi
+
      . $lehome/$PROJECT_ENTRY >/dev/null
      . $lehome/$_SUB_FOLDER_DNSAPI/${api}.sh
      _initpath $TestingDomain
