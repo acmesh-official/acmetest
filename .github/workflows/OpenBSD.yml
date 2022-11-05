@@ -23,7 +23,7 @@ jobs:
   OpenBSD:
     strategy:
       matrix:
-        release: [ "7.1", "7.2"]
+        release: [ "7.1", ""]
     runs-on: macos-12
     env:
       TEST_PREFERRED_CHAIN: (STAGING) Pretend Pear X1
