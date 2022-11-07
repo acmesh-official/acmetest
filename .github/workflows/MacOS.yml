@@ -26,7 +26,7 @@ jobs:
       TEST_PREFERRED_CHAIN: (STAGING) Pretend Pear X1
       TEST_ACME_Server: "LetsEncrypt.org_test"
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Install tools
       run:  brew update && brew install socat;
     - name: Run acmetest
