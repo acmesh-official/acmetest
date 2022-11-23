@@ -31,7 +31,7 @@ jobs:
       TEST_ACME_Server: "LetsEncrypt.org_test"
     steps:
     - uses: actions/checkout@v3
-    - uses: vmactions/cf-tunnel@v0.0.4
+    - uses: vmactions/cf-tunnel@v0
       id: tunnel
       with:
         protocol: http
