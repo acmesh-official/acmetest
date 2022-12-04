@@ -928,8 +928,8 @@ le_test_standandalone_renew_v2() {
   if [ -z "$NO_REVOKE" ]; then
     sleep 5
     _assertcmd "$lehome/$PROJECT_ENTRY --revoke -d $TestingDomain" ||  return
-    rm -f "$lehome/$TestingDomain/$TestingDomain.key"
-    rm -f "$lehome/$TestingDomain/$TestingDomain.csr"
+    rm -f "$lehome/${TestingDomain}*/$TestingDomain.key"
+    rm -f "$lehome/${TestingDomain}*/$TestingDomain.csr"
   fi
   rm -rf "$certdir"
   mkdir -p "$certdir"
@@ -982,8 +982,8 @@ le_test_standandalone_renew_localaddress_v2() {
   if [ -z "$NO_REVOKE" ]; then
     sleep 5
     _assertcmd "$lehome/$PROJECT_ENTRY --revoke -d $TestingDomain" ||  return
-    rm -f "$lehome/$TestingDomain/$TestingDomain.key"
-    rm -f "$lehome/$TestingDomain/$TestingDomain.csr"
+    rm -f "$lehome/${TestingDomain}*/$TestingDomain.key"
+    rm -f "$lehome/${TestingDomain}*/$TestingDomain.csr"
   fi
   rm -rf "$certdir"
   mkdir -p "$certdir"
@@ -1036,8 +1036,8 @@ le_test_standandalone_listen_v4_v2() {
   if [ -z "$NO_REVOKE" ]; then
     sleep 5
     _assertcmd "$lehome/$PROJECT_ENTRY --revoke -d $TestingDomain" ||  return
-    rm -f "$lehome/$TestingDomain/$TestingDomain.key"
-    rm -f "$lehome/$TestingDomain/$TestingDomain.csr"
+    rm -f "$lehome/${TestingDomain}*/$TestingDomain.key"
+    rm -f "$lehome/${TestingDomain}*/$TestingDomain.csr"
   fi
   rm -rf "$certdir"
   mkdir -p "$certdir"
@@ -1095,8 +1095,8 @@ le_test_standandalone_listen_v6_v2() {
   if [ -z "$NO_REVOKE" ]; then
     sleep 5
     _assertcmd "$lehome/$PROJECT_ENTRY --revoke -d $TestingDomain" ||  return
-    rm -f "$lehome/$TestingDomain/$TestingDomain.key"
-    rm -f "$lehome/$TestingDomain/$TestingDomain.csr"
+    rm -f "$lehome/${TestingDomain}*/$TestingDomain.key"
+    rm -f "$lehome/${TestingDomain}*/$TestingDomain.csr"
   fi
   rm -rf "$certdir"
   mkdir -p "$certdir"
@@ -1149,8 +1149,8 @@ le_test_standandalone_deactivate_v2() {
   if [ -z "$NO_REVOKE" ]; then
     sleep 5
     _assertcmd "$lehome/$PROJECT_ENTRY --revoke -d $TestingDomain" ||  return
-    rm -f "$lehome/$TestingDomain/$TestingDomain.key"
-    rm -f "$lehome/$TestingDomain/$TestingDomain.csr"
+    rm -f "$lehome/${TestingDomain}*/$TestingDomain.key"
+    rm -f "$lehome/${TestingDomain}*/$TestingDomain.csr"
   fi
   rm -rf "$certdir"
   mkdir -p "$certdir"
@@ -1185,8 +1185,8 @@ le_test_standandalone_SAN() {
   if [ -z "$NO_REVOKE" ]; then
     sleep 5
     _assertcmd "$lehome/$PROJECT_ENTRY --revoke -d $TestingDomain" ||  return
-    rm -f "$lehome/$TestingDomain/$TestingDomain.key"
-    rm -f "$lehome/$TestingDomain/$TestingDomain.csr"
+    rm -f "$lehome/${TestingDomain}*/$TestingDomain.key"
+    rm -f "$lehome/${TestingDomain}*/$TestingDomain.csr"
   fi
   
   
@@ -1374,8 +1374,8 @@ le_test_standandalone_renew_idn_v2() {
   if [ -z "$NO_REVOKE" ]; then
     sleep 5
     _assertcmd "$lehome/$PROJECT_ENTRY --revoke -d $_test_idn" ||  return
-    rm -f "$lehome/$_test_idn/$_test_idn.key"
-    rm -f "$lehome/$_test_idn/$_test_idn.csr"
+    rm -f "$lehome/${_test_idn}*/$_test_idn.key"
+    rm -f "$lehome/${_test_idn}*/$_test_idn.csr"
   fi
   
   rm -rf "$certdir"
@@ -1436,8 +1436,8 @@ le_test_dnsapi() {
     if [ -z "$NO_REVOKE" ]; then
       sleep 5
       _assertcmd "$lehome/$PROJECT_ENTRY --revoke -d $TestingDomain" ||  return
-      rm -f "$lehome/$TestingDomain/$TestingDomain.key"
-      rm -f "$lehome/$TestingDomain/$TestingDomain.csr"
+      rm -f "$lehome/${TestingDomain}*/$TestingDomain.key"
+      rm -f "$lehome/${TestingDomain}*/$TestingDomain.csr"
     fi
     ) || return
   else
