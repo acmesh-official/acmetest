@@ -177,7 +177,7 @@ _date_u () {
 
 #a + b
 _math() {
-  _m_opts="$@"
+  _m_opts=$*
   printf "%s" "$(($_m_opts))"
 }
 
