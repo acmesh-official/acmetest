@@ -60,14 +60,12 @@ _API_HOST="$(echo "$STAGE_CA" | cut -d : -f 2 | tr -d '/')"
 
 _isIPv4() {
   for seg in $(echo "$1" | tr '.' ' '); do
-    if [ "$(echo "$seg" | tr -d 0-9)" ]; then
-      #not all number
+    case "$seg" in
+      (*[!0-9]*) return 1 ;; #not all number
+    esac
+    if ! [ $seg -ge 0 ] || ! [ $seg -lt 256 ]; then
       return 1
     fi
-    if [ $seg -ge 0 ] && [ $seg -lt 256 ]; then
-      continue
-    fi
-    return 1
   done
   return 0
 }
