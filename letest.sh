@@ -2,8 +2,9 @@
 
 STAGE=1
 
-lezip="https://github.com/acmesh-official/acme.sh/archive"
-legit="https://github.com/acmesh-official/acme.sh.git"
+: "${ACMESH_REPO:=https://github.com/acmesh-official/acme.sh}"
+lezip="$ACMESH_REPO/archive"
+legit="$ACMESH_REPO.git"
 
 PROJECT="https://github.com/acmesh-official/acmetest"
 
@@ -762,7 +763,7 @@ _setup() {
     BRANCH="master"
   fi
   _info "Testing branch: $BRANCH"
-  if command -v tar > /dev/null ; then
+  if ! "${ACMETEST_USE_GIT:-false}" && command -v tar > /dev/null ; then
     link="$lezip/$BRANCH.tar.gz"
     curl -OL "$link" >/dev/null 2>&1
     tar xzf "$BRANCH.tar.gz"  >/dev/null 2>&1
