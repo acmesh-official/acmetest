@@ -225,7 +225,11 @@ _exists() {
 _contains() {
   _str="$1"
   _sub="$2"
-  echo "$_str" | grep -- "$_sub" >/dev/null 2>&1
+  case "$_str" in
+    (*"$_sub"*) return 0 ;;
+  esac
+  return 1
+  echo "$_str" | grep -F -- "$_sub" >/dev/null 2>&1
 }
 
 _mktemp() {
@@ -815,7 +819,7 @@ le_test_install() {
   
   _assertexists "$lehome/$PROJECT_ENTRY" || return
   _c_entry="$(crontab -l | grep $PROJECT_ENTRY)"
-  _assertcmd "_contains '$_c_entry' '0 \\* \\* \\* \"$lehome\"/$PROJECT_ENTRY --cron --home \"$lehome\" > /dev/null'" || return
+  _assertcmd "_contains '$_c_entry' '0 * * * \"$lehome\"/$PROJECT_ENTRY --cron --home \"$lehome\" > /dev/null'" || return
   _assertcmd "$lehome/$PROJECT_ENTRY --uninstall  > /dev/null" ||  return
 }
 
@@ -845,7 +849,7 @@ le_test_installtodir() {
   
   _assertexists "$lehome/$PROJECT_ENTRY" ||  return
   _c_entry="$(crontab -l | grep $PROJECT_ENTRY)"
-  _assertcmd "_contains '$_c_entry' '0 \\* \\* \\* \"$lehome\"/$PROJECT_ENTRY --cron --home \"$lehome\" > /dev/null'" || return
+  _assertcmd "_contains '$_c_entry' '0 * * * \"$lehome\"/$PROJECT_ENTRY --cron --home \"$lehome\" > /dev/null'" || return
   _assertcmd "$lehome/$PROJECT_ENTRY --uninstall" ||  return
   if [ -z "$DEBUG" ]; then
     rm -rf $lehome
@@ -884,7 +888,7 @@ le_test_install_config_home() {
   
   _assertexists "$lehome/$PROJECT_ENTRY" || return
   _c_entry="$(crontab -l | grep $PROJECT_ENTRY)"
-  _assertcmd "_contains '$_c_entry' '0 \\* \\* \\* \"$lehome\"/$PROJECT_ENTRY --cron --home \"$lehome\" --config-home \"$confighome\" > /dev/null'" || return
+  _assertcmd "_contains '$_c_entry' '0 * * * \"$lehome\"/$PROJECT_ENTRY --cron --home \"$lehome\" --config-home \"$confighome\" > /dev/null'" || return
   _assertexists "$confighome/account.conf" || return
   _assertnotexists "$lehome/account.conf" || return
   _assertcmd "$lehome/$PROJECT_ENTRY --cron --config-home $confighome > /dev/null" ||  return
