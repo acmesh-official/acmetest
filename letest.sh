@@ -438,7 +438,7 @@ if [ -z "$TestingDomain" ]; then
     while [ $_wait -le $MaxWait ]; do
       sleep 10
       _wait=$((_wait + 10))
-      ng_domain_1="$(cat "$ng_temp_1" | grep https:// | grep trycloudflare.com | grep -v api.trycloudflare.com | head -1 | cut -d '|' -f 2 | tr -d ' ' | cut -d '/' -f 3)"
+      ng_domain_1="$(grep -- 'https://.*trycloudflare.com' "$ng_temp_1" | grep -v api.trycloudflare.com | head -1 | cut -d '|' -f 2 | tr -d ' ' | cut -d '/' -f 3)"
       _info "ng_domain_1" "$ng_domain_1"
 
       if [ -z "$ng_domain_1" ] ; then
@@ -681,7 +681,7 @@ _assertequals() {
 _assertfileequals(){
   file1="$1"
   file2="$2"
-  if [ "$(cat "$file1" | _digest  sha256)" = "$(cat "$file2" | _digest  sha256)" ] ; then
+  if [ "$(_digest  sha256 < "$file1")" = "$(_digest  sha256 < "$file2")" ] ; then
     printf -- "'$file1' equals '$2'"
     __ok
   else
