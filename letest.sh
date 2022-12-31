@@ -2,6 +2,8 @@
 
 STAGE=1
 
+: "${BRANCH:=master}"
+
 : "${ACMESH_REPO:=https://github.com/acmesh-official/acme.sh}"
 lezip="$ACMESH_REPO/archive"
 legit="$ACMESH_REPO/"
@@ -756,9 +758,6 @@ _setup() {
   fi
   if [ -d acme.sh ] ; then
     rm -rf acme.sh 
-  fi
-  if [ ! "$BRANCH" ] ; then
-    BRANCH="master"
   fi
   _info "Testing branch: $BRANCH"
   if ! "${ACMETEST_USE_GIT:-false}" && command -v tar > /dev/null ; then
