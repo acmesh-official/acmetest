@@ -4,7 +4,7 @@ STAGE=1
 
 : "${ACMESH_REPO:=https://github.com/acmesh-official/acme.sh}"
 lezip="$ACMESH_REPO/archive"
-legit="$ACMESH_REPO.git"
+legit="$ACMESH_REPO/"
 
 PROJECT="https://github.com/acmesh-official/acmetest"
 
