@@ -765,12 +765,12 @@ _setup() {
   _info "Testing branch: $BRANCH"
   if ! "${ACMETEST_USE_GIT:-false}" && command -v tar > /dev/null ; then
     link="$lezip/$BRANCH.tar.gz"
-    curl -OL "$link" >/dev/null 2>&1
+    (set -x; curl -OL "$link" >/dev/null 2>&1)
     tar xzf "$BRANCH.tar.gz"  >/dev/null 2>&1
     mv "acme.sh-$BRANCH" acme.sh
   elif command -v git > /dev/null ; then
     rm -rf acme.sh
-    git clone $legit -b $BRANCH
+    (set -x; git clone $legit -b $BRANCH)
   else
     _err "Can not get acme.sh source code. tar or git must be installed"
     return 1
