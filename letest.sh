@@ -309,7 +309,7 @@ _digest() {
   
   if [ "$alg" = "sha256" ] ; then
     if [ "$outputhex" ] ; then
-      echo $(openssl dgst -sha256 -hex | cut -d = -f 2)
+      openssl dgst -sha256 -hex | cut -d = -f 2
     else
       openssl dgst -sha256 -binary | _base64
     fi
@@ -600,11 +600,11 @@ _assertcert() {
   subname="$2"
   issuername="$3"
   printf "$filename is cert ? "
-  subj="$(echo  $(openssl x509  -in $filename  -text  -noout | grep 'Subject:.*CN *=' | _egrep_o  " CN *=.*" | cut -d '=' -f 2 | cut -d / -f 1))"
+  subj="$(openssl x509  -in $filename  -text  -noout | grep 'Subject:.*CN *=' | _egrep_o  " CN *=.*" | cut -d '=' -f 2 | cut -d / -f 1)"
   printf "'$subj'"
   if _contains "$subj" "$subname" || _isIP "$subname"; then
     if [ "$issuername" ] ; then
-      issuer="$(echo $(openssl x509 -in $filename -text -noout | grep 'Issuer:' | _egrep_o "CN *=[^,]*" | cut -d = -f 2))"
+      issuer="$(openssl x509 -in $filename -text -noout | grep 'Issuer:' | _egrep_o "CN *=[^,]*" | cut -d = -f 2)"
       printf " '$issuer'"
       if ! _contains "$issuer" "$issuername"; then
         __fail "Expected issuer is: '$issuername', but was: '$issuer'"
