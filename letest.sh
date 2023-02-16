@@ -911,7 +911,8 @@ le_test_standandalone_renew_v2() {
   fi
 
   rm -rf "$lehome/$TestingDomain"
-  
+  rm -rf "$lehome/$TestingDomain$ECC_SUFFIX"
+
   certdir="$(pwd)/certs"
   mkdir -p "$certdir"
   cert="$certdir/domain.cer"
@@ -968,7 +969,8 @@ le_test_standandalone_renew_localaddress_v2() {
   fi
 
   rm -rf "$lehome/$TestingDomain"
-  
+  rm -rf "$lehome/$TestingDomain$ECC_SUFFIX"
+
   certdir="$(pwd)/certs"
   mkdir -p "$certdir"
   cert="$certdir/domain.cer"
@@ -1022,7 +1024,8 @@ le_test_standandalone_listen_v4_v2() {
   fi
 
   rm -rf "$lehome/$TestingDomain"
-  
+  rm -rf "$lehome/$TestingDomain$ECC_SUFFIX"
+
   certdir="$(pwd)/certs"
   rm -rf "$certdir"
   mkdir -p "$certdir"
@@ -1081,7 +1084,8 @@ le_test_standandalone_listen_v6_v2() {
   fi
 
   rm -rf "$lehome/$TestingDomain"
-  
+  rm -rf "$lehome/$TestingDomain$ECC_SUFFIX"
+
   certdir="$(pwd)/certs"
   mkdir -p "$certdir"
   cert="$certdir/domain.cer"
@@ -1134,6 +1138,8 @@ le_test_standandalone_deactivate_v2() {
   fi
 
   rm -rf "$lehome/$TestingDomain"
+  rm -rf "$lehome/$TestingDomain$ECC_SUFFIX"
+
   
   certdir="$(pwd)/certs"
   rm -rf "$certdir"
@@ -1178,7 +1184,8 @@ le_test_standandalone_SAN() {
   fi
 
   rm -rf "$lehome/$TestingDomain"
-  
+  rm -rf "$lehome/$TestingDomain$ECC_SUFFIX"
+
   _assertcmd "$lehome/$PROJECT_ENTRY  --server \"$TEST_ACME_Server\"  --issue -d \"$TestingDomain\" -d \"$TestingAltDomains\" --standalone" ||  return
 
   
@@ -1357,7 +1364,8 @@ le_test_standandalone_renew_idn_v2() {
 
   _test_idn="$TestingIDNDomain"
   rm -rf "$lehome/$_test_idn"
-  
+  rm -rf "$lehome/$_test_idn$ECC_SUFFIX"
+
   certdir="$(pwd)/certs"
   mkdir -p "$certdir"
   cert="$certdir/domain.cer"
@@ -1426,6 +1434,7 @@ le_test_dnsapi() {
     _info "TestingDomain" "$TestingDomain"
     lehome="$DEFAULT_HOME"
     rm -rf "$lehome/$TestingDomain"
+    rm -rf "$lehome/$TestingDomain$ECC_SUFFIX"
 
     _assertcmd "$lehome/$PROJECT_ENTRY --server \"$TEST_ACME_Server\"  --issue -d \"$TestingDomain\" -d \"*.$TestingDomain\" --dns $api --dnssleep \"$d_sleep\" " ||  return
     
@@ -1516,7 +1525,8 @@ le_test_standandalone_ipcert() {
   fi
 
   rm -rf "$lehome/$TestingDomain"
-  
+  rm -rf "$lehome/$TestingDomain$ECC_SUFFIX"
+
   _assertcmd "$lehome/$PROJECT_ENTRY --server \"$TEST_ACME_Server\"  --issue -d $TestingDomain --standalone" ||  return
   #_assertcert "$lehome/$TestingDomain/$TestingDomain.cer" "$TestingDomain" "$CA" || return
   #_assertcert "$lehome/$TestingDomain/ca.cer" "$CA" || return
@@ -1550,7 +1560,8 @@ le_test_alpn_ipcert() {
   fi
 
   rm -rf "$lehome/$TestingDomain"
-  
+  rm -rf "$lehome/$TestingDomain$ECC_SUFFIX"
+
   _assertcmd "$lehome/$PROJECT_ENTRY --server \"$TEST_ACME_Server\"  --issue -d $TestingDomain --alpn" ||  return
   #_assertcert "$lehome/$TestingDomain/$TestingDomain.cer" "$TestingDomain" "$CA" || return
   #_assertcert "$lehome/$TestingDomain/ca.cer" "$CA" || return
@@ -1579,7 +1590,8 @@ le_test_preferred_chain() {
   fi
 
   rm -rf "$lehome/$TestingDomain"
-  
+  rm -rf "$lehome/$TestingDomain$ECC_SUFFIX"
+
   _assertcmd "$lehome/$PROJECT_ENTRY  --server \"$TEST_ACME_Server\"  --issue -d \"$TestingDomain\" -d \"$TestingAltDomains\" --standalone --preferred-chain \"$TEST_PREFERRED_CHAIN\" " ||  return
   #_assertcert "$lehome/$TestingDomain/$TestingDomain.cer" "$TestingDomain" "$CA" || return
   #_assertcert "$lehome/$TestingDomain/ca.cer" "$CA" "$TEST_PREFERRED_CHAIN" || return
