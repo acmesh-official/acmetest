@@ -442,7 +442,7 @@ if [ -z "$TestingDomain" ]; then
         continue
       fi
       TestingDomain="$ng_domain_1"
-      while ! grep "connIndex=2" "$ng_temp_1"; do
+      while ! grep "registered with protocol" "$ng_temp_1"; do
         _info "wait for connection to establish..."
         cat "$ng_temp_1"
         sleep 3
