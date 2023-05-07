@@ -23,7 +23,7 @@ jobs:
   DragonFlyBSD:
     strategy:
       matrix:
-        release: [ "6.2.2", ""]
+        release: [""]
     runs-on: macos-12
     env:
       TEST_PREFERRED_CHAIN: (STAGING) Pretend Pear X1

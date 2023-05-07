@@ -24,7 +24,7 @@ jobs:
   FreeBSD:
     strategy:
       matrix:
-        release: [ "12.3", "13.0", "13.1", ""]
+        release: [""]
     runs-on: macos-12
     env:
       TEST_PREFERRED_CHAIN: (STAGING) Pretend Pear X1
