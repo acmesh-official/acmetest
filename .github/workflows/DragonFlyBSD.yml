@@ -42,7 +42,7 @@ jobs:
         envs: 'TestingDomain TEST_PREFERRED_CHAIN TEST_ACME_Server'
         nat: |
           "8080": "80"
-        prepare: pkg install -y  socat curl
+        prepare: pkg install -y  socat curl libnghttp2
         usesh: true
         release: ${{ matrix.release }}
         copyback: false
