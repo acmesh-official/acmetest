@@ -2,6 +2,7 @@ name: MacOS
 on:
   schedule:
     - cron: '10 9 * * *'
+  workflow_dispatch:
   push:
     branches:
       - '*'
