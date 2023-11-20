@@ -2,6 +2,7 @@ name: OpenBSD
 on:
   schedule:
     - cron: '10 9 * * *'
+  workflow_dispatch:
   push:
     branches:
       - '*'
@@ -24,12 +25,12 @@ jobs:
     strategy:
       matrix:
         release: [""]
-    runs-on: macos-12
+    runs-on: ubuntu-22.04
     env:
       TEST_PREFERRED_CHAIN: (STAGING) Pretend Pear X1
       TEST_ACME_Server: "LetsEncrypt.org_test"
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - uses: vmactions/cf-tunnel@v0
       id: tunnel
       with:
@@ -37,7 +38,7 @@ jobs:
         port: 8080
     - name: Set envs
       run: echo "TestingDomain=${{steps.tunnel.outputs.server}}" >> $GITHUB_ENV
-    - uses: vmactions/openbsd-vm@v0
+    - uses: vmactions/openbsd-vm@v1
       with:
         envs: 'TestingDomain TEST_PREFERRED_CHAIN TEST_ACME_Server'
         nat: |
