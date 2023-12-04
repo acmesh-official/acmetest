@@ -20,18 +20,17 @@ concurrency:
   group: ${{ github.workflow }}
   cancel-in-progress: true
 
-
 jobs:
   Solaris:
     strategy:
       matrix:
-        release: [ "11.4" ]
-    runs-on: macos-12
+        release: [""]
+    runs-on: ubuntu-22.04
     env:
       TEST_PREFERRED_CHAIN: (STAGING) Pretend Pear X1
       TEST_ACME_Server: "LetsEncrypt.org_test"
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - uses: vmactions/cf-tunnel@v0
       id: tunnel
       with:
@@ -39,7 +38,7 @@ jobs:
         port: 8080
     - name: Set envs
       run: echo "TestingDomain=${{steps.tunnel.outputs.server}}" >> $GITHUB_ENV
-    - uses: vmactions/solaris-vm@v0
+    - uses: vmactions/solaris-vm@v1
       with:
         envs: 'TestingDomain TEST_PREFERRED_CHAIN TEST_ACME_Server'
         nat: |
@@ -48,4 +47,3 @@ jobs:
         release: ${{ matrix.release }}
         copyback: false
         run: ./letest.sh
-
