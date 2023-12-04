@@ -1,0 +1,49 @@
+name: Omnios
+on:
+  schedule:
+    - cron: '10 9 * * *'
+  push:
+    branches:
+      - '*'
+    paths:
+      - '**.sh'
+      - '.github/workflows/Omnios.yml'
+  pull_request:
+    branches:
+      - '*'
+    paths:
+      - '**.sh'
+      - '.github/workflows/Omnios.yml'
+
+
+concurrency: 
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
+
+jobs:
+  Omnios:
+    strategy:
+      matrix:
+        release: [""]
+    runs-on: ubuntu-22.04
+    env:
+      TEST_PREFERRED_CHAIN: (STAGING) Pretend Pear X1
+      TEST_ACME_Server: "LetsEncrypt.org_test"
+    steps:
+    - uses: actions/checkout@v4
+    - uses: vmactions/cf-tunnel@v0
+      id: tunnel
+      with:
+        protocol: http
+        port: 8080
+    - name: Set envs
+      run: echo "TestingDomain=${{steps.tunnel.outputs.server}}" >> $GITHUB_ENV
+    - uses: vmactions/omnios-vm@v1
+      with:
+        envs: 'TestingDomain TEST_PREFERRED_CHAIN TEST_ACME_Server'
+        nat: |
+          "8080": "80"
+        prepare: pkg install socat
+        release: ${{ matrix.release }}
+        copyback: false
+        run: ./letest.sh
