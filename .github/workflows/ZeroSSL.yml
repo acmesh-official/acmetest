@@ -35,8 +35,6 @@ jobs:
       TEST_PREFERRED_CHAIN: ""
     steps:
     - uses: actions/checkout@v4
-    - name: Clone acmetest
-      run: cd .. && git clone --depth=1 https://github.com/acmesh-official/acmetest.git  && cp -r acme.sh acmetest/
     - name: Run Test
       run: |
           sudo apt-get update && apt-get install -y curl socat; && \
