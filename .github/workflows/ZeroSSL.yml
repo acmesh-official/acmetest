@@ -39,7 +39,7 @@ jobs:
       run: cd .. && git clone --depth=1 https://github.com/acmesh-official/acmetest.git  && cp -r acme.sh acmetest/
     - name: Run Test
       run: |
-      sudo apt-get update && apt-get install -y curl socat; |
-      cd ../acmetest && ./letest.sh
+          sudo apt-get update && apt-get install -y curl socat; && \
+          cd ../acmetest && ./letest.sh
 
 
