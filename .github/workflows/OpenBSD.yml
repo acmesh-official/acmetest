@@ -25,7 +25,7 @@ jobs:
     strategy:
       matrix:
         release: [""]
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     env:
       TEST_PREFERRED_CHAIN: (STAGING) Pretend Pear X1
       TEST_ACME_Server: "LetsEncrypt.org_test"
