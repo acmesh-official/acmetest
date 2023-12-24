@@ -1,4 +1,4 @@
-# acmetest
+# acmetest [![ZeroSSL](https://github.com/acmesh-official/acmetest/actions/workflows/ZeroSSL.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/ZeroSSL.yml)
 Unit test project for **acme.sh** project https://github.com/acmesh-official/acme.sh
 
 
