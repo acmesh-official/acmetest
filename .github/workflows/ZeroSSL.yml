@@ -33,6 +33,7 @@ jobs:
       CA: "ZeroSSL RSA Domain Secure Site CA"
       CA_EMAIL: "githubtest@acme.sh"
       TEST_PREFERRED_CHAIN: ""
+      Le_HTTPPort: 8888
     steps:
     - uses: actions/checkout@v4
     - name: Run Test
