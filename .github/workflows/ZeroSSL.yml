@@ -33,12 +33,11 @@ jobs:
       CA: "ZeroSSL RSA Domain Secure Site CA"
       CA_EMAIL: "githubtest@acme.sh"
       TEST_PREFERRED_CHAIN: ""
-      Le_HTTPPort: 8888
     steps:
     - uses: actions/checkout@v4
     - name: Run Test
       run: |
           sudo apt-get update && sudo apt-get install -y curl socat && \
-          cd ../acmetest && ./letest.sh
+          cd ../acmetest && sudo --preserve-env ./letest.sh
 
 
