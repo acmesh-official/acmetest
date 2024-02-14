@@ -28,6 +28,7 @@ Unit test project for **acme.sh** project https://github.com/acmesh-official/acm
 |gentoo/stage3-amd64| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/Linux.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/Linux.yml)|
 |clearlinux:latest| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/Linux.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/Linux.yml)|
 |almalinux:latest| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/Linux.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/Linux.yml)|
+|tatsushid/tinycore:latest| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/Linux.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/Linux.yml)|
 
 
 # How to run tests
