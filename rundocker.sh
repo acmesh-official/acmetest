@@ -285,7 +285,6 @@ _runplat() {
   mkdir -p "$myplat"
 
   echo "FROM $plat" > "$myplat/Dockerfile"
-  echo "USER root" >> "$myplat/Dockerfile"
 
   update="$(_mergefield "$platline" "$baseline" 2)"
   _debug "update" "$update"
@@ -312,6 +311,7 @@ _runplat() {
 
     fi
   fi
+  echo "USER root" >> "$myplat/Dockerfile"
 
   if [ "$DEBUGING" ] ; then
     cat "$myplat/Dockerfile"
