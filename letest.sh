@@ -596,6 +596,10 @@ _assertcert() {
   issuername="$3"
   printf "$filename is cert ? "
   subj="$(echo  $(openssl x509  -in $filename  -text  -noout | grep 'Subject:.*CN *=' | _egrep_o  " CN *=.*" | cut -d '=' -f 2 | cut -d / -f 1))"
+  if [ -z "$subj" ]; then
+    #empty subject, let's try dns alt names.
+    subj="$(echo \"$(openssl x509  -in $filename  -text  -noout | grep ' *DNS:' | tr -d ' '),\" | _egrep_o "DNS:$subname," | sed 's/DNS://g' | tr -d ,)"
+  fi
   printf "'$subj'"
   if _contains "$subj" "$subname" || _isIP "$subname"; then
     if [ "$issuername" ] ; then
