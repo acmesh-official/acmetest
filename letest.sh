@@ -763,7 +763,7 @@ _setup() {
     rm -rf acme.sh 
   fi
   if [ ! "$BRANCH" ] ; then
-    BRANCH="master"
+    BRANCH="dev"
   fi
   _info "Testing branch: $BRANCH"
   if command -v tar > /dev/null ; then
@@ -1607,6 +1607,54 @@ le_test_preferred_chain() {
 
 
 }
+
+
+
+le_test_standandalone_ECDSA_256_pkcs12() {
+  if [ "$QUICK_TEST" ] ; then
+    _info "Skipped by QUICK_TEST"
+    __CASE_SKIPPED="1"
+    return 0
+  fi
+  
+  if [ "$NO_ECC_CASES" ] ; then
+    _info "Skipped by NO_ECC_CASES"
+    __CASE_SKIPPED="1"
+    return 0
+  fi
+    
+  lehome="$DEFAULT_HOME"
+
+  if [ -z "$TestingDomain" ] ; then
+    __fail "Please define TestingDomain and try again."
+    return 1
+  fi
+
+  rm -rf "$lehome/$TestingDomain$ECC_SUFFIX"
+ 
+  _assertcmd "$lehome/$PROJECT_ENTRY  --server \"$TEST_ACME_Server\"  --issue -d $TestingDomain --standalone -k ec-256" ||  return
+  _assertcert "$lehome/$TestingDomain$ECC_SUFFIX/$TestingDomain.cer" "$TestingDomain" "$CA_ECDSA" || return
+  _assertcert "$lehome/$TestingDomain$ECC_SUFFIX/ca.cer" "$CA_ECDSA" || return
+  
+  _assertcmd "$lehome/$PROJECT_ENTRY  --server \"$TEST_ACME_Server\"  --to-pkcs12 -d $TestingDomain --password test  --ecc" ||  return
+  
+  _assertcmd "test -f $lehome/$TestingDomain$ECC_SUFFIX/$TestingDomain.pfx"
+  rm "$lehome/$TestingDomain$ECC_SUFFIX/$TestingDomain.pfx"
+  _assertcmd "test ! -f $lehome/$TestingDomain$ECC_SUFFIX/$TestingDomain.pfx"
+
+  if [ -z "$NO_REVOKE" ]; then
+    sleep 5
+    _assertcmd "$lehome/$PROJECT_ENTRY --revoke -d $TestingDomain --ecc" ||  return
+    rm -f "$lehome/$TestingDomain$ECC_SUFFIX/$TestingDomain.key"
+    rm -f "$lehome/$TestingDomain$ECC_SUFFIX/$TestingDomain.csr"
+  fi
+
+  sleep 5
+  _assertcmd "$lehome/$PROJECT_ENTRY --renew --server \"$TEST_ACME_Server\" -d $TestingDomain --force --ecc" ||  return
+  _assertcmd "test -f $lehome/$TestingDomain$ECC_SUFFIX/$TestingDomain.pfx"
+}
+
+
 
 
 le_test_shell() {
