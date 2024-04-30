@@ -1501,8 +1501,9 @@ le_test_dnsapi() {
      _initpath $TestingDomain
      addcommand="${api}_add"
      rmcommand="${api}_rm"
-     _assertcmd "$addcommand acmetestXyzRandomName.$TestingDomain acmeTestTxtRecord"  ||  return
-     _assertcmd "$rmcommand  acmetestXyzRandomName.$TestingDomain acmeTestTxtRecord"  ||  return
+     record_content="acmeTestTxtRecord_$(date +%N)"
+     _assertcmd "$addcommand acmetestXyzRandomName.$TestingDomain $record_content"  ||  return
+     _assertcmd "$rmcommand  acmetestXyzRandomName.$TestingDomain $record_content"  ||  return
   ) || return
 
 }
