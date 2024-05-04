@@ -27,11 +27,11 @@ BEGIN_CERT="-----BEGIN CERTIFICATE-----"
 END_CERT="-----END CERTIFICATE-----"
 
 if [ -z "$CA" ]; then
-  CA="(STAGING) Artificial Apricot R3"
+  CA="(STAGING) Counterfeit Cashew R10"
 fi
 
 if [ -z "$CA_ECDSA" ]; then
-  CA_ECDSA="(STAGING) Ersatz Edamame E1"
+  CA_ECDSA="(STAGING) Pseudo Plum E5"
 fi
 
 if [ -z "$TEST_ACME_Server" ]; then
