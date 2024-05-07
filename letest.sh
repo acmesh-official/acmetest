@@ -1501,8 +1501,10 @@ le_test_dnsapi() {
      _initpath $TestingDomain
      addcommand="${api}_add"
      rmcommand="${api}_rm"
-     _assertcmd "$addcommand acmetestXyzRandomName.$TestingDomain acmeTestTxtRecord"  ||  return
-     _assertcmd "$rmcommand  acmetestXyzRandomName.$TestingDomain acmeTestTxtRecord"  ||  return
+     random_string="$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c10)"
+     record_content="acmeTestTxtRecord_$random_string"
+     _assertcmd "$addcommand acmetestXyzRandomName.$TestingDomain $record_content"  ||  return
+     _assertcmd "$rmcommand  acmetestXyzRandomName.$TestingDomain $record_content"  ||  return
   ) || return
 
 }
