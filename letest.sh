@@ -1666,8 +1666,8 @@ le_test_shell() {
   _assertText "2022-04-01T08:10:33Z" "$($lehome/$PROJECT_ENTRY _time2str "1648800633")"   ||  return
   _assertText "ABC" "$(echo abc | tr [a-z] [A-Z])"   ||  return
   _assertText "ABC" "$(echo abc | tr '[a-z]' '[A-Z]')"   ||  return
-  _assertText "ABC" "$($lehome/$PROJECT_ENTRY _upper_case "abc")"  ||  return
-  _assertText "abc" "$($lehome/$PROJECT_ENTRY _lower_case "ABC")"  ||  return
+  _assertText "ABC" "$(echo "abc" | $lehome/$PROJECT_ENTRY _upper_case)"  ||  return
+  _assertText "abc" "$(echo "ABC" | $lehome/$PROJECT_ENTRY _lower_case)"  ||  return
 }
 
 
