@@ -1502,7 +1502,7 @@ le_test_dnsapi() {
      addcommand="${api}_add"
      rmcommand="${api}_rm"
      random_string="$(date -u "+%s")"
-     record_content="acmeTestTxtRecord_$random_string"
+     record_content="acmeTestTxtRecord_acmeTestTxtRecord_acmeTestTxtRecord_$random_string"
      _assertcmd "$addcommand acmetestXyzRandomName.$TestingDomain $record_content"  ||  return
      _assertcmd "$rmcommand  acmetestXyzRandomName.$TestingDomain $record_content"  ||  return
   ) || return
