@@ -1501,8 +1501,33 @@ le_test_dnsapi() {
      _initpath $TestingDomain
      addcommand="${api}_add"
      rmcommand="${api}_rm"
-     random_string="$(date -u "+%s")"
-     record_content="acmeTestTxtRecord_acmeTestTxtRecord_acmeTestTxtRecord_$random_string"
+
+     base_prefix="acmeTestTxtRecord_"
+
+     if command -v openssl >/dev/null 2>&1; then
+       rand="$(openssl rand -hex 256 2>/dev/null)"
+     elif [ -r /dev/urandom ]; then
+       rand="$(od -An -N256 -tx1 /dev/urandom 2>/dev/null | tr -cd '0-9a-f')"
+     else
+       rand="$(date -u +%s%N)_$$"
+     fi
+
+     record_content="${base_prefix}${rand}"
+
+     txt_len="${TEST_DNS_TXT_LEN:-43}"
+
+     if ! echo "$txt_len" | grep -Eq '^[0-9]+$'; then
+       txt_len=43
+     elif [ "$txt_len" -lt 28 ]; then
+       txt_len=43
+     fi
+
+     while [ "${#record_content}" -lt "$txt_len" ]; do
+       record_content="${record_content}${rand}"
+     done
+
+     record_content="$(printf '%s' "$record_content" | cut -c1-"$txt_len")"
+
      _assertcmd "$addcommand acmetestXyzRandomName.$TestingDomain $record_content"  ||  return
      _assertcmd "$rmcommand  acmetestXyzRandomName.$TestingDomain $record_content"  ||  return
   ) || return
