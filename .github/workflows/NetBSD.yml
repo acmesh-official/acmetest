@@ -44,7 +44,7 @@ jobs:
         nat: |
           "8080": "80"
         prepare: |
-          /usr/sbin/pkg_add -uu curl socat
+          pkg_add -uu curl socat
         usesh: true
         sync: nfs
         release: ${{ matrix.release }}
