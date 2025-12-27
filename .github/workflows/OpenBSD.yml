@@ -45,6 +45,7 @@ jobs:
           "8080": "80"
         prepare: pkg_add socat curl libnghttp2
         usesh: true
+        sync: nfs
         copyback: false
         release: ${{ matrix.release }}
         run: ./letest.sh

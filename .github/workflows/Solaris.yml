@@ -46,4 +46,5 @@ jobs:
         prepare: pkgutil -y -i socat curl
         release: ${{ matrix.release }}
         copyback: false
+        sync: nfs
         run: ./letest.sh
