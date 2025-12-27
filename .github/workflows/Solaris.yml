@@ -45,6 +45,5 @@ jobs:
           "8080": "80"
         prepare: pkgutil -y -i socat curl
         release: ${{ matrix.release }}
-        copyback: false
         sync: nfs
         run: ./letest.sh

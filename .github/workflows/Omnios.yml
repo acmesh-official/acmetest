@@ -46,5 +46,4 @@ jobs:
         prepare: pkg install socat
         release: ${{ matrix.release }}
         sync: nfs
-        copyback: false
         run: ./letest.sh

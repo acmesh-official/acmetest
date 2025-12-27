@@ -48,5 +48,4 @@ jobs:
         usesh: true
         sync: nfs
         release: ${{ matrix.release }}
-        copyback: false
         run: ./letest.sh
