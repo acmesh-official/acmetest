@@ -43,7 +43,7 @@ jobs:
         envs: 'TestingDomain TEST_PREFERRED_CHAIN TEST_ACME_Server'
         nat: |
           "8080": "80"
-        prepare: pkgutil -y -i socat curl
+        prepare: pkg install socat curl
         release: ${{ matrix.release }}
         sync: nfs
         run: ./letest.sh
