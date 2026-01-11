@@ -798,7 +798,7 @@ _setup() {
 
 
 le_test_dependencies() {
-  dependencies="curl crontab openssl socat"
+  dependencies="curl crontab openssl"
   for cmd in $dependencies 
   do
     if command -v $cmd > /dev/null ; then
@@ -810,6 +810,29 @@ le_test_dependencies() {
       return 1
     fi
   done
+  if command -v socat > /dev/null ; then
+      printf "$cmd installed." 
+      __ok
+  else
+    if command -v python > /dev/null ; then
+      printf "python installed." 
+      __ok
+      return
+    fi
+    if command -v python3 > /dev/null ; then
+      printf "python3 installed." 
+      __ok
+      return
+    fi
+    if command -v python2 > /dev/null ; then
+      printf "python2 installed." 
+      __ok
+      return
+    fi
+    printf "python not installed"
+    __fail
+    return 1
+  fi
 }
 
 le_test_install() {
