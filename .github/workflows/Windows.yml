@@ -33,7 +33,7 @@ jobs:
     - name: Set git to use LF
       run: |
           git config --global core.autocrlf false
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
     - name: Install cygwin base packages with chocolatey
       run: |
           choco config get cacheLocation
@@ -51,6 +51,13 @@ jobs:
       shell: cmd
       run: |
           echo "PATH=%PATH%"
+    - uses: anyvm-org/cf-tunnel@v0
+      id: tunnel
+      with:
+        protocol: http
+        port: 80
+    - name: Set envs
+      run: echo "TestingDomain=${{steps.tunnel.outputs.server}}" >> $GITHUB_ENV
     - name: Run acmetest
       shell: cmd
       run: bash.exe -c ./letest.sh
