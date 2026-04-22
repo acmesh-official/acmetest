@@ -44,7 +44,7 @@ jobs:
         envs: 'TestingDomain TEST_PREFERRED_CHAIN TEST_ACME_Server'
         nat: |
           "8080": "80"
-        prepare: mport install -y socat curl
+        prepare: mport install socat curl || true
         usesh: true
         sync: nfs
         release: ${{ matrix.release }}
