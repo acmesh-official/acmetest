@@ -41,6 +41,7 @@ jobs:
     - uses: vmactions/solaris-vm@v1
       with:
         envs: 'TestingDomain TEST_PREFERRED_CHAIN TEST_ACME_Server'
+        debug-on-error: ${{ vars.DEBUG_ON_ERROR }}
         nat: |
           "8080": "80"
         prepare: pkgutil -y -i socat curl
