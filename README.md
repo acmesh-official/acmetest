@@ -11,6 +11,7 @@ Unit test project for **acme.sh** project https://github.com/acmesh-official/acm
 |OpenBSD| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/OpenBSD.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/OpenBSD.yml) |
 |NetBSD| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/NetBSD.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/NetBSD.yml) |
 |DragonFlyBSD| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/DragonFlyBSD.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/DragonFlyBSD.yml) |
+|MidnightBSD| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/MidnightBSD.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/MidnightBSD.yml) |
 |pfsense| NA |
 |Omnios| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/Omnios.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/Omnios.yml)|
 |solaris| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/Solaris.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/Solaris.yml)|
