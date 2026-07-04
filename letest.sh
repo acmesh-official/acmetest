@@ -1760,6 +1760,7 @@ __gen_csr_and_read_altnames() {
   $lehome/$PROJECT_ENTRY _readSubjectAltNamesFromCSR "$__csr_tmp/t.csr"
 }
 
+
 le_test_read_altnames_from_csr() {
 
   #wildcard subject present in SAN must be removed, not duplicated (issue 5251:
