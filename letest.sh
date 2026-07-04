@@ -1691,7 +1691,11 @@ le_test_shell() {
   # the trailing garbage, so assert only that no injected command ran (the
   # output must not contain the marker), which holds on every platform.
   _inj_out="$($lehome/$PROJECT_ENTRY _date2time '2022-04-01T08:10:33Z"); import os; os.system("echo INJECTED")#' 2>/dev/null)"
-  _assertText "clean" "$(case "$_inj_out" in *INJECTED*) echo dirty ;; *) echo clean ;; esac)"  ||  return
+  _inj_verdict=clean
+  case "$_inj_out" in
+  *INJECTED*) _inj_verdict=dirty ;;
+  esac
+  _assertText "clean" "$_inj_verdict"  ||  return
   _assertText "2022-04-01T08:10:33Z" "$($lehome/$PROJECT_ENTRY _time2str "1648800633")"   ||  return
   _assertText "ABC" "$(echo abc | tr [a-z] [A-Z])"   ||  return
   _assertText "ABC" "$(echo abc | tr '[a-z]' '[A-Z]')"   ||  return
