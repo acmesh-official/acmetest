@@ -39,9 +39,19 @@ jobs:
         port: 8080
     - name: Set envs
       run: echo "TestingDomain=${{steps.tunnel.outputs.server}}" >> $GITHUB_ENV
+    - name: Set CASE
+      if: github.event_name == 'push'
+      shell: bash
+      env:
+        HEAD_COMMIT_MSG: ${{ github.event.head_commit.message }}
+      run: |
+        _case="$(printf '%s' "$HEAD_COMMIT_MSG" | tr ' \t' '\n\n' | grep '^CASE=' | head -1 | cut -d '=' -f 2-)"
+        if [ -n "$_case" ]; then
+          echo "CASE=$_case" >> "$GITHUB_ENV"
+        fi
     - uses: vmactions/midnightbsd-vm@v1
       with:
-        envs: 'TestingDomain TEST_PREFERRED_CHAIN TEST_ACME_Server'
+        envs: 'TestingDomain TEST_PREFERRED_CHAIN TEST_ACME_Server CASE'
         debug-on-error: ${{ vars.DEBUG_ON_ERROR }}
         nat: |
           "8080": "80"

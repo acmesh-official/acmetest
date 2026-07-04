@@ -42,6 +42,16 @@ jobs:
         port: 80
     - name: Set envs
       run: echo "TestingDomain=${{steps.tunnel.outputs.server}}" >> $GITHUB_ENV
+    - name: Set CASE
+      if: github.event_name == 'push'
+      shell: bash
+      env:
+        HEAD_COMMIT_MSG: ${{ github.event.head_commit.message }}
+      run: |
+        _case="$(printf '%s' "$HEAD_COMMIT_MSG" | tr ' \t' '\n\n' | grep '^CASE=' | head -1 | cut -d '=' -f 2-)"
+        if [ -n "$_case" ]; then
+          echo "CASE=$_case" >> "$GITHUB_ENV"
+        fi
     - name: Run acmetest
       run: |
         ./rundocker.sh  testplat ${{ matrix.os }}
