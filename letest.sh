@@ -1727,13 +1727,16 @@ le_test_parse_authorizations() {
 }
 
 #CN, SAN list -> generate a CSR and print the parsed alt names
+#same key/subj/config pattern as _createcsr: NetBSD openssl has no default
+#/etc/openssl/openssl.cnf and aborts on -newkey with a dn section
 __gen_csr_and_read_altnames() {
   __csr_cn="$1"
   __csr_san="$2"
   __csr_tmp="/tmp/le_test_csr.$$"
   mkdir -p "$__csr_tmp"
-  printf "[req]\ndistinguished_name = dn\nreq_extensions = ext\nprompt = no\n[dn]\nCN = %s\n[ext]\nsubjectAltName = %s\n" "$__csr_cn" "$__csr_san" >"$__csr_tmp/req.conf"
-  openssl req -new -newkey rsa:2048 -nodes -keyout "$__csr_tmp/t.key" -out "$__csr_tmp/t.csr" -config "$__csr_tmp/req.conf" >/dev/null 2>&1
+  printf "[ req_distinguished_name ]\n[ req ]\ndistinguished_name = req_distinguished_name\nreq_extensions = v3_req\n[ v3_req ]\nsubjectAltName=%s\n" "$__csr_san" >"$__csr_tmp/req.conf"
+  openssl genrsa 2048 >"$__csr_tmp/t.key" 2>/dev/null
+  openssl req -new -sha256 -key "$__csr_tmp/t.key" -subj "/CN=$__csr_cn" -config "$__csr_tmp/req.conf" -out "$__csr_tmp/t.csr" >/dev/null 2>&1
   $lehome/$PROJECT_ENTRY _readSubjectAltNamesFromCSR "$__csr_tmp/t.csr"
 }
 
