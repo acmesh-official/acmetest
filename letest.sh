@@ -1726,6 +1726,30 @@ le_test_parse_authorizations() {
   _assertText "" "$(echo "$_jerr" | $lehome/$PROJECT_ENTRY _authorizations_from_order)"  ||  return
 }
 
+#CN, SAN list -> generate a CSR and print the parsed alt names
+__gen_csr_and_read_altnames() {
+  __csr_cn="$1"
+  __csr_san="$2"
+  __csr_tmp="/tmp/le_test_csr.$$"
+  mkdir -p "$__csr_tmp"
+  printf "[req]\ndistinguished_name = dn\nreq_extensions = ext\nprompt = no\n[dn]\nCN = %s\n[ext]\nsubjectAltName = %s\n" "$__csr_cn" "$__csr_san" >"$__csr_tmp/req.conf"
+  openssl req -new -newkey rsa:2048 -nodes -keyout "$__csr_tmp/t.key" -out "$__csr_tmp/t.csr" -config "$__csr_tmp/req.conf" >/dev/null 2>&1
+  $lehome/$PROJECT_ENTRY _readSubjectAltNamesFromCSR "$__csr_tmp/t.csr"
+}
+
+le_test_read_altnames_from_csr() {
+
+  #wildcard subject present in SAN must be removed, not duplicated (issue 5251:
+  #the '*' was taken as a regex operator so the match never succeeded)
+  _assertText "www.example.com" "$(__gen_csr_and_read_altnames "*.example.com" "DNS:*.example.com,DNS:www.example.com")"  ||  return
+
+  #plain subject present in SAN is removed
+  _assertText "www.example.com" "$(__gen_csr_and_read_altnames "example.com" "DNS:example.com,DNS:www.example.com")"  ||  return
+
+  #subject not in SAN: list must be unchanged
+  _assertText "www.example.com" "$(__gen_csr_and_read_altnames "example.com" "DNS:www.example.com")"  ||  return
+}
+
 
 #expected,  actual
 _assertText() {
