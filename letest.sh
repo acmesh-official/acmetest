@@ -1686,9 +1686,12 @@ le_test_shell() {
 
   _assertText "1648800633" "$($lehome/$PROJECT_ENTRY _date2time "2022-04-01T08:10:33Z")"  ||  return
   _assertText "1648800633" "$($lehome/$PROJECT_ENTRY _date2time "2022-04-01 08:10:33")"   ||  return
-  # A quote in the input must not inject code into the python fallback and must
-  # not parse to a valid time; _date2time returns 1 and prints nothing.
-  _assertText "" "$($lehome/$PROJECT_ENTRY _date2time '2022-04-01T08:10:33Z"); import os; os.system("echo INJECTED")#' 2>/dev/null)"  ||  return
+  # A quote in the input must never execute code in the python fallback.
+  # Some date(1) implementations leniently parse the leading date and ignore
+  # the trailing garbage, so assert only that no injected command ran (the
+  # output must not contain the marker), which holds on every platform.
+  _inj_out="$($lehome/$PROJECT_ENTRY _date2time '2022-04-01T08:10:33Z"); import os; os.system("echo INJECTED")#' 2>/dev/null)"
+  _assertText "clean" "$(case "$_inj_out" in *INJECTED*) echo dirty ;; *) echo clean ;; esac)"  ||  return
   _assertText "2022-04-01T08:10:33Z" "$($lehome/$PROJECT_ENTRY _time2str "1648800633")"   ||  return
   _assertText "ABC" "$(echo abc | tr [a-z] [A-Z])"   ||  return
   _assertText "ABC" "$(echo abc | tr '[a-z]' '[A-Z]')"   ||  return
