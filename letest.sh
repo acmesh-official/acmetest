@@ -1703,6 +1703,26 @@ le_test_shell() {
   _assertText "abc" "$(echo "ABC" | $lehome/$PROJECT_ENTRY _lower_case)"  ||  return
 }
 
+le_test_isIPv4() {
+
+  #_isIPv4 must accept only well-formed dotted quads, and a "*" segment
+  #must not glob against files in the current directory (issue 4971);
+  #the test dir contains a file named "1" to catch exactly that.
+  _ipv4_dir="$(mktemp -d)"
+  touch "$_ipv4_dir/1"
+  _ipv4_got=""
+  for _ipv4_case in '1.2.3.4' '255.255.255.255' '0.0.0.0' '*.*.*.*' '1.2.3' '1.2.3.4.5' '256.1.1.1' 'a.b.c.d' '1..2.3' '12' ''; do
+    if (cd "$_ipv4_dir" && "$lehome/$PROJECT_ENTRY" _isIPv4 "$_ipv4_case") >/dev/null 2>&1; then
+      _ipv4_got="${_ipv4_got}Y"
+    else
+      _ipv4_got="${_ipv4_got}N"
+    fi
+  done
+  rm "$_ipv4_dir/1"
+  rmdir "$_ipv4_dir"
+  _assertText "YYYNNNNNNNN" "$_ipv4_got"  ||  return
+}
+
 le_test_parse_authorizations() {
 
   #IPv6 server URLs: brackets inside the URLs must not truncate the array
