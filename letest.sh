@@ -1693,6 +1693,29 @@ le_test_shell() {
   _assertText "abc" "$(echo "ABC" | $lehome/$PROJECT_ENTRY _lower_case)"  ||  return
 }
 
+le_test_parse_authorizations() {
+
+  #IPv6 server URLs: brackets inside the URLs must not truncate the array
+  _j6='{"id":"x","status":"pending","identifiers":[{"type":"dns","value":"a.example.com"},{"type":"dns","value":"b.example.com"}],"authorizations":["https://[2001:db8::1]/acme/authz/AAA","https://[2001:db8::1]/acme/authz/BBB"],"finalize":"https://[2001:db8::1]/acme/order/x/finalize"}'
+  _assertText "https://[2001:db8::1]/acme/authz/AAA,https://[2001:db8::1]/acme/authz/BBB" "$(echo "$_j6" | $lehome/$PROJECT_ENTRY _authorizations_from_order)"  ||  return
+
+  #hostname, single entry
+  _jh='{"status":"pending","authorizations":["https://acme-v02.api.letsencrypt.org/acme/authz/CCC"],"finalize":"https://acme-v02.api.letsencrypt.org/acme/finalize/1/2"}'
+  _assertText "https://acme-v02.api.letsencrypt.org/acme/authz/CCC" "$(echo "$_jh" | $lehome/$PROJECT_ENTRY _authorizations_from_order)"  ||  return
+
+  #IPv4 with spaces around the array elements
+  _j4='{"status":"pending","authorizations": [ "https://10.0.0.1/acme/authz/DDD" , "https://10.0.0.1/acme/authz/EEE" ],"finalize":"https://10.0.0.1/f"}'
+  _assertText "https://10.0.0.1/acme/authz/DDD,https://10.0.0.1/acme/authz/EEE" "$(echo "$_j4" | $lehome/$PROJECT_ENTRY _authorizations_from_order)"  ||  return
+
+  #escaped slashes are handled by _json_decode before parsing
+  _je='{"authorizations":["https:\/\/[2001:db8::1]\/acme\/authz\/FFF"]}'
+  _assertText "https://[2001:db8::1]/acme/authz/FFF" "$(echo "$_je" | $lehome/$PROJECT_ENTRY _json_decode | $lehome/$PROJECT_ENTRY _authorizations_from_order)"  ||  return
+
+  #error response without an authorizations field must produce empty output
+  _jerr='{"type":"urn:ietf:params:acme:error:malformed","detail":"some [bad] thing","status":400}'
+  _assertText "" "$(echo "$_jerr" | $lehome/$PROJECT_ENTRY _authorizations_from_order)"  ||  return
+}
+
 
 #expected,  actual
 _assertText() {
