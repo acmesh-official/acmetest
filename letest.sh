@@ -1808,6 +1808,17 @@ le_test_shell() {
   _assertText "abc" "$(echo "ABC" | $lehome/$PROJECT_ENTRY _lower_case)"  ||  return
 }
 
+le_test_mailto_contacts() {
+  lehome="$DEFAULT_HOME"
+
+  _assertText '"mailto:a@example.com"' "$(echo "a@example.com" | $lehome/$PROJECT_ENTRY _mailto_contacts)" || return
+  _assertText '"mailto:a@example.com","mailto:b@example.net"' "$(echo "a@example.com b@example.net" | $lehome/$PROJECT_ENTRY _mailto_contacts)" || return
+  _assertText '"mailto:a@example.com","mailto:b@example.net"' "$(echo "a@example.com,b@example.net" | $lehome/$PROJECT_ENTRY _mailto_contacts)" || return
+  _assertText '"mailto:a@example.com","mailto:b@example.net"' "$(echo "a@example.com, b@example.net" | $lehome/$PROJECT_ENTRY _mailto_contacts)" || return
+  #empty input must produce empty output so callers can guard on emptiness
+  _assertText "" "$(echo "" | $lehome/$PROJECT_ENTRY _mailto_contacts)" || return
+}
+
 le_test_isIPv4() {
 
   #_isIPv4 must accept only well-formed dotted quads, and a "*" segment
