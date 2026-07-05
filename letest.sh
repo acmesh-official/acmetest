@@ -1433,8 +1433,54 @@ le_test_standandalone_renew_idn_v2() {
   fi
   
   rm -rf "$certdir"
-  
 
+
+
+}
+
+
+#test the --nginx mode: the workflow prepares a server block with an
+#aaPanel/BT style "location ^~ /" proxy block, which shadows plain regex
+#locations, see https://github.com/acmesh-official/acme.sh/issues/6125
+le_test_nginx() {
+  if [ -z "$TEST_NGINX" ]; then
+    _info "Skipped by TEST_NGINX"
+    __CASE_SKIPPED="1"
+    return 0
+  fi
+
+  lehome="$DEFAULT_HOME"
+
+  if [ -z "$TestingDomain" ] ; then
+    __fail "Please define TestingDomain and try again."
+    return 1
+  fi
+
+  if ! command -v nginx >/dev/null 2>&1; then
+    __fail "nginx is not installed."
+    return 1
+  fi
+
+  rm -rf "$lehome/$TestingDomain"
+  rm -rf "$lehome/$TestingDomain$ECC_SUFFIX"
+
+  _assertcmd "$lehome/$PROJECT_ENTRY --server \"$TEST_ACME_Server\" --issue -d $TestingDomain --nginx" || return
+
+  #the injected challenge location must be removed after issuance
+  if grep -r "ACME_NGINX_START" /etc/nginx/ ; then
+    __fail "The nginx config was not restored after issuance."
+    return 1
+  fi
+
+  sleep 5
+  _assertcmd "$lehome/$PROJECT_ENTRY --renew --server \"$TEST_ACME_Server\" -d $TestingDomain --force" || return
+
+  if grep -r "ACME_NGINX_START" /etc/nginx/ ; then
+    __fail "The nginx config was not restored after renewal."
+    return 1
+  fi
+
+  _assertcmd "nginx -t" || return
 
 }
 
