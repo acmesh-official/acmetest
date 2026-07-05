@@ -1723,6 +1723,23 @@ le_test_isIPv4() {
   _assertText "YYYNNNNNNNN" "$_ipv4_got"  ||  return
 }
 
+le_test_is_valid_cn() {
+
+  #_is_valid_cn gates the CN slot of the CSR subject: at most 64 chars
+  #(RFC 5280 ub-common-name), never an IP address, never empty, so that
+  #_createcsr omits the CN instead of failing inside openssl on long
+  #FQDNs (issue 4867). Cases: normal, 63, 64, 65 chars, IPv4, IPv6, empty.
+  _cn_got=""
+  for _cn_case in 'example.com' 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb.example.org' 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb.example.org' 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb.example.org' '1.2.3.4' '2001:db8::1' ''; do
+    if "$lehome/$PROJECT_ENTRY" _is_valid_cn "$_cn_case" >/dev/null 2>&1; then
+      _cn_got="${_cn_got}Y"
+    else
+      _cn_got="${_cn_got}N"
+    fi
+  done
+  _assertText "YYYNNNN" "$_cn_got"  ||  return
+}
+
 le_test_parse_authorizations() {
 
   #IPv6 server URLs: brackets inside the URLs must not truncate the array
