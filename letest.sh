@@ -859,6 +859,41 @@ le_test_uninstall() {
 
 }
 
+le_test_install_completion() {
+  lehome="$DEFAULT_HOME"
+
+  if [ ! -f "acme.sh/$PROJECT_ENTRY.completion" ]; then
+    _info "Skipped, no $PROJECT_ENTRY.completion in this branch"
+    __CASE_SKIPPED="1"
+    return 0
+  fi
+
+  cd acme.sh;
+  _assertcmd  "./$PROJECT_ENTRY --install" || return
+  cd ..
+
+  _assertexists "$lehome/$PROJECT_ENTRY.completion" || return
+  _assertcmd "grep '$PROJECT_ENTRY.completion' '$lehome/$PROJECT_ENTRY.env' > /dev/null" || return
+  #the completion file must be a no-op when sourced by a non-bash shell
+  _assertcmd "sh -c '. \"$lehome/$PROJECT_ENTRY.completion\"' > /dev/null 2>&1" || return
+  if _exists bash; then
+    _assertcmd "bash -n \"$lehome/$PROJECT_ENTRY.completion\"" || return
+    __completion_out="$(bash -c ". '$lehome/$PROJECT_ENTRY.completion'; COMP_WORDS=($PROJECT_ENTRY --insta); COMP_CWORD=1; _acme_sh_completion; echo \"\${COMPREPLY[*]}\"")"
+    case "$__completion_out" in
+    *--install-cronjob*)
+      printf "completion candidates: '%s'" "$__completion_out"
+      __ok
+      ;;
+    *)
+      __fail "completion candidates wrong: '$__completion_out'"
+      return 1
+      ;;
+    esac
+  fi
+  _assertcmd "$lehome/$PROJECT_ENTRY --uninstall  > /dev/null" ||  return
+  _assertnotexists "$lehome/$PROJECT_ENTRY.completion" ||  return
+}
+
 
 le_test_installtodir() {
   lehome="$HOME/myle"
