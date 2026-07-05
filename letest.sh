@@ -1820,6 +1820,58 @@ le_test_standandalone_ECDSA_256_pkcs12() {
 }
 
 
+le_test_standandalone_ECDSA_256_pkcs8() {
+  if [ "$QUICK_TEST" ] ; then
+    _info "Skipped by QUICK_TEST"
+    __CASE_SKIPPED="1"
+    return 0
+  fi
+
+  if [ "$NO_ECC_CASES" ] ; then
+    _info "Skipped by NO_ECC_CASES"
+    __CASE_SKIPPED="1"
+    return 0
+  fi
+
+  if ! grep "Le_PKCS8Password" "acme.sh/$PROJECT_ENTRY" >/dev/null 2>&1 ; then
+    _info "Skipped, no pkcs8 password support in this branch"
+    __CASE_SKIPPED="1"
+    return 0
+  fi
+
+  lehome="$DEFAULT_HOME"
+
+  if [ -z "$TestingDomain" ] ; then
+    __fail "Please define TestingDomain and try again."
+    return 1
+  fi
+
+  rm -rf "$lehome/$TestingDomain$ECC_SUFFIX"
+
+  _assertcmd "$lehome/$PROJECT_ENTRY  --server \"$TEST_ACME_Server\"  --issue -d $TestingDomain --standalone -k ec-256" ||  return
+
+  _assertcmd "$lehome/$PROJECT_ENTRY  --to-pkcs8 -d $TestingDomain --password test8  --ecc" ||  return
+  _assertcmd "test -f $lehome/$TestingDomain$ECC_SUFFIX/$TestingDomain.pkcs8"
+  #the exported key must be encrypted with the given password
+  _assertcmd "openssl pkey -in $lehome/$TestingDomain$ECC_SUFFIX/$TestingDomain.pkcs8 -passin pass:test8 -noout" || return
+  _assertcmd "! openssl pkey -in $lehome/$TestingDomain$ECC_SUFFIX/$TestingDomain.pkcs8 -passin pass:wrong -noout" || return
+
+  #the renewal must re-export the pkcs8 file with the saved password
+  rm "$lehome/$TestingDomain$ECC_SUFFIX/$TestingDomain.pkcs8"
+  sleep 5
+  _assertcmd "$lehome/$PROJECT_ENTRY --renew --server \"$TEST_ACME_Server\" -d $TestingDomain --force --ecc" ||  return
+  _assertcmd "test -f $lehome/$TestingDomain$ECC_SUFFIX/$TestingDomain.pkcs8"
+  _assertcmd "openssl pkey -in $lehome/$TestingDomain$ECC_SUFFIX/$TestingDomain.pkcs8 -passin pass:test8 -noout" || return
+
+  if [ -z "$NO_REVOKE" ]; then
+    sleep 5
+    _assertcmd "$lehome/$PROJECT_ENTRY --revoke -d $TestingDomain --ecc" ||  return
+    rm -f "$lehome/$TestingDomain$ECC_SUFFIX/$TestingDomain.key"
+    rm -f "$lehome/$TestingDomain$ECC_SUFFIX/$TestingDomain.csr"
+  fi
+}
+
+
 
 
 le_test_shell() {
