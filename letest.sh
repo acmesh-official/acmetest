@@ -1485,6 +1485,65 @@ le_test_nginx() {
 }
 
 
+#test the --apache mode: acme.sh appends a global Alias for the challenge
+#dir to the main Apache config and must restore the config afterwards
+le_test_apache() {
+  if [ -z "$TEST_APACHE" ]; then
+    _info "Skipped by TEST_APACHE"
+    __CASE_SKIPPED="1"
+    return 0
+  fi
+
+  lehome="$DEFAULT_HOME"
+
+  if [ -z "$TestingDomain" ] ; then
+    __fail "Please define TestingDomain and try again."
+    return 1
+  fi
+
+  _apachectl="apachectl"
+  if ! command -v apachectl >/dev/null 2>&1; then
+    _apachectl="apache2ctl"
+    if ! command -v apache2ctl >/dev/null 2>&1; then
+      __fail "apachectl/apache2ctl is not installed."
+      return 1
+    fi
+  fi
+
+  _apacheconf="$($_apachectl -V | grep SERVER_CONFIG_FILE= | cut -d = -f 2 | tr -d '"')"
+  case "$_apacheconf" in
+    /*) ;;
+    *) _apacheconf="$($_apachectl -V | grep HTTPD_ROOT= | cut -d = -f 2 | tr -d '"')/$_apacheconf" ;;
+  esac
+  if [ ! -f "$_apacheconf" ]; then
+    __fail "Cannot find the Apache config file."
+    return 1
+  fi
+
+  rm -rf "$lehome/$TestingDomain"
+  rm -rf "$lehome/$TestingDomain$ECC_SUFFIX"
+
+  _assertcmd "$lehome/$PROJECT_ENTRY --server \"$TEST_ACME_Server\" --issue -d $TestingDomain --apache" || return
+
+  #the appended Alias must be removed from the config after issuance
+  if grep "acme-challenge" "$_apacheconf" ; then
+    __fail "The Apache config was not restored after issuance."
+    return 1
+  fi
+
+  sleep 5
+  _assertcmd "$lehome/$PROJECT_ENTRY --renew --server \"$TEST_ACME_Server\" -d $TestingDomain --force" || return
+
+  if grep "acme-challenge" "$_apacheconf" ; then
+    __fail "The Apache config was not restored after renewal."
+    return 1
+  fi
+
+  _assertcmd "$_apachectl -t" || return
+
+}
+
+
 le_test_dnsapi() {
   if [ -z "$TEST_DNS" ]; then
     _info "Skipped by TEST_DNS"
