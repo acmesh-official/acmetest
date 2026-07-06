@@ -1231,6 +1231,72 @@ le_test_standandalone_deactivate_v2() {
 }
 
 
+#RFC 8555 sec 7.3.5 account key rollover: --update-account-key must switch
+#the account to a new key that still maps to the SAME account on the CA.
+le_test_update_account_key() {
+  lehome="$DEFAULT_HOME"
+
+  #only some CAs implement keyChange: LE staging and Pebble do; ZeroSSL and
+  #ssl.com return errors and step-ca does not expose the url (PR 7080).
+  _uak_server="$(echo "$TEST_ACME_Server" | tr '[A-Z]' '[a-z]')"
+  _uak_supported=""
+  case "$_uak_server" in
+  letsencrypt_test | letsencrypt.org_test | https://acme-staging-v02.api.letsencrypt.org/directory | https://localhost:14000/dir)
+    _uak_supported="1"
+    ;;
+  esac
+  if [ -z "$_uak_supported" ]; then
+    _info "Skipped: $TEST_ACME_Server does not support account key rollover"
+    __CASE_SKIPPED="1"
+    return 0
+  fi
+
+  #skip on acme.sh branches that do not have the feature yet
+  if ! grep -- "--update-account-key" "$lehome/$PROJECT_ENTRY" >/dev/null 2>&1; then
+    _info "Skipped: this acme.sh has no --update-account-key"
+    __CASE_SKIPPED="1"
+    return 0
+  fi
+
+  #make sure the account exists and capture its thumbprint
+  _assertcmd "$lehome/$PROJECT_ENTRY --register-account --server \"$TEST_ACME_Server\"" || return
+  _uak_print_old="$(sed -n "s/.*ACCOUNT_THUMBPRINT='\([^']*\)'.*/\1/p" cmd.log | _head_n 1)"
+  _debug "_uak_print_old" "$_uak_print_old"
+  if [ -z "$_uak_print_old" ]; then
+    __fail "Cannot get the account thumbprint from --register-account"
+    return 1
+  fi
+
+  _assertcmd "$lehome/$PROJECT_ENTRY --update-account-key --server \"$TEST_ACME_Server\"" || return
+  _uak_print_new="$(sed -n "s/.*ACCOUNT_THUMBPRINT='\([^']*\)'.*/\1/p" cmd.log | _head_n 1)"
+  _debug "_uak_print_new" "$_uak_print_new"
+  if [ -z "$_uak_print_new" ]; then
+    __fail "Cannot get the account thumbprint after the rollover"
+    return 1
+  fi
+  if [ "$_uak_print_new" = "$_uak_print_old" ]; then
+    __fail "The account thumbprint did not change after the rollover"
+    return 1
+  fi
+
+  #the temporary new-key file must not survive the rollover
+  if find "$lehome/ca" -name "account.key.new" 2>/dev/null | grep . >/dev/null; then
+    __fail "A temporary account.key.new file was left behind"
+    return 1
+  fi
+
+  #the rolled key must map to the SAME account: newAccount with it returns
+  #the existing account (200), not a fresh registration (201)
+  _assertcmd "$lehome/$PROJECT_ENTRY --register-account --server \"$TEST_ACME_Server\"" || return
+  if ! grep "Already registered" cmd.log >/dev/null 2>&1; then
+    __fail "The rolled key did not map to the existing account"
+    return 1
+  fi
+  _uak_print_reg="$(sed -n "s/.*ACCOUNT_THUMBPRINT='\([^']*\)'.*/\1/p" cmd.log | _head_n 1)"
+  _assertText "$_uak_print_new" "$_uak_print_reg" || return
+}
+
+
 le_test_standandalone_SAN() {
   if [ "$QUICK_TEST" ] ; then
     _info "Skipped by QUICK_TEST"
