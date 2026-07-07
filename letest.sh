@@ -1294,6 +1294,27 @@ le_test_update_account_key() {
   fi
   _uak_print_reg="$(sed -n "s/.*ACCOUNT_THUMBPRINT='\([^']*\)'.*/\1/p" cmd.log | _head_n 1)"
   _assertText "$_uak_print_new" "$_uak_print_reg" || return
+
+  #Boulder staging may keep verifying kid-signed requests against the OLD
+  #key for a few seconds after keyChange (WFE account cache / DB replica
+  #lag): the next signed request gets 400 "JWS verification error" and the
+  #same request succeeds seconds later. Poll a cheap kid-signed request
+  #(--update-account) until the rolled key is live, so that the following
+  #test cases are not hit by the stale-key window.
+  _uak_maxwait=30 #seconds
+  _uak_wait=0
+  while [ $_uak_wait -le $_uak_maxwait ]; do
+    if "$lehome/$PROJECT_ENTRY" --update-account --server "$TEST_ACME_Server" >/dev/null 2>&1; then
+      break
+    fi
+    _info "The rolled key is not active yet, waiting 3 seconds"
+    sleep 3
+    _uak_wait=$((_uak_wait + 3))
+  done
+  if [ $_uak_wait -gt $_uak_maxwait ]; then
+    __fail "The rolled account key did not become active within $_uak_maxwait seconds"
+    return 1
+  fi
 }
 
 
