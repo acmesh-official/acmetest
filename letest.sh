@@ -1982,6 +1982,31 @@ le_test_shell() {
   _assertText "abc" "$(echo "ABC" | $lehome/$PROJECT_ENTRY _lower_case)"  ||  return
 }
 
+le_test_cleardeployconf() {
+
+  #_cleardeployconf must remove both the SAVED_ prefixed key and the
+  #legacy unprefixed key from the domain conf, and keep other keys.
+  _cdc_file="$(mktemp)"
+  {
+    echo "SAVED_DEPLOY_TEST_USER='u1'"
+    echo "DEPLOY_TEST_USER='u0'"
+    echo "SAVED_DEPLOY_KEEP='k1'"
+  } >"$_cdc_file"
+  DOMAIN_CONF="$_cdc_file" "$lehome/$PROJECT_ENTRY" _cleardeployconf DEPLOY_TEST_USER >/dev/null 2>&1
+  _cdc_out="$(cat "$_cdc_file")"
+  rm "$_cdc_file"
+  _cdc_cleared=ok
+  case "$_cdc_out" in
+  *DEPLOY_TEST_USER*) _cdc_cleared=leftover ;;
+  esac
+  _assertText "ok" "$_cdc_cleared"  ||  return
+  _cdc_kept=missing
+  case "$_cdc_out" in
+  *"SAVED_DEPLOY_KEEP='k1'"*) _cdc_kept=ok ;;
+  esac
+  _assertText "ok" "$_cdc_kept"  ||  return
+}
+
 le_test_mailto_contacts() {
   lehome="$DEFAULT_HOME"
 
@@ -2079,6 +2104,22 @@ le_test_read_altnames_from_csr() {
 
   #subject not in SAN: list must be unchanged
   _assertText "www.example.com" "$(__gen_csr_and_read_altnames "example.com" "DNS:www.example.com")"  ||  return
+}
+
+
+le_test_send_notify_clears_headers() {
+
+  #the dns/deploy hooks export _H1.._H5 in the main process and notify
+  #hooks run in a subshell that inherits them, so _send_notify must clear
+  #the slots: a stale Authorization header from another service must not
+  #leak into the notify request
+  _nh_out="/tmp/le_test_notify_h.$$"
+  mkdir -p "$lehome/notify"
+  printf 'le_hooktest_send() {\n  printf "H1=%%s|H2=%%s|H3=%%s|H4=%%s|H5=%%s" "$_H1" "$_H2" "$_H3" "$_H4" "$_H5" >"$LE_TEST_NOTIFY_OUT"\n  return 0\n}\n' >"$lehome/notify/le_hooktest.sh"
+  LE_WORKING_DIR="$lehome" LE_TEST_NOTIFY_OUT="$_nh_out" \
+    _H1="Authorization: Bearer leaked-token" _H2="X-Stale: 2" _H3="X-Stale: 3" _H4="X-Stale: 4" _H5="X-Stale: 5" \
+    "$lehome/$PROJECT_ENTRY" _send_notify "subject" "content" "le_hooktest" 0 >/dev/null 2>&1
+  _assertText "H1=|H2=|H3=|H4=|H5=" "$(cat "$_nh_out" 2>/dev/null)"  ||  return
 }
 
 
