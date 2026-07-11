@@ -43,7 +43,7 @@ jobs:
       env:
         HEAD_COMMIT_MSG: ${{ github.event.head_commit.message }}
       run: |
-        _case="$(printf '%s' "$HEAD_COMMIT_MSG" | tr ' \t' '\n\n' | grep '^CASE=le_test_' | head -1 | cut -d '=' -f 2-)"
+        _case="$(printf '%s' "$HEAD_COMMIT_MSG" | tr ' \t' '\n\n' | grep '^CASE=le_test_' | head -1 | cut -d '=' -f 2- || true)"
         if [ -n "$_case" ]; then
           echo "CASE=$_case" >> "$GITHUB_ENV"
         fi
