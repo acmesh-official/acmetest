@@ -619,13 +619,34 @@ _assertcert() {
 }
 
 #cmd
+#The command output goes to cmd.log while it runs. Without a timeout, a
+#command that blocks forever (e.g. a curl call the server never answers)
+#would hang until the CI job is killed and cmd.log would be lost with the
+#container, leaving no clue at all (issue #4145). So kill the command after
+#LE_CMD_TIMEOUT seconds (default 1 hour) and dump cmd.log.
 _assertcmd() {
   __cmd="$1"
   printf "%s" "$__cmd"
-  
-  eval "$__cmd > \"cmd.log\" 2>&1"
-  
-  if [ "$?" = "0" ] ; then 
+
+  eval "$__cmd > \"cmd.log\" 2>&1 &"
+  __cmd_pid=$!
+  __cmd_waited=0
+  __cmd_timeout="${LE_CMD_TIMEOUT:-3600}"
+  while kill -0 "$__cmd_pid" 2>/dev/null; do
+    if [ "$__cmd_waited" -ge "$__cmd_timeout" ]; then
+      kill "$__cmd_pid" 2>/dev/null
+      sleep 3
+      kill -9 "$__cmd_pid" 2>/dev/null
+      wait "$__cmd_pid" 2>/dev/null
+      __fail "timed out after $__cmd_timeout seconds"
+      cat "cmd.log" >&2
+      return 1
+    fi
+    sleep 5
+    __cmd_waited=$((__cmd_waited + 5))
+  done
+  wait "$__cmd_pid"
+  if [ "$?" = "0" ] ; then
     __ok ""
   else
     __fail ""
@@ -1980,6 +2001,26 @@ le_test_shell() {
   _assertText "ABC" "$(echo abc | tr '[a-z]' '[A-Z]')"   ||  return
   _assertText "ABC" "$(echo "abc" | $lehome/$PROJECT_ENTRY _upper_case)"  ||  return
   _assertText "abc" "$(echo "ABC" | $lehome/$PROJECT_ENTRY _lower_case)"  ||  return
+}
+
+le_test_assertcmd_timeout() {
+
+  #_assertcmd must kill a command that exceeds LE_CMD_TIMEOUT, fail, and
+  #dump cmd.log instead of hanging until the CI job limit (issue #4145).
+  _act_out="$(LE_CMD_TIMEOUT=5; _assertcmd "sleep 60" 2>&1)"
+  _act_ret="$?"
+  _act_verdict=ok
+  if [ "$_act_ret" = "0" ]; then
+    _act_verdict=no_error
+  fi
+  case "$_act_out" in
+  *"timed out after 5 seconds"*) ;;
+  *) _act_verdict=no_timeout_message ;;
+  esac
+  _assertText "ok" "$_act_verdict" || return
+
+  #a fast successful command must still pass under the timeout logic
+  _assertcmd "echo assertcmd fast path" || return
 }
 
 le_test_cleardeployconf() {
