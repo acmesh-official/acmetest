@@ -2207,6 +2207,72 @@ le_test_calc_next_renew_time() {
 }
 
 
+le_test_installcronjob_no_wipe() {
+  lehome="$DEFAULT_HOME"
+
+  #installcronjob pipes 'crontab -l' back into 'crontab -'; if the listing
+  #fails while the user has jobs, that would replace the whole crontab with
+  #just the acme.sh entry (issue 3079). The fake crontab below simulates the
+  #three listing outcomes and records what gets written.
+  _icj_dir="$lehome/icj_fakebin"
+  mkdir -p "$_icj_dir"
+  cat >"$_icj_dir/crontab" <<'ICJEOF'
+#!/bin/sh
+_dir="$(dirname "$0")"
+_mode="$(cat "$_dir/mode")"
+if [ "$1" = "-l" ]; then
+  case "$_mode" in
+  fail)
+    echo "crontab: temporary failure" >&2
+    exit 1
+    ;;
+  none)
+    echo "no crontab for tester" >&2
+    exit 1
+    ;;
+  jobs)
+    echo "1 2 * * * /bin/existing-job"
+    ;;
+  esac
+  exit 0
+fi
+cat >"$_dir/crontab.state"
+ICJEOF
+  chmod +x "$_icj_dir/crontab"
+
+  #listing fails: must refuse and must not touch the crontab
+  echo "fail" >"$_icj_dir/mode"
+  if PATH="$_icj_dir:$PATH" "$lehome/$PROJECT_ENTRY" --install-cronjob >/dev/null 2>&1; then
+    __fail "install-cronjob must fail when the cron jobs can not be listed"
+    return 1
+  fi
+  if [ -f "$_icj_dir/crontab.state" ]; then
+    __fail "the crontab was modified although the job list could not be read"
+    return 1
+  fi
+
+  #no crontab yet: a fresh install must still work
+  echo "none" >"$_icj_dir/mode"
+  _assertcmd "PATH=\"$_icj_dir:\$PATH\" \"$lehome/$PROJECT_ENTRY\" --install-cronjob" || return
+  if ! grep -- "--cron" "$_icj_dir/crontab.state" >/dev/null 2>&1; then
+    __fail "the cron entry was not installed into an empty crontab"
+    return 1
+  fi
+
+  #existing jobs must ride along unchanged
+  echo "jobs" >"$_icj_dir/mode"
+  _assertcmd "PATH=\"$_icj_dir:\$PATH\" \"$lehome/$PROJECT_ENTRY\" --install-cronjob" || return
+  if ! grep "/bin/existing-job" "$_icj_dir/crontab.state" >/dev/null 2>&1; then
+    __fail "the existing cron job was dropped from the crontab"
+    return 1
+  fi
+  if ! grep -- "--cron" "$_icj_dir/crontab.state" >/dev/null 2>&1; then
+    __fail "the cron entry was not appended next to the existing jobs"
+    return 1
+  fi
+}
+
+
 #expected,  actual
 _assertText() {
   if [ "$1" != "$2" ]; then
