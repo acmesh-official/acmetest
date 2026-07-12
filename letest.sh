@@ -1962,7 +1962,9 @@ le_test_standandalone_ECDSA_256_pkcs8() {
   _assertcmd "test -f $lehome/$TestingDomain$ECC_SUFFIX/$TestingDomain.pkcs8"
   #the exported key must be encrypted with the given password
   _assertcmd "openssl pkey -in $lehome/$TestingDomain$ECC_SUFFIX/$TestingDomain.pkcs8 -passin pass:test8 -noout" || return
-  _assertcmd "! openssl pkey -in $lehome/$TestingDomain$ECC_SUFFIX/$TestingDomain.pkcs8 -passin pass:wrong -noout" || return
+  #wrap the negation in a subshell: _assertcmd runs the command via eval "... &" and
+  #bash drops a leading ! from a background job, so wait would see the raw status
+  _assertcmd "( ! openssl pkey -in $lehome/$TestingDomain$ECC_SUFFIX/$TestingDomain.pkcs8 -passin pass:wrong -noout )" || return
 
   #the renewal must re-export the pkcs8 file with the saved password
   rm "$lehome/$TestingDomain$ECC_SUFFIX/$TestingDomain.pkcs8"
