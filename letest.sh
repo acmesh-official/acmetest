@@ -2123,6 +2123,23 @@ le_test_send_notify_clears_headers() {
 }
 
 
+le_test_calc_next_renew_time() {
+
+  #the default RenewalDays schedule must never pass the cert expiry
+  #(issue 6305): capped at 1 day before endtime, or 1 hour before for
+  #certs whose lifetime is 24 hours or less
+  _nrt_create=1000000000
+  #90-day cert, 60-day schedule: no clamping
+  _assertText "1005097600" "$("$lehome/$PROJECT_ENTRY" _calc_next_renew_time "$_nrt_create" 60 "$(_math "$_nrt_create" + 7776000)")"  ||  return
+  #7-day cert, 60-day schedule: clamped to endtime - 1 day
+  _assertText "1000518400" "$("$lehome/$PROJECT_ENTRY" _calc_next_renew_time "$_nrt_create" 60 "$(_math "$_nrt_create" + 604800)")"  ||  return
+  #6-hour cert: clamped to endtime - 1 hour
+  _assertText "1000018000" "$("$lehome/$PROJECT_ENTRY" _calc_next_renew_time "$_nrt_create" 60 "$(_math "$_nrt_create" + 21600)")"  ||  return
+  #no endtime available: previous fixed-schedule behavior
+  _assertText "1005097600" "$("$lehome/$PROJECT_ENTRY" _calc_next_renew_time "$_nrt_create" 60 "")"  ||  return
+}
+
+
 #expected,  actual
 _assertText() {
   if [ "$1" != "$2" ]; then
