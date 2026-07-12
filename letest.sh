@@ -2174,7 +2174,8 @@ le_test_update_account_email() {
   _assertcmd "$lehome/$PROJECT_ENTRY --register-account --server \"$TEST_ACME_Server\"" || return
   _uae_mail="letest-uae@acme.sh"
   _assertcmd "$lehome/$PROJECT_ENTRY --update-account -m \"$_uae_mail\" --server \"$TEST_ACME_Server\"" || return
-  if ! grep -r "CA_EMAIL='$_uae_mail'" "$lehome/ca" >/dev/null 2>&1; then
+  #find+grep instead of grep -r: Solaris grep has no -r
+  if [ -z "$(find "$lehome/ca" -name "ca.conf" -exec grep "CA_EMAIL='$_uae_mail'" {} \; 2>/dev/null)" ]; then
     __fail "The new email was not saved as CA_EMAIL in the ca conf"
     return 1
   fi
@@ -2183,7 +2184,7 @@ le_test_update_account_email() {
   #list must be persisted verbatim
   _uae_mail2="letest-uae1@acme.sh,letest-uae2@acme.sh"
   _assertcmd "$lehome/$PROJECT_ENTRY --update-account -m \"$_uae_mail2\" --server \"$TEST_ACME_Server\"" || return
-  if ! grep -r "CA_EMAIL='$_uae_mail2'" "$lehome/ca" >/dev/null 2>&1; then
+  if [ -z "$(find "$lehome/ca" -name "ca.conf" -exec grep "CA_EMAIL='$_uae_mail2'" {} \; 2>/dev/null)" ]; then
     __fail "The multi-email list was not saved as CA_EMAIL in the ca conf"
     return 1
   fi
@@ -2254,7 +2255,7 @@ ICJEOF
   #no crontab yet: a fresh install must still work
   echo "none" >"$_icj_dir/mode"
   _assertcmd "PATH=\"$_icj_dir:\$PATH\" \"$lehome/$PROJECT_ENTRY\" --install-cronjob" || return
-  if ! grep -- "--cron" "$_icj_dir/crontab.state" >/dev/null 2>&1; then
+  if ! grep "$PROJECT_ENTRY --cron" "$_icj_dir/crontab.state" >/dev/null 2>&1; then
     __fail "the cron entry was not installed into an empty crontab"
     return 1
   fi
@@ -2266,7 +2267,7 @@ ICJEOF
     __fail "the existing cron job was dropped from the crontab"
     return 1
   fi
-  if ! grep -- "--cron" "$_icj_dir/crontab.state" >/dev/null 2>&1; then
+  if ! grep "$PROJECT_ENTRY --cron" "$_icj_dir/crontab.state" >/dev/null 2>&1; then
     __fail "the cron entry was not appended next to the existing jobs"
     return 1
   fi
