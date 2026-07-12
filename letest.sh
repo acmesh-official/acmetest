@@ -2164,6 +2164,30 @@ le_test_send_notify_clears_headers() {
 }
 
 
+#--update-account -m must persist the new mailbox locally: the CA-side
+#contact was updated but the ca conf kept the old CA_EMAIL (issue 4673)
+le_test_update_account_email() {
+  lehome="$DEFAULT_HOME"
+
+  _assertcmd "$lehome/$PROJECT_ENTRY --register-account --server \"$TEST_ACME_Server\"" || return
+  _uae_mail="letest-uae@acme.sh"
+  _assertcmd "$lehome/$PROJECT_ENTRY --update-account -m \"$_uae_mail\" --server \"$TEST_ACME_Server\"" || return
+  if ! grep -r "CA_EMAIL='$_uae_mail'" "$lehome/ca" >/dev/null 2>&1; then
+    __fail "The new email was not saved as CA_EMAIL in the ca conf"
+    return 1
+  fi
+
+  #-m accepts multiple mailboxes (comma or space separated); the whole
+  #list must be persisted verbatim
+  _uae_mail2="letest-uae1@acme.sh,letest-uae2@acme.sh"
+  _assertcmd "$lehome/$PROJECT_ENTRY --update-account -m \"$_uae_mail2\" --server \"$TEST_ACME_Server\"" || return
+  if ! grep -r "CA_EMAIL='$_uae_mail2'" "$lehome/ca" >/dev/null 2>&1; then
+    __fail "The multi-email list was not saved as CA_EMAIL in the ca conf"
+    return 1
+  fi
+}
+
+
 le_test_calc_next_renew_time() {
 
   #the default RenewalDays schedule must never pass the cert expiry
