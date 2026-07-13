@@ -2005,14 +2005,14 @@ le_test_shell() {
   _assertText "abc" "$(echo "ABC" | $lehome/$PROJECT_ENTRY _lower_case)"  ||  return
 
   # issue #968: on shells without egrep, _egrep_o falls back to a BRE sed
-  # expression where a bare "\{" is an interval operator and aborts with
-  # "sed: Invalid content of \{\}", so the challenge-status-invalid path
-  # extracts an empty error object and the CA's failure reason is lost. The
-  # pattern below is exactly the one used in acme.sh (escaped braces); this
-  # assertion is RED on egrep-less platforms (busybox/BSD/Solaris) until the
-  # braces are un-escaped both here and at the acme.sh call sites.
+  # expression where a bare "\{" is an interval operator and aborts (GNU sed
+  # "Invalid content of \{\}", Solaris sed "command garbled"), so the
+  # challenge-status-invalid path extracts an empty error object and the CA's
+  # failure reason is lost. A "[{]" bracket expression is an unambiguous
+  # literal brace in both BRE (sed fallback) and ERE (egrep), unlike a bare
+  # "{" (an interval operator in ERE) or an escaped "\{" (an interval in BRE).
   _errjson968='{"type":"dns-01","status":"invalid","error":{"type":"urn:ietf:params:acme:error:unauthorized","detail":"Incorrect TXT record","status":403},"url":"https://acme/chall/1"}'
-  _errobj968="$(echo "$_errjson968" | $lehome/$PROJECT_ENTRY _egrep_o '"error":\{[^\}]*')"
+  _errobj968="$(echo "$_errjson968" | $lehome/$PROJECT_ENTRY _egrep_o '"error":[{][^}]*')"
   _errdetail968="$(echo "$_errobj968" | $lehome/$PROJECT_ENTRY _egrep_o '"detail": *"[^"]*' | cut -d '"' -f 4)"
   _assertText "Incorrect TXT record" "$_errdetail968"  ||  return
 }
