@@ -2088,6 +2088,10 @@ le_test_isIPv4() {
       _ipv4_got="${_ipv4_got}N"
     fi
   done
+  # DIAGNOSTIC (issue: rmdir "Directory not empty" on Solaris): show what the
+  # _isIPv4 invocations left behind in the cwd before cleanup.
+  echo "==le_test_isIPv4 dir contents before cleanup:"
+  ls -la "$_ipv4_dir"
   rm "$_ipv4_dir/1"
   rmdir "$_ipv4_dir"
   _assertText "YYYNNNNNNNN" "$_ipv4_got"  ||  return
