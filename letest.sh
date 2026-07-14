@@ -2224,6 +2224,38 @@ le_test_calc_next_renew_time() {
 }
 
 
+le_test_calc_validto_renew_time() {
+
+  #relative --valid-to scheduling: a negative --days is anchored to the
+  #expiry; otherwise renew 1 day before the expiry, or 1 hour before for
+  #certs whose lifetime is 24 hours or less
+  _cvt_end=1000000000
+  #negative days: end - 7 days
+  _assertText "999395200" "$("$lehome/$PROJECT_ENTRY" _calc_validto_renew_time "$_cvt_end" -7 "$(_math "$_cvt_end" - 2592000)")"  ||  return
+  #positive days (default schedule), 30-day lifetime: end - 1 day
+  _assertText "999913600" "$("$lehome/$PROJECT_ENTRY" _calc_validto_renew_time "$_cvt_end" 60 "$(_math "$_cvt_end" - 2592000)")"  ||  return
+  #6-hour lifetime: end - 1 hour
+  _assertText "999996400" "$("$lehome/$PROJECT_ENTRY" _calc_validto_renew_time "$_cvt_end" 60 "$(_math "$_cvt_end" - 21600)")"  ||  return
+  #empty days: end - 1 day
+  _assertText "999913600" "$("$lehome/$PROJECT_ENTRY" _calc_validto_renew_time "$_cvt_end" "" "$(_math "$_cvt_end" - 2592000)")"  ||  return
+
+  #the --days/--valid-to gate in _process
+  lehome="$DEFAULT_HOME"
+  #positive --days with --valid-to: rejected
+  if "$lehome/$PROJECT_ENTRY" --list --days 10 --valid-to "+30d" >/dev/null 2>&1; then
+    __fail "positive --days with --valid-to must be rejected"
+    return 1
+  fi
+  #any --days with a fixed-date --valid-to: rejected
+  if "$lehome/$PROJECT_ENTRY" --list --days -7 --valid-to "2039-01-01T00:00:00Z" >/dev/null 2>&1; then
+    __fail "--days with fixed-date --valid-to must be rejected"
+    return 1
+  fi
+  #negative --days with a relative --valid-to: accepted
+  _assertcmd "$lehome/$PROJECT_ENTRY --list --days -7 --valid-to \"+30d\""  ||  return
+}
+
+
 le_test_installcronjob_no_wipe() {
   lehome="$DEFAULT_HOME"
 
