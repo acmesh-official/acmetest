@@ -2307,23 +2307,34 @@ le_test_standandalone_blank_lines() {
   fi
 
   #the same check against a real CA chain: Let's Encrypt separates the certs
-  #with a blank line, ZeroSSL doesn't, none of the stored files may have one
+  #with a blank line, ZeroSSL doesn't, none of the installed files may have one
   rm -rf "$lehome/$TestingDomain"
+  rm -rf "$lehome/$TestingDomain$ECC_SUFFIX"
+
+  _sbl_dir="$(pwd)/certs_blank_lines"
+  rm -rf "$_sbl_dir"
+  mkdir -p "$_sbl_dir"
+  _sbl_cert="$_sbl_dir/domain.cer"
+  _sbl_key="$_sbl_dir/domain.key"
+  _sbl_ca="$_sbl_dir/ca.cer"
+  _sbl_full="$_sbl_dir/full.cer"
 
   _assertcmd "$lehome/$PROJECT_ENTRY --server \"$TEST_ACME_Server\"  --issue -d \"$TestingDomain\" --standalone" ||  return
-  _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" "$TestingDomain" "$CA" || return
+  _assertcmd "$lehome/$PROJECT_ENTRY --install-cert -d \"$TestingDomain\" --cert-file '$_sbl_cert' --key-file '$_sbl_key' --ca-file '$_sbl_ca' --fullchain-file '$_sbl_full'" ||  return
+  _assertcert "$_sbl_cert" "$TestingDomain" "$CA" || return
 
-  for _sbl_file in "$TestingDomain.cer" fullchain.cer ca.cer ; do
+  for _sbl_file in "$_sbl_cert" "$_sbl_ca" "$_sbl_full" ; do
     printf "%s has no blank line ? " "$_sbl_file"
-    _sbl_count="$(grep -c "^[[:space:]]*$" "$lehome/$TestingDomain/$_sbl_file")"
+    _sbl_count="$(grep -c "^[[:space:]]*$" "$_sbl_file")"
     _assertText "0" "$_sbl_count"  ||  return
     __ok ""
   done
 
   if [ -z "$NO_REVOKE" ]; then
     sleep 5
-    _assertcmd "$lehome/$PROJECT_ENTRY --revoke -d $TestingDomain" ||  return
+    _assertcmd "$lehome/$PROJECT_ENTRY --revoke -d \"$TestingDomain\"" ||  return
   fi
+  rm -rf "$_sbl_dir"
 }
 
 
