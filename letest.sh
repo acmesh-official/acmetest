@@ -2256,6 +2256,42 @@ le_test_calc_validto_renew_time() {
 }
 
 
+le_test_strip_blank_lines() {
+  lehome="$DEFAULT_HOME"
+
+  #the certs of a chain must be stored back to back: some CAs (Let's Encrypt)
+  #separate them with a blank line, others (ZeroSSL) don't (issue 1940)
+  _sbl_chain="-----BEGIN CERTIFICATE-----
+leaf
+-----END CERTIFICATE-----
+
+-----BEGIN CERTIFICATE-----
+intermediate
+-----END CERTIFICATE-----
+"
+  _sbl_expected="-----BEGIN CERTIFICATE-----
+leaf
+-----END CERTIFICATE-----
+-----BEGIN CERTIFICATE-----
+intermediate
+-----END CERTIFICATE-----"
+  _assertText "$_sbl_expected" "$(printf "%s" "$_sbl_chain" | "$lehome/$PROJECT_ENTRY" _strip_blank_lines)"  ||  return
+
+  #a chain without blank lines is passed through unchanged
+  _assertText "$_sbl_expected" "$(printf "%s" "$_sbl_expected" | "$lehome/$PROJECT_ENTRY" _strip_blank_lines)"  ||  return
+
+  #whitespace-only separator lines are removed too
+  _sbl_ws=$(printf -- '-----BEGIN CERTIFICATE-----\nleaf\n-----END CERTIFICATE-----\n \t\n-----BEGIN CERTIFICATE-----\nintermediate\n-----END CERTIFICATE-----\n')
+  _assertText "$_sbl_expected" "$(printf "%s" "$_sbl_ws" | "$lehome/$PROJECT_ENTRY" _strip_blank_lines)"  ||  return
+
+  #the base64 body of a real cert is not touched
+  _assertText "3" "$(printf -- '-----BEGIN CERTIFICATE-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8A\n-----END CERTIFICATE-----\n' | "$lehome/$PROJECT_ENTRY" _strip_blank_lines | wc -l | tr -d ' ')"  ||  return
+
+  #empty input stays empty
+  _assertText "" "$(printf "" | "$lehome/$PROJECT_ENTRY" _strip_blank_lines)"  ||  return
+}
+
+
 le_test_installcronjob_no_wipe() {
   lehome="$DEFAULT_HOME"
 
