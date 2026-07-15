@@ -2292,6 +2292,41 @@ intermediate
 }
 
 
+le_test_standandalone_blank_lines() {
+  if [ "$QUICK_TEST" ] ; then
+    _info "Skipped by QUICK_TEST"
+    __CASE_SKIPPED="1"
+    return 0
+  fi
+
+  lehome="$DEFAULT_HOME"
+
+  if [ -z "$TestingDomain" ] ; then
+    __fail "Please define TestingDomain and try again."
+    return 1
+  fi
+
+  #the same check against a real CA chain: Let's Encrypt separates the certs
+  #with a blank line, ZeroSSL doesn't, none of the stored files may have one
+  rm -rf "$lehome/$TestingDomain"
+
+  _assertcmd "$lehome/$PROJECT_ENTRY --server \"$TEST_ACME_Server\"  --issue -d \"$TestingDomain\" --standalone" ||  return
+  _assertcert "$lehome/$TestingDomain/$TestingDomain.cer" "$TestingDomain" "$CA" || return
+
+  for _sbl_file in "$TestingDomain.cer" fullchain.cer ca.cer ; do
+    printf "%s has no blank line ? " "$_sbl_file"
+    _sbl_count="$(grep -c "^[[:space:]]*$" "$lehome/$TestingDomain/$_sbl_file")"
+    _assertText "0" "$_sbl_count"  ||  return
+    __ok ""
+  done
+
+  if [ -z "$NO_REVOKE" ]; then
+    sleep 5
+    _assertcmd "$lehome/$PROJECT_ENTRY --revoke -d $TestingDomain" ||  return
+  fi
+}
+
+
 le_test_installcronjob_no_wipe() {
   lehome="$DEFAULT_HOME"
 
