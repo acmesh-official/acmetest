@@ -2321,11 +2321,14 @@ le_test_standandalone_blank_lines() {
 
   _assertcmd "$lehome/$PROJECT_ENTRY --server \"$TEST_ACME_Server\"  --issue -d \"$TestingDomain\" --standalone" ||  return
   _assertcmd "$lehome/$PROJECT_ENTRY --install-cert -d \"$TestingDomain\" --cert-file '$_sbl_cert' --key-file '$_sbl_key' --ca-file '$_sbl_ca' --fullchain-file '$_sbl_full'" ||  return
-  _assertcert "$_sbl_cert" "$TestingDomain" "$CA" || return
+  #the default keylength is ec-256, so the issuer is the ECC CA
+  _assertcert "$_sbl_cert" "$TestingDomain" "$CA_ECDSA" || return
 
+  #spell out space and tab: Solaris grep has no [[:space:]] class
+  _sbl_tab="$(printf '\t')"
   for _sbl_file in "$_sbl_cert" "$_sbl_ca" "$_sbl_full" ; do
     printf "%s has no blank line ? " "$_sbl_file"
-    _sbl_count="$(grep -c "^[[:space:]]*$" "$_sbl_file")"
+    _sbl_count="$(grep -c "^[ $_sbl_tab]*\$" "$_sbl_file")"
     _assertText "0" "$_sbl_count"  ||  return
     __ok ""
   done
