@@ -2278,11 +2278,13 @@ intermediate
   _assertText "$_sbl_expected" "$(printf "%s" "$_sbl_chain" | "$lehome/$PROJECT_ENTRY" _strip_blank_lines)"  ||  return
 
   #a chain without blank lines is passed through unchanged
-  _assertText "$_sbl_expected" "$(printf "%s" "$_sbl_expected" | "$lehome/$PROJECT_ENTRY" _strip_blank_lines)"  ||  return
+  #(the input must end with a newline: Solaris sed silently drops a final
+  #line that is not newline-terminated; real callers pipe via echo)
+  _assertText "$_sbl_expected" "$(printf "%s\n" "$_sbl_expected" | "$lehome/$PROJECT_ENTRY" _strip_blank_lines)"  ||  return
 
   #whitespace-only separator lines are removed too
   _sbl_ws=$(printf -- '-----BEGIN CERTIFICATE-----\nleaf\n-----END CERTIFICATE-----\n \t\n-----BEGIN CERTIFICATE-----\nintermediate\n-----END CERTIFICATE-----\n')
-  _assertText "$_sbl_expected" "$(printf "%s" "$_sbl_ws" | "$lehome/$PROJECT_ENTRY" _strip_blank_lines)"  ||  return
+  _assertText "$_sbl_expected" "$(printf "%s\n" "$_sbl_ws" | "$lehome/$PROJECT_ENTRY" _strip_blank_lines)"  ||  return
 
   #the base64 body of a real cert is not touched
   _assertText "3" "$(printf -- '-----BEGIN CERTIFICATE-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8A\n-----END CERTIFICATE-----\n' | "$lehome/$PROJECT_ENTRY" _strip_blank_lines | wc -l | tr -d ' ')"  ||  return
