@@ -880,6 +880,57 @@ le_test_uninstall() {
 
 }
 
+le_test_install_packaged() {
+  lehome="$DEFAULT_HOME"
+
+  if ! grep "ACME_PACKAGED" "acme.sh/$PROJECT_ENTRY" >/dev/null 2>&1; then
+    _info "Skipped, no ACME_PACKAGED support in this branch"
+    __CASE_SKIPPED="1"
+    return 0
+  fi
+
+  #remove the copy pre-installed by _run
+  if [ -f "$lehome/$PROJECT_ENTRY" ]; then
+    $lehome/$PROJECT_ENTRY --uninstall > /dev/null
+  fi
+
+  ACME_PACKAGED=1
+  export ACME_PACKAGED
+
+  cd acme.sh;
+  _assertcmd  "./$PROJECT_ENTRY --install" || return
+  cd ..
+
+  #the script must not be copied into $lehome
+  _assertnotexists "$lehome/$PROJECT_ENTRY" || return
+  _assertexists "$lehome/account.conf" || return
+  #the cron job and the alias point to the current script instead of a copy
+  _c_entry="$(crontab -l | grep "$PROJECT_ENTRY --cron")"
+  _assertcmd "_contains '$_c_entry' '/acme.sh/$PROJECT_ENTRY --cron --home \"$lehome\"'" || return
+  _assertcmd "grep 'alias $PROJECT_ENTRY' '$lehome/$PROJECT_ENTRY.env' | grep '/acme.sh/$PROJECT_ENTRY' > /dev/null" || return
+
+  #--upgrade must refuse and point to the package manager
+  if sh "acme.sh/$PROJECT_ENTRY" --upgrade > packaged.log 2>&1 ; then
+    __fail "--upgrade should fail when ACME_PACKAGED is set"
+    return 1
+  fi
+  __pk_refused=""
+  case "$(cat packaged.log)" in
+    *ACME_PACKAGED*) __pk_refused="1" ;;
+  esac
+  if [ "$__pk_refused" = "1" ]; then
+    printf "%s" "--upgrade refused."
+    __ok ""
+  else
+    __fail "no refusal message: $(cat packaged.log)"
+    return 1
+  fi
+
+  _assertcmd "sh 'acme.sh/$PROJECT_ENTRY' --uninstall > /dev/null" || return
+  _assertequals "" "$(crontab -l | grep $PROJECT_ENTRY)" || return
+  ACME_PACKAGED=""
+}
+
 le_test_install_completion() {
   lehome="$DEFAULT_HOME"
 
