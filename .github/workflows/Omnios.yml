@@ -52,6 +52,7 @@ jobs:
       with:
         envs: 'TestingDomain TEST_PREFERRED_CHAIN TEST_ACME_Server CASE'
         debug-on-error: ${{ vars.DEBUG_ON_ERROR }}
+        cache-after-prepare: true
         nat: |
           "8080": "80"
         prepare: pkg install socat
