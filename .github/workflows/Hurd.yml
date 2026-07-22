@@ -56,9 +56,13 @@ jobs:
         cache-after-prepare: true
         nat: |
           "8080": "80"
+        # Do NOT install socat: socat's SYSTEM: address is broken on GNU Hurd
+        # (the child shell output goes to socat's stdout instead of the socket,
+        # so clients get an empty reply). Without socat, acme.sh standalone
+        # mode falls back to its python3 server, which works on Hurd.
         prepare: |
           apt-get update -y
-          apt-get install -y socat curl cron
+          apt-get install -y curl cron
         usesh: true
         sync: rsync
         release: ${{ matrix.release }}
