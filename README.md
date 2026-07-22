@@ -19,6 +19,7 @@ Unit test project for **acme.sh** project https://github.com/acmesh-official/acm
 |OpenIndiana| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/Openindiana.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/Openindiana.yml)|
 |Tribblix| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/Tribblix.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/Tribblix.yml)|
 |Haiku OS| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/Haiku.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/Haiku.yml)|
+|GNU Hurd| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/Hurd.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/Hurd.yml)|
 |windows-cygwin| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/Windows.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/Windows.yml)|
 |ubuntu:latest| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/Linux.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/Linux.yml)|
 |debian:latest| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/Linux.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/Linux.yml)|

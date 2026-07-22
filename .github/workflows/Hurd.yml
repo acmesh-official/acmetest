@@ -1,0 +1,65 @@
+name: Hurd
+on:
+  schedule:
+    - cron: '10 9 * * *'
+  workflow_dispatch:
+  push:
+    branches:
+      - '*'
+    paths:
+      - '**.sh'
+      - '.github/workflows/Hurd.yml'
+  pull_request:
+    branches:
+      - '*'
+    paths:
+      - '**.sh'
+      - '.github/workflows/Hurd.yml'
+
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
+
+jobs:
+  Hurd:
+    strategy:
+      matrix:
+        release: [""]
+    runs-on: ubuntu-latest
+    env:
+      TEST_PREFERRED_CHAIN: (STAGING) Pretend Pear X1
+      TEST_ACME_Server: "LetsEncrypt.org_test"
+    steps:
+    - uses: actions/checkout@v7
+    - uses: anyvm-org/cf-tunnel@v0
+      id: tunnel
+      with:
+        protocol: http
+        port: 8080
+    - name: Set envs
+      run: echo "TestingDomain=${{steps.tunnel.outputs.server}}" >> $GITHUB_ENV
+    - name: Set CASE
+      if: github.event_name == 'push'
+      shell: bash
+      env:
+        HEAD_COMMIT_MSG: ${{ github.event.head_commit.message }}
+      run: |
+        _case="$(printf '%s' "$HEAD_COMMIT_MSG" | tr ' \t' '\n\n' | grep '^CASE=le_test_' | head -1 | cut -d '=' -f 2- || true)"
+        if [ -n "$_case" ]; then
+          echo "CASE=$_case" >> "$GITHUB_ENV"
+        fi
+    - uses: vmactions/hurd-vm@v1
+      with:
+        envs: 'TestingDomain TEST_PREFERRED_CHAIN TEST_ACME_Server CASE'
+        debug-on-error: ${{ vars.DEBUG_ON_ERROR }}
+        cache-after-prepare: true
+        nat: |
+          "8080": "80"
+        prepare: |
+          apt-get update -y
+          apt-get install -y socat curl cron
+        usesh: true
+        sync: rsync
+        release: ${{ matrix.release }}
+        run: ./letest.sh
