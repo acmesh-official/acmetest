@@ -2345,6 +2345,32 @@ intermediate
 }
 
 
+le_test_extract_aki() {
+  lehome="$DEFAULT_HOME"
+
+  #issue 7159: the AKI used to be read with "grep -A 1", which Solaris
+  #/usr/bin/grep rejects ("illegal option -- A"). The empty result silently
+  #breaks the ARI certID, so renewal loses the RFC 9773 renewal window.
+  #openssl 1.x prints the value with a "keyid:" prefix
+  _aki_v1=$(printf -- '        X509v3 Subject Key Identifier: \n            AA:BB:CC:DD\n        X509v3 Authority Key Identifier: \n            keyid:14:2E:B3:17:B7:58:56:CB\n        X509v3 Basic Constraints: critical\n')
+  _assertText "142EB317B75856CB" "$(printf "%s\n" "$_aki_v1" | "$lehome/$PROJECT_ENTRY" _extractAKI)"  ||  return
+
+  #openssl 3.x prints the bare hex value
+  _aki_v3=$(printf -- '        X509v3 Authority Key Identifier: \n            14:2E:B3:17:B7:58:56:CB\n        X509v3 Basic Constraints: critical\n')
+  _assertText "142EB317B75856CB" "$(printf "%s\n" "$_aki_v3" | "$lehome/$PROJECT_ENTRY" _extractAKI)"  ||  return
+
+  #the Subject Key Identifier must not be mistaken for the Authority one
+  _aki_ski=$(printf -- '        X509v3 Subject Key Identifier: \n            AA:BB:CC:DD\n        X509v3 Authority Key Identifier: \n            11:22:33:44\n')
+  _assertText "11223344" "$(printf "%s\n" "$_aki_ski" | "$lehome/$PROJECT_ENTRY" _extractAKI)"  ||  return
+
+  #a cert without the extension yields empty output, not garbage
+  _assertText "" "$(printf -- 'X509v3 Basic Constraints: critical\nCA:FALSE\n' | "$lehome/$PROJECT_ENTRY" _extractAKI)"  ||  return
+
+  #empty input stays empty
+  _assertText "" "$(printf "" | "$lehome/$PROJECT_ENTRY" _extractAKI)"  ||  return
+}
+
+
 le_test_standandalone_blank_lines() {
   if [ "$QUICK_TEST" ] ; then
     _info "Skipped by QUICK_TEST"
