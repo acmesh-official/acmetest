@@ -56,7 +56,7 @@ jobs:
         cache-after-prepare: true
         nat: |
           "8080": "80"
-        prepare: dnf install -y curl socat cronie
+        prepare: dnf install -y curl socat cronie tar gzip
         usesh: true
         sync: rsync
         release: ${{ matrix.release }}
