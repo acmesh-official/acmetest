@@ -49,7 +49,7 @@ jobs:
         if [ -n "$_case" ]; then
           echo "CASE=$_case" >> "$GITHUB_ENV"
         fi
-    - uses: vmactions/dragonFlybsd-vm@v1
+    - uses: vmactions/dragonflybsd-vm@v1
       with:
         envs: 'TestingDomain TEST_PREFERRED_CHAIN TEST_ACME_Server CASE'
         debug-on-error: ${{ vars.DEBUG_ON_ERROR }}
