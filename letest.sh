@@ -2371,6 +2371,50 @@ le_test_extract_aki() {
 }
 
 
+le_test_rand_below() {
+  #_rand_below <max> must print a non-negative integer in [0, max) using the
+  #openssl CSPRNG. Regression guard for the ARI renewal offset: if openssl
+  #yields no output (missing/broken binary) the helper must fall back to a
+  #time-based value, never an empty string. An empty offset blanks
+  #Le_NextRenewTime under a POSIX sh forces renewal every run.
+  lehome="$DEFAULT_HOME"
+
+  #range: sampled values stay in [0, max) across several window sizes;
+  #max=1 is the deterministic corner (always 0).
+  _rb_got=""
+  for _rb_max in 1 2 100 604800; do
+    _rb_ok="Y"
+    _rb_i=0
+    while [ "$_rb_i" -lt 20 ]; do
+      _rb_v="$("$lehome/$PROJECT_ENTRY" _rand_below "$_rb_max")"
+      if [ -z "$_rb_v" ] || [ "$_rb_v" -lt 0 ] || [ "$_rb_v" -ge "$_rb_max" ]; then
+        _rb_ok="N"
+        break
+      fi
+      _rb_i=$((_rb_i + 1))
+    done
+    _rb_got="${_rb_got}${_rb_ok}"
+  done
+  _assertText "YYYY" "$_rb_got"  ||  return
+
+  #fallback: openssl produces no output -> non-empty, still in range
+  _rb_fb="$(ACME_OPENSSL_BIN=/bin/true "$lehome/$PROJECT_ENTRY" _rand_below 604800)"
+  if [ -z "$_rb_fb" ] || [ "$_rb_fb" -lt 0 ] || [ "$_rb_fb" -ge 604800 ]; then
+    __fail "fallback offset empty or out of range: [$_rb_fb]"
+    return 1
+  fi
+
+  #the CSPRNG path is not constant (guards against a degenerate fixed value)
+  _rb_a="$("$lehome/$PROJECT_ENTRY" _rand_below 604800)"
+  _rb_b="$("$lehome/$PROJECT_ENTRY" _rand_below 604800)"
+  _rb_c="$("$lehome/$PROJECT_ENTRY" _rand_below 604800)"
+  if [ "$_rb_a" = "$_rb_b" ] && [ "$_rb_b" = "$_rb_c" ]; then
+    __fail "three CSPRNG samples were identical: $_rb_a"
+    return 1
+  fi
+}
+
+
 le_test_standandalone_blank_lines() {
   if [ "$QUICK_TEST" ] ; then
     _info "Skipped by QUICK_TEST"
