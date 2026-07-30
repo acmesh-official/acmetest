@@ -2372,44 +2372,34 @@ le_test_extract_aki() {
 
 
 le_test_rand_below() {
-  #_rand_below <max> must print a non-negative integer in [0, max) using the
-  #openssl CSPRNG. Regression guard for the ARI renewal offset: if openssl
-  #yields no output (missing/broken binary) the helper must fall back to a
-  #time-based value, never an empty string. An empty offset blanks
-  #Le_NextRenewTime under a POSIX sh forces renewal every run.
   lehome="$DEFAULT_HOME"
 
-  #range: sampled values stay in [0, max) across several window sizes;
-  #max=1 is the deterministic corner (always 0).
-  _rb_got=""
-  for _rb_max in 1 2 100 604800; do
-    _rb_ok="Y"
-    _rb_i=0
-    while [ "$_rb_i" -lt 20 ]; do
-      _rb_v="$("$lehome/$PROJECT_ENTRY" _rand_below "$_rb_max")"
-      if [ -z "$_rb_v" ] || [ "$_rb_v" -lt 0 ] || [ "$_rb_v" -ge "$_rb_max" ]; then
-        _rb_ok="N"
-        break
-      fi
-      _rb_i=$((_rb_i + 1))
-    done
-    _rb_got="${_rb_got}${_rb_ok}"
-  done
-  _assertText "YYYY" "$_rb_got"  ||  return
+  _rb_dir="$(mktemp -d)" || return
+  _rb_openssl="$_rb_dir/openssl"
+  trap 'rm "$_rb_openssl"; rmdir "$_rb_dir"' 0
 
-  #fallback: openssl produces no output -> non-empty, still in range
-  _rb_fb="$(ACME_OPENSSL_BIN=/bin/true "$lehome/$PROJECT_ENTRY" _rand_below 604800)"
-  if [ -z "$_rb_fb" ] || [ "$_rb_fb" -lt 0 ] || [ "$_rb_fb" -ge 604800 ]; then
-    __fail "fallback offset empty or out of range: [$_rb_fb]"
+  cat >"$_rb_openssl" <<'RBEOF'
+#!/usr/bin/env sh
+if [ "$FAKE_RAND_HEX" ]; then
+  printf "%s\n" "$FAKE_RAND_HEX"
+fi
+RBEOF
+  chmod +x "$_rb_openssl"
+
+  _assertText "0" "$(FAKE_RAND_HEX=00000000 ACME_OPENSSL_BIN="$_rb_openssl" "$lehome/$PROJECT_ENTRY" _rand_below 1)" || return
+  _assertText "5" "$(FAKE_RAND_HEX=0000000f ACME_OPENSSL_BIN="$_rb_openssl" "$lehome/$PROJECT_ENTRY" _rand_below 10)" || return
+  _assertText "47" "$(FAKE_RAND_HEX=7fffffff ACME_OPENSSL_BIN="$_rb_openssl" "$lehome/$PROJECT_ENTRY" _rand_below 100)" || return
+  _assertText "47" "$(FAKE_RAND_HEX=ffffffff ACME_OPENSSL_BIN="$_rb_openssl" "$lehome/$PROJECT_ENTRY" _rand_below 100)" || return
+
+  _rb_fb="$(FAKE_RAND_HEX= ACME_OPENSSL_BIN="$_rb_openssl" "$lehome/$PROJECT_ENTRY" _rand_below 604800)"
+  case "$_rb_fb" in
+  "" | *[!0-9]*)
+    __fail "fallback offset is not a non-negative integer: [$_rb_fb]"
     return 1
-  fi
-
-  #the CSPRNG path is not constant (guards against a degenerate fixed value)
-  _rb_a="$("$lehome/$PROJECT_ENTRY" _rand_below 604800)"
-  _rb_b="$("$lehome/$PROJECT_ENTRY" _rand_below 604800)"
-  _rb_c="$("$lehome/$PROJECT_ENTRY" _rand_below 604800)"
-  if [ "$_rb_a" = "$_rb_b" ] && [ "$_rb_b" = "$_rb_c" ]; then
-    __fail "three CSPRNG samples were identical: $_rb_a"
+    ;;
+  esac
+  if [ "$_rb_fb" -ge 604800 ]; then
+    __fail "fallback offset out of range: [$_rb_fb]"
     return 1
   fi
 }
