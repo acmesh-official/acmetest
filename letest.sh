@@ -2068,6 +2068,27 @@ le_test_shell() {
   _assertText "Incorrect TXT record" "$_errdetail968"  ||  return
 }
 
+le_test_dns_persist_txt_name() {
+
+  #issue #7168: for a wildcard identifier the persistent TXT record lives at
+  #the BASE domain. The wildcard scope comes from 'policy=wildcard' in the
+  #record value, not from a "*" label in the record name
+  #(draft-ietf-acme-dns-persist-01 sec 4 and 10.2), so the leading "*." must be
+  #stripped. Printing _validation-persist.*.example.com sends the user to a
+  #name the CA never queries, and issuance fails with "No TXT record found".
+  _assertText "_validation-persist.example.com"      "$($lehome/$PROJECT_ENTRY _dns_persist_txt_name '*.example.com')"  ||  return
+  _assertText "_validation-persist.example.com"      "$($lehome/$PROJECT_ENTRY _dns_persist_txt_name 'example.com')"  ||  return
+  _assertText "_validation-persist.a.b.example.com"  "$($lehome/$PROJECT_ENTRY _dns_persist_txt_name '*.a.b.example.com')"  ||  return
+
+  #only a leading "*." label is stripped, anything else is left untouched
+  _assertText "_validation-persist.x.*.example.com"  "$($lehome/$PROJECT_ENTRY _dns_persist_txt_name 'x.*.example.com')"  ||  return
+
+  #no domain must print nothing at all, so callers that guard on an empty
+  #result still error out instead of publishing "_validation-persist."
+  _assertText ""  "$($lehome/$PROJECT_ENTRY _dns_persist_txt_name '')"  ||  return
+  _assertText ""  "$($lehome/$PROJECT_ENTRY _dns_persist_txt_name '*.')"  ||  return
+}
+
 le_test_assertcmd_timeout() {
 
   #_assertcmd must kill a command that exceeds LE_CMD_TIMEOUT, fail, and
