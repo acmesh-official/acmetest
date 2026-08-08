@@ -1261,6 +1261,66 @@ le_test_standandalone_listen_v6_v2() {
 }
 
 #
+le_test_standandalone_listen_v4_v6_v2() {
+  lehome="$DEFAULT_HOME"
+
+  if [ -z "$TestingDomain" ] ; then
+    __fail "Please define TestingDomain and try again."
+    return 1
+  fi
+
+  rm -rf "$lehome/$TestingDomain"
+  rm -rf "$lehome/$TestingDomain$ECC_SUFFIX"
+
+  certdir="$(pwd)/certs"
+  rm -rf "$certdir"
+  mkdir -p "$certdir"
+  cert="$certdir/domain.cer"
+  key="$certdir/domain.key"
+  ca="$certdir/ca.cer"
+  full="$certdir/full.cer"
+  _assertcmd "$lehome/$PROJECT_ENTRY  --server \"$TEST_ACME_Server\"  --issue -d $TestingDomain --standalone --listen-v4 --listen-v6 --cert-file '$cert' --key-file '$key'  --ca-file '$ca'  --reloadcmd 'echo this is reload'  --fullchain-file  '$full'" ||  return
+
+  #both options must survive in the domain conf, they used to be mutually
+  #exclusive, so the renewal silently fell back to a single family
+  _lb_conf="$(cat "$lehome/$TestingDomain/$TestingDomain.conf" 2>/dev/null)"
+  _lb_conf_v4=missing
+  case "$_lb_conf" in
+  *Le_Listen_V4=*) _lb_conf_v4=ok ;;
+  esac
+  _assertText "ok" "$_lb_conf_v4"  ||  return
+  _lb_conf_v6=missing
+  case "$_lb_conf" in
+  *Le_Listen_V6=*) _lb_conf_v6=ok ;;
+  esac
+  _assertText "ok" "$_lb_conf_v6"  ||  return
+
+  if [ -z "$NO_REVOKE" ]; then
+    sleep 5
+    _assertcmd "$lehome/$PROJECT_ENTRY --revoke -d $TestingDomain" ||  return
+    rm -f $lehome/${TestingDomain}*/$TestingDomain.key
+    rm -f $lehome/${TestingDomain}*/$TestingDomain.csr
+  fi
+  rm -rf "$certdir"
+  mkdir -p "$certdir"
+
+  if [ "$QUICK_TEST" ] ; then
+    _info "Skipped by QUICK_TEST"
+    return 0
+  fi
+
+  sleep 5
+  _assertcmd "$lehome/$PROJECT_ENTRY --renew --server \"$TEST_ACME_Server\" -d $TestingDomain --force" ||  return
+
+  if [ -z "$NO_REVOKE" ]; then
+    sleep 5
+    _assertcmd "$lehome/$PROJECT_ENTRY --revoke -d $TestingDomain" ||  return
+  fi
+  rm -rf "$certdir"
+
+}
+
+#
 le_test_standandalone_deactivate_v2() {
   lehome="$DEFAULT_HOME"
 
@@ -2066,6 +2126,57 @@ le_test_shell() {
   _errobj968="$(echo "$_errjson968" | $lehome/$PROJECT_ENTRY _egrep_o '"error":[{][^}]*')"
   _errdetail968="$(echo "$_errobj968" | $lehome/$PROJECT_ENTRY _egrep_o '"detail": *"[^"]*' | cut -d '"' -f 4)"
   _assertText "Incorrect TXT record" "$_errdetail968"  ||  return
+}
+
+le_test_startserver_listen_both() {
+  lehome="$DEFAULT_HOME"
+
+  #issue #7185: the standalone server must listen on ipv4 and ipv6 at the
+  #same time by default, otherwise an order with an ipv4 and an ipv6
+  #identifier can never pass both http-01 challenges. socat only binds
+  #ipv4 unless it is told otherwise, so this is a real regression guard.
+  #A host without ipv6 must still end up with the ipv4 listener: the ipv6
+  #socket is best effort, and ipv4-mapped ipv6 addresses are not portable
+  #(OpenBSD does not support them at all), hence one socket per family.
+  _lb_port="18080"
+  _lb_v4="$(pwd)/listen_both.v4"
+  _lb_v6="$(pwd)/listen_both.v6"
+  rm -f "$_lb_v4" "$_lb_v6"
+  #a subshell, so that the sourced acme.sh functions do not replace ours
+  (
+    . "$lehome/$PROJECT_ENTRY" >/dev/null 2>&1
+    Le_HTTPPort="$_lb_port"
+    Le_Listen_V4=""
+    Le_Listen_V6=""
+    _startserver "listen-both-ok" ""
+    sleep 3
+    curl -s --max-time 10 "http://127.0.0.1:$_lb_port/" >"$_lb_v4" 2>/dev/null
+    curl -s -g --max-time 10 "http://[::1]:$_lb_port/" >"$_lb_v6" 2>/dev/null
+    _stopserver "$serverproc"
+  )
+  _assertText "listen-both-ok" "$(cat "$_lb_v4" 2>/dev/null)"  ||  return
+  if [ "$TEST_IPV6" ]; then
+    _assertText "listen-both-ok" "$(cat "$_lb_v6" 2>/dev/null)"  ||  return
+  fi
+  rm -f "$_lb_v4" "$_lb_v6"
+
+  #--listen-v4 stays a single family, it must not answer on ipv6
+  (
+    . "$lehome/$PROJECT_ENTRY" >/dev/null 2>&1
+    Le_HTTPPort="$_lb_port"
+    Le_Listen_V4="1"
+    Le_Listen_V6=""
+    _startserver "listen-v4-ok" ""
+    sleep 3
+    curl -s --max-time 10 "http://127.0.0.1:$_lb_port/" >"$_lb_v4" 2>/dev/null
+    curl -s -g --max-time 5 "http://[::1]:$_lb_port/" >"$_lb_v6" 2>/dev/null
+    _stopserver "$serverproc"
+  )
+  _assertText "listen-v4-ok" "$(cat "$_lb_v4" 2>/dev/null)"  ||  return
+  if [ "$TEST_IPV6" ]; then
+    _assertText "" "$(cat "$_lb_v6" 2>/dev/null)"  ||  return
+  fi
+  rm -f "$_lb_v4" "$_lb_v6"
 }
 
 le_test_dns_persist_txt_name() {
