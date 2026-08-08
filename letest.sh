@@ -1282,8 +1282,9 @@ le_test_standandalone_listen_v4_v6_v2() {
   _assertcmd "$lehome/$PROJECT_ENTRY  --server \"$TEST_ACME_Server\"  --issue -d $TestingDomain --standalone --listen-v4 --listen-v6 --cert-file '$cert' --key-file '$key'  --ca-file '$ca'  --reloadcmd 'echo this is reload'  --fullchain-file  '$full'" ||  return
 
   #both options must survive in the domain conf, they used to be mutually
-  #exclusive, so the renewal silently fell back to a single family
-  _lb_conf="$(cat "$lehome/$TestingDomain/$TestingDomain.conf" 2>/dev/null)"
+  #exclusive, so the renewal silently fell back to a single family.
+  #The default key type is ec-256, so the cert dir carries the _ecc suffix.
+  _lb_conf="$(cat $lehome/${TestingDomain}*/$TestingDomain.conf 2>/dev/null)"
   _lb_conf_v4=missing
   case "$_lb_conf" in
   *Le_Listen_V4=*) _lb_conf_v4=ok ;;
@@ -2141,14 +2142,16 @@ le_test_startserver_listen_both() {
   _lb_port="18080"
   _lb_v4="$(pwd)/listen_both.v4"
   _lb_v6="$(pwd)/listen_both.v6"
-  rm -f "$_lb_v4" "$_lb_v6"
+  _lb_log="$(pwd)/listen_both.log"
+  rm -f "$_lb_v4" "$_lb_v6" "$_lb_log"
   #a subshell, so that the sourced acme.sh functions do not replace ours
   (
     . "$lehome/$PROJECT_ENTRY" >/dev/null 2>&1
+    DEBUG=1
     Le_HTTPPort="$_lb_port"
     Le_Listen_V4=""
     Le_Listen_V6=""
-    _startserver "listen-both-ok" ""
+    _startserver "listen-both-ok" "" >"$_lb_log" 2>&1
     sleep 3
     curl -s --max-time 10 "http://127.0.0.1:$_lb_port/" >"$_lb_v4" 2>/dev/null
     curl -s -g --max-time 10 "http://[::1]:$_lb_port/" >"$_lb_v6" 2>/dev/null
@@ -2158,7 +2161,20 @@ le_test_startserver_listen_both() {
   if [ "$TEST_IPV6" ]; then
     _assertText "listen-both-ok" "$(cat "$_lb_v6" 2>/dev/null)"  ||  return
   fi
-  rm -f "$_lb_v4" "$_lb_v6"
+  #the ipv6 assertion above needs TEST_IPV6, which the CI never sets, so also
+  #assert that a second family was set up at all: socat gets a TCP6-LISTEN
+  #socket next to the TCP4-LISTEN one, the python fallback binds 0.0.0.0 and
+  #:: from one list. Without this a return to a single listener goes unnoticed.
+  _lb_log_text="$(cat "$_lb_log" 2>/dev/null)"
+  _lb_dual=single
+  case "$_lb_log_text" in
+  *TCP6-LISTEN*) _lb_dual=dual ;;
+  esac
+  case "$_lb_log_text" in
+  *"0.0.0.0,::"*) _lb_dual=dual ;;
+  esac
+  _assertText "dual" "$_lb_dual"  ||  return
+  rm -f "$_lb_v4" "$_lb_v6" "$_lb_log"
 
   #--listen-v4 stays a single family, it must not answer on ipv6
   (
