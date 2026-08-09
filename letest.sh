@@ -2519,6 +2519,40 @@ le_test_extract_aki() {
 }
 
 
+le_test_rand_below() {
+  lehome="$DEFAULT_HOME"
+
+  _rb_dir="$(mktemp -d)" || return
+  _rb_openssl="$_rb_dir/openssl"
+  trap 'rm "$_rb_openssl"; rmdir "$_rb_dir"' 0
+
+  cat >"$_rb_openssl" <<'RBEOF'
+#!/usr/bin/env sh
+if [ "$FAKE_RAND_HEX" ]; then
+  printf "%s\n" "$FAKE_RAND_HEX"
+fi
+RBEOF
+  chmod +x "$_rb_openssl"
+
+  _assertText "0" "$(FAKE_RAND_HEX=00000000 ACME_OPENSSL_BIN="$_rb_openssl" "$lehome/$PROJECT_ENTRY" _rand_below 1)" || return
+  _assertText "5" "$(FAKE_RAND_HEX=0000000f ACME_OPENSSL_BIN="$_rb_openssl" "$lehome/$PROJECT_ENTRY" _rand_below 10)" || return
+  _assertText "47" "$(FAKE_RAND_HEX=7fffffff ACME_OPENSSL_BIN="$_rb_openssl" "$lehome/$PROJECT_ENTRY" _rand_below 100)" || return
+  _assertText "47" "$(FAKE_RAND_HEX=ffffffff ACME_OPENSSL_BIN="$_rb_openssl" "$lehome/$PROJECT_ENTRY" _rand_below 100)" || return
+
+  _rb_fb="$(FAKE_RAND_HEX= ACME_OPENSSL_BIN="$_rb_openssl" "$lehome/$PROJECT_ENTRY" _rand_below 604800)"
+  case "$_rb_fb" in
+  "" | *[!0-9]*)
+    __fail "fallback offset is not a non-negative integer: [$_rb_fb]"
+    return 1
+    ;;
+  esac
+  if [ "$_rb_fb" -ge 604800 ]; then
+    __fail "fallback offset out of range: [$_rb_fb]"
+    return 1
+  fi
+}
+
+
 le_test_standandalone_blank_lines() {
   if [ "$QUICK_TEST" ] ; then
     _info "Skipped by QUICK_TEST"
