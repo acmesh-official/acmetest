@@ -2493,6 +2493,40 @@ intermediate
 }
 
 
+le_test_filter_cron_bin() {
+  lehome="$DEFAULT_HOME"
+
+  #issue 7135: an ACME_PACKAGED install does not copy the script into
+  #LE_WORKING_DIR, and the package manager removes an older copy, so a cron
+  #entry left over from a normal install calls a file that is not there any
+  #more. installcronjob drops those entries before installing the current one.
+  _fcb_crontab='0 1 * * * /usr/bin/backup.sh
+54 18 * * * "/home/dev/.acme.sh"/acme.sh --cron --home "/home/dev/.acme.sh" > /dev/null
+30 2 * * * /usr/bin/other'
+  _fcb_kept='0 1 * * * /usr/bin/backup.sh
+30 2 * * * /usr/bin/other'
+  _assertText "$_fcb_kept" "$(printf "%s\n" "$_fcb_crontab" | "$lehome/$PROJECT_ENTRY" _filter_cron_bin '"/home/dev/.acme.sh"/acme.sh')"  ||  return
+
+  #an entry calling a different acme.sh is not this install's, so it stays
+  _assertText "$_fcb_crontab" "$(printf "%s\n" "$_fcb_crontab" | "$lehome/$PROJECT_ENTRY" _filter_cron_bin '"/opt/acme"/acme.sh')"  ||  return
+
+  #the path is matched literally: the dot of .acme.sh must not match any
+  #character the way a regex would
+  _fcb_lookalike='54 18 * * * "/home/dev/Xacme.sh"/acme.sh --cron --home "/home/dev/Xacme.sh" > /dev/null'
+  _assertText "$_fcb_lookalike" "$(printf "%s\n" "$_fcb_lookalike" | "$lehome/$PROJECT_ENTRY" _filter_cron_bin '"/home/dev/.acme.sh"/acme.sh')"  ||  return
+
+  #a crontab holding nothing but the stale entry filters down to nothing
+  _fcb_only='54 18 * * * "/home/dev/.acme.sh"/acme.sh --cron --home "/home/dev/.acme.sh" > /dev/null'
+  _assertText "" "$(printf "%s\n" "$_fcb_only" | "$lehome/$PROJECT_ENTRY" _filter_cron_bin '"/home/dev/.acme.sh"/acme.sh')"  ||  return
+
+  #without a path nothing is dropped: never wipe cron jobs on a bad call
+  _assertText "$_fcb_crontab" "$(printf "%s\n" "$_fcb_crontab" | "$lehome/$PROJECT_ENTRY" _filter_cron_bin "")"  ||  return
+
+  #empty input stays empty
+  _assertText "" "$(printf "" | "$lehome/$PROJECT_ENTRY" _filter_cron_bin '"/home/dev/.acme.sh"/acme.sh')"  ||  return
+}
+
+
 le_test_extract_aki() {
   lehome="$DEFAULT_HOME"
 
