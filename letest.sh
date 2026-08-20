@@ -2511,7 +2511,8 @@ le_test_filter_cron_bin() {
   _assertText "$_fcb_crontab" "$(printf "%s\n" "$_fcb_crontab" | "$lehome/$PROJECT_ENTRY" _filter_cron_bin '"/opt/acme"/acme.sh')"  ||  return
 
   #the path is matched literally: the dot of .acme.sh must not match any
-  #character the way a regex would
+  #character the way a regex would. This has to hold without grep -F, which
+  #Solaris /usr/bin/grep rejects ("illegal option -- F")
   _fcb_lookalike='54 18 * * * "/home/dev/Xacme.sh"/acme.sh --cron --home "/home/dev/Xacme.sh" > /dev/null'
   _assertText "$_fcb_lookalike" "$(printf "%s\n" "$_fcb_lookalike" | "$lehome/$PROJECT_ENTRY" _filter_cron_bin '"/home/dev/.acme.sh"/acme.sh')"  ||  return
 
