@@ -13,6 +13,8 @@ Unit test project for **acme.sh** project https://github.com/acmesh-official/acm
 |DragonFlyBSD| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/DragonFlyBSD.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/DragonFlyBSD.yml) |
 |MidnightBSD| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/MidnightBSD.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/MidnightBSD.yml) |
 |GhostBSD| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/GhostBSD.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/GhostBSD.yml) |
+|HardenedBSD| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/HardenedBSD.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/HardenedBSD.yml) |
+|OPNsense| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/OPNsense.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/OPNsense.yml) |
 |pfsense| NA |
 |Omnios| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/Omnios.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/Omnios.yml)|
 |solaris| [![LetsEncrypt](https://github.com/acmesh-official/acmetest/actions/workflows/Solaris.yml/badge.svg)](https://github.com/acmesh-official/acmetest/actions/workflows/Solaris.yml)|
