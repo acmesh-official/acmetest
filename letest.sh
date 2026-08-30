@@ -2342,10 +2342,13 @@ le_test_ss_port_in_use() {
 
   _ssp_text="$(cat "$_ssp_used" 2>/dev/null)"
   _ssp_found=notfound
-  #fold the case: haiku spells the state "listen", windows "LISTENING" and
-  #everyone else "LISTEN". _filter_listen_port matches it with grep -i, so an
-  #upper case only pattern here fails a platform the code actually handles.
-  case "$(printf '%s' "$_ssp_text" | tr 'A-Z' 'a-z')" in
+  #haiku spells the state "listen", windows "LISTENING", everyone else
+  #"LISTEN". _filter_listen_port matches it with grep -i, so match both cases
+  #here too. Spelled out rather than folded with tr: solaris' /usr/bin/tr is
+  #the SVR4 one, where a range needs brackets ("tr '[A-Z]' '[a-z]'") and a
+  #bare "A-Z" translates the three literal characters A, - and Z.
+  case "$_ssp_text" in
+  *LISTEN*"$_ssp_port"* | *"$_ssp_port"*LISTEN*) _ssp_found=ok ;;
   *listen*"$_ssp_port"* | *"$_ssp_port"*listen*) _ssp_found=ok ;;
   esac
   if [ "$_ssp_found" != "ok" ]; then
