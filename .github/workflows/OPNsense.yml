@@ -56,17 +56,19 @@ jobs:
         cache-after-prepare: true
         nat: |
           "8080": "80"
-        prepare: |
-          pkg install -y socat curl
-          #OPNsense is a firewall appliance: its web GUI keeps an http redirect
-          #on the 80 port, where every --standalone case listens. Dropping the
-          #redirect frees 80 and leaves the GUI on 443, and the edit is in
-          #config.xml, so it survives the cache-after-prepare reboot. Giving
-          #acme.sh another port instead does not work here: pf passes inbound
-          #22/80/443 only, and a pfctl -d does not survive that reboot.
-          grep -q disablehttpredirect /conf/config.xml || sed -i '' -e 's|<webgui>|<webgui><disablehttpredirect>1</disablehttpredirect>|' /conf/config.xml
-          configctl webgui restart
+        prepare: pkg install -y socat curl
         usesh: true
         sync: nfs
         release: ${{ matrix.release }}
-        run: ./letest.sh
+        run: |
+          #OPNsense is a firewall appliance whose web GUI holds the 80 port,
+          #where every --standalone case listens. configd has no "stop"
+          #action for it and the rc script cannot stop it either, so kill it.
+          #This belongs here and not in prepare: prepare runs before the
+          #cache-after-prepare reboot, which would bring the GUI back. And do
+          #NOT free the port by disabling the GUI's http redirect in
+          #config.xml: pf's automatic pass rule for the 80 port is generated
+          #from the web GUI settings, so dropping the redirect also drops the
+          #rule on the next boot, and the inbound challenge is filtered.
+          pkill lighttpd || true
+          ./letest.sh
