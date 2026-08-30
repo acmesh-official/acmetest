@@ -2554,6 +2554,58 @@ le_test_extract_aki() {
 }
 
 
+le_test_setopt_escape() {
+  lehome="$DEFAULT_HOME"
+
+  #issue 7213: a saved value holding backslash-digit (e.g. \1 in a deploy
+  #command) or an embedded line break made the _setopt replace sed fail
+  #AFTER the shell had already truncated the conf file: the whole domain
+  #conf was wiped and the cert could not renew any more. Same class as
+  #issue 2426 ('|' and '&', escaped since 3.0.5).
+  _soe_conf="$(pwd)/setopt_escape.conf"
+  printf "%s\n" "Le_Domain='example.com'" "KEY='old'" "TAIL='tail'" >"$_soe_conf"
+
+  #a backslash-digit value is saved intact and the other lines are kept
+  "$lehome/$PROJECT_ENTRY" _setopt "$_soe_conf" "KEY" "=" "'back\1slash'"
+  _soe_expected="Le_Domain='example.com'
+KEY='back\1slash'
+TAIL='tail'"
+  _assertText "$_soe_expected" "$(cat "$_soe_conf")"  ||  return
+  #and it reads back byte for byte
+  _assertText "back\1slash" "$("$lehome/$PROJECT_ENTRY" _read_conf "$_soe_conf" "KEY")"  ||  return
+
+  #a plain backslash value survives the save/read round trip (dash's echo
+  #used to interpret sequences like \n while rewriting the file)
+  "$lehome/$PROJECT_ENTRY" _setopt "$_soe_conf" "KEY" "=" "'C:\path\new folder'"
+  _assertText "C:\path\new folder" "$("$lehome/$PROJECT_ENTRY" _read_conf "$_soe_conf" "KEY")"  ||  return
+
+  #the issue 2426 characters still work, also combined with a backslash
+  "$lehome/$PROJECT_ENTRY" _setopt "$_soe_conf" "KEY" "=" "'cmd || true & \2'"
+  _assertText "cmd || true & \2" "$("$lehome/$PROJECT_ENTRY" _read_conf "$_soe_conf" "KEY")"  ||  return
+
+  #a value with a line break cannot be represented in the line-based conf:
+  #it is rejected and the file is left unchanged, never truncated
+  _soe_before="$(cat "$_soe_conf")"
+  _soe_nl="server1
+server2"
+  if "$lehome/$PROJECT_ENTRY" _setopt "$_soe_conf" "KEY" "=" "'$_soe_nl'" 2>/dev/null; then
+    __fail "a value with a line break must be rejected"
+    return 1
+  fi
+  _assertText "$_soe_before" "$(cat "$_soe_conf")"  ||  return
+
+  #_clear_conf rewrites the whole file: backslash values on OTHER lines
+  #must survive the rewrite
+  printf "%s\n" "A='1'" "B='C:\path\new folder'" "C='has \c mark'" >"$_soe_conf"
+  "$lehome/$PROJECT_ENTRY" _clear_conf "$_soe_conf" "A"
+  _soe_cleared="B='C:\path\new folder'
+C='has \c mark'"
+  _assertText "$_soe_cleared" "$(cat "$_soe_conf")"  ||  return
+
+  rm -f "$_soe_conf"
+}
+
+
 le_test_standandalone_blank_lines() {
   if [ "$QUICK_TEST" ] ; then
     _info "Skipped by QUICK_TEST"
