@@ -2163,6 +2163,33 @@ le_test_gateway_error_codes() {
   _assertText "notretried empty" "$_gec_verdict empty"  ||  return
 }
 
+#The waits _send_signed_request uses when the CA sends no Retry-After. They
+#have to grow: a flat two seconds spent the whole twenty attempt budget in
+#forty eight seconds, shorter than the gateway outages that motivated it,
+#so a renewal starting inside one could never wait it out.
+le_test_retry_backoff() {
+  lehome="$DEFAULT_HOME"
+
+  _assertText "2" "$($lehome/$PROJECT_ENTRY _retry_backoff_sec 1)"   ||  return
+  _assertText "5" "$($lehome/$PROJECT_ENTRY _retry_backoff_sec 2)"   ||  return
+  _assertText "10" "$($lehome/$PROJECT_ENTRY _retry_backoff_sec 3)"  ||  return
+  _assertText "20" "$($lehome/$PROJECT_ENTRY _retry_backoff_sec 4)"  ||  return
+  #the cap holds for the rest of the budget, and for anything unexpected
+  _assertText "20" "$($lehome/$PROJECT_ENTRY _retry_backoff_sec 20)" ||  return
+  _assertText "20" "$($lehome/$PROJECT_ENTRY _retry_backoff_sec 0)"  ||  return
+
+  #never zero and never empty: either would turn the retry loop into a busy
+  #spin against a CA that is already struggling
+  _rb_verdict=ok
+  for _rb_n in 1 2 3 4 5 20 99; do
+    _rb_v="$($lehome/$PROJECT_ENTRY _retry_backoff_sec "$_rb_n")"
+    if [ -z "$_rb_v" ] || [ "$_rb_v" -lt 1 ]; then
+      _rb_verdict="attempt $_rb_n gave '$_rb_v'"
+    fi
+  done
+  _assertText "ok" "$_rb_verdict"  ||  return
+}
+
 #Fetch a url into a file, retrying until it answers. The standalone server
 #is started in the background, and how long it needs before it accepts a
 #connection is a property of the host, not of what this test asserts: on
