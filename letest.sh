@@ -2129,6 +2129,27 @@ le_test_shell() {
   _assertText "Incorrect TXT record" "$_errdetail968"  ||  return
 }
 
+#Fetch a url into a file, retrying until it answers. The standalone server
+#is started in the background, and how long it needs before it accepts a
+#connection is a property of the host, not of what this test asserts: on
+#Haiku there is no socat, so acme.sh falls back to python, and python3
+#alone takes about three seconds to start there. A fixed `sleep 3` sat
+#right on that boundary and made the test fail most days.
+_lb_fetch() {
+  _lbf_url="$1"
+  _lbf_out="$2"
+  _lbf_n=0
+  while [ "$_lbf_n" -lt 30 ]; do
+    _lbf_n=$((_lbf_n + 1))
+    curl -s -g --max-time 5 "$_lbf_url" >"$_lbf_out" 2>/dev/null
+    if [ -s "$_lbf_out" ]; then
+      return 0
+    fi
+    sleep 1
+  done
+  return 1
+}
+
 le_test_startserver_listen_both() {
   lehome="$DEFAULT_HOME"
 
@@ -2152,8 +2173,8 @@ le_test_startserver_listen_both() {
     Le_Listen_V4=""
     Le_Listen_V6=""
     _startserver "listen-both-ok" "" >"$_lb_log" 2>&1
-    sleep 3
-    curl -s --max-time 10 "http://127.0.0.1:$_lb_port/" >"$_lb_v4" 2>/dev/null
+    _lb_fetch "http://127.0.0.1:$_lb_port/" "$_lb_v4"
+    #once ipv4 answers the server is up, so ipv6 is a single shot
     curl -s -g --max-time 10 "http://[::1]:$_lb_port/" >"$_lb_v6" 2>/dev/null
     _stopserver "$serverproc"
   )
@@ -2183,8 +2204,8 @@ le_test_startserver_listen_both() {
     Le_Listen_V4="1"
     Le_Listen_V6=""
     _startserver "listen-v4-ok" ""
-    sleep 3
-    curl -s --max-time 10 "http://127.0.0.1:$_lb_port/" >"$_lb_v4" 2>/dev/null
+    _lb_fetch "http://127.0.0.1:$_lb_port/" "$_lb_v4"
+    #this one must stay empty, so it cannot be retried
     curl -s -g --max-time 5 "http://[::1]:$_lb_port/" >"$_lb_v6" 2>/dev/null
     _stopserver "$serverproc"
   )
@@ -2193,6 +2214,143 @@ le_test_startserver_listen_both() {
     _assertText "" "$(cat "$_lb_v6" 2>/dev/null)"  ||  return
   fi
   rm -f "$_lb_v4" "$_lb_v6"
+}
+
+le_test_filter_listen_port() {
+  lehome="$DEFAULT_HOME"
+
+  #The standalone port guard ("tcp port X is already used") only fires when
+  #_ss finds the listener, and _ss has to read whatever the local netstat or
+  #ss prints. Linux and windows print the local address as "addr:port", aix,
+  #macos, the bsds and solaris print it as "addr.port"; windows spells the
+  #state LISTENING, haiku lower case "listen", everyone else LISTEN. Matching
+  #only ":port " plus "LISTENING" made the guard fail open on every bsd:
+  #acme.sh carried on and socat failed to bind much later, far less obviously.
+
+  #bsd style: "*.port", state LISTEN. A listener on 18080 must not answer for
+  #8080, and an established connection on 8080 is not a listener.
+  _flp_bsd='Active Internet connections (including servers)
+Proto Recv-Q Send-Q Local Address          Foreign Address       (state)
+tcp4       0      0 *.8080                 *.*                   LISTEN
+tcp4       0      0 *.18080                *.*                   LISTEN
+tcp4       0      0 127.0.0.1.8080         127.0.0.1.51234       ESTABLISHED
+tcp6       0      0 *.22                   *.*                   LISTEN'
+  _flp_want='tcp4       0      0 *.8080                 *.*                   LISTEN'
+  _assertText "$_flp_want" "$(echo "$_flp_bsd" | $lehome/$PROJECT_ENTRY _filter_listen_port 8080)"  ||  return
+  _flp_want='tcp6       0      0 *.22                   *.*                   LISTEN'
+  _assertText "$_flp_want" "$(echo "$_flp_bsd" | $lehome/$PROJECT_ENTRY _filter_listen_port 22)"  ||  return
+
+  #a free port and a missing port argument must both print nothing at all, so
+  #the caller keeps treating the port as available instead of erroring out
+  _assertText "" "$(echo "$_flp_bsd" | $lehome/$PROJECT_ENTRY _filter_listen_port 99)"  ||  return
+  _assertText "" "$(echo "$_flp_bsd" | $lehome/$PROJECT_ENTRY _filter_listen_port '')"  ||  return
+
+  #solaris and illumos: "*.port" again, but the state is the last column and
+  #the lines have no "tcp" prefix at all
+  _flp_sol='TCP: IPv4
+   Local Address        Remote Address    Swind Send-Q Rwind Recv-Q    State
+-------------------- -------------------- ----- ------ ----- ------ -----------
+      *.8080               *.*                0      0 128000      0 LISTEN
+      *.22                 *.*                0      0 128000      0 LISTEN'
+  _flp_want='      *.8080               *.*                0      0 128000      0 LISTEN'
+  _assertText "$_flp_want" "$(echo "$_flp_sol" | $lehome/$PROJECT_ENTRY _filter_listen_port 8080)"  ||  return
+
+  #linux ss: the state is the first column and ipv6 shows up as "[::]:port"
+  _flp_ss='State   Recv-Q  Send-Q   Local Address:Port    Peer Address:Port  Process
+LISTEN  0       4096           0.0.0.0:8080         0.0.0.0:*      users:(("socat",pid=11,fd=5))
+LISTEN  0       4096              [::]:22              [::]:*      users:(("sshd",pid=22,fd=3))'
+  _flp_want='LISTEN  0       4096           0.0.0.0:8080         0.0.0.0:*      users:(("socat",pid=11,fd=5))'
+  _assertText "$_flp_want" "$(echo "$_flp_ss" | $lehome/$PROJECT_ENTRY _filter_listen_port 8080)"  ||  return
+  _flp_want='LISTEN  0       4096              [::]:22              [::]:*      users:(("sshd",pid=22,fd=3))'
+  _assertText "$_flp_want" "$(echo "$_flp_ss" | $lehome/$PROJECT_ENTRY _filter_listen_port 22)"  ||  return
+
+  #linux netstat, with the pid column that busybox does not have
+  _flp_net='Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
+tcp        0      0 0.0.0.0:8080            0.0.0.0:*               LISTEN      1234/socat
+tcp6       0      0 :::22                   :::*                    LISTEN      567/sshd'
+  _flp_want='tcp        0      0 0.0.0.0:8080            0.0.0.0:*               LISTEN      1234/socat'
+  _assertText "$_flp_want" "$(echo "$_flp_net" | $lehome/$PROJECT_ENTRY _filter_listen_port 8080)"  ||  return
+  _flp_want='tcp6       0      0 :::22                   :::*                    LISTEN      567/sshd'
+  _assertText "$_flp_want" "$(echo "$_flp_net" | $lehome/$PROJECT_ENTRY _filter_listen_port 22)"  ||  return
+
+  #windows netstat: "addr:port" but the state is LISTENING
+  _flp_win='Active Connections
+
+  Proto  Local Address          Foreign Address        State
+  TCP    0.0.0.0:8080           0.0.0.0:0              LISTENING
+  TCP    0.0.0.0:18080          0.0.0.0:0              LISTENING
+  TCP    127.0.0.1:8080         127.0.0.1:51234        ESTABLISHED'
+  _flp_want='  TCP    0.0.0.0:8080           0.0.0.0:0              LISTENING'
+  _assertText "$_flp_want" "$(echo "$_flp_win" | $lehome/$PROJECT_ENTRY _filter_listen_port 8080)"  ||  return
+
+  #haiku spells the state in lower case ("listen", src/bin/network/netstat)
+  _flp_haiku='Proto  Recv-Q Send-Q Local Address        Foreign Address      State        Program
+tcp         0      0 0.0.0.0:8080         0.0.0.0:0            listen       285/socat
+tcp         0      0 0.0.0.0:22           0.0.0.0:0            listen       111/sshd'
+  _flp_want='tcp         0      0 0.0.0.0:8080         0.0.0.0:0            listen       285/socat'
+  _assertText "$_flp_want" "$(echo "$_flp_haiku" | $lehome/$PROJECT_ENTRY _filter_listen_port 8080)"  ||  return
+
+  #aix netstat -an, already reduced to its tcp lines by _ss
+  _flp_aix='tcp4       0      0  *.8080                 *.*                    LISTEN
+tcp        0      0  *.22                   *.*                    LISTEN'
+  _flp_want='tcp4       0      0  *.8080                 *.*                    LISTEN'
+  _assertText "$_flp_want" "$(echo "$_flp_aix" | $lehome/$PROJECT_ENTRY _filter_listen_port 8080)"  ||  return
+}
+
+le_test_ss_port_in_use() {
+  lehome="$DEFAULT_HOME"
+
+  #_filter_listen_port above only proves the parsing. This one proves that the
+  #branch _ss picks on THIS platform really lists listening sockets: on the
+  #bsds "netstat -help" advertises "-p protocol", which used to send them down
+  #the windows branch, and netbsd's -p prints protocol statistics rather than
+  #sockets. A branch that silently matches nothing stays invisible until a
+  #user hits "socat: bind: address already in use".
+  _ssp_port="18099"
+  _ssp_free="$(pwd)/ss_port.free"
+  _ssp_used="$(pwd)/ss_port.used"
+  _ssp_curl="$(pwd)/ss_port.curl"
+  rm -f "$_ssp_free" "$_ssp_used" "$_ssp_curl"
+
+  if ! _exists ss && ! _exists netstat; then
+    _info "Skipped, neither ss nor netstat is available"
+    __CASE_SKIPPED="1"
+    return 0
+  fi
+
+  #a subshell, so that the sourced acme.sh functions do not replace ours
+  (
+    . "$lehome/$PROJECT_ENTRY" >/dev/null 2>&1
+    _ss "$_ssp_port" >"$_ssp_free" 2>/dev/null
+    Le_HTTPPort="$_ssp_port"
+    Le_Listen_V4=""
+    Le_Listen_V6=""
+    _startserver "ss-port-in-use" "" >/dev/null 2>&1
+    #_lb_fetch waits for the server instead of guessing how long it needs
+    _lb_fetch "http://127.0.0.1:$_ssp_port/" "$_ssp_curl"
+    _ss "$_ssp_port" >"$_ssp_used" 2>/dev/null
+    _stopserver "$serverproc"
+  )
+
+  #nothing may listen on the port before the server starts, otherwise the
+  #assertion below would pass without _ss working at all
+  _assertText "" "$(cat "$_ssp_free" 2>/dev/null)"  ||  return
+
+  #if the server never came up, say so here instead of blaming _ss
+  _assertText "ss-port-in-use" "$(cat "$_ssp_curl" 2>/dev/null)"  ||  return
+
+  _ssp_text="$(cat "$_ssp_used" 2>/dev/null)"
+  _ssp_found=notfound
+  case "$_ssp_text" in
+  *LISTEN*"$_ssp_port"* | *"$_ssp_port"*LISTEN*) _ssp_found=ok ;;
+  esac
+  if [ "$_ssp_found" != "ok" ]; then
+    _info "uname" "$(uname)"
+    _info "_ss output" "$_ssp_text"
+  fi
+  _assertText "ok" "$_ssp_found"  ||  return
+  rm -f "$_ssp_free" "$_ssp_used" "$_ssp_curl"
 }
 
 le_test_dns_persist_txt_name() {
