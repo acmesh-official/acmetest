@@ -2342,8 +2342,11 @@ le_test_ss_port_in_use() {
 
   _ssp_text="$(cat "$_ssp_used" 2>/dev/null)"
   _ssp_found=notfound
-  case "$_ssp_text" in
-  *LISTEN*"$_ssp_port"* | *"$_ssp_port"*LISTEN*) _ssp_found=ok ;;
+  #fold the case: haiku spells the state "listen", windows "LISTENING" and
+  #everyone else "LISTEN". _filter_listen_port matches it with grep -i, so an
+  #upper case only pattern here fails a platform the code actually handles.
+  case "$(printf '%s' "$_ssp_text" | tr 'A-Z' 'a-z')" in
+  *listen*"$_ssp_port"* | *"$_ssp_port"*listen*) _ssp_found=ok ;;
   esac
   if [ "$_ssp_found" != "ok" ]; then
     _info "uname" "$(uname)"
