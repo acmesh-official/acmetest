@@ -2129,6 +2129,40 @@ le_test_shell() {
   _assertText "Incorrect TXT record" "$_errdetail968"  ||  return
 }
 
+#_send_signed_request retries a gateway error instead of handing the caller
+#a body it cannot parse. ZeroSSL served 502 and 504 from acme.zerossl.com
+#for days in 2026-08, on newNonce, on the authz poll and on finalize, and
+#every issue died on the first one: the body is the proxy's html, the authz
+#poll finds no "status" in it and gives up with "Unknown status". A 500 is
+#the ACME implementation itself answering and must still reach the caller.
+le_test_gateway_error_codes() {
+  lehome="$DEFAULT_HOME"
+
+  for _gec in 502 503 504; do
+    _gec_verdict=notretried
+    if $lehome/$PROJECT_ENTRY _is_gateway_error "$_gec" >/dev/null 2>&1; then
+      _gec_verdict=retried
+    fi
+    _assertText "retried $_gec" "$_gec_verdict $_gec"  ||  return
+  done
+
+  for _gec in 200 201 400 403 404 409 429 500 501; do
+    _gec_verdict=notretried
+    if $lehome/$PROJECT_ENTRY _is_gateway_error "$_gec" >/dev/null 2>&1; then
+      _gec_verdict=retried
+    fi
+    _assertText "notretried $_gec" "$_gec_verdict $_gec"  ||  return
+  done
+
+  #no status at all: curl never got an answer, which is a different failure
+  #and must not be mistaken for a gateway telling us to come back
+  _gec_verdict=notretried
+  if $lehome/$PROJECT_ENTRY _is_gateway_error "" >/dev/null 2>&1; then
+    _gec_verdict=retried
+  fi
+  _assertText "notretried empty" "$_gec_verdict empty"  ||  return
+}
+
 #Fetch a url into a file, retrying until it answers. The standalone server
 #is started in the background, and how long it needs before it accepts a
 #connection is a property of the host, not of what this test asserts: on
