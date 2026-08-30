@@ -804,15 +804,17 @@ _setup() {
     $lehome/$PROJECT_ENTRY --uninstall >/dev/null 2>&1
   fi
   
-  if [ -d $DEFAULT_HOME ] ; then 
-    rm -rf $DEFAULT_HOME
+  if [ -d "$DEFAULT_HOME" ] ; then
+    rm -rf "$DEFAULT_HOME"
   fi
   
   #reuse ca account keys for the low acount rate limit
   if [ -d "ca" ]; then
     mkdir -p "$DEFAULT_HOME"
     cp -r ca "$DEFAULT_HOME/"
-    rm -f "$DEFAULT_HOME/ca/*/ca.conf"
+    #the glob only expands outside the quotes, and acme.sh moved ca.conf one
+    #level deeper (ca/<host>/<dir>) when it started keying on the server path
+    rm -f "$DEFAULT_HOME"/ca/*/ca.conf "$DEFAULT_HOME"/ca/*/*/ca.conf
   fi
 
 }
@@ -969,8 +971,8 @@ le_test_install_completion() {
 
 le_test_installtodir() {
   lehome="$HOME/myle"
-  if [ -d $lehome ] ; then
-    rm -rf $lehome
+  if [ -d "$lehome" ] ; then
+    rm -rf "$lehome"
   fi
   cd acme.sh;
   LE_WORKING_DIR=$lehome
@@ -984,15 +986,15 @@ le_test_installtodir() {
   _assertcmd "_contains '$_c_entry' '\\* \\* \\* \"$lehome\"/$PROJECT_ENTRY --cron --home \"$lehome\" > /dev/null'" || return
   _assertcmd "$lehome/$PROJECT_ENTRY --uninstall" ||  return
   if [ -z "$DEBUG" ]; then
-    rm -rf $lehome
+    rm -rf "$lehome"
   fi
 }
 
 le_test_uninstalltodir() {
   lehome="$HOME/myle"
-  
-  if [ -d $lehome ] ; then
-    rm -rf $lehome
+
+  if [ -d "$lehome" ] ; then
+    rm -rf "$lehome"
   fi
   
   cd acme.sh;
@@ -1006,7 +1008,7 @@ le_test_uninstalltodir() {
   _assertnotexists "$lehome/$PROJECT_ENTRY" ||  return
   _assertequals "" "$(crontab -l | grep $PROJECT_ENTRY)" ||  return
   if [ -z "$DEBUG" ]; then
-    rm -rf $lehome
+    rm -rf "$lehome"
   fi
 }
 
