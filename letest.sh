@@ -2192,6 +2192,54 @@ le_test_retry_backoff() {
   _assertText "ok" "$_rb_verdict"  ||  return
 }
 
+#Which revokeCert answers mean the certificate is revoked. Retrying through
+#a gateway error can land on a request the CA already carried out, and it
+#then answers alreadyRevoked: the reply to the first attempt was eaten, not
+#the revocation. ZeroSSL did exactly that on 2026-08-30, and reporting it as
+#a failure sent acme.sh on to retry with the domain key for a certificate
+#that was already gone.
+le_test_revoked_response() {
+  lehome="$DEFAULT_HOME"
+
+  #the plain success: revokeCert answers 200 with an empty body
+  _rr_verdict=notrevoked
+  if $lehome/$PROJECT_ENTRY _is_revoked_response "" >/dev/null 2>&1; then
+    _rr_verdict=revoked
+  fi
+  _assertText "revoked empty" "$_rr_verdict empty"  ||  return
+
+  _rr_already='{"type":"urn:ietf:params:acme:error:alreadyRevoked","status":400,"detail":"The certificate is already revoked"}'
+  _rr_verdict=notrevoked
+  if $lehome/$PROJECT_ENTRY _is_revoked_response "$_rr_already" >/dev/null 2>&1; then
+    _rr_verdict=revoked
+  fi
+  _assertText "revoked already" "$_rr_verdict already"  ||  return
+
+  #any other error is still an error: it must not be swallowed
+  _rr_other='{"type":"urn:ietf:params:acme:error:unauthorized","status":403,"detail":"No authorization provided for name example.com"}'
+  _rr_verdict=notrevoked
+  if $lehome/$PROJECT_ENTRY _is_revoked_response "$_rr_other" >/dev/null 2>&1; then
+    _rr_verdict=revoked
+  fi
+  _assertText "notrevoked other" "$_rr_verdict other"  ||  return
+
+  _rr_verdict=notrevoked
+  if $lehome/$PROJECT_ENTRY _is_revoked_response "some unexpected body" >/dev/null 2>&1; then
+    _rr_verdict=revoked
+  fi
+  _assertText "notrevoked body" "$_rr_verdict body"  ||  return
+
+  #the bare word is not the error type: a body that only mentions it must not
+  #be read as a revocation, because claiming one that never happened is far
+  #worse than reporting a failure for one that did
+  _rr_word='{"type":"urn:ietf:params:acme:error:malformed","status":400,"detail":"reason must not be alreadyRevoked here"}'
+  _rr_verdict=notrevoked
+  if $lehome/$PROJECT_ENTRY _is_revoked_response "$_rr_word" >/dev/null 2>&1; then
+    _rr_verdict=revoked
+  fi
+  _assertText "notrevoked word" "$_rr_verdict word"  ||  return
+}
+
 #Fetch a url into a file, retrying until it answers. The standalone server
 #is started in the background, and how long it needs before it accepts a
 #connection is a property of the host, not of what this test asserts: on
