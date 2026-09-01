@@ -2240,6 +2240,44 @@ le_test_revoked_response() {
   _assertText "notrevoked word" "$_rr_verdict word"  ||  return
 }
 
+#Which finalize answers mean "wait", not "give up". Every authorization is
+#valid by the time acme.sh finalizes, so an order that is not ready is the
+#CA's state lagging behind its own authorizations. ZeroSSL answered
+#orderNotReady on 2026-08-31 forty seconds after the authorization went
+#valid, and the order was abandoned with all of its challenges passed.
+le_test_order_not_ready() {
+  lehome="$DEFAULT_HOME"
+
+  _onr_lag='{"type":"urn:ietf:params:acme:error:orderNotReady","status":403,"detail":"The request attempted to finalize an order that is not ready to be finalized"}'
+  _onr_verdict=ready
+  if $lehome/$PROJECT_ENTRY _is_order_not_ready "$_onr_lag" >/dev/null 2>&1; then
+    _onr_verdict=notready
+  fi
+  _assertText "notready lag" "$_onr_verdict lag"  ||  return
+
+  #a real refusal has to stay a refusal rather than become minutes of waiting
+  _onr_bad='{"type":"urn:ietf:params:acme:error:badCSR","status":400,"detail":"CSR contains a key of unsupported size"}'
+  _onr_verdict=ready
+  if $lehome/$PROJECT_ENTRY _is_order_not_ready "$_onr_bad" >/dev/null 2>&1; then
+    _onr_verdict=notready
+  fi
+  _assertText "ready badcsr" "$_onr_verdict badcsr"  ||  return
+
+  _onr_verdict=ready
+  if $lehome/$PROJECT_ENTRY _is_order_not_ready "" >/dev/null 2>&1; then
+    _onr_verdict=notready
+  fi
+  _assertText "ready empty" "$_onr_verdict empty"  ||  return
+
+  #same rule as the revoke check: the bare word is not the error type
+  _onr_word='{"type":"urn:ietf:params:acme:error:malformed","status":400,"detail":"orderNotReady is not a valid reason"}'
+  _onr_verdict=ready
+  if $lehome/$PROJECT_ENTRY _is_order_not_ready "$_onr_word" >/dev/null 2>&1; then
+    _onr_verdict=notready
+  fi
+  _assertText "ready word" "$_onr_verdict word"  ||  return
+}
+
 #Fetch a url into a file, retrying until it answers. The standalone server
 #is started in the background, and how long it needs before it accepts a
 #connection is a property of the host, not of what this test asserts: on
