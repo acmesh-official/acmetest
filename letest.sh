@@ -2768,6 +2768,36 @@ le_test_calc_validto_renew_time() {
 }
 
 
+le_test_calc_ari_renew_time() {
+  lehome="$DEFAULT_HOME"
+
+  #RFC 9773 ARI: the renew time is a point inside the suggestedWindow derived
+  #from the current time, not the window start, so renewals spread out across
+  #the network instead of all firing at the same instant
+  _cart_s=1000000000
+  _cart_e=1000172800
+  _cart_n=1000000000
+  #1000000000 % 172800 = 6400, so the point is start + 6400
+  _assertText "1000006400" "$("$lehome/$PROJECT_ENTRY" _calc_ari_renew_time "$_cart_s" "$_cart_e" "$_cart_n" 1005000000 "")"  ||  return
+  #no --days or --valid-to: the window wins even when it renews later than
+  #the schedule it replaces
+  _assertText "1000006400" "$("$lehome/$PROJECT_ENTRY" _calc_ari_renew_time "$_cart_s" "$_cart_e" "$_cart_n" 999000000 "")"  ||  return
+  #pinned by --days or --valid-to: an earlier window still wins, so the CA can
+  #pull an urgent renewal forward
+  _assertText "1000006400" "$("$lehome/$PROJECT_ENTRY" _calc_ari_renew_time "$_cart_s" "$_cart_e" "$_cart_n" 1005000000 1)"  ||  return
+  #pinned: a later window is ignored and the schedule the user asked for stands
+  _assertText "" "$("$lehome/$PROJECT_ENTRY" _calc_ari_renew_time "$_cart_s" "$_cart_e" "$_cart_n" 999000000 1)"  ||  return
+  #pinned: the same time is not earlier, so it is ignored as well
+  _assertText "" "$("$lehome/$PROJECT_ENTRY" _calc_ari_renew_time "$_cart_s" "$_cart_e" "$_cart_n" 1000006400 1)"  ||  return
+  #pinned but nothing to compare against yet: the window is taken
+  _assertText "1000006400" "$("$lehome/$PROJECT_ENTRY" _calc_ari_renew_time "$_cart_s" "$_cart_e" "$_cart_n" "" 1)"  ||  return
+  #a window with no width at all yields no time, pinned or not
+  _assertText "" "$("$lehome/$PROJECT_ENTRY" _calc_ari_renew_time "$_cart_s" "$_cart_s" "$_cart_n" 999000000 "")"  ||  return
+  #an ARI response that parsed to nothing yields no time either
+  _assertText "" "$("$lehome/$PROJECT_ENTRY" _calc_ari_renew_time "" "" "$_cart_n" 999000000 "")"  ||  return
+}
+
+
 le_test_strip_blank_lines() {
   lehome="$DEFAULT_HOME"
 
