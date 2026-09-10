@@ -1895,6 +1895,111 @@ le_test_dnsapi() {
 }
 
 
+#Answer a dns-01 challenge through pebble-challtestsrv. The host needs a
+#trailing dot, see cmd/pebble-challtestsrv/README.md in the pebble repo.
+_dm_set_txt() {
+  curl -s -o /dev/null -d "{\"host\":\"$1.\",\"value\":\"$2\"}" "$_dm_challtestsrv/set-txt"
+}
+
+_dm_clear_txt() {
+  curl -s -o /dev/null -d "{\"host\":\"$1.\"}" "$_dm_challtestsrv/clear-txt"
+}
+
+#Run one dns manual mode invocation and require the exit code $1. The first
+#invocation of every issue or renew prints the TXT record and exits with
+#CODE_DNS_MANUAL (3), so _assertcmd, which expects 0, cannot drive it.
+_dm_run() {
+  _dm_want="$1"
+  shift
+  printf "%s" "$*"
+  eval "$* >cmd.log 2>&1"
+  _dm_got="$?"
+  if [ "$_dm_got" = "$_dm_want" ]; then
+    __ok ""
+    return 0
+  fi
+  __fail "exit $_dm_got, wanted $_dm_want"
+  cat cmd.log >&2
+  return 1
+}
+
+#Read what the first invocation asked the user to add. The lines are
+#"Domain: '_acme-challenge.example.com'" and "TXT value: '...'"; the colour
+#escapes are absent because stdout is a file.
+_dm_txt_domain() {
+  sed -n "s/.*Domain: '\([^']*\)'.*/\1/p" cmd.log | _head_n 1
+}
+
+_dm_txt_value() {
+  sed -n "s/.*TXT value: '\([^']*\)'.*/\1/p" cmd.log | _head_n 1
+}
+
+#dns manual mode is a two invocation flow that resumes from the domain conf.
+#The conf still carries Le_LinkOrder and Le_LinkCert from the previous
+#certificate, and before acme.sh 7237 the second invocation of a renewal
+#polled that old order and wrote the old certificate again, while a first
+#issuance died on "could not get order link location header" because the
+#finalize answer of a still processing order has no Location header
+#(issue 7105). Pebble finalizes asynchronously, so it hits both paths, and
+#pebble-challtestsrv answers the dns-01 challenge from the TXT record, so
+#the flow really is two invocations rather than one collapsed run.
+le_test_dns_manual_renew() {
+  lehome="$DEFAULT_HOME"
+
+  #opt-in: needs pebble-challtestsrv, which only the PebbleStrict job runs
+  if [ -z "$TEST_DNS_MANUAL" ]; then
+    _info "Skipped by TEST_DNS_MANUAL"
+    __CASE_SKIPPED="1"
+    return 0
+  fi
+  _dm_challtestsrv="${TEST_CHALLTESTSRV:-http://localhost:8055}"
+
+  _dm_flag="--yes-I-know-dns-manual-mode-enough-go-ahead-please"
+  _dm_cert="$lehome/$TestingDomain/$TestingDomain.cer"
+  rm -rf "$lehome/$TestingDomain"
+
+  #first issuance: print the record, add it, resume
+  _dm_run 3 "$lehome/$PROJECT_ENTRY --server \"$TEST_ACME_Server\" --issue -d \"$TestingDomain\" --dns $_dm_flag" || return
+  _dm_host="$(_dm_txt_domain)"
+  _dm_txt="$(_dm_txt_value)"
+  _debug "_dm_host" "$_dm_host"
+  _debug "_dm_txt" "$_dm_txt"
+  if [ -z "$_dm_host" ] || [ -z "$_dm_txt" ]; then
+    __fail "no TXT record printed"
+    cat cmd.log >&2
+    return 1
+  fi
+  _dm_set_txt "$_dm_host" "$_dm_txt"
+  _dm_run 0 "$lehome/$PROJECT_ENTRY --server \"$TEST_ACME_Server\" --renew -d \"$TestingDomain\" $_dm_flag" || return
+  _dm_clear_txt "$_dm_host"
+  _assertexists "$_dm_cert" || return
+  _dm_serial_1="$(openssl x509 -in "$_dm_cert" -noout -serial)"
+  _debug "_dm_serial_1" "$_dm_serial_1"
+
+  #renewal: the second invocation must poll the order this renewal created
+  _dm_run 3 "$lehome/$PROJECT_ENTRY --server \"$TEST_ACME_Server\" --renew --force -d \"$TestingDomain\" $_dm_flag" || return
+  _dm_host="$(_dm_txt_domain)"
+  _dm_txt="$(_dm_txt_value)"
+  _debug "_dm_txt" "$_dm_txt"
+  if [ -z "$_dm_host" ] || [ -z "$_dm_txt" ]; then
+    __fail "no TXT record printed on renewal"
+    cat cmd.log >&2
+    return 1
+  fi
+  _dm_set_txt "$_dm_host" "$_dm_txt"
+  _dm_run 0 "$lehome/$PROJECT_ENTRY --server \"$TEST_ACME_Server\" --renew --force -d \"$TestingDomain\" $_dm_flag" || return
+  _dm_clear_txt "$_dm_host"
+  _dm_serial_2="$(openssl x509 -in "$_dm_cert" -noout -serial)"
+  _debug "_dm_serial_2" "$_dm_serial_2"
+
+  _dm_verdict="renewed"
+  if [ -z "$_dm_serial_2" ] || [ "$_dm_serial_2" = "$_dm_serial_1" ]; then
+    _dm_verdict="stale"
+  fi
+  _assertText "renewed" "$_dm_verdict" || return
+}
+
+
 #
 le_test_standandalone_ipcert() {
   if [ "$QUICK_TEST" ] ; then
