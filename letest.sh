@@ -1955,18 +1955,19 @@ le_test_dns_manual_renew() {
   _dm_challtestsrv="${TEST_CHALLTESTSRV:-http://localhost:8055}"
 
   _dm_flag="--yes-I-know-dns-manual-mode-enough-go-ahead-please"
+  #Pebble reuses any valid authorization of the account, and the earlier
+  #cases leave several behind for $TestingDomain (one --deactivate retires
+  #only one of them), so an order for that name comes back ready with
+  #nothing to answer. Use a name no other case validates; challtestsrv
+  #answers the dns-01 lookup for any name.
+  _dm_domain="dnsmanual.$TestingDomain"
   #the default key type is ec-256, so the cert lands in the _ecc directory
-  _dm_cert="$lehome/$TestingDomain$ECC_SUFFIX/$TestingDomain.cer"
-  rm -rf "$lehome/$TestingDomain"
-
-  #Pebble reuses a valid authorization, and the earlier cases in the same
-  #run validated this domain over http-01, so a new order would come back
-  #ready with no challenge to answer. Deactivate before each cycle so the
-  #order really carries a pending dns-01 challenge.
-  _assertcmd "$lehome/$PROJECT_ENTRY --server \"$TEST_ACME_Server\" --deactivate -d \"$TestingDomain\"" || return
+  _dm_cert="$lehome/$_dm_domain$ECC_SUFFIX/$_dm_domain.cer"
+  rm -rf "$lehome/$_dm_domain"
+  rm -rf "$lehome/$_dm_domain$ECC_SUFFIX"
 
   #first issuance: print the record, add it, resume
-  _dm_run 3 "$lehome/$PROJECT_ENTRY --server \"$TEST_ACME_Server\" --issue -d \"$TestingDomain\" --dns $_dm_flag" || return
+  _dm_run 3 "$lehome/$PROJECT_ENTRY --server \"$TEST_ACME_Server\" --issue -d \"$_dm_domain\" --dns $_dm_flag" || return
   _dm_host="$(_dm_txt_domain)"
   _dm_txt="$(_dm_txt_value)"
   _debug "_dm_host" "$_dm_host"
@@ -1977,15 +1978,17 @@ le_test_dns_manual_renew() {
     return 1
   fi
   _dm_set_txt "$_dm_host" "$_dm_txt"
-  _dm_run 0 "$lehome/$PROJECT_ENTRY --server \"$TEST_ACME_Server\" --renew -d \"$TestingDomain\" $_dm_flag" || return
+  _dm_run 0 "$lehome/$PROJECT_ENTRY --server \"$TEST_ACME_Server\" --renew -d \"$_dm_domain\" $_dm_flag" || return
   _dm_clear_txt "$_dm_host"
   _assertexists "$_dm_cert" || return
   _dm_serial_1="$(openssl x509 -in "$_dm_cert" -noout -serial)"
   _debug "_dm_serial_1" "$_dm_serial_1"
 
-  #renewal: the second invocation must poll the order this renewal created
-  _assertcmd "$lehome/$PROJECT_ENTRY --server \"$TEST_ACME_Server\" --deactivate -d \"$TestingDomain\"" || return
-  _dm_run 3 "$lehome/$PROJECT_ENTRY --server \"$TEST_ACME_Server\" --renew --force -d \"$TestingDomain\" $_dm_flag" || return
+  #renewal: the second invocation must poll the order this renewal created.
+  #The resumed issue left one valid authorization, which Pebble would reuse;
+  #retire it so the renewal order carries a pending dns-01 challenge again.
+  _assertcmd "$lehome/$PROJECT_ENTRY --server \"$TEST_ACME_Server\" --deactivate -d \"$_dm_domain\"" || return
+  _dm_run 3 "$lehome/$PROJECT_ENTRY --server \"$TEST_ACME_Server\" --renew --force -d \"$_dm_domain\" $_dm_flag" || return
   _dm_host="$(_dm_txt_domain)"
   _dm_txt="$(_dm_txt_value)"
   _debug "_dm_txt" "$_dm_txt"
@@ -1995,7 +1998,7 @@ le_test_dns_manual_renew() {
     return 1
   fi
   _dm_set_txt "$_dm_host" "$_dm_txt"
-  _dm_run 0 "$lehome/$PROJECT_ENTRY --server \"$TEST_ACME_Server\" --renew --force -d \"$TestingDomain\" $_dm_flag" || return
+  _dm_run 0 "$lehome/$PROJECT_ENTRY --server \"$TEST_ACME_Server\" --renew --force -d \"$_dm_domain\" $_dm_flag" || return
   _dm_clear_txt "$_dm_host"
   _dm_serial_2="$(openssl x509 -in "$_dm_cert" -noout -serial)"
   _debug "_dm_serial_2" "$_dm_serial_2"
