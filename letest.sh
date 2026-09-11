@@ -1924,14 +1924,22 @@ _dm_run() {
 }
 
 #Read what the first invocation asked the user to add. The lines are
-#"Domain: '_acme-challenge.example.com'" and "TXT value: '...'"; the colour
-#escapes are absent because stdout is a file.
+#"Domain: '_acme-challenge.example.com'" and "TXT value: '...'". The quoted
+#value is wrapped in colour escapes even though stdout is a file, because
+#ACME_FORCE_COLOR is exported for the CI logs, so strip every escape
+#sequence first. The ESC byte goes into the sed pattern literally: "\033"
+#inside a bracket expression is not portable.
+_dm_strip_colour() {
+  _dm_esc="$(printf '\033')"
+  sed "s/$_dm_esc\[[0-9;]*m//g"
+}
+
 _dm_txt_domain() {
-  sed -n "s/.*Domain: '\([^']*\)'.*/\1/p" cmd.log | _head_n 1
+  _dm_strip_colour <cmd.log | sed -n "s/.*Domain: '\([^']*\)'.*/\1/p" | _head_n 1
 }
 
 _dm_txt_value() {
-  sed -n "s/.*TXT value: '\([^']*\)'.*/\1/p" cmd.log | _head_n 1
+  _dm_strip_colour <cmd.log | sed -n "s/.*TXT value: '\([^']*\)'.*/\1/p" | _head_n 1
 }
 
 #dns manual mode is a two invocation flow that resumes from the domain conf.
