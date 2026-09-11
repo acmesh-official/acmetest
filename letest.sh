@@ -2254,21 +2254,67 @@ le_test_shell() {
   _assertText "Incorrect TXT record" "$_errdetail968"  ||  return
 }
 
-#Retry-After on a processing or ready order: Pebble answers with an HTTP-date,
-#which must never reach a numeric test ("integer expression expected"). Only
-#the delay-seconds form is printed; anything else prints nothing so the caller
-#falls back to its own delay. The headers come from curl with CRLF line ends.
+#Retry-After on a processing or ready order: HARICA answers with an HTTP-date
+#(discussion 7190), Pebble too, and it must never reach a numeric test
+#("integer expression expected"). Delay-seconds print as is, a date turns into
+#the seconds left until then, a date in the past or anything unparseable
+#prints nothing so the caller falls back to its own delay. The headers come
+#from curl with CRLF line ends.
 le_test_retryafter_seconds() {
   lehome="$DEFAULT_HOME"
 
   _ras_hdr="$(printf 'HTTP/2 200\r\nretry-after: 5\r\ncontent-length: 0\r\n')"
   _assertText "5" "$(printf "%s\n" "$_ras_hdr" | $lehome/$PROJECT_ENTRY _retryafter_seconds)"  ||  return
-  _ras_hdr="$(printf 'HTTP/1.1 200 OK\r\nRetry-After: 120\r\n')"
+  _ras_hdr="$(printf 'HTTP/1.1 200 OK\r\nRetry-After: 120 \r\n')"
   _assertText "120" "$(printf "%s\n" "$_ras_hdr" | $lehome/$PROJECT_ENTRY _retryafter_seconds)"  ||  return
-  _ras_hdr="$(printf 'HTTP/2 200\r\nretry-after: Fri, 11 Sep 2026 04:06:58 GMT\r\n')"
+
+  #a date in the future: the delay is measured against the clock, so allow
+  #the seconds the two _time calls may straddle
+  _ras_hdr="$(printf 'HTTP/2 200\r\nretry-after: Fri, 01 Jan 2038 00:00:00 GMT\r\n')"
+  _ras_expect="$((2145916800 - $($lehome/$PROJECT_ENTRY _time)))"
+  _ras_got="$(printf "%s\n" "$_ras_hdr" | $lehome/$PROJECT_ENTRY _retryafter_seconds)"
+  _ras_verdict="out of range: $_ras_got vs $_ras_expect"
+  if [ "$_ras_got" ] && [ "$_ras_got" -le "$_ras_expect" ] && [ "$_ras_got" -ge "$((_ras_expect - 10))" ]; then
+    _ras_verdict="in range"
+  fi
+  _assertText "in range" "$_ras_verdict"  ||  return
+
+  #a date in the past, an unparseable value, no header at all
+  _ras_hdr="$(printf 'HTTP/2 200\r\nretry-after: Sun, 06 Nov 1994 08:49:37 GMT\r\n')"
+  _assertText "" "$(printf "%s\n" "$_ras_hdr" | $lehome/$PROJECT_ENTRY _retryafter_seconds)"  ||  return
+  _ras_hdr="$(printf 'HTTP/2 200\r\nretry-after: soon\r\n')"
   _assertText "" "$(printf "%s\n" "$_ras_hdr" | $lehome/$PROJECT_ENTRY _retryafter_seconds)"  ||  return
   _ras_hdr="$(printf 'HTTP/2 200\r\ncontent-length: 0\r\n')"
   _assertText "" "$(printf "%s\n" "$_ras_hdr" | $lehome/$PROJECT_ENTRY _retryafter_seconds)"  ||  return
+}
+
+#_httpdate2time converts the IMF-fixdate form of an HTTP-date in shell
+#arithmetic, so the result must not depend on the platform's date(1) or on
+#the locale. The reference values come from GNU date -u -d ... +%s.
+le_test_httpdate2time() {
+  lehome="$DEFAULT_HOME"
+
+  #the RFC 9110 example, the epoch, the HARICA header from discussion 7190
+  _assertText "784111777" "$($lehome/$PROJECT_ENTRY _httpdate2time "Sun, 06 Nov 1994 08:49:37 GMT")"  ||  return
+  _assertText "0" "$($lehome/$PROJECT_ENTRY _httpdate2time "Thu, 01 Jan 1970 00:00:00 GMT")"  ||  return
+  _assertText "1786624574" "$($lehome/$PROJECT_ENTRY _httpdate2time "Thu, 13 Aug 2026 12:36:14 GMT")"  ||  return
+  #the leap day and the day after it, the year-end, the last second before 2^31
+  _assertText "1835481599" "$($lehome/$PROJECT_ENTRY _httpdate2time "Tue, 29 Feb 2028 23:59:59 GMT")"  ||  return
+  _assertText "1835481600" "$($lehome/$PROJECT_ENTRY _httpdate2time "Wed, 01 Mar 2028 00:00:00 GMT")"  ||  return
+  _assertText "2019686399" "$($lehome/$PROJECT_ENTRY _httpdate2time "Sat, 31 Dec 2033 23:59:59 GMT")"  ||  return
+  _assertText "2145916800" "$($lehome/$PROJECT_ENTRY _httpdate2time "Fri, 01 Jan 2038 00:00:00 GMT")"  ||  return
+  #case does not matter for the names
+  _assertText "784111777" "$($lehome/$PROJECT_ENTRY _httpdate2time "sun, 06 nov 1994 08:49:37 GMT")"  ||  return
+
+  #what the old poll loop produced, delay-seconds, a zone other than GMT,
+  #a month that does not exist, a year before the epoch: all print nothing
+  for _hdt_bad in "Thu,13Aug202612" "120" "Sun, 06 Nov 1994 08:49:37 EST" "Sun, 06 Xyz 1994 08:49:37 GMT" "Sun, 06 Nov 1969 08:49:37 GMT" ""; do
+    _hdt_verdict=parsed
+    if ! _hdt_out="$($lehome/$PROJECT_ENTRY _httpdate2time "$_hdt_bad" 2>/dev/null)"; then
+      _hdt_verdict=rejected
+    fi
+    _assertText "rejected []" "$_hdt_verdict [$_hdt_out]"  ||  return
+  done
 }
 
 #_send_signed_request retries a gateway error instead of handing the caller
