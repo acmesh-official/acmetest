@@ -1955,8 +1955,15 @@ le_test_dns_manual_renew() {
   _dm_challtestsrv="${TEST_CHALLTESTSRV:-http://localhost:8055}"
 
   _dm_flag="--yes-I-know-dns-manual-mode-enough-go-ahead-please"
-  _dm_cert="$lehome/$TestingDomain/$TestingDomain.cer"
+  #the default key type is ec-256, so the cert lands in the _ecc directory
+  _dm_cert="$lehome/$TestingDomain$ECC_SUFFIX/$TestingDomain.cer"
   rm -rf "$lehome/$TestingDomain"
+
+  #Pebble reuses a valid authorization, and the earlier cases in the same
+  #run validated this domain over http-01, so a new order would come back
+  #ready with no challenge to answer. Deactivate before each cycle so the
+  #order really carries a pending dns-01 challenge.
+  _assertcmd "$lehome/$PROJECT_ENTRY --server \"$TEST_ACME_Server\" --deactivate -d \"$TestingDomain\"" || return
 
   #first issuance: print the record, add it, resume
   _dm_run 3 "$lehome/$PROJECT_ENTRY --server \"$TEST_ACME_Server\" --issue -d \"$TestingDomain\" --dns $_dm_flag" || return
@@ -1977,6 +1984,7 @@ le_test_dns_manual_renew() {
   _debug "_dm_serial_1" "$_dm_serial_1"
 
   #renewal: the second invocation must poll the order this renewal created
+  _assertcmd "$lehome/$PROJECT_ENTRY --server \"$TEST_ACME_Server\" --deactivate -d \"$TestingDomain\"" || return
   _dm_run 3 "$lehome/$PROJECT_ENTRY --server \"$TEST_ACME_Server\" --renew --force -d \"$TestingDomain\" $_dm_flag" || return
   _dm_host="$(_dm_txt_domain)"
   _dm_txt="$(_dm_txt_value)"
@@ -2234,6 +2242,23 @@ le_test_shell() {
   _errobj968="$(echo "$_errjson968" | $lehome/$PROJECT_ENTRY _egrep_o '"error":[{][^}]*')"
   _errdetail968="$(echo "$_errobj968" | $lehome/$PROJECT_ENTRY _egrep_o '"detail": *"[^"]*' | cut -d '"' -f 4)"
   _assertText "Incorrect TXT record" "$_errdetail968"  ||  return
+}
+
+#Retry-After on a processing or ready order: Pebble answers with an HTTP-date,
+#which must never reach a numeric test ("integer expression expected"). Only
+#the delay-seconds form is printed; anything else prints nothing so the caller
+#falls back to its own delay. The headers come from curl with CRLF line ends.
+le_test_retryafter_seconds() {
+  lehome="$DEFAULT_HOME"
+
+  _ras_hdr="$(printf 'HTTP/2 200\r\nretry-after: 5\r\ncontent-length: 0\r\n')"
+  _assertText "5" "$(printf "%s\n" "$_ras_hdr" | $lehome/$PROJECT_ENTRY _retryafter_seconds)"  ||  return
+  _ras_hdr="$(printf 'HTTP/1.1 200 OK\r\nRetry-After: 120\r\n')"
+  _assertText "120" "$(printf "%s\n" "$_ras_hdr" | $lehome/$PROJECT_ENTRY _retryafter_seconds)"  ||  return
+  _ras_hdr="$(printf 'HTTP/2 200\r\nretry-after: Fri, 11 Sep 2026 04:06:58 GMT\r\n')"
+  _assertText "" "$(printf "%s\n" "$_ras_hdr" | $lehome/$PROJECT_ENTRY _retryafter_seconds)"  ||  return
+  _ras_hdr="$(printf 'HTTP/2 200\r\ncontent-length: 0\r\n')"
+  _assertText "" "$(printf "%s\n" "$_ras_hdr" | $lehome/$PROJECT_ENTRY _retryafter_seconds)"  ||  return
 }
 
 #_send_signed_request retries a gateway error instead of handing the caller
