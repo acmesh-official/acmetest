@@ -1963,11 +1963,13 @@ le_test_dns_manual_renew() {
   _dm_challtestsrv="${TEST_CHALLTESTSRV:-http://localhost:8055}"
 
   _dm_flag="--yes-I-know-dns-manual-mode-enough-go-ahead-please"
-  #Pebble reuses any valid authorization of the account, and the earlier
-  #cases leave several behind for $TestingDomain (one --deactivate retires
-  #only one of them), so an order for that name comes back ready with
-  #nothing to answer. Use a name no other case validates; challtestsrv
-  #answers the dns-01 lookup for any name.
+  #Pebble reuses a valid authorization of the account in a new order 50% of
+  #the time by default (PEBBLE_AUTHZREUSE), and a reused one leaves nothing
+  #for the TXT record to answer. The PebbleStrict job runs Pebble with
+  #PEBBLE_AUTHZREUSE=0, so every order here carries a pending dns-01
+  #challenge. The name is one no other case validates, so the authorizations
+  #the earlier cases leave behind for $TestingDomain cannot leak in either;
+  #challtestsrv answers the dns-01 lookup for any name.
   _dm_domain="dnsmanual.$TestingDomain"
   #the default key type is ec-256, so the cert lands in the _ecc directory
   _dm_cert="$lehome/$_dm_domain$ECC_SUFFIX/$_dm_domain.cer"
@@ -1992,10 +1994,7 @@ le_test_dns_manual_renew() {
   _dm_serial_1="$(openssl x509 -in "$_dm_cert" -noout -serial)"
   _debug "_dm_serial_1" "$_dm_serial_1"
 
-  #renewal: the second invocation must poll the order this renewal created.
-  #The resumed issue left one valid authorization, which Pebble would reuse;
-  #retire it so the renewal order carries a pending dns-01 challenge again.
-  _assertcmd "$lehome/$PROJECT_ENTRY --server \"$TEST_ACME_Server\" --deactivate -d \"$_dm_domain\"" || return
+  #renewal: the second invocation must poll the order this renewal created
   _dm_run 3 "$lehome/$PROJECT_ENTRY --server \"$TEST_ACME_Server\" --renew --force -d \"$_dm_domain\" $_dm_flag" || return
   _dm_host="$(_dm_txt_domain)"
   _dm_txt="$(_dm_txt_value)"
