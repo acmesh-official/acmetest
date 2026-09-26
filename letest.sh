@@ -2464,6 +2464,134 @@ le_test_order_not_ready() {
   _assertText "ready word" "$_onr_verdict word"  ||  return
 }
 
+#_post_file sends the body from a file, for what a shell variable cannot
+#carry: the binary PKCS#12 that deploy/hp_ews.sh and deploy/zyxel_gs1900.sh
+#upload as a multipart form. A local one-shot socat responder saves what
+#arrives, so the bytes are compared, not only the status. The custom _H1 and
+#the content type must both reach the server under wget as well: wget takes
+#an empty --header as "drop every header given so far", which is why
+#_post_file never passes one and always sends a content type.
+_pf_serve() {
+  #port outfile: one connection, answered by the responder in $_pf_responder
+  socat -T 30 TCP4-LISTEN:$1,reuseaddr,bind=127.0.0.1 SYSTEM:"sh $_pf_responder $2" >/dev/null 2>&1 &
+  _pf_pid="$!"
+}
+
+#port needbase64 contenttype: retries until the listener answers, the same
+#host property _lb_fetch waits out. Prints "rc|response|status".
+_pf_post() {
+  _pfp_n=0
+  while [ "$_pfp_n" -lt 30 ]; do
+    _pfp_n=$((_pfp_n + 1))
+    _pfp_resp="$(_post_file "$_pf_body" "http://127.0.0.1:$1/" "$2" "" "$3" 2>/dev/null)"
+    _pfp_rc="$?"
+    if [ "$_pfp_rc" = "0" ] && [ "$_pfp_resp" ]; then
+      break
+    fi
+    sleep 1
+  done
+  _pfp_status="$(grep "^HTTP" "$HTTP_HEADER" | _tail_n 1 | cut -d " " -f 2 | tr -d "\r\n")"
+  printf '%s|%s|%s' "$_pfp_rc" "$_pfp_resp" "$_pfp_status"
+}
+
+le_test_post_file() {
+  lehome="$DEFAULT_HOME"
+
+  if ! command -v socat >/dev/null 2>&1; then
+    _info "Skipped: socat is not installed"
+    return 0
+  fi
+
+  _pf_dir="$(pwd)"
+  _pf_body="$_pf_dir/post_file.body"
+  _pf_responder="$_pf_dir/post_file.responder.sh"
+
+  #NUL, CR, LF, the @ that --data would read as a file name, a quote, a
+  #percent, a backslash, a control byte and a high byte: twelve bytes that a
+  #variable, printf %s and a text pipeline would each mangle differently
+  printf 'a\000b\r\n@"%%\\\001\377z' >"$_pf_body"
+  _assertText "12" "$(wc -c <"$_pf_body" | tr -d ' ')"  ||  return
+
+  #reads one request: the headers go to $1.hdr, Content-Length bytes of body
+  #go to $1, and the answer is a 201 with the body "ok"
+  cat >"$_pf_responder" <<'PFEOF'
+_out="$1"
+_len=0
+: >"$_out.hdr"
+while IFS= read -r _line; do
+  _line="$(printf '%s' "$_line" | tr -d '\r')"
+  if [ -z "$_line" ]; then
+    break
+  fi
+  printf '%s\n' "$_line" >>"$_out.hdr"
+  case "$_line" in
+  [Cc]ontent-[Ll]ength:*) _len="$(printf '%s' "$_line" | cut -d : -f 2 | tr -d ' ')" ;;
+  esac
+done
+if [ "$_len" -gt 0 ]; then
+  dd bs=1 count="$_len" of="$_out" 2>/dev/null
+else
+  : >"$_out"
+fi
+printf 'HTTP/1.0 201 Created\r\nContent-Length: 2\r\nConnection: close\r\n\r\nok'
+PFEOF
+
+  _pf_port=18090
+  for _pf_tool in curl wget; do
+    if ! command -v "$_pf_tool" >/dev/null 2>&1; then
+      _info "Skipped $_pf_tool: not installed"
+      continue
+    fi
+    _pf_recv="$_pf_dir/post_file.$_pf_tool.recv"
+    _pf_out="$_pf_dir/post_file.$_pf_tool.out"
+    rm -f "$_pf_recv" "$_pf_recv.hdr" "$_pf_recv.b64" "$_pf_recv.b64.hdr" "$_pf_out" "$_pf_out.b64"
+    #a subshell, so that the sourced acme.sh functions do not replace ours
+    (
+      . "$lehome/$PROJECT_ENTRY" >/dev/null 2>&1
+      if [ "$_pf_tool" = "wget" ]; then
+        export ACME_USE_WGET=1
+      fi
+      export _H1="X-Acme-Test: post-file"
+      #the multipart upload the deploy hooks do
+      _pf_serve "$_pf_port" "$_pf_recv"
+      _pf_post "$_pf_port" "" "multipart/form-data; boundary=acmetest" >"$_pf_out"
+      kill "$_pf_pid" 2>/dev/null
+      #no content type given and a base64 answer: the default type is what
+      #the tool would have sent by itself, and the body still arrives intact
+      _pf_serve "$((_pf_port + 1))" "$_pf_recv.b64"
+      _pf_post "$((_pf_port + 1))" "base64" "" >"$_pf_out.b64"
+      kill "$_pf_pid" 2>/dev/null
+    )
+    _assertText "0|ok|201" "$(cat "$_pf_out")"  ||  return
+    _pf_same=different
+    if cmp -s "$_pf_body" "$_pf_recv"; then
+      _pf_same=same
+    fi
+    _assertText "same $_pf_tool" "$_pf_same $_pf_tool"  ||  return
+    _assertText "1" "$(grep -c '^Content-Type: multipart/form-data; boundary=acmetest$' "$_pf_recv.hdr")"  ||  return
+    _assertText "1" "$(grep -c '^X-Acme-Test: post-file$' "$_pf_recv.hdr")"  ||  return
+
+    _assertText "0|b2s=|201" "$(cat "$_pf_out.b64")"  ||  return
+    _pf_same=different
+    if cmp -s "$_pf_body" "$_pf_recv.b64"; then
+      _pf_same=same
+    fi
+    _assertText "same $_pf_tool base64" "$_pf_same $_pf_tool base64"  ||  return
+    _assertText "1" "$(grep -c '^Content-Type: application/x-www-form-urlencoded$' "$_pf_recv.b64.hdr")"  ||  return
+    rm -f "$_pf_recv" "$_pf_recv.hdr" "$_pf_recv.b64" "$_pf_recv.b64.hdr" "$_pf_out" "$_pf_out.b64"
+    _pf_port=$((_pf_port + 2))
+  done
+
+  #a missing body file is an error before any request goes out
+  _pf_rc="$( (
+    . "$lehome/$PROJECT_ENTRY" >/dev/null 2>&1
+    _post_file "$_pf_dir/post_file.missing" "http://127.0.0.1:1/" >/dev/null 2>&1
+    echo "$?"
+  ) )"
+  _assertText "1" "$_pf_rc"  ||  return
+  rm -f "$_pf_body" "$_pf_responder"
+}
+
 #Fetch a url into a file, retrying until it answers. The standalone server
 #is started in the background, and how long it needs before it accepts a
 #connection is a property of the host, not of what this test asserts: on
@@ -2900,6 +3028,59 @@ le_test_update_account_email() {
   _assertcmd "$lehome/$PROJECT_ENTRY --update-account -m \"$_uae_mail2\" --server \"$TEST_ACME_Server\"" || return
   if [ -z "$(find "$lehome/ca" -name "ca.conf" -exec grep "CA_EMAIL='$_uae_mail2'" {} \; 2>/dev/null)" ]; then
     __fail "The multi-email list was not saved as CA_EMAIL in the ca conf"
+    return 1
+  fi
+}
+
+
+#the ACCOUNT_EMAIL that --install -m leaves in account.conf is sourced by
+#_initpath after the command line was parsed, so it used to shadow -m: a
+#"--update-account -m new" sent the old address and still reported success.
+#The order is now -m, then the per-CA CA_EMAIL, then the global one, and a
+#newAccount for an existing key (200) must not touch the saved address
+#(PR 7250)
+_aep_cleanup() {
+  ACCOUNT_CONF_PATH="$_aep_conf" "$lehome/$PROJECT_ENTRY" _clearaccountconf ACCOUNT_EMAIL
+}
+
+le_test_account_email_precedence() {
+  lehome="$DEFAULT_HOME"
+  _aep_conf="$lehome/account.conf"
+  _aep_global="letest-global@acme.sh"
+  _aep_cli="letest-cli@acme.sh"
+  _aep_other="letest-other@acme.sh"
+
+  _assertcmd "$lehome/$PROJECT_ENTRY --register-account --server \"$TEST_ACME_Server\"" || return
+
+  ACCOUNT_CONF_PATH="$_aep_conf" "$lehome/$PROJECT_ENTRY" _saveaccountconf ACCOUNT_EMAIL "$_aep_global"
+  _assertText "$_aep_global" "$("$lehome/$PROJECT_ENTRY" _read_conf "$_aep_conf" ACCOUNT_EMAIL)"  ||  return
+
+  #the command line wins over account.conf
+  _assertcmd "$lehome/$PROJECT_ENTRY --update-account -m \"$_aep_cli\" --server \"$TEST_ACME_Server\"" || { _aep_cleanup; return 1; }
+  if [ -z "$(find "$lehome/ca" -name "ca.conf" -exec grep "CA_EMAIL='$_aep_cli'" {} \; 2>/dev/null)" ]; then
+    _aep_cleanup
+    __fail "The -m address was shadowed by the ACCOUNT_EMAIL in account.conf"
+    return 1
+  fi
+
+  #without -m the saved per-CA address wins over the global one
+  _assertcmd "$lehome/$PROJECT_ENTRY --update-account --server \"$TEST_ACME_Server\"" || { _aep_cleanup; return 1; }
+  if [ "$(find "$lehome/ca" -name "ca.conf" -exec grep "CA_EMAIL='$_aep_global'" {} \; 2>/dev/null)" ]; then
+    _aep_cleanup
+    __fail "The global ACCOUNT_EMAIL was pushed over the per-CA CA_EMAIL"
+    return 1
+  fi
+
+  #the CA answers 200 for an existing key and ignores the contact: the
+  #saved address stays and the user is told to use --update-account -m
+  _assertcmd "$lehome/$PROJECT_ENTRY --register-account -m \"$_aep_other\" --server \"$TEST_ACME_Server\"" || { _aep_cleanup; return 1; }
+  _aep_cleanup
+  if [ "$(find "$lehome/ca" -name "ca.conf" -exec grep "CA_EMAIL='$_aep_other'" {} \; 2>/dev/null)" ]; then
+    __fail "A newAccount for an existing key overwrote CA_EMAIL"
+    return 1
+  fi
+  if ! grep "email was not changed" cmd.log >/dev/null 2>&1; then
+    __fail "No hint that the existing account email was not changed"
     return 1
   fi
 }
