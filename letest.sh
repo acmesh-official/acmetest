@@ -3101,10 +3101,14 @@ _gae_read() {
   (
     LE_CONFIG_HOME="$_gae_home"
     export LE_CONFIG_HOME
-    if [ -n "$_gae_env" ]; then
-      ACCOUNT_EMAIL="$_gae_env"
-      export ACCOUNT_EMAIL
-    fi
+    #both of these are read by _getAccountEmail and both can already be in
+    #the environment -- an earlier case may have exported ACCOUNT_EMAIL, and
+    #the ZeroSSL workflow sets CA_EMAIL for the whole job. Set them for
+    #every case, empty included, or the case reads the ambient value.
+    ACCOUNT_EMAIL="$_gae_env"
+    export ACCOUNT_EMAIL
+    CA_EMAIL=""
+    export CA_EMAIL
     set --
     . "$lehome/$PROJECT_ENTRY" >/dev/null 2>&1
     #sourcing acme.sh runs its main, which leaves ACCOUNT_CONF_PATH set;
