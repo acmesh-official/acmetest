@@ -3264,6 +3264,53 @@ le_test_extract_aki() {
 }
 
 
+#issue 7280 helper: _isARIReplacesRejected answers with its exit status
+_ari_rejected_verdict() {
+  if "$lehome/$PROJECT_ENTRY" _isARIReplacesRejected "$1" "$2" >/dev/null 2>&1; then
+    echo "yes"
+  else
+    echo "no"
+  fi
+}
+
+#issue 7280: when the CA rejects the ARI "replaces" field of a newOrder,
+#acme.sh must retry the order without it -- switching the ACME server leaves
+#a prior cert that belongs to the old CA. RFC 9773 Section 5 mandates a type
+#only for the 409 "alreadyReplaced" case, so every other rejection is worded
+#per CA, and an accepted order echoes the field back ("MUST reflect that
+#field in the response"): the HTTP status has to decide, and a 2xx response
+#is never a rejection no matter what it contains.
+le_test_ari_replaces_rejected() {
+  lehome="$DEFAULT_HOME"
+
+  #ZeroSSL/Sectigo answers 401 with the field name in escaped double quotes,
+  #which a needle carrying single quotes never matched
+  _arr_401='{"type":"urn:ietf:params:acme:error:unauthorized","status":401,"detail":"The \"replaces\" field does not identify a certificate that belongs to this ACME account"}'
+  _assertText "yes" "$(_ari_rejected_verdict 401 "$_arr_401")"  ||  return
+
+  #the one type RFC 9773 Section 5 mandates, on HTTP 409
+  _arr_409='{"type":"urn:ietf:params:acme:error:alreadyReplaced","status":409,"detail":"cert is already replaced"}'
+  _assertText "yes" "$(_ari_rejected_verdict 409 "$_arr_409")"  ||  return
+
+  #Let's Encrypt rejects a predecessor issued by a different issuer
+  _arr_400='{"type":"urn:ietf:params:acme:error:malformed","status":400,"detail":"unable to parse certID"}'
+  _assertText "yes" "$(_ari_rejected_verdict 400 "$_arr_400")"  ||  return
+
+  #an accepted order echoes "replaces" back, and its base64url certID can
+  #carry the substring ARI: neither may trigger a second newOrder
+  _arr_ok='{"status":"pending","identifiers":[{"type":"dns","value":"example.com"}],"replaces":"aYhbARIdGQEHhs3uEe6CuLN4ByNQ.AIdlQyE","finalize":"https://ca/finalize/1"}'
+  _assertText "no" "$(_ari_rejected_verdict 201 "$_arr_ok")"  ||  return
+  _assertText "no" "$(_ari_rejected_verdict 200 "$_arr_ok")"  ||  return
+
+  #an error unrelated to the field keeps the original failure
+  _arr_429='{"type":"urn:ietf:params:acme:error:rateLimited","status":429,"detail":"too many certificates already issued"}'
+  _assertText "no" "$(_ari_rejected_verdict 429 "$_arr_429")"  ||  return
+
+  #no status parsed from the headers: nothing to judge on, so no retry
+  _assertText "no" "$(_ari_rejected_verdict "" "$_arr_401")"  ||  return
+}
+
+
 le_test_setopt_escape() {
   lehome="$DEFAULT_HOME"
 
