@@ -3090,11 +3090,15 @@ le_test_account_email_precedence() {
 #scratch config, in a subshell so that the sourced acme.sh functions do not
 #replace ours. The positional parameters are cleared first: sourcing runs
 #acme.sh's main, which would otherwise take them as a command to dispatch.
+#The call order is the one a real run has: _process() exports the -m address
+#in its option loop, calls __initHome once the loop is over, and the command
+#function then calls _initpath. Both of those source account.conf, and both
+#have to leave the exported address alone -- going straight to _initpath
+#here would miss the __initHome one.
 _gae_read() {
   _gae_env="$1"
   _gae_ca="$2"
   (
-    ACCOUNT_CONF_PATH=""
     LE_CONFIG_HOME="$_gae_home"
     export LE_CONFIG_HOME
     if [ -n "$_gae_env" ]; then
@@ -3103,6 +3107,10 @@ _gae_read() {
     fi
     set --
     . "$lehome/$PROJECT_ENTRY" >/dev/null 2>&1
+    #sourcing acme.sh runs its main, which leaves ACCOUNT_CONF_PATH set;
+    #clear it so __initHome takes the same branch a fresh run takes
+    ACCOUNT_CONF_PATH=""
+    __initHome >/dev/null 2>&1
     _initpath >/dev/null 2>&1
     if [ "$_gae_ca" = "ca" ]; then
       CA_CONF="$_gae_home/ca.conf"
