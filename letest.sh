@@ -3086,6 +3086,61 @@ le_test_account_email_precedence() {
 }
 
 
+#env useca: reads _getAccountEmail with LE_CONFIG_HOME pointed at the
+#scratch config, in a subshell so that the sourced acme.sh functions do not
+#replace ours. The positional parameters are cleared first: sourcing runs
+#acme.sh's main, which would otherwise take them as a command to dispatch.
+_gae_read() {
+  _gae_env="$1"
+  _gae_ca="$2"
+  (
+    ACCOUNT_CONF_PATH=""
+    LE_CONFIG_HOME="$_gae_home"
+    export LE_CONFIG_HOME
+    if [ -n "$_gae_env" ]; then
+      ACCOUNT_EMAIL="$_gae_env"
+      export ACCOUNT_EMAIL
+    fi
+    set --
+    . "$lehome/$PROJECT_ENTRY" >/dev/null 2>&1
+    _initpath >/dev/null 2>&1
+    if [ "$_gae_ca" = "ca" ]; then
+      CA_CONF="$_gae_home/ca.conf"
+    else
+      CA_CONF="$_gae_home/none.conf"
+    fi
+    _getAccountEmail 2>/dev/null
+  )
+}
+
+#The address to put in the account contact comes from three places, and
+#_initpath sources account.conf on the way, which used to overwrite the
+#live ACCOUNT_EMAIL that -m had exported: the saved address then won over
+#both the command line and the per-CA CA_EMAIL. No CA is contacted here,
+#only the precedence is read off a scratch config home.
+le_test_getaccountemail() {
+  lehome="$DEFAULT_HOME"
+
+  _gae_home="$(pwd)/gae_home"
+  mkdir -p "$_gae_home"
+  printf "ACCOUNT_EMAIL='gae-saved@acme.sh'\n" >"$_gae_home/account.conf"
+  printf "CA_EMAIL='gae-perca@acme.sh'\n" >"$_gae_home/ca.conf"
+
+  #the -m address survives account.conf, with and without a per-CA address
+  _assertText "gae-cli@acme.sh" "$(_gae_read "gae-cli@acme.sh" "")"  ||  return
+  _assertText "gae-cli@acme.sh" "$(_gae_read "gae-cli@acme.sh" ca)"  ||  return
+
+  #without it the per-CA address wins over the global one
+  _assertText "gae-perca@acme.sh" "$(_gae_read "" ca)"  ||  return
+
+  #and the global one is still the last resort
+  _assertText "gae-saved@acme.sh" "$(_gae_read "" "")"  ||  return
+
+  rm -f "$_gae_home/account.conf"
+  rm -f "$_gae_home/ca.conf"
+}
+
+
 le_test_calc_next_renew_time() {
 
   #the default RenewalDays schedule must never pass the cert expiry
