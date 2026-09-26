@@ -3086,10 +3086,16 @@ le_test_account_email_precedence() {
 }
 
 
-#env useca: reads _getAccountEmail with LE_CONFIG_HOME pointed at the
-#scratch config, in a subshell so that the sourced acme.sh functions do not
-#replace ours. The positional parameters are cleared first: sourcing runs
-#acme.sh's main, which would otherwise take them as a command to dispatch.
+#env directory: reads _getAccountEmail under the scratch config home and the
+#given ACME_DIRECTORY, in a subshell so that the sourced acme.sh functions do
+#not replace ours. Everything that steers the answer is set here, none of it
+#left to the ambient environment: ACCOUNT_EMAIL (an earlier case may have
+#exported it), CA_EMAIL (the ZeroSSL workflow sets it for the whole job) and
+#ACME_DIRECTORY, which decides which ca.conf under the scratch home is the
+#per-CA one -- letting acme.sh derive that path itself, rather than pointing
+#CA_CONF at a file by hand, is what a real run does.
+#The positional parameters are cleared first: sourcing runs acme.sh's main,
+#which would otherwise take them as a command to dispatch.
 #The call order is the one a real run has: _process() exports the -m address
 #in its option loop, calls __initHome once the loop is over, and the command
 #function then calls _initpath. Both of those source account.conf, and both
@@ -3097,18 +3103,16 @@ le_test_account_email_precedence() {
 #here would miss the __initHome one.
 _gae_read() {
   _gae_env="$1"
-  _gae_ca="$2"
+  _gae_dir="$2"
   (
     LE_CONFIG_HOME="$_gae_home"
     export LE_CONFIG_HOME
-    #both of these are read by _getAccountEmail and both can already be in
-    #the environment -- an earlier case may have exported ACCOUNT_EMAIL, and
-    #the ZeroSSL workflow sets CA_EMAIL for the whole job. Set them for
-    #every case, empty included, or the case reads the ambient value.
     ACCOUNT_EMAIL="$_gae_env"
     export ACCOUNT_EMAIL
     CA_EMAIL=""
     export CA_EMAIL
+    ACME_DIRECTORY="$_gae_dir"
+    export ACME_DIRECTORY
     set --
     . "$lehome/$PROJECT_ENTRY" >/dev/null 2>&1
     #sourcing acme.sh runs its main, which leaves ACCOUNT_CONF_PATH set;
@@ -3116,11 +3120,6 @@ _gae_read() {
     ACCOUNT_CONF_PATH=""
     __initHome >/dev/null 2>&1
     _initpath >/dev/null 2>&1
-    if [ "$_gae_ca" = "ca" ]; then
-      CA_CONF="$_gae_home/ca.conf"
-    else
-      CA_CONF="$_gae_home/none.conf"
-    fi
     _getAccountEmail 2>/dev/null
   )
 }
@@ -3129,27 +3128,31 @@ _gae_read() {
 #_initpath sources account.conf on the way, which used to overwrite the
 #live ACCOUNT_EMAIL that -m had exported: the saved address then won over
 #both the command line and the per-CA CA_EMAIL. No CA is contacted here,
-#only the precedence is read off a scratch config home.
+#only the precedence is read off a scratch config home. The two directory
+#urls are never reached either, they only select a ca.conf path: one has a
+#CA_EMAIL saved, the other has no ca.conf at all.
 le_test_getaccountemail() {
   lehome="$DEFAULT_HOME"
 
   _gae_home="$(pwd)/gae_home"
-  mkdir -p "$_gae_home"
+  _gae_withca="https://withca.test/directory"
+  _gae_noca="https://noca.test/directory"
+  mkdir -p "$_gae_home/ca/withca.test/directory"
   printf "ACCOUNT_EMAIL='gae-saved@acme.sh'\n" >"$_gae_home/account.conf"
-  printf "CA_EMAIL='gae-perca@acme.sh'\n" >"$_gae_home/ca.conf"
+  printf "CA_EMAIL='gae-perca@acme.sh'\n" >"$_gae_home/ca/withca.test/directory/ca.conf"
 
   #the -m address survives account.conf, with and without a per-CA address
-  _assertText "gae-cli@acme.sh" "$(_gae_read "gae-cli@acme.sh" "")"  ||  return
-  _assertText "gae-cli@acme.sh" "$(_gae_read "gae-cli@acme.sh" ca)"  ||  return
+  _assertText "gae-cli@acme.sh" "$(_gae_read "gae-cli@acme.sh" "$_gae_noca")"  ||  return
+  _assertText "gae-cli@acme.sh" "$(_gae_read "gae-cli@acme.sh" "$_gae_withca")"  ||  return
 
   #without it the per-CA address wins over the global one
-  _assertText "gae-perca@acme.sh" "$(_gae_read "" ca)"  ||  return
+  _assertText "gae-perca@acme.sh" "$(_gae_read "" "$_gae_withca")"  ||  return
 
   #and the global one is still the last resort
-  _assertText "gae-saved@acme.sh" "$(_gae_read "" "")"  ||  return
+  _assertText "gae-saved@acme.sh" "$(_gae_read "" "$_gae_noca")"  ||  return
 
   rm -f "$_gae_home/account.conf"
-  rm -f "$_gae_home/ca.conf"
+  rm -f "$_gae_home/ca/withca.test/directory/ca.conf"
 }
 
 
