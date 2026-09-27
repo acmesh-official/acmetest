@@ -2254,6 +2254,31 @@ le_test_shell() {
   _assertText "Incorrect TXT record" "$_errdetail968"  ||  return
 }
 
+#_wget2_headers turns what wget2 -S writes to stderr into what curl
+#--dump-header writes: the header blocks only, without wget2's own framing
+#lines, whose "HTTP response 201 Created [url]" callers would take for the
+#status line. For a response without a body wget2 prints no block, so only a
+#status line is rebuilt from that line. Every input ends with a newline:
+#Solaris sed drops an unterminated last line.
+le_test_wget2_headers() {
+  #a 201 with a body
+  _w2t_out="$(printf "[0] Downloading 'https://ca.test/new-order' ...\n# got header 87 bytes:\nHTTP/1.1 201 Created\r\nReplay-Nonce: nonce-1\r\nLocation: https://ca.test/order/1\r\n\r\nHTTP response 201 Created [https://ca.test/new-order]\n" | $lehome/$PROJECT_ENTRY _wget2_headers | tr -d '\r')"
+  _assertText "$(printf 'HTTP/1.1 201 Created\nReplay-Nonce: nonce-1\nLocation: https://ca.test/order/1')" "$_w2t_out"  ||  return
+  #a 301 without a body, then the 200 it leads to
+  _w2t_out="$(printf "[0] Downloading 'https://ca.test/a' ...\nHTTP response 301 Moved Permanently [https://ca.test/a]\nEnqueue https://ca.test/b\n[0] Downloading 'https://ca.test/b' ...\n# got header 60 bytes:\nHTTP/1.1 200 OK\r\nReplay-Nonce: nonce-2\r\n\r\nHTTP response 200 OK [https://ca.test/b]\n" | $lehome/$PROJECT_ENTRY _wget2_headers | tr -d '\r')"
+  _assertText "$(printf 'HTTP/1.1 200 OK\nReplay-Nonce: nonce-2')" "$_w2t_out"  ||  return
+  #an error with a body, as --content-on-error keeps it
+  _w2t_out="$(printf "[0] Downloading 'https://ca.test/new-order' ...\n# got header 70 bytes:\nHTTP/1.1 400 Bad Request\r\nContent-Type: application/problem+json\r\n\r\nHTTP ERROR response 400 Bad Request [https://ca.test/new-order]\n" | $lehome/$PROJECT_ENTRY _wget2_headers | tr -d '\r')"
+  _assertText "$(printf 'HTTP/1.1 400 Bad Request\nContent-Type: application/problem+json')" "$_w2t_out"  ||  return
+  #no body: the empty 200 of a revocation, and an error without a body
+  _assertText "HTTP/1.1 200" "$(printf "[0] Downloading 'https://ca.test/revoke-cert' ...\nHTTP response 200 OK [https://ca.test/revoke-cert]\n" | $lehome/$PROJECT_ENTRY _wget2_headers)"  ||  return
+  _assertText "HTTP/1.1 404" "$(printf "[0] Downloading 'https://ca.test/x' ...\nHTTP ERROR response 404 Not Found [https://ca.test/x]\n" | $lehome/$PROJECT_ENTRY _wget2_headers)"  ||  return
+  #what --save-headers wrote for a HEAD comes through unchanged
+  _assertText "$(printf 'HTTP/1.1 200 OK\nReplay-Nonce: nonce-3')" "$(printf "HTTP/1.1 200 OK\r\nReplay-Nonce: nonce-3\r\n" | $lehome/$PROJECT_ENTRY _wget2_headers | tr -d '\r')"  ||  return
+  #nothing in, nothing out
+  _assertText "" "$(printf "" | $lehome/$PROJECT_ENTRY _wget2_headers)"  ||  return
+}
+
 #Retry-After on a processing or ready order: HARICA answers with an HTTP-date
 #(discussion 7190), Pebble too, and it must never reach a numeric test
 #("integer expression expected"). Delay-seconds print as is, a date turns into
@@ -2599,6 +2624,66 @@ PFEOF
   ) )"
   _assertText "1" "$_pf_rc"  ||  return
   rm -f "$_pf_body" "$_pf_responder"
+}
+
+#HEAD is how _send_signed_request fetches a nonce: the Replay-Nonce must reach
+#$HTTP_HEADER under curl (-I), wget 1.x (--spider -S) and wget2, which prints
+#no headers for a HEAD response, not even with -S, and saves them through
+#--save-headers instead. The one-shot socat of le_test_post_file answers with
+#a nonce named after the tool, so a header file left by the previous tool can
+#not pass for the next one.
+le_test_head_nonce() {
+  lehome="$DEFAULT_HOME"
+
+  if ! command -v socat >/dev/null 2>&1; then
+    _info "Skipped: socat is not installed"
+    return 0
+  fi
+
+  _pf_responder="$(pwd)/head_nonce.responder.sh"
+  cat >"$_pf_responder" <<'HNEOF'
+while IFS= read -r _line; do
+  _line="$(printf '%s' "$_line" | tr -d '\r')"
+  if [ -z "$_line" ]; then
+    break
+  fi
+done
+printf 'HTTP/1.1 200 OK\r\nReplay-Nonce: %s\r\nContent-Length: 0\r\nConnection: close\r\n\r\n' "$1"
+HNEOF
+
+  _hn_port=18190
+  for _hn_tool in curl wget; do
+    if ! command -v "$_hn_tool" >/dev/null 2>&1; then
+      _info "Skipped $_hn_tool: not installed"
+      continue
+    fi
+    #a subshell, so that the sourced acme.sh functions do not replace ours
+    _hn_nonce="$( (
+      . "$lehome/$PROJECT_ENTRY" >/dev/null 2>&1
+      if [ "$_hn_tool" = "wget" ]; then
+        export ACME_USE_WGET=1
+      fi
+      _pf_serve "$_hn_port" "nonce-$_hn_tool"
+      _inithttp
+      _hn_n=0
+      _hn_got=""
+      while [ "$_hn_n" -lt 30 ] && [ -z "$_hn_got" ]; do
+        _hn_n=$((_hn_n + 1))
+        #a request that never got through must not leave old headers behind
+        : >"$HTTP_HEADER"
+        _post "" "http://127.0.0.1:$_hn_port/" "" "HEAD" "application/jose+json" >/dev/null 2>&1
+        _hn_got="$(grep -i "Replay-Nonce:" "$HTTP_HEADER" | _head_n 1 | tr -d "\r\n " | cut -d ':' -f 2)"
+        if [ -z "$_hn_got" ]; then
+          sleep 1
+        fi
+      done
+      kill "$_pf_pid" 2>/dev/null
+      printf '%s' "$_hn_got"
+    ) )"
+    _assertText "nonce-$_hn_tool" "$_hn_nonce"  ||  return
+    _hn_port=$((_hn_port + 1))
+  done
+  rm -f "$_pf_responder"
 }
 
 #Fetch a url into a file, retrying until it answers. The standalone server
