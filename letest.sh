@@ -2494,6 +2494,15 @@ _pf_post() {
   printf '%s|%s|%s' "$_pfp_rc" "$_pfp_resp" "$_pfp_status"
 }
 
+#file1 file2: true when both hold the same bytes. Compared through _base64,
+#since openssl is already required: cmp comes with diffutils, which the
+#minimal fedora, arch and alma images lack. An empty encoding of file1 means
+#openssl failed, and must not count as the same.
+_pf_same_bytes() {
+  _pfsb_a="$(_base64 <"$1")"
+  [ -n "$_pfsb_a" ] && [ -f "$2" ] && [ "$_pfsb_a" = "$(_base64 <"$2")" ]
+}
+
 le_test_post_file() {
   lehome="$DEFAULT_HOME"
 
@@ -2564,7 +2573,7 @@ PFEOF
     )
     _assertText "0|ok|201" "$(cat "$_pf_out")"  ||  return
     _pf_same=different
-    if cmp -s "$_pf_body" "$_pf_recv"; then
+    if _pf_same_bytes "$_pf_body" "$_pf_recv"; then
       _pf_same=same
     fi
     _assertText "same $_pf_tool" "$_pf_same $_pf_tool"  ||  return
@@ -2573,7 +2582,7 @@ PFEOF
 
     _assertText "0|b2s=|201" "$(cat "$_pf_out.b64")"  ||  return
     _pf_same=different
-    if cmp -s "$_pf_body" "$_pf_recv.b64"; then
+    if _pf_same_bytes "$_pf_body" "$_pf_recv.b64"; then
       _pf_same=same
     fi
     _assertText "same $_pf_tool base64" "$_pf_same $_pf_tool base64"  ||  return
