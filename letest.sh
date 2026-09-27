@@ -3118,6 +3118,11 @@ _gae_read() {
     #sourcing acme.sh runs its main, which leaves ACCOUNT_CONF_PATH set;
     #clear it so __initHome takes the same branch a fresh run takes
     ACCOUNT_CONF_PATH=""
+    #_run sets CA_HOME after every case and _initpath keeps a CA_HOME or
+    #CA_CONF that is already set: clear both so the per-CA conf comes from
+    #LE_CONFIG_HOME and ACME_DIRECTORY, as in a fresh run
+    CA_HOME=""
+    CA_CONF=""
     __initHome >/dev/null 2>&1
     _initpath >/dev/null 2>&1
     _getAccountEmail 2>/dev/null
