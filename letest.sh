@@ -2403,6 +2403,79 @@ le_test_retry_backoff() {
   _assertText "ok" "$_rb_verdict"  ||  return
 }
 
+#scenario: runs _send_signed_request against a stub _post and prints
+#"rc|code|posts". The nonce HEAD always answers; the signed POST follows the
+#scenario. _post runs inside $(...) there, so the stub counts its POSTs in a
+#file. A failed POST leaves the nonce answer in $HTTP_HEADER, so a status read
+#after a failure would be a stale 200.
+_sst_run() {
+  _sst_log="$(pwd)/signed_request.posts"
+  : >"$_sst_log"
+  (
+    . "$lehome/$PROJECT_ENTRY" >/dev/null 2>&1
+    _sst_scenario="$1"
+    HTTP_HEADER="$(pwd)/signed_request.header"
+    ACME_NEW_NONCE="https://acme.invalid/new-nonce"
+    ACCOUNT_URL="https://acme.invalid/acct/1"
+    _CACHED_NONCE=""
+    code=""
+    _calcjwk() {
+      return 0
+    }
+    _sign() {
+      echo "c2ln"
+    }
+    _sleep() {
+      return 0
+    }
+    _post() {
+      if [ "$4" = "HEAD" ]; then
+        printf 'HTTP/1.1 200 OK\r\nReplay-Nonce: nonce\r\n\r\n' >"$HTTP_HEADER"
+        return 0
+      fi
+      echo post >>"$_sst_log"
+      _sst_n="$(wc -l <"$_sst_log" | tr -d ' ')"
+      case "$_sst_scenario" in
+      down)
+        return 35
+        ;;
+      blip)
+        if [ "$_sst_n" = "1" ]; then
+          return 28
+        fi
+        printf 'HTTP/1.1 200 OK\r\nReplay-Nonce: nonce2\r\n\r\n' >"$HTTP_HEADER"
+        printf '%s' '{"status":"valid"}'
+        ;;
+      caerror)
+        printf 'HTTP/1.1 400 Bad Request\r\nReplay-Nonce: nonce2\r\n\r\n' >"$HTTP_HEADER"
+        printf '%s' '{"type":"urn:ietf:params:acme:error:malformed","status":400,"detail":"bad"}'
+        ;;
+      esac
+      return 0
+    }
+    _send_signed_request "https://acme.invalid/finalize/1" "{}" >/dev/null 2>&1
+    _sst_rc="$?"
+    printf '%s|%s|%s' "$_sst_rc" "$code" "$(wc -l <"$_sst_log" | tr -d ' ')"
+  )
+  rm -f "$_sst_log" "$(pwd)/signed_request.header"
+}
+
+#A signed POST that gets no answer at all (curl 7, 28, 35) is retried like a
+#gateway error. The status of _post used to be tested only after a nonce
+#reset had overwritten it, so the failure went on as a success, the status
+#read from whatever $HTTP_HEADER still held, and the caller blamed the CA:
+#"Finalize code was not 200" on a finalize that never reached it (#7320).
+le_test_signed_request_transport_error() {
+  lehome="$DEFAULT_HOME"
+
+  #the whole retry budget is spent, then the request fails
+  _assertText "1||20" "$(_sst_run down)"  ||  return
+  #one dropped connection costs one retry, not the order
+  _assertText "0|200|2" "$(_sst_run blip)"  ||  return
+  #an error the CA did answer is the caller's to read, and is sent once
+  _assertText "0|400|1" "$(_sst_run caerror)"  ||  return
+}
+
 #Which revokeCert answers mean the certificate is revoked. Retrying through
 #a gateway error can land on a request the CA already carried out, and it
 #then answers alreadyRevoked: the reply to the first attempt was eaten, not
