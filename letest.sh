@@ -1905,22 +1905,31 @@ _dm_clear_txt() {
   curl -s -o /dev/null -d "{\"host\":\"$1.\"}" "$_dm_challtestsrv/clear-txt"
 }
 
-#Run one dns manual mode invocation and require the exit code $1. The first
-#invocation of every issue or renew prints the TXT record and exits with
-#CODE_DNS_MANUAL (3), so _assertcmd, which expects 0, cannot drive it.
-_dm_run() {
-  _dm_want="$1"
-  shift
+#Run one dns manual mode invocation and leave its exit code in _dm_got.
+_dm_exec() {
   printf "%s" "$*"
   eval "$* >cmd.log 2>&1"
   _dm_got="$?"
-  if [ "$_dm_got" = "$_dm_want" ]; then
+}
+
+#Require the exit code $1 from the invocation _dm_exec just ran. The first
+#invocation of every issue or renew prints the TXT record and exits with
+#CODE_DNS_MANUAL (3), so _assertcmd, which expects 0, cannot drive it.
+_dm_check() {
+  if [ "$_dm_got" = "$1" ]; then
     __ok ""
     return 0
   fi
-  __fail "exit $_dm_got, wanted $_dm_want"
+  __fail "exit $_dm_got, wanted $1"
   cat cmd.log >&2
   return 1
+}
+
+_dm_run() {
+  _dm_want="$1"
+  shift
+  _dm_exec "$@"
+  _dm_check "$_dm_want"
 }
 
 #Read what the first invocation asked the user to add. The lines are
@@ -1940,6 +1949,12 @@ _dm_txt_domain() {
 
 _dm_txt_value() {
   _dm_strip_colour <cmd.log | sed -n "s/.*TXT value: '\([^']*\)'.*/\1/p" | _head_n 1
+}
+
+#True when the invocation _dm_exec just ran found its new order already
+#ready, because Pebble handed it the valid authorization of an earlier one.
+_dm_authz_reused() {
+  _dm_strip_colour <cmd.log | grep "is already verified, skipping dns-01" >/dev/null
 }
 
 #dns manual mode is a two invocation flow that resumes from the domain conf.
@@ -1966,10 +1981,11 @@ le_test_dns_manual_renew() {
   #Pebble reuses a valid authorization of the account in a new order 50% of
   #the time by default (PEBBLE_AUTHZREUSE), and a reused one leaves nothing
   #for the TXT record to answer. The PebbleStrict job runs Pebble with
-  #PEBBLE_AUTHZREUSE=0, so every order here carries a pending dns-01
-  #challenge. The name is one no other case validates, so the authorizations
-  #the earlier cases leave behind for $TestingDomain cannot leak in either;
-  #challtestsrv answers the dns-01 lookup for any name.
+  #PEBBLE_AUTHZREUSE=0, so nearly every order here carries a pending dns-01
+  #challenge (the renewal below handles the rest). The name is one no other
+  #case validates, so the authorizations the earlier cases leave behind for
+  #$TestingDomain cannot leak in either; challtestsrv answers the dns-01
+  #lookup for any name.
   _dm_domain="dnsmanual.$TestingDomain"
   #the default key type is ec-256, so the cert lands in the _ecc directory
   _dm_cert="$lehome/$_dm_domain$ECC_SUFFIX/$_dm_domain.cer"
@@ -1991,11 +2007,28 @@ le_test_dns_manual_renew() {
   _dm_run 0 "$lehome/$PROJECT_ENTRY --server \"$TEST_ACME_Server\" --renew -d \"$_dm_domain\" $_dm_flag" || return
   _dm_clear_txt "$_dm_host"
   _assertexists "$_dm_cert" || return
-  _dm_serial_1="$(openssl x509 -in "$_dm_cert" -noout -serial)"
-  _debug "_dm_serial_1" "$_dm_serial_1"
 
-  #renewal: the second invocation must poll the order this renewal created
-  _dm_run 3 "$lehome/$PROJECT_ENTRY --server \"$TEST_ACME_Server\" --renew --force -d \"$_dm_domain\" $_dm_flag" || return
+  #renewal: the second invocation must poll the order this renewal created.
+  #PEBBLE_AUTHZREUSE=0 still reuses one time in 100: Pebble makes a new
+  #authorization only when rand.Intn(100) > the percent (wfe/wfe.go), and
+  #rand.Intn(100) can return 0. The reused authorization makes the order
+  #ready, so the first invocation renews in one go and exits 0. That is
+  #correct, but it skips the path under test, so renew again on a new order.
+  _dm_renew="$lehome/$PROJECT_ENTRY --server \"$TEST_ACME_Server\" --renew --force -d \"$_dm_domain\" $_dm_flag"
+  _dm_try=1
+  while [ "$_dm_try" -le 3 ]; do
+    #the cert this renewal must replace; a reused authorization replaces it too
+    _dm_serial_1="$(openssl x509 -in "$_dm_cert" -noout -serial)"
+    _debug "_dm_serial_1" "$_dm_serial_1"
+    _dm_exec "$_dm_renew"
+    if [ "$_dm_got" != "0" ] || ! _dm_authz_reused; then
+      break
+    fi
+    printf "\n"
+    _info "Pebble reused the authorization, renewing again on a new order"
+    _dm_try="$(_math "$_dm_try" + 1)"
+  done
+  _dm_check 3 || return
   _dm_host="$(_dm_txt_domain)"
   _dm_txt="$(_dm_txt_value)"
   _debug "_dm_txt" "$_dm_txt"
@@ -2005,7 +2038,7 @@ le_test_dns_manual_renew() {
     return 1
   fi
   _dm_set_txt "$_dm_host" "$_dm_txt"
-  _dm_run 0 "$lehome/$PROJECT_ENTRY --server \"$TEST_ACME_Server\" --renew --force -d \"$_dm_domain\" $_dm_flag" || return
+  _dm_run 0 "$_dm_renew" || return
   _dm_clear_txt "$_dm_host"
   _dm_serial_2="$(openssl x509 -in "$_dm_cert" -noout -serial)"
   _debug "_dm_serial_2" "$_dm_serial_2"
