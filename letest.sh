@@ -3638,6 +3638,54 @@ C='has \c mark'"
 }
 
 
+le_test_conf_skip_unchanged() {
+  lehome="$DEFAULT_HOME"
+
+  #issue 7335: _setopt and _clear_conf rewrote the conf even when nothing
+  #changed, and each write is a temp file plus a rename, which made deploys
+  #slow on some storage. The conf ends without a line break and any write
+  #adds one, so the bytes stay the same only when nothing was written.
+  _csu_conf="$(pwd)/conf_skip_unchanged.conf"
+  _csu_ref="$(pwd)/conf_skip_unchanged.ref"
+  printf "%s\n%s" "SAVED_DEPLOY_CSU='v1'" "Le_Domain='example.com'" >"$_csu_conf"
+  printf "%s\n%s" "SAVED_DEPLOY_CSU='v1'" "Le_Domain='example.com'" >"$_csu_ref"
+
+  #saving the value that is already saved writes nothing
+  "$lehome/$PROJECT_ENTRY" _setopt "$_csu_conf" "SAVED_DEPLOY_CSU" "=" "'v1'"
+  if ! _pf_same_bytes "$_csu_ref" "$_csu_conf"; then
+    __fail "_setopt rewrote the conf for an unchanged value"
+    return 1
+  fi
+
+  #clearing a key that is not there writes nothing
+  "$lehome/$PROJECT_ENTRY" _clear_conf "$_csu_conf" "DEPLOY_CSU"
+  if ! _pf_same_bytes "$_csu_ref" "$_csu_conf"; then
+    __fail "_clear_conf rewrote the conf for a missing key"
+    return 1
+  fi
+
+  #a deploy hook re-saving its value: neither the save nor the legacy key
+  #clear in _savedeployconf writes
+  DOMAIN_CONF="$_csu_conf" "$lehome/$PROJECT_ENTRY" _savedeployconf DEPLOY_CSU "v1"
+  if ! _pf_same_bytes "$_csu_ref" "$_csu_conf"; then
+    __fail "_savedeployconf rewrote the conf for an unchanged value"
+    return 1
+  fi
+
+  #a changed value is still written, and the other line is kept
+  "$lehome/$PROJECT_ENTRY" _setopt "$_csu_conf" "SAVED_DEPLOY_CSU" "=" "'v2'"
+  _csu_expected="SAVED_DEPLOY_CSU='v2'
+Le_Domain='example.com'"
+  _assertText "$_csu_expected" "$(cat "$_csu_conf")"  ||  return
+
+  #a key that is there is still cleared
+  "$lehome/$PROJECT_ENTRY" _clear_conf "$_csu_conf" "SAVED_DEPLOY_CSU"
+  _assertText "Le_Domain='example.com'" "$(cat "$_csu_conf")"  ||  return
+
+  rm -f "$_csu_conf" "$_csu_ref"
+}
+
+
 le_test_standandalone_blank_lines() {
   if [ "$QUICK_TEST" ] ; then
     _info "Skipped by QUICK_TEST"
