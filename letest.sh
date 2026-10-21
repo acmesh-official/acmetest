@@ -2287,6 +2287,25 @@ le_test_shell() {
   _assertText "Incorrect TXT record" "$_errdetail968"  ||  return
 }
 
+#_json_encode and _json_decode must pass backslashes through untouched:
+#they used to pipe the string through echo, and dash's echo interprets
+#backslash escapes, so the \\. MarkdownV2 escapes the telegram notify hook
+#builds collapsed to \. in the JSON body and Telegram rejected the message
+#(issue 7212). bash's echo does not, which is why only dash-based systems
+#(Debian, docker images with /bin/sh = dash) were affected.
+le_test_json_encode() {
+  lehome="$DEFAULT_HOME"
+
+  #a double backslash survives encoding; the trailing newline becomes \n
+  _assertText 'acme\\.sh works\\.\n' "$(printf '%s\n' 'acme\\.sh works\\.' | "$lehome/$PROJECT_ENTRY" _json_encode)"  ||  return
+
+  #double quotes are escaped and an embedded newline is encoded
+  _assertText 'say \"hi\"\nbye\n' "$(printf 'say "hi"\nbye\n' | "$lehome/$PROJECT_ENTRY" _json_encode)"  ||  return
+
+  #decode unescapes \/ only; the \n and \\ JSON escapes stay as they are
+  _assertText '{"url":"https://ca/dir","detail":"line\nbreak \\ end"}' "$(printf '%s\n' '{"url":"https:\/\/ca\/dir","detail":"line\nbreak \\ end"}' | "$lehome/$PROJECT_ENTRY" _json_decode)"  ||  return
+}
+
 #_wget2_headers turns what wget2 -S writes to stderr into what curl
 #--dump-header writes: the header blocks only, without wget2's own framing
 #lines, whose "HTTP response 201 Created [url]" callers would take for the
