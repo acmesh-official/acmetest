@@ -3765,6 +3765,56 @@ Le_Domain='example.com'"
   rm -f "$_csu_conf" "$_csu_ref"
 }
 
+#domain conf, key
+_ich_read() {
+  DOMAIN_CONF="$1" "$lehome/$PROJECT_ENTRY" _readdomainconf "$2"
+}
+
+#domain, domain conf
+_ich_steps() {
+  _ich_renew='echo "renew"; true'
+
+  #given hooks are saved and read back unchanged
+  if ! "$lehome/$PROJECT_ENTRY" --install-cert -d "$1" --pre-hook "echo pre" --renew-hook "$_ich_renew" >/dev/null 2>&1; then
+    __fail "--install-cert with hooks failed"
+    return 1
+  fi
+  _assertText "echo pre" "$(_ich_read "$2" Le_PreHook)"  ||  return
+  _assertText "$_ich_renew" "$(_ich_read "$2" Le_RenewHook)"  ||  return
+
+  #a hook that is not given is kept
+  if ! "$lehome/$PROJECT_ENTRY" --install-cert -d "$1" >/dev/null 2>&1; then
+    __fail "--install-cert without hooks failed"
+    return 1
+  fi
+  _assertText "echo pre" "$(_ich_read "$2" Le_PreHook)"  ||  return
+  _assertText "$_ich_renew" "$(_ich_read "$2" Le_RenewHook)"  ||  return
+
+  #"no" clears that hook only
+  if ! "$lehome/$PROJECT_ENTRY" --install-cert -d "$1" --pre-hook no >/dev/null 2>&1; then
+    __fail "--install-cert --pre-hook no failed"
+    return 1
+  fi
+  _assertText "" "$(_ich_read "$2" Le_PreHook)"  ||  return
+  _assertText "$_ich_renew" "$(_ich_read "$2" Le_RenewHook)"  ||  return
+}
+
+le_test_installcert_hooks() {
+  lehome="$DEFAULT_HOME"
+
+  #PR 7346: --install-cert saves --pre-hook/--post-hook/--renew-hook, so the
+  #hooks of an issued cert change without a reissue. The fake cert dir is
+  #removed on every path, or later cases would try to renew it.
+  _ich_d="installcert-hooks.example"
+  mkdir -p "$lehome/$_ich_d"
+  printf "%s\n" "Le_Domain='$_ich_d'" >"$lehome/$_ich_d/$_ich_d.conf"
+
+  _ich_steps "$_ich_d" "$lehome/$_ich_d/$_ich_d.conf"
+  _ich_ret="$?"
+  rm -rf "$lehome/$_ich_d"
+  return "$_ich_ret"
+}
+
 
 le_test_standandalone_blank_lines() {
   if [ "$QUICK_TEST" ] ; then
