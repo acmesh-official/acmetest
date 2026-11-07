@@ -2306,6 +2306,67 @@ le_test_json_encode() {
   _assertText '{"url":"https://ca/dir","detail":"line\nbreak \\ end"}' "$(printf '%s\n' '{"url":"https:\/\/ca\/dir","detail":"line\nbreak \\ end"}' | "$lehome/$PROJECT_ENTRY" _json_decode)"  ||  return
 }
 
+#home
+_cdn_clean() {
+  rm -f "$1/ca.test/acme/dir/account.key" "$1/ca.test/acme/dir/account.json" "$1/ca.test/acme/dir/ca.conf"
+  rm -f "$1/ca.test/acme/dir?action=renew&orderId=1/account.key" "$1/ca.test/acme/dir?action=renew&orderId=1/account.json" "$1/ca.test/acme/dir?action=renew&orderId=1/ca.conf"
+  rmdir "$1/ca.test/acme/dir?action=renew&orderId=1" "$1/ca.test/acme/dir" "$1/ca.test/acme" "$1/ca.test" "$1" 2>/dev/null
+  return 0
+}
+
+#home
+_cdn_steps() {
+  _cdn_url='https://ca.test/acme/dir?action=renew&orderId=1'
+  _cdn_new="$1/ca.test/acme/dir"
+  _cdn_old="$1/ca.test/acme/dir?action=renew&orderId=1"
+
+  #an account in the dir named with the query string moves to the dir
+  #without it, with its account.json and ca.conf
+  mkdir -p "$_cdn_old"
+  printf "%s\n" "querykey" >"$_cdn_old/account.key"
+  printf "%s\n" "{}" >"$_cdn_old/account.json"
+  printf "%s\n" "ACCOUNT_URL='https://ca.test/acct/1'" >"$_cdn_old/ca.conf"
+  CA_HOME="$1" ACME_DIRECTORY="$_cdn_url" "$lehome/$PROJECT_ENTRY" _initpath >/dev/null 2>&1
+  _assertText "querykey" "$(cat "$_cdn_new/account.key" 2>/dev/null)"  ||  return
+  _assertText "{}" "$(cat "$_cdn_new/account.json" 2>/dev/null)"  ||  return
+  _assertText "ACCOUNT_URL='https://ca.test/acct/1'" "$(cat "$_cdn_new/ca.conf" 2>/dev/null)"  ||  return
+  _cdn_left=no
+  if [ -f "$_cdn_old/account.key" ]; then
+    _cdn_left=yes
+  fi
+  _assertText "no" "$_cdn_left"  ||  return
+
+  #an account already in the dir without the query string is kept, and the
+  #one in the query dir is left alone
+  printf "%s\n" "querykey2" >"$_cdn_old/account.key"
+  CA_HOME="$1" ACME_DIRECTORY="$_cdn_url" "$lehome/$PROJECT_ENTRY" _initpath >/dev/null 2>&1
+  _assertText "querykey" "$(cat "$_cdn_new/account.key" 2>/dev/null)"  ||  return
+  _assertText "querykey2" "$(cat "$_cdn_old/account.key" 2>/dev/null)"  ||  return
+}
+
+#issue 7368: the CA dir, where the account and ca.conf live, comes from the
+#directory URL. A query string is not part of it: DigiCert takes
+#"?action=renew&orderId=N" on its directory URL to act on one existing order,
+#with the same account, which must not need another registration.
+le_test_ca_dir_name() {
+  lehome="$DEFAULT_HOME"
+
+  _assertText "one.digicert.com/mpki/api/v1/acme/v2/directory" "$("$lehome/$PROJECT_ENTRY" _ca_dir_name 'https://one.digicert.com/mpki/api/v1/acme/v2/directory?action=renew&orderId=555123456')"  ||  return
+  _assertText "one.digicert.com/mpki/api/v1/acme/v2/directory" "$("$lehome/$PROJECT_ENTRY" _ca_dir_name 'https://one.digicert.com/mpki/api/v1/acme/v2/directory')"  ||  return
+  _assertText "acme-v02.api.letsencrypt.org/directory" "$("$lehome/$PROJECT_ENTRY" _ca_dir_name 'https://acme-v02.api.letsencrypt.org/directory')"  ||  return
+  #the port is left out, as it always was
+  _assertText "localhost/dir" "$("$lehome/$PROJECT_ENTRY" _ca_dir_name 'https://localhost:14000/dir')"  ||  return
+  #keepquery gives the dir as it was before the query string was left out
+  _assertText "ca.test/acme/dir?action=renew&orderId=1" "$("$lehome/$PROJECT_ENTRY" _ca_dir_name 'https://ca.test/acme/dir?action=renew&orderId=1' keepquery)"  ||  return
+
+  _cdn_home="$(pwd)/ca_dir_name"
+  _cdn_clean "$_cdn_home"
+  _cdn_steps "$_cdn_home"
+  _cdn_ret="$?"
+  _cdn_clean "$_cdn_home"
+  return "$_cdn_ret"
+}
+
 #_wget2_headers turns what wget2 -S writes to stderr into what curl
 #--dump-header writes: the header blocks only, without wget2's own framing
 #lines, whose "HTTP response 201 Created [url]" callers would take for the
