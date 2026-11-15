@@ -56,8 +56,10 @@ jobs:
         cache-after-prepare: true
         nat: |
           "8080": "80"
+        # Full upgrade: dports moved openssl 3.0 -> 3.5 (libssl.so.12 -> .17), and
+        # a bare "pkg install curl" pulls a curl that needs .17 but keeps the old openssl.
         prepare: |
-          pkg install -y libnghttp2
+          pkg upgrade -y
           pkg install -y curl socat
         usesh: true
         sync: nfs
