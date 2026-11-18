@@ -3798,7 +3798,10 @@ le_test_ca_value_checks() {
       return 1
     fi
   done
-  for _cvc_bad in "" "https://" "ftp://ca.test/x" "ca.test/x" "http://ca/finalize';x" "http://ca/a#b" "http://ca/a,b" "http://ca/a b" "http://ca/\$(x)" "http://ca/\`x\`" "http://ca/a\"b" "http://ca/a\\b" "http://ca/(x)" "http://ca/a*b"; do
+  #busybox ash (alpine) dropped the whole character set when it held \[ \]
+  #escapes, and then every one of these urls passed: one of each character
+  #class outside the set, the brackets of an IPv6 host above stay accepted
+  for _cvc_bad in "" "https://" "ftp://ca.test/x" "ca.test/x" "http://ca/finalize';x" "http://ca/a#b" "http://ca/a,b" "http://ca/a b" "http://ca/\$(x)" "http://ca/\`x\`" "http://ca/a\"b" "http://ca/a\\b" "http://ca/(x)" "http://ca/a*b" "http://ca/a^b" "http://ca/a{b}" "http://ca/a|b" "http://ca/a<b>"; do
     if "$lehome/$PROJECT_ENTRY" _is_safe_url "$_cvc_bad"; then
       __fail "_is_safe_url accepted '$_cvc_bad'"
       return 1
