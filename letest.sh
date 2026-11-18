@@ -3717,6 +3717,160 @@ C='has \c mark'"
   rm -f "$_soe_conf"
 }
 
+#A value from the CA (e.g. the finalize url) holding a single quote ended the
+#quoting _save_conf wrote around it, and the rest ran as shell code when the
+#conf was sourced or read back by _read_conf. The quote must be escaped, and
+#the value must read back byte for byte.
+le_test_save_conf_quote() {
+  lehome="$DEFAULT_HOME"
+  _scq_conf="$(pwd)/save_conf_quote.conf"
+  _scq_mark="$(pwd)/save_conf_quote.mark"
+  rm -f "$_scq_conf" "$_scq_mark"
+  printf "%s\n" "Le_Domain='example.com'" >"$_scq_conf"
+
+  _scq_val="http://ca/finalize';touch \"$_scq_mark\";unused='x"
+  #first save appends the line
+  "$lehome/$PROJECT_ENTRY" _save_conf "$_scq_conf" "Le_OrderFinalize" "$_scq_val"
+  _assertText "$_scq_val" "$("$lehome/$PROJECT_ENTRY" _read_conf "$_scq_conf" "Le_OrderFinalize")"  ||  return
+  #second save replaces it through the _setopt sed
+  _scq_val2="'it''s' \$(touch \"$_scq_mark\") \`touch \"$_scq_mark\"\` \\ & |'"
+  "$lehome/$PROJECT_ENTRY" _save_conf "$_scq_conf" "Le_OrderFinalize" "$_scq_val2"
+  _assertText "$_scq_val2" "$("$lehome/$PROJECT_ENTRY" _read_conf "$_scq_conf" "Le_OrderFinalize")"  ||  return
+
+  #sourcing the conf, as the renew and info paths do, runs nothing either
+  _scq_sourced="$(
+    . "$_scq_conf"
+    printf "%s" "$Le_OrderFinalize"
+  )"
+  _assertText "$_scq_val2" "$_scq_sourced"  ||  return
+  _assertText "example.com" "$("$lehome/$PROJECT_ENTRY" _read_conf "$_scq_conf" "Le_Domain")"  ||  return
+  if [ -e "$_scq_mark" ]; then
+    rm -f "$_scq_mark"
+    __fail "A single quote in a saved value ran shell code"
+    return 1
+  fi
+
+  #a value without a quote is written as before
+  "$lehome/$PROJECT_ENTRY" _save_conf "$_scq_conf" "Le_OrderFinalize" "https://ca/finalize/1"
+  _assertText "Le_Domain='example.com'
+Le_OrderFinalize='https://ca/finalize/1'" "$(cat "$_scq_conf")"  ||  return
+
+  rm -f "$_scq_conf"
+}
+
+#Every value from the CA that goes into the '#' and ',' separated vlist is
+#checked, and a hook name is a plain name: a challenge token holding '#'
+#shifted the vlist fields so that a dns hook name became a path, and
+#_findHook then sourced any file under the home as a hook (account.json,
+#a domain conf).
+le_test_ca_value_checks() {
+  lehome="$DEFAULT_HOME"
+
+  for _cvc_ok in dns_cf dns_ali deploy_x my-hook A_1; do
+    if ! "$lehome/$PROJECT_ENTRY" _is_hook_name "$_cvc_ok"; then
+      __fail "_is_hook_name rejected $_cvc_ok"
+      return 1
+    fi
+  done
+  for _cvc_bad in "" "ca/127.0.0.1/directory/account.json" "../x" "/x" "dns_cf.sh" "a#b" "a b" "a;b" "\$(x)"; do
+    if "$lehome/$PROJECT_ENTRY" _is_hook_name "$_cvc_bad"; then
+      __fail "_is_hook_name accepted '$_cvc_bad'"
+      return 1
+    fi
+  done
+
+  for _cvc_ok in "LoqXcYV8q5ONbJQxbmR7SCTNo3tiAXDfowyjxAjEuX0" "a-b_c" "0"; do
+    if ! "$lehome/$PROJECT_ENTRY" _is_acme_token "$_cvc_ok"; then
+      __fail "_is_acme_token rejected $_cvc_ok"
+      return 1
+    fi
+  done
+  for _cvc_bad in "" "X#Y#dns-01#ca/x/account.json#Z" "a.b" "a=" "a/b" "a+b" "a,b" "a b" "\$(x)"; do
+    if "$lehome/$PROJECT_ENTRY" _is_acme_token "$_cvc_bad"; then
+      __fail "_is_acme_token accepted '$_cvc_bad'"
+      return 1
+    fi
+  done
+
+  for _cvc_ok in "https://acme-v02.api.letsencrypt.org/acme/chall/1/2/aBc-_9" "http://127.0.0.1:14000/authz/1" "https://ca.test/a?b=c&d=e%20f;g~h@i!j+k" "https://[::1]:14000/chall/1"; do
+    if ! "$lehome/$PROJECT_ENTRY" _is_safe_url "$_cvc_ok"; then
+      __fail "_is_safe_url rejected $_cvc_ok"
+      return 1
+    fi
+  done
+  for _cvc_bad in "" "https://" "ftp://ca.test/x" "ca.test/x" "http://ca/finalize';x" "http://ca/a#b" "http://ca/a,b" "http://ca/a b" "http://ca/\$(x)" "http://ca/\`x\`" "http://ca/a\"b" "http://ca/a\\b" "http://ca/(x)" "http://ca/a*b"; do
+    if "$lehome/$PROJECT_ENTRY" _is_safe_url "$_cvc_bad"; then
+      __fail "_is_safe_url accepted '$_cvc_bad'"
+      return 1
+    fi
+  done
+
+  #_findHook refuses a path, even when the file exists under the home
+  _cvc_home="$(pwd)/ca_value_checks_home"
+  mkdir -p "$_cvc_home/ca/x"
+  printf "%s\n" "{}" >"$_cvc_home/ca/x/account.json"
+  _assertText "" "$(LE_WORKING_DIR="$_cvc_home" "$lehome/$PROJECT_ENTRY" _findHook "example.com" dnsapi "ca/x/account.json" 2>/dev/null)"  ||  return
+  rm -f "$_cvc_home/ca/x/account.json"
+  #and returns nothing for a hook it cannot find, not a path left over in
+  #d_api from an earlier lookup
+  _assertText "" "$(d_api="/stale/dns_x.sh" "$lehome/$PROJECT_ENTRY" _findHook "" dnsapi "dns_no_such_hook" 2>/dev/null)"  ||  return
+  #_SCRIPT_HOME is set by _initpath, which a direct function call skips
+  _cvc_found="$(_SCRIPT_HOME="$lehome" "$lehome/$PROJECT_ENTRY" _findHook "" dnsapi "dns_cf")"
+  case "$_cvc_found" in
+  */dnsapi/dns_cf.sh) _cvc_verdict=found ;;
+  *) _cvc_verdict="not found: $_cvc_found" ;;
+  esac
+  _assertText "found" "$_cvc_verdict"  ||  return
+
+  #_exists takes the name as a name, never as shell code
+  _cvc_mark="$(pwd)/ca_value_checks.mark"
+  rm -f "$_cvc_mark"
+  "$lehome/$PROJECT_ENTRY" _exists "x;touch $_cvc_mark" >/dev/null 2>&1
+  if [ -e "$_cvc_mark" ]; then
+    rm -f "$_cvc_mark"
+    __fail "_exists ran its argument as shell code"
+    return 1
+  fi
+}
+
+#env: reads HTTPS_INSECURE after __initHome and _initpath under the scratch
+#config home, in a subshell, the same way _gae_read reads the account email
+#(see there for why each variable is set or cleared).
+_insecure_read() {
+  _ir_env="$1"
+  (
+    LE_CONFIG_HOME="$_ir_home"
+    export LE_CONFIG_HOME
+    HTTPS_INSECURE="$_ir_env"
+    export HTTPS_INSECURE
+    set --
+    . "$lehome/$PROJECT_ENTRY" >/dev/null 2>&1
+    ACCOUNT_CONF_PATH=""
+    CA_HOME=""
+    CA_CONF=""
+    __initHome >/dev/null 2>&1
+    _initpath >/dev/null 2>&1
+    printf "%s" "$HTTPS_INSECURE"
+  )
+}
+
+#--insecure applies to the run it is given to only. Older versions saved
+#HTTPS_INSECURE to account.conf, and every later run, cron renewals included,
+#sourced it back and skipped the certificate check of the CA for good.
+le_test_insecure_not_saved() {
+  lehome="$DEFAULT_HOME"
+  _ir_home="$(pwd)/insecure_home"
+  mkdir -p "$_ir_home"
+  printf "%s\n" "HTTPS_INSECURE='1'" >"$_ir_home/account.conf"
+
+  #the saved value is ignored
+  _assertText "" "$(_insecure_read "")"  ||  return
+  #the live one (--insecure, or the environment) still applies
+  _assertText "1" "$(_insecure_read "1")"  ||  return
+
+  rm -f "$_ir_home/account.conf"
+}
+
 
 le_test_conf_skip_unchanged() {
   lehome="$DEFAULT_HOME"
