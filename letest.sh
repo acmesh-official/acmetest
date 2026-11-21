@@ -906,9 +906,11 @@ le_test_install_packaged() {
   #the script must not be copied into $lehome
   _assertnotexists "$lehome/$PROJECT_ENTRY" || return
   _assertexists "$lehome/account.conf" || return
-  #the cron job and the alias point to the current script instead of a copy
-  _c_entry="$(crontab -l | grep "$PROJECT_ENTRY --cron")"
-  _assertcmd "_contains '$_c_entry' '/acme.sh/$PROJECT_ENTRY --cron --home \"$lehome\"'" || return
+  #the cron job and the alias point to the current script instead of a copy;
+  #the script path may be quoted: "/path/acme.sh" --cron
+  _c_entry="$(crontab -l | grep "$PROJECT_ENTRY\"* --cron")"
+  _assertcmd "_contains '$_c_entry' '/acme.sh/$PROJECT_ENTRY'" || return
+  _assertcmd "_contains '$_c_entry' ' --cron --home \"$lehome\"'" || return
   _assertcmd "grep 'alias $PROJECT_ENTRY' '$lehome/$PROJECT_ENTRY.env' | grep '/acme.sh/$PROJECT_ENTRY' > /dev/null" || return
 
   #--upgrade must refuse and point to the package manager
@@ -930,6 +932,49 @@ le_test_install_packaged() {
 
   _assertcmd "sh 'acme.sh/$PROJECT_ENTRY' --uninstall > /dev/null" || return
   _assertequals "" "$(crontab -l | grep $PROJECT_ENTRY)" || return
+  ACME_PACKAGED=""
+}
+
+#--install-cronjob must not add a second entry, and --uninstall-cronjob must
+#remove it, whether the acme.sh path in the existing entry is quoted or not
+le_test_cronjob_quoted_path() {
+  lehome="$DEFAULT_HOME"
+
+  if ! grep "ACME_PACKAGED" "acme.sh/$PROJECT_ENTRY" >/dev/null 2>&1; then
+    _info "Skipped, no ACME_PACKAGED support in this branch"
+    __CASE_SKIPPED="1"
+    return 0
+  fi
+  #only branches that quote the script path write "/path/acme.sh" --cron
+  if ! grep 'lesh="\\"\$_script\\""' "acme.sh/$PROJECT_ENTRY" >/dev/null 2>&1; then
+    _info "Skipped, this branch does not quote the script path in the cron job"
+    __CASE_SKIPPED="1"
+    return 0
+  fi
+
+  #remove the copy pre-installed by _run, so the cron job calls the current script
+  if [ -f "$lehome/$PROJECT_ENTRY" ]; then
+    $lehome/$PROJECT_ENTRY --uninstall > /dev/null
+  fi
+
+  ACME_PACKAGED=1
+  export ACME_PACKAGED
+
+  cd acme.sh;
+  _assertcmd  "./$PROJECT_ENTRY --install" || return
+  cd ..
+
+  _script="$(pwd)/acme.sh/$PROJECT_ENTRY"
+  for _form in "$_script" "\"$_script\""; do
+    printf "%s\n" "0 0 * * * $_form --cron --home \"$lehome\" > /dev/null" "1 1 * * * true keep-this-job" | crontab -
+    _assertcmd "sh 'acme.sh/$PROJECT_ENTRY' --install-cronjob > /dev/null" || return
+    _assertequals "1" "$(crontab -l | grep -c "$PROJECT_ENTRY\"* --cron")" || return
+    _assertcmd "sh 'acme.sh/$PROJECT_ENTRY' --uninstall-cronjob > /dev/null" || return
+    _assertequals "" "$(crontab -l | grep "$PROJECT_ENTRY")" || return
+    _assertequals "1" "$(crontab -l | grep -c "keep-this-job")" || return
+  done
+
+  _assertcmd "sh 'acme.sh/$PROJECT_ENTRY' --uninstall > /dev/null" || return
   ACME_PACKAGED=""
 }
 
