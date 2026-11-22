@@ -964,9 +964,19 @@ le_test_cronjob_quoted_path() {
   _assertcmd  "./$PROJECT_ENTRY --install" || return
   cd ..
 
+  #crontab on SunOS reads stdin with "--"; "-" would be taken as a file name
+  if uname -a | grep SunOS >/dev/null; then
+    _crontab_stdin="crontab --"
+  else
+    _crontab_stdin="crontab -"
+  fi
+
   _script="$(pwd)/acme.sh/$PROJECT_ENTRY"
   for _form in "$_script" "\"$_script\""; do
-    printf "%s\n" "0 0 * * * $_form --cron --home \"$lehome\" > /dev/null" "1 1 * * * true keep-this-job" | crontab -
+    printf "%s\n" "0 0 * * * $_form --cron --home \"$lehome\" > /dev/null" "1 1 * * * true keep-this-job" | $_crontab_stdin
+    #the seeded table must be in place, or the checks below prove nothing
+    _assertequals "1" "$(crontab -l | grep -c "$PROJECT_ENTRY\"* --cron")" || return
+    _assertequals "1" "$(crontab -l | grep -c "keep-this-job")" || return
     _assertcmd "sh 'acme.sh/$PROJECT_ENTRY' --install-cronjob > /dev/null" || return
     _assertequals "1" "$(crontab -l | grep -c "$PROJECT_ENTRY\"* --cron")" || return
     _assertcmd "sh 'acme.sh/$PROJECT_ENTRY' --uninstall-cronjob > /dev/null" || return
@@ -975,6 +985,51 @@ le_test_cronjob_quoted_path() {
   done
 
   _assertcmd "sh 'acme.sh/$PROJECT_ENTRY' --uninstall > /dev/null" || return
+  ACME_PACKAGED=""
+}
+
+#--uninstall must remove the shell alias when the script directory holds a
+#space: the cron entry then quotes the script path, which used to shift the
+#fields uninstallcronjob() read --home from
+le_test_uninstall_script_dir_with_space() {
+  lehome="$DEFAULT_HOME"
+
+  if ! grep "ACME_PACKAGED" "acme.sh/$PROJECT_ENTRY" >/dev/null 2>&1; then
+    _info "Skipped, no ACME_PACKAGED support in this branch"
+    __CASE_SKIPPED="1"
+    return 0
+  fi
+  #only branches that quote the script path write "/path/acme.sh" --cron
+  if ! grep 'lesh="\\"\$_script\\""' "acme.sh/$PROJECT_ENTRY" >/dev/null 2>&1; then
+    _info "Skipped, this branch does not quote the script path in the cron job"
+    __CASE_SKIPPED="1"
+    return 0
+  fi
+
+  #remove the copy pre-installed by _run, so the cron job calls the current script
+  if [ -f "$lehome/$PROJECT_ENTRY" ]; then
+    $lehome/$PROJECT_ENTRY --uninstall > /dev/null
+  fi
+
+  _space_dir="$(pwd)/script dir"
+  rm -rf "$_space_dir"
+  mkdir -p "$_space_dir"
+  cp -R acme.sh "$_space_dir/"
+  PROFILE="$(pwd)/alias-test.profile"
+  : > "$PROFILE"
+  export PROFILE
+  ACME_PACKAGED=1
+  export ACME_PACKAGED
+
+  _assertcmd "cd '$_space_dir/acme.sh' && ./$PROJECT_ENTRY --install > /dev/null" || return
+  _assertequals "1" "$(crontab -l | grep -c "script dir/acme.sh/$PROJECT_ENTRY\" --cron")" || return
+  _assertequals "1" "$(grep -c "$lehome/$PROJECT_ENTRY.env" "$PROFILE")" || return
+  _assertcmd "sh '$_space_dir/acme.sh/$PROJECT_ENTRY' --uninstall > /dev/null" || return
+  _assertequals "0" "$(grep -c "$lehome/$PROJECT_ENTRY.env" "$PROFILE")" || return
+  _assertequals "" "$(crontab -l | grep "$PROJECT_ENTRY")" || return
+
+  rm -rf "$_space_dir" "$PROFILE"
+  PROFILE=""
   ACME_PACKAGED=""
 }
 
