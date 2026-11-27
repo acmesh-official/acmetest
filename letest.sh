@@ -2287,6 +2287,72 @@ le_test_shell() {
   _assertText "Incorrect TXT record" "$_errdetail968"  ||  return
 }
 
+#--to-pkcs12 / --to-pkcs8 must fail when openssl fails: the export helpers
+#ended with an if whose status (0) replaced openssl's, so a failed export
+#printed Success and exited 0, even with an older export file left in place
+le_test_pkcs_export_status() {
+  lehome="$DEFAULT_HOME"
+  _pks_dir="$(mktemp -d)"
+  _pks_d="pkcs.example.com"
+  _pks_p="$_pks_dir/$_pks_d"
+  _pks_cmd="$lehome/$PROJECT_ENTRY --home $_pks_dir --config-home $_pks_dir -d $_pks_d"
+  _pks_pfx_line="Le_PFXPassword='__ACME_BASE64__START_dGVzdA==__ACME_BASE64__END_'"
+  _pks_p8_line="Le_PKCS8Password='__ACME_BASE64__START_dGVzdDg=__ACME_BASE64__END_'"
+  mkdir -p "$_pks_p"
+
+  #no key and no cert: both exports fail, say so, and save no password
+  _pks_out="$($_pks_cmd --to-pkcs12 --password test 2>&1)"
+  _assertText "1" "$?"  ||  return
+  _pks_out="$_pks_out
+$($_pks_cmd --to-pkcs8 --password test8 2>&1)"
+  _assertText "1" "$?"  ||  return
+  _pks_msgs=""
+  case "$_pks_out" in
+  *"Cannot export the PFX file: $_pks_p/$_pks_d.pfx"*) _pks_msgs="${_pks_msgs}pfx" ;;
+  esac
+  case "$_pks_out" in
+  *"Cannot export the PKCS8 file: $_pks_p/$_pks_d.pkcs8"*) _pks_msgs="${_pks_msgs},pkcs8" ;;
+  esac
+  case "$_pks_out" in
+  *Success*) _pks_msgs="${_pks_msgs},success" ;;
+  esac
+  _assertText "pfx,pkcs8" "$_pks_msgs"  ||  return
+  _assertText "" "$(grep "Password=" "$_pks_p/$_pks_d.conf" 2>/dev/null)"  ||  return
+
+  #a self-signed cert serves as cert and ca; same minimal config as
+  #__gen_csr_and_read_altnames, since NetBSD openssl has no default one
+  printf "[ req_distinguished_name ]\n[ req ]\ndistinguished_name = req_distinguished_name\n" >"$_pks_dir/req.conf"
+  openssl genrsa 2048 >"$_pks_p/$_pks_d.key" 2>/dev/null
+  openssl req -new -x509 -sha256 -days 1 -key "$_pks_p/$_pks_d.key" -subj "/CN=$_pks_d" -config "$_pks_dir/req.conf" -out "$_pks_p/$_pks_d.cer" >/dev/null 2>&1
+  cp "$_pks_p/$_pks_d.cer" "$_pks_p/ca.cer"
+
+  #both exports succeed and save their passwords
+  $_pks_cmd --to-pkcs12 --password test >/dev/null 2>&1
+  _assertText "0" "$?"  ||  return
+  _assertText "1" "$(test -f "$_pks_p/$_pks_d.pfx" && echo 1)"  ||  return
+  $_pks_cmd --to-pkcs8 --password test8 >/dev/null 2>&1
+  _assertText "0" "$?"  ||  return
+  _assertText "1" "$(test -f "$_pks_p/$_pks_d.pkcs8" && echo 1)"  ||  return
+  _assertText "$_pks_pfx_line" "$(grep "^Le_PFXPassword=" "$_pks_p/$_pks_d.conf")"  ||  return
+  _assertText "$_pks_p8_line" "$(grep "^Le_PKCS8Password=" "$_pks_p/$_pks_d.conf")"  ||  return
+
+  #the key is gone: the re-exports fail although the files of the first
+  #export are still there, and the saved passwords stay those of those files
+  mv "$_pks_p/$_pks_d.key" "$_pks_p/$_pks_d.key.gone"
+  $_pks_cmd --to-pkcs12 --password other >/dev/null 2>&1
+  _assertText "1" "$?"  ||  return
+  $_pks_cmd --to-pkcs8 --password other >/dev/null 2>&1
+  _assertText "1" "$?"  ||  return
+  _assertText "$_pks_pfx_line" "$(grep "^Le_PFXPassword=" "$_pks_p/$_pks_d.conf")"  ||  return
+  _assertText "$_pks_p8_line" "$(grep "^Le_PKCS8Password=" "$_pks_p/$_pks_d.conf")"  ||  return
+
+  for _pks_f in "$_pks_d.key.gone" "$_pks_d.cer" ca.cer "$_pks_d.pfx" "$_pks_d.pkcs8" "$_pks_d.conf"; do
+    rm -f "$_pks_p/$_pks_f"
+  done
+  rm -f "$_pks_dir/req.conf"
+  rmdir "$_pks_p" "$_pks_dir"
+}
+
 #_json_encode and _json_decode must pass backslashes through untouched:
 #they used to pipe the string through echo, and dash's echo interprets
 #backslash escapes, so the \\. MarkdownV2 escapes the telegram notify hook
